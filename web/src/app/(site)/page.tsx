@@ -53,20 +53,13 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto text-center">
           {/* Member Badge */}
           <div className="inline-flex items-center gap-3 bg-white rounded-full pl-2 pr-6 py-2 mb-10 border border-gray-100 shadow-sm">
-            <div className="flex -space-x-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-200 via-amber-300 to-amber-400 border-2 border-white overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-b from-amber-400 to-amber-600 opacity-80" />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-300 via-sky-400 to-sky-500 border-2 border-white overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-b from-sky-400 to-sky-600 opacity-80" />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-300 via-emerald-400 to-emerald-500 border-2 border-white overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-b from-emerald-400 to-emerald-600 opacity-80" />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-rose-200 via-rose-300 to-rose-400 border-2 border-white overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-b from-rose-400 to-rose-500 opacity-80" />
-              </div>
-            </div>
+            <Image
+              src="/images/members.png"
+              alt="UXHI community members"
+              width={130}
+              height={36}
+              className="h-9 w-auto"
+            />
             <span className="text-[15px] text-gray-700 font-medium">500 members and growing</span>
           </div>
 
@@ -92,48 +85,14 @@ export default function HomePage() {
       <section className="py-12 px-6">
         <div className="max-w-[1300px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4" style={{ gridTemplateRows: 'repeat(3, 180px)' }}>
-            {/* Column 1, Rows 1-2: Group photo with leis (tall oval) */}
+            {/* Column 1, Rows 1-2: UX 101 group photo (tall oval) */}
             <div className="hidden lg:block lg:col-start-1 lg:row-start-1 lg:row-span-2 rounded-[100px] overflow-hidden relative">
               <Image
-                src="/images/bento/group-leis.jpg"
-                alt="UXHI community members wearing leis"
+                src="/images/bento/ux101-group.jpg"
+                alt="UXHI UX 101 workshop presenters"
                 fill
                 className="object-cover"
               />
-              {/* QR Code overlay */}
-              <div className="absolute top-3 right-3 bg-white rounded-lg p-1.5 shadow-lg">
-                <div className="w-14 h-14 bg-gray-900 rounded flex items-center justify-center relative overflow-hidden">
-                  <svg viewBox="0 0 100 100" className="w-12 h-12">
-                    <rect x="10" y="10" width="25" height="25" fill="white"/>
-                    <rect x="15" y="15" width="15" height="15" fill="black"/>
-                    <rect x="18" y="18" width="9" height="9" fill="white"/>
-                    <rect x="65" y="10" width="25" height="25" fill="white"/>
-                    <rect x="70" y="15" width="15" height="15" fill="black"/>
-                    <rect x="73" y="18" width="9" height="9" fill="white"/>
-                    <rect x="10" y="65" width="25" height="25" fill="white"/>
-                    <rect x="15" y="70" width="15" height="15" fill="black"/>
-                    <rect x="18" y="73" width="9" height="9" fill="white"/>
-                    <rect x="40" y="10" width="5" height="5" fill="white"/>
-                    <rect x="50" y="10" width="5" height="5" fill="white"/>
-                    <rect x="40" y="20" width="5" height="5" fill="white"/>
-                    <rect x="45" y="25" width="5" height="5" fill="white"/>
-                    <rect x="40" y="40" width="20" height="20" fill="white"/>
-                    <rect x="45" y="45" width="10" height="10" fill="black"/>
-                    <rect x="10" y="40" width="5" height="5" fill="white"/>
-                    <rect x="20" y="45" width="5" height="5" fill="white"/>
-                    <rect x="65" y="40" width="5" height="5" fill="white"/>
-                    <rect x="75" y="50" width="5" height="5" fill="white"/>
-                    <rect x="85" y="45" width="5" height="5" fill="white"/>
-                    <rect x="40" y="65" width="5" height="5" fill="white"/>
-                    <rect x="50" y="70" width="5" height="5" fill="white"/>
-                    <rect x="65" y="65" width="25" height="25" fill="white"/>
-                    <rect x="70" y="70" width="8" height="8" fill="black"/>
-                    <rect x="82" y="70" width="5" height="8" fill="black"/>
-                    <rect x="70" y="82" width="8" height="5" fill="black"/>
-                  </svg>
-                </div>
-                <p className="text-[7px] text-gray-500 mt-0.5 text-center leading-tight">Take our pre-session survey</p>
-              </div>
             </div>
 
             {/* Column 1, Row 3: Year Founded */}
@@ -172,17 +131,17 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Column 4, Rows 1-3: Connect Card with Photo (tall oval) */}
-            <div className="hidden lg:block lg:col-start-4 lg:row-start-1 lg:row-span-3 rounded-[100px] overflow-hidden relative">
+            {/* Column 4, Rows 2-3: Connect Card with Photo (shorter oval) */}
+            <div className="hidden lg:block lg:col-start-4 lg:row-start-2 lg:row-span-2 rounded-[80px] overflow-hidden relative">
               <Image
-                src="/images/bento/couple-sunglasses.png"
-                alt="UXHI members"
+                src="/images/bento/photobooth.jpg"
+                alt="UXHI members at photo booth"
                 fill
-                className="object-cover object-top"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-teal-600/90 via-transparent to-transparent" />
-              <div className="absolute bottom-8 left-4 right-4 text-center">
-                <span className="font-display text-[28px] text-white leading-tight">Connect,<br/>learn, grow<br/>together</span>
+              <div className="absolute bottom-6 left-4 right-4 text-center">
+                <span className="font-display text-[22px] text-white leading-tight">Connect,<br/>learn, grow<br/>together</span>
               </div>
             </div>
 
@@ -208,8 +167,8 @@ export default function HomePage() {
             {/* Mobile: Show simplified layout */}
             <div className="lg:hidden rounded-[100px] overflow-hidden relative min-h-[350px]">
               <Image
-                src="/images/bento/group-leis.jpg"
-                alt="UXHI community members wearing leis"
+                src="/images/bento/ux101-group.jpg"
+                alt="UXHI UX 101 workshop presenters"
                 fill
                 className="object-cover"
               />
@@ -227,15 +186,15 @@ export default function HomePage() {
                 <span className="block text-white/90 text-sm mt-1">Members and counting</span>
               </div>
             </div>
-            <div className="lg:hidden rounded-[100px] overflow-hidden relative min-h-[350px]">
+            <div className="lg:hidden rounded-[80px] overflow-hidden relative min-h-[280px]">
               <Image
-                src="/images/bento/couple-sunglasses.png"
-                alt="UXHI members"
+                src="/images/bento/photobooth.jpg"
+                alt="UXHI members at photo booth"
                 fill
-                className="object-cover object-top"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-teal-600/90 via-transparent to-transparent" />
-              <div className="absolute bottom-8 left-4 right-4 text-center">
+              <div className="absolute bottom-6 left-4 right-4 text-center">
                 <span className="font-display text-2xl text-white leading-tight">Connect, learn, grow together</span>
               </div>
             </div>
@@ -248,14 +207,18 @@ export default function HomePage() {
 
       {/* Mission Section */}
       <section className="py-20 px-6">
-        <div className="max-w-[1000px] mx-auto text-center">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight text-gray-900">
+        <div className="max-w-[900px] mx-auto text-center">
+          <h2 className="font-display text-[26px] md:text-[34px] lg:text-[42px] leading-tight text-gray-900">
             UXHI&apos;s mission is to connect and elevate the field of{" "}
             <span className="text-teal-500 relative inline-block">
               UX
-              <svg className="absolute -bottom-1 left-0 w-full h-4" viewBox="0 0 60 15" preserveAspectRatio="none">
-                <ellipse cx="30" cy="7" rx="28" ry="6" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-teal-500" />
-              </svg>
+              <Image
+                src="/images/ux-circle.png"
+                alt=""
+                width={70}
+                height={50}
+                className="absolute -inset-2 w-[calc(100%+16px)] h-auto pointer-events-none"
+              />
             </span>{" "}
             and{" "}
             <span className="text-teal-500 underline decoration-wavy decoration-teal-500 underline-offset-4">

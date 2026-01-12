@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavItem {
@@ -51,9 +52,13 @@ export function Header({ settings }: HeaderProps) {
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <span className="font-display text-2xl text-purple-700 tracking-tight">
-            UXHI
-          </span>
+          <Image
+            src="/images/uxhi-logo.svg"
+            alt="UXHI"
+            width={70}
+            height={22}
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation - Pill shaped container */}
