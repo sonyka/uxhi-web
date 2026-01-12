@@ -55,7 +55,7 @@ export function Header({ settings }: HeaderProps) {
           <Image
             src="/images/uxhi-logo.svg"
             alt="UXHI"
-            width={70}
+            width={96}
             height={22}
             priority
           />

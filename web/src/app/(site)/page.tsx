@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { InstagramFeed } from "@/components/sections/InstagramFeed";
 
 export const metadata: Metadata = {
-  title: "UXHI - A UX design community for people in Hawai'i",
+  title: "UXHI - A UX design community for people in Hawaiʻi",
   description:
-    "Join 500+ UX professionals, students, and curious individuals in Hawaii. Connect, learn, and grow together with UXHI.",
+    "Join 500+ UX professionals, students, and curious individuals in Hawaiʻi. Connect, learn, and grow together with UXHI.",
 };
 
 // Arrow Icon Component
@@ -65,7 +66,7 @@ export default function HomePage() {
 
           {/* Main Headline */}
           <h1 className="font-display text-5xl md:text-6xl lg:text-[80px] leading-[1.05] tracking-tight text-gray-900 mb-10 max-w-[900px] mx-auto">
-            A UX design community for people in Hawai&apos;i
+            A UX design community for people in Hawaiʻi
           </h1>
 
           {/* CTA Button */}
@@ -117,11 +118,11 @@ export default function HomePage() {
             </div>
 
             {/* Column 3, Rows 1-3: Join Community Card (tall purple) */}
-            <div className="lg:col-start-3 lg:row-start-1 lg:row-span-3 rounded-[28px] bg-purple-700 p-6 flex flex-col relative overflow-hidden">
+            <div className="lg:col-start-3 lg:row-start-1 lg:row-span-3 rounded-[999px] bg-purple-700 p-6 flex flex-col relative overflow-hidden">
               {/* Decorative background number */}
               <span className="absolute -right-4 top-1/4 font-display text-[180px] text-purple-600/30 leading-none select-none pointer-events-none">52</span>
-              <p className="text-white/90 text-[15px] leading-relaxed flex-1 relative z-10">
-                Whether you&apos;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
+              <p className="text-white/90 text-[20px] leading-relaxed flex-1 relative z-10">
+                Come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
               </p>
               <Link
                 href="/join"
@@ -210,21 +211,41 @@ export default function HomePage() {
         <div className="max-w-[900px] mx-auto text-center">
           <h2 className="font-display text-[26px] md:text-[34px] lg:text-[42px] leading-tight text-gray-900">
             UXHI&apos;s mission is to connect and elevate the field of{" "}
-            <span className="text-teal-500 relative inline-block">
+            <span className="text-teal-500 relative inline-block cursor-pointer group/ux hover:text-gray-900 transition-colors">
               UX
               <Image
                 src="/images/ux-circle.png"
                 alt=""
                 width={70}
-                height={50}
-                className="absolute -inset-2 w-[calc(100%+16px)] h-auto pointer-events-none"
+                height={55}
+                className="absolute -left-3 -right-2 -top-2 -bottom-1 w-[calc(100%+20px)] h-[calc(100%+12px)] pointer-events-none object-contain"
               />
+              {/* Tooltip */}
+              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal rounded-xl shadow-lg border border-gray-100 w-64 text-left opacity-0 invisible group-hover/ux:opacity-100 group-hover/ux:visible transition-all duration-200 delay-300 z-50">
+                UX is the overall experience a user has when interacting with a product or service.
+                {/* Tail */}
+                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
+              </span>
             </span>{" "}
             and{" "}
-            <span className="text-teal-500 underline decoration-wavy decoration-teal-500 underline-offset-4">
+            <span className="text-teal-500 relative inline-block cursor-pointer group/hcd hover:text-gray-900 transition-colors whitespace-nowrap">
               human-centered design
+              {/* Underline image */}
+              <Image
+                src="/images/underline.png"
+                alt=""
+                width={300}
+                height={10}
+                className="absolute left-0 right-0 -bottom-1 w-full h-auto pointer-events-none"
+              />
+              {/* Tooltip */}
+              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal rounded-xl shadow-lg border border-gray-100 w-80 text-left opacity-0 invisible group-hover/hcd:opacity-100 group-hover/hcd:visible transition-all duration-200 delay-300 z-50 whitespace-normal">
+                Human-centered design is an approach that prioritizes the unique needs of users.
+                {/* Tail */}
+                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
+              </span>
             </span>{" "}
-            for the people of Hawai&apos;i{" "}
+            for the people of Hawaiʻi{" "}
             <span className="inline-block">🌺</span>
           </h2>
         </div>
@@ -248,7 +269,7 @@ export default function HomePage() {
       <section className="py-16 px-6">
         <div className="max-w-[800px] mx-auto text-center">
           <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-6">
-            Connect, Learn, Grow Together
+            Connect, learn, grow together
           </h2>
           <p className="text-gray-600 text-lg mb-8 max-w-[600px] mx-auto">
             Whether you&apos;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
@@ -314,143 +335,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Social Media / Instagram Section */}
+      {/* Instagram Feed Section */}
       <section className="py-20 px-6">
         <div className="max-w-[1300px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-2">
-              Social Media Title
+              Follow along @uxhicommunity
             </h2>
-            <p className="text-gray-600">Subtitle</p>
+            <p className="text-gray-600">Stay connected with our latest events and community updates</p>
           </div>
 
-          {/* Instagram Grid - Speaker Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {/* Card 1 - UXHI 2025 */}
-            <div className="rounded-[20px] overflow-hidden aspect-square relative bg-gradient-to-br from-slate-500 to-slate-700 p-4">
-              <span className="text-white font-display text-xl">UXHI 2025</span>
-            </div>
-
-            {/* Card 2 - Speaker Series */}
-            <div className="rounded-[20px] overflow-hidden aspect-square relative bg-teal-700 p-4 flex flex-col">
-              <div className="flex justify-between items-start mb-4">
-                <span className="text-white/80 text-xs uppercase tracking-wider">Speaker Series</span>
-                <span className="text-white font-display text-sm">UXHI<span className="text-teal-400">CONF25</span></span>
-              </div>
-              <div className="flex gap-2 mb-3">
-                <div className="w-12 h-12 rounded-full bg-white/30" />
-                <div className="w-12 h-12 rounded-full bg-white/30" />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-white/30 mx-auto mb-2" />
-              <h3 className="font-display text-white text-xs leading-tight text-center mt-auto">
-                Innovating Within Boundaries: Designing Change in Regulated Systems
-              </h3>
-            </div>
-
-            {/* Card 3 - Kim Davidson */}
-            <div className="rounded-[20px] overflow-hidden aspect-square relative bg-teal-700 p-4 flex flex-col">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-white/80 text-xs uppercase tracking-wider">Speaker Series</span>
-                <span className="text-white font-display text-sm">UXHI<span className="text-teal-400">CONF25</span></span>
-              </div>
-              <div className="flex-1 flex flex-col items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-white/30 mb-2" />
-                <p className="text-white text-xs text-center">Kim Davidson</p>
-                <p className="text-white/70 text-[9px] text-center mb-2">CPO, New River Strategies</p>
-              </div>
-              <h3 className="font-display text-white text-xs text-center leading-tight">
-                An Introduction to Tech Criticism
-              </h3>
-            </div>
-
-            {/* Card 4 - Michelle & Gage */}
-            <div className="rounded-[20px] overflow-hidden aspect-square relative bg-teal-700 p-4 flex flex-col">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-white/80 text-xs uppercase tracking-wider">Speaker Series</span>
-                <span className="text-white font-display text-sm">UXHI<span className="text-teal-400">CONF25</span></span>
-              </div>
-              <div className="flex gap-2 justify-center mb-2 flex-1 items-center">
-                <div className="w-12 h-12 rounded-full bg-white/30" />
-                <div className="w-12 h-12 rounded-full bg-white/30" />
-              </div>
-              <p className="text-white text-xs text-center mb-1">Michelle Tran &amp; Gage Minamoto</p>
-              <h3 className="font-display text-white text-xs text-center leading-tight">
-                Impossible to Ignore: Expanding Your Luck for Design Opportunities
-              </h3>
-            </div>
-
-            {/* Row 2 */}
-            {/* Card 5 - Panel Series */}
-            <div className="rounded-[20px] overflow-hidden aspect-square relative bg-teal-700 p-4 flex flex-col">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-white/80 text-xs uppercase tracking-wider">Panel Series</span>
-                <span className="text-white font-display text-sm">UXHI<span className="text-teal-400">CONF25</span></span>
-              </div>
-              <div className="grid grid-cols-2 gap-2 mb-2 flex-1 content-center">
-                <div className="w-10 h-10 rounded-full bg-white/30 mx-auto" />
-                <div className="w-10 h-10 rounded-full bg-white/30 mx-auto" />
-                <div className="w-10 h-10 rounded-full bg-white/30 mx-auto" />
-                <div className="w-10 h-10 rounded-full bg-white/30 mx-auto" />
-              </div>
-              <h3 className="font-display text-white text-xs text-center leading-tight">
-                Generative AI and the Future of UX
-              </h3>
-            </div>
-
-            {/* Card 6 - Listening with Aloha */}
-            <div className="rounded-[20px] overflow-hidden aspect-square relative bg-teal-700 p-4 flex flex-col">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-white/80 text-xs uppercase tracking-wider">Speaker Series</span>
-                <span className="text-white font-display text-sm">UXHI<span className="text-teal-400">CONF25</span></span>
-              </div>
-              <div className="flex gap-2 justify-center flex-1 items-center">
-                <div className="w-12 h-12 rounded-full bg-white/30" />
-                <div className="w-12 h-12 rounded-full bg-white/30" />
-              </div>
-              <h3 className="font-display text-white text-xs text-center leading-tight">
-                Listening with Aloha: Designing research that feeds the people who feed us
-              </h3>
-            </div>
-
-            {/* Card 7 - State of UX */}
-            <div className="rounded-[20px] overflow-hidden aspect-square relative bg-teal-700 p-4 flex flex-col">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-white/80 text-xs uppercase tracking-wider">Speaker Series</span>
-                <span className="text-white font-display text-sm">UXHI<span className="text-teal-400">CONF25</span></span>
-              </div>
-              <div className="flex gap-2 justify-center flex-1 items-center">
-                <div className="w-12 h-12 rounded-full bg-white/30" />
-                <div className="w-12 h-12 rounded-full bg-white/30" />
-              </div>
-              <h3 className="font-display text-white text-xs text-center leading-tight">
-                State of UX in Hawai&apos;i: A Snapshot of Our Strengths &amp; Challenges
-              </h3>
-            </div>
-
-            {/* Card 8 - Sponsors */}
-            <div className="rounded-[20px] overflow-hidden aspect-square relative bg-teal-700 p-4 flex flex-col">
-              <div className="flex justify-end items-start mb-2">
-                <span className="text-white font-display text-sm">UXHI<span className="text-teal-400">CONF25</span></span>
-              </div>
-              <h3 className="font-display text-white text-lg mb-3">
-                Mahalo to Our Sponsors
-              </h3>
-              <div className="grid grid-cols-2 gap-2 flex-1 content-start">
-                <div className="bg-white/10 rounded-lg p-2 h-8 flex items-center justify-center">
-                  <span className="text-white text-xs">HTDC</span>
-                </div>
-                <div className="bg-white/10 rounded-lg p-2 h-8 flex items-center justify-center">
-                  <span className="text-white text-xs">Sandbox</span>
-                </div>
-                <div className="bg-white/10 rounded-lg p-2 h-8 flex items-center justify-center">
-                  <span className="text-white text-xs">Purple</span>
-                </div>
-                <div className="bg-white/10 rounded-lg p-2 h-8 flex items-center justify-center">
-                  <span className="text-white text-xs">OER</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <InstagramFeed />
         </div>
       </section>
 
