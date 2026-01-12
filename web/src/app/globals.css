@@ -2,7 +2,7 @@
 
 /* UXHI Design System */
 @theme {
-  /* Colors - Primary */
+  /* Colors - Primary Teal */
   --color-teal-50: #e6fafb;
   --color-teal-100: #b3f0f5;
   --color-teal-200: #80e6ef;
@@ -14,7 +14,7 @@
   --color-teal-800: #034d56;
   --color-teal-900: #01262b;
 
-  /* Colors - Purple */
+  /* Colors - Purple/Navy */
   --color-purple-50: #edeafc;
   --color-purple-100: #c9c0f5;
   --color-purple-200: #a596ee;
@@ -40,7 +40,7 @@
 
 /* Base styles */
 :root {
-  --background: #ffffff;
+  --background: #f4f1ea;
   --foreground: #171717;
 }
 
@@ -68,4 +68,18 @@ html {
 *:focus-visible {
   outline: 2px solid var(--color-teal-500);
   outline-offset: 2px;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply inline-flex items-center gap-3 bg-purple-700 text-white rounded-full px-6 py-3 font-medium transition-all hover:bg-purple-800;
+}
+
+.btn-primary-arrow {
+  @apply inline-flex items-center gap-3 bg-purple-700 rounded-full pl-6 pr-2 py-2 font-medium transition-all hover:bg-purple-800;
+}
+
+/* Card shadows */
+.card-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 24px rgba(0, 0, 0, 0.06);
 }
