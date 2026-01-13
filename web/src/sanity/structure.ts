@@ -1,8 +1,5 @@
 import type { StructureBuilder } from "sanity/structure";
 import {
-  CogIcon,
-  HomeIcon,
-  CalendarIcon,
   UsersIcon,
   BookIcon,
   CommentIcon,
@@ -14,20 +11,6 @@ export const structure = (S: StructureBuilder) =>
   S.list()
     .title("Content")
     .items([
-      // Singleton: Site Settings
-      S.listItem()
-        .title("Site Settings")
-        .icon(CogIcon)
-        .child(S.document().schemaType("siteSettings").documentId("siteSettings")),
-
-      // Singleton: Landing Page
-      S.listItem()
-        .title("Landing Page")
-        .icon(HomeIcon)
-        .child(S.document().schemaType("landingPage").documentId("landingPage")),
-
-      S.divider(),
-
       // Regular document lists
       S.documentTypeListItem("member").title("Team").icon(UsersIcon),
       S.documentTypeListItem("testimonial").title("Testimonials").icon(CommentIcon),
