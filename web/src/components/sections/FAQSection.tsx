@@ -63,13 +63,13 @@ function FAQItem({
 }) {
   return (
     <div
-      className={`rounded-2xl overflow-hidden transition-colors duration-300 ${
-        isOpen ? "bg-teal-500" : "bg-white border border-gray-200"
+      className={`rounded-[2rem] overflow-hidden transition-colors duration-300 ${
+        isOpen ? "bg-teal-500" : "bg-white shadow-sm"
       }`}
     >
       <button
         onClick={onToggle}
-        className={`w-full px-6 py-5 flex items-center justify-between text-left transition-colors ${
+        className={`w-full px-8 py-5 flex items-center justify-between text-left transition-colors ${
           isOpen ? "text-white" : "text-gray-800"
         }`}
         aria-expanded={isOpen}
@@ -77,9 +77,9 @@ function FAQItem({
         <span className="font-medium pr-4">{faq.question}</span>
         <span className="flex-shrink-0">
           {isOpen ? (
-            <MinusIcon className="w-5 h-5" />
+            <MinusIcon className="w-6 h-6" />
           ) : (
-            <PlusIcon className="w-5 h-5 text-teal-500" />
+            <PlusIcon className="w-6 h-6 text-teal-500" />
           )}
         </span>
       </button>
@@ -91,7 +91,7 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="px-6 pb-5 text-white/90">{faq.answer}</div>
+            <div className="px-8 pb-6 text-white/90">{faq.answer}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -109,7 +109,7 @@ export function FAQSection({ faqs }: FAQSectionProps) {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-cream">
+    <section className="py-20 md:py-28 bg-gray-50">
       <Container>
         <motion.div
           variants={staggerContainer}
@@ -119,7 +119,7 @@ export function FAQSection({ faqs }: FAQSectionProps) {
         >
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="mb-12">
-            <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-4">
+            <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-4">
               Frequently Asked Questions
             </h2>
             <p className="text-gray-600 text-lg">
@@ -136,7 +136,7 @@ export function FAQSection({ faqs }: FAQSectionProps) {
           </motion.div>
 
           {/* FAQ List */}
-          <motion.div variants={fadeInUp} className="space-y-4 max-w-4xl">
+          <motion.div variants={fadeInUp} className="space-y-4 max-w-4xl mx-auto">
             {faqs.map((faq) => (
               <FAQItem
                 key={faq._id}
