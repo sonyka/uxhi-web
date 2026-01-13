@@ -3,10 +3,18 @@ import { UserIcon } from "@sanity/icons";
 
 export const member = defineType({
   name: "member",
-  title: "Team Member",
+  title: "Team",
   type: "document",
   icon: UserIcon,
   fields: [
+    defineField({
+      name: "order",
+      title: "Order",
+      type: "number",
+      description: "Display order (lower numbers appear first)",
+      initialValue: 0,
+      validation: (rule) => rule.required().min(0),
+    }),
     defineField({
       name: "name",
       title: "Name",
@@ -80,13 +88,6 @@ export const member = defineType({
       type: "boolean",
       description: "Show in featured team sections",
       initialValue: false,
-    }),
-    defineField({
-      name: "order",
-      title: "Display Order",
-      type: "number",
-      description: "Lower numbers appear first",
-      initialValue: 0,
     }),
   ],
   preview: {

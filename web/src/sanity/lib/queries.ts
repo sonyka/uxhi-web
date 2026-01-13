@@ -150,9 +150,9 @@ export const PRODUCT_QUERY = defineQuery(/* groq */ `
   }
 `);
 
-// Founders/Core Team (for About page)
+// Team members (for About page)
 export const FOUNDERS_QUERY = defineQuery(/* groq */ `
-  *[_type == "member" && isFounder == true] | order(order asc) {
+  *[_type == "member"] | order(order asc, name asc) {
     _id,
     name,
     role,

@@ -29,8 +29,10 @@ export const structure = (S: StructureBuilder) =>
       S.divider(),
 
       // Regular document lists
+      S.documentTypeListItem("member").title("Team").icon(UsersIcon),
       S.documentTypeListItem("testimonial").title("Testimonials").icon(CommentIcon),
       S.documentTypeListItem("product").title("Merch Products").icon(BasketIcon),
+      S.documentTypeListItem("faq").title("FAQs").icon(BookIcon),
 
       S.divider(),
 

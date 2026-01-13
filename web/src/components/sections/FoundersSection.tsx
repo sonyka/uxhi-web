@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SanityImage } from "@/components/ui/SanityImage";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 interface Founder {
   _id: string;
@@ -42,46 +40,38 @@ export function FoundersSection({ founders }: FoundersSectionProps) {
   if (!founders || founders.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-24 bg-cream">
+    <section className="py-20 md:py-28 bg-cream">
       <Container>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {/* Section Header */}
-          <motion.div variants={fadeInUp} className="mb-12">
-            <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-4">
-              Who we are
-            </h2>
-            <p className="text-gray-600 text-lg max-w-3xl">
-              UXHI is a female-founded community organization whose mission is to
-              connect and elevate the field of human-centered design for the
-              people of Hawai&apos;i.
-            </p>
-          </motion.div>
+        {/* Section Header */}
+        <div className="mb-16">
+          <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-4">
+            Who we are
+          </h2>
+          <p className="text-gray-600 text-lg max-w-5xl">
+            UXHI is a female-founded community organization whose mission is to
+            connect and elevate the field of human-centered design for the
+            people of Hawai&apos;i.
+          </p>
+        </div>
 
-          {/* Founders List */}
-          <div className="space-y-16 md:space-y-24">
-            {founders.map((founder, index) => (
-              <motion.div
+        {/* Founders List */}
+        <div className="space-y-20 md:space-y-28">
+          {founders.map((founder, index) => {
+            const isEven = index % 2 === 0;
+
+            return (
+              <div
                 key={founder._id}
-                variants={fadeInUp}
-                className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${
-                  index % 2 === 1 ? "md:direction-rtl" : ""
-                }`}
+                className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center"
               >
                 {/* Photo */}
-                <div
-                  className={`${index % 2 === 1 ? "md:order-2" : "md:order-1"}`}
-                >
-                  <div className="relative aspect-square max-w-[400px] rounded-2xl overflow-hidden bg-gray-100 mx-auto md:mx-0">
+                <div className={isEven ? "md:order-1" : "md:order-2"}>
+                  <div className="relative aspect-square max-w-[420px] rounded-lg overflow-hidden bg-gray-100 mx-auto md:mx-0">
                     {founder.photo?.asset ? (
                       <SanityImage
                         value={founder.photo}
-                        width={400}
-                        height={400}
+                        width={420}
+                        height={420}
                         className="w-full h-full object-cover"
                       />
                     ) : (
@@ -99,19 +89,19 @@ export function FoundersSection({ founders }: FoundersSectionProps) {
                 </div>
 
                 {/* Info */}
-                <div
-                  className={`${
-                    index % 2 === 1 ? "md:order-1 md:text-right" : "md:order-2"
-                  }`}
-                >
-                  <h3 className="font-display text-2xl md:text-3xl text-teal-500 mb-2">
+                <div className={isEven ? "md:order-2" : "md:order-1"}>
+                  <h3 className="font-display text-3xl md:text-4xl text-teal-500 mb-2">
                     {founder.name}
                   </h3>
                   {founder.role && (
-                    <p className="text-gray-600 mb-4">{founder.role}</p>
+                    <p className="text-gray-500 text-base mb-5">
+                      {founder.role.includes("Co-Founder")
+                        ? "Co-Founder"
+                        : founder.role}
+                    </p>
                   )}
                   {founder.bio && (
-                    <p className="text-gray-700 leading-relaxed mb-6">
+                    <p className="text-gray-700 text-base leading-relaxed mb-6">
                       {founder.bio}
                     </p>
                   )}
@@ -120,19 +110,17 @@ export function FoundersSection({ founders }: FoundersSectionProps) {
                       href={founder.socialLinks.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center justify-center w-10 h-10 bg-purple-700 text-white rounded-lg hover:bg-purple-800 transition-colors ${
-                        index % 2 === 1 ? "md:ml-auto" : ""
-                      }`}
+                      className="inline-flex items-center justify-center w-10 h-10 bg-purple-700 text-white rounded-lg hover:bg-purple-800 transition-colors"
                       aria-label={`${founder.name}'s LinkedIn profile`}
                     >
                       <LinkedInIcon />
                     </a>
                   )}
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+              </div>
+            );
+          })}
+        </div>
       </Container>
     </section>
   );
