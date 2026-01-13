@@ -4,6 +4,8 @@ import { siteSettings } from "./documents/siteSettings";
 import { testimonial } from "./documents/testimonial";
 import { product } from "./documents/product";
 import { submission } from "./documents/submission";
+import { member } from "./documents/member";
+import { faq } from "./documents/faq";
 
 // Objects
 import { seo } from "./objects/seo";
@@ -26,6 +28,8 @@ export const schemaTypes = [
   testimonial,
   product,
   submission,
+  member,
+  faq,
 
   // Objects
   seo,

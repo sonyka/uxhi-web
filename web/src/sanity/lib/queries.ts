@@ -149,3 +149,25 @@ export const PRODUCT_QUERY = defineQuery(/* groq */ `
     available
   }
 `);
+
+// Founders/Core Team (for About page)
+export const FOUNDERS_QUERY = defineQuery(/* groq */ `
+  *[_type == "member" && isFounder == true] | order(order asc) {
+    _id,
+    name,
+    role,
+    bio,
+    photo { ${imageFragment} },
+    socialLinks,
+    company
+  }
+`);
+
+// FAQs (for About page)
+export const FAQS_QUERY = defineQuery(/* groq */ `
+  *[_type == "faq"] | order(order asc) {
+    _id,
+    question,
+    answer
+  }
+`);
