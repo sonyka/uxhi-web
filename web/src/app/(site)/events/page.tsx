@@ -48,8 +48,7 @@ export default function EventsPage() {
             Events
           </h1>
           <p className="text-xl text-gray-600 mb-12 max-w-2xl">
-            Connect with Hawaii&apos;s UX community through our workshops,
-            meetups, and annual conference.
+            We host a mix of educational webinars, interactive workshops, and casual meetups every month, as well as our annual conference. Become a member and you’ll receive advanced notice on all our events!
           </p>
         </AnimatedSection>
 

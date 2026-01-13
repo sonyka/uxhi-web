@@ -70,7 +70,7 @@ export function Footer({ settings }: FooterProps) {
           {/* Left Column - About & Contact */}
           <div>
             <h2 className="font-display text-3xl md:text-4xl text-white leading-tight mb-10 max-w-[500px]">
-              UXHI is a design community for people in Hawaiʻi and those with Hawaiʻi ties.
+              UXHI is a design community for people in Hawaiʻi.
             </h2>
 
             <div className="space-y-6">

@@ -63,8 +63,7 @@ export default function FindUXProPage() {
             Find UX Pro
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl">
-            Connect with talented UX professionals in Hawaii. Whether you need a
-            designer, researcher, or consultant, find the right person here.
+            Welcome to the UXHI Member Directory, your hub for connecting with UX design professionals in Hawaii and those with Hawaii ties, across all experience levels. Not only does this serve as a go-to resource for companies and recruiters seeking talented local UX professionals, but it also fosters connections between UX practitioners themselves.
           </p>
         </AnimatedSection>
 

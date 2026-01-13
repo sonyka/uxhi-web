@@ -87,7 +87,7 @@ export default function HomePage() {
         <div className="max-w-[1300px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4" style={{ gridTemplateRows: 'repeat(3, 180px)' }}>
             {/* Column 1, Rows 1-2: UX 101 group photo (tall oval) */}
-            <div className="hidden lg:block lg:col-start-1 lg:row-start-1 lg:row-span-2 rounded-[100px] overflow-hidden relative">
+            <div className="hidden lg:block lg:col-start-1 lg:row-start-1 lg:row-span-2 rounded-[999px] overflow-hidden relative">
               <Image
                 src="/images/bento/ux101-group.jpg"
                 alt="UXHI UX 101 workshop presenters"
@@ -97,13 +97,13 @@ export default function HomePage() {
             </div>
 
             {/* Column 1, Row 3: Year Founded */}
-            <div className="lg:col-start-1 lg:row-start-3 rounded-[28px] bg-teal-500 p-5 flex flex-col justify-end text-white">
-              <span className="font-display text-5xl lg:text-[56px] leading-none">2021</span>
+            <div className="lg:col-start-1 lg:row-start-3 rounded-[24px] bg-teal-500 p-5 flex flex-col justify-end text-white">
+              <span className="font-display text-5xl lg:text-[36px] leading-none">2021</span>
               <span className="text-base mt-1 opacity-90">Year founded</span>
             </div>
 
             {/* Column 2, Rows 2-3: Large Community Image (tall oval, offset down) */}
-            <div className="hidden lg:block lg:col-start-2 lg:row-start-2 lg:row-span-2 rounded-[100px] overflow-hidden relative">
+            <div className="hidden lg:block lg:col-start-2 lg:row-start-2 lg:row-span-2 rounded-[999px] overflow-hidden relative">
               <Image
                 src="/images/bento/crowd-community.jpg"
                 alt="UXHI community gathering"
@@ -118,22 +118,22 @@ export default function HomePage() {
             </div>
 
             {/* Column 3, Rows 1-3: Join Community Card (tall purple) */}
-            <div className="lg:col-start-3 lg:row-start-1 lg:row-span-3 rounded-[999px] bg-purple-700 p-6 flex flex-col relative overflow-hidden">
+            <div className="lg:col-start-3 lg:row-start-1 lg:row-span-3 rounded-[999px] bg-purple-700 px-6 pt-16 pb-14 flex flex-col relative overflow-hidden">
               {/* Decorative background number */}
               <span className="absolute -right-4 top-1/4 font-display text-[180px] text-purple-600/30 leading-none select-none pointer-events-none">52</span>
-              <p className="text-white/90 text-[20px] leading-relaxed flex-1 relative z-10">
+              <p className="text-white/90 text-[16px] leading-relaxed flex-1 relative z-10">
                 Come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
               </p>
               <Link
                 href="/join"
-                className="mt-4 inline-flex items-center justify-center gap-2 bg-white text-purple-700 rounded-full py-3 px-6 font-medium hover:bg-gray-100 transition-colors relative z-10"
+                className="mt-4 inline-flex items-center justify-center gap-2 bg-white text-purple-700 rounded-full py-2.5 px-5 font-medium text-sm hover:bg-gray-100 transition-colors relative z-10"
               >
                 Join Community
               </Link>
             </div>
 
             {/* Column 4, Rows 2-3: Connect Card with Photo (shorter oval) */}
-            <div className="hidden lg:block lg:col-start-4 lg:row-start-2 lg:row-span-2 rounded-[80px] overflow-hidden relative">
+            <div className="hidden lg:block lg:col-start-4 lg:row-start-2 lg:row-span-2 rounded-[999px] overflow-hidden relative">
               <Image
                 src="/images/bento/photobooth.jpg"
                 alt="UXHI members at photo booth"
@@ -147,12 +147,12 @@ export default function HomePage() {
             </div>
 
             {/* Column 5, Rows 1-2: From Students Card (rounded top teal) */}
-            <div className="hidden lg:block lg:col-start-5 lg:row-start-1 lg:row-span-2 rounded-t-[100px] rounded-b-[28px] bg-teal-500 p-6 pt-8 flex items-start justify-end text-white text-right">
-              <span className="text-[17px] leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
+            <div className="hidden lg:flex lg:col-start-5 lg:row-start-1 lg:row-span-2 rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-5 pt-20 pb-6 items-start justify-end text-white text-right">
+              <span className="text-[16px] leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
             </div>
 
             {/* Column 5, Row 3: Annual Conference */}
-            <div className="lg:col-start-5 lg:row-start-3 rounded-[28px] overflow-hidden relative">
+            <div className="lg:col-start-5 lg:row-start-3 rounded-[24px] overflow-hidden relative">
               <Image
                 src="/images/bento/uxhicon-25.jpg"
                 alt="UXHI Annual Conference"
@@ -406,49 +406,69 @@ export default function HomePage() {
       </section>
 
       {/* Community CTA Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-[1200px] mx-auto">
-          {/* Floating Photos Grid */}
-          <div className="relative h-[250px] mb-8 overflow-hidden">
-            {[
-              { left: "2%", top: "10%", w: 80, h: 100, rotate: -5 },
-              { left: "12%", top: "35%", w: 70, h: 90, rotate: 3 },
-              { left: "22%", top: "5%", w: 90, h: 115, rotate: -2 },
-              { left: "35%", top: "20%", w: 80, h: 100, rotate: 5 },
-              { left: "48%", top: "30%", w: 70, h: 90, rotate: -3 },
-              { left: "58%", top: "8%", w: 80, h: 100, rotate: 2 },
-              { left: "70%", top: "25%", w: 90, h: 115, rotate: -4 },
-              { left: "82%", top: "12%", w: 70, h: 90, rotate: 6 },
-            ].map((pos, i) => (
-              <div
-                key={i}
-                className="absolute rounded-xl bg-gradient-to-br from-gray-300 to-gray-400"
-                style={{
-                  left: pos.left,
-                  top: pos.top,
-                  width: pos.w,
-                  height: pos.h,
-                  transform: `rotate(${pos.rotate}deg)`,
-                }}
-              />
-            ))}
+      <section className="py-24 px-6">
+        <div className="max-w-[1400px] mx-auto">
+          {/* Floating Photos Grid - Desktop */}
+          <div className="hidden lg:block relative h-[420px] mb-16">
+            {/* Column 1 - Left */}
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '0%', top: '30px', width: '120px', height: '160px' }} />
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '0%', top: '210px', width: '100px', height: '140px' }} />
+
+            {/* Column 2 */}
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '10%', top: '0px', width: '110px', height: '155px' }} />
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '9%', top: '175px', width: '120px', height: '190px' }} />
+
+            {/* Column 3 */}
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '22%', top: '20px', width: '105px', height: '200px' }} />
+
+            {/* Column 4 - Center Left */}
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '33%', top: '50px', width: '115px', height: '220px' }} />
+
+            {/* Column 5 - Center Right */}
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '45%', top: '0px', width: '110px', height: '170px' }} />
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '46%', top: '190px', width: '120px', height: '200px' }} />
+
+            {/* Column 6 */}
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '58%', top: '0px', width: '100px', height: '130px' }} />
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '57%', top: '150px', width: '105px', height: '120px' }} />
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '58%', top: '290px', width: '100px', height: '110px' }} />
+
+            {/* Column 7 */}
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '70%', top: '0px', width: '105px', height: '140px' }} />
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '69%', top: '160px', width: '110px', height: '130px' }} />
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '70%', top: '310px', width: '100px', height: '100px' }} />
+
+            {/* Column 8 - Right */}
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '82%', top: '20px', width: '100px', height: '165px' }} />
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '83%', top: '205px', width: '95px', height: '110px' }} />
+            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '82%', top: '335px', width: '100px', height: '85px' }} />
+          </div>
+
+          {/* Mobile Photos Grid */}
+          <div className="lg:hidden grid grid-cols-4 gap-2 mb-10">
+            <div className="rounded-[16px] bg-gray-200 aspect-[3/4]" />
+            <div className="rounded-[16px] bg-gray-200 aspect-[3/5] mt-4" />
+            <div className="rounded-[16px] bg-gray-200 aspect-[3/4] mt-2" />
+            <div className="rounded-[16px] bg-gray-200 aspect-[3/5]" />
           </div>
 
           {/* CTA Content */}
-          <div className="text-center">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-teal-500 mb-6">
-              A community for designers, by designers
+          <div className="text-center pt-4">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] text-teal-500 mb-6 italic leading-tight">
+              A community<br />
+              for designers,<br />
+              by designers
             </h2>
-            <p className="text-gray-600 text-lg mb-8 max-w-[700px] mx-auto">
+            <p className="text-gray-600 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">
               Joining UXHI is free! As a member, you gain access to our community Slack group with 400+ designers, an invitation to join our member directory, and early updates on the latest UX events through our monthly emails.
             </p>
             <Link
               href="/join"
-              className="inline-flex items-center gap-3 bg-purple-700 text-white rounded-full pl-7 pr-2 py-2 font-medium text-lg hover:bg-purple-800 transition-colors group"
+              className="inline-flex items-center gap-3 bg-purple-700 text-white rounded-full pl-6 pr-1.5 py-1.5 font-medium hover:bg-purple-800 transition-colors group"
             >
               <span>Join us</span>
-              <span className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                <ArrowIcon className="w-5 h-5 text-white" />
+              <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center">
+                <ArrowIcon className="w-4 h-4 text-purple-700" />
               </span>
             </Link>
           </div>
