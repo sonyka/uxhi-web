@@ -408,53 +408,92 @@ export default function HomePage() {
       {/* Community CTA Section */}
       <section className="py-24 px-6">
         <div className="max-w-[1400px] mx-auto">
-          {/* Floating Photos Grid - Desktop */}
-          <div className="hidden lg:block relative h-[420px] mb-16">
-            {/* Column 1 - Left */}
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '0%', top: '30px', width: '120px', height: '160px' }} />
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '0%', top: '210px', width: '100px', height: '140px' }} />
-
+          {/* Photos Grid - Desktop (9 columns) */}
+          <div className="hidden lg:grid grid-cols-9 gap-4 mb-16">
+            {/* Column 1 */}
+            <div className="flex flex-col gap-4 pt-16">
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
             {/* Column 2 */}
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '10%', top: '0px', width: '110px', height: '155px' }} />
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '9%', top: '175px', width: '120px', height: '190px' }} />
-
+            <div className="flex flex-col gap-4">
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
             {/* Column 3 */}
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '22%', top: '20px', width: '105px', height: '200px' }} />
-
-            {/* Column 4 - Center Left */}
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '33%', top: '50px', width: '115px', height: '220px' }} />
-
-            {/* Column 5 - Center Right */}
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '45%', top: '0px', width: '110px', height: '170px' }} />
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '46%', top: '190px', width: '120px', height: '200px' }} />
-
+            <div className="flex flex-col gap-4 pt-24">
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
+            {/* Column 4 */}
+            <div className="flex flex-col gap-4 pt-8">
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
+            {/* Column 5 */}
+            <div className="flex flex-col gap-4 pt-24">
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
             {/* Column 6 */}
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '58%', top: '0px', width: '100px', height: '130px' }} />
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '57%', top: '150px', width: '105px', height: '120px' }} />
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '58%', top: '290px', width: '100px', height: '110px' }} />
-
+            <div className="flex flex-col gap-4 pt-8">
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
             {/* Column 7 */}
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '70%', top: '0px', width: '105px', height: '140px' }} />
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '69%', top: '160px', width: '110px', height: '130px' }} />
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '70%', top: '310px', width: '100px', height: '100px' }} />
-
-            {/* Column 8 - Right */}
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '82%', top: '20px', width: '100px', height: '165px' }} />
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '83%', top: '205px', width: '95px', height: '110px' }} />
-            <div className="absolute rounded-[16px] bg-gray-200 overflow-hidden" style={{ left: '82%', top: '335px', width: '100px', height: '85px' }} />
+            <div className="flex flex-col gap-4 pt-24">
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
+            {/* Column 8 */}
+            <div className="flex flex-col gap-4">
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
+            {/* Column 9 */}
+            <div className="flex flex-col gap-4 pt-16">
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
           </div>
 
-          {/* Mobile Photos Grid */}
-          <div className="lg:hidden grid grid-cols-4 gap-2 mb-10">
-            <div className="rounded-[16px] bg-gray-200 aspect-[3/4]" />
-            <div className="rounded-[16px] bg-gray-200 aspect-[3/5] mt-4" />
-            <div className="rounded-[16px] bg-gray-200 aspect-[3/4] mt-2" />
-            <div className="rounded-[16px] bg-gray-200 aspect-[3/5]" />
+          {/* Photos Grid - Tablet (5 columns) */}
+          <div className="hidden md:grid lg:hidden grid-cols-5 gap-4 mb-12">
+            <div className="flex flex-col gap-4 pt-8">
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
+            <div className="flex flex-col gap-4">
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
+            <div className="flex flex-col gap-4 pt-12">
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
+            <div className="flex flex-col gap-4 pt-4">
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
+            <div className="flex flex-col gap-4">
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+            </div>
+          </div>
+
+          {/* Photos Grid - Mobile (3 columns) */}
+          <div className="md:hidden grid grid-cols-3 gap-3 mb-10">
+            <div className="flex flex-col gap-3 pt-6">
+              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
+            </div>
+            <div className="flex flex-col gap-3">
+              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
+            </div>
+            <div className="flex flex-col gap-3 pt-10">
+              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
+            </div>
           </div>
 
           {/* CTA Content */}
           <div className="text-center pt-4">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] text-teal-500 mb-6 italic leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] text-teal-500 mb-6 leading-tight">
               A community<br />
               for designers,<br />
               by designers
