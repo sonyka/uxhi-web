@@ -340,9 +340,9 @@ export default function HomePage() {
         <div className="max-w-[1300px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-2">
-              Follow along @uxhicommunity
+              Follow us on Linkedin and Instagram
             </h2>
-            <p className="text-gray-600">Stay connected with our latest events and community updates</p>
+            <p className="text-gray-600 text-lg">Stay connected with our latest events and community updates</p>
           </div>
 
           <InstagramFeed />
@@ -356,7 +356,7 @@ export default function HomePage() {
             <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-2">
               Member sentiments title
             </h2>
-            <p className="text-gray-600">Trusted by Thousands of Successful Students</p>
+            <p className="text-gray-600 text-lg">Trusted by Thousands of Successful Students</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
