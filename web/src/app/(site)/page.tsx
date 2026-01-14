@@ -412,43 +412,43 @@ export default function HomePage() {
           <div className="hidden lg:grid grid-cols-9 gap-4 mb-16">
             {/* Column 1 */}
             <div className="flex flex-col gap-4 pt-16">
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
             </div>
             {/* Column 2 */}
             <div className="flex flex-col gap-4">
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
             </div>
             {/* Column 3 */}
             <div className="flex flex-col gap-4 pt-24">
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
             </div>
             {/* Column 4 */}
             <div className="flex flex-col gap-4 pt-8">
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
             </div>
             {/* Column 5 */}
             <div className="flex flex-col gap-4 pt-24">
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
             </div>
             {/* Column 6 */}
             <div className="flex flex-col gap-4 pt-8">
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
             </div>
             {/* Column 7 */}
             <div className="flex flex-col gap-4 pt-24">
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
             </div>
             {/* Column 8 */}
             <div className="flex flex-col gap-4">
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
             </div>
             {/* Column 9 */}
             <div className="flex flex-col gap-4 pt-16">
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-[135px] h-[180px] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
+              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
             </div>
           </div>
 
