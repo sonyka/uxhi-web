@@ -285,7 +285,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Free Membership */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
-              <div className="w-24 h-24 mx-auto mb-6 relative">
+              <div className="w-32 h-32 mx-auto mb-6 relative">
                 <Image
                   src="/images/icons/icon-membership.png"
                   alt="Free Membership"
@@ -301,7 +301,7 @@ export default async function HomePage() {
 
             {/* Events */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
-              <div className="w-24 h-24 mx-auto mb-6 relative">
+              <div className="w-32 h-32 mx-auto mb-6 relative">
                 <Image
                   src="/images/icons/icon-events.png"
                   alt="Events"
@@ -339,7 +339,7 @@ export default async function HomePage() {
         <div className="max-w-[1300px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-2">
-              Follow us on Linkedin and Instagram
+              IRL &gt; Instagram
             </h2>
             <p className="text-gray-600 text-lg">Stay connected with our latest events and community updates</p>
           </div>
