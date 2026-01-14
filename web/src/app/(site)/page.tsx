@@ -99,20 +99,17 @@ export default async function HomePage() {
             </div>
 
             {/* Column 3, Rows 1-3: Join Community Card (tall purple) */}
-            <div className="lg:col-start-3 lg:row-start-1 lg:row-span-3 rounded-[999px] bg-purple-700 px-6 pt-16 pb-14 flex flex-col relative overflow-hidden">
+            <div className="lg:col-start-3 lg:row-start-1 lg:row-span-3 rounded-[999px] bg-purple-700 px-6 pt-16 pb-14 flex flex-col items-center justify-center text-center relative overflow-hidden">
               {/* Decorative background number */}
               <span className="absolute -right-4 top-1/4 font-display text-[180px] text-purple-600/30 leading-none select-none pointer-events-none">52</span>
-              <p className="text-white/90 text-[16px] leading-relaxed flex-1 relative z-10">
+              <p className="text-white/90 text-[16px] leading-relaxed relative z-10">
                 Come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
               </p>
               <Link
                 href="/join"
-                className="mt-4 inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full pl-4 pr-1.5 py-1.5 font-medium text-sm hover:bg-gray-50 transition-colors relative z-10 group"
+                className="mt-3 inline-flex items-center bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium text-sm hover:bg-gray-50 transition-colors relative z-10"
               >
                 <span className="text-gray-900">Join us</span>
-                <span className="w-7 h-7 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                  <ArrowIcon className="w-3.5 h-3.5 text-gray-900" />
-                </span>
               </Link>
             </div>
 
@@ -193,27 +190,10 @@ export default async function HomePage() {
       {/* Mission Section */}
       <section className="py-20 px-6">
         <div className="max-w-[900px] mx-auto text-center">
-          <h2 className="font-display text-[26px] md:text-[34px] lg:text-[42px] leading-tight text-gray-900">
-            UXHI&apos;s mission is to connect and elevate the field of{" "}
-            <span className="text-teal-500 relative inline-block cursor-pointer group/ux hover:text-gray-900 transition-colors">
-              UX
-              <Image
-                src="/images/ux-circle.png"
-                alt=""
-                width={70}
-                height={55}
-                className="absolute -left-3 -right-2 -top-2 -bottom-1 w-[calc(100%+20px)] h-[calc(100%+12px)] pointer-events-none object-contain"
-              />
-              {/* Tooltip */}
-              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal rounded-xl shadow-lg border border-gray-100 w-64 text-left opacity-0 invisible group-hover/ux:opacity-100 group-hover/ux:visible transition-all duration-200 delay-300 z-50">
-                UX is the overall experience a user has when interacting with a product or service.
-                {/* Tail */}
-                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
-              </span>
-            </span>{" "}
-            and{" "}
+          <h2 className="font-display text-[22px] md:text-[28px] lg:text-[34px] leading-tight text-gray-900">
+            UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
             <span className="text-teal-500 relative inline-block cursor-pointer group/hcd hover:text-gray-900 transition-colors whitespace-nowrap">
-              human-centered design
+              Human-Centered Design
               {/* Underline image */}
               <Image
                 src="/images/underline.png"
@@ -229,7 +209,7 @@ export default async function HomePage() {
                 <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
               </span>
             </span>{" "}
-            for the people of Hawaiʻi{" "}
+            in Hawaiʻi through career development, community networking, and industry advocacy{" "}
             <span className="inline-block">🌺</span>
           </h2>
         </div>
@@ -317,13 +297,15 @@ export default async function HomePage() {
 
             {/* Resources */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
-              <div className="w-24 h-24 mx-auto mb-6 relative">
-                <Image
-                  src="/images/icons/icon-resources.png"
-                  alt="Resources"
-                  fill
-                  className="object-contain"
-                />
+              <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
+                <div className="w-24 h-24 relative">
+                  <Image
+                    src="/images/icons/icon-resources.png"
+                    alt="Resources"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
               <h3 className="font-display text-2xl text-white mb-4">Resources</h3>
               <p className="text-purple-200 leading-relaxed">

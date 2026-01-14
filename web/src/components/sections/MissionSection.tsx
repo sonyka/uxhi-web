@@ -42,8 +42,7 @@ export function MissionSection() {
             variants={fadeInUp}
             className="font-display text-3xl md:text-4xl lg:text-5xl text-teal-500 leading-tight mb-8 max-w-4xl"
           >
-            Our mission is to connect and elevate the field of UX and
-            human-centered design for the people of Hawai&apos;i.
+            UXHI&apos;s mission is to grow and elevate the professional standard of Human-Centered Design in Hawaiʻi through career development, community networking, and industry advocacy.
           </motion.h2>
 
           {/* Description */}
