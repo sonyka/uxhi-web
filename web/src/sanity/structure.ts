@@ -5,12 +5,29 @@ import {
   CommentIcon,
   BasketIcon,
   EnvelopeIcon,
+  ImageIcon,
+  ImagesIcon,
 } from "@sanity/icons";
 
 export const structure = (S: StructureBuilder) =>
   S.list()
     .title("Content")
     .items([
+      // Homepage Content
+      S.listItem()
+        .title("Homepage")
+        .icon(ImageIcon)
+        .child(
+          S.list()
+            .title("Homepage Content")
+            .items([
+              S.documentTypeListItem("instagramPost").title("Instagram Feed").icon(ImageIcon),
+              S.documentTypeListItem("communityPhoto").title("Community Photos").icon(ImagesIcon),
+            ])
+        ),
+
+      S.divider(),
+
       // Regular document lists
       S.documentTypeListItem("member").title("Team").icon(UsersIcon),
       S.documentTypeListItem("testimonial").title("Testimonials").icon(CommentIcon),

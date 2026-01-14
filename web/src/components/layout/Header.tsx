@@ -152,8 +152,8 @@ export function Header({ settings }: HeaderProps) {
             >
               <span className="text-[15px] font-medium text-gray-900">Join us</span>
               <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </span>
             </Link>
@@ -258,13 +258,15 @@ export function Header({ settings }: HeaderProps) {
               <div className="pt-4">
                 <Link
                   href="/join"
-                  className="flex items-center justify-center gap-3 bg-purple-700 text-white rounded-full py-3 px-6 font-medium"
+                  className="flex items-center justify-center gap-3 bg-white border border-gray-200 rounded-full py-2.5 pl-6 pr-2.5 font-medium hover:bg-gray-50 transition-colors group"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Join us
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  <span className="text-gray-900">Join us</span>
+                  <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                    <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </Link>
               </div>
             </div>

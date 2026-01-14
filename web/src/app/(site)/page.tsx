@@ -2,6 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { InstagramFeed } from "@/components/sections/InstagramFeed";
+import { CommunityPhotosGrid } from "@/components/sections/CommunityPhotosGrid";
+import { sanityFetch } from "@/sanity/lib/live";
+import { INSTAGRAM_POSTS_QUERY, COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "UXHI - A UX design community for people in Hawaiʻi",
@@ -9,44 +12,60 @@ export const metadata: Metadata = {
     "Join 500+ UX professionals, students, and curious individuals in Hawaiʻi. Connect, learn, and grow together with UXHI.",
 };
 
-// Arrow Icon Component
+// Arrow Icon Component (Feather arrow-right)
 function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M5 12h14M12 5l7 7-7 7" />
     </svg>
   );
 }
 
-// Person Icon for membership
-function PersonIcon({ className = "w-6 h-6" }: { className?: string }) {
+// Slack Icon (Feather)
+function SlackIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 11l1.5 1.5L13 10" />
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z" />
+      <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+      <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z" />
+      <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z" />
+      <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z" />
+      <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+      <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z" />
+      <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z" />
     </svg>
   );
 }
 
-// Calendar Icon
+// Calendar Icon (Feather)
 function CalendarIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+      <line x1="16" y1="2" x2="16" y2="6" />
+      <line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
     </svg>
   );
 }
 
-// Document Icon
-function DocumentIcon({ className = "w-6 h-6" }: { className?: string }) {
+// Book Open Icon (Feather)
+function BookOpenIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
     </svg>
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  // Fetch data from Sanity
+  const [{ data: instagramPosts }, { data: communityPhotos }] = await Promise.all([
+    sanityFetch({ query: INSTAGRAM_POSTS_QUERY }),
+    sanityFetch({ query: COMMUNITY_PHOTOS_QUERY }),
+  ]);
+
   return (
     <>
       {/* Hero Section */}
@@ -72,11 +91,11 @@ export default function HomePage() {
           {/* CTA Button */}
           <Link
             href="/join"
-            className="inline-flex items-center gap-3 bg-purple-700 text-white rounded-full pl-7 pr-2 py-2 font-medium text-lg hover:bg-purple-800 transition-colors group"
+            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium text-lg hover:bg-gray-50 transition-colors group"
           >
-            <span>Join us</span>
-            <span className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center group-hover:bg-teal-400 transition-colors">
-              <ArrowIcon className="w-5 h-5 text-white" />
+            <span className="text-gray-900">Join us</span>
+            <span className="w-10 h-10 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <ArrowIcon className="w-5 h-5 text-gray-900" />
             </span>
           </Link>
         </div>
@@ -126,9 +145,12 @@ export default function HomePage() {
               </p>
               <Link
                 href="/join"
-                className="mt-4 inline-flex items-center justify-center gap-2 bg-white text-purple-700 rounded-full py-2.5 px-5 font-medium text-sm hover:bg-gray-100 transition-colors relative z-10"
+                className="mt-4 inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full pl-4 pr-1.5 py-1.5 font-medium text-sm hover:bg-gray-50 transition-colors relative z-10 group"
               >
-                Join Community
+                <span className="text-gray-900">Join us</span>
+                <span className="w-7 h-7 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                  <ArrowIcon className="w-3.5 h-3.5 text-gray-900" />
+                </span>
               </Link>
             </div>
 
@@ -279,8 +301,8 @@ export default function HomePage() {
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Learn more</span>
-            <span className="w-9 h-9 rounded-full bg-teal-500 flex items-center justify-center group-hover:bg-teal-400 transition-colors">
-              <ArrowIcon className="w-4 h-4 text-white" />
+            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
         </div>
@@ -302,7 +324,7 @@ export default function HomePage() {
             {/* Free Membership */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
               <div className="w-14 h-14 mx-auto mb-6 text-teal-400">
-                <PersonIcon className="w-full h-full" />
+                <SlackIcon className="w-full h-full" />
               </div>
               <h3 className="font-display text-2xl text-white mb-4">Free Membership</h3>
               <p className="text-purple-200 leading-relaxed">
@@ -324,7 +346,7 @@ export default function HomePage() {
             {/* Resources */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
               <div className="w-14 h-14 mx-auto mb-6 text-teal-400">
-                <DocumentIcon className="w-full h-full" />
+                <BookOpenIcon className="w-full h-full" />
               </div>
               <h3 className="font-display text-2xl text-white mb-4">Resources</h3>
               <p className="text-purple-200 leading-relaxed">
@@ -345,7 +367,7 @@ export default function HomePage() {
             <p className="text-gray-600 text-lg">Stay connected with our latest events and community updates</p>
           </div>
 
-          <InstagramFeed />
+          <InstagramFeed posts={instagramPosts || []} />
         </div>
       </section>
 
@@ -408,88 +430,8 @@ export default function HomePage() {
       {/* Community CTA Section */}
       <section className="py-24 px-6">
         <div className="max-w-[1400px] mx-auto">
-          {/* Photos Grid - Desktop (9 columns) */}
-          <div className="hidden lg:grid grid-cols-9 gap-4 mb-16">
-            {/* Column 1 */}
-            <div className="flex flex-col gap-4 pt-16">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            {/* Column 2 */}
-            <div className="flex flex-col gap-4">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            {/* Column 3 */}
-            <div className="flex flex-col gap-4 pt-24">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            {/* Column 4 */}
-            <div className="flex flex-col gap-4 pt-8">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            {/* Column 5 */}
-            <div className="flex flex-col gap-4 pt-24">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            {/* Column 6 */}
-            <div className="flex flex-col gap-4 pt-8">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            {/* Column 7 */}
-            <div className="flex flex-col gap-4 pt-24">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            {/* Column 8 */}
-            <div className="flex flex-col gap-4">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            {/* Column 9 */}
-            <div className="flex flex-col gap-4 pt-16">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-          </div>
-
-          {/* Photos Grid - Tablet (5 columns) */}
-          <div className="hidden md:grid lg:hidden grid-cols-5 gap-4 mb-12">
-            <div className="flex flex-col gap-4 pt-8">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            <div className="flex flex-col gap-4">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            <div className="flex flex-col gap-4 pt-12">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            <div className="flex flex-col gap-4 pt-4">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-            <div className="flex flex-col gap-4">
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden" />
-            </div>
-          </div>
-
-          {/* Photos Grid - Mobile (3 columns) */}
-          <div className="md:hidden grid grid-cols-3 gap-3 mb-10">
-            <div className="flex flex-col gap-3 pt-6">
-              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
-            </div>
-            <div className="flex flex-col gap-3">
-              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
-            </div>
-            <div className="flex flex-col gap-3 pt-10">
-              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
-              <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden" />
-            </div>
-          </div>
+          {/* Community Photos Grid - managed in Sanity */}
+          <CommunityPhotosGrid photos={communityPhotos || []} />
 
           {/* CTA Content */}
           <div className="text-center pt-4">
@@ -503,11 +445,11 @@ export default function HomePage() {
             </p>
             <Link
               href="/join"
-              className="inline-flex items-center gap-3 bg-purple-700 text-white rounded-full pl-6 pr-1.5 py-1.5 font-medium hover:bg-purple-800 transition-colors group"
+              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
             >
-              <span>Join us</span>
-              <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center">
-                <ArrowIcon className="w-4 h-4 text-purple-700" />
+              <span className="text-gray-900">Join us</span>
+              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
           </div>

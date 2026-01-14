@@ -1,15 +1,5 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
-
-interface InstagramPost {
-  id: string;
-  media_url: string;
-  permalink: string;
-  caption?: string;
-  media_type: string;
-}
+import { urlFor } from "@/sanity/lib/image";
 
 // Instagram icon component
 function InstagramIcon({ className = "w-8 h-8" }: { className?: string }) {
@@ -20,75 +10,79 @@ function InstagramIcon({ className = "w-8 h-8" }: { className?: string }) {
   );
 }
 
-export function InstagramFeed() {
-  const [posts, setPosts] = useState<InstagramPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+interface InstagramPost {
+  _id: string;
+  image: {
+    asset: { _id: string; url: string };
+  };
+  permalink?: string;
+  caption?: string;
+}
 
-  useEffect(() => {
-    async function fetchInstagramPosts() {
-      try {
-        const response = await fetch("/api/instagram");
-        if (!response.ok) {
-          throw new Error("Failed to fetch Instagram posts");
-        }
-        const data = await response.json();
-        setPosts(data.posts || []);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to load posts");
-        // Use fallback placeholder posts
-        setPosts([]);
-      } finally {
-        setLoading(false);
-      }
-    }
+interface InstagramFeedProps {
+  posts: InstagramPost[];
+}
 
-    fetchInstagramPosts();
-  }, []);
+// Fallback posts when Sanity has no data
+const fallbackPosts = [
+  { id: "1", image: "/images/instagram/post-1.jpg" },
+  { id: "2", image: "/images/instagram/post-2.jpg" },
+  { id: "3", image: "/images/instagram/post-3.jpg" },
+  { id: "4", image: "/images/instagram/post-4.jpg" },
+  { id: "5", image: "/images/instagram/post-5.jpg" },
+  { id: "6", image: "/images/instagram/post-6.jpg" },
+  { id: "7", image: "/images/instagram/post-7.jpg" },
+  { id: "8", image: "/images/instagram/post-8.jpg" },
+];
 
-  // Fallback/placeholder posts when API is not configured
-  const placeholderPosts: InstagramPost[] = [
-    { id: "1", media_url: "/images/instagram/placeholder-1.jpg", permalink: "https://www.instagram.com/uxhicommunity/", media_type: "IMAGE" },
-    { id: "2", media_url: "/images/instagram/placeholder-2.jpg", permalink: "https://www.instagram.com/uxhicommunity/", media_type: "IMAGE" },
-    { id: "3", media_url: "/images/instagram/placeholder-3.jpg", permalink: "https://www.instagram.com/uxhicommunity/", media_type: "IMAGE" },
-    { id: "4", media_url: "/images/instagram/placeholder-4.jpg", permalink: "https://www.instagram.com/uxhicommunity/", media_type: "IMAGE" },
-    { id: "5", media_url: "/images/instagram/placeholder-5.jpg", permalink: "https://www.instagram.com/uxhicommunity/", media_type: "IMAGE" },
-    { id: "6", media_url: "/images/instagram/placeholder-6.jpg", permalink: "https://www.instagram.com/uxhicommunity/", media_type: "IMAGE" },
-    { id: "7", media_url: "/images/instagram/placeholder-7.jpg", permalink: "https://www.instagram.com/uxhicommunity/", media_type: "IMAGE" },
-    { id: "8", media_url: "/images/instagram/placeholder-8.jpg", permalink: "https://www.instagram.com/uxhicommunity/", media_type: "IMAGE" },
-  ];
+export function InstagramFeed({ posts }: InstagramFeedProps) {
+  const instagramUrl = "https://www.instagram.com/uxhicommunity/";
 
-  const displayPosts = posts.length > 0 ? posts.slice(0, 8) : placeholderPosts;
-
-  if (loading) {
+  // Use Sanity posts if available, otherwise fallback
+  if (posts && posts.length > 0) {
     return (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[...Array(8)].map((_, i) => (
-          <div key={i} className="rounded-[20px] overflow-hidden aspect-square bg-gray-200 animate-pulse" />
+        {posts.map((post) => (
+          <a
+            key={post._id}
+            href={post.permalink || instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-[20px] overflow-hidden aspect-[4/5] relative group cursor-pointer bg-gray-100"
+          >
+            <Image
+              src={urlFor(post.image).width(400).height(500).url()}
+              alt={post.caption || "UXHI Instagram post"}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3">
+              <InstagramIcon className="w-10 h-10 text-white" />
+              <span className="text-white text-sm font-medium">View on Instagram</span>
+            </div>
+          </a>
         ))}
       </div>
     );
   }
 
+  // Fallback to static images
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {displayPosts.map((post) => (
+      {fallbackPosts.map((post) => (
         <a
           key={post.id}
-          href={post.permalink}
+          href={instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-[20px] overflow-hidden aspect-square relative group cursor-pointer"
+          className="rounded-[20px] overflow-hidden aspect-[4/5] relative group cursor-pointer bg-gray-100"
         >
-          {/* Post Image */}
           <Image
-            src={post.media_url}
-            alt={post.caption || "Instagram post"}
+            src={post.image}
+            alt="UXHI Instagram post"
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
-
-          {/* Hover Overlay */}
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3">
             <InstagramIcon className="w-10 h-10 text-white" />
             <span className="text-white text-sm font-medium">View on Instagram</span>
