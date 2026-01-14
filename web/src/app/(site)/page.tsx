@@ -21,44 +21,6 @@ function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// Slack Icon (Feather)
-function SlackIcon({ className = "w-6 h-6" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z" />
-      <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
-      <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z" />
-      <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z" />
-      <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z" />
-      <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
-      <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z" />
-      <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z" />
-    </svg>
-  );
-}
-
-// Calendar Icon (Feather)
-function CalendarIcon({ className = "w-6 h-6" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-      <line x1="16" y1="2" x2="16" y2="6" />
-      <line x1="8" y1="2" x2="8" y2="6" />
-      <line x1="3" y1="10" x2="21" y2="10" />
-    </svg>
-  );
-}
-
-// Book Open Icon (Feather)
-function BookOpenIcon({ className = "w-6 h-6" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-    </svg>
-  );
-}
-
 export default async function HomePage() {
   // Fetch data from Sanity
   const [{ data: instagramPosts }, { data: communityPhotos }] = await Promise.all([
@@ -323,8 +285,13 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Free Membership */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
-              <div className="w-14 h-14 mx-auto mb-6 text-teal-400">
-                <SlackIcon className="w-full h-full" />
+              <div className="w-24 h-24 mx-auto mb-6 relative">
+                <Image
+                  src="/images/icons/icon-membership.png"
+                  alt="Free Membership"
+                  fill
+                  className="object-contain"
+                />
               </div>
               <h3 className="font-display text-2xl text-white mb-4">Free Membership</h3>
               <p className="text-purple-200 leading-relaxed">
@@ -334,8 +301,13 @@ export default async function HomePage() {
 
             {/* Events */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
-              <div className="w-14 h-14 mx-auto mb-6 text-teal-400">
-                <CalendarIcon className="w-full h-full" />
+              <div className="w-24 h-24 mx-auto mb-6 relative">
+                <Image
+                  src="/images/icons/icon-events.png"
+                  alt="Events"
+                  fill
+                  className="object-contain"
+                />
               </div>
               <h3 className="font-display text-2xl text-white mb-4">Events</h3>
               <p className="text-purple-200 leading-relaxed">
@@ -345,8 +317,13 @@ export default async function HomePage() {
 
             {/* Resources */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
-              <div className="w-14 h-14 mx-auto mb-6 text-teal-400">
-                <BookOpenIcon className="w-full h-full" />
+              <div className="w-24 h-24 mx-auto mb-6 relative">
+                <Image
+                  src="/images/icons/icon-resources.png"
+                  alt="Resources"
+                  fill
+                  className="object-contain"
+                />
               </div>
               <h3 className="font-display text-2xl text-white mb-4">Resources</h3>
               <p className="text-purple-200 leading-relaxed">
