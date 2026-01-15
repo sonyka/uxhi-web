@@ -1,5 +1,5 @@
-import { Container } from "@/components/ui/Container";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,101 +8,137 @@ export const metadata: Metadata = {
     "Discover upcoming UX events, workshops, and meetups in Hawaii. Connect with local UX professionals and grow your skills.",
 };
 
-export default function EventsPage() {
-  // In a full implementation, this would fetch events from Sanity
-  const upcomingEvents = [
-    {
-      id: "1",
-      title: "UXHI Monthly Meetup",
-      date: "2026-02-15",
-      type: "meetup",
-      location: "Honolulu, HI",
-      description:
-        "Join us for our monthly meetup where we discuss the latest trends in UX design and network with fellow professionals.",
-    },
-    {
-      id: "2",
-      title: "Design Systems Workshop",
-      date: "2026-03-01",
-      type: "workshop",
-      location: "Online",
-      description:
-        "Learn how to build and maintain design systems that scale. Hands-on workshop with practical exercises.",
-    },
-    {
-      id: "3",
-      title: "UXHI Annual Conference 2026",
-      date: "2026-06-15",
-      type: "conference",
-      location: "Hawaii Convention Center",
-      description:
-        "Our flagship annual event featuring speakers, workshops, and networking opportunities.",
-    },
-  ];
-
+// Arrow Icon Component (Feather arrow-right)
+function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <main className="py-20">
-      <Container>
-        <AnimatedSection>
-          <h1 className="font-display text-4xl md:text-5xl text-purple-700 mb-4">
-            Events
-          </h1>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl">
-            We host a mix of educational webinars, interactive workshops, and casual meetups every month, as well as our annual conference. Become a member and you’ll receive advanced notice on all our events!
-          </p>
-        </AnimatedSection>
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  );
+}
 
-        <div className="space-y-6">
-          {upcomingEvents.map((event, index) => (
-            <AnimatedSection key={event.id} delay={index * 0.1}>
-              <div className="bg-cream rounded-2xl p-6 md:p-8 hover:shadow-lg transition-shadow">
-                <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                  {/* Date */}
-                  <div className="flex-shrink-0 text-center md:w-24">
-                    <div className="bg-teal-500 text-white rounded-lg py-2 px-4 md:py-4">
-                      <div className="text-sm uppercase">
-                        {new Date(event.date).toLocaleDateString("en-US", {
-                          month: "short",
-                        })}
-                      </div>
-                      <div className="text-2xl md:text-3xl font-bold">
-                        {new Date(event.date).getDate()}
-                      </div>
-                    </div>
-                  </div>
+// Placeholder images for the grid
+const gridImages = [
+  { id: "1", src: "/images/bento/group-leis.jpg", alt: "UXHI community members with leis" },
+  { id: "2", src: "/images/bento/conference.jpg", alt: "UXHI conference" },
+  { id: "3", src: "/images/bento/ux101-group.jpg", alt: "UX101 group" },
+  { id: "4", src: "/images/bento/crowd-community.jpg", alt: "UXHI community crowd" },
+  { id: "5", src: "/images/bento/photobooth.jpg", alt: "UXHI photobooth" },
+  { id: "6", src: "/images/bento/uxhicon-25.jpg", alt: "UXHICon 25" },
+];
 
-                  {/* Content */}
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs uppercase tracking-wide bg-purple-100 text-purple-700 px-2 py-1 rounded">
-                        {event.type}
-                      </span>
-                    </div>
-                    <h2 className="font-semibold text-xl md:text-2xl text-purple-700 mb-2">
-                      {event.title}
-                    </h2>
-                    <p className="text-gray-500 text-sm mb-3">
-                      {event.location}
-                    </p>
-                    <p className="text-gray-600">{event.description}</p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
+export default function EventsPage() {
+  return (
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <div className="flex flex-col lg:flex-row min-h-screen">
+        {/* Left Side - Content */}
+        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center px-8 py-16 lg:py-0">
+          <div className="max-w-md">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6">
+              Events
+            </h1>
+            <p className="text-gray-700 text-lg leading-relaxed mb-8">
+              We host a mix of educational webinars, interactive workshops, and casual meetups every month, as well as our annual conference. Become a member and you&apos;ll receive advanced notice on all our events!
+            </p>
+            <Link
+              href="/join"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white text-gray-900 font-semibold rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
+            >
+              Become a Member
+              <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
+                <ArrowIcon className="w-4 h-4 text-gray-900" />
+              </span>
+            </Link>
+          </div>
         </div>
 
-        {upcomingEvents.length === 0 && (
-          <AnimatedSection>
-            <div className="text-center py-12">
-              <p className="text-gray-500">
-                No upcoming events. Check back soon or join our Slack to stay
-                updated!
-              </p>
+        {/* Right Side - Image Grid */}
+        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center p-8 lg:p-12">
+          <div className="grid grid-cols-2 gap-4 max-w-lg w-full">
+            {/* Column 1 - offset down */}
+            <div className="flex flex-col gap-4 pt-8">
+              {gridImages.slice(0, 3).map((image) => (
+                <div
+                  key={image.id}
+                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
             </div>
-          </AnimatedSection>
-        )}
-      </Container>
+            {/* Column 2 - no offset */}
+            <div className="flex flex-col gap-4">
+              {gridImages.slice(3, 6).map((image) => (
+                <div
+                  key={image.id}
+                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Upcoming Events Section */}
+      <section className="py-20 px-6 bg-cream">
+        <div className="max-w-[900px] mx-auto text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-8">
+            Upcoming Events
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            We have no upcoming events scheduled at this time. Check back soon or join our email list!
+          </p>
+        </div>
+      </section>
+
+      {/* Past Events Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-[1100px] mx-auto">
+          <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-12 text-center">
+            Past Events
+          </h2>
+
+          {/* Luma Embed */}
+          <div className="rounded-[24px] overflow-hidden bg-cream p-4">
+            <iframe
+              src="https://lu.ma/embed/calendar/cal-gT2HhpGHlTpnIvZ/events?lt=light"
+              width="100%"
+              height="700"
+              frameBorder="0"
+              className="rounded-lg border-0"
+              title="UXHI Past Events on Luma"
+              allowFullScreen
+            />
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              href="https://lu.ma/uxhi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+            >
+              <span className="text-gray-900">View All Events on Luma</span>
+              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                <ArrowIcon className="w-4 h-4 text-gray-900" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
