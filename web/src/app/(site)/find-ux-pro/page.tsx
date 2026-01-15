@@ -1,5 +1,8 @@
-import { Container } from "@/components/ui/Container";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import Image from "next/image";
+import Link from "next/link";
+import { sanityFetch } from "@/sanity/lib/live";
+import { FAQS_QUERY } from "@/sanity/lib/queries";
+import { FAQSection } from "@/components/sections/FAQSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,130 +11,131 @@ export const metadata: Metadata = {
     "Connect with UX professionals in Hawaii. Browse our member directory to find designers, researchers, and UX specialists.",
 };
 
-export default function FindUXProPage() {
-  // In a full implementation, this would fetch members from Sanity
-  const members = [
-    {
-      id: "1",
-      name: "Sarah Chen",
-      role: "UX Designer",
-      company: "Tech Hawaii",
-      skills: ["UI Design", "Prototyping", "Design Systems"],
-    },
-    {
-      id: "2",
-      name: "Marcus Johnson",
-      role: "UX Researcher",
-      company: "Island Innovations",
-      skills: ["User Research", "Usability Testing", "Data Analysis"],
-    },
-    {
-      id: "3",
-      name: "Emma Williams",
-      role: "Product Designer",
-      company: "Pacific Digital",
-      skills: ["Product Strategy", "Interaction Design", "Mobile Design"],
-    },
-    {
-      id: "4",
-      name: "David Kim",
-      role: "Design Lead",
-      company: "Aloha Studios",
-      skills: ["Team Leadership", "Design Strategy", "Mentoring"],
-    },
-    {
-      id: "5",
-      name: "Lisa Nakamura",
-      role: "UX/UI Designer",
-      company: "Freelance",
-      skills: ["Visual Design", "Branding", "Web Design"],
-    },
-    {
-      id: "6",
-      name: "James Oahu",
-      role: "Service Designer",
-      company: "State of Hawaii",
-      skills: ["Service Design", "Journey Mapping", "Stakeholder Management"],
-    },
-  ];
+// Arrow Icon Component (Feather arrow-right)
+function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  );
+}
+
+// Placeholder images for the grid
+const gridImages = [
+  { id: "1", src: "/images/bento/group-leis.jpg", alt: "UXHI community members with leis" },
+  { id: "2", src: "/images/bento/conference.jpg", alt: "UXHI conference" },
+  { id: "3", src: "/images/bento/ux101-group.jpg", alt: "UX101 group" },
+  { id: "4", src: "/images/bento/crowd-community.jpg", alt: "UXHI community crowd" },
+  { id: "5", src: "/images/bento/photobooth.jpg", alt: "UXHI photobooth" },
+  { id: "6", src: "/images/bento/uxhicon-25.jpg", alt: "UXHICon 25" },
+];
+
+export default async function FindUXProPage() {
+  const { data: faqs } = await sanityFetch({ query: FAQS_QUERY });
 
   return (
-    <main className="py-20">
-      <Container>
-        <AnimatedSection>
-          <h1 className="font-display text-4xl md:text-5xl text-purple-700 mb-4">
-            Find UX Pro
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl">
-            Welcome to the UXHI Member Directory, your hub for connecting with UX design professionals in Hawaii and those with Hawaii ties, across all experience levels. Not only does this serve as a go-to resource for companies and recruiters seeking talented local UX professionals, but it also fosters connections between UX practitioners themselves.
-          </p>
-        </AnimatedSection>
-
-        {/* Search/Filter - Placeholder */}
-        <AnimatedSection delay={0.1}>
-          <div className="bg-cream rounded-2xl p-4 mb-8">
-            <input
-              type="text"
-              placeholder="Search by name, skill, or company..."
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
-            />
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <div className="flex flex-col lg:flex-row min-h-screen">
+        {/* Left Side - Content */}
+        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center px-8 py-16 lg:py-0">
+          <div className="max-w-md">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6">
+              Find A UX Professional
+            </h1>
+            <p className="text-gray-700 text-lg leading-relaxed mb-8">
+              Connect with talented UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels.
+            </p>
+            <Link
+              href="https://airtable.com/your-directory-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-white text-gray-900 font-semibold rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
+            >
+              Access the Directory
+              <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
+                <ArrowIcon className="w-4 h-4 text-gray-900" />
+              </span>
+            </Link>
           </div>
-        </AnimatedSection>
-
-        {/* Members Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {members.map((member, index) => (
-            <AnimatedSection key={member.id} delay={index * 0.05}>
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 transition-all">
-                {/* Avatar Placeholder */}
-                <div className="w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center mb-4 mx-auto">
-                  <span className="text-2xl font-semibold text-purple-300">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </span>
-                </div>
-
-                <div className="text-center">
-                  <h2 className="font-semibold text-lg text-purple-700">
-                    {member.name}
-                  </h2>
-                  <p className="text-gray-600 text-sm">{member.role}</p>
-                  <p className="text-teal-500 text-sm mb-4">{member.company}</p>
-
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {member.skills.slice(0, 3).map((skill) => (
-                      <span
-                        key={skill}
-                        className="text-xs bg-cream px-2 py-1 rounded text-gray-600"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
         </div>
 
-        {/* CTA */}
-        <AnimatedSection delay={0.3}>
-          <div className="text-center mt-12 p-8 bg-purple-700 rounded-2xl text-white">
-            <h2 className="font-display text-2xl mb-4">Want to be listed?</h2>
-            <p className="text-purple-200 mb-6">
-              Join UXHI to get your profile in our member directory.
-            </p>
-            <a
-              href="/join"
-              className="inline-flex items-center gap-2 bg-white text-purple-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
-            >
-              Join UXHI
-            </a>
+        {/* Right Side - Image Grid */}
+        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center p-8 lg:p-12">
+          <div className="grid grid-cols-2 gap-4 max-w-lg w-full">
+            {/* Column 1 - offset down */}
+            <div className="flex flex-col gap-4 pt-8">
+              {gridImages.slice(0, 3).map((image) => (
+                <div
+                  key={image.id}
+                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+            {/* Column 2 - no offset */}
+            <div className="flex flex-col gap-4">
+              {gridImages.slice(3, 6).map((image) => (
+                <div
+                  key={image.id}
+                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </AnimatedSection>
-      </Container>
+        </div>
+      </div>
+
+      {/* Join Our Member Directory Section */}
+      <section className="py-20 px-6 bg-cream">
+        <div className="max-w-[900px] mx-auto text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-8">
+            Join Our Member Directory!
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-10">
+            Welcome to the UXHI Member Directory, your hub for connecting with UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels. Not only does this serve as a go-to resource for companies and recruiters seeking talented local UX professionals, but it also fosters connections between UX practitioners themselves.
+          </p>
+          <Link
+            href="https://airtable.com/your-directory-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+          >
+            <span className="text-gray-900">Access the Directory</span>
+            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <ArrowIcon className="w-4 h-4 text-gray-900" />
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      {/* Criteria Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+            What criteria must be met to join?
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            UX professionals and anyone transitioning into UX design who lives in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request will automatically be added to the directory and a UXHI team member will manually add your head shot and island, if applicable, within a few business days.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQs Section */}
+      <FAQSection faqs={faqs || []} />
     </main>
   );
 }

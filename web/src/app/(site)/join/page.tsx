@@ -95,7 +95,7 @@ export default async function JoinPage() {
         </div>
 
         {/* Right Side - Image Grid */}
-        <div className="lg:w-1/2 bg-cream flex items-center justify-center p-8 lg:p-12">
+        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center p-8 lg:p-12">
           <div className="grid grid-cols-2 gap-4 max-w-lg w-full">
             {/* Column 1 - offset down */}
             <div className="flex flex-col gap-4 pt-8">
