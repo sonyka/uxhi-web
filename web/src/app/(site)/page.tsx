@@ -48,14 +48,14 @@ export default async function HomePage() {
           {/* Main Headline */}
           <h1 className="font-display text-5xl md:text-6xl lg:text-[80px] leading-[1.05] tracking-tight text-gray-900 mb-10 max-w-[900px] mx-auto">
             A{" "}
-            <span className="text-gray-900 hover:text-gray-600 transition-colors relative inline-block cursor-pointer group/ux">
+            <span className="text-gray-900 hover:text-gray-700 transition-colors relative inline-block cursor-pointer group/ux">
               UX
               <Image
-                src="/images/ux-circle-yellow-v2.png"
+                src="/images/ux-circle-yellow-v3.png"
                 alt=""
-                width={120}
-                height={90}
-                className="absolute -left-3 -right-2 -top-2 -bottom-1 w-[calc(100%+24px)] h-[calc(100%+16px)] pointer-events-none object-contain"
+                width={240}
+                height={130}
+                className="absolute -left-0 -top-5 w-[240px] h-[130px] pointer-events-none"
               />
               {/* Tooltip */}
               <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal leading-relaxed tracking-normal rounded-xl shadow-lg border border-gray-100 w-72 text-left opacity-0 invisible group-hover/ux:opacity-100 group-hover/ux:visible transition-all duration-200 delay-300 z-50" style={{ wordSpacing: '0.1em' }}>
@@ -209,7 +209,7 @@ export default async function HomePage() {
         <div className="max-w-[900px] mx-auto text-center">
           <h2 className="font-display text-[22px] md:text-[28px] lg:text-[34px] leading-tight text-gray-900">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
-            <span className="text-gray-900 hover:text-gray-600 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
+            <span className="text-gray-900 hover:text-gray-700 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
               Human-Centered Design
               {/* Underline image */}
               <Image
