@@ -1,8 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { sanityFetch } from "@/sanity/lib/live";
-import { FAQS_QUERY } from "@/sanity/lib/queries";
-import { FAQSection } from "@/components/sections/FAQSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -30,9 +27,7 @@ const gridImages = [
   { id: "6", src: "/images/bento/uxhicon-25.jpg", alt: "UXHICon 25" },
 ];
 
-export default async function FindUXProPage() {
-  const { data: faqs } = await sanityFetch({ query: FAQS_QUERY });
-
+export default function FindUXProPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -134,8 +129,6 @@ export default async function FindUXProPage() {
         </div>
       </section>
 
-      {/* FAQs Section */}
-      <FAQSection faqs={faqs || []} />
     </main>
   );
 }
