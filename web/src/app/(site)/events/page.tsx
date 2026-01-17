@@ -139,6 +139,83 @@ export default function EventsPage() {
           </div>
         </div>
       </section>
+
+      {/* Conference Section */}
+      <section className="py-20 px-6 bg-purple-700">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-8 text-center">
+            Conference
+          </h2>
+          <p className="text-purple-100 text-lg leading-relaxed mb-6 text-center max-w-[750px] mx-auto">
+            Our third annual conference is a hub for those infused in human-centered design, user experience, design thinking, and everything in between, offering an opportunity to deepen your expertise. Whether you&apos;re a newcomer eager to learn more about UX or an industry pro, you&apos;ll find value in the immersive day filled with inspiration, knowledge-sharing, and networking!
+          </p>
+
+          {/* Press Mention */}
+          <p className="text-purple-200 text-center mb-10">
+            <span className="font-medium">Press:</span>{" "}
+            <a
+              href="https://www.hawaiipublicradio.org/podcast/bytemarks-cafe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-white transition-colors"
+            >
+              Hawaii Public Radio - Bytemarks Cafe
+            </a>{" "}
+            UXHI Conference coverage
+          </p>
+
+          {/* CTA */}
+          <div className="text-center mb-16">
+            <Link
+              href="https://uxhiconference.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+            >
+              <span className="text-gray-900">Visit Conference Site</span>
+              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                <ArrowIcon className="w-4 h-4 text-gray-900" />
+              </span>
+            </Link>
+          </div>
+
+          {/* Placeholder Content Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Speakers Placeholder */}
+            <div className="bg-white/10 rounded-[20px] p-8 text-center">
+              <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-8 h-8 text-white/60" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+              </div>
+              <h3 className="text-white font-semibold mb-2">Speakers</h3>
+              <p className="text-purple-200 text-sm">Coming soon</p>
+            </div>
+
+            {/* Photos Placeholder */}
+            <div className="bg-white/10 rounded-[20px] p-8 text-center">
+              <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-8 h-8 text-white/60" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+              </div>
+              <h3 className="text-white font-semibold mb-2">Photos</h3>
+              <p className="text-purple-200 text-sm">Coming soon</p>
+            </div>
+
+            {/* Testimonials Placeholder */}
+            <div className="bg-white/10 rounded-[20px] p-8 text-center">
+              <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-8 h-8 text-white/60" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                </svg>
+              </div>
+              <h3 className="text-white font-semibold mb-2">Testimonials</h3>
+              <p className="text-purple-200 text-sm">Coming soon</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
