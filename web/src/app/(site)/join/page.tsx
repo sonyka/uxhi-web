@@ -254,36 +254,27 @@ export default async function JoinPage() {
       <section id="join-form" className="py-20 px-6 bg-white">
         <div className="max-w-[800px] mx-auto">
           <div className="text-center mb-10">
-            {/* Slack Icon with Tooltip */}
-            <div className="relative inline-block mb-6 cursor-pointer group/slack">
-              <div className="w-32 h-32 mx-auto relative">
-                <Image
-                  src="/images/icons/icon-slack.png"
-                  alt="Slack"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              {/* Tooltip */}
-              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-normal leading-relaxed rounded-xl shadow-lg border border-gray-100 w-72 text-left opacity-0 invisible group-hover/slack:opacity-100 group-hover/slack:visible transition-all duration-200 z-50">
-                Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has 400+ designers sharing resources, job opportunities, and community support.
-                {/* Tail */}
-                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
-              </span>
+            {/* Slack Icon */}
+            <div className="w-32 h-32 mx-auto mb-6 relative">
+              <Image
+                src="/images/icons/icon-slack.png"
+                alt="Slack"
+                fill
+                className="object-contain"
+              />
             </div>
             <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-6">
               How to Join
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community{" "}
+              Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with 400+ designers!{" "}
               <span className="relative inline-block group/slack-link">
-                <span className="text-purple-700 underline underline-offset-2 cursor-help">(What&apos;s Slack?)</span>
+                <span className="text-purple-700 underline underline-offset-2 cursor-help">What is Slack?</span>
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-3 bg-white text-gray-700 text-sm font-normal leading-relaxed rounded-xl shadow-lg border border-gray-100 w-72 text-left opacity-0 invisible group-hover/slack-link:opacity-100 group-hover/slack-link:visible transition-all duration-200 z-50">
                   Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has 400+ designers sharing resources, job opportunities, and community support.
                   <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
                 </span>
               </span>
-              {" "}with 400+ designers!
             </p>
           </div>
 
