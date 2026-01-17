@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -16,6 +15,30 @@ function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
     </svg>
   );
 }
+
+// Committee data
+const committees = [
+  {
+    name: "Educational Outreach",
+    description: "Fosters UX education at foundational levels (K-12, colleges).",
+  },
+  {
+    name: "Workforce Outreach",
+    description: "Develops educational workshops for companies.",
+  },
+  {
+    name: "Community Engagement",
+    description: "Organizes social events and networking.",
+  },
+  {
+    name: "Professional Development",
+    description: "Provides continuous learning opportunities (workshops, webinars).",
+  },
+  {
+    name: "Communications",
+    description: "Manages website, social media, newsletters, and branding.",
+  },
+];
 
 export default function GetInvolvedPage() {
   return (
@@ -40,16 +63,16 @@ export default function GetInvolvedPage() {
               Volunteer
             </a>
             <a href="#speak" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
-              Become a Speaker
-            </a>
-            <a href="#sponsor" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
-              Sponsor Us
+              Speaking Opportunities
             </a>
             <a href="#partner" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
-              Partner
+              Partnerships
+            </a>
+            <a href="#sponsor" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+              Sponsorships
             </a>
             <a href="#donate" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
-              Donate
+              Donations
             </a>
           </div>
         </div>
@@ -57,211 +80,169 @@ export default function GetInvolvedPage() {
 
       {/* Volunteer Section */}
       <section id="volunteer" className="py-20 px-6 scroll-mt-24">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-3 block">Volunteer</span>
-              <h2 className="font-display text-3xl md:text-4xl text-gray-900 mb-6">
-                Help grow our community
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Support UXHI by volunteering! There are many ways to be involved: join our committees, assist with events, contribute to our resources, support marketing efforts, and much more.
-              </p>
-              <ul className="text-gray-600 space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Join committees for initiatives like the UXHI Conference or State of UX Report</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Provide general assistance with our events</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Support marketing needs like newsletters and social media</span>
-                </li>
-              </ul>
-              <Link
-                href="/volunteer"
-                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-              >
-                <span className="text-gray-900">Learn more</span>
-                <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                  <ArrowIcon className="w-4 h-4 text-gray-900" />
-                </span>
-              </Link>
-            </div>
-            <div className="rounded-[32px] overflow-hidden aspect-[4/3] relative bg-gray-100">
-              <Image
-                src="/images/bento/crowd-community.jpg"
-                alt="UXHI volunteers at community event"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Speak Section */}
-      <section id="speak" className="py-20 px-6 bg-cream scroll-mt-24">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 rounded-[32px] overflow-hidden aspect-[4/3] relative bg-gray-100">
-              <Image
-                src="/images/bento/conference.jpg"
-                alt="Speaker presenting at UXHI event"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-3 block">Become a Speaker</span>
-              <h2 className="font-display text-3xl md:text-4xl text-gray-900 mb-6">
-                Share your expertise
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Have insights to share? Propose a topic related to UX and present at our UXHI Conference or monthly events. We welcome speakers of all experience levels.
-              </p>
-              <ul className="text-gray-600 space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Present at our annual UXHI Conference</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Lead workshops or webinars</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Contribute as a guest author for our resources</span>
-                </li>
-              </ul>
-              <Link
-                href="mailto:aloha@uxhi.community?subject=Speaker%20Inquiry"
-                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-              >
-                <span className="text-gray-900">Get in touch</span>
-                <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                  <ArrowIcon className="w-4 h-4 text-gray-900" />
-                </span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sponsor Section */}
-      <section id="sponsor" className="py-20 px-6 scroll-mt-24">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-3 block">Sponsor Us</span>
-              <h2 className="font-display text-3xl md:text-4xl text-gray-900 mb-6">
-                Support UXHI events
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Help us create impactful events and programs by becoming a sponsor. Your support enables us to bring quality UX education and networking opportunities to Hawaii.
-              </p>
-              <ul className="text-gray-600 space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Sponsor our annual UXHI Conference</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Support monthly community events</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Get visibility with Hawaii&apos;s UX community</span>
-                </li>
-              </ul>
-              <Link
-                href="mailto:aloha@uxhi.community?subject=Sponsorship%20Inquiry"
-                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-              >
-                <span className="text-gray-900">Become a sponsor</span>
-                <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                  <ArrowIcon className="w-4 h-4 text-gray-900" />
-                </span>
-              </Link>
-            </div>
-            <div className="rounded-[32px] overflow-hidden aspect-[4/3] relative bg-gray-100">
-              <Image
-                src="/images/bento/uxhicon-25.jpg"
-                alt="UXHI Conference sponsors"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partner Section */}
-      <section id="partner" className="py-20 px-6 bg-cream scroll-mt-24">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 rounded-[32px] overflow-hidden aspect-[4/3] relative bg-gray-100">
-              <Image
-                src="/images/bento/group-leis.jpg"
-                alt="UXHI partners at event"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-3 block">Partner</span>
-              <h2 className="font-display text-3xl md:text-4xl text-gray-900 mb-6">
-                Collaborate with us
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Partner with UXHI to co-create events, share resources, and build connections between our communities. We&apos;re always looking for like-minded organizations to collaborate with.
-              </p>
-              <ul className="text-gray-600 space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Co-host events and workshops</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Cross-promote to each other&apos;s communities</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Share resources and knowledge</span>
-                </li>
-              </ul>
-              <Link
-                href="mailto:aloha@uxhi.community?subject=Partnership%20Inquiry"
-                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-              >
-                <span className="text-gray-900">Partner with us</span>
-                <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                  <ArrowIcon className="w-4 h-4 text-gray-900" />
-                </span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Donate Section */}
-      <section id="donate" className="py-20 px-6 bg-teal-500 scroll-mt-24">
-        <div className="max-w-[800px] mx-auto text-center">
-          <span className="text-white/80 text-sm font-medium uppercase tracking-wider mb-3 block">Donate</span>
-          <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
-            Support our mission
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+            Volunteer
           </h2>
-          <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-[600px] mx-auto">
-            Your donation helps us continue to grow and elevate the professional standard of Human-Centered Design in Hawaii. Every contribution makes a difference.
+          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+            Support UXHI by volunteering! There are many ways to be involved:
           </p>
+          <ul className="text-gray-700 space-y-3 mb-8">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Propose a topic related to the field of UX as a presenter at our UXHI Conference or events.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Propose a topic as a guest author for our Resources.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Join our committees for any of our initiatives, like the UXHI Conference or the State of UX Report.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Provide general assistance with our events.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Support with marketing needs like our newsletter and social media.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>And much more!</span>
+            </li>
+          </ul>
           <Link
-            href="mailto:aloha@uxhi.community?subject=Donation%20Inquiry"
+            href="https://forms.gle/volunteer-inquiry"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
-            <span className="text-gray-900">Make a donation</span>
+            <span className="text-gray-900">Inquiry Form</span>
+            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <ArrowIcon className="w-4 h-4 text-gray-900" />
+            </span>
+          </Link>
+
+          {/* Committees Subsection */}
+          <div className="mt-16">
+            <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-8">
+              Committees
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {committees.map((committee) => (
+                <div key={committee.name} className="bg-cream rounded-[20px] p-6">
+                  <h4 className="font-semibold text-gray-900 mb-2">{committee.name}</h4>
+                  <p className="text-gray-600">{committee.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Speaking Opportunities Section */}
+      <section id="speak" className="py-20 px-6 bg-cream scroll-mt-24">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+            Speaking Opportunities
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-8">
+            Have an idea for a talk or a skill you&apos;d like to share? Whether you&apos;d like to teach an interactive workshop, host an education webinar, or a casual talk story session, give back to the community by sharing your experience. Preference is given to speakers with Hawai&apos;i ties.
+          </p>
+          <Link
+            href="https://forms.gle/speaker-application"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+          >
+            <span className="text-gray-900">Speaker Application Form</span>
+            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <ArrowIcon className="w-4 h-4 text-gray-900" />
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      {/* Partnerships Section */}
+      <section id="partner" className="py-20 px-6 scroll-mt-24">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+            Partnerships
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+            Strong collaboration makes for strong results! We&apos;re always open to design-forward organizations and individuals who want to partner with us to build initiatives, host or sponsor events, and help us provide resources to our community.
+          </p>
+          <ul className="text-gray-700 space-y-3 mb-8">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Co-develop resources and/or programs.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Co-host events.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Sponsor workshops.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Provide venue space or tech tools.</span>
+            </li>
+          </ul>
+          <Link
+            href="https://forms.gle/partnership-inquiry"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+          >
+            <span className="text-gray-900">Inquiry Form</span>
+            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <ArrowIcon className="w-4 h-4 text-gray-900" />
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      {/* Sponsorships Section */}
+      <section id="sponsor" className="py-20 px-6 bg-cream scroll-mt-24">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+            Sponsorships
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-8">
+            Our sponsorship packages are designed to elevate your brand, showcase your products, and facilitate connections.
+          </p>
+          <Link
+            href="mailto:aloha@uxhi.community?subject=Sponsorship%20Inquiry"
+            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+          >
+            <span className="text-gray-900">Email Us</span>
+            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <ArrowIcon className="w-4 h-4 text-gray-900" />
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      {/* Donations Section */}
+      <section id="donate" className="py-20 px-6 bg-teal-500 scroll-mt-24">
+        <div className="max-w-[800px] mx-auto text-center">
+          <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
+            Donations
+          </h2>
+          <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-[600px] mx-auto">
+            Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events.
+          </p>
+          <Link
+            href="https://donate.stripe.com/uxhi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+          >
+            <span className="text-gray-900">Donate</span>
             <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
