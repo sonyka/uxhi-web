@@ -31,68 +31,51 @@ export default function FindUXProPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row min-h-screen">
-        {/* Left Side - Content */}
-        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center px-8 py-16 lg:py-0">
-          <div className="max-w-md">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6">
-              Find A UX Professional
-            </h1>
-            <p className="text-gray-700 text-lg leading-relaxed mb-8">
-              Connect with talented UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels.
-            </p>
-            <Link
-              href="https://airtable.com/your-directory-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3 bg-white text-gray-900 font-semibold rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              Access the Directory
-              <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
-          </div>
-        </div>
+      <section className="pt-32 pb-16 px-6 bg-[#f5f5f5]">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            {/* Left Side - Content */}
+            <div className="lg:w-1/2">
+              <h1 className="font-display text-4xl md:text-5xl text-purple-700 mb-6">
+                Find A UX Professional
+              </h1>
+              <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                Connect with talented UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels.
+              </p>
+              <Link
+                href="https://airtable.com/your-directory-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+              >
+                <span className="text-gray-900">Access the Directory</span>
+                <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                  <ArrowIcon className="w-4 h-4 text-gray-900" />
+                </span>
+              </Link>
+            </div>
 
-        {/* Right Side - Image Grid */}
-        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center p-8 lg:p-12">
-          <div className="grid grid-cols-2 gap-4 max-w-lg w-full">
-            {/* Column 1 - offset down */}
-            <div className="flex flex-col gap-4 pt-8">
-              {gridImages.slice(0, 3).map((image) => (
-                <div
-                  key={image.id}
-                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-            {/* Column 2 - no offset */}
-            <div className="flex flex-col gap-4">
-              {gridImages.slice(3, 6).map((image) => (
-                <div
-                  key={image.id}
-                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
+            {/* Right Side - Image Grid */}
+            <div className="lg:w-1/2">
+              <div className="grid grid-cols-3 gap-3 max-w-md mx-auto">
+                {gridImages.slice(0, 6).map((image) => (
+                  <div
+                    key={image.id}
+                    className="aspect-square rounded-[12px] bg-gray-200 overflow-hidden relative"
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Join Our Member Directory Section */}
       <section className="py-20 px-6 bg-cream">
