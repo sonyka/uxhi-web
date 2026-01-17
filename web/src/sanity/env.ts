@@ -5,3 +5,6 @@ export const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-01
 
 // Used for server-side fetching
 export const token = process.env.SANITY_API_READ_TOKEN;
+
+// Used for mutations (storing refreshed tokens)
+export const writeToken = process.env.SANITY_API_WRITE_TOKEN;

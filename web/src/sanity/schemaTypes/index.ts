@@ -6,6 +6,7 @@ import { member } from "./documents/member";
 import { faq } from "./documents/faq";
 import { instagramPost } from "./documents/instagramPost";
 import { communityPhoto } from "./documents/communityPhoto";
+import { apiSettings } from "./documents/apiSettings";
 
 export const schemaTypes = [
   // Documents
@@ -16,4 +17,5 @@ export const schemaTypes = [
   faq,
   instagramPost,
   communityPhoto,
+  apiSettings,
 ];
