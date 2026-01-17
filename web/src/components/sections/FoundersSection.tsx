@@ -21,6 +21,7 @@ interface Founder {
 
 interface FoundersSectionProps {
   founders: Founder[];
+  id?: string;
 }
 
 function LinkedInIcon() {
@@ -36,11 +37,11 @@ function LinkedInIcon() {
   );
 }
 
-export function FoundersSection({ founders }: FoundersSectionProps) {
+export function FoundersSection({ founders, id }: FoundersSectionProps) {
   if (!founders || founders.length === 0) return null;
 
   return (
-    <section className="py-20 md:py-28 bg-cream">
+    <section id={id} className="py-20 md:py-28 bg-cream scroll-mt-24">
       <Container>
         {/* Section Header */}
         <div className="mb-16">

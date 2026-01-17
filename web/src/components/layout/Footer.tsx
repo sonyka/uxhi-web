@@ -34,36 +34,36 @@ export function Footer({ settings }: FooterProps) {
     {
       title: "Get Involved",
       links: [
-        { label: "Volunteer", href: "/volunteer" },
-        { label: "Become a Speaker", href: "/speak" },
-        { label: "Sponsor Us", href: "/sponsor" },
-        { label: "Partner", href: "/partner" },
-        { label: "Donate", href: "/donate" },
+        { label: "Volunteer", href: "/get-involved#volunteer" },
+        { label: "Become a Speaker", href: "/get-involved#speak" },
+        { label: "Sponsor Us", href: "/get-involved#sponsor" },
+        { label: "Partner", href: "/get-involved#partner" },
+        { label: "Donate", href: "/get-involved#donate" },
       ],
     },
     {
       title: "Resources",
       links: [
-        { label: "UX for Students", href: "/resources/students" },
-        { label: "State of UX in Hawaii Report", href: "/resources/report" },
-        { label: "Directory of Tech Orgs", href: "/resources/directory" },
+        { label: "UX for Students", href: "/resources#students" },
+        { label: "State of UX in Hawaii Report", href: "/resources#report" },
+        { label: "Directory of Tech Orgs", href: "/resources#directory" },
       ],
     },
     {
       title: "About",
       links: [
-        { label: "Team", href: "/about/team" },
-        { label: "FAQs", href: "/about/faqs" },
-        { label: "Contact", href: "/contact" },
+        { label: "Team", href: "/about#team" },
+        { label: "FAQs", href: "/about#faqs" },
+        { label: "Contact", href: "/about#contact" },
       ],
     },
   ];
 
   // Main navigation links (no dropdowns)
-  const mainLinks = [
+  const mainLinks: { label: string; href: string; external?: boolean }[] = [
     { label: "Find UX Pro", href: "/find-ux-pro" },
     { label: "Events", href: "/events" },
-    { label: "Conference", href: "/conference" },
+    { label: "Conference", href: "https://uxhiconference.com/", external: true },
     { label: "Merch", href: "/merch" },
     { label: "Join us", href: "/join" },
   ];
@@ -136,15 +136,27 @@ export function Footer({ settings }: FooterProps) {
 
             {/* Main Links */}
             <nav className="space-y-2 mb-8">
-              {mainLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block font-display text-2xl md:text-3xl text-white hover:text-white/80 transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {mainLinks.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block font-display text-2xl md:text-3xl text-white hover:text-white/80 transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block font-display text-2xl md:text-3xl text-white hover:text-white/80 transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
             </nav>
 
             {/* Dropdown Sections */}

@@ -14,6 +14,7 @@ interface FAQ {
 
 interface FAQSectionProps {
   faqs: FAQ[];
+  id?: string;
 }
 
 function PlusIcon({ className }: { className?: string }) {
@@ -99,17 +100,17 @@ function FAQItem({
   );
 }
 
-export function FAQSection({ faqs }: FAQSectionProps) {
+export function FAQSection({ faqs, id }: FAQSectionProps) {
   const [openId, setOpenId] = useState<string | null>(faqs[0]?._id || null);
 
   if (!faqs || faqs.length === 0) return null;
 
-  const handleToggle = (id: string) => {
-    setOpenId(openId === id ? null : id);
+  const handleToggle = (faqId: string) => {
+    setOpenId(openId === faqId ? null : faqId);
   };
 
   return (
-    <section className="py-20 md:py-28 bg-gray-50">
+    <section id={id} className="py-20 md:py-28 bg-gray-50 scroll-mt-24">
       <Container>
         <motion.div
           variants={staggerContainer}

@@ -280,7 +280,7 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Free Membership */}
-            <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
+            <div className="border border-purple-500/30 rounded-[24px] p-8 text-center flex flex-col">
               <div className="w-32 h-32 mx-auto mb-6 relative">
                 <Image
                   src="/images/icons/icon-membership.png"
@@ -290,13 +290,23 @@ export default async function HomePage() {
                 />
               </div>
               <h3 className="font-display text-2xl text-white mb-4">Free Membership</h3>
-              <p className="text-purple-200 leading-relaxed">
-                Connect with other UX&apos;ers, then keep the conversation going in our Slack community or tap into our membership directory.
+              <p className="text-purple-200 leading-relaxed flex-grow">
+                Connect with other UX&apos;ers, then keep the conversation going in our{" "}
+                <Link href="/join" className="underline hover:text-white transition-colors">Slack community</Link>
+                {" "}or tap into our{" "}
+                <Link href="/find-ux-pro" className="underline hover:text-white transition-colors">membership directory</Link>.
               </p>
+              <Link
+                href="/join"
+                className="mt-6 inline-flex items-center justify-center gap-2 text-purple-200 hover:text-white transition-colors text-sm font-medium"
+              >
+                <span>Join free</span>
+                <ArrowIcon className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Events */}
-            <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
+            <div className="border border-purple-500/30 rounded-[24px] p-8 text-center flex flex-col">
               <div className="w-32 h-32 mx-auto mb-6 relative">
                 <Image
                   src="/images/icons/icon-events.png"
@@ -306,13 +316,20 @@ export default async function HomePage() {
                 />
               </div>
               <h3 className="font-display text-2xl text-white mb-4">Events</h3>
-              <p className="text-purple-200 leading-relaxed">
+              <p className="text-purple-200 leading-relaxed flex-grow">
                 Experience an array of educational webinars, interactive workshops, and casual meetups we host each month, both virtual and in-person
               </p>
+              <Link
+                href="/events"
+                className="mt-6 inline-flex items-center justify-center gap-2 text-purple-200 hover:text-white transition-colors text-sm font-medium"
+              >
+                <span>View events</span>
+                <ArrowIcon className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Resources */}
-            <div className="border border-purple-500/30 rounded-[24px] p-8 text-center">
+            <div className="border border-purple-500/30 rounded-[24px] p-8 text-center flex flex-col">
               <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
                 <div className="w-24 h-24 relative">
                   <Image
@@ -324,9 +341,16 @@ export default async function HomePage() {
                 </div>
               </div>
               <h3 className="font-display text-2xl text-white mb-4">Resources</h3>
-              <p className="text-purple-200 leading-relaxed">
+              <p className="text-purple-200 leading-relaxed flex-grow">
                 Discover and share resources in our online content hub to support your UX journey and growth.
               </p>
+              <Link
+                href="/resources"
+                className="mt-6 inline-flex items-center justify-center gap-2 text-purple-200 hover:text-white transition-colors text-sm font-medium"
+              >
+                <span>Browse resources</span>
+                <ArrowIcon className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -343,62 +367,6 @@ export default async function HomePage() {
           </div>
 
           <InstagramFeed posts={instagramPosts || []} />
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 px-6 bg-cream">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-2">
-              Member sentiments title
-            </h2>
-            <p className="text-gray-600 text-lg">Trusted by Thousands of Successful Students</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Testimonial 1 */}
-            <div className="bg-white rounded-[20px] p-6 shadow-sm">
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                &quot;Receiving education support has been a life-changing experience for me. It gave me the financial freedom and confidence to focus fully on my studies without&quot;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-300 to-pink-400" />
-                <div>
-                  <p className="font-medium text-teal-500">Emma Helson</p>
-                  <p className="text-sm text-gray-500">1 week ago</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial 2 */}
-            <div className="bg-white rounded-[20px] p-6 shadow-sm">
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                &quot;Getting education support has been truly life-changing. It gave me the stability and assurance to concentrate fully on my learning without distractions.&quot;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-300 to-blue-400" />
-                <div>
-                  <p className="font-medium text-teal-500">Sophia Marie</p>
-                  <p className="text-sm text-gray-500">2 week ago</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial 3 */}
-            <div className="bg-white rounded-[20px] p-6 shadow-sm">
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                &quot;Education support has made a world of difference in my life. It offered me the security and confidence to focus completely on my academic goals without worry.&quot;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-300 to-green-400" />
-                <div>
-                  <p className="font-medium text-teal-500">Jackson Lee</p>
-                  <p className="text-sm text-gray-500">3week ago</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -16,6 +16,7 @@ interface NavItem {
   label: string;
   href: string;
   dropdown?: DropdownItem[];
+  external?: boolean;
 }
 
 interface HeaderProps {
@@ -46,23 +47,23 @@ export function Header({ settings }: HeaderProps) {
       label: "Get Involved",
       href: "/get-involved",
       dropdown: [
-        { label: "Volunteer", href: "/volunteer", description: "Help grow our community" },
-        { label: "Become a Speaker", href: "/speak", description: "Share your expertise" },
-        { label: "Sponsor Us", href: "/sponsor", description: "Support UXHI events" },
-        { label: "Partner", href: "/partner", description: "Collaborate with us" },
-        { label: "Donate", href: "/donate", description: "Support our mission" },
+        { label: "Volunteer", href: "/get-involved#volunteer", description: "Help grow our community" },
+        { label: "Become a Speaker", href: "/get-involved#speak", description: "Share your expertise" },
+        { label: "Sponsor Us", href: "/get-involved#sponsor", description: "Support UXHI events" },
+        { label: "Partner", href: "/get-involved#partner", description: "Collaborate with us" },
+        { label: "Donate", href: "/get-involved#donate", description: "Support our mission" },
       ],
     },
     { key: "events", label: "Events", href: "/events" },
-    { key: "conference", label: "Conference", href: "/conference" },
+    { key: "conference", label: "Conference", href: "https://uxhiconference.com/", external: true },
     {
       key: "resources",
       label: "Resources",
       href: "/resources",
       dropdown: [
-        { label: "UX for Students", href: "/resources/students", description: "Start your UX journey" },
-        { label: "State of UX in Hawaii Report", href: "/resources/report", description: "Industry insights" },
-        { label: "Directory of Tech Orgs", href: "/resources/directory", description: "Local tech community" },
+        { label: "UX for Students", href: "/resources#students", description: "Start your UX journey" },
+        { label: "State of UX in Hawaii Report", href: "/resources#report", description: "Industry insights" },
+        { label: "Directory of Tech Orgs", href: "/resources#directory", description: "Local tech community" },
       ],
     },
     { key: "merch", label: "Merch", href: "/merch" },
@@ -71,9 +72,9 @@ export function Header({ settings }: HeaderProps) {
       label: "About",
       href: "/about",
       dropdown: [
-        { label: "Team", href: "/about/team", description: "Meet our volunteers" },
-        { label: "FAQs", href: "/about/faqs", description: "Common questions" },
-        { label: "Contact", href: "/contact", description: "Get in touch" },
+        { label: "Team", href: "/about#team", description: "Meet our volunteers" },
+        { label: "FAQs", href: "/about#faqs", description: "Common questions" },
+        { label: "Contact", href: "/about#contact", description: "Get in touch" },
       ],
     },
   ];
@@ -103,7 +104,8 @@ export function Header({ settings }: HeaderProps) {
                   onMouseEnter={() => setOpenDropdown(item.key)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button
+                  <Link
+                    href={item.href}
                     className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
                   >
                     {item.label}
@@ -115,7 +117,7 @@ export function Header({ settings }: HeaderProps) {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
-                  </button>
+                  </Link>
 
                   {/* Dropdown Menu */}
                   <AnimatePresence>
@@ -148,6 +150,16 @@ export function Header({ settings }: HeaderProps) {
                     )}
                   </AnimatePresence>
                 </div>
+              ) : item.external ? (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                >
+                  {item.label}
+                </a>
               ) : (
                 <Link
                   key={item.key}
@@ -219,20 +231,29 @@ export function Header({ settings }: HeaderProps) {
               {navItems.map((item) =>
                 item.dropdown ? (
                   <div key={item.key}>
-                    <button
-                      onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.key ? null : item.key)}
-                      className="flex items-center justify-between py-3 w-full text-gray-700 hover:text-teal-500 font-medium"
-                    >
-                      {item.label}
-                      <svg
-                        className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === item.key ? 'rotate-180' : ''}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                    <div className="flex items-center justify-between py-3">
+                      <Link
+                        href={item.href}
+                        className="text-gray-700 hover:text-teal-500 font-medium"
+                        onClick={() => setMobileMenuOpen(false)}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
+                        {item.label}
+                      </Link>
+                      <button
+                        onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.key ? null : item.key)}
+                        className="p-1 text-gray-700 hover:text-teal-500"
+                        aria-label={`Toggle ${item.label} submenu`}
+                      >
+                        <svg
+                          className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === item.key ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    </div>
                     <AnimatePresence>
                       {mobileOpenDropdown === item.key && (
                         <motion.div
@@ -258,6 +279,17 @@ export function Header({ settings }: HeaderProps) {
                       )}
                     </AnimatePresence>
                   </div>
+                ) : item.external ? (
+                  <a
+                    key={item.key}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between py-3 text-gray-700 hover:text-teal-500 font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
                 ) : (
                   <Link
                     key={item.key}
