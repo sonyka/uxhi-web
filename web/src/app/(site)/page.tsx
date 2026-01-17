@@ -208,6 +208,7 @@ export default async function HomePage() {
       {/* Mission Section */}
       <section className="py-20 px-6">
         <div className="max-w-[900px] mx-auto text-center">
+          <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-4 block">What we do</span>
           <h2 className="font-display text-[22px] md:text-[28px] lg:text-[34px] leading-tight text-gray-900">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
             <span className="text-gray-900 hover:text-purple-700 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
