@@ -104,7 +104,7 @@ export function Header({ settings }: HeaderProps) {
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <button
-                    className={`flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium rounded-full hover:bg-gray-50 ${openDropdown === item.key ? 'bg-gray-50' : ''}`}
+                    className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
                   >
                     {item.label}
                     <svg
@@ -152,7 +152,7 @@ export function Header({ settings }: HeaderProps) {
                 <Link
                   key={item.key}
                   href={item.href}
-                  className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium rounded-full hover:bg-gray-50"
+                  className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
                 >
                   {item.label}
                 </Link>
