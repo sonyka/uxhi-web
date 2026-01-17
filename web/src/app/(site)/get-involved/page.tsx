@@ -16,28 +16,52 @@ function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// Committee data
+// Committee data with expanded descriptions
 const committees = [
   {
     name: "Educational Outreach",
-    description: "Fosters UX education at foundational levels (K-12, colleges).",
+    description: "Fosters UX education at foundational levels. Initiatives focus on engaging K-12 students through introductory workshops and programs, and collaborating with colleges and universities to support their UX curricula, offer guest lectures, and connect with emerging talent.",
   },
   {
     name: "Workforce Outreach",
-    description: "Develops educational workshops for companies.",
+    description: "Develop and deliver educational workshops and presentations to companies, helping them integrate UX principles, methodologies, and best practices into their operations.",
   },
   {
     name: "Community Engagement",
-    description: "Organizes social events and networking.",
+    description: "Organize social events, networking opportunities, member spotlights, and initiatives to welcome new members and ensure active participation.",
   },
   {
     name: "Professional Development",
-    description: "Provides continuous learning opportunities (workshops, webinars).",
+    description: "Provides continuous learning and upskilling opportunities for our members through workshops, webinars, speaker events, and hands-on sessions designed to enhance practical UX skills.",
   },
   {
     name: "Communications",
-    description: "Manages website, social media, newsletters, and branding.",
+    description: "Manages all external and internal communications for the community including maintaining the website, managing social media channels, creating newsletters, promoting events, and ensuring consistent branding and messaging.",
   },
+];
+
+// Past partners
+const pastPartners = [
+  "Pi'iku Co.",
+  "Hawaii Coworking",
+  "Entrepreneur Sandbox / Hub Coworking Hawaii",
+  "Vanta",
+  "University of Hawaii",
+  "Holoholo App",
+  "AI Hawaii",
+  "Honolulu Tech Network",
+  "Honolulu BitDevs",
+];
+
+// Past sponsors
+const pastSponsors = [
+  "HTDC",
+  "Entrepreneurs Sandbox",
+  "Purple Mai'a",
+  "Zippy's",
+  "Servco",
+  "Terranox",
+  "Shaka Guide",
 ];
 
 export default function GetInvolvedPage() {
@@ -49,9 +73,6 @@ export default function GetInvolvedPage() {
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white mb-6">
             Get Involved
           </h1>
-          <p className="text-purple-200 text-lg md:text-xl max-w-[600px] mx-auto">
-            There are many ways to contribute to the UXHI community. Find the opportunity that fits you best.
-          </p>
         </div>
       </section>
 
@@ -59,6 +80,9 @@ export default function GetInvolvedPage() {
       <section className="py-8 px-6 bg-purple-600">
         <div className="max-w-[900px] mx-auto">
           <div className="flex flex-wrap justify-center gap-3">
+            <a href="#events" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+              Events
+            </a>
             <a href="#volunteer" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
               Volunteer
             </a>
@@ -78,8 +102,40 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
+      {/* Events Section */}
+      <section id="events" className="py-20 px-6 scroll-mt-24">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-8">
+            Events
+          </h2>
+
+          {/* Upcoming Events */}
+          <div className="mb-12">
+            <h3 className="font-semibold text-xl text-gray-900 mb-4">Upcoming Events</h3>
+            <p className="text-gray-600 text-lg">
+              We have no upcoming events scheduled at this time. Check back soon or{" "}
+              <Link href="/join" className="text-teal-500 hover:text-teal-600 underline underline-offset-2">
+                join our email list
+              </Link>
+              !
+            </p>
+          </div>
+
+          {/* Past Events */}
+          <div>
+            <h3 className="font-semibold text-xl text-gray-900 mb-4">Past Events</h3>
+            <div className="bg-cream rounded-[24px] p-8">
+              {/* Luma Events Feed Embed Placeholder */}
+              <div className="aspect-[16/9] bg-gray-100 rounded-lg flex items-center justify-center">
+                <p className="text-gray-500">Events feed coming soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Volunteer Section */}
-      <section id="volunteer" className="py-20 px-6 scroll-mt-24">
+      <section id="volunteer" className="py-20 px-6 bg-cream scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
             Volunteer
@@ -90,31 +146,67 @@ export default function GetInvolvedPage() {
           <ul className="text-gray-700 space-y-3 mb-8">
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Propose a topic related to the field of UX as a presenter at our UXHI Conference or events.</span>
+              <span>Propose a topic related to the field of UX as a presenter at our UXHI Conference or events</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Propose a topic as a guest author for our Resources.</span>
+              <span>Propose a topic as a guest author for our Resources</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Join our committees for any of our initiatives, like the UXHI Conference or the State of UX Report.</span>
+              <span>Join our committees for any of our initiatives, like the UXHI Conference or the State of UX Report</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Provide general assistance with our events.</span>
+              <span>Provide general assistance with our events</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Support with marketing needs like our newsletter and social media.</span>
+              <span>Support with marketing needs like our newsletter and social media</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
               <span>And much more!</span>
             </li>
           </ul>
+          <p className="text-gray-700 text-lg mb-8">
+            Let us know how you want to get involved!
+          </p>
+
+          {/* Committees Subsection */}
+          <div className="mt-16">
+            <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-8">
+              Committees
+            </h3>
+            <div className="space-y-4">
+              {committees.map((committee) => (
+                <div key={committee.name} className="bg-white rounded-[20px] p-6">
+                  <h4 className="font-semibold text-gray-900 mb-2">{committee.name}</h4>
+                  <p className="text-gray-600 leading-relaxed">{committee.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Speaking Opportunities Section */}
+      <section id="speak" className="py-20 px-6 scroll-mt-24">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+            Speaking Opportunities
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-4">
+            Have an idea for a talk or a skill you&apos;d like to share?
+          </p>
+          <p className="text-gray-700 text-lg leading-relaxed mb-4">
+            Whether you&apos;d like to teach an interactive workshop, host an education webinar, or a casual talk story session, give back to the community by sharing your experience. Preference is given to speakers with Hawai&apos;i ties.
+          </p>
+          <p className="text-gray-700 text-lg leading-relaxed mb-8">
+            Fill out our speaker application below and we&apos;ll be in touch!
+          </p>
           <Link
-            href="https://forms.gle/volunteer-inquiry"
+            href="https://forms.gle/speaker-application"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
@@ -124,74 +216,52 @@ export default function GetInvolvedPage() {
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
-
-          {/* Committees Subsection */}
-          <div className="mt-16">
-            <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-8">
-              Committees
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {committees.map((committee) => (
-                <div key={committee.name} className="bg-cream rounded-[20px] p-6">
-                  <h4 className="font-semibold text-gray-900 mb-2">{committee.name}</h4>
-                  <p className="text-gray-600">{committee.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Speaking Opportunities Section */}
-      <section id="speak" className="py-20 px-6 bg-cream scroll-mt-24">
-        <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
-            Speaking Opportunities
-          </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-8">
-            Have an idea for a talk or a skill you&apos;d like to share? Whether you&apos;d like to teach an interactive workshop, host an education webinar, or a casual talk story session, give back to the community by sharing your experience. Preference is given to speakers with Hawai&apos;i ties.
-          </p>
-          <Link
-            href="https://forms.gle/speaker-application"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Speaker Application Form</span>
-            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
         </div>
       </section>
 
       {/* Partnerships Section */}
-      <section id="partner" className="py-20 px-6 scroll-mt-24">
+      <section id="partner" className="py-20 px-6 bg-cream scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
             Partnerships
           </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-4">
+            Strong collaboration makes for strong results!
+          </p>
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Strong collaboration makes for strong results! We&apos;re always open to design-forward organizations and individuals who want to partner with us to build initiatives, host or sponsor events, and help us provide resources to our community.
+            We&apos;re always open to design-forward organizations and individuals who want to partner with us to build initiatives, host or sponsor events, and help us provide resources to our community.
           </p>
           <ul className="text-gray-700 space-y-3 mb-8">
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Co-develop resources and/or programs.</span>
+              <span>Co-develop resources and/or programs for our membership</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Co-host events.</span>
+              <span>Co-host an event to feature your company at one of our events</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Sponsor workshops.</span>
+              <span>Co-host a joint event to bring together both of our communities</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Provide venue space or tech tools.</span>
+              <span>Sponsor a workshop or speaker series focused on emerging UX topics</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <span>Provide venue space or tech tools to support our events</span>
             </li>
           </ul>
+
+          {/* Past Partners */}
+          <div className="mb-10">
+            <p className="text-gray-700 mb-3">
+              <span className="font-semibold">Successful partnerships include:</span>{" "}
+              {pastPartners.join(", ")}
+            </p>
+          </div>
+
           <Link
             href="https://forms.gle/partnership-inquiry"
             target="_blank"
@@ -207,23 +277,41 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Sponsorships Section */}
-      <section id="sponsor" className="py-20 px-6 bg-cream scroll-mt-24">
+      <section id="sponsor" className="py-20 px-6 scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
             Sponsorships
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-8">
-            Our sponsorship packages are designed to elevate your brand, showcase your products, and facilitate connections.
+          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+            Our sponsorship packages are designed to elevate your brand, showcase your products, and facilitate connections with influencers, decision-makers, and potential partners. By partnering with us, you&apos;ll not only enhance your brand recognition but also reinforce your dedication to improving the digital landscape through UX design.
           </p>
-          <Link
-            href="mailto:aloha@uxhi.community?subject=Sponsorship%20Inquiry"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Email Us</span>
-            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
+
+          {/* Past Sponsors */}
+          <div className="mb-10">
+            <p className="text-gray-700">
+              <span className="font-semibold">Past event sponsors:</span>{" "}
+              {pastSponsors.join(", ")}
+            </p>
+          </div>
+
+          {/* Partner With Us Subsection */}
+          <div className="bg-cream rounded-[24px] p-8 mt-10">
+            <h3 className="font-display text-xl md:text-2xl text-purple-700 mb-4">
+              Partner With Us
+            </h3>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              We understand the value of tailored experiences and are open to working together to create a custom package.
+            </p>
+            <Link
+              href="mailto:aloha@uxhi.community?subject=Sponsorship%20Inquiry"
+              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+            >
+              <span className="text-gray-900">Email us</span>
+              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                <ArrowIcon className="w-4 h-4 text-gray-900" />
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -233,8 +321,14 @@ export default function GetInvolvedPage() {
           <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
             Donations
           </h2>
-          <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-[600px] mx-auto">
-            Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events.
+          <p className="text-white text-xl font-medium mb-4">
+            Your support is important to us.
+          </p>
+          <p className="text-white/90 text-lg leading-relaxed mb-4 max-w-[650px] mx-auto">
+            UXHI is a volunteer-run UX design community that connects people in Hawaii and those with Hawaii ties to learn together and make new UX friends.
+          </p>
+          <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
+            Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events. Thanks in advance for supporting our community!
           </p>
           <Link
             href="https://donate.stripe.com/uxhi"
