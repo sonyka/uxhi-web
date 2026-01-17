@@ -124,9 +124,10 @@ export default async function HomePage() {
               </p>
               <Link
                 href="/join"
-                className="mt-3 inline-flex items-center bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium text-sm hover:bg-gray-50 transition-colors relative z-10"
+                className="mt-4 inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium relative z-10"
               >
-                <span className="text-gray-900">Join us</span>
+                <span>Join us</span>
+                <ArrowIcon className="w-4 h-4" />
               </Link>
             </div>
 
@@ -298,7 +299,7 @@ export default async function HomePage() {
               </p>
               <Link
                 href="/join"
-                className="mt-6 inline-flex items-center justify-center gap-2 text-purple-200 hover:text-white transition-colors text-sm font-medium"
+                className="mt-6 self-center inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
               >
                 <span>Join free</span>
                 <ArrowIcon className="w-4 h-4" />
@@ -321,7 +322,7 @@ export default async function HomePage() {
               </p>
               <Link
                 href="/events"
-                className="mt-6 inline-flex items-center justify-center gap-2 text-purple-200 hover:text-white transition-colors text-sm font-medium"
+                className="mt-6 self-center inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
               >
                 <span>View events</span>
                 <ArrowIcon className="w-4 h-4" />
@@ -346,7 +347,7 @@ export default async function HomePage() {
               </p>
               <Link
                 href="/resources"
-                className="mt-6 inline-flex items-center justify-center gap-2 text-purple-200 hover:text-white transition-colors text-sm font-medium"
+                className="mt-6 self-center inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
               >
                 <span>Browse resources</span>
                 <ArrowIcon className="w-4 h-4" />
