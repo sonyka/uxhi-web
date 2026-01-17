@@ -5,19 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface NavItem {
-  _key: string;
-  label: string;
-  linkType: string;
-  internalLink?: string;
-  externalUrl?: string;
-  hasDropdown?: boolean;
-}
-
 interface DropdownItem {
   label: string;
   href: string;
   description?: string;
+}
+
+interface NavItem {
+  key: string;
+  label: string;
+  href: string;
+  dropdown?: DropdownItem[];
 }
 
 interface HeaderProps {
@@ -27,7 +25,7 @@ interface HeaderProps {
       alt?: string;
     };
     siteName: string;
-    mainNavigation?: NavItem[];
+    mainNavigation?: unknown[];
     ctaButton?: {
       label: string;
       url: string;
@@ -37,31 +35,47 @@ interface HeaderProps {
 
 export function Header({ settings }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
 
-  const getHref = (item: NavItem) => {
-    if (item.linkType === "external") return item.externalUrl || "#";
-    return item.internalLink || "/";
-  };
-
-  // Get Involved dropdown items
-  const getInvolvedItems: DropdownItem[] = [
-    { label: "Join Slack", href: "/join", description: "Connect with 400+ designers" },
-    { label: "Volunteer", href: "/volunteer", description: "Help grow our community" },
-    { label: "Become a Speaker", href: "/speak", description: "Share your expertise" },
-    { label: "Sponsor Us", href: "/sponsor", description: "Support UXHI events" },
-    { label: "Partner", href: "/partner", description: "Collaborate with us" },
-  ];
-
-  // Static navigation matching Framer design
+  // Navigation structure
   const navItems: NavItem[] = [
-    { _key: "1", label: "Get Involved", linkType: "internal", internalLink: "/get-involved", hasDropdown: true },
-    { _key: "2", label: "Find UX Pro", linkType: "internal", internalLink: "/find-ux-pro" },
-    { _key: "3", label: "Events", linkType: "internal", internalLink: "/events" },
-    { _key: "4", label: "About", linkType: "internal", internalLink: "/about" },
-    { _key: "5", label: "Resources", linkType: "internal", internalLink: "/resources" },
-    { _key: "6", label: "Merch", linkType: "internal", internalLink: "/merch" },
+    { key: "find-ux-pro", label: "Find UX Pro", href: "/find-ux-pro" },
+    {
+      key: "get-involved",
+      label: "Get Involved",
+      href: "/get-involved",
+      dropdown: [
+        { label: "Volunteer", href: "/volunteer", description: "Help grow our community" },
+        { label: "Become a Speaker", href: "/speak", description: "Share your expertise" },
+        { label: "Sponsor Us", href: "/sponsor", description: "Support UXHI events" },
+        { label: "Partner", href: "/partner", description: "Collaborate with us" },
+        { label: "Donate", href: "/donate", description: "Support our mission" },
+      ],
+    },
+    { key: "events", label: "Events", href: "/events" },
+    { key: "conference", label: "Conference", href: "/conference" },
+    {
+      key: "resources",
+      label: "Resources",
+      href: "/resources",
+      dropdown: [
+        { label: "UX for Students", href: "/resources/students", description: "Start your UX journey" },
+        { label: "State of UX in Hawaii Report", href: "/resources/report", description: "Industry insights" },
+        { label: "Directory of Tech Orgs", href: "/resources/directory", description: "Local tech community" },
+      ],
+    },
+    { key: "merch", label: "Merch", href: "/merch" },
+    {
+      key: "about",
+      label: "About",
+      href: "/about",
+      dropdown: [
+        { label: "Team", href: "/about/team", description: "Meet our volunteers" },
+        { label: "FAQs", href: "/about/faqs", description: "Common questions" },
+        { label: "Contact", href: "/contact", description: "Get in touch" },
+      ],
+    },
   ];
 
   return (
@@ -81,20 +95,20 @@ export function Header({ settings }: HeaderProps) {
         {/* Desktop Navigation - Pill shaped container */}
         <nav className="hidden lg:flex items-center">
           <div className="flex items-center gap-1 border border-gray-200 rounded-full px-2 py-2 bg-white/80 backdrop-blur-sm">
-            {navItems.map((item) => (
-              item.hasDropdown ? (
+            {navItems.map((item) =>
+              item.dropdown ? (
                 <div
-                  key={item._key}
+                  key={item.key}
                   className="relative"
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
+                  onMouseEnter={() => setOpenDropdown(item.key)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <button
-                    className={`flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium rounded-full hover:bg-gray-50 ${dropdownOpen ? 'bg-gray-50' : ''}`}
+                    className={`flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium rounded-full hover:bg-gray-50 ${openDropdown === item.key ? 'bg-gray-50' : ''}`}
                   >
                     {item.label}
                     <svg
-                      className={`w-4 h-4 ml-0.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                      className={`w-4 h-4 ml-0.5 transition-transform duration-200 ${openDropdown === item.key ? 'rotate-180' : ''}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -105,19 +119,19 @@ export function Header({ settings }: HeaderProps) {
 
                   {/* Dropdown Menu */}
                   <AnimatePresence>
-                    {dropdownOpen && (
+                    {openDropdown === item.key && (
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64"
                       >
                         {/* Tail/Arrow */}
                         <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-white drop-shadow-sm" />
 
                         <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden py-2">
-                          {getInvolvedItems.map((dropdownItem, index) => (
+                          {item.dropdown.map((dropdownItem, index) => (
                             <Link
                               key={index}
                               href={dropdownItem.href}
@@ -136,14 +150,14 @@ export function Header({ settings }: HeaderProps) {
                 </div>
               ) : (
                 <Link
-                  key={item._key}
-                  href={getHref(item)}
+                  key={item.key}
+                  href={item.href}
                   className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium rounded-full hover:bg-gray-50"
                 >
                   {item.label}
                 </Link>
               )
-            ))}
+            )}
 
             {/* CTA Button inside nav pill */}
             <Link
@@ -202,16 +216,16 @@ export function Header({ settings }: HeaderProps) {
             className="lg:hidden bg-white border border-gray-200 rounded-2xl mt-4 mx-auto max-w-[1400px] overflow-hidden"
           >
             <div className="py-4 px-6 space-y-1">
-              {navItems.map((item) => (
-                item.hasDropdown ? (
-                  <div key={item._key}>
+              {navItems.map((item) =>
+                item.dropdown ? (
+                  <div key={item.key}>
                     <button
-                      onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                      onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.key ? null : item.key)}
                       className="flex items-center justify-between py-3 w-full text-gray-700 hover:text-teal-500 font-medium"
                     >
                       {item.label}
                       <svg
-                        className={`w-4 h-4 transition-transform duration-200 ${mobileDropdownOpen ? 'rotate-180' : ''}`}
+                        className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === item.key ? 'rotate-180' : ''}`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -220,7 +234,7 @@ export function Header({ settings }: HeaderProps) {
                       </svg>
                     </button>
                     <AnimatePresence>
-                      {mobileDropdownOpen && (
+                      {mobileOpenDropdown === item.key && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
@@ -229,7 +243,7 @@ export function Header({ settings }: HeaderProps) {
                           className="overflow-hidden"
                         >
                           <div className="pl-4 border-l-2 border-gray-100 ml-2 space-y-1">
-                            {getInvolvedItems.map((dropdownItem, index) => (
+                            {item.dropdown.map((dropdownItem, index) => (
                               <Link
                                 key={index}
                                 href={dropdownItem.href}
@@ -246,15 +260,15 @@ export function Header({ settings }: HeaderProps) {
                   </div>
                 ) : (
                   <Link
-                    key={item._key}
-                    href={getHref(item)}
+                    key={item.key}
+                    href={item.href}
                     className="flex items-center justify-between py-3 text-gray-700 hover:text-teal-500 font-medium"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
                   </Link>
                 )
-              ))}
+              )}
               <div className="pt-4">
                 <Link
                   href="/join"

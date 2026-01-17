@@ -216,7 +216,7 @@ export default async function HomePage() {
               <img
                 src="/images/hcd-underline.svg"
                 alt=""
-                className="absolute left-0 right-0 -bottom-1 w-full h-auto pointer-events-none"
+                className="absolute left-0 right-0 -bottom-2 w-full h-auto pointer-events-none"
               />
               {/* Tooltip */}
               <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal leading-relaxed tracking-normal rounded-xl shadow-lg border border-gray-100 w-80 text-left opacity-0 invisible group-hover/hcd:opacity-100 group-hover/hcd:visible transition-all duration-200 delay-300 z-50 whitespace-normal" style={{ wordSpacing: '0.1em' }}>

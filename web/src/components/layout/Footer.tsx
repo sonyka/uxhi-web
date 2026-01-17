@@ -1,19 +1,5 @@
 import Link from "next/link";
 
-interface NavItem {
-  _key: string;
-  label: string;
-  linkType: string;
-  internalLink?: string;
-  externalUrl?: string;
-}
-
-interface SocialLink {
-  _key: string;
-  platform: string;
-  url: string;
-}
-
 interface FooterProps {
   settings: {
     logo?: {
@@ -23,8 +9,8 @@ interface FooterProps {
     siteName: string;
     footerText?: string;
     contactEmail?: string;
-    socialLinks?: SocialLink[];
-    footerNavigation?: NavItem[];
+    socialLinks?: unknown[];
+    footerNavigation?: unknown[];
   };
 }
 
@@ -37,21 +23,49 @@ function ExternalLinkIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-export function Footer({ settings }: FooterProps) {
-  const getHref = (item: NavItem) => {
-    if (item.linkType === "external") return item.externalUrl || "#";
-    return item.internalLink || "/";
-  };
+interface NavSection {
+  title: string;
+  links: { label: string; href: string }[];
+}
 
-  // Static navigation matching Framer design
-  const navItems = [
-    { _key: "1", label: "Home", href: "/" },
-    { _key: "2", label: "Get Involved", href: "/" },
-    { _key: "3", label: "Find UX Pro", href: "/find-ux-pro" },
-    { _key: "4", label: "Resources", href: "/resources" },
-    { _key: "5", label: "About", href: "/about" },
-    { _key: "6", label: "Events", href: "/events" },
-    { _key: "7", label: "Merch", href: "/merch" },
+export function Footer({ settings }: FooterProps) {
+  // Navigation sections matching header structure
+  const navSections: NavSection[] = [
+    {
+      title: "Get Involved",
+      links: [
+        { label: "Volunteer", href: "/volunteer" },
+        { label: "Become a Speaker", href: "/speak" },
+        { label: "Sponsor Us", href: "/sponsor" },
+        { label: "Partner", href: "/partner" },
+        { label: "Donate", href: "/donate" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "UX for Students", href: "/resources/students" },
+        { label: "State of UX in Hawaii Report", href: "/resources/report" },
+        { label: "Directory of Tech Orgs", href: "/resources/directory" },
+      ],
+    },
+    {
+      title: "About",
+      links: [
+        { label: "Team", href: "/about/team" },
+        { label: "FAQs", href: "/about/faqs" },
+        { label: "Contact", href: "/contact" },
+      ],
+    },
+  ];
+
+  // Main navigation links (no dropdowns)
+  const mainLinks = [
+    { label: "Find UX Pro", href: "/find-ux-pro" },
+    { label: "Events", href: "/events" },
+    { label: "Conference", href: "/conference" },
+    { label: "Merch", href: "/merch" },
+    { label: "Join us", href: "/join" },
   ];
 
   // Get current date
@@ -78,7 +92,7 @@ export function Footer({ settings }: FooterProps) {
 
               <div className="space-y-3">
                 <Link
-                  href="#"
+                  href="/join"
                   className="flex items-center gap-2 text-white hover:text-white/80 transition-colors"
                 >
                   <span>UXHI Slack</span>
@@ -120,10 +134,11 @@ export function Footer({ settings }: FooterProps) {
           <div className="lg:text-right">
             <p className="text-white/80 text-sm uppercase tracking-wider mb-6">Navigation</p>
 
-            <nav className="space-y-2">
-              {navItems.map((item) => (
+            {/* Main Links */}
+            <nav className="space-y-2 mb-8">
+              {mainLinks.map((item) => (
                 <Link
-                  key={item._key}
+                  key={item.href}
                   href={item.href}
                   className="block font-display text-2xl md:text-3xl text-white hover:text-white/80 transition-colors"
                 >
@@ -131,6 +146,26 @@ export function Footer({ settings }: FooterProps) {
                 </Link>
               ))}
             </nav>
+
+            {/* Dropdown Sections */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:justify-items-end">
+              {navSections.map((section) => (
+                <div key={section.title} className="lg:text-right">
+                  <p className="text-white/60 text-sm uppercase tracking-wider mb-3">{section.title}</p>
+                  <div className="space-y-2">
+                    {section.links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="block text-white hover:text-white/80 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
