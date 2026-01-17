@@ -384,7 +384,7 @@ export default async function HomePage() {
               by designers
             </h2>
             <p className="text-gray-600 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">
-              Joining UXHI is free! As a member, you gain access to our community Slack group with 400+ designers, an invitation to join our member directory, and early updates on the latest UX events through our monthly emails.
+              UXHI is built and run entirely by volunteers who share a passion for human-centered design. We create the spaces we wish existed—to learn together, support each other, and elevate UX across Hawaiʻi.
             </p>
             <Link
               href="/join"

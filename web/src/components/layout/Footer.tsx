@@ -14,11 +14,11 @@ interface FooterProps {
   };
 }
 
-// External Link Icon
-function ExternalLinkIcon({ className = "w-4 h-4" }: { className?: string }) {
+// Arrow Up Right Icon (Feather)
+function ArrowUpRightIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M7 17L17 7M7 7h10v10" />
     </svg>
   );
 }
@@ -93,39 +93,39 @@ export function Footer({ settings }: FooterProps) {
               <div className="space-y-3">
                 <Link
                   href="/join"
-                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors"
+                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
-                  <span>UXHI Slack</span>
-                  <ExternalLinkIcon className="w-4 h-4" />
+                  <span className="text-[18px]">UXHI Slack</span>
+                  <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
                 </Link>
 
-                <Link
+                <a
                   href="https://www.instagram.com/uxhicommunity"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors"
+                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
-                  <span>Instagram</span>
-                  <ExternalLinkIcon className="w-4 h-4" />
-                </Link>
+                  <span className="text-[18px]">Instagram</span>
+                  <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
+                </a>
 
-                <Link
+                <a
                   href="https://www.linkedin.com/company/uxhi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors"
+                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
-                  <span>Linkedin</span>
-                  <ExternalLinkIcon className="w-4 h-4" />
-                </Link>
+                  <span className="text-[18px]">Linkedin</span>
+                  <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
+                </a>
 
-                <Link
+                <a
                   href="mailto:aloha@uxhi.community"
-                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors"
+                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
-                  <span>Get in touch</span>
-                  <ExternalLinkIcon className="w-4 h-4" />
-                </Link>
+                  <span className="text-[18px]">Get in touch</span>
+                  <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
+                </a>
               </div>
             </div>
           </div>

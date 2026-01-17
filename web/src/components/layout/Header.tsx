@@ -130,9 +130,9 @@ export function Header({ settings }: HeaderProps) {
                         className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64"
                       >
                         {/* Tail/Arrow */}
-                        <div className="absolute left-1/2 -translate-x-1/2 -top-2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-white drop-shadow-sm" />
+                        <div className="absolute left-1/2 -translate-x-1/2 -top-[7px] w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-white z-10" />
 
-                        <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden py-2">
+                        <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden py-2 relative">
                           {item.dropdown.map((dropdownItem, index) => (
                             <Link
                               key={index}
