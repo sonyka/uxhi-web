@@ -73,6 +73,13 @@ export default function GetInvolvedPage() {
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white mb-6">
             Get Involved
           </h1>
+          <p className="text-purple-200 text-lg md:text-xl max-w-[600px] mx-auto">
+            There are many ways to contribute to the UXHI community. Check out our{" "}
+            <Link href="/events" className="text-white underline underline-offset-2 hover:text-purple-100">
+              upcoming events
+            </Link>{" "}
+            or find other ways to get involved below.
+          </p>
         </div>
       </section>
 
@@ -80,9 +87,6 @@ export default function GetInvolvedPage() {
       <section className="py-8 px-6 bg-purple-600">
         <div className="max-w-[900px] mx-auto">
           <div className="flex flex-wrap justify-center gap-3">
-            <a href="#events" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
-              Events
-            </a>
             <a href="#volunteer" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
               Volunteer
             </a>
@@ -98,38 +102,6 @@ export default function GetInvolvedPage() {
             <a href="#donate" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
               Donations
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Events Section */}
-      <section id="events" className="py-20 px-6 scroll-mt-24">
-        <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-8">
-            Events
-          </h2>
-
-          {/* Upcoming Events */}
-          <div className="mb-12">
-            <h3 className="font-semibold text-xl text-gray-900 mb-4">Upcoming Events</h3>
-            <p className="text-gray-600 text-lg">
-              We have no upcoming events scheduled at this time. Check back soon or{" "}
-              <Link href="/join" className="text-teal-500 hover:text-teal-600 underline underline-offset-2">
-                join our email list
-              </Link>
-              !
-            </p>
-          </div>
-
-          {/* Past Events */}
-          <div>
-            <h3 className="font-semibold text-xl text-gray-900 mb-4">Past Events</h3>
-            <div className="bg-cream rounded-[24px] p-8">
-              {/* Luma Events Feed Embed Placeholder */}
-              <div className="aspect-[16/9] bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-500">Events feed coming soon</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
