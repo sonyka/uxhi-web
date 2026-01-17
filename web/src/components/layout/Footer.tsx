@@ -23,49 +23,16 @@ function ArrowUpRightIcon({ className = "w-6 h-6" }: { className?: string }) {
   );
 }
 
-interface NavSection {
-  title: string;
-  links: { label: string; href: string }[];
-}
-
 export function Footer({ settings }: FooterProps) {
-  // Navigation sections matching header structure
-  const navSections: NavSection[] = [
-    {
-      title: "Get Involved",
-      links: [
-        { label: "Volunteer", href: "/get-involved#volunteer" },
-        { label: "Become a Speaker", href: "/get-involved#speak" },
-        { label: "Sponsor Us", href: "/get-involved#sponsor" },
-        { label: "Partner", href: "/get-involved#partner" },
-        { label: "Donate", href: "/get-involved#donate" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { label: "UX for Students", href: "/resources#students" },
-        { label: "State of UX in Hawaii Report", href: "/resources#report" },
-        { label: "Directory of Tech Orgs", href: "/resources#directory" },
-      ],
-    },
-    {
-      title: "About",
-      links: [
-        { label: "Team", href: "/about#team" },
-        { label: "FAQs", href: "/about#faqs" },
-        { label: "Contact", href: "/about#contact" },
-      ],
-    },
-  ];
-
-  // Main navigation links (no dropdowns)
-  const mainLinks: { label: string; href: string; external?: boolean }[] = [
+  // All top-level navigation links
+  const navLinks: { label: string; href: string; external?: boolean }[] = [
     { label: "Find UX Pro", href: "/find-ux-pro" },
+    { label: "Get Involved", href: "/get-involved" },
     { label: "Events", href: "/events" },
     { label: "Conference", href: "https://uxhiconference.com/", external: true },
+    { label: "Resources", href: "/resources" },
     { label: "Merch", href: "/merch" },
-    { label: "Join us", href: "/join" },
+    { label: "About", href: "/about" },
   ];
 
   // Get current date
@@ -134,16 +101,16 @@ export function Footer({ settings }: FooterProps) {
           <div className="lg:text-right">
             <p className="text-white/80 text-sm uppercase tracking-wider mb-6">Navigation</p>
 
-            {/* Main Links */}
-            <nav className="space-y-2 mb-8">
-              {mainLinks.map((item) =>
+            {/* Page Links - 2 columns */}
+            <nav className="grid grid-cols-2 gap-x-10 gap-y-2 lg:justify-items-end mb-8">
+              {navLinks.map((item) =>
                 item.external ? (
                   <a
                     key={item.href}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block font-display text-2xl md:text-3xl text-white hover:text-white/80 transition-colors"
+                    className="text-[18px] text-white hover:text-white/80 transition-colors"
                   >
                     {item.label}
                   </a>
@@ -151,7 +118,7 @@ export function Footer({ settings }: FooterProps) {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block font-display text-2xl md:text-3xl text-white hover:text-white/80 transition-colors"
+                    className="text-[18px] text-white hover:text-white/80 transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -159,25 +126,16 @@ export function Footer({ settings }: FooterProps) {
               )}
             </nav>
 
-            {/* Dropdown Sections */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:justify-items-end">
-              {navSections.map((section) => (
-                <div key={section.title} className="lg:text-right">
-                  <p className="text-white/60 text-sm uppercase tracking-wider mb-3">{section.title}</p>
-                  <div className="space-y-2">
-                    {section.links.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="block text-white hover:text-white/80 transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* Primary CTA */}
+            <Link
+              href="/join"
+              className="inline-flex items-center gap-3 bg-white rounded-full pl-6 pr-2 py-2 font-medium hover:bg-white/90 transition-colors group"
+            >
+              <span className="text-gray-900">Join us</span>
+              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                <ArrowUpRightIcon className="w-4 h-4 text-gray-900" />
+              </span>
+            </Link>
           </div>
         </div>
 
