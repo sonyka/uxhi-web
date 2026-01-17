@@ -25,61 +25,39 @@ function ExternalLinkIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// Sample resources for each category
-const studentResources = [
-  {
-    title: "Getting Started in UX",
-    description: "A beginner's guide to understanding UX design fundamentals and career paths.",
-    type: "Guide",
-  },
-  {
-    title: "UX Portfolio Tips",
-    description: "Learn how to build an impressive UX portfolio that stands out to employers.",
-    type: "Article",
-  },
-  {
-    title: "Figma for Beginners",
-    description: "Free course covering the basics of Figma for aspiring UX/UI designers.",
-    type: "Course",
-  },
-  {
-    title: "UX Research Methods",
-    description: "An overview of different UX research methods and when to use them.",
-    type: "Guide",
-  },
+// Online Resources
+const onlineResources = [
+  { name: "Visual Design", url: "https://shiftnudge.com", label: "shiftnudge.com" },
+  { name: "Interaction Design", url: "https://interaction-design.org", label: "interaction-design.org" },
+  { name: "UX Design", url: "https://nngroup.com", label: "nngroup.com" },
+  { name: "Figma", url: "https://help.figma.com", label: "help.figma.com" },
+  { name: "Articles", url: "https://uxdesign.cc", label: "uxdesign.cc" },
 ];
 
+// Local Programs
+const localPrograms = [
+  { name: "KCC New Media Arts (NMA) Program", url: "https://www.kapiolani.hawaii.edu/academics/programs-of-study/new-media-arts/" },
+  { name: "LCC Digital Media Program", url: "https://www.leeward.hawaii.edu/" },
+  { name: "UH West Oahu", url: "https://www.uhwo.hawaii.edu/" },
+  { name: "Chaminade: Environmental + Interior Design (AA, BFA)", url: "https://chaminade.edu/" },
+  { name: "Hawaii Pacific University courses", url: "https://www.hpu.edu/" },
+];
+
+// Tech Organizations
 const techOrgs = [
-  {
-    name: "Hawaii Technology Development Corporation",
-    description: "Supporting technology innovation and economic development in Hawaii.",
-    website: "https://htdc.org",
-  },
-  {
-    name: "Purple Mai'a",
-    description: "Empowering Native Hawaiian and underserved youth through technology education.",
-    website: "https://purplemaia.org",
-  },
-  {
-    name: "DevLeague",
-    description: "Hawaii's premier coding bootcamp offering full-stack development training.",
-    website: "https://devleague.com",
-  },
-  {
-    name: "Hawaii Women in Technology",
-    description: "Promoting the advancement of women in technology fields across Hawaii.",
-    website: "https://hawaiiwomenintechnology.org",
-  },
-  {
-    name: "Startup Paradise",
-    description: "Connecting and supporting Hawaii's entrepreneurial ecosystem.",
-    website: "https://startupparadise.com",
-  },
-  {
-    name: "Blue Startups",
-    description: "Hawaii-based accelerator helping startups scale globally.",
-    website: "https://bluestartups.com",
-  },
+  { name: "Hawai'i Tech Development Corporation (HTDC)", url: "https://htdc.org" },
+  { name: "Hawai'i Angel", url: "https://hawaiiangel.com" },
+  { name: "Blue Startups / East Meets West", url: "https://bluestartups.com" },
+  { name: "Pi'iku", url: "https://piiku.co" },
+  { name: "Hawaiians in Tech", url: "https://hawaiiansintech.org" },
+  { name: "TRUE Hawaii", url: "https://truehawaii.org" },
+  { name: "Hawaii Women in Tech", url: "https://hawaiiwomenintechnology.org" },
+  { name: "Honolulu Tech Network", url: "https://www.meetup.com/honolulu-tech-network/" },
+  { name: "Honolulu Bitcoin", url: "https://www.meetup.com/honolulu-bitdevs/" },
+  { name: "Hawaii Center for AI", url: "https://hawaiiai.org" },
+  { name: "Hawaii AI and XR", url: "https://hawaiiai.org" },
+  { name: "Pacific Asian Center for Entrepreneurship (PACE)", url: "https://pace.shidler.hawaii.edu" },
+  { name: "Honolulu Tech Week", url: "https://honolulutechweek.com" },
 ];
 
 export default function ResourcesPage() {
@@ -91,9 +69,6 @@ export default function ResourcesPage() {
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white mb-6">
             Resources
           </h1>
-          <p className="text-white/90 text-lg md:text-xl max-w-[600px] mx-auto">
-            Curated resources to support your UX journey and growth.
-          </p>
         </div>
       </section>
 
@@ -116,134 +91,220 @@ export default function ResourcesPage() {
 
       {/* UX for Students Section */}
       <section id="students" className="py-20 px-6 scroll-mt-24">
-        <div className="max-w-[1100px] mx-auto">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-10">
+            UX for Students
+          </h2>
+
+          {/* Online Resources */}
           <div className="mb-12">
-            <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-3 block">For Students</span>
-            <h2 className="font-display text-3xl md:text-4xl text-gray-900 mb-4">
-              Start your UX journey
-            </h2>
-            <p className="text-gray-600 text-lg max-w-[700px]">
-              Whether you&apos;re curious about UX or ready to dive in, these resources will help you get started on your design career.
-            </p>
+            <h3 className="font-semibold text-xl text-gray-900 mb-6">Online Resources</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {onlineResources.map((resource) => (
+                <a
+                  key={resource.name}
+                  href={resource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
+                >
+                  <div>
+                    <p className="font-medium text-gray-900">{resource.name}</p>
+                    <p className="text-sm text-teal-600">{resource.label}</p>
+                  </div>
+                  <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
+                </a>
+              ))}
+            </div>
           </div>
 
+          {/* Local Programs */}
+          <div>
+            <h3 className="font-semibold text-xl text-gray-900 mb-4">Local Programs/Degrees</h3>
+            <p className="text-gray-600 text-sm mb-6 bg-purple-50 border border-purple-100 rounded-[12px] p-4">
+              <strong>Note:</strong> There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.
+            </p>
+            <ul className="space-y-3">
+              {localPrograms.map((program) => (
+                <li key={program.name}>
+                  <a
+                    href={program.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
+                    {program.name}
+                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* UX for Practitioners & Businesses (Coming Soon) */}
+      <section className="py-16 px-6 bg-cream">
+        <div className="max-w-[900px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {studentResources.map((resource) => (
-              <div
-                key={resource.title}
-                className="bg-white border border-gray-200 rounded-[20px] p-6 hover:shadow-lg hover:border-teal-300 transition-all"
-              >
-                <span className="text-xs uppercase tracking-wide bg-purple-100 text-purple-700 px-2 py-1 rounded mb-3 inline-block">
-                  {resource.type}
-                </span>
-                <h3 className="font-semibold text-lg text-gray-900 mb-2">
-                  {resource.title}
-                </h3>
-                <p className="text-gray-600 text-sm">{resource.description}</p>
-              </div>
-            ))}
+            <div className="bg-white rounded-[20px] p-8 border border-gray-200">
+              <h3 className="font-display text-2xl text-purple-700 mb-3">UX for Practitioners</h3>
+              <p className="text-gray-500">Coming soon</p>
+            </div>
+            <div className="bg-white rounded-[20px] p-8 border border-gray-200">
+              <h3 className="font-display text-2xl text-purple-700 mb-3">UX for Businesses</h3>
+              <p className="text-gray-500">Coming soon</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* State of UX Report Section */}
       <section id="report" className="py-20 px-6 bg-purple-700 scroll-mt-24">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-purple-200 text-sm font-medium uppercase tracking-wider mb-3 block">Industry Insights</span>
-              <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
-                State of UX in Hawaii Report
-              </h2>
-              <p className="text-purple-200 text-lg leading-relaxed mb-6">
-                Our annual report provides insights into the UX industry in Hawaii, including salary data, job trends, skills in demand, and the overall state of human-centered design in our islands.
-              </p>
-              <ul className="text-purple-200 space-y-3 mb-8">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
+            State of UX in Hawaii Report
+          </h2>
+          <p className="text-purple-100 text-lg leading-relaxed mb-4">
+            To answer that question, we conducted our own study on the status of UX jobs, hiring, education, awareness, and audiences to give us a better understanding of how our programming could best support UXers in Hawai&apos;i.
+          </p>
+          <p className="text-purple-200 mb-10">
+            The report is currently done on a bi-annual basis to gain a better understanding of our UX design community.
+          </p>
+
+          {/* Findings Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            {/* Education Findings */}
+            <div className="bg-white/10 rounded-[20px] p-6">
+              <h3 className="text-white font-semibold text-lg mb-4">Education Findings</h3>
+              <ul className="text-purple-100 space-y-3 text-sm">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Salary benchmarks for UX roles in Hawaii</span>
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span>75% of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Industry trends and growth areas</span>
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span>42% of managers have a master&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2.5 flex-shrink-0" />
-                  <span>Skills and tools most in demand</span>
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span>40% of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
                 </li>
               </ul>
-              <Link
-                href="mailto:aloha@uxhi.community?subject=State%20of%20UX%20Report"
-                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-              >
-                <span className="text-gray-900">Get the report</span>
-                <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                  <ArrowIcon className="w-4 h-4 text-gray-900" />
-                </span>
-              </Link>
             </div>
-            <div className="bg-purple-600 rounded-[32px] p-8 text-center">
-              <span className="font-display text-[120px] lg:text-[160px] text-white/20 leading-none block">2025</span>
-              <p className="text-white text-lg font-medium -mt-4">Coming Soon</p>
+
+            {/* Career Findings */}
+            <div className="bg-white/10 rounded-[20px] p-6">
+              <h3 className="text-white font-semibold text-lg mb-4">Career Findings</h3>
+              <ul className="text-purple-100 space-y-3 text-sm">
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span>33% of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span>UXers in Hawai&apos;i are working harder - to find consistent employment, to be a &quot;jack of all trades&quot; or as a department of one or within small teams</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Are earning an average of $75,000 versus $109,776 as the national average</span>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Directory of Tech Orgs Section */}
-      <section id="directory" className="py-20 px-6 bg-cream scroll-mt-24">
-        <div className="max-w-[1100px] mx-auto">
-          <div className="mb-12">
-            <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-3 block">Local Community</span>
-            <h2 className="font-display text-3xl md:text-4xl text-gray-900 mb-4">
-              Directory of Tech Orgs in Hawaii
-            </h2>
-            <p className="text-gray-600 text-lg max-w-[700px]">
-              Connect with other technology and design organizations in Hawaii. Together, we&apos;re building a stronger tech community in the islands.
-            </p>
+          {/* Top Challenges */}
+          <div className="bg-white/10 rounded-[20px] p-6 mb-10">
+            <h3 className="text-white font-semibold text-lg mb-4">Top Challenges</h3>
+            <ul className="text-purple-100 space-y-3">
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                <span>Many business leaders do not know what UX is</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                <span>UX is not prioritized or funded</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                <span>The UX job market in Hawai&apos;i is limited</span>
+              </li>
+            </ul>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {techOrgs.map((org) => (
-              <a
-                key={org.name}
-                href={org.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white border border-gray-200 rounded-[20px] p-6 hover:shadow-lg hover:border-teal-300 transition-all group"
-              >
-                <h3 className="font-semibold text-lg text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">
-                  {org.name}
-                </h3>
-                <p className="text-gray-600 text-sm mb-4">{org.description}</p>
-                <span className="text-teal-500 text-sm font-medium flex items-center gap-1">
-                  Visit website
-                  <ExternalLinkIcon className="w-3.5 h-3.5" />
-                </span>
-              </a>
-            ))}
+          {/* How Report Helps */}
+          <div className="mb-10">
+            <p className="text-purple-100 mb-4">The State of UX report charts our progress towards advancing the field of UX by:</p>
+            <ul className="text-purple-100 space-y-2">
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                <span>Inspiring local business leaders to find and hire UX professionals</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                <span>Generate opportunities for new UXers to gain experience</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                <span>Host collaborative events to strengthen the UX community</span>
+              </li>
+            </ul>
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-[800px] mx-auto text-center">
-          <h2 className="font-display text-3xl md:text-4xl text-teal-500 mb-6">
-            Have a resource to share?
-          </h2>
-          <p className="text-gray-600 text-lg mb-8 max-w-[600px] mx-auto">
-            We&apos;re always looking for valuable resources to share with our community. If you have something that could help others on their UX journey, let us know!
-          </p>
+          {/* Download CTA */}
           <Link
-            href="mailto:aloha@uxhi.community?subject=Resource%20Submission"
+            href="https://drive.google.com/uxhi-reports"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
-            <span className="text-gray-900">Submit a resource</span>
+            <span className="text-gray-900">Download Reports</span>
             <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
+        </div>
+      </section>
+
+      {/* Directory of Tech Organizations */}
+      <section id="directory" className="py-20 px-6 scroll-mt-24">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-4">
+            Directory of Tech Organizations
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-10">
+            The tech ecosystem and community in Hawai&apos;i is thriving and growing! This list is a work in progress for UXers to connect with the many communities that advance our shared mission.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+            {techOrgs.map((org) => (
+              <a
+                key={org.name}
+                href={org.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
+              >
+                <p className="font-medium text-gray-900 group-hover:text-teal-600 transition-colors">{org.name}</p>
+                <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors flex-shrink-0" />
+              </a>
+            ))}
+          </div>
+
+          {/* Something Missing CTA */}
+          <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-gray-700 font-medium">Something missing?</p>
+            <Link
+              href="mailto:aloha@uxhi.community?subject=Tech%20Organization%20Suggestion"
+              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+            >
+              <span className="text-gray-900">Email Us</span>
+              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                <ArrowIcon className="w-4 h-4 text-gray-900" />
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
     </main>
