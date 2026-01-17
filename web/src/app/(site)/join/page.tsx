@@ -100,7 +100,7 @@ export default async function JoinPage() {
         {/* Left Side - Content */}
         <div className="lg:w-[60%] flex items-center px-8 lg:px-16 py-16 lg:py-24">
           <div className="max-w-[560px]">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] text-gray-900 mb-6 leading-[1.1]">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-6 leading-[1.1]">
               Become a member!
             </h1>
             <p className="text-gray-700 text-lg leading-relaxed mb-8">

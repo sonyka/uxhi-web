@@ -65,25 +65,15 @@ const pastSponsors = [
   "Shaka Guide",
 ];
 
-// Grid images for hero
-const gridImages = [
-  { id: "1", src: "/images/bento/group-leis.jpg", alt: "UXHI community members with leis" },
-  { id: "2", src: "/images/bento/conference.jpg", alt: "UXHI conference" },
-  { id: "3", src: "/images/bento/ux101-group.jpg", alt: "UX101 group" },
-  { id: "4", src: "/images/bento/crowd-community.jpg", alt: "UXHI community crowd" },
-  { id: "5", src: "/images/bento/photobooth.jpg", alt: "UXHI photobooth" },
-  { id: "6", src: "/images/bento/uxhicon-25.jpg", alt: "UXHICon 25" },
-];
-
 export default function GetInvolvedPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row min-h-screen">
+      <div className="flex flex-col lg:flex-row pt-24 lg:pt-0 lg:min-h-[85vh]">
         {/* Left Side - Content */}
-        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center px-8 py-16 lg:py-0">
-          <div className="max-w-md">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6">
+        <div className="lg:w-[60%] flex items-center px-8 lg:px-16 py-16 lg:py-24">
+          <div className="max-w-[560px]">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-6 leading-[1.1]">
               Get Involved
             </h1>
             <p className="text-gray-700 text-lg leading-relaxed mb-8">
@@ -95,50 +85,70 @@ export default function GetInvolvedPage() {
             </p>
             <Link
               href="#volunteer"
-              className="inline-flex items-center gap-3 px-6 py-3 bg-white text-gray-900 font-semibold rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 font-medium rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
             >
               Start volunteering
-              <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
+              <span className="w-7 h-7 bg-[#f5c542] rounded-full flex items-center justify-center">
+                <ArrowIcon className="w-3.5 h-3.5 text-gray-900" />
               </span>
             </Link>
           </div>
         </div>
 
         {/* Right Side - Image Grid */}
-        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center p-8 lg:p-12">
-          <div className="grid grid-cols-2 gap-4 max-w-lg w-full">
-            {/* Column 1 - offset down */}
-            <div className="flex flex-col gap-4 pt-8">
-              {gridImages.slice(0, 3).map((image) => (
-                <div
-                  key={image.id}
-                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-            {/* Column 2 - no offset */}
+        <div className="lg:w-[40%] flex items-start justify-end pr-0 lg:pr-0 py-8 lg:py-0 overflow-hidden">
+          <div className="grid grid-cols-2 gap-4 w-full max-w-[480px] lg:max-w-none lg:w-[480px] px-8 lg:px-0 lg:mr-[-40px]">
+            {/* Column 1 */}
             <div className="flex flex-col gap-4">
-              {gridImages.slice(3, 6).map((image) => (
-                <div
-                  key={image.id}
-                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
+              {/* Rounded rectangle - cut off at top */}
+              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] overflow-hidden lg:-mt-12 relative">
+                <Image
+                  src="/images/bento/conference.jpg"
+                  alt="UXHI conference"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* UXHI Motif */}
+              <div className="w-full aspect-square flex items-center justify-center">
+                <Image
+                  src="/images/bento/uxhi-motif-1.svg"
+                  alt="UXHI motif"
+                  width={200}
+                  height={200}
+                  className="w-full h-auto max-w-[200px]"
+                />
+              </div>
+              {/* Tall pill shape */}
+              <div className="w-full h-[280px] lg:h-[320px] rounded-[999px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/crowd-community.jpg"
+                  alt="UXHI community crowd"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            {/* Column 2 */}
+            <div className="flex flex-col gap-4 pt-8">
+              {/* Rounded rectangle 1 */}
+              <div className="w-full h-[200px] lg:h-[288px] rounded-[24px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/group-leis.jpg"
+                  alt="UXHI community members with leis"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Rounded rectangle 2 */}
+              <div className="w-full h-[200px] lg:h-[288px] rounded-[24px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/ux101-group.jpg"
+                  alt="UX101 group"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

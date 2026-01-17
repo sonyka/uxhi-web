@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -62,18 +63,91 @@ const techOrgs = [
 
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 bg-teal-500">
-        <div className="max-w-[900px] mx-auto text-center">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white mb-6">
-            Resources
-          </h1>
+      <div className="flex flex-col lg:flex-row pt-24 lg:pt-0 lg:min-h-[85vh]">
+        {/* Left Side - Content */}
+        <div className="lg:w-[60%] flex items-center px-8 lg:px-16 py-16 lg:py-24">
+          <div className="max-w-[560px]">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-6 leading-[1.1]">
+              Resources
+            </h1>
+            <p className="text-gray-700 text-lg leading-relaxed mb-8">
+              Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaii.
+            </p>
+            <Link
+              href="#students"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 font-medium rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
+            >
+              Explore resources
+              <span className="w-7 h-7 bg-[#f5c542] rounded-full flex items-center justify-center">
+                <ArrowIcon className="w-3.5 h-3.5 text-gray-900" />
+              </span>
+            </Link>
+          </div>
         </div>
-      </section>
+
+        {/* Right Side - Image Grid */}
+        <div className="lg:w-[40%] flex items-start justify-end pr-0 lg:pr-0 py-8 lg:py-0 overflow-hidden">
+          <div className="grid grid-cols-2 gap-4 w-full max-w-[480px] lg:max-w-none lg:w-[480px] px-8 lg:px-0 lg:mr-[-40px]">
+            {/* Column 1 */}
+            <div className="flex flex-col gap-4">
+              {/* Rounded rectangle - cut off at top */}
+              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] overflow-hidden lg:-mt-12 relative">
+                <Image
+                  src="/images/bento/ux101-group.jpg"
+                  alt="UX101 group"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Tall pill shape */}
+              <div className="w-full h-[320px] lg:h-[400px] rounded-[999px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/conference.jpg"
+                  alt="UXHI conference"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            {/* Column 2 */}
+            <div className="flex flex-col gap-4 pt-8">
+              {/* Rounded rectangle - cut off at top */}
+              <div className="w-full h-[160px] lg:h-[200px] rounded-[24px] overflow-hidden lg:-mt-16 relative">
+                <Image
+                  src="/images/bento/crowd-community.jpg"
+                  alt="UXHI community crowd"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* UXHI Motif */}
+              <div className="w-full aspect-square flex items-center justify-center">
+                <Image
+                  src="/images/bento/uxhi-motif-1.svg"
+                  alt="UXHI motif"
+                  width={200}
+                  height={200}
+                  className="w-full h-auto max-w-[200px]"
+                />
+              </div>
+              {/* Rounded rectangle */}
+              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/photobooth.jpg"
+                  alt="UXHI photobooth"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Quick Links */}
-      <section className="py-8 px-6 bg-teal-600">
+      <section className="py-8 px-6 bg-purple-700">
         <div className="max-w-[900px] mx-auto">
           <div className="flex flex-wrap justify-center gap-3">
             <a href="#students" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
