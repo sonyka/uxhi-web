@@ -68,14 +68,14 @@ export default function GetInvolvedPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 bg-purple-700">
+      <section className="pt-32 pb-16 px-6 bg-[#f5f5f5]">
         <div className="max-w-[900px] mx-auto text-center">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6">
             Get Involved
           </h1>
-          <p className="text-purple-200 text-lg md:text-xl max-w-[600px] mx-auto">
+          <p className="text-gray-700 text-lg md:text-xl max-w-[600px] mx-auto">
             There are many ways to contribute to the UXHI community. Check out our{" "}
-            <Link href="/events" className="text-white underline underline-offset-2 hover:text-purple-100">
+            <Link href="/events" className="text-teal-500 underline underline-offset-2 hover:text-teal-600">
               upcoming events
             </Link>{" "}
             or find other ways to get involved below.
@@ -84,7 +84,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Quick Links */}
-      <section className="py-8 px-6 bg-purple-600">
+      <section className="py-8 px-6 bg-purple-700">
         <div className="max-w-[900px] mx-auto">
           <div className="flex flex-wrap justify-center gap-3">
             <a href="#volunteer" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
