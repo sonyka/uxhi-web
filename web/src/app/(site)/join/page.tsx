@@ -29,38 +29,65 @@ const testimonials = [
     id: "1",
     quote: "UXHI has been an incredible resource for networking and professional growth. The community is welcoming and supportive.",
     author: {
-      name: "Sarah K.",
+      name: "Karli Young",
       role: "UX Designer",
-      company: "Local Tech Company",
+      company: "Hawaiian Airlines",
     },
   },
   {
     id: "2",
     quote: "As someone transitioning into UX, UXHI gave me the connections and confidence I needed to make the switch.",
     author: {
-      name: "Michael T.",
+      name: "Emily Lee",
       role: "Product Designer",
-      company: "Startup",
+      company: "Kamehameha Schools",
     },
   },
   {
     id: "3",
     quote: "The events and Slack community have been invaluable. I've learned so much and made lasting friendships.",
     author: {
-      name: "Jennifer L.",
+      name: "Michelle Tran",
       role: "Senior UX Researcher",
-      company: "Enterprise Company",
+      company: "Google",
+    },
+  },
+  {
+    id: "4",
+    quote: "Moving back to Hawaii, I was worried about finding a design community. UXHI exceeded all my expectations—it's like having a built-in ohana.",
+    author: {
+      name: "Carlo Liquido",
+      role: "Design Lead",
+      company: "Salesforce",
+    },
+  },
+  {
+    id: "5",
+    quote: "The mentorship opportunities through UXHI helped me level up my career. I went from junior to senior in two years thanks to the guidance I received.",
+    author: {
+      name: "Patrick Lutz",
+      role: "Senior Product Designer",
+      company: "First Hawaiian Bank",
+    },
+  },
+  {
+    id: "6",
+    quote: "Being part of UXHI while working remotely keeps me connected to Hawaii's tech scene. The virtual events and Slack channels make distance feel irrelevant.",
+    author: {
+      name: "Tyler Nishida",
+      role: "UX Manager",
+      company: "Amazon",
     },
   },
 ];
 
 // Company logos
 const companyLogos = [
-  { name: "Code Academy", placeholder: true },
-  { name: "LinkedIn", placeholder: true },
-  { name: "Servco", placeholder: true },
-  { name: "Zippy's", placeholder: true },
-  { name: "Google", placeholder: true },
+  { name: "Codecademy", src: "/images/company_logos/Codecademy Logo.svg", width: 140, height: 28 },
+  { name: "LinkedIn", src: "/images/company_logos/LinkedIn 2021.svg", width: 100, height: 26 },
+  { name: "Servco", src: "/images/company_logos/servco.svg", width: 100, height: 32 },
+  { name: "Zippy's", src: "/images/company_logos/Zippy Logo RGB.svg", width: 96, height: 48 },
+  { name: "Google", src: "/images/company_logos/Google Logo.svg", width: 110, height: 48 },
 ];
 
 export default async function JoinPage() {
@@ -154,6 +181,20 @@ export default async function JoinPage() {
         </div>
       </section>
 
+      {/* Large Team Photo */}
+      <section className="px-6 pb-16 bg-cream">
+        <div className="max-w-[1300px] mx-auto">
+          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
+            <Image
+              src="/images/community-photo.jpg"
+              alt="UXHI community group photo"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
@@ -190,13 +231,19 @@ export default async function JoinPage() {
           <h2 className="font-display text-2xl md:text-3xl text-purple-700 text-center mb-12">
             Representing companies in Hawai&apos;i and beyond
           </h2>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
             {companyLogos.map((company) => (
               <div
                 key={company.name}
-                className="h-12 px-6 flex items-center justify-center bg-white rounded-lg border border-gray-200"
+                className="flex items-center justify-center"
               >
-                <span className="text-gray-400 font-medium">{company.name}</span>
+                <Image
+                  src={company.src}
+                  alt={company.name}
+                  width={company.width}
+                  height={company.height}
+                  className="object-contain brightness-0 invert-[0.7] hover:invert-[0.5] transition-all"
+                />
               </div>
             ))}
           </div>
@@ -207,19 +254,28 @@ export default async function JoinPage() {
       <section id="join-form" className="py-20 px-6 bg-white">
         <div className="max-w-[800px] mx-auto">
           <div className="text-center mb-10">
+            {/* Slack Icon with Tooltip */}
+            <div className="relative inline-block mb-6 cursor-pointer group/slack">
+              <div className="w-32 h-32 mx-auto relative">
+                <Image
+                  src="/images/icons/icon-slack.png"
+                  alt="Slack"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              {/* Tooltip */}
+              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-normal leading-relaxed rounded-xl shadow-lg border border-gray-100 w-72 text-left opacity-0 invisible group-hover/slack:opacity-100 group-hover/slack:visible transition-all duration-200 z-50">
+                Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has 400+ designers sharing resources, job opportunities, and community support.
+                {/* Tail */}
+                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
+              </span>
+            </div>
             <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-6">
               How to Join
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with 400+ designers!{" "}
-              <a
-                href="https://slack.com/what-is-slack"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-500 underline hover:text-teal-600"
-              >
-                (What&apos;s Slack?)
-              </a>
+              Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with 400+ designers!
             </p>
           </div>
 
