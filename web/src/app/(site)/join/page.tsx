@@ -98,8 +98,8 @@ export default async function JoinPage() {
       {/* Hero Section */}
       <div className="flex flex-col lg:flex-row pt-24 lg:pt-0 lg:min-h-[85vh]">
         {/* Left Side - Content */}
-        <div className="lg:w-1/2 flex items-center px-8 lg:px-16 py-16 lg:py-24">
-          <div className="max-w-[480px]">
+        <div className="lg:w-[60%] flex items-center px-8 lg:px-16 py-16 lg:py-24">
+          <div className="max-w-[560px]">
             <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] text-gray-900 mb-6 leading-[1.1]">
               Become a member!
             </h1>
@@ -122,31 +122,59 @@ export default async function JoinPage() {
         </div>
 
         {/* Right Side - Image Grid */}
-        <div className="lg:w-1/2 flex items-start justify-end pr-0 lg:pr-0 py-8 lg:py-0 overflow-hidden">
-          <div className="grid grid-cols-2 gap-4 w-full max-w-[480px] lg:max-w-none lg:w-[500px] px-8 lg:px-0 lg:mr-[-40px]">
+        <div className="lg:w-[40%] flex items-start justify-end pr-0 lg:pr-0 py-8 lg:py-0 overflow-hidden">
+          <div className="grid grid-cols-2 gap-4 w-full max-w-[480px] lg:max-w-none lg:w-[480px] px-8 lg:px-0 lg:mr-[-40px]">
             {/* Column 1 */}
             <div className="flex flex-col gap-4">
               {/* Tall rounded rectangle - cut off at top */}
-              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] bg-gray-400 lg:-mt-12" />
+              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] overflow-hidden lg:-mt-12 relative">
+                <Image
+                  src="/images/bento/conference.jpg"
+                  alt="UXHI conference"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               {/* UXHI Motif */}
               <div className="w-full aspect-square flex items-center justify-center">
                 <Image
                   src="/images/bento/uxhi-motif-1.svg"
                   alt="UXHI motif"
-                  width={160}
-                  height={160}
-                  className="w-full h-auto max-w-[160px]"
+                  width={200}
+                  height={200}
+                  className="w-full h-auto max-w-[200px]"
                 />
               </div>
               {/* Tall oval */}
-              <div className="w-full h-[280px] lg:h-[320px] rounded-[999px] bg-gray-400" />
+              <div className="w-full h-[280px] lg:h-[320px] rounded-[999px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/couple-sunglasses.png"
+                  alt="UXHI members"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
             {/* Column 2 */}
             <div className="flex flex-col gap-4 pt-8">
               {/* Rounded rectangle 1 */}
-              <div className="w-full h-[200px] lg:h-[240px] rounded-[24px] bg-gray-400" />
+              <div className="w-full h-[200px] lg:h-[288px] rounded-[24px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/group-leis.jpg"
+                  alt="UXHI community members with leis"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               {/* Rounded rectangle 2 */}
-              <div className="w-full h-[200px] lg:h-[240px] rounded-[24px] bg-gray-400" />
+              <div className="w-full h-[200px] lg:h-[288px] rounded-[24px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/photobooth.jpg"
+                  alt="UXHI photobooth"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
