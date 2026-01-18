@@ -33,6 +33,18 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="pt-[200px] pb-12 px-4">
         <div className="max-w-[1280px] mx-auto text-center">
+          {/* Member Badge */}
+          <div className="inline-flex items-center gap-3 bg-white rounded-full pl-2 pr-6 py-2 mb-10 border border-gray-100 shadow-sm">
+            <Image
+              src="/images/members.png"
+              alt="UXHI community members"
+              width={130}
+              height={36}
+              className="h-9 w-auto"
+            />
+            <span className="text-[15px] text-gray-700 font-medium">500 members and growing</span>
+          </div>
+
           {/* Main Headline */}
           <h1 className="font-display text-[40px] md:text-[60px] lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight text-black mb-12">
             A{" "}
