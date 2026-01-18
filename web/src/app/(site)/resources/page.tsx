@@ -212,7 +212,7 @@ export default function ResourcesPage() {
       </div>
 
       {/* UX for Students Section */}
-      <section id="students" className="py-20 px-6 scroll-mt-24">
+      <section id="students" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-10">
             UX for Students
@@ -267,7 +267,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* UX for Practitioners & Businesses (Coming Soon) */}
-      <section className="py-16 px-6 bg-cream">
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-[900px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-[20px] p-8 border border-gray-200">
@@ -390,7 +390,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Directory of Tech Organizations */}
-      <section id="directory" className="py-20 px-6 scroll-mt-24">
+      <section id="directory" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-4">
             Directory of Tech Organizations

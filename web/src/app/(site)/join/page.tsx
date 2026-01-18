@@ -174,7 +174,7 @@ export default async function JoinPage() {
       </div>
 
       {/* Who are we? Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
           <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-8">
             Who are we?
@@ -195,7 +195,7 @@ export default async function JoinPage() {
       </section>
 
       {/* Large Team Photo */}
-      <section className="px-6 pb-16">
+      <section className="px-6 pb-16 bg-white">
         <div className="max-w-[1300px] mx-auto">
           <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
             <Image

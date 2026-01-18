@@ -260,7 +260,7 @@ export default function GetInvolvedPage() {
       </div>
 
       {/* Volunteer Section */}
-      <section id="volunteer" className="py-20 px-6 bg-cream scroll-mt-24">
+      <section id="volunteer" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
             Volunteer
@@ -316,7 +316,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Speaking Opportunities Section */}
-      <section id="speak" className="py-20 px-6 scroll-mt-24">
+      <section id="speak" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
             Speaking Opportunities
@@ -345,7 +345,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Partnerships Section */}
-      <section id="partner" className="py-20 px-6 bg-cream scroll-mt-24">
+      <section id="partner" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
             Partnerships
@@ -402,7 +402,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Sponsorships Section */}
-      <section id="sponsor" className="py-20 px-6 scroll-mt-24">
+      <section id="sponsor" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
             Sponsorships

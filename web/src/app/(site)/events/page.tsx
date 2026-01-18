@@ -96,7 +96,7 @@ export default function EventsPage() {
       </div>
 
       {/* Upcoming Events Section */}
-      <section className="py-20 px-6 bg-cream">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
           <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-8">
             Upcoming Events
