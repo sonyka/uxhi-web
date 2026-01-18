@@ -17,6 +17,60 @@ function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
+// Lucide Icons with 1.5px stroke
+function HandHeartIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
+      <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" />
+      <path d="m2 15 6 6" />
+      <path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z" />
+    </svg>
+  );
+}
+
+function MicVocalIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="m11 7.601-5.994 8.19a1 1 0 0 0 .1 1.298l.817.818a1 1 0 0 0 1.314.087L15.09 12" />
+      <path d="M16.5 21.174C15.5 20.5 14.372 20 13 20c-2.058 0-3.928 2.356-6 2-2.072-.356-2.775-3.369-1.5-4.5" />
+      <circle cx="16" cy="7" r="5" />
+    </svg>
+  );
+}
+
+function MessageSquareHeartIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      <path d="M14.8 7.5a1.84 1.84 0 0 0-2.6 0l-.2.3-.3-.3a1.84 1.84 0 1 0-2.4 2.8L12 13l2.7-2.7c.9-.9.8-2.1.1-2.8" />
+    </svg>
+  );
+}
+
+function HeartHandshakeIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+      <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" />
+      <path d="m18 15-2-2" />
+      <path d="m15 18-2-2" />
+    </svg>
+  );
+}
+
+function HandCoinsIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
+      <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" />
+      <path d="m2 16 6 6" />
+      <circle cx="16" cy="9" r="2.9" />
+      <circle cx="6" cy="5" r="3" />
+    </svg>
+  );
+}
+
 // Committee data with expanded descriptions
 const committees = [
   {
@@ -76,22 +130,73 @@ export default function GetInvolvedPage() {
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-6 leading-[1.1]">
               Get Involved
             </h1>
-            <p className="text-gray-700 text-lg leading-relaxed mb-8">
+            <p className="text-gray-700 text-lg leading-relaxed mb-10">
               There are many ways to contribute to the UXHI community. Check out our{" "}
-              <Link href="/events" className="text-teal-500 underline underline-offset-2 hover:text-teal-600">
+              <Link href="/events" className="text-gray-900 underline underline-offset-2 hover:text-purple-700 transition-colors">
                 upcoming events
               </Link>{" "}
               or find other ways to get involved below.
             </p>
-            <Link
-              href="#volunteer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 font-medium rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              Start volunteering
-              <span className="w-7 h-7 bg-[#f5c542] rounded-full flex items-center justify-center">
-                <ArrowIcon className="w-3.5 h-3.5 text-gray-900" />
-              </span>
-            </Link>
+
+            {/* Quick Link Modules */}
+            <div className="flex flex-col gap-3">
+              {/* Row 1 */}
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="#volunteer"
+                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+                >
+                  <HandHeartIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                  <div className="text-left">
+                    <span className="block text-sm font-medium text-gray-900">Volunteer</span>
+                    <span className="block text-xs text-gray-500">Help grow our community</span>
+                  </div>
+                </a>
+                <a
+                  href="#speak"
+                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+                >
+                  <MicVocalIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                  <div className="text-left">
+                    <span className="block text-sm font-medium text-gray-900">Become a Speaker</span>
+                    <span className="block text-xs text-gray-500">Share your expertise</span>
+                  </div>
+                </a>
+              </div>
+              {/* Row 2 */}
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="#sponsor"
+                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+                >
+                  <MessageSquareHeartIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                  <div className="text-left">
+                    <span className="block text-sm font-medium text-gray-900">Sponsor Us</span>
+                    <span className="block text-xs text-gray-500">Support UXHI events</span>
+                  </div>
+                </a>
+                <a
+                  href="#partner"
+                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+                >
+                  <HeartHandshakeIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                  <div className="text-left">
+                    <span className="block text-sm font-medium text-gray-900">Partner</span>
+                    <span className="block text-xs text-gray-500">Collaborate with us</span>
+                  </div>
+                </a>
+                <a
+                  href="#donate"
+                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+                >
+                  <HandCoinsIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                  <div className="text-left">
+                    <span className="block text-sm font-medium text-gray-900">Donate</span>
+                    <span className="block text-xs text-gray-500">Support our mission</span>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -153,29 +258,6 @@ export default function GetInvolvedPage() {
           </div>
         </div>
       </div>
-
-      {/* Quick Links */}
-      <section className="py-6 px-6 border-b border-gray-200">
-        <div className="max-w-[900px] mx-auto">
-          <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
-            <a href="#volunteer" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              Volunteer
-            </a>
-            <a href="#speak" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              Speaking
-            </a>
-            <a href="#partner" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              Partnerships
-            </a>
-            <a href="#sponsor" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              Sponsorships
-            </a>
-            <a href="#donate" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              Donations
-            </a>
-          </nav>
-        </div>
-      </section>
 
       {/* Volunteer Section */}
       <section id="volunteer" className="py-20 px-6 bg-cream scroll-mt-24">
