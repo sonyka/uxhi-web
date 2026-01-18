@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
   title: "Shop | UX Hawaii",
@@ -125,15 +126,7 @@ export default function ShopPage() {
             <p className="text-gray-700 text-lg leading-relaxed mb-8">
               Show your UXHI pride with official merchandise. All proceeds support community events and programs.
             </p>
-            <Link
-              href="#products"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 font-medium rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              Browse merch
-              <span className="w-7 h-7 bg-[#f5c542] rounded-full flex items-center justify-center">
-                <ArrowIcon className="w-3.5 h-3.5 text-gray-900" />
-              </span>
-            </Link>
+            <PrimaryCTA href="#products">Browse merch</PrimaryCTA>
           </div>
         </div>
 

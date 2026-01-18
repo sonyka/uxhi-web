@@ -3,6 +3,7 @@ import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/live";
 import { FAQS_QUERY } from "@/sanity/lib/queries";
 import { FAQSection } from "@/components/sections/FAQSection";
+import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 // Arrow Icon Component (Feather arrow-right)
 function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -109,15 +110,7 @@ export default async function JoinPage() {
               directory, and early updates on the latest UX events through our
               monthly emails.
             </p>
-            <Link
-              href="#join-form"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 font-medium rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              Join us
-              <span className="w-7 h-7 bg-[#f5c542] rounded-full flex items-center justify-center">
-                <ArrowIcon className="w-3.5 h-3.5 text-gray-900" />
-              </span>
-            </Link>
+            <PrimaryCTA href="#join-form">Join us</PrimaryCTA>
           </div>
         </div>
 

@@ -17,6 +17,46 @@ function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
+// Lucide Icons with 1.5px stroke
+function GraduationCapIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+      <path d="M22 10v6" />
+      <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+    </svg>
+  );
+}
+
+function BookOpenTextIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M12 7v14" />
+      <path d="M16 12h2" />
+      <path d="M16 8h2" />
+      <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+      <path d="M6 12h2" />
+      <path d="M6 8h2" />
+    </svg>
+  );
+}
+
+function NotebookTabsIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M2 6h4" />
+      <path d="M2 10h4" />
+      <path d="M2 14h4" />
+      <path d="M2 18h4" />
+      <path d="M15 2v20" />
+      <path d="M15 7h5" />
+      <path d="M15 12h5" />
+      <path d="M15 17h5" />
+      <rect width="16" height="20" x="4" y="2" rx="2" />
+    </svg>
+  );
+}
+
 // External Link Icon
 function ExternalLinkIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -72,18 +112,43 @@ export default function ResourcesPage() {
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-6 leading-[1.1]">
               Resources
             </h1>
-            <p className="text-gray-700 text-lg leading-relaxed mb-8">
+            <p className="text-gray-700 text-lg leading-relaxed mb-10">
               Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaii.
             </p>
-            <Link
-              href="#students"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 font-medium rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              Explore resources
-              <span className="w-7 h-7 bg-[#f5c542] rounded-full flex items-center justify-center">
-                <ArrowIcon className="w-3.5 h-3.5 text-gray-900" />
-              </span>
-            </Link>
+
+            {/* Quick Link Modules */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#students"
+                className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+              >
+                <GraduationCapIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-sm font-medium text-gray-900">UX for Students</span>
+                  <span className="block text-xs text-gray-500">Learning resources</span>
+                </div>
+              </a>
+              <a
+                href="#report"
+                className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+              >
+                <BookOpenTextIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-sm font-medium text-gray-900">State of UX Report</span>
+                  <span className="block text-xs text-gray-500">Industry insights</span>
+                </div>
+              </a>
+              <a
+                href="#directory"
+                className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+              >
+                <NotebookTabsIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-sm font-medium text-gray-900">Directory of Tech Orgs</span>
+                  <span className="block text-xs text-gray-500">Local connections</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -145,23 +210,6 @@ export default function ResourcesPage() {
           </div>
         </div>
       </div>
-
-      {/* Quick Links */}
-      <section className="py-6 px-6 border-b border-gray-200">
-        <div className="max-w-[900px] mx-auto">
-          <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
-            <a href="#students" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              UX for Students
-            </a>
-            <a href="#report" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              State of UX Report
-            </a>
-            <a href="#directory" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              Directory of Tech Orgs
-            </a>
-          </nav>
-        </div>
-      </section>
 
       {/* UX for Students Section */}
       <section id="students" className="py-20 px-6 scroll-mt-24">

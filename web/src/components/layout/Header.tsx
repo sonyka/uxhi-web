@@ -159,6 +159,10 @@ export function Header({ settings }: HeaderProps) {
                   className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
                 >
                   {item.label}
+                  <svg className="w-3.5 h-3.5 ml-0.5 opacity-50" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
                 </a>
               ) : (
                 <Link
@@ -285,10 +289,14 @@ export function Header({ settings }: HeaderProps) {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between py-3 text-gray-700 hover:text-teal-500 font-medium"
+                    className="flex items-center py-3 text-gray-700 hover:text-teal-500 font-medium"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
+                    <svg className="w-3.5 h-3.5 ml-1.5 opacity-50" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                      <path d="M7 7h10v10" />
+                      <path d="M7 17 17 7" />
+                    </svg>
                   </a>
                 ) : (
                   <Link

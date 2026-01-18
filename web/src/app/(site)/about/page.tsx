@@ -22,6 +22,36 @@ function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
+// Lucide Icons with 1.5px stroke
+function SquareUserRoundIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M18 21a6 6 0 0 0-12 0" />
+      <circle cx="12" cy="11" r="4" />
+      <rect width="18" height="18" x="3" y="3" rx="2" />
+    </svg>
+  );
+}
+
+function CircleHelpIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+      <path d="M12 17h.01" />
+    </svg>
+  );
+}
+
+function SendIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
+      <path d="m21.854 2.147-10.94 10.939" />
+    </svg>
+  );
+}
+
 export default async function AboutPage() {
   const [foundersResult, faqsResult] = await Promise.all([
     sanityFetch({ query: FOUNDERS_QUERY }),
@@ -36,19 +66,40 @@ export default async function AboutPage() {
       <AboutHero />
 
       {/* Quick Links */}
-      <section className="py-6 px-6 border-b border-gray-200 bg-cream">
+      <section className="py-8 px-6 bg-cream">
         <div className="max-w-[900px] mx-auto">
-          <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
-            <a href="#team" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              Team
+          <div className="flex flex-wrap justify-center gap-3">
+            <a
+              href="#team"
+              className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+            >
+              <SquareUserRoundIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+              <div className="text-left">
+                <span className="block text-sm font-medium text-gray-900">Team</span>
+                <span className="block text-xs text-gray-500">Meet our founders</span>
+              </div>
             </a>
-            <a href="#faqs" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              FAQs
+            <a
+              href="#faqs"
+              className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+            >
+              <CircleHelpIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+              <div className="text-left">
+                <span className="block text-sm font-medium text-gray-900">FAQs</span>
+                <span className="block text-xs text-gray-500">Common questions</span>
+              </div>
             </a>
-            <a href="#contact" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
-              Contact
+            <a
+              href="#contact"
+              className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+            >
+              <SendIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+              <div className="text-left">
+                <span className="block text-sm font-medium text-gray-900">Contact</span>
+                <span className="block text-xs text-gray-500">Get in touch</span>
+              </div>
             </a>
-          </nav>
+          </div>
         </div>
       </section>
 

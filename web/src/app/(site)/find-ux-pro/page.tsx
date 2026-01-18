@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
   title: "Find UX Pro | UX Hawaii",
@@ -31,17 +32,9 @@ export default function FindUXProPage() {
             <p className="text-gray-700 text-lg leading-relaxed mb-8">
               Connect with talented UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels.
             </p>
-            <Link
-              href="https://airtable.com/your-directory-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 font-medium rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
-            >
+            <PrimaryCTA href="https://airtable.com/your-directory-link" external>
               Access the directory
-              <span className="w-7 h-7 bg-[#f5c542] rounded-full flex items-center justify-center">
-                <ArrowIcon className="w-3.5 h-3.5 text-gray-900" />
-              </span>
-            </Link>
+            </PrimaryCTA>
           </div>
         </div>
 
