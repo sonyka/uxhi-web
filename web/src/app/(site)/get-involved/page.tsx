@@ -155,25 +155,25 @@ export default function GetInvolvedPage() {
       </div>
 
       {/* Quick Links */}
-      <section className="py-8 px-6 bg-purple-700">
+      <section className="py-6 px-6 border-b border-gray-200">
         <div className="max-w-[900px] mx-auto">
-          <div className="flex flex-wrap justify-center gap-3">
-            <a href="#volunteer" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+          <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
+            <a href="#volunteer" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               Volunteer
             </a>
-            <a href="#speak" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
-              Speaking Opportunities
+            <a href="#speak" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
+              Speaking
             </a>
-            <a href="#partner" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+            <a href="#partner" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               Partnerships
             </a>
-            <a href="#sponsor" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+            <a href="#sponsor" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               Sponsorships
             </a>
-            <a href="#donate" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+            <a href="#donate" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               Donations
             </a>
-          </div>
+          </nav>
         </div>
       </section>
 

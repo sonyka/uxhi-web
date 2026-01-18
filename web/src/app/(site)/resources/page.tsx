@@ -147,19 +147,19 @@ export default function ResourcesPage() {
       </div>
 
       {/* Quick Links */}
-      <section className="py-8 px-6 bg-purple-700">
+      <section className="py-6 px-6 border-b border-gray-200">
         <div className="max-w-[900px] mx-auto">
-          <div className="flex flex-wrap justify-center gap-3">
-            <a href="#students" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+          <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
+            <a href="#students" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               UX for Students
             </a>
-            <a href="#report" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+            <a href="#report" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               State of UX Report
             </a>
-            <a href="#directory" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+            <a href="#directory" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               Directory of Tech Orgs
             </a>
-          </div>
+          </nav>
         </div>
       </section>
 

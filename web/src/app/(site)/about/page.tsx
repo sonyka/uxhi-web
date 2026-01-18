@@ -36,19 +36,19 @@ export default async function AboutPage() {
       <AboutHero />
 
       {/* Quick Links */}
-      <section className="py-6 px-6 bg-purple-600">
+      <section className="py-6 px-6 border-b border-gray-200 bg-cream">
         <div className="max-w-[900px] mx-auto">
-          <div className="flex flex-wrap justify-center gap-3">
-            <a href="#team" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+          <nav className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
+            <a href="#team" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               Team
             </a>
-            <a href="#faqs" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+            <a href="#faqs" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               FAQs
             </a>
-            <a href="#contact" className="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full text-sm font-medium transition-colors">
+            <a href="#contact" className="text-gray-600 hover:text-purple-700 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-purple-700 hover:after:w-full after:transition-all">
               Contact
             </a>
-          </div>
+          </nav>
         </div>
       </section>
 
