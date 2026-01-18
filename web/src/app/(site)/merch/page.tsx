@@ -132,16 +132,46 @@ export default function ShopPage() {
           </div>
         </div>
 
-        {/* Right Side - Bento Grid */}
+        {/* Right Side - Bento Grid (Variation 2) */}
         <div className="relative lg:absolute lg:right-[calc(8.33%+22px)] lg:top-0 h-auto lg:h-[655px] w-full lg:w-[320px] px-8 lg:px-0 pb-8 lg:pb-0">
           <div className="grid grid-cols-2 gap-4 w-full max-w-[320px] mx-auto lg:mx-0">
             {/* Column 1 - Left */}
             <div className="flex flex-col gap-4 lg:mt-[92px]">
-              {/* Pill-bottom shape */}
-              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
+              {/* Rounded rectangle (cut off at top) */}
+              <div className="w-full h-[100px] lg:h-[128px] rounded-[24px] overflow-hidden relative lg:-mt-8">
                 <Image
                   src="/images/bento/photobooth.jpg"
                   alt="UXHI photobooth"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Full tall pill */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-[99px] overflow-hidden relative opacity-90">
+                <Image
+                  src="/images/bento/group-leis.jpg"
+                  alt="UXHI community members with leis"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/uxhicon-25.jpg"
+                  alt="UXHICon 25"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            {/* Column 2 - Right */}
+            <div className="flex flex-col gap-4">
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/conference.jpg"
+                  alt="UXHI conference"
                   fill
                   className="object-cover"
                 />
@@ -156,38 +186,8 @@ export default function ShopPage() {
                   className="w-[128px] h-[128px]"
                 />
               </div>
-              {/* Full tall pill */}
-              <div className="w-full h-[180px] lg:h-[201px] rounded-[99px] overflow-hidden relative opacity-90">
-                <Image
-                  src="/images/bento/group-leis.jpg"
-                  alt="UXHI community members with leis"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-            {/* Column 2 - Right */}
-            <div className="flex flex-col gap-4">
-              {/* Small rectangle (cut off at top) */}
-              <div className="w-full h-[100px] lg:h-[128px] rounded-lg overflow-hidden relative lg:-mt-8">
-                <Image
-                  src="/images/bento/uxhicon-25.jpg"
-                  alt="UXHICon 25"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              {/* Medium rectangle */}
+              {/* Regular rectangle */}
               <div className="w-full h-[180px] lg:h-[201px] rounded-lg overflow-hidden relative">
-                <Image
-                  src="/images/bento/conference.jpg"
-                  alt="UXHI conference"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              {/* Pill-bottom shape */}
-              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
                 <Image
                   src="/images/bento/crowd-community.jpg"
                   alt="UXHI community crowd"

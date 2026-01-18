@@ -194,18 +194,28 @@ export default function GetInvolvedPage() {
           </div>
         </div>
 
-        {/* Right Side - Bento Grid (Variation 2) */}
+        {/* Right Side - Bento Grid (Variation 1) */}
         <div className="relative lg:absolute lg:right-[calc(8.33%+22px)] lg:top-0 h-auto lg:h-[655px] w-full lg:w-[320px] px-8 lg:px-0 pb-8 lg:pb-0">
           <div className="grid grid-cols-2 gap-4 w-full max-w-[320px] mx-auto lg:mx-0">
             {/* Column 1 - Left */}
             <div className="flex flex-col gap-4 lg:mt-[92px]">
-              {/* Rounded rectangle (cut off at top) */}
-              <div className="w-full h-[100px] lg:h-[128px] rounded-[24px] overflow-hidden relative lg:-mt-8">
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
                 <Image
                   src="/images/bento/conference.jpg"
                   alt="UXHI conference"
                   fill
                   className="object-cover"
+                />
+              </div>
+              {/* UXHI Motif Pattern */}
+              <div className="w-[128px] mx-auto flex items-center justify-center">
+                <Image
+                  src="/images/bento/uxhi-motif-1.svg"
+                  alt="UXHI motif"
+                  width={128}
+                  height={128}
+                  className="w-[128px] h-[128px]"
                 />
               </div>
               {/* Full tall pill */}
@@ -217,20 +227,11 @@ export default function GetInvolvedPage() {
                   className="object-cover"
                 />
               </div>
-              {/* Pill-bottom shape */}
-              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
-                <Image
-                  src="/images/bento/group-leis.jpg"
-                  alt="UXHI community members with leis"
-                  fill
-                  className="object-cover"
-                />
-              </div>
             </div>
             {/* Column 2 - Right */}
             <div className="flex flex-col gap-4">
-              {/* Pill-bottom shape */}
-              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
+              {/* Small rectangle (cut off at top) */}
+              <div className="w-full h-[100px] lg:h-[128px] rounded-lg overflow-hidden relative lg:-mt-8">
                 <Image
                   src="/images/bento/ux101-group.jpg"
                   alt="UX101 group"
@@ -238,18 +239,17 @@ export default function GetInvolvedPage() {
                   className="object-cover"
                 />
               </div>
-              {/* UXHI Motif Pattern */}
-              <div className="w-[128px] mx-auto flex items-center justify-center">
+              {/* Medium rectangle */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-lg overflow-hidden relative">
                 <Image
-                  src="/images/bento/uxhi-motif-2.svg"
-                  alt="UXHI motif"
-                  width={128}
-                  height={128}
-                  className="w-[128px] h-[128px]"
+                  src="/images/bento/group-leis.jpg"
+                  alt="UXHI community members with leis"
+                  fill
+                  className="object-cover"
                 />
               </div>
-              {/* Regular rectangle */}
-              <div className="w-full h-[180px] lg:h-[201px] rounded-lg overflow-hidden relative">
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
                 <Image
                   src="/images/bento/photobooth.jpg"
                   alt="UXHI photobooth"
