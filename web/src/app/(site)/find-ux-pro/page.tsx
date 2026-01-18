@@ -22,29 +22,31 @@ export default function FindUXProPage() {
   return (
     <main className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row pt-24 lg:pt-0 lg:min-h-[85vh]">
+      <div className="relative min-h-[700px] lg:min-h-[702px]">
         {/* Left Side - Content */}
-        <div className="lg:w-[60%] flex items-center px-8 lg:px-16 py-16 lg:py-24">
-          <div className="max-w-[560px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-6 leading-[1.1]">
+        <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
+          <div className="flex flex-col gap-6 max-w-[605px]">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-[48px] lg:leading-[84px] text-black">
               Find A UX Professional
             </h1>
-            <p className="text-gray-700 text-lg leading-relaxed mb-8">
+            <p className="text-black text-lg lg:text-[20px] leading-relaxed">
               Connect with talented UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels.
             </p>
-            <PrimaryCTA href="https://airtable.com/your-directory-link" external>
-              Access the directory
-            </PrimaryCTA>
+            <div>
+              <PrimaryCTA href="https://airtable.com/your-directory-link" external>
+                Access the directory
+              </PrimaryCTA>
+            </div>
           </div>
         </div>
 
-        {/* Right Side - Image Grid */}
-        <div className="lg:w-[40%] flex items-start justify-end pr-0 lg:pr-0 py-8 lg:py-0 overflow-hidden">
-          <div className="grid grid-cols-2 gap-4 w-full max-w-[480px] lg:max-w-none lg:w-[480px] px-8 lg:px-0 lg:mr-[-40px]">
-            {/* Column 1 */}
-            <div className="flex flex-col gap-4">
-              {/* Rounded rectangle - cut off at top */}
-              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] overflow-hidden lg:-mt-12 relative">
+        {/* Right Side - Bento Grid (Variation 2) */}
+        <div className="relative lg:absolute lg:right-[calc(8.33%+22px)] lg:top-0 h-auto lg:h-[655px] w-full lg:w-[320px] px-8 lg:px-0 pb-8 lg:pb-0">
+          <div className="grid grid-cols-2 gap-4 w-full max-w-[320px] mx-auto lg:mx-0">
+            {/* Column 1 - Left */}
+            <div className="flex flex-col gap-4 lg:mt-[92px]">
+              {/* Rounded rectangle (cut off at top) */}
+              <div className="w-full h-[100px] lg:h-[128px] rounded-[24px] overflow-hidden relative lg:-mt-8">
                 <Image
                   src="/images/bento/ux101-group.jpg"
                   alt="UX101 group"
@@ -52,8 +54,8 @@ export default function FindUXProPage() {
                   className="object-cover"
                 />
               </div>
-              {/* Tall pill shape */}
-              <div className="w-full h-[320px] lg:h-[400px] rounded-[999px] overflow-hidden relative">
+              {/* Full tall pill */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-[99px] overflow-hidden relative opacity-90">
                 <Image
                   src="/images/bento/crowd-community.jpg"
                   alt="UXHI community crowd"
@@ -61,11 +63,20 @@ export default function FindUXProPage() {
                   className="object-cover"
                 />
               </div>
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/conference.jpg"
+                  alt="UXHI conference"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
-            {/* Column 2 */}
-            <div className="flex flex-col gap-4 pt-8">
-              {/* Rounded rectangle - cut off at top */}
-              <div className="w-full h-[160px] lg:h-[200px] rounded-[24px] overflow-hidden lg:-mt-16 relative">
+            {/* Column 2 - Right */}
+            <div className="flex flex-col gap-4">
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
                 <Image
                   src="/images/bento/uxhicon-25.jpg"
                   alt="UXHICon 25"
@@ -73,21 +84,21 @@ export default function FindUXProPage() {
                   className="object-cover"
                 />
               </div>
-              {/* UXHI Motif */}
-              <div className="w-full aspect-square flex items-center justify-center">
+              {/* UXHI Motif Pattern */}
+              <div className="w-[128px] mx-auto flex items-center justify-center">
                 <Image
                   src="/images/bento/uxhi-motif-2.svg"
                   alt="UXHI motif"
-                  width={200}
-                  height={200}
-                  className="w-full h-auto max-w-[200px]"
+                  width={128}
+                  height={128}
+                  className="w-[128px] h-[128px]"
                 />
               </div>
-              {/* Rounded rectangle */}
-              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] overflow-hidden relative">
+              {/* Regular rectangle */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-lg overflow-hidden relative">
                 <Image
-                  src="/images/bento/conference.jpg"
-                  alt="UXHI conference"
+                  src="/images/bento/photobooth.jpg"
+                  alt="UXHI photobooth"
                   fill
                   className="object-cover"
                 />
@@ -97,10 +108,10 @@ export default function FindUXProPage() {
         </div>
       </div>
 
-      {/* Join Our Member Directory Section */}
-      <section className="py-20 px-6 bg-white">
+      {/* Browse Member Directory Section */}
+      <section className="pt-12 pb-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-8">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-[36px] text-purple-700 mb-8">
             Browse our member directory
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-10">

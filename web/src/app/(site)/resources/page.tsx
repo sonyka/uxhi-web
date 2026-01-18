@@ -105,60 +105,60 @@ export default function ResourcesPage() {
   return (
     <main className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row pt-24 lg:pt-0 lg:min-h-[85vh]">
+      <div className="relative min-h-[700px] lg:min-h-[702px]">
         {/* Left Side - Content */}
-        <div className="lg:w-[60%] flex items-center px-8 lg:px-16 py-16 lg:py-24">
-          <div className="max-w-[560px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-6 leading-[1.1]">
+        <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
+          <div className="flex flex-col gap-6 max-w-[605px]">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-[48px] lg:leading-[84px] text-black">
               Resources
             </h1>
-            <p className="text-gray-700 text-lg leading-relaxed mb-10">
+            <p className="text-black text-lg lg:text-[20px] leading-relaxed">
               Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaii.
             </p>
 
             {/* Quick Link Modules */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-[10px]">
               <a
                 href="#students"
-                className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
               >
-                <GraduationCapIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <GraduationCapIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
                 <div className="text-left">
-                  <span className="block text-sm font-medium text-gray-900">UX for Students</span>
-                  <span className="block text-xs text-gray-500">Learning resources</span>
+                  <span className="block text-[16px] font-medium text-black">UX for Students</span>
+                  <span className="block text-[14px] text-[#6b7282]">Learning resources</span>
                 </div>
               </a>
               <a
                 href="#report"
-                className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
               >
-                <BookOpenTextIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <BookOpenTextIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
                 <div className="text-left">
-                  <span className="block text-sm font-medium text-gray-900">State of UX Report</span>
-                  <span className="block text-xs text-gray-500">Industry insights</span>
+                  <span className="block text-[16px] font-medium text-black">State of UX Report</span>
+                  <span className="block text-[14px] text-[#6b7282]">Industry insights</span>
                 </div>
               </a>
               <a
                 href="#directory"
-                className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
               >
-                <NotebookTabsIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <NotebookTabsIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
                 <div className="text-left">
-                  <span className="block text-sm font-medium text-gray-900">Directory of Tech Orgs</span>
-                  <span className="block text-xs text-gray-500">Local connections</span>
+                  <span className="block text-[16px] font-medium text-black">Directory of Tech Orgs</span>
+                  <span className="block text-[14px] text-[#6b7282]">Local connections</span>
                 </div>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Right Side - Image Grid */}
-        <div className="lg:w-[40%] flex items-start justify-end pr-0 lg:pr-0 py-8 lg:py-0 overflow-hidden">
-          <div className="grid grid-cols-2 gap-4 w-full max-w-[480px] lg:max-w-none lg:w-[480px] px-8 lg:px-0 lg:mr-[-40px]">
-            {/* Column 1 */}
-            <div className="flex flex-col gap-4">
-              {/* Rounded rectangle - cut off at top */}
-              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] overflow-hidden lg:-mt-12 relative">
+        {/* Right Side - Bento Grid (Variation 2) */}
+        <div className="relative lg:absolute lg:right-[calc(8.33%+22px)] lg:top-0 h-auto lg:h-[655px] w-full lg:w-[320px] px-8 lg:px-0 pb-8 lg:pb-0">
+          <div className="grid grid-cols-2 gap-4 w-full max-w-[320px] mx-auto lg:mx-0">
+            {/* Column 1 - Left */}
+            <div className="flex flex-col gap-4 lg:mt-[92px]">
+              {/* Rounded rectangle (cut off at top) */}
+              <div className="w-full h-[100px] lg:h-[128px] rounded-[24px] overflow-hidden relative lg:-mt-8">
                 <Image
                   src="/images/bento/ux101-group.jpg"
                   alt="UX101 group"
@@ -166,8 +166,8 @@ export default function ResourcesPage() {
                   className="object-cover"
                 />
               </div>
-              {/* Tall pill shape */}
-              <div className="w-full h-[320px] lg:h-[400px] rounded-[999px] overflow-hidden relative">
+              {/* Full tall pill */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-[99px] overflow-hidden relative opacity-90">
                 <Image
                   src="/images/bento/conference.jpg"
                   alt="UXHI conference"
@@ -175,11 +175,8 @@ export default function ResourcesPage() {
                   className="object-cover"
                 />
               </div>
-            </div>
-            {/* Column 2 */}
-            <div className="flex flex-col gap-4 pt-8">
-              {/* Rounded rectangle - cut off at top */}
-              <div className="w-full h-[160px] lg:h-[200px] rounded-[24px] overflow-hidden lg:-mt-16 relative">
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
                 <Image
                   src="/images/bento/crowd-community.jpg"
                   alt="UXHI community crowd"
@@ -187,18 +184,30 @@ export default function ResourcesPage() {
                   className="object-cover"
                 />
               </div>
-              {/* UXHI Motif */}
-              <div className="w-full aspect-square flex items-center justify-center">
+            </div>
+            {/* Column 2 - Right */}
+            <div className="flex flex-col gap-4">
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/uxhi-motif-1.svg"
-                  alt="UXHI motif"
-                  width={200}
-                  height={200}
-                  className="w-full h-auto max-w-[200px]"
+                  src="/images/bento/group-leis.jpg"
+                  alt="UXHI community members with leis"
+                  fill
+                  className="object-cover"
                 />
               </div>
-              {/* Rounded rectangle */}
-              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] overflow-hidden relative">
+              {/* UXHI Motif Pattern */}
+              <div className="w-[128px] mx-auto flex items-center justify-center">
+                <Image
+                  src="/images/bento/uxhi-motif-2.svg"
+                  alt="UXHI motif"
+                  width={128}
+                  height={128}
+                  className="w-[128px] h-[128px]"
+                />
+              </div>
+              {/* Regular rectangle */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-lg overflow-hidden relative">
                 <Image
                   src="/images/bento/photobooth.jpg"
                   alt="UXHI photobooth"
@@ -212,7 +221,7 @@ export default function ResourcesPage() {
       </div>
 
       {/* UX for Students Section */}
-      <section id="students" className="py-20 px-6 bg-white scroll-mt-24">
+      <section id="students" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-10">
             UX for Students

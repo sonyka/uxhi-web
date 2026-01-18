@@ -1,8 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { FOUNDERS_QUERY, FAQS_QUERY } from "@/sanity/lib/queries";
-import { AboutHero } from "@/components/sections/AboutHero";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { FoundersSection } from "@/components/sections/FoundersSection";
 import { FAQSection } from "@/components/sections/FAQSection";
@@ -62,46 +62,122 @@ export default async function AboutPage() {
   const faqs = faqsResult.data || [];
 
   return (
-    <main>
-      <AboutHero />
+    <main className="min-h-screen bg-cream">
+      {/* Hero Section */}
+      <div className="relative min-h-[700px] lg:min-h-[702px]">
+        {/* Left Side - Content */}
+        <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
+          <div className="flex flex-col gap-6 max-w-[605px]">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-[48px] lg:leading-[84px] text-black">
+              About Us
+            </h1>
+            <p className="text-black text-lg lg:text-[20px] leading-relaxed">
+              Learn about UX Hawaii, Hawai&apos;i&apos;s premier UX community dedicated to connecting, educating, and empowering UX professionals.
+            </p>
 
-      {/* Quick Links */}
-      <section className="py-8 px-6 bg-cream">
-        <div className="max-w-[900px] mx-auto">
-          <div className="flex flex-wrap justify-center gap-3">
-            <a
-              href="#team"
-              className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
-            >
-              <SquareUserRoundIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-              <div className="text-left">
-                <span className="block text-sm font-medium text-gray-900">Team</span>
-                <span className="block text-xs text-gray-500">Meet our founders</span>
-              </div>
-            </a>
-            <a
-              href="#faqs"
-              className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
-            >
-              <CircleHelpIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-              <div className="text-left">
-                <span className="block text-sm font-medium text-gray-900">FAQs</span>
-                <span className="block text-xs text-gray-500">Common questions</span>
-              </div>
-            </a>
-            <a
-              href="#contact"
-              className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
-            >
-              <SendIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-              <div className="text-left">
-                <span className="block text-sm font-medium text-gray-900">Contact</span>
-                <span className="block text-xs text-gray-500">Get in touch</span>
-              </div>
-            </a>
+            {/* Quick Link Modules */}
+            <div className="flex flex-wrap gap-[10px]">
+              <a
+                href="#team"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
+              >
+                <SquareUserRoundIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-[16px] font-medium text-black">Team</span>
+                  <span className="block text-[14px] text-[#6b7282]">Meet our founders</span>
+                </div>
+              </a>
+              <a
+                href="#faqs"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
+              >
+                <CircleHelpIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-[16px] font-medium text-black">FAQs</span>
+                  <span className="block text-[14px] text-[#6b7282]">Common questions</span>
+                </div>
+              </a>
+              <a
+                href="#contact"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
+              >
+                <SendIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-[16px] font-medium text-black">Contact</span>
+                  <span className="block text-[14px] text-[#6b7282]">Get in touch</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
-      </section>
+
+        {/* Right Side - Bento Grid */}
+        <div className="relative lg:absolute lg:right-[calc(8.33%+22px)] lg:top-0 h-auto lg:h-[655px] w-full lg:w-[320px] px-8 lg:px-0 pb-8 lg:pb-0">
+          <div className="grid grid-cols-2 gap-4 w-full max-w-[320px] mx-auto lg:mx-0">
+            {/* Column 1 - Left */}
+            <div className="flex flex-col gap-4 lg:mt-[92px]">
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/conference.jpg"
+                  alt="UXHI conference"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* UXHI Motif Pattern */}
+              <div className="w-[128px] mx-auto flex items-center justify-center">
+                <Image
+                  src="/images/bento/uxhi-motif-1.svg"
+                  alt="UXHI motif"
+                  width={128}
+                  height={128}
+                  className="w-[128px] h-[128px]"
+                />
+              </div>
+              {/* Full tall pill */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-[99px] overflow-hidden relative opacity-90">
+                <Image
+                  src="/images/bento/crowd-community.jpg"
+                  alt="UXHI community crowd"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            {/* Column 2 - Right */}
+            <div className="flex flex-col gap-4">
+              {/* Small rectangle (cut off at top) */}
+              <div className="w-full h-[100px] lg:h-[128px] rounded-lg overflow-hidden relative lg:-mt-8">
+                <Image
+                  src="/images/bento/uxhicon-25.jpg"
+                  alt="UXHICon 25"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Medium rectangle */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-lg overflow-hidden relative">
+                <Image
+                  src="/images/bento/group-leis.jpg"
+                  alt="UXHI community members with leis"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
+                <Image
+                  src="/images/bento/photobooth.jpg"
+                  alt="UXHI photobooth"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <MissionSection />
       <FoundersSection founders={founders} id="team" />

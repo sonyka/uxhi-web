@@ -123,90 +123,84 @@ export default function GetInvolvedPage() {
   return (
     <main className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row pt-24 lg:pt-0 lg:min-h-[85vh]">
+      <div className="relative min-h-[700px] lg:min-h-[702px]">
         {/* Left Side - Content */}
-        <div className="lg:w-[60%] flex items-center px-8 lg:px-16 py-16 lg:py-24">
-          <div className="max-w-[560px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-6 leading-[1.1]">
+        <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
+          <div className="flex flex-col gap-6 max-w-[605px]">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-[48px] lg:leading-[84px] text-black">
               Get Involved
             </h1>
-            <p className="text-gray-700 text-lg leading-relaxed mb-10">
+            <p className="text-black text-lg lg:text-[20px] leading-relaxed">
               There are many ways to contribute to the UXHI community. Check out our{" "}
-              <Link href="/events" className="text-gray-900 underline underline-offset-2 hover:text-purple-700 transition-colors">
+              <Link href="/events" className="text-black underline underline-offset-2 hover:text-purple-700 transition-colors">
                 upcoming events
               </Link>{" "}
               or find other ways to get involved below.
             </p>
 
             {/* Quick Link Modules */}
-            <div className="flex flex-col gap-3">
-              {/* Row 1 */}
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="#volunteer"
-                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
-                >
-                  <HandHeartIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                  <div className="text-left">
-                    <span className="block text-sm font-medium text-gray-900">Volunteer</span>
-                    <span className="block text-xs text-gray-500">Help grow our community</span>
-                  </div>
-                </a>
-                <a
-                  href="#speak"
-                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
-                >
-                  <MicVocalIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                  <div className="text-left">
-                    <span className="block text-sm font-medium text-gray-900">Become a Speaker</span>
-                    <span className="block text-xs text-gray-500">Share your expertise</span>
-                  </div>
-                </a>
-              </div>
-              {/* Row 2 */}
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="#sponsor"
-                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
-                >
-                  <MessageSquareHeartIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                  <div className="text-left">
-                    <span className="block text-sm font-medium text-gray-900">Sponsor Us</span>
-                    <span className="block text-xs text-gray-500">Support UXHI events</span>
-                  </div>
-                </a>
-                <a
-                  href="#partner"
-                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
-                >
-                  <HeartHandshakeIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                  <div className="text-left">
-                    <span className="block text-sm font-medium text-gray-900">Partner</span>
-                    <span className="block text-xs text-gray-500">Collaborate with us</span>
-                  </div>
-                </a>
-                <a
-                  href="#donate"
-                  className="flex items-center gap-3 px-5 py-3 bg-white rounded-full border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all group"
-                >
-                  <HandCoinsIcon className="w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                  <div className="text-left">
-                    <span className="block text-sm font-medium text-gray-900">Donate</span>
-                    <span className="block text-xs text-gray-500">Support our mission</span>
-                  </div>
-                </a>
-              </div>
+            <div className="flex flex-wrap gap-[10px]">
+              <a
+                href="#volunteer"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
+              >
+                <HandHeartIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-[16px] font-medium text-black">Volunteer</span>
+                  <span className="block text-[14px] text-[#6b7282]">Help grow our community</span>
+                </div>
+              </a>
+              <a
+                href="#speak"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
+              >
+                <MicVocalIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-[16px] font-medium text-black">Become a Speaker</span>
+                  <span className="block text-[14px] text-[#6b7282]">Share your expertise</span>
+                </div>
+              </a>
+              <a
+                href="#sponsor"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
+              >
+                <MessageSquareHeartIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-[16px] font-medium text-black">Sponsor Us</span>
+                  <span className="block text-[14px] text-[#6b7282]">Support UXHI events</span>
+                </div>
+              </a>
+              <a
+                href="#partner"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
+              >
+                <HeartHandshakeIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-[16px] font-medium text-black">Partner</span>
+                  <span className="block text-[14px] text-[#6b7282]">Collaborate with us</span>
+                </div>
+              </a>
+              <a
+                href="#donate"
+                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
+              >
+                <HandCoinsIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
+                <div className="text-left">
+                  <span className="block text-[16px] font-medium text-black">Donate</span>
+                  <span className="block text-[14px] text-[#6b7282]">Support our mission</span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Right Side - Image Grid */}
-        <div className="lg:w-[40%] flex items-start justify-end pr-0 lg:pr-0 py-8 lg:py-0 overflow-hidden">
-          <div className="grid grid-cols-2 gap-4 w-full max-w-[480px] lg:max-w-none lg:w-[480px] px-8 lg:px-0 lg:mr-[-40px]">
-            {/* Column 1 */}
-            <div className="flex flex-col gap-4">
-              {/* Rounded rectangle - cut off at top */}
-              <div className="w-full h-[180px] lg:h-[220px] rounded-[24px] overflow-hidden lg:-mt-12 relative">
+        {/* Right Side - Bento Grid (Variation 2) */}
+        <div className="relative lg:absolute lg:right-[calc(8.33%+22px)] lg:top-0 h-auto lg:h-[655px] w-full lg:w-[320px] px-8 lg:px-0 pb-8 lg:pb-0">
+          <div className="grid grid-cols-2 gap-4 w-full max-w-[320px] mx-auto lg:mx-0">
+            {/* Column 1 - Left */}
+            <div className="flex flex-col gap-4 lg:mt-[92px]">
+              {/* Rounded rectangle (cut off at top) */}
+              <div className="w-full h-[100px] lg:h-[128px] rounded-[24px] overflow-hidden relative lg:-mt-8">
                 <Image
                   src="/images/bento/conference.jpg"
                   alt="UXHI conference"
@@ -214,18 +208,8 @@ export default function GetInvolvedPage() {
                   className="object-cover"
                 />
               </div>
-              {/* UXHI Motif */}
-              <div className="w-full aspect-square flex items-center justify-center">
-                <Image
-                  src="/images/bento/uxhi-motif-1.svg"
-                  alt="UXHI motif"
-                  width={200}
-                  height={200}
-                  className="w-full h-auto max-w-[200px]"
-                />
-              </div>
-              {/* Tall pill shape */}
-              <div className="w-full h-[280px] lg:h-[320px] rounded-[999px] overflow-hidden relative">
+              {/* Full tall pill */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-[99px] overflow-hidden relative opacity-90">
                 <Image
                   src="/images/bento/crowd-community.jpg"
                   alt="UXHI community crowd"
@@ -233,11 +217,8 @@ export default function GetInvolvedPage() {
                   className="object-cover"
                 />
               </div>
-            </div>
-            {/* Column 2 */}
-            <div className="flex flex-col gap-4 pt-8">
-              {/* Rounded rectangle 1 */}
-              <div className="w-full h-[200px] lg:h-[288px] rounded-[24px] overflow-hidden relative">
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
                 <Image
                   src="/images/bento/group-leis.jpg"
                   alt="UXHI community members with leis"
@@ -245,11 +226,33 @@ export default function GetInvolvedPage() {
                   className="object-cover"
                 />
               </div>
-              {/* Rounded rectangle 2 */}
-              <div className="w-full h-[200px] lg:h-[288px] rounded-[24px] overflow-hidden relative">
+            </div>
+            {/* Column 2 - Right */}
+            <div className="flex flex-col gap-4">
+              {/* Pill-bottom shape */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-t-lg rounded-b-[99px] overflow-hidden relative">
                 <Image
                   src="/images/bento/ux101-group.jpg"
                   alt="UX101 group"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* UXHI Motif Pattern */}
+              <div className="w-[128px] mx-auto flex items-center justify-center">
+                <Image
+                  src="/images/bento/uxhi-motif-2.svg"
+                  alt="UXHI motif"
+                  width={128}
+                  height={128}
+                  className="w-[128px] h-[128px]"
+                />
+              </div>
+              {/* Regular rectangle */}
+              <div className="w-full h-[180px] lg:h-[201px] rounded-lg overflow-hidden relative">
+                <Image
+                  src="/images/bento/photobooth.jpg"
+                  alt="UXHI photobooth"
                   fill
                   className="object-cover"
                 />
@@ -260,7 +263,7 @@ export default function GetInvolvedPage() {
       </div>
 
       {/* Volunteer Section */}
-      <section id="volunteer" className="py-20 px-6 bg-white scroll-mt-24">
+      <section id="volunteer" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
             Volunteer
