@@ -314,7 +314,7 @@ export default function GetInvolvedPage() {
           {/* Committees Subsection */}
           <div className="mt-16">
             <div className="text-center mb-10">
-              <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-3">
+              <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-3">
                 Our Committees
               </h3>
               <p className="text-gray-600 max-w-[600px] mx-auto">
@@ -446,7 +446,7 @@ export default function GetInvolvedPage() {
 
           {/* Past Sponsors */}
           <div className="mb-10">
-            <h3 className="font-display text-xl md:text-2xl text-purple-700 mb-6">
+            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">
               Past Event Sponsors
             </h3>
             <div className="flex flex-wrap items-center gap-6 md:gap-10">
