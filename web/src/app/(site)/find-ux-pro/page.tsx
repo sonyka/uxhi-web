@@ -112,7 +112,7 @@ export default function FindUXProPage() {
       <section className="pt-12 pb-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-[36px] text-purple-700 mb-8">
-            Browse our member directory
+            Join Our Member Directory!
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-10">
             Welcome to the UXHI Member Directory, your hub for connecting with UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels. Not only does this serve as a go-to resource for companies and recruiters seeking talented local UX professionals, but it also fosters connections between UX practitioners themselves.
@@ -131,11 +131,25 @@ export default function FindUXProPage() {
         </div>
       </section>
 
+      {/* Large Directory Photo */}
+      <section className="px-6 pb-16 bg-white">
+        <div className="max-w-[1300px] mx-auto">
+          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
+            <Image
+              src="/images/bento/directory.png"
+              alt="UXHI member directory"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Criteria Section */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
-            What criteria must be met to join?
+            Join criteria
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed">
             UX professionals and anyone transitioning into UX design who lives in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request will automatically be added to the directory and a UXHI team member will manually add your head shot and island, if applicable, within a few business days.
