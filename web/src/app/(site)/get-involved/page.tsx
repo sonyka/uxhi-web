@@ -528,10 +528,10 @@ export default function GetInvolvedPage() {
           </p>
 
 
-          {/* Partner With Us Subsection */}
-          <div className="bg-cream rounded-[24px] p-8 mt-10">
+          {/* Custom Sponsorship */}
+          <div className="mt-10">
             <h3 className="font-display text-xl md:text-2xl text-purple-700 mb-4">
-              Partner With Us
+              Ready to collaborate?
             </h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               We understand the value of tailored experiences and are open to working together to create a custom package.
