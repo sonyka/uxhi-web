@@ -581,18 +581,27 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Donations Section */}
-      <section id="donate" className="py-20 px-6 bg-teal-500 scroll-mt-24">
+      <section id="donate" className="py-20 px-6 bg-purple-700 scroll-mt-24">
         <div className="max-w-[800px] mx-auto text-center">
+          {/* Donate Icon */}
+          <div className="w-24 h-24 mx-auto mb-6 relative">
+            <Image
+              src="/images/icons/icon-donate.png"
+              alt="Donate"
+              fill
+              className="object-contain"
+            />
+          </div>
           <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
             Donations
           </h2>
           <p className="text-white text-xl font-medium mb-4">
             Your support is important to us.
           </p>
-          <p className="text-white/90 text-lg leading-relaxed mb-4 max-w-[650px] mx-auto">
+          <p className="text-purple-200 text-lg leading-relaxed mb-4 max-w-[650px] mx-auto">
             UXHI is a volunteer-run UX design community that connects people in Hawaii and those with Hawaii ties to learn together and make new UX friends.
           </p>
-          <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
+          <p className="text-purple-200 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
             Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events. Thanks in advance for supporting our community!
           </p>
           <Link
