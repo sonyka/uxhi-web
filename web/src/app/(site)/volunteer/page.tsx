@@ -72,7 +72,7 @@ export default function VolunteerPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-teal-500 mt-1">•</span>
-                <span>Propose a topic as a guest author for our Resources</span>
+                <span>Propose a topic as a guest author for our resources</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-teal-500 mt-1">•</span>

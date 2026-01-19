@@ -71,6 +71,15 @@ function HandCoinsIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
+function ExternalLinkIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M7 7h10v10" />
+      <path d="M7 17 17 7" />
+    </svg>
+  );
+}
+
 // Committee data with expanded descriptions and icons
 const committees = [
   {
@@ -106,16 +115,19 @@ const committees = [
 ];
 
 // Past partners
+// Past partners with logos
 const pastPartners = [
-  "Pi'iku Co.",
-  "Hawaii Coworking",
-  "Entrepreneur Sandbox / Hub Coworking Hawaii",
-  "Vanta",
-  "University of Hawaii",
-  "Holoholo App",
-  "AI Hawaii",
-  "Honolulu Tech Network",
-  "Honolulu BitDevs",
+  { name: "Pi'iku Co.", logo: "/images/company_logos/piiku-logo.png", width: 80, height: 32 },
+  { name: "Hawaii Coworking", logo: "/images/company_logos/hawaii-coworking-logo.jpg", width: 128, height: 44 },
+  { name: "Hub Coworking Hawaii", logo: "/images/company_logos/hub-logo.png", width: 90, height: 36 },
+  { name: "Entrepreneurs Sandbox", logo: "/images/company_logos/sandbox-logo.svg", width: 100, height: 32 },
+  { name: "Vanta", logo: "/images/company_logos/vanta-logo.png", width: 128, height: 48 },
+  { name: "Holoholo App", logo: "/images/company_logos/holoholo-logo.png", width: 128, height: 128 },
+  { name: "Purple Mai'a", logo: "/images/company_logos/purple-maia.png", width: 72, height: 32 },
+  { name: "University of Hawaii", logo: "/images/company_logos/uh-logo.png", width: 80, height: 32 },
+  { name: "AI Hawaii", logo: "/images/company_logos/HiAI-logo.jpg", width: 80, height: 32 },
+  { name: "Honolulu Tech Network", logo: "/images/company_logos/htn-logo.jpeg", width: 80, height: 28 },
+  { name: "Honolulu BitDevs", logo: "/images/company_logos/hnl-bitdevs-logo.jpg", width: 80, height: 28 },
 ];
 
 // Past sponsors with logos - sizes adjusted for optical balance
@@ -291,19 +303,49 @@ export default function GetInvolvedPage() {
           <ul className="text-gray-700 space-y-3 mb-8">
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Propose a topic related to the field of UX as a presenter at our UXHI Conference or events</span>
+              <span>
+                Propose a topic related to the field of UX as a presenter at our{" "}
+                <a href="https://uxhicon.com" target="_blank" rel="noopener noreferrer" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors inline-flex items-center gap-1">
+                  UXHI Conference
+                  <ExternalLinkIcon className="w-3.5 h-3.5" />
+                </a>{" "}
+                or{" "}
+                <Link href="/events" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors">
+                  events
+                </Link>
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Propose a topic as a guest author for our Resources</span>
+              <span>
+                Propose a topic as a guest author for our{" "}
+                <Link href="/resources" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors">
+                  Resources
+                </Link>
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Join our committees for any of our initiatives, like the UXHI Conference or the State of UX Report</span>
+              <span>
+                Join our committees for any of our initiatives, like the{" "}
+                <a href="https://uxhicon.com" target="_blank" rel="noopener noreferrer" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors inline-flex items-center gap-1">
+                  UXHI Conference
+                  <ExternalLinkIcon className="w-3.5 h-3.5" />
+                </a>{" "}
+                or the{" "}
+                <Link href="/resources#report" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors">
+                  State of UX Report
+                </Link>
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
-              <span>Provide general assistance with our events</span>
+              <span>
+                Provide general assistance with our{" "}
+                <Link href="/events" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors">
+                  events
+                </Link>
+              </span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
@@ -317,6 +359,17 @@ export default function GetInvolvedPage() {
           <p className="text-gray-700 text-lg mb-8">
             Let us know how you want to get involved!
           </p>
+          <Link
+            href="https://forms.gle/volunteer-signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+          >
+            <span className="text-gray-900">Sign up to volunteer</span>
+            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <ArrowIcon className="w-4 h-4 text-gray-900" />
+            </span>
+          </Link>
 
           {/* Committees Subsection */}
           <div className="mt-16">
@@ -376,7 +429,7 @@ export default function GetInvolvedPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
-            <span className="text-gray-900">Inquiry Form</span>
+            <span className="text-gray-900">Submit your idea</span>
             <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
@@ -419,25 +472,48 @@ export default function GetInvolvedPage() {
             </li>
           </ul>
 
-          {/* Past Partners */}
-          <div className="mb-10">
-            <p className="text-gray-700 mb-3">
-              <span className="font-semibold">Successful partnerships include:</span>{" "}
-              {pastPartners.join(", ")}
-            </p>
-          </div>
-
           <Link
             href="https://forms.gle/partnership-inquiry"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
-            <span className="text-gray-900">Inquiry Form</span>
+            <span className="text-gray-900">Let&apos;s connect</span>
             <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
+        </div>
+      </section>
+
+      {/* Successful Partnerships Section */}
+      <section className="py-16 px-6 bg-[#f5f5f5]">
+        <div className="max-w-[1200px] mx-auto">
+          <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 text-center mb-12">
+            Successful Partnerships
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
+            {pastPartners.map((partner) => (
+              <div
+                key={partner.name}
+                className="flex items-center justify-center"
+              >
+                {partner.logo ? (
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={partner.width || 100}
+                    height={partner.height || 40}
+                    className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${partner.darkGray ? 'opacity-70' : 'opacity-50'}`}
+                  />
+                ) : (
+                  <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
+                    {partner.name}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
