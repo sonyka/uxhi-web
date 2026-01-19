@@ -71,27 +71,37 @@ function HandCoinsIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-// Committee data with expanded descriptions
+// Committee data with expanded descriptions and icons
 const committees = [
   {
     name: "Educational Outreach",
     description: "Fosters UX education at foundational levels. Initiatives focus on engaging K-12 students through introductory workshops and programs, and collaborating with colleges and universities to support their UX curricula, offer guest lectures, and connect with emerging talent.",
+    icon: "/images/icons/icon-educational-outreach.png",
   },
   {
     name: "Workforce Outreach",
     description: "Develop and deliver educational workshops and presentations to companies, helping them integrate UX principles, methodologies, and best practices into their operations.",
+    icon: "/images/icons/icon-workforce-outreach.png",
   },
   {
     name: "Community Engagement",
     description: "Organize social events, networking opportunities, member spotlights, and initiatives to welcome new members and ensure active participation.",
+    icon: "/images/icons/icon-community-engagement.png",
   },
   {
     name: "Professional Development",
     description: "Provides continuous learning and upskilling opportunities for our members through workshops, webinars, speaker events, and hands-on sessions designed to enhance practical UX skills.",
+    icon: "/images/icons/icon-professional-development.png",
   },
   {
     name: "Communications",
     description: "Manages all external and internal communications for the community including maintaining the website, managing social media channels, creating newsletters, promoting events, and ensuring consistent branding and messaging.",
+    icon: "/images/icons/icon-communications.png",
+  },
+  {
+    name: "Conference",
+    description: "Plans and executes our annual UXHICon conference, bringing together speakers, sponsors, and attendees for Hawai'i's premier UX event. Help shape the program, coordinate logistics, and create memorable experiences for our community.",
+    icon: "/images/icons/icon-events.png", // placeholder - replace with icon-conference.png
   },
 ];
 
@@ -108,15 +118,15 @@ const pastPartners = [
   "Honolulu BitDevs",
 ];
 
-// Past sponsors
+// Past sponsors with logos
 const pastSponsors = [
-  "HTDC",
-  "Entrepreneurs Sandbox",
-  "Purple Mai'a",
-  "Zippy's",
-  "Servco",
-  "Terranox",
-  "Shaka Guide",
+  { name: "HTDC", logo: null },
+  { name: "Entrepreneurs Sandbox", logo: null },
+  { name: "Purple Mai'a", logo: null },
+  { name: "Zippy's", logo: "/images/company_logos/Zippy Logo RGB.svg", width: 80, height: 40 },
+  { name: "Servco", logo: "/images/company_logos/servco.svg", width: 90, height: 28 },
+  { name: "Terranox", logo: null },
+  { name: "Shaka Guide", logo: null },
 ];
 
 export default function GetInvolvedPage() {
@@ -139,7 +149,7 @@ export default function GetInvolvedPage() {
             </p>
 
             {/* Quick Link Modules */}
-            <div className="flex flex-wrap gap-[10px]">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="#volunteer"
                 className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
@@ -303,14 +313,34 @@ export default function GetInvolvedPage() {
 
           {/* Committees Subsection */}
           <div className="mt-16">
-            <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-8">
-              Committees
-            </h3>
-            <div className="space-y-4">
+            <div className="text-center mb-10">
+              <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-3">
+                Our Committees
+              </h3>
+              <p className="text-gray-600 max-w-[600px] mx-auto">
+                Join one of our volunteer committees and help shape the future of UX in Hawai&apos;i
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {committees.map((committee) => (
-                <div key={committee.name} className="bg-white rounded-[20px] p-6">
-                  <h4 className="font-semibold text-gray-900 mb-2">{committee.name}</h4>
-                  <p className="text-gray-600 leading-relaxed">{committee.description}</p>
+                <div
+                  key={committee.name}
+                  className="bg-cream rounded-[24px] p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center group"
+                >
+                  <div className="w-20 h-20 mb-4 relative">
+                    <Image
+                      src={committee.icon}
+                      alt={committee.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors">
+                    {committee.name}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {committee.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -416,10 +446,31 @@ export default function GetInvolvedPage() {
 
           {/* Past Sponsors */}
           <div className="mb-10">
-            <p className="text-gray-700">
-              <span className="font-semibold">Past event sponsors:</span>{" "}
-              {pastSponsors.join(", ")}
-            </p>
+            <h3 className="font-display text-xl md:text-2xl text-purple-700 mb-6">
+              Past Event Sponsors
+            </h3>
+            <div className="flex flex-wrap items-center gap-6 md:gap-10">
+              {pastSponsors.map((sponsor) => (
+                <div
+                  key={sponsor.name}
+                  className="flex items-center justify-center"
+                >
+                  {sponsor.logo ? (
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      width={sponsor.width || 100}
+                      height={sponsor.height || 40}
+                      className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                  ) : (
+                    <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
+                      {sponsor.name}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Partner With Us Subsection */}

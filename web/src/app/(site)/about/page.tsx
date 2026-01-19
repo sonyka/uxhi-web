@@ -76,7 +76,7 @@ export default async function AboutPage() {
             </p>
 
             {/* Quick Link Modules */}
-            <div className="flex flex-wrap gap-[10px]">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="#team"
                 className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
