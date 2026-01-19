@@ -111,8 +111,17 @@ export default function FindUXProPage() {
       {/* Browse Member Directory Section */}
       <section className="pt-12 pb-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
+          {/* Directory Icon */}
+          <div className="w-32 h-32 mx-auto mb-6 relative">
+            <Image
+              src="/images/icons/icon-directory.png"
+              alt="Directory"
+              fill
+              className="object-contain"
+            />
+          </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-[36px] text-purple-700 mb-8">
-            Join Our Member Directory!
+            Join our member directory!
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-10">
             Welcome to the UXHI Member Directory, your hub for connecting with UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels. Not only does this serve as a go-to resource for companies and recruiters seeking talented local UX professionals, but it also fosters connections between UX practitioners themselves.
