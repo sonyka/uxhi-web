@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { InstagramFeed } from "@/components/sections/InstagramFeed";
+import { SocialFeed } from "@/components/sections/SocialFeed";
 import { CommunityPhotosGrid } from "@/components/sections/CommunityPhotosGrid";
 import { sanityFetch } from "@/sanity/lib/live";
-import { INSTAGRAM_POSTS_QUERY, COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
+import { COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "UXHI - A UX design community for people in Hawaiʻi",
@@ -23,10 +23,7 @@ function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export default async function HomePage() {
   // Fetch data from Sanity
-  const [{ data: instagramPosts }, { data: communityPhotos }] = await Promise.all([
-    sanityFetch({ query: INSTAGRAM_POSTS_QUERY }),
-    sanityFetch({ query: COMMUNITY_PHOTOS_QUERY }),
-  ]);
+  const { data: communityPhotos } = await sanityFetch({ query: COMMUNITY_PHOTOS_QUERY });
 
   return (
     <>
@@ -445,7 +442,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Instagram Feed Section */}
+      {/* Social Feed Section */}
       <section className="py-20 px-6">
         <div className="max-w-[1300px] mx-auto">
           <div className="text-center mb-12">
@@ -455,7 +452,7 @@ export default async function HomePage() {
             <p className="text-gray-600 text-lg">Stay connected with our latest events and community updates</p>
           </div>
 
-          <InstagramFeed posts={instagramPosts || []} />
+          <SocialFeed />
         </div>
       </section>
 
