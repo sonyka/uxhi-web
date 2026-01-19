@@ -130,6 +130,10 @@ const pastSponsors = [
   { name: "Shaka Guide", logo: "/images/company_logos/shakaguide-logo.png", width: 128, height: 40 },
   { name: "Adobe", logo: "/images/company_logos/adobe-logo.svg", width: 90, height: 36 },
   { name: "Hub Coworking", logo: "/images/company_logos/hub-logo.png", width: 90, height: 36 },
+  { name: "OER", logo: "/images/company_logos/OER Logo.png", width: 80, height: 32 },
+  { name: "Mantle", logo: "/images/company_logos/mantle-logo.svg", width: 90, height: 32 },
+  { name: "KCC NMA", logo: "/images/company_logos/kccnma-logo.png", width: 80, height: 32 },
+  { name: "RVCM", logo: "/images/company_logos/rvcm-logo.svg", width: 72, height: 28 },
 ];
 
 export default function GetInvolvedPage() {
@@ -447,34 +451,6 @@ export default function GetInvolvedPage() {
             Our sponsorship packages are designed to elevate your brand, showcase your products, and facilitate connections with influencers, decision-makers, and potential partners. By partnering with us, you&apos;ll not only enhance your brand recognition but also reinforce your dedication to improving the digital landscape through UX design.
           </p>
 
-          {/* Past Sponsors */}
-          <div className="mb-10">
-            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">
-              Past Event Sponsors
-            </h3>
-            <div className="flex flex-wrap items-center gap-6 md:gap-10">
-              {pastSponsors.map((sponsor) => (
-                <div
-                  key={sponsor.name}
-                  className="flex items-center justify-center"
-                >
-                  {sponsor.logo ? (
-                    <Image
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      width={sponsor.width || 100}
-                      height={sponsor.height || 40}
-                      className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${sponsor.darkGray ? 'opacity-70' : 'opacity-50'}`}
-                    />
-                  ) : (
-                    <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
-                      {sponsor.name}
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Partner With Us Subsection */}
           <div className="bg-cream rounded-[24px] p-8 mt-10">
@@ -493,6 +469,37 @@ export default function GetInvolvedPage() {
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Past Event Sponsors Section */}
+      <section className="py-16 px-6 bg-[#f5f5f5]">
+        <div className="max-w-[1200px] mx-auto">
+          <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 text-center mb-12">
+            Past Event Sponsors
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
+            {pastSponsors.map((sponsor) => (
+              <div
+                key={sponsor.name}
+                className="flex items-center justify-center"
+              >
+                {sponsor.logo ? (
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    width={sponsor.width || 100}
+                    height={sponsor.height || 40}
+                    className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${sponsor.darkGray ? 'opacity-70' : 'opacity-50'}`}
+                  />
+                ) : (
+                  <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
+                    {sponsor.name}
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
