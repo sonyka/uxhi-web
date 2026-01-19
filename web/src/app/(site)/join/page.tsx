@@ -87,7 +87,7 @@ const companyLogos = [
   { name: "Codecademy", src: "/images/company_logos/Codecademy Logo.svg", width: 140, height: 28 },
   { name: "LinkedIn", src: "/images/company_logos/LinkedIn 2021.svg", width: 100, height: 26 },
   { name: "Servco", src: "/images/company_logos/servco.svg", width: 100, height: 32 },
-  { name: "Zippy's", src: "/images/company_logos/Zippy Logo RGB.svg", width: 96, height: 48 },
+  { name: "Zippy's", src: "/images/company_logos/Zippy Logo RGB.svg", width: 96, height: 48, darkGray: true },
   { name: "Google", src: "/images/company_logos/Google Logo.svg", width: 110, height: 48 },
 ];
 
@@ -266,7 +266,7 @@ export default async function JoinPage() {
                   alt={company.name}
                   width={company.width}
                   height={company.height}
-                  className="object-contain brightness-0 invert-[0.7] hover:invert-[0.5] transition-all"
+                  className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${company.darkGray ? 'opacity-70' : 'opacity-50'}`}
                 />
               </div>
             ))}

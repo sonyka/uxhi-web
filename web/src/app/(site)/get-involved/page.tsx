@@ -123,13 +123,13 @@ const pastSponsors = [
   { name: "HTDC", logo: "/images/company_logos/htdc-logo.svg", width: 80, height: 32 },
   { name: "Entrepreneurs Sandbox", logo: "/images/company_logos/sandbox-logo.svg", width: 100, height: 32 },
   { name: "Purple Mai'a", logo: "/images/company_logos/purple-maia.png", width: 72, height: 32 },
-  { name: "Zippy's", logo: "/images/company_logos/Zippy Logo RGB.svg", width: 72, height: 36 },
+  { name: "Zippy's", logo: "/images/company_logos/Zippy Logo RGB.svg", width: 80, height: 40, darkGray: true },
   { name: "Servco", logo: "/images/company_logos/servco.svg", width: 80, height: 24 },
   { name: "Anthology Finn", logo: "/images/company_logos/anthology-finn.png", width: 80, height: 32 },
   { name: "Terranox", logo: "/images/company_logos/terranox-logo.svg", width: 90, height: 28 },
-  { name: "Shaka Guide", logo: "/images/company_logos/shakaguide-logo.png", width: 90, height: 32 },
-  { name: "Adobe", logo: "/images/company_logos/adobe-logo.svg", width: 80, height: 32 },
-  { name: "Hub Coworking", logo: "/images/company_logos/hub-logo.png", width: 72, height: 32 },
+  { name: "Shaka Guide", logo: "/images/company_logos/shakaguide-logo.png", width: 128, height: 40 },
+  { name: "Adobe", logo: "/images/company_logos/adobe-logo.svg", width: 90, height: 36 },
+  { name: "Hub Coworking", logo: "/images/company_logos/hub-logo.png", width: 90, height: 36 },
 ];
 
 export default function GetInvolvedPage() {
@@ -464,7 +464,7 @@ export default function GetInvolvedPage() {
                       alt={sponsor.name}
                       width={sponsor.width || 100}
                       height={sponsor.height || 40}
-                      className="object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                      className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${sponsor.darkGray ? 'opacity-70' : 'opacity-50'}`}
                     />
                   ) : (
                     <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
