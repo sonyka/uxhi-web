@@ -504,7 +504,7 @@ export default function GetInvolvedPage() {
                     alt={partner.name}
                     width={partner.width || 100}
                     height={partner.height || 40}
-                    className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${partner.darkGray ? 'opacity-70' : 'opacity-50'}`}
+                    className="object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   />
                 ) : (
                   <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
