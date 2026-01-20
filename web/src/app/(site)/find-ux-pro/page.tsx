@@ -137,7 +137,7 @@ export default function FindUXProPage() {
           <iframe
             src="https://uxhicommunity.aidaform.com/directory"
             width="100%"
-            height="1400"
+            height="2000"
             frameBorder="0"
             className="border-0 mb-10"
             title="UXHI Member Directory Form"
