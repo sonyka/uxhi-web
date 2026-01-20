@@ -304,7 +304,7 @@ export default async function JoinPage() {
 
           {/* Membership Form Embed */}
           <iframe
-            src="https://uxhi.community/join/"
+            src="https://uxhicommunity.aidaform.com/membership"
             width="100%"
             height="1600"
             frameBorder="0"
