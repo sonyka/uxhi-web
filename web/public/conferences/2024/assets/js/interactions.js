@@ -484,6 +484,14 @@
                 background-position: center !important;
             }
 
+            /* Fix missing PORTFOLIO REVIEWS heading */
+            .framer-afxzt5 {
+                background-image: url('/conferences/2024/assets/images/portfolio-reviews-heading.svg') !important;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+            }
+
             .speaker-popover, .agenda-tooltip {
                 position: fixed;
                 z-index: 999999;
