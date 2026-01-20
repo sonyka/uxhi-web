@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { sanityFetch } from "@/sanity/lib/live";
+import { RESOURCE_ITEMS_QUERY, TECH_ORGANIZATIONS_QUERY, STATE_OF_UX_REPORTS_QUERY } from "@/sanity/lib/queries";
+import { SanityImage } from "@/components/ui/SanityImage";
 
 export const metadata: Metadata = {
   title: "Resources | UX Hawaii",
@@ -106,7 +109,24 @@ const techOrgs = [
   { name: "Honolulu Tech Week", url: "https://honolulutechweek.com" },
 ];
 
-export default function ResourcesPage() {
+export default async function ResourcesPage() {
+  const [{ data: resourceItems }, { data: techOrganizations }, { data: reports }] = await Promise.all([
+    sanityFetch({ query: RESOURCE_ITEMS_QUERY }),
+    sanityFetch({ query: TECH_ORGANIZATIONS_QUERY }),
+    sanityFetch({ query: STATE_OF_UX_REPORTS_QUERY }),
+  ]);
+
+  // Group resource items by category
+  const groupedResources = (resourceItems || []).reduce((acc: Record<string, typeof resourceItems>, item: { category?: { slug?: string } }) => {
+    const categorySlug = item.category?.slug || "uncategorized";
+    if (!acc[categorySlug]) acc[categorySlug] = [];
+    acc[categorySlug].push(item);
+    return acc;
+  }, {} as Record<string, typeof resourceItems>);
+
+  // Use Sanity data or fall back to hardcoded data
+  const displayTechOrgs = techOrganizations && techOrganizations.length > 0 ? techOrganizations : techOrgs;
+
   return (
     <main className="min-h-screen bg-cream">
       {/* Hero Section */}
@@ -608,15 +628,25 @@ export default function ResourcesPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-            {techOrgs.map((org) => (
+            {displayTechOrgs.map((org: { _id?: string; name: string; website?: string; url?: string; logo?: { asset?: { _id?: string; url?: string } } }) => (
               <a
-                key={org.name}
-                href={org.url}
+                key={org._id || org.name}
+                href={org.website || org.url || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
               >
-                <p className="font-medium text-gray-900 group-hover:text-teal-600 transition-colors">{org.name}</p>
+                <div className="flex items-center gap-3">
+                  {org.logo?.asset && (
+                    <SanityImage
+                      value={org.logo}
+                      width={32}
+                      height={32}
+                      className="w-8 h-8 object-contain"
+                    />
+                  )}
+                  <p className="font-medium text-gray-900 group-hover:text-teal-600 transition-colors">{org.name}</p>
+                </div>
                 <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors flex-shrink-0" />
               </a>
             ))}

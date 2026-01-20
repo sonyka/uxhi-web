@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
-import { FOUNDERS_QUERY, FAQS_QUERY } from "@/sanity/lib/queries";
+import { FOUNDERS_QUERY, FAQS_QUERY, VALUES_QUERY } from "@/sanity/lib/queries";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { FoundersSection } from "@/components/sections/FoundersSection";
 import { FAQSection } from "@/components/sections/FAQSection";
@@ -53,13 +53,15 @@ function SendIcon({ className = "w-5 h-5" }: { className?: string }) {
 }
 
 export default async function AboutPage() {
-  const [foundersResult, faqsResult] = await Promise.all([
+  const [foundersResult, faqsResult, valuesResult] = await Promise.all([
     sanityFetch({ query: FOUNDERS_QUERY }),
     sanityFetch({ query: FAQS_QUERY }),
+    sanityFetch({ query: VALUES_QUERY }),
   ]);
 
   const founders = foundersResult.data || [];
   const faqs = faqsResult.data || [];
+  const values = valuesResult.data || [];
 
   return (
     <main className="min-h-screen bg-cream">
@@ -179,7 +181,7 @@ export default async function AboutPage() {
         </div>
       </div>
 
-      <MissionSection />
+      <MissionSection values={values} />
       <FoundersSection founders={founders} id="team" />
       <FAQSection faqs={faqs} id="faqs" />
 

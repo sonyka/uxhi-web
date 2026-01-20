@@ -3,36 +3,58 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { SanityImage } from "@/components/ui/SanityImage";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
-const values = [
+interface Value {
+  _id: string;
+  title: string;
+  description: string;
+  icon?: {
+    asset?: { _id?: string; url?: string };
+    alt?: string;
+  };
+}
+
+interface MissionSectionProps {
+  values?: Value[];
+}
+
+// Fallback values if none from Sanity
+const defaultValues = [
   {
+    _id: "1",
     title: "Service",
     description:
       "Committed to serve our members with compassion, integrity, and dedication",
-    icon: "/images/icons/icon-service.png",
+    iconPath: "/images/icons/icon-service.png",
   },
   {
+    _id: "2",
     title: "Community",
     description:
       "Foster an inclusive, supportive environment that encourages collaboration, knowledge-sharing, and growth",
-    icon: "/images/icons/icon-community.png",
+    iconPath: "/images/icons/icon-community.png",
   },
   {
+    _id: "3",
     title: "Empowerment",
     description:
       "Provide and connect members to learning and growth opportunities to take charge of their own success",
-    icon: "/images/icons/icon-empowerment.png",
+    iconPath: "/images/icons/icon-empowerment.png",
   },
   {
+    _id: "4",
     title: "Inspire",
     description:
       "Ignite the continued passion and practice for human-centered design",
-    icon: "/images/icons/icon-inspire.png",
+    iconPath: "/images/icons/icon-inspire.png",
   },
 ];
 
-export function MissionSection() {
+export function MissionSection({ values }: MissionSectionProps) {
+  const displayValues = values && values.length > 0 ? values : defaultValues;
+
   return (
     <section className="py-16 md:py-24 bg-cream">
       <Container>
@@ -96,15 +118,26 @@ export function MissionSection() {
               Our values
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {values.map((value) => (
-                <div key={value.title} className="bg-white rounded-[20px] p-6 text-center">
+              {displayValues.map((value) => (
+                <div key={value._id} className="bg-white rounded-[20px] p-6 text-center">
                   <div className="w-20 h-20 mx-auto mb-4 relative">
-                    <Image
-                      src={value.icon}
-                      alt={value.title}
-                      fill
-                      className="object-contain"
-                    />
+                    {"icon" in value && value.icon?.asset ? (
+                      <SanityImage
+                        value={value.icon}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-contain"
+                      />
+                    ) : "iconPath" in value ? (
+                      <Image
+                        src={(value as typeof defaultValues[0]).iconPath}
+                        alt={value.title}
+                        fill
+                        className="object-contain"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-purple-100 rounded-full" />
+                    )}
                   </div>
                   <h4 className="font-display text-lg text-purple-700 mb-2">
                     {value.title}

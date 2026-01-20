@@ -96,3 +96,68 @@ export const COMMUNITY_PHOTOS_QUERY = defineQuery(/* groq */ `
     row
   }
 `);
+
+// Values (for About page)
+export const VALUES_QUERY = defineQuery(/* groq */ `
+  *[_type == "value"] | order(order asc) {
+    _id,
+    title,
+    description,
+    icon { ${imageFragment} }
+  }
+`);
+
+// Resource Categories
+export const RESOURCE_CATEGORIES_QUERY = defineQuery(/* groq */ `
+  *[_type == "resourceCategory"] | order(order asc) {
+    _id,
+    title,
+    "slug": slug.current,
+    description,
+    icon { ${imageFragment} }
+  }
+`);
+
+// Resource Items (optionally filtered by category)
+export const RESOURCE_ITEMS_QUERY = defineQuery(/* groq */ `
+  *[_type == "resourceItem"] | order(order asc) {
+    _id,
+    title,
+    description,
+    url,
+    subcategory,
+    icon { ${imageFragment} },
+    category->{
+      _id,
+      title,
+      "slug": slug.current
+    }
+  }
+`);
+
+// State of UX Reports
+export const STATE_OF_UX_REPORTS_QUERY = defineQuery(/* groq */ `
+  *[_type == "stateOfUxReport"] | order(year desc) {
+    _id,
+    title,
+    year,
+    description,
+    reportUrl,
+    coverImage { ${imageFragment} },
+    highlights,
+    featured
+  }
+`);
+
+// Tech Organizations
+export const TECH_ORGANIZATIONS_QUERY = defineQuery(/* groq */ `
+  *[_type == "techOrganization"] | order(order asc, name asc) {
+    _id,
+    name,
+    description,
+    website,
+    logo { ${imageFragment} },
+    category,
+    location
+  }
+`);

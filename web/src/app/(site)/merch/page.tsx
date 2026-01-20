@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { sanityFetch } from "@/sanity/lib/live";
+import { PRODUCTS_QUERY } from "@/sanity/lib/queries";
+import { SanityImage } from "@/components/ui/SanityImage";
 
 export const metadata: Metadata = {
   title: "Shop | UX Hawaii",
@@ -112,7 +115,12 @@ function getCategoryIcon(category: string) {
   }
 }
 
-export default function ShopPage() {
+export default async function ShopPage() {
+  const { data: sanityProducts } = await sanityFetch({ query: PRODUCTS_QUERY });
+
+  // Use Sanity products if available, otherwise fall back to placeholder data
+  const displayProducts = sanityProducts && sanityProducts.length > 0 ? sanityProducts : products;
+
   return (
     <main className="min-h-screen bg-cream">
       {/* Hero Section */}
@@ -204,19 +212,35 @@ export default function ShopPage() {
       <section id="products" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
+            {displayProducts.map((product: { _id?: string; id?: string; name: string; price?: number | string; description?: string; category?: string; variants?: string[]; images?: Array<{ asset?: { _id?: string; url?: string } }>; purchaseUrl?: string; comingSoon?: boolean; featured?: boolean }) => (
               <div
-                key={product.id}
+                key={product._id || product.id}
                 className="bg-white border border-gray-200 rounded-[20px] overflow-hidden hover:shadow-lg transition-shadow"
               >
-                {/* Product Image Placeholder */}
+                {/* Product Image */}
                 <div className="aspect-square bg-cream flex items-center justify-center relative">
-                  <div className="text-purple-300">
-                    {getCategoryIcon(product.category)}
-                  </div>
-                  <span className="absolute top-4 left-4 bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">
-                    {product.category}
-                  </span>
+                  {product.images && product.images[0]?.asset ? (
+                    <SanityImage
+                      value={product.images[0]}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-purple-300">
+                      {getCategoryIcon(product.category || "default")}
+                    </div>
+                  )}
+                  {product.category && (
+                    <span className="absolute top-4 left-4 bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">
+                      {product.category}
+                    </span>
+                  )}
+                  {product.featured && (
+                    <span className="absolute top-4 right-4 bg-[#f5c542] text-gray-900 text-xs px-3 py-1 rounded-full font-medium">
+                      Featured
+                    </span>
+                  )}
                 </div>
 
                 {/* Product Info */}
@@ -224,21 +248,37 @@ export default function ShopPage() {
                   <h2 className="font-semibold text-lg text-gray-900 mb-2">
                     {product.name}
                   </h2>
-                  <p className="text-sm text-gray-500 mb-3">
-                    {product.variants.join(" · ")}
-                  </p>
+                  {product.description && (
+                    <p className="text-sm text-gray-500 mb-3">
+                      {product.description}
+                    </p>
+                  )}
+                  {product.variants && (
+                    <p className="text-sm text-gray-500 mb-3">
+                      {product.variants.join(" · ")}
+                    </p>
+                  )}
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-xl text-purple-700">
-                      {product.price}
+                      {typeof product.price === "number" ? `$${product.price}` : product.price}
                     </span>
                     {product.comingSoon ? (
                       <span className="text-gray-400 text-sm font-medium">
                         Coming soon
                       </span>
+                    ) : product.purchaseUrl ? (
+                      <a
+                        href={product.purchaseUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-teal-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-teal-600 transition-colors"
+                      >
+                        Buy Now
+                      </a>
                     ) : (
-                      <button className="bg-teal-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-teal-600 transition-colors">
-                        Add to Cart
-                      </button>
+                      <span className="text-gray-400 text-sm font-medium">
+                        Coming soon
+                      </span>
                     )}
                   </div>
                 </div>

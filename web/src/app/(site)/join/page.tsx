@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/live";
-import { FAQS_QUERY } from "@/sanity/lib/queries";
+import { FAQS_QUERY, TESTIMONIALS_QUERY } from "@/sanity/lib/queries";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { SanityImage } from "@/components/ui/SanityImage";
 
 // Arrow Icon Component (Feather arrow-right)
 function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -24,63 +25,6 @@ const gridImages = [
   { id: "6", src: "/images/bento/uxhicon-25.jpg", alt: "UXHICon 25" },
 ];
 
-// Sample testimonials
-const testimonials = [
-  {
-    id: "1",
-    quote: "UXHI has been an incredible resource for networking and professional growth. The community is welcoming and supportive.",
-    author: {
-      name: "Karli Young",
-      role: "UX Designer",
-      company: "Hawaiian Airlines",
-    },
-  },
-  {
-    id: "2",
-    quote: "As someone transitioning into UX, UXHI gave me the connections and confidence I needed to make the switch.",
-    author: {
-      name: "Emily Lee",
-      role: "Product Designer",
-      company: "Kamehameha Schools",
-    },
-  },
-  {
-    id: "3",
-    quote: "The events and Slack community have been invaluable. I've learned so much and made lasting friendships.",
-    author: {
-      name: "Michelle Tran",
-      role: "Senior UX Researcher",
-      company: "Google",
-    },
-  },
-  {
-    id: "4",
-    quote: "Moving back to Hawaii, I was worried about finding a design community. UXHI exceeded all my expectations—it's like having a built-in ohana.",
-    author: {
-      name: "Carlo Liquido",
-      role: "Design Lead",
-      company: "Salesforce",
-    },
-  },
-  {
-    id: "5",
-    quote: "The mentorship opportunities through UXHI helped me level up my career. I went from junior to senior in two years thanks to the guidance I received.",
-    author: {
-      name: "Patrick Lutz",
-      role: "Senior Product Designer",
-      company: "First Hawaiian Bank",
-    },
-  },
-  {
-    id: "6",
-    quote: "Being part of UXHI while working remotely keeps me connected to Hawaii's tech scene. The virtual events and Slack channels make distance feel irrelevant.",
-    author: {
-      name: "Tyler Nishida",
-      role: "UX Manager",
-      company: "Amazon",
-    },
-  },
-];
 
 // Company logos
 const companyLogos = [
@@ -92,7 +36,10 @@ const companyLogos = [
 ];
 
 export default async function JoinPage() {
-  const { data: faqs } = await sanityFetch({ query: FAQS_QUERY });
+  const [{ data: faqs }, { data: testimonials }] = await Promise.all([
+    sanityFetch({ query: FAQS_QUERY }),
+    sanityFetch({ query: TESTIMONIALS_QUERY }),
+  ]);
 
   return (
     <main className="min-h-screen bg-cream">
@@ -220,34 +167,45 @@ export default async function JoinPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-2">
-              What our members are saying
-            </h2>
-          </div>
+      {testimonials && testimonials.length > 0 && (
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-[1200px] mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-2">
+                What our members are saying
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-cream rounded-[20px] p-6">
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  &quot;{testimonial.quote}&quot;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-300 to-teal-400" />
-                  <div>
-                    <p className="font-medium text-purple-700">{testimonial.author.name}</p>
-                    <p className="text-sm text-gray-500">
-                      {testimonial.author.role} at {testimonial.author.company}
-                    </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {testimonials.map((testimonial: { _id: string; quote: string; author?: { name?: string; role?: string; company?: string; photo?: { asset?: { _id?: string; url?: string } } } }) => (
+                <div key={testimonial._id} className="bg-cream rounded-[20px] p-6">
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    &quot;{testimonial.quote}&quot;
+                  </p>
+                  <div className="flex items-center gap-3">
+                    {testimonial.author?.photo?.asset ? (
+                      <SanityImage
+                        value={testimonial.author.photo}
+                        width={48}
+                        height={48}
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-300 to-teal-400" />
+                    )}
+                    <div>
+                      <p className="font-medium text-purple-700">{testimonial.author?.name}</p>
+                      <p className="text-sm text-gray-500">
+                        {testimonial.author?.role}{testimonial.author?.company && ` at ${testimonial.author.company}`}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Company Logos Section */}
       <section className="py-16 px-6 bg-[#f5f5f5]">

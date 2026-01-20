@@ -176,7 +176,7 @@ export default function EventsPage() {
 
           <div className="text-center mt-8">
             <Link
-              href="https://lu.ma/uxhi"
+              href="https://lu.ma/user/uxhi"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
