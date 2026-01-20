@@ -285,16 +285,6 @@ export default async function HomePage() {
       {/* Mission Section */}
       <section className="py-20 px-6">
         <div className="max-w-[900px] mx-auto text-center">
-          {/* Decorative Motif */}
-          <div className="mb-6">
-            <Image
-              src="/images/bento/uxhi-rounds-motif.svg"
-              alt=""
-              width={200}
-              height={120}
-              className="mx-auto"
-            />
-          </div>
           <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-4 block">What we do</span>
           <h2 className="font-display text-[22px] md:text-[28px] lg:text-[34px] leading-tight text-gray-900">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
@@ -458,6 +448,17 @@ export default async function HomePage() {
           <InstagramFeed posts={instagramPosts || []} />
         </div>
       </section>
+
+      {/* Decorative Motif */}
+      <div className="flex justify-center py-8">
+        <Image
+          src="/images/bento/uxhi-rounds-motif.svg"
+          alt=""
+          width={280}
+          height={168}
+          className="mx-auto"
+        />
+      </div>
 
       {/* Community CTA Section */}
       <section className="py-24 px-6">
