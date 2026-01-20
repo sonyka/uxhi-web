@@ -335,25 +335,28 @@ export default async function ResourcesPage() {
           {/* Communities */}
           <div>
             <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Communities</h3>
-            <ul className="space-y-3 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {(groupedResources['design-communities'] && groupedResources['design-communities'].length > 0
                 ? groupedResources['design-communities']
                 : communities
-              ).map((community: { _id?: string; name?: string; title?: string; url?: string }) => (
-                <li key={community._id || community.name || community.title}>
-                  <a
-                    href={community.url || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
-                  >
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                    {community.title || community.name}
-                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-                  </a>
-                </li>
+              ).map((community: { _id?: string; name?: string; title?: string; url?: string; description?: string }) => (
+                <a
+                  key={community._id || community.name || community.title}
+                  href={community.url || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
+                >
+                  <div>
+                    <p className="font-medium text-gray-900">{community.title || community.name}</p>
+                    {community.description && (
+                      <p className="text-sm text-teal-600">{community.description}</p>
+                    )}
+                  </div>
+                  <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
+                </a>
               ))}
-            </ul>
+            </div>
             <p className="text-gray-600 text-sm">
               Do you have more resources to suggest or corrections we should make? Email us at:{" "}
               <a href="mailto:aloha@uxhi.community" className="text-teal-600 hover:text-teal-700 underline underline-offset-2">
