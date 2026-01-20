@@ -284,44 +284,64 @@ export default async function ResourcesPage() {
               <strong>Note:</strong> There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.
             </p>
 
-            <ul className="space-y-3 mb-6">
-              <li>
-                <a
-                  href="https://www.kapiolani.hawaii.edu/academics/programs-of-study/new-media-arts/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
-                >
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                  KCC New Media Arts (NMA) Program
-                  <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.leeward.hawaii.edu/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
-                >
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                  LCC Digital Media Program
-                  <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://chaminade.edu/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
-                >
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                  Chaminade: Environmental + Interior Design (AA, BFA)
-                  <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-                </a>
-              </li>
-            </ul>
+            {/* Sanity-managed local programs */}
+            {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 ? (
+              <ul className="space-y-3 mb-6">
+                {groupedResources['local-programs-degrees'].map((program: { _id?: string; title?: string; url?: string; description?: string }) => (
+                  <li key={program._id}>
+                    <a
+                      href={program.url || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
+                    >
+                      <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
+                      {program.title}
+                      <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <ul className="space-y-3 mb-6">
+                <li>
+                  <a
+                    href="https://www.kapiolani.hawaii.edu/academics/programs-of-study/new-media-arts/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
+                    KCC New Media Arts (NMA) Program
+                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.leeward.hawaii.edu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
+                    LCC Digital Media Program
+                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://chaminade.edu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
+                    Chaminade: Environmental + Interior Design (AA, BFA)
+                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+                  </a>
+                </li>
+              </ul>
+            )}
 
             {/* University of Hawaii */}
             <div className="mb-6">
