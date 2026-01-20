@@ -180,6 +180,17 @@ export function Footer({ settings }: FooterProps) {
             {dateString}
           </p>
         </div>
+        <p className="text-white/40 text-xs mt-4 text-center">
+          <a
+            href="https://www.flaticon.com/free-stickers/password"
+            title="password stickers"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white/60 transition-colors"
+          >
+            Icons by Stickers - Flaticon
+          </a>
+        </p>
       </div>
     </footer>
   );
