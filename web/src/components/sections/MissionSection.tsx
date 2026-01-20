@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
@@ -9,21 +10,25 @@ const values = [
     title: "Service",
     description:
       "Committed to serve our members with compassion, integrity, and dedication",
+    icon: "/images/icons/icon-service.png",
   },
   {
     title: "Community",
     description:
       "Foster an inclusive, supportive environment that encourages collaboration, knowledge-sharing, and growth",
+    icon: "/images/icons/icon-community.png",
   },
   {
     title: "Empowerment",
     description:
       "Provide and connect members to learning and growth opportunities to take charge of their own success",
+    icon: "/images/icons/icon-empowerment.png",
   },
   {
     title: "Inspire",
     description:
       "Ignite the continued passion and practice for human-centered design",
+    icon: "/images/icons/icon-inspire.png",
   },
 ];
 
@@ -76,22 +81,29 @@ export function MissionSection() {
 
           {/* Values */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-gray-700 text-lg font-semibold mb-6">
+            <h3 className="text-gray-700 text-lg font-semibold mb-8">
               Our values:
             </h3>
-            <ul className="space-y-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {values.map((value) => (
-                <li key={value.title} className="flex items-start gap-3">
-                  <span className="text-gray-700 mt-1.5">•</span>
-                  <div>
-                    <span className="font-semibold text-gray-800">
-                      {value.title}
-                    </span>
-                    <span className="text-gray-600"> – {value.description}</span>
+                <div key={value.title} className="bg-white rounded-[20px] p-6 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 relative">
+                    <Image
+                      src={value.icon}
+                      alt={value.title}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                </li>
+                  <h4 className="font-display text-lg text-purple-700 mb-2">
+                    {value.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {value.description}
+                  </p>
+                </div>
               ))}
-            </ul>
+            </div>
           </motion.div>
         </motion.div>
       </Container>
