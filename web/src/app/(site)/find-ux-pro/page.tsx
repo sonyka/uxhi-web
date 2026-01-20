@@ -134,17 +134,15 @@ export default function FindUXProPage() {
           </p>
 
           {/* Aidaform Embed */}
-          <div className="rounded-[24px] overflow-hidden bg-cream p-4 mb-10">
-            <iframe
-              src="https://uxhicommunity.aidaform.com/directory"
-              width="100%"
-              height="700"
-              frameBorder="0"
-              className="rounded-lg border-0"
-              title="UXHI Member Directory Form"
-              allowFullScreen
-            />
-          </div>
+          <iframe
+            src="https://uxhicommunity.aidaform.com/directory"
+            width="100%"
+            height="1400"
+            frameBorder="0"
+            className="border-0 mb-10"
+            title="UXHI Member Directory Form"
+            allowFullScreen
+          />
 
           <a
             href="https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6"
