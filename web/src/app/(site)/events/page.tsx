@@ -121,9 +121,36 @@ export default function EventsPage() {
           <h2 className="font-display text-3xl md:text-4xl lg:text-[36px] text-teal-500 mb-8">
             Upcoming Events
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            We have no upcoming events scheduled at this time. Check back soon or join our email list!
-          </p>
+
+          {/* Temporary content from Notion */}
+          <div className="bg-cream rounded-[20px] p-6 md:p-8 text-left max-w-[700px] mx-auto">
+            <p className="text-xs uppercase tracking-widest font-bold text-purple-600 mb-4">From Notion (Draft)</p>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex gap-3">
+                <span className="text-teal-500 font-semibold shrink-0">Feb. 26</span>
+                <span>Resume Review Day (3:00pm - 5:00pm)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-500 font-semibold shrink-0">March 6</span>
+                <span>Careers in Tech and Intelligence Fair (UH Manoa) (1:00pm - 4:00pm)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-500 font-semibold shrink-0">March 12 (TBC)</span>
+                <span>UH West Oahu Career Fair (10:00am - 1:00pm)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-500 font-semibold shrink-0">April 7</span>
+                <span>Leeward CC Career Fair (12:00pm - 2:00pm)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-teal-500 font-semibold shrink-0">March 12 OR April 7</span>
+                <span>Talk Story with Tech Pros (evening)</span>
+              </li>
+            </ul>
+            <p className="mt-6 text-gray-600 text-sm italic">
+              ** They are interested in hosting another UX 101 session, we will just need to respond with preferred date(s)/time(s)
+            </p>
+          </div>
         </div>
       </section>
 
