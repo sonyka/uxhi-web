@@ -109,6 +109,15 @@ export default function EventsPage() {
       {/* Upcoming Events Section */}
       <section className="pt-12 pb-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
+          {/* Upcoming Events Icon */}
+          <div className="w-24 h-24 mx-auto mb-6 relative">
+            <Image
+              src="/images/icons/icon-upcoming-events.png"
+              alt="Upcoming Events"
+              fill
+              className="object-contain"
+            />
+          </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-[36px] text-teal-500 mb-8">
             Upcoming Events
           </h2>
