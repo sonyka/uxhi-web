@@ -175,12 +175,14 @@ export default function FindUXProPage() {
       {/* Criteria Section */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
-            Join criteria
-          </h2>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            UX professionals and anyone transitioning into UX design who lives in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request will automatically be added to the directory and a UXHI team member will manually add your head shot and island, if applicable, within a few business days.
-          </p>
+          <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6">
+            <h2 className="font-display text-2xl text-purple-700 mb-3">
+              Join criteria
+            </h2>
+            <p className="text-gray-700 font-medium">
+              UX professionals and anyone transitioning into UX design who lives in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request will automatically be added to the directory and a UXHI team member will manually add your head shot and island, if applicable, within a few business days.
+            </p>
+          </div>
         </div>
       </section>
 
