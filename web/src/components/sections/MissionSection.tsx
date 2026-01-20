@@ -87,7 +87,7 @@ export function MissionSection() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {values.map((value) => (
                 <div key={value.title} className="bg-white rounded-[20px] p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 relative">
+                  <div className="w-[72px] h-[72px] mx-auto mb-4 relative">
                     <Image
                       src={value.icon}
                       alt={value.title}
@@ -98,7 +98,7 @@ export function MissionSection() {
                   <h4 className="font-display text-lg text-purple-700 mb-2">
                     {value.title}
                   </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-base leading-relaxed">
                     {value.description}
                   </p>
                 </div>
