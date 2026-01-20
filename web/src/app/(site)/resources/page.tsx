@@ -76,13 +76,17 @@ const onlineResources = [
   { name: "Articles", url: "https://uxdesign.cc", label: "uxdesign.cc" },
 ];
 
-// Local Programs
-const localPrograms = [
-  { name: "KCC New Media Arts (NMA) Program", url: "https://www.kapiolani.hawaii.edu/academics/programs-of-study/new-media-arts/" },
-  { name: "LCC Digital Media Program", url: "https://www.leeward.hawaii.edu/" },
-  { name: "UH West Oahu", url: "https://www.uhwo.hawaii.edu/" },
-  { name: "Chaminade: Environmental + Interior Design (AA, BFA)", url: "https://chaminade.edu/" },
-  { name: "Hawaii Pacific University courses", url: "https://www.hpu.edu/" },
+// Online Programs
+const onlinePrograms = [
+  { name: "Google UX Design Certificate", url: "https://www.coursera.org/professional-certificates/google-ux-design", label: "coursera.org" },
+  { name: "General Assembly UX Design Bootcamp", url: "https://generalassemb.ly/students/courses/user-experience-design-bootcamp", label: "generalassemb.ly" },
+];
+
+// Communities
+const communities = [
+  { name: "UXHI", url: "https://uxhi.community/" },
+  { name: "Design Buddies", url: "https://www.designbuddies.community/" },
+  { name: "Designer Slack", url: "https://www.designerslack.community/" },
 ];
 
 // Tech Organizations
@@ -251,27 +255,133 @@ export default function ResourcesPage() {
           </div>
 
           {/* Local Programs */}
-          <div>
-            <h3 className="font-semibold text-xl text-gray-900 mb-4">Local Programs/Degrees</h3>
+          <div className="mb-12">
+            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Local Programs/Degrees</h3>
             <p className="text-gray-600 text-sm mb-6 bg-purple-50 border border-purple-100 rounded-[12px] p-4">
               <strong>Note:</strong> There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.
             </p>
-            <ul className="space-y-3">
-              {localPrograms.map((program) => (
-                <li key={program.name}>
-                  <a
-                    href={program.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
-                  >
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                    {program.name}
-                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-                  </a>
-                </li>
-              ))}
+
+            <ul className="space-y-3 mb-6">
+              <li>
+                <a
+                  href="https://www.kapiolani.hawaii.edu/academics/programs-of-study/new-media-arts/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
+                >
+                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
+                  KCC New Media Arts (NMA) Program
+                  <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.leeward.hawaii.edu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
+                >
+                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
+                  LCC Digital Media Program
+                  <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://chaminade.edu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
+                >
+                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
+                  Chaminade: Environmental + Interior Design (AA, BFA)
+                  <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+                </a>
+              </li>
             </ul>
+
+            {/* University of Hawaii */}
+            <div className="mb-6">
+              <a
+                href="https://www.hawaii.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-900 font-semibold hover:text-teal-600 transition-colors flex items-center gap-2 mb-3"
+              >
+                University of Hawai&apos;i
+                <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+              </a>
+              <ul className="space-y-2 ml-4">
+                <li className="text-gray-700 flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
+                  Creative Computational Media (BA/BS/Certificate)
+                </li>
+                <li className="text-gray-700 flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
+                  Art (BFA) with specialization in Graphic Design/Print Media
+                </li>
+                <li className="text-gray-700 flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
+                  Environmental Design (BEnvD)
+                </li>
+                <li className="text-gray-700 flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
+                  Learning Design and Technology (MEd)
+                </li>
+              </ul>
+            </div>
+
+            {/* Hawaii Pacific University */}
+            <div className="mb-6">
+              <a
+                href="https://www.hpu.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-900 font-semibold hover:text-teal-600 transition-colors flex items-center gap-2 mb-3"
+              >
+                Hawaii Pacific University
+                <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+              </a>
+              <p className="text-gray-600 text-sm font-medium mb-3 ml-4">Courses:</p>
+              <ul className="space-y-4 ml-4">
+                <li className="text-gray-700">
+                  <p className="font-medium flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
+                    CSCI 3911 Software Engineering
+                  </p>
+                  <p className="text-sm text-gray-600 ml-4 mt-1">
+                    The course teaches software engineering techniques and system analysis methodologies based on the Software Engineering Body of Knowledge (SWEBOK) using Software as a Service (SaaS), Agile development methodologies, and Cloud based applications. This course covers Design Patterns, code version repositories, and open-source project software engineering methodologies, critical for every programmer. It also covers systems analysis and business analysis skills of talking to a customer, creating prototypes, and alternative development methodologies.
+                  </p>
+                </li>
+                <li className="text-gray-700">
+                  <p className="font-medium flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
+                    MULT 3400 Design Systems and Portfolio
+                  </p>
+                  <p className="text-sm text-gray-600 ml-4 mt-1">
+                    Students assemble their own graphic design portfolio as they complete design projects toward print and digital display. Students use Adobe InDesign, Photoshop, and Illustrator software, amongst other tools, to complete course projects. Theories and concepts of design, visual communication, audio, typography, and use of color are expanded upon in this course.
+                  </p>
+                </li>
+                <li className="text-gray-700">
+                  <p className="font-medium flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
+                    MULT 3475 Web Interface and Design
+                  </p>
+                  <p className="text-sm text-gray-600 ml-4 mt-1">
+                    Lecture-lab combined course exploring theories of design and providing a basic introduction to the production and publication of multimedia web content. Students will incorporate theory, interface design, and advertising consideration to create projects ready for web publication.
+                  </p>
+                </li>
+                <li className="text-gray-700">
+                  <p className="font-medium flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
+                    MULT 3675 Advanced Web Design
+                  </p>
+                  <p className="text-sm text-gray-600 ml-4 mt-1">
+                    This course covers the design of dynamic and highly interactive web sites as corporate identity and communication tools. Particular attention is paid to combining visual appeal and functionality as well as incorporating multimedia modules such as audio and video to enhance media richness. Introductory and intermediate skill levels of Flash are addressed.
+                  </p>
+                </li>
+              </ul>
+            </div>
 
             {/* PDF Download */}
             <div className="mt-8 pt-6 border-t border-gray-200">
@@ -287,6 +397,55 @@ export default function ResourcesPage() {
                 <span className="font-medium">UX in Hawaii schools.pdf</span>
               </a>
             </div>
+          </div>
+
+          {/* Online Programs */}
+          <div className="mb-12">
+            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Online Programs</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {onlinePrograms.map((program) => (
+                <a
+                  key={program.name}
+                  href={program.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
+                >
+                  <div>
+                    <p className="font-medium text-gray-900">{program.name}</p>
+                    <p className="text-sm text-teal-600">{program.label}</p>
+                  </div>
+                  <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Communities */}
+          <div>
+            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Communities</h3>
+            <ul className="space-y-3 mb-8">
+              {communities.map((community) => (
+                <li key={community.name}>
+                  <a
+                    href={community.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
+                    {community.name}
+                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-600 text-sm">
+              Do you have more resources to suggest or corrections we should make? Email us at:{" "}
+              <a href="mailto:aloha@uxhi.community" className="text-teal-600 hover:text-teal-700 underline underline-offset-2">
+                aloha@uxhi.community
+              </a>
+            </p>
           </div>
         </div>
       </section>
