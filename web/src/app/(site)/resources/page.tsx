@@ -405,8 +405,8 @@ export default async function ResourcesPage() {
           {/* Findings Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {/* Education Findings */}
-            <div className="bg-white/10 rounded-[20px] p-6">
-              <div className="w-24 h-24 mb-4 relative">
+            <div className="bg-white/10 rounded-[20px] p-6 text-center">
+              <div className="w-24 h-24 mx-auto mb-4 relative">
                 <Image
                   src="/images/icons/icon-education-findings.png"
                   alt="Education Findings"
@@ -414,8 +414,8 @@ export default async function ResourcesPage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-white font-semibold text-lg mb-4">Education Findings</h3>
-              <ul className="text-purple-100 space-y-3 text-sm">
+              <h3 className="font-display text-lg text-white mb-2">Education Findings</h3>
+              <ul className="text-purple-100 space-y-3 text-sm text-left">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
                   <span>75% of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
@@ -432,8 +432,8 @@ export default async function ResourcesPage() {
             </div>
 
             {/* Career Findings */}
-            <div className="bg-white/10 rounded-[20px] p-6">
-              <div className="w-24 h-24 mb-4 relative">
+            <div className="bg-white/10 rounded-[20px] p-6 text-center">
+              <div className="w-24 h-24 mx-auto mb-4 relative">
                 <Image
                   src="/images/icons/icon-career-findings.png"
                   alt="Career Findings"
@@ -441,8 +441,8 @@ export default async function ResourcesPage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-white font-semibold text-lg mb-4">Career Findings</h3>
-              <ul className="text-purple-100 space-y-3 text-sm">
+              <h3 className="font-display text-lg text-white mb-2">Career Findings</h3>
+              <ul className="text-purple-100 space-y-3 text-sm text-left">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
                   <span>33% of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
@@ -459,8 +459,8 @@ export default async function ResourcesPage() {
             </div>
 
             {/* Top Challenges */}
-            <div className="bg-white/10 rounded-[20px] p-6">
-              <div className="w-24 h-24 mb-4 relative">
+            <div className="bg-white/10 rounded-[20px] p-6 text-center">
+              <div className="w-24 h-24 mx-auto mb-4 relative">
                 <Image
                   src="/images/icons/icon-challenges.png"
                   alt="Top Challenges"
@@ -468,8 +468,8 @@ export default async function ResourcesPage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-white font-semibold text-lg mb-4">Top Challenges</h3>
-              <ul className="text-purple-100 space-y-3 text-sm">
+              <h3 className="font-display text-lg text-white mb-2">Top Challenges</h3>
+              <ul className="text-purple-100 space-y-3 text-sm text-left">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
                   <span>Many business leaders do not know what UX is</span>

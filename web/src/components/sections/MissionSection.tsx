@@ -109,12 +109,12 @@ export function MissionSection({ values }: MissionSectionProps) {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {displayValues.map((value) => (
                 <div key={value._id} className="bg-white rounded-[20px] p-6 text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 relative">
+                  <div className="w-24 h-24 mx-auto mb-4 relative">
                     {"icon" in value && value.icon?.asset ? (
                       <SanityImage
                         value={value.icon}
-                        width={80}
-                        height={80}
+                        width={96}
+                        height={96}
                         className="w-full h-full object-contain"
                       />
                     ) : "iconPath" in value ? (
