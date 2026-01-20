@@ -468,7 +468,7 @@ export default function ResourcesPage() {
 
       {/* State of UX Report Section */}
       <section id="report" className="py-20 px-6 bg-purple-700 scroll-mt-24">
-        <div className="max-w-[900px] mx-auto">
+        <div className="max-w-[1100px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
             State of UX in Hawaii Report
           </h2>
@@ -480,10 +480,10 @@ export default function ResourcesPage() {
           </p>
 
           {/* Findings Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {/* Education Findings */}
             <div className="bg-white/10 rounded-[20px] p-6">
-              <div className="w-16 h-16 mb-4 relative">
+              <div className="w-24 h-24 mb-4 relative">
                 <Image
                   src="/images/icons/icon-education-findings.png"
                   alt="Education Findings"
@@ -510,7 +510,7 @@ export default function ResourcesPage() {
 
             {/* Career Findings */}
             <div className="bg-white/10 rounded-[20px] p-6">
-              <div className="w-16 h-16 mb-4 relative">
+              <div className="w-24 h-24 mb-4 relative">
                 <Image
                   src="/images/icons/icon-career-findings.png"
                   alt="Career Findings"
@@ -534,33 +534,33 @@ export default function ResourcesPage() {
                 </li>
               </ul>
             </div>
-          </div>
 
-          {/* Top Challenges */}
-          <div className="bg-white/10 rounded-[20px] p-6 mb-10">
-            <div className="w-16 h-16 mb-4 relative">
-              <Image
-                src="/images/icons/icon-challenges.png"
-                alt="Top Challenges"
-                fill
-                className="object-contain"
-              />
+            {/* Top Challenges */}
+            <div className="bg-white/10 rounded-[20px] p-6">
+              <div className="w-24 h-24 mb-4 relative">
+                <Image
+                  src="/images/icons/icon-challenges.png"
+                  alt="Top Challenges"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-white font-semibold text-lg mb-4">Top Challenges</h3>
+              <ul className="text-purple-100 space-y-3 text-sm">
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Many business leaders do not know what UX is</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span>UX is not prioritized or funded</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span>The UX job market in Hawai&apos;i is limited</span>
+                </li>
+              </ul>
             </div>
-            <h3 className="text-white font-semibold text-lg mb-4">Top Challenges</h3>
-            <ul className="text-purple-100 space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
-                <span>Many business leaders do not know what UX is</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
-                <span>UX is not prioritized or funded</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
-                <span>The UX job market in Hawai&apos;i is limited</span>
-              </li>
-            </ul>
           </div>
 
           {/* How Report Helps */}
