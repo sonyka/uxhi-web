@@ -419,6 +419,12 @@
                 background-position: center;
             }
 
+            /* Fix FAQ answer text width - Framer sets 1px width on these elements */
+            [data-framer-name="Answer"] * {
+                width: auto !important;
+                min-width: 0 !important;
+            }
+
             .speaker-popover, .agenda-tooltip {
                 position: fixed;
                 z-index: 999999;
