@@ -29,6 +29,9 @@
             popoverData = { speakers: [], agenda: [] };
         }
 
+        // Add styles early so CSS fixes (like geometric pattern) apply immediately
+        addPopoverStyles();
+
         initNavigation();
         initFAQAccordions();
         initSmoothScroll();
@@ -392,6 +395,13 @@
             /* Hide the expanded keynote card from Framer to match other agenda items */
             .framer-s43hkk {
                 display: none !important;
+            }
+
+            /* Fix missing geometric pattern background in yellow card section */
+            .framer-18whoki {
+                background-image: url('/conferences/2024/assets/images/geometric-pattern.svg') !important;
+                background-size: cover;
+                background-position: center;
             }
 
             .speaker-popover, .agenda-tooltip {
