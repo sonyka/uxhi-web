@@ -27,6 +27,7 @@ export const resourceItem = defineType({
       type: "reference",
       to: [{ type: "resourceCategory" }],
       description: "Select the category this resource belongs to",
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "icon",
