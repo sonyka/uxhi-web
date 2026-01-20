@@ -26,12 +26,7 @@ export const resourceItem = defineType({
       name: "category",
       type: "reference",
       to: [{ type: "resourceCategory" }],
-    }),
-    defineField({
-      name: "subcategory",
-      type: "string",
-      title: "Subcategory",
-      description: "Optional subcategory within the main category (e.g., 'University of Hawaii', 'Hawaii Pacific University')",
+      description: "Select the category this resource belongs to",
     }),
     defineField({
       name: "icon",

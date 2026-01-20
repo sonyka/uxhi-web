@@ -125,7 +125,6 @@ export const RESOURCE_ITEMS_QUERY = defineQuery(/* groq */ `
     title,
     description,
     url,
-    subcategory,
     icon { ${imageFragment} },
     category->{
       _id,
