@@ -91,7 +91,7 @@ export function MissionSection({ values }: MissionSectionProps) {
 
           {/* Description */}
           <motion.div variants={fadeInUp} className="max-w-4xl mb-12">
-            <p className="text-gray-700 text-lg leading-relaxed mb-4">
+            <p className="text-gray-700 text-lg leading-relaxed">
               Founded in the summer of 2021, we are a female-founded
               volunteer-run organization that acts as the go-to resource for UX
               in the state. Our primary initiatives include our annual UXHI
@@ -99,23 +99,12 @@ export function MissionSection({ values }: MissionSectionProps) {
               community of over 400 UX practitioners who share feedback and best
               practices with each other via our dedicated Slack channel.
             </p>
-            <p className="text-gray-500 text-sm">
-              <span className="font-medium">Featured:</span>{" "}
-              <a
-                href="https://www.hawaiibulletin.com/p/user-experience-hawaii"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-600 hover:text-teal-700 underline underline-offset-2 transition-colors"
-              >
-                Local group explores user experience and interface design
-              </a>
-            </p>
           </motion.div>
 
           {/* Values */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-8">
-              Our values
+            <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-8">
+              Our Values
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {displayValues.map((value) => (

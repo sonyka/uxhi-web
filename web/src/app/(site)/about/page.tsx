@@ -191,13 +191,15 @@ export default async function AboutPage() {
         </div>
       </div>
 
+      <MissionSection values={values} />
+
       {/* Featured Press Section */}
-      <section className="py-12 px-6">
-        <div className="max-w-[900px] mx-auto">
+      <section className="pb-16 px-6 bg-cream">
+        <div className="max-w-[1100px] mx-auto">
           <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <span className="text-teal-600 text-sm font-medium uppercase tracking-wider">Featured in Hawai'i Bulletin</span>
-              <p className="text-gray-900 font-display text-xl mt-1">Local group explores user experience and interface design</p>
+              <p className="text-gray-700 font-medium mt-1">Local group explores user experience and interface design</p>
             </div>
             <Link
               href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience"
@@ -214,7 +216,6 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <MissionSection values={values} />
       <FoundersSection founders={founders} id="team" />
       <FAQSection faqs={faqs} id="faqs" />
 
