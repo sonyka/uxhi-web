@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
-import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
   title: "Find UX Pro | UX Hawaii",
@@ -9,11 +7,11 @@ export const metadata: Metadata = {
     "Connect with UX professionals in Hawaii. Browse our member directory to find designers, researchers, and UX specialists.",
 };
 
-// Arrow Icon Component (Feather arrow-right)
-function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
+// Arrow Up Right Icon (Feather)
+function ArrowUpRightIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M5 12h14M12 5l7 7-7 7" />
+      <path d="M7 17L17 7M7 7h10v10" />
     </svg>
   );
 }
@@ -33,9 +31,17 @@ export default function FindUXProPage() {
               Connect with talented UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels.
             </p>
             <div>
-              <PrimaryCTA href="https://airtable.com/your-directory-link" external>
-                Access the directory
-              </PrimaryCTA>
+              <a
+                href="https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+              >
+                <span className="text-gray-900">Access the directory</span>
+                <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                  <ArrowUpRightIcon className="w-4 h-4 text-gray-900" />
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -126,17 +132,31 @@ export default function FindUXProPage() {
           <p className="text-gray-700 text-lg leading-relaxed mb-10">
             Welcome to the UXHI Member Directory, your hub for connecting with UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels. Not only does this serve as a go-to resource for companies and recruiters seeking talented local UX professionals, but it also fosters connections between UX practitioners themselves.
           </p>
-          <Link
-            href="https://airtable.com/your-directory-link"
+
+          {/* Aidaform Embed */}
+          <div className="rounded-[24px] overflow-hidden bg-cream p-4 mb-10">
+            <iframe
+              src="https://uxhicommunity.aidaform.com/directory"
+              width="100%"
+              height="700"
+              frameBorder="0"
+              className="rounded-lg border-0"
+              title="UXHI Member Directory Form"
+              allowFullScreen
+            />
+          </div>
+
+          <a
+            href="https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Access the Directory</span>
             <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
+              <ArrowUpRightIcon className="w-4 h-4 text-gray-900" />
             </span>
-          </Link>
+          </a>
         </div>
       </section>
 
