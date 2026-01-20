@@ -414,19 +414,19 @@ export default async function ResourcesPage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="font-display text-lg text-white mb-2">Education Findings</h3>
+              <h3 className="font-display text-lg text-white mb-6">Education Findings</h3>
               <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
-                  <span><strong>75%</strong> of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
+                  <span><span className="font-black text-white">75%</span> of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
-                  <span><strong>42%</strong> of managers have a master&apos;s degree or higher</span>
+                  <span><span className="font-black text-white">42%</span> of managers have a master&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
-                  <span><strong>40%</strong> of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
+                  <span><span className="font-black text-white">40%</span> of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
                 </li>
               </ul>
             </div>
@@ -441,11 +441,11 @@ export default async function ResourcesPage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="font-display text-lg text-white mb-2">Career Findings</h3>
+              <h3 className="font-display text-lg text-white mb-6">Career Findings</h3>
               <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
-                  <span><strong>33%</strong> of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
+                  <span><span className="font-black text-white">33%</span> of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
@@ -453,7 +453,7 @@ export default async function ResourcesPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
-                  <span>Are earning an average of <strong>$75,000</strong> versus <strong>$109,776</strong> as the national average</span>
+                  <span>Are earning an average of <span className="font-black text-white">$75,000</span> versus <span className="font-black text-white">$109,776</span> as the national average</span>
                 </li>
               </ul>
             </div>
@@ -468,7 +468,7 @@ export default async function ResourcesPage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="font-display text-lg text-white mb-2">Top Challenges</h3>
+              <h3 className="font-display text-lg text-white mb-6">Top Challenges</h3>
               <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
