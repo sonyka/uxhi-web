@@ -284,8 +284,7 @@ export default async function ResourcesPage() {
               <strong>Note:</strong> There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.
             </p>
 
-            {/* Sanity-managed local programs */}
-            {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 ? (
+            {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 && (
               <ul className="space-y-3 mb-6">
                 {groupedResources['local-programs-degrees'].map((program: { _id?: string; title?: string; url?: string; description?: string }) => (
                   <li key={program._id}>
@@ -302,144 +301,7 @@ export default async function ResourcesPage() {
                   </li>
                 ))}
               </ul>
-            ) : (
-              <ul className="space-y-3 mb-6">
-                <li>
-                  <a
-                    href="https://www.kapiolani.hawaii.edu/academics/programs-of-study/new-media-arts/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
-                  >
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                    KCC New Media Arts (NMA) Program
-                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.leeward.hawaii.edu/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
-                  >
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                    LCC Digital Media Program
-                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://chaminade.edu/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
-                  >
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                    Chaminade: Environmental + Interior Design (AA, BFA)
-                    <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-                  </a>
-                </li>
-              </ul>
             )}
-
-            {/* University of Hawaii */}
-            <div className="mb-6">
-              <a
-                href="https://www.hawaii.edu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-900 font-semibold hover:text-teal-600 transition-colors flex items-center gap-2 mb-3"
-              >
-                University of Hawai&apos;i
-                <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-              </a>
-              <ul className="space-y-2 ml-4">
-                <li className="text-gray-700 flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
-                  Creative Computational Media (BA/BS/Certificate)
-                </li>
-                <li className="text-gray-700 flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
-                  Art (BFA) with specialization in Graphic Design/Print Media
-                </li>
-                <li className="text-gray-700 flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
-                  Environmental Design (BEnvD)
-                </li>
-                <li className="text-gray-700 flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
-                  Learning Design and Technology (MEd)
-                </li>
-              </ul>
-            </div>
-
-            {/* Hawaii Pacific University */}
-            <div className="mb-6">
-              <a
-                href="https://www.hpu.edu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-900 font-semibold hover:text-teal-600 transition-colors flex items-center gap-2 mb-3"
-              >
-                Hawaii Pacific University
-                <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-              </a>
-              <p className="text-gray-600 text-sm font-medium mb-3 ml-4">Courses:</p>
-              <ul className="space-y-4 ml-4">
-                <li className="text-gray-700">
-                  <p className="font-medium flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
-                    CSCI 3911 Software Engineering
-                  </p>
-                  <p className="text-sm text-gray-600 ml-4 mt-1">
-                    The course teaches software engineering techniques and system analysis methodologies based on the Software Engineering Body of Knowledge (SWEBOK) using Software as a Service (SaaS), Agile development methodologies, and Cloud based applications. This course covers Design Patterns, code version repositories, and open-source project software engineering methodologies, critical for every programmer. It also covers systems analysis and business analysis skills of talking to a customer, creating prototypes, and alternative development methodologies.
-                  </p>
-                </li>
-                <li className="text-gray-700">
-                  <p className="font-medium flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
-                    MULT 3400 Design Systems and Portfolio
-                  </p>
-                  <p className="text-sm text-gray-600 ml-4 mt-1">
-                    Students assemble their own graphic design portfolio as they complete design projects toward print and digital display. Students use Adobe InDesign, Photoshop, and Illustrator software, amongst other tools, to complete course projects. Theories and concepts of design, visual communication, audio, typography, and use of color are expanded upon in this course.
-                  </p>
-                </li>
-                <li className="text-gray-700">
-                  <p className="font-medium flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
-                    MULT 3475 Web Interface and Design
-                  </p>
-                  <p className="text-sm text-gray-600 ml-4 mt-1">
-                    Lecture-lab combined course exploring theories of design and providing a basic introduction to the production and publication of multimedia web content. Students will incorporate theory, interface design, and advertising consideration to create projects ready for web publication.
-                  </p>
-                </li>
-                <li className="text-gray-700">
-                  <p className="font-medium flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0 mt-2" />
-                    MULT 3675 Advanced Web Design
-                  </p>
-                  <p className="text-sm text-gray-600 ml-4 mt-1">
-                    This course covers the design of dynamic and highly interactive web sites as corporate identity and communication tools. Particular attention is paid to combining visual appeal and functionality as well as incorporating multimedia modules such as audio and video to enhance media richness. Introductory and intermediate skill levels of Flash are addressed.
-                  </p>
-                </li>
-              </ul>
-            </div>
-
-            {/* PDF Download */}
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <a
-                href="/docs/UX in Hawaii schools.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-gray-700 hover:text-teal-600 transition-colors"
-              >
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-                </svg>
-                <span className="font-medium">UX in Hawaii schools.pdf</span>
-              </a>
-            </div>
           </div>
 
           {/* Online Programs */}
