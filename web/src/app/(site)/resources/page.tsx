@@ -505,14 +505,14 @@ export default async function ResourcesPage() {
             </ul>
           </div>
 
-          {/* Download CTA */}
+          {/* View Report CTA */}
           <Link
-            href="https://drive.google.com/uxhi-reports"
+            href="https://drive.google.com/file/d/1pfHDt2yB-maAs2gOhywdJJv7HzY4wG7s/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
-            <span className="text-gray-900">Download Reports</span>
+            <span className="text-gray-900">View Report</span>
             <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
