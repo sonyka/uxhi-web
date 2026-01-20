@@ -81,8 +81,8 @@ export function MissionSection() {
 
           {/* Values */}
           <motion.div variants={fadeInUp}>
-            <h3 className="text-gray-700 text-lg font-semibold mb-8">
-              Our values:
+            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-8">
+              Our values
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {values.map((value) => (
