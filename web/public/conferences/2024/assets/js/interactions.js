@@ -425,6 +425,46 @@
                 min-width: 0 !important;
             }
 
+            /* Fix missing Entrepreneur's Sandbox sponsor logo */
+            a[href*="sandboxhawaii"].framer-yl97r1 {
+                background-image: url('/conferences/2024/assets/images/sandbox-logo.svg') !important;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+            }
+
+            /* Fix missing HTDC sponsor logo */
+            a[href*="htdc.org"].framer-b0f68b {
+                background-image: url("data:image/svg+xml,<svg xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" viewBox=\\"0 0 134 42\\"><path d=\\"M 15.863 0.585 C 15.501 0.627 14.398 0.779 14.053 0.829 C 13.893 0.854 13.725 0.905 13.683 0.947 C 13.623 1.007 13.674 2.626 13.843 5.586 C 13.868 5.982 13.927 7.096 13.969 8.074 L 14.137 11.363 C 14.187 12.198 14.28 14.036 14.347 15.453 C 14.423 16.87 14.55 19.527 14.642 21.357 C 14.735 23.187 14.811 24.713 14.811 24.747 C 14.811 24.789 16.132 24.814 17.74 24.814 L 20.67 24.814 L 20.863 20.994 C 20.964 18.903 21.082 16.533 21.124 15.748 C 21.166 14.956 21.284 12.738 21.377 10.815 C 21.469 8.892 21.604 6.252 21.671 4.953 C 21.731 3.654 21.797 2.213 21.814 1.757 L 21.84 0.914 L 21.52 0.846 C 20.585 0.652 19.02 0.526 17.63 0.534 C 16.797 0.542 16.006 0.568 15.863 0.584 Z M 8.623 5.762 C 4.467 8.263 1.504 12.345 0.415 17.072 C -0.208 19.787 -0.123 23.161 0.625 25.783 C 2.149 31.122 5.937 35.381 11.022 37.489 C 11.678 37.759 13.32 38.307 13.48 38.307 C 13.522 38.307 13.53 37.076 13.505 35.574 L 13.463 32.833 L 12.528 32.488 C 9.455 31.324 7.06 28.777 5.946 25.536 C 5.467 24.147 5.366 23.405 5.366 21.609 C 5.366 19.906 5.467 19.063 5.921 17.758 C 6.746 15.387 8.505 13.243 10.616 11.963 C 11.316 11.531 12.797 10.832 13.295 10.722 L 13.463 10.68 L 13.505 7.939 C 13.53 6.437 13.522 5.205 13.48 5.205 C 13.446 5.205 13.059 5.373 12.629 5.578 C 11.484 6.126 9.539 5.239 8.623 5.762 Z M 42.084 6.598 L 42.084 35.44 L 47.092 35.44 L 47.092 18.699 L 59.13 18.699 L 59.155 27.065 L 59.172 35.44 L 64.138 35.44 L 64.122 26.644 L 64.097 17.856 L 63.869 17.24 C 63.289 15.638 62.034 14.44 60.35 13.884 C 59.921 13.74 59.408 13.724 53.473 13.698 L 47.05 13.673 L 47.05 6.598 L 42.084 6.598 Z M 67.252 18.76 C 67.252 32.118 67.227 31.435 67.766 32.515 C 68.305 33.611 69.088 34.387 70.156 34.901 C 71.259 35.433 71.344 35.441 77.421 35.441 L 82.91 35.441 L 82.91 30.465 L 77.59 30.448 L 72.261 30.423 L 72.236 24.536 L 72.219 18.658 L 82.91 18.658 L 82.893 16.187 L 82.868 13.724 L 77.548 13.699 L 72.219 13.682 L 72.202 10.157 L 72.177 6.64 L 69.719 6.615 L 67.253 6.598 L 67.253 18.759 Z M 102.777 10.14 L 102.777 13.673 L 96.363 13.707 C 89.292 13.732 89.679 13.707 88.501 14.28 C 87.701 14.668 86.665 15.697 86.261 16.507 C 85.664 17.687 85.681 17.519 85.706 24.814 L 85.731 31.35 L 85.95 31.949 C 86.506 33.475 87.743 34.673 89.309 35.213 L 89.856 35.398 L 98.804 35.423 L 107.744 35.449 L 107.744 6.597 L 102.777 6.597 L 102.777 10.139 Z M 102.819 24.536 L 102.819 30.465 L 96.447 30.44 C 91.707 30.423 90.008 30.39 89.797 30.306 C 89.208 30.088 90.739 30.457 90.739 24.536 C 90.739 18.624 90.739 18.658 90.739 18.658 L 96.784 18.658 L 102.82 18.658 L 102.82 24.536 Z M 115.463 13.765 C 113.621 14.036 112.266 14.668 111.029 15.823 C 110.069 16.717 109.412 17.737 108.949 19.012 L 108.646 19.855 L 108.621 27.648 L 108.596 35.44 L 113.563 35.44 L 113.588 27.673 L 113.613 19.897 L 113.941 19.569 C 114.387 19.131 115.018 18.784 115.682 18.615 C 116.018 18.531 118.586 18.649 124.63 18.64 L 133.039 18.615 L 133.039 13.724 L 124.453 13.715 C 119.73 13.707 115.681 13.732 115.463 13.765 Z M 14.81 36.486 L 14.81 41.336 L 15.298 41.403 C 15.921 41.487 19.591 41.487 20.222 41.403 L 20.702 41.336 L 20.702 31.646 L 14.81 31.646 Z\\" fill=\\"rgb(255,255,255)\\"></path></svg>") !important;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+            }
+
+            /* Fix missing FINN (Anthology) bronze sponsor logo */
+            a[href*="anthologygroup.com"].framer-8bz7ij {
+                background-image: url('/conferences/2024/assets/images/finn-logo.svg') !important;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+            }
+
+            /* Fix missing Shaka Guide bronze sponsor logo */
+            a[href*="shakaguide.com"].framer-k8lxjp {
+                background-image: url('/conferences/2024/assets/images/shaka-guide-logo.svg') !important;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+            }
+
+            /* Fix missing Terranox bronze sponsor logo */
+            .framer-1kzxv7x {
+                background-image: url('/conferences/2024/assets/images/terranox-logo.svg') !important;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+            }
+
             .speaker-popover, .agenda-tooltip {
                 position: fixed;
                 z-index: 999999;
