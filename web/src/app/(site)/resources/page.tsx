@@ -517,6 +517,17 @@ export default async function ResourcesPage() {
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
+
+          {/* Report Preview Image */}
+          <div className="mt-12 rounded-[20px] overflow-hidden">
+            <Image
+              src="/images/bento/state-of-ux.png"
+              alt="State of UX in Hawaii Report preview"
+              width={1100}
+              height={400}
+              className="w-full h-auto"
+            />
+          </div>
         </div>
       </section>
 
