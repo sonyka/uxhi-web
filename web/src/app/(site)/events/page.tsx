@@ -201,6 +201,15 @@ export default function EventsPage() {
       {/* Conference Section */}
       <section className="py-20 px-6 bg-purple-700">
         <div className="max-w-[900px] mx-auto">
+          {/* Conference Icon */}
+          <div className="w-24 h-24 mx-auto mb-6 relative">
+            <Image
+              src="/images/icons/icon-uxhicon.svg"
+              alt=""
+              fill
+              className="object-contain"
+            />
+          </div>
           <h2 className="font-display text-4xl md:text-5xl text-white mb-8 text-center">
             Conference
           </h2>
