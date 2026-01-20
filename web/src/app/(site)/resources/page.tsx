@@ -285,22 +285,25 @@ export default async function ResourcesPage() {
             </p>
 
             {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 && (
-              <ul className="space-y-3 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {groupedResources['local-programs-degrees'].map((program: { _id?: string; title?: string; url?: string; description?: string }) => (
-                  <li key={program._id}>
-                    <a
-                      href={program.url || "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
-                    >
-                      <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                      {program.title}
-                      <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
-                    </a>
-                  </li>
+                  <a
+                    key={program._id}
+                    href={program.url || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
+                  >
+                    <div>
+                      <p className="font-medium text-gray-900">{program.title}</p>
+                      {program.description && (
+                        <p className="text-sm text-teal-600">{program.description}</p>
+                      )}
+                    </div>
+                    <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
+                  </a>
                 ))}
-              </ul>
+              </div>
             )}
           </div>
 
