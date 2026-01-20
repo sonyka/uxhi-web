@@ -518,7 +518,7 @@ export default async function ResourcesPage() {
       <section id="directory" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-4">
-            Directory of Tech Organizations
+            Directory of Local Tech Organizations
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-10">
             The tech ecosystem and community in Hawai&apos;i is thriving and growing! This list is a work in progress for UXers to connect with the many communities that advance our shared mission.

@@ -63,7 +63,7 @@ export function Header({ settings }: HeaderProps) {
       dropdown: [
         { label: "UX for Students", href: "/resources#students", description: "Start your UX journey" },
         { label: "State of UX in Hawaii Report", href: "/resources#report", description: "Industry insights" },
-        { label: "Directory of Tech Orgs", href: "/resources#directory", description: "Local tech community" },
+        { label: "Directory of Local Tech Orgs", href: "/resources#directory", description: "Local tech community" },
       ],
     },
     { key: "merch", label: "Merch", href: "/merch" },

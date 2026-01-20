@@ -3,7 +3,7 @@ import { UsersIcon } from "@sanity/icons";
 
 export const techOrganization = defineType({
   name: "techOrganization",
-  title: "Tech Organization",
+  title: "Local Tech Organization",
   type: "document",
   icon: UsersIcon,
   fields: [

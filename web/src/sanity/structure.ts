@@ -94,7 +94,7 @@ export const structure = (S: StructureBuilder) =>
                 ),
               S.divider(),
               S.documentTypeListItem("stateOfUxReport").title("State of UX Report").icon(DocumentIcon),
-              S.documentTypeListItem("techOrganization").title("Tech Organizations").icon(UsersIcon),
+              S.documentTypeListItem("techOrganization").title("Local Tech Organizations").icon(UsersIcon),
             ])
         ),
 
