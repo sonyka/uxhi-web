@@ -39,6 +39,7 @@
         initAgendaTooltips();
         hideBrokenSocialIcons();
         hideExpandedKeynoteCard();
+        fixOverlayBlocking();
 
         // Close popover when clicking outside
         document.addEventListener('click', handleDocumentClick);
@@ -380,6 +381,20 @@
         if (expandedCard) {
             expandedCard.style.display = 'none';
             console.log('Hidden expanded keynote card');
+        }
+    }
+
+    /**
+     * Fix Framer overlay that blocks all clicks on the page
+     */
+    function fixOverlayBlocking() {
+        const overlay = document.getElementById('overlay');
+        if (overlay) {
+            overlay.style.pointerEvents = 'none';
+            overlay.querySelectorAll('*').forEach(el => {
+                el.style.pointerEvents = 'none';
+            });
+            console.log('Fixed overlay blocking');
         }
     }
 
