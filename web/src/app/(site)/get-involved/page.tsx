@@ -523,29 +523,9 @@ export default function GetInvolvedPage() {
           <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
             Sponsorships
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+          <p className="text-gray-700 text-lg leading-relaxed">
             Our sponsorship packages are designed to elevate your brand, showcase your products, and facilitate connections with influencers, decision-makers, and potential partners. By partnering with us, you&apos;ll not only enhance your brand recognition but also reinforce your dedication to improving the digital landscape through UX design.
           </p>
-
-
-          {/* Custom Sponsorship */}
-          <div className="mt-10">
-            <h3 className="font-display text-xl md:text-2xl text-purple-700 mb-4">
-              Ready to collaborate?
-            </h3>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              We understand the value of tailored experiences and are open to working together to create a custom package.
-            </p>
-            <Link
-              href="mailto:aloha@uxhi.community?subject=Sponsorship%20Inquiry"
-              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-            >
-              <span className="text-gray-900">Email us</span>
-              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -577,6 +557,35 @@ export default function GetInvolvedPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Ready to Collaborate Section */}
+      <section className="py-16 px-6 bg-[#f5f5f5]">
+        <div className="max-w-[600px] mx-auto text-center">
+          <div className="w-24 h-24 mx-auto mb-6 relative">
+            <Image
+              src="/images/icons/icon-collaborate.png"
+              alt="Collaborate"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <h3 className="font-display text-xl md:text-2xl text-purple-700 mb-4">
+            Ready to collaborate?
+          </h3>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            We understand the value of tailored experiences and are open to working together to create a custom package.
+          </p>
+          <Link
+            href="mailto:aloha@uxhi.community?subject=Sponsorship%20Inquiry"
+            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+          >
+            <span className="text-gray-900">Email us</span>
+            <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <ArrowIcon className="w-4 h-4 text-gray-900" />
+            </span>
+          </Link>
         </div>
       </section>
 
