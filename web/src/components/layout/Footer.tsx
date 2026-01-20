@@ -15,6 +15,15 @@ interface FooterProps {
   };
 }
 
+// Arrow Icon (right arrow)
+function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  );
+}
+
 // Arrow Up Right Icon (Feather)
 function ArrowUpRightIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
@@ -156,7 +165,7 @@ export function Footer({ settings }: FooterProps) {
             >
               <span className="text-gray-900">Join us</span>
               <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                <ArrowUpRightIcon className="w-4 h-4 text-gray-900" />
+                <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
           </div>
