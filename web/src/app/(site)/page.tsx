@@ -449,17 +449,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Decorative Motif */}
-      <div className="flex justify-center py-8">
-        <Image
-          src="/images/bento/uxhi-rounds-motif.svg"
-          alt=""
-          width={280}
-          height={168}
-          className="mx-auto"
-        />
-      </div>
-
       {/* Community CTA Section */}
       <section className="py-24 px-6">
         <div className="max-w-[1400px] mx-auto">
@@ -468,6 +457,14 @@ export default async function HomePage() {
 
           {/* CTA Content */}
           <div className="text-center pt-4">
+            {/* Decorative Motif */}
+            <Image
+              src="/images/bento/uxhi-rounds-motif.svg"
+              alt=""
+              width={280}
+              height={168}
+              className="mx-auto mb-6"
+            />
             <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] text-teal-500 mb-6 leading-tight">
               A community<br />
               for designers,<br />
