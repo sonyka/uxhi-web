@@ -522,10 +522,12 @@ export default async function ResourcesPage() {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
+              className="inline-flex items-center gap-3 bg-white/10 border border-white/30 rounded-full pl-6 pr-2 py-2 font-medium text-white hover:bg-white/20 transition-colors group"
             >
               <span>2023 State of UXHI Report</span>
-              <ExternalLinkIcon className="w-4 h-4" />
+              <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                <ExternalLinkIcon className="w-4 h-4 text-white" />
+              </span>
             </Link>
           </div>
 
