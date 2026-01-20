@@ -280,9 +280,9 @@ export default async function ResourcesPage() {
           {/* Local Programs */}
           <div className="mb-12">
             <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Local Programs & Degrees</h3>
-            <p className="text-gray-600 text-sm mb-6 bg-purple-50 border border-purple-100 rounded-[12px] p-4">
-              <strong>Note:</strong> There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.
-            </p>
+            <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 mb-6">
+              <p className="text-gray-700 font-medium">Note: There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.</p>
+            </div>
 
             {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -357,12 +357,18 @@ export default async function ResourcesPage() {
                 </a>
               ))}
             </div>
-            <p className="text-gray-600 text-sm">
-              Do you have more resources to suggest or corrections we should make? Email us at:{" "}
-              <a href="mailto:aloha@uxhi.community" className="text-teal-600 hover:text-teal-700 underline underline-offset-2">
-                aloha@uxhi.community
-              </a>
-            </p>
+            <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-gray-700 font-medium">Do you have more resources to suggest or corrections we should make?</p>
+              <Link
+                href="mailto:aloha@uxhi.community?subject=Resource%20Suggestion"
+                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
+              >
+                <span className="text-gray-900">Email Us</span>
+                <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                  <ArrowIcon className="w-4 h-4 text-gray-900" />
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
