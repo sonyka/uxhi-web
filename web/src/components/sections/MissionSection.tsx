@@ -69,13 +69,24 @@ export function MissionSection() {
 
           {/* Description */}
           <motion.div variants={fadeInUp} className="max-w-4xl mb-12">
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-700 text-lg leading-relaxed mb-4">
               Founded in the summer of 2021, we are a female-founded
               volunteer-run organization that acts as the go-to resource for UX
               in the state. Our primary initiatives include our annual UXHI
               Conference, our State of UX report, our ongoing events, and
               community of over 400 UX practitioners who share feedback and best
               practices with each other via our dedicated Slack channel.
+            </p>
+            <p className="text-gray-500 text-sm">
+              <span className="font-medium">Featured:</span>{" "}
+              <a
+                href="https://www.hawaiibulletin.com/p/user-experience-hawaii"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-teal-600 hover:text-teal-700 underline underline-offset-2 transition-colors"
+              >
+                Local group explores user experience and interface design
+              </a>
             </p>
           </motion.div>
 
