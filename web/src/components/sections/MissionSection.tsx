@@ -40,7 +40,7 @@ export function MissionSection() {
           {/* Mission Statement */}
           <motion.h2
             variants={fadeInUp}
-            className="font-display text-3xl md:text-4xl lg:text-5xl text-teal-500 leading-tight mb-8 max-w-4xl"
+            className="font-display text-2xl md:text-3xl lg:text-4xl text-teal-500 leading-tight mb-8 max-w-4xl"
           >
             UXHI&apos;s mission is to grow and elevate the professional standard of Human-Centered Design in Hawaiʻi through career development, community networking, and industry advocacy.
           </motion.h2>
