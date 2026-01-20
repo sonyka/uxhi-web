@@ -81,6 +81,22 @@
     }
 
     /**
+     * Normalize text for comparison:
+     * - Handle curly vs straight quotes/apostrophes (including Hawaiian ʻokina)
+     * - Normalize Unicode (NFD) and strip combining diacritical marks (macrons, etc.)
+     * - Collapse multiple spaces into single space
+     */
+    function normalizeText(str) {
+        return str
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')  // Strip combining diacritical marks
+            .replace(/[\u0027\u2019\u2018\u02BB]/g, "'")  // Normalize apostrophes (including ʻokina)
+            .replace(/[\u201C\u201D]/g, '"')
+            .replace(/\s+/g, ' ')  // Collapse whitespace
+            .trim();
+    }
+
+    /**
      * Initialize speaker card popovers using document-level event delegation
      * This handles Framer's complex overlapping layout where click events
      * may not bubble correctly through the DOM
@@ -92,9 +108,16 @@
         const speakerElements = [];
         const h3Elements = document.querySelectorAll('h3');
 
+        // Pre-normalize speaker names for comparison
+        const normalizedSpeakers = popoverData.speakers.map(s => ({
+            ...s,
+            normalizedName: normalizeText(s.name)
+        }));
+
         h3Elements.forEach(h3 => {
             const name = h3.textContent.trim();
-            const speaker = popoverData.speakers.find(s => s.name === name);
+            const normalizedName = normalizeText(name);
+            const speaker = normalizedSpeakers.find(s => s.normalizedName === normalizedName);
 
             if (speaker) {
                 // Find the parent card container for visual reference
@@ -239,18 +262,6 @@
      */
     function initAgendaTooltips() {
         if (!popoverData?.agenda?.length) return;
-
-        // Normalize text for comparison:
-        // - Handle curly vs straight quotes/apostrophes
-        // - Normalize Unicode (NFD) and strip combining diacritical marks (macrons, etc.)
-        // - Collapse multiple spaces into single space
-        const normalizeText = (str) => str
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')  // Strip combining diacritical marks
-            .replace(/[\u0027\u2019\u2018\u02BB]/g, "'")
-            .replace(/[\u201C\u201D]/g, '"')
-            .replace(/\s+/g, ' ')  // Collapse whitespace
-            .trim();
 
         // Build list of agenda sessions with descriptions
         const agendaSessions = popoverData.agenda
