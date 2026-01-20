@@ -26,7 +26,6 @@ export const resourceItem = defineType({
       name: "category",
       type: "reference",
       to: [{ type: "resourceCategory" }],
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "subcategory",
