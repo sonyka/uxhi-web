@@ -103,7 +103,7 @@ export function MissionSection({ values }: MissionSectionProps) {
 
           {/* Values */}
           <motion.div variants={fadeInUp}>
-            <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-8">
+            <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-8 text-center">
               Our Values
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
