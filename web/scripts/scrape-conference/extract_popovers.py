@@ -104,23 +104,35 @@ def extract_speakers_and_bios(page):
                     const img = container.querySelector('img');
                     result.imageUrl = img ? img.src : '';
 
-                    // Get bio - all paragraphs after the first one
-                    if (paragraphs.length > 1) {{
-                        const bioTexts = paragraphs.slice(1).map(p => p.textContent.trim()).filter(t => t && t.length > 10);
-                        result.bio = bioTexts.join(' ');
-                    }}
-
-                    // If no bio found in paragraphs, look for any text content that looks like a bio
-                    if (!result.bio) {{
-                        const allText = container.textContent;
-                        // Remove the name and title from the text
-                        let bioText = allText.replace("{name}", '').replace(result.title, '').trim();
-                        // Clean up extra whitespace
-                        bioText = bioText.replace(/\\s+/g, ' ').trim();
-                        if (bioText.length > 50) {{
-                            result.bio = bioText;
+                    // Get bio from Text Wrapper elements - bio is in H3 tags there
+                    const textWrappers = document.querySelectorAll('[data-framer-name="Text Wrapper"]');
+                    const bioTexts = [];
+                    for (const wrapper of textWrappers) {{
+                        const h3Elements = wrapper.querySelectorAll('h3');
+                        for (const h3 of h3Elements) {{
+                            const text = h3.textContent.trim();
+                            // Bio paragraphs are longer descriptive text
+                            if (text.length > 80 && !text.includes("{name}") && (
+                                text.includes('excited') ||
+                                text.includes('known for') ||
+                                text.includes('Join us') ||
+                                text.includes('passionate') ||
+                                text.includes('experience') ||
+                                text.includes('specializes') ||
+                                text.includes('expertise') ||
+                                text.includes('career') ||
+                                text.includes('background') ||
+                                text.includes('leading') ||
+                                text.includes('focused') ||
+                                text.includes('session') ||
+                                text.includes('talk') ||
+                                text.includes('workshop')
+                            )) {{
+                                bioTexts.push(text);
+                            }}
                         }}
                     }}
+                    result.bio = bioTexts.join(' ').trim();
 
                     return result;
                 }}""")

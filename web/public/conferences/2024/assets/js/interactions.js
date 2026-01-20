@@ -34,6 +34,7 @@
         initSmoothScroll();
         initSpeakerPopovers();
         initAgendaTooltips();
+        hideBrokenSocialIcons();
 
         // Close popover when clicking outside
         document.addEventListener('click', handleDocumentClick);
@@ -141,18 +142,15 @@
         popover.innerHTML = `
             <div class="speaker-popover-content">
                 <button class="popover-close" aria-label="Close">&times;</button>
-                ${speaker.imageUrl ? `<img src="${speaker.imageUrl}" alt="${speaker.name}" class="speaker-popover-image">` : ''}
-                <div class="speaker-popover-info">
-                    <h3 class="speaker-popover-name">${speaker.name}</h3>
-                    <p class="speaker-popover-title">${speaker.title}</p>
-                    ${speaker.bio ? `<p class="speaker-popover-bio">${speaker.bio}</p>` : ''}
-                    <div class="speaker-popover-links">
-                        ${speaker.links.map(link => `
-                            <a href="${link.href}" target="_blank" rel="noopener noreferrer" class="speaker-link speaker-link-${link.type}" title="${link.type}">
-                                ${getSocialIcon(link.type)}
-                            </a>
-                        `).join('')}
-                    </div>
+                <h3 class="speaker-popover-name">${speaker.name}</h3>
+                <p class="speaker-popover-title">${speaker.title}</p>
+                ${speaker.bio ? `<p class="speaker-popover-bio">${speaker.bio}</p>` : ''}
+                <div class="speaker-popover-links">
+                    ${speaker.links.map(link => `
+                        <a href="${link.href}" target="_blank" rel="noopener noreferrer" class="speaker-link speaker-link-${link.type}" title="${link.type}">
+                            ${getSocialIcon(link.type)}
+                        </a>
+                    `).join('')}
                 </div>
             </div>
         `;
@@ -300,6 +298,31 @@
     }
 
     /**
+     * Hide broken social icons on speaker cards
+     * The scraped Framer site has icons that don't render properly
+     */
+    function hideBrokenSocialIcons() {
+        // Find all speaker cards with Desktop wrapper
+        const desktopCards = document.querySelectorAll('[data-framer-name="Desktop"]');
+
+        let hidden = 0;
+        desktopCards.forEach(desktop => {
+            // Check if this is a speaker card (has an h3 with speaker name)
+            const h3 = desktop.querySelector('h3');
+            if (!h3) return;
+
+            // Hide all external links in speaker cards
+            const links = desktop.querySelectorAll('a[href^="http"]');
+            links.forEach(link => {
+                link.style.display = 'none';
+                hidden++;
+            });
+        });
+
+        console.log('Hidden', hidden, 'social icons on speaker cards');
+    }
+
+    /**
      * Add popover styles to the page
      */
     function addPopoverStyles() {
@@ -322,88 +345,98 @@
             }
 
             .speaker-popover-content {
-                background: #f4f1ea;
+                background: #e8f4f6;
                 border-radius: 16px;
-                box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-                padding: 20px;
-                max-width: 400px;
-                display: flex;
-                gap: 16px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+                padding: 24px 28px;
+                max-width: 520px;
                 position: relative;
+                border-left: 6px solid #09c0d7;
             }
 
             .popover-close {
                 position: absolute;
-                top: 10px;
-                right: 10px;
+                top: 12px;
+                right: 12px;
                 background: none;
                 border: none;
-                font-size: 24px;
+                font-size: 28px;
                 cursor: pointer;
                 color: #231769;
                 padding: 4px 8px;
                 line-height: 1;
+                opacity: 0.6;
             }
 
             .popover-close:hover {
+                opacity: 1;
                 color: #09c0d7;
             }
 
-            .speaker-popover-image {
-                width: 120px;
-                height: 160px;
-                object-fit: cover;
-                border-radius: 8px;
-                flex-shrink: 0;
-            }
-
-            .speaker-popover-info {
-                flex: 1;
-                min-width: 0;
-            }
-
             .speaker-popover-name {
-                margin: 0 0 4px 0;
-                font-size: 20px;
-                font-weight: 700;
+                margin: 0 0 6px 0;
+                font-family: 'Dela Gothic One', cursive, sans-serif;
+                font-size: 28px;
+                font-weight: 400;
                 color: #231769;
+                padding-right: 40px;
             }
 
             .speaker-popover-title {
-                margin: 0 0 12px 0;
-                font-size: 14px;
-                color: #666;
+                margin: 0 0 16px 0;
+                font-size: 13px;
+                color: #231769;
                 text-transform: uppercase;
-                letter-spacing: 0.5px;
+                letter-spacing: 1.5px;
+                font-weight: 600;
             }
 
             .speaker-popover-bio {
-                margin: 0 0 16px 0;
-                font-size: 14px;
-                line-height: 1.5;
-                color: #333;
+                margin: 0 0 20px 0;
+                font-size: 15px;
+                line-height: 1.6;
+                color: #1a1a2e;
             }
 
             .speaker-popover-links {
                 display: flex;
-                gap: 12px;
+                gap: 10px;
             }
 
             .speaker-link {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 36px;
-                height: 36px;
+                width: 40px;
+                height: 40px;
                 border-radius: 50%;
-                background: #231769;
-                color: white;
                 text-decoration: none;
-                transition: background 0.2s ease;
+                transition: transform 0.2s ease, opacity 0.2s ease;
             }
 
             .speaker-link:hover {
-                background: #09c0d7;
+                transform: scale(1.1);
+                opacity: 0.85;
+            }
+
+            .speaker-link-linkedin {
+                background: #231769;
+                color: white;
+            }
+
+            .speaker-link-instagram {
+                background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+                color: white;
+            }
+
+            .speaker-link-website {
+                background: #e8a838;
+                color: #231769;
+            }
+
+            .speaker-link-twitter {
+                background: #000;
+                color: white;
             }
 
             .agenda-tooltip-content {
