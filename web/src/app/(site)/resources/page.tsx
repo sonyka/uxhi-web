@@ -256,17 +256,20 @@ export default async function ResourcesPage() {
           <div className="mb-12">
             <h3 className="font-semibold text-xl text-gray-900 mb-6">Online Resources</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {onlineResources.map((resource) => (
+              {(groupedResources['online-resources-students'] && groupedResources['online-resources-students'].length > 0
+                ? groupedResources['online-resources-students']
+                : onlineResources
+              ).map((resource: { _id?: string; name?: string; title?: string; url?: string; description?: string; label?: string }) => (
                 <a
-                  key={resource.name}
-                  href={resource.url}
+                  key={resource._id || resource.name || resource.title}
+                  href={resource.url || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
                 >
                   <div>
-                    <p className="font-medium text-gray-900">{resource.name}</p>
-                    <p className="text-sm text-teal-600">{resource.label}</p>
+                    <p className="font-medium text-gray-900">{resource.title || resource.name}</p>
+                    <p className="text-sm text-teal-600">{resource.description || resource.label || new URL(resource.url || "").hostname}</p>
                   </div>
                   <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
                 </a>
@@ -423,17 +426,20 @@ export default async function ResourcesPage() {
           <div className="mb-12">
             <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Online Programs</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {onlinePrograms.map((program) => (
+              {(groupedResources['online-programs-students'] && groupedResources['online-programs-students'].length > 0
+                ? groupedResources['online-programs-students']
+                : onlinePrograms
+              ).map((program: { _id?: string; name?: string; title?: string; url?: string; description?: string; label?: string }) => (
                 <a
-                  key={program.name}
-                  href={program.url}
+                  key={program._id || program.name || program.title}
+                  href={program.url || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
                 >
                   <div>
-                    <p className="font-medium text-gray-900">{program.name}</p>
-                    <p className="text-sm text-teal-600">{program.label}</p>
+                    <p className="font-medium text-gray-900">{program.title || program.name}</p>
+                    <p className="text-sm text-teal-600">{program.description || program.label || new URL(program.url || "").hostname}</p>
                   </div>
                   <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
                 </a>
@@ -445,16 +451,19 @@ export default async function ResourcesPage() {
           <div>
             <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Communities</h3>
             <ul className="space-y-3 mb-8">
-              {communities.map((community) => (
-                <li key={community.name}>
+              {(groupedResources['design-communities'] && groupedResources['design-communities'].length > 0
+                ? groupedResources['design-communities']
+                : communities
+              ).map((community: { _id?: string; name?: string; title?: string; url?: string }) => (
+                <li key={community._id || community.name || community.title}>
                   <a
-                    href={community.url}
+                    href={community.url || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-teal-600 transition-colors flex items-center gap-2"
                   >
                     <span className="w-1.5 h-1.5 bg-teal-500 rounded-full flex-shrink-0" />
-                    {community.name}
+                    {community.title || community.name}
                     <ExternalLinkIcon className="w-3.5 h-3.5 text-gray-400" />
                   </a>
                 </li>
