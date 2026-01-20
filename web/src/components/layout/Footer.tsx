@@ -68,7 +68,7 @@ export function Footer({ settings }: FooterProps) {
                     alt=""
                     width={20}
                     height={20}
-                    className="grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
+                    className="brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-300"
                   />
                   <span className="text-[18px]">UXHI Slack</span>
                   <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
@@ -85,7 +85,7 @@ export function Footer({ settings }: FooterProps) {
                     alt=""
                     width={20}
                     height={20}
-                    className="grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
+                    className="brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-300"
                   />
                   <span className="text-[18px]">Instagram</span>
                   <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
@@ -102,7 +102,7 @@ export function Footer({ settings }: FooterProps) {
                     alt=""
                     width={20}
                     height={20}
-                    className="grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
+                    className="brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-300"
                   />
                   <span className="text-[18px]">LinkedIn</span>
                   <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
