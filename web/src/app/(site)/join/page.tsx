@@ -302,18 +302,16 @@ export default async function JoinPage() {
             </p>
           </div>
 
-          {/* Google Form Embed */}
-          <div className="bg-cream rounded-[24px] p-8">
-            <iframe
-              src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
-              width="100%"
-              height="800"
-              className="rounded-lg border-0"
-              title="UXHI Membership Form"
-            >
-              Loading…
-            </iframe>
-          </div>
+          {/* Membership Form Embed */}
+          <iframe
+            src="https://uxhi.community/join/"
+            width="100%"
+            height="1600"
+            frameBorder="0"
+            className="border-0"
+            title="UXHI Membership Form"
+            allowFullScreen
+          />
         </div>
       </section>
 
