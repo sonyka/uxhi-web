@@ -460,94 +460,123 @@
   "agenda": [
     {
       "time": "9:00 am",
-      "room": "Main Room",
-      "type": "keynote",
-      "title": "Agenda",
-      "speaker": "Coffee & Breakfast"
-    },
-    {
-      "time": "9:00 am",
       "room": "",
       "type": "",
       "title": "Coffee & Breakfast",
-      "speaker": ""
+      "speaker": "",
+      "description": "Sponsored by Zippys"
     },
     {
       "time": "9:30 am",
       "room": "Main Room",
       "type": "",
       "title": "Opening Remarks",
-      "speaker": "Kat Duran-Higa & Jennifer Kumura"
+      "speaker": "Kat Duran-Higa & Jennifer Kumura",
+      "description": "Opening Remarks by Kat Duran-Higa & Jennifer Kumura"
     },
     {
       "time": "9:45 am",
       "room": "Main Room",
       "type": "keynote",
       "title": "Hawaiian Design Method",
-      "speaker": "Kuhao Zane, Sig Zane Designs and SZKaiao"
+      "speaker": "Kuhao Zane, Sig Zane Designs and SZKaiao",
+      "description": "Keynote presentation by Kuhao Zane of Sig Zane Designs and SZKaiao exploring Hawaiian design principles and methodologies."
     },
     {
       "time": "10:30 am",
       "room": "Main Room",
       "type": "talk",
-      "title": "Kuleana and AI: Balancing Responsibility and Innovation in Hawai’i",
-      "speaker": "Mei Jeanne Wagner & Shannon Manamtam"
+      "title": "Kuleana and AI: Balancing Responsibility and Innovation in Hawai'i",
+      "speaker": "Mei Jeanne Wagner & Shannon Manamtam",
+      "description": "This talk explores the intersection of Hawai'i's cultural values and artificial intelligence, focusing on how the concept of kuleana can guide ethical AI adoption, particularly in user experience. Key points include: Examining AI biases affecting native peoples, Asians, women, and other marginalized groups; Impact of these biases on marketing, content development, and web/app design in Hawai'i; Strategies for UX professionals to identify and mitigate AI bias; Promoting responsible AI use aligned with Hawai'i's unique cultural landscape. The presentation aims to help Hawai'i UX professionals navigate ethical challenges of AI implementation while fostering inclusive and culturally-sensitive methodologies."
+    },
+    {
+      "time": "10:30 am",
+      "room": "Purple Box",
+      "type": "workshop",
+      "title": "AI and UX: Being Problem-First, Human-Centered and Data-Driven",
+      "speaker": "Umit Gokce",
+      "description": "Join this interactive workshop to learn a real-world-tested, research and design methodology for integrating AI into UX. Using this problem-first, human-centered approach, you'll leverage AI tools together with workplace-proven processes to identify, analyze and solve for the most significant customer problems by systematically addressing their pain points, triggers and metrics."
     },
     {
       "time": "11:30 am",
       "room": "Main Room",
       "type": "workshop",
       "title": "Connecting Community Voices",
-      "speaker": "Krizel Tomines, Chaelin Ryu, Emily Shi Lee & Arthur Grau"
-    },
-    {
-      "time": "12:15 pm",
-      "room": "Main Room",
-      "type": "keynote",
-      "title": "Agenda",
-      "speaker": "Coffee & Breakfast"
+      "speaker": "Krizel Tomines, Chaelin Ryu, Emily Shi Lee & Arthur Grau",
+      "description": "Join the UXHI Research Team as we demonstrate one data collection and analysis technique inspired by the methodology of Participatory Action Research. In this workshop, we invite our community to co-research with us in our exploration of the state of UX in Hawai'i in 2024. This session is grounded in these guiding principles: People closest to an issue generally know the most about it; Everyone can contribute to research and knowledge creation, without being specialists in research; All individuals, groups, and cultures have biases in conducting research. Involving diverse participants with many perspectives and backgrounds helps us arrive at a clearer and wider understanding of the questions we are researching."
     },
     {
       "time": "12:15 pm",
       "room": "",
       "type": "",
       "title": "Lunch",
-      "speaker": ""
+      "speaker": "",
+      "description": "Ono grindz"
     },
     {
       "time": "1:15 pm",
       "room": "Main Room",
       "type": "panel",
       "title": "Stronger by Design: How Community Shapes Your Success",
-      "speaker": "May Sermonia, Chanae Evans, Nicolas Kim, Jennifer Kumura & Martin Caprile"
+      "speaker": "May Sermonia, Chanae Evans, Nicolas Kim, Jennifer Kumura & Martin Caprile",
+      "description": "Success in design goes beyond individual effort—it's built on community. This session explores how networks rooted in connection and collaboration can foster lasting growth for individuals and the design field. Hear from mentors, alumni, and leaders on how unity, kindness, and support empower career transitions and drive personal and professional success. Discover how communities based on shared values can shape the future of design in Hawai'i and beyond."
+    },
+    {
+      "time": "1:15 pm",
+      "room": "Purple Box",
+      "type": "workshop",
+      "title": "Designing from an Emerging Future",
+      "speaker": "Arthur Grau",
+      "description": "Technologists and designers empathize, sense systems, and manage people to create solutions that solve complex challenges with elegant experiences. To do our work well, we need to enhance three superpowers: our powers to Observe, empathize with people, and sense systems; Reflect, make sense and meaning; and Act, play, prototype, and create while letting go of outcomes and assumptions. Today's workshop explores two simple awareness-based practices we can integrate into our designer or problem-solver toolkits to help us better observe, reflect, and act."
     },
     {
       "time": "2:15 pm",
       "room": "Main Room",
       "type": "talk",
       "title": "Demystifying Engineering Concepts for Us Non-Engineers",
-      "speaker": ""
+      "speaker": "Kim Davidson",
+      "description": "You don't need to know how to code to work in tech, but designing, delivering, selling, and supporting software on a cross-functional team means working closely with the engineers who build the products we work on. That can make working in technology pretty intimidating, and it can feel like the coworkers we're supposed to be collaborating with are speaking a completely different language. But it doesn't need to be this way! Learning a few high-level concepts about how engineering works can go a long way in demystifying tech. Whether you're trying to break into the industry, but it all seems too foreign or you've been in tech for a while and there are questions you've just been too embarrassed to ask, we'll talk through what you need to know to become a stronger collaborator and gain confidence as a team member."
+    },
+    {
+      "time": "2:15 pm",
+      "room": "Purple Box",
+      "type": "talk",
+      "title": "Leveraging Human-Centered Design to Develop Impactful Language Resources for the Palauan Community",
+      "speaker": "Cedar Lay & Ikelau Misech",
+      "description": "This project explores human-centered design as a method to create products and resources that address the needs of Indigenous and non-dominant communities who are all too often overlooked by larger design initiatives. As a case study, we will discuss ongoing work with the Palauan diaspora community here in Hawaiʻi to create resources promoting the learning and usage of the Palauan language. Following the human-centered design framework, local Palauan community members are involved from the very inception of the project to the final creation and testing of these language resources, whether they take the form of apps, websites, online dictionaries, or other needs identified from within the community."
     },
     {
       "time": "3:15 pm",
       "room": "Main Room",
       "type": "talk",
       "title": "Integrating UX for Business Success: A Guide for Owners, Managers, and Designers",
-      "speaker": ""
+      "speaker": "Rich Matsuura",
+      "description": "Unlock the true potential of UX design as a driving force for business success. In this session, I'll share insights from my journey at eBay, Dispatch, and startups I co-founded, where I led product and UX teams. You'll discover how to transform UX teams into essential business partners, fostering a shared sense of ownership over challenges, solutions, customer experiences, and outcomes. We'll explore practical ways to build a collaborative culture where designers are empowered, respected, and aligned with business goals. Together, we'll dive into the Hawaiian values of Ho'ohana (purposeful work), Lōkahi (unity), Ho'ohanohano (integrity), and Ha'aha'a (humility) to create impactful, mission-driven product development."
+    },
+    {
+      "time": "3:15 pm",
+      "room": "Purple Box",
+      "type": "talk",
+      "title": "Wāhine Freelance Alliance: Engaging Wāhine in the Metaverse",
+      "speaker": "Jennifer Ano",
+      "description": "In today's remote workforce, virtual collaboration and networking are essential, especially for designers, developers, entrepreneurs, and other creatives who must quickly form meaningful and professional relationships to get work done. For wāhine, the need for such spaces is particularly critical as they often face unique challenges, such as balancing multiple roles, overcoming gender biases, and finding mentors and networks that genuinely support their professional growth. However, setting up a virtual co-working hub that fosters aloha and is useful, relevant, and valuable to a diverse group of wāhine from varying backgrounds, industries, interests, and goals is no easy task. It takes a village to create such an inclusive user experience."
     },
     {
       "time": "4:15 pm",
       "room": "Main Room",
       "type": "keynote",
       "title": "Aloha the Brand",
-      "speaker": "Jesse Arneson & Scott Na‘auao, Welcome Stranger"
+      "speaker": "Jesse Arneson & Scott Na'auao, Welcome Stranger",
+      "description": "Keynote presentation by Jesse Arneson & Scott Na'auao of Welcome Stranger exploring the concept of aloha in branding and design."
     },
     {
       "time": "5:00 pm",
       "room": "Main Room",
       "type": "",
       "title": "Closing Remarks",
-      "speaker": "Kat Duran-Higa & Jennifer Kumura"
+      "speaker": "Kat Duran-Higa & Jennifer Kumura",
+      "description": "Closing Remarks by Kat Duran-Higa & Jennifer Kumura"
     }
   ]
 }

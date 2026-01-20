@@ -198,24 +198,28 @@
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
 
-        // Default: position to the right of the trigger
-        let left = rect.right + 10;
-        let top = rect.top;
+        let left, top;
 
-        // If not enough space on right, position to the left
+        // Position below the trigger, aligned to its left edge
+        left = rect.left;
+        top = rect.bottom + 10;
+
+        // If popover would go off right edge, align to right edge of viewport
         if (left + popoverRect.width > viewportWidth - 20) {
-            left = rect.left - popoverRect.width - 10;
+            left = viewportWidth - popoverRect.width - 20;
         }
 
-        // If still not enough space, center horizontally
+        // If popover would go off left edge, align to left edge
         if (left < 20) {
-            left = Math.max(20, (viewportWidth - popoverRect.width) / 2);
+            left = 20;
         }
 
-        // Vertical positioning
+        // If popover would go off bottom, position above the trigger
         if (top + popoverRect.height > viewportHeight - 20) {
-            top = viewportHeight - popoverRect.height - 20;
+            top = rect.top - popoverRect.height - 10;
         }
+
+        // If still off top, just position at top of viewport
         if (top < 20) {
             top = 20;
         }
@@ -225,39 +229,73 @@
     }
 
     /**
-     * Initialize agenda item tooltips
+     * Initialize agenda item tooltips using document-level event delegation
+     * Similar to speaker popovers, this handles Framer's complex layout
      */
     function initAgendaTooltips() {
         if (!popoverData?.agenda?.length) return;
 
-        // Find agenda items by looking for time patterns
-        const allElements = document.querySelectorAll('div');
-        const timePattern = /^\d{1,2}:\d{2}\s*(am|pm)$/i;
+        // Normalize text for comparison:
+        // - Handle curly vs straight quotes/apostrophes
+        // - Normalize Unicode (NFD) and strip combining diacritical marks (macrons, etc.)
+        // - Collapse multiple spaces into single space
+        const normalizeText = (str) => str
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')  // Strip combining diacritical marks
+            .replace(/[\u0027\u2019\u2018\u02BB]/g, "'")
+            .replace(/[\u201C\u201D]/g, '"')
+            .replace(/\s+/g, ' ')  // Collapse whitespace
+            .trim();
 
-        let agendaIndex = 0;
-        allElements.forEach(el => {
+        // Build list of agenda sessions with descriptions
+        const agendaSessions = popoverData.agenda
+            .filter(a => a.title && a.description)
+            .map(a => ({
+                title: a.title,
+                normalizedTitle: normalizeText(a.title),
+                item: a
+            }));
+
+        // Find and mark all agenda title elements
+        const sessionElements = [];
+        const textElements = document.querySelectorAll('p.framer-text, h3');
+
+        textElements.forEach(el => {
             const text = el.textContent.trim();
-            if (timePattern.test(text)) {
-                // Find corresponding agenda item
-                const agendaItem = popoverData.agenda.find(a => a.time === text);
-                if (agendaItem && agendaItem.title) {
-                    // Find the parent row that contains session info
-                    const row = el.closest('[class*="framer-"]')?.parentElement;
-                    if (row) {
-                        row.style.cursor = 'pointer';
-                        row.setAttribute('data-agenda-index', agendaIndex++);
+            const normalizedText = normalizeText(text);
 
-                        row.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            showAgendaTooltip(agendaItem, row);
-                        });
-                    }
-                }
+            const match = agendaSessions.find(a => a.normalizedTitle === normalizedText);
+            if (match) {
+                el.style.cursor = 'pointer';
+                el.setAttribute('data-agenda-title', text);
+                sessionElements.push({ el, item: match.item });
             }
         });
 
-        console.log('Initialized agenda tooltips');
+        // Use document-level click handler in capture phase
+        document.addEventListener('click', (e) => {
+            // Don't handle if clicking on popover elements
+            if (e.target.closest('.speaker-popover') || e.target.closest('.agenda-tooltip')) {
+                return;
+            }
+
+            const clickX = e.clientX;
+            const clickY = e.clientY;
+
+            // Check if click is within any session element's bounding box
+            for (const { el, item } of sessionElements) {
+                const rect = el.getBoundingClientRect();
+                if (clickX >= rect.left && clickX <= rect.right &&
+                    clickY >= rect.top && clickY <= rect.bottom) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showAgendaTooltip(item, el);
+                    return;
+                }
+            }
+        }, true); // Use capture phase
+
+        console.log('Initialized agenda tooltips for', sessionElements.length, 'sessions');
     }
 
     /**
@@ -274,6 +312,7 @@
                 ${item.type ? `<span class="agenda-type">${item.type}</span>` : ''}
                 <h4 class="agenda-title">${item.title}</h4>
                 ${item.speaker ? `<p class="agenda-speaker">${item.speaker}</p>` : ''}
+                ${item.description ? `<p class="agenda-description">${item.description}</p>` : ''}
                 <div class="agenda-meta">
                     <span class="agenda-time">${item.time}</span>
                     ${item.room ? `<span class="agenda-room">${item.room}</span>` : ''}
@@ -440,12 +479,13 @@
             }
 
             .agenda-tooltip-content {
-                background: #ffcc40;
-                border-radius: 12px;
-                box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-                padding: 16px 20px;
-                max-width: 350px;
+                background: #e8f4f6;
+                border-radius: 16px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+                padding: 24px 28px;
+                max-width: 520px;
                 position: relative;
+                border-left: 6px solid #09c0d7;
             }
 
             .agenda-type {
@@ -455,23 +495,35 @@
                 font-size: 11px;
                 font-weight: 600;
                 text-transform: uppercase;
-                padding: 4px 8px;
+                padding: 4px 10px;
                 border-radius: 4px;
-                margin-bottom: 8px;
+                margin-bottom: 10px;
             }
 
             .agenda-title {
                 margin: 0 0 8px 0;
-                font-size: 18px;
-                font-weight: 700;
+                font-family: 'Dela Gothic One', cursive, sans-serif;
+                font-size: 22px;
+                font-weight: 400;
                 color: #231769;
-                padding-right: 30px;
+                padding-right: 40px;
+                line-height: 1.3;
             }
 
             .agenda-speaker {
-                margin: 0 0 12px 0;
-                font-size: 14px;
-                color: #333;
+                margin: 0 0 14px 0;
+                font-size: 13px;
+                color: #231769;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 600;
+            }
+
+            .agenda-description {
+                margin: 0 0 16px 0;
+                font-size: 15px;
+                line-height: 1.6;
+                color: #1a1a2e;
             }
 
             .agenda-meta {
@@ -479,12 +531,21 @@
                 gap: 16px;
                 font-size: 13px;
                 color: #555;
+                padding-top: 12px;
+                border-top: 1px solid rgba(0,0,0,0.1);
+            }
+
+            .agenda-time {
+                font-weight: 600;
+                color: #231769;
             }
 
             .agenda-room {
-                background: rgba(0,0,0,0.1);
-                padding: 2px 8px;
+                background: #09c0d7;
+                color: white;
+                padding: 2px 10px;
                 border-radius: 4px;
+                font-weight: 500;
             }
         `;
 
