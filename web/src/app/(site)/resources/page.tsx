@@ -415,18 +415,18 @@ export default async function ResourcesPage() {
                 />
               </div>
               <h3 className="font-display text-lg text-white mb-2">Education Findings</h3>
-              <ul className="text-purple-100 space-y-3 text-sm text-left">
+              <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
-                  <span>75% of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span><strong>75%</strong> of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
-                  <span>42% of managers have a master&apos;s degree or higher</span>
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span><strong>42%</strong> of managers have a master&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
-                  <span>40% of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span><strong>40%</strong> of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
                 </li>
               </ul>
             </div>
@@ -442,18 +442,18 @@ export default async function ResourcesPage() {
                 />
               </div>
               <h3 className="font-display text-lg text-white mb-2">Career Findings</h3>
-              <ul className="text-purple-100 space-y-3 text-sm text-left">
+              <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
-                  <span>33% of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span><strong>33%</strong> of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
                   <span>UXers in Hawai&apos;i are working harder - to find consistent employment, to be a &quot;jack of all trades&quot; or as a department of one or within small teams</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
-                  <span>Are earning an average of $75,000 versus $109,776 as the national average</span>
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span>Are earning an average of <strong>$75,000</strong> versus <strong>$109,776</strong> as the national average</span>
                 </li>
               </ul>
             </div>
@@ -469,17 +469,17 @@ export default async function ResourcesPage() {
                 />
               </div>
               <h3 className="font-display text-lg text-white mb-2">Top Challenges</h3>
-              <ul className="text-purple-100 space-y-3 text-sm text-left">
+              <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
                   <span>Many business leaders do not know what UX is</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
                   <span>UX is not prioritized or funded</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-1.5 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
                   <span>The UX job market in Hawai&apos;i is limited</span>
                 </li>
               </ul>
