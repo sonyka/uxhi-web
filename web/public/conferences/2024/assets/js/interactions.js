@@ -465,6 +465,14 @@
                 background-position: center !important;
             }
 
+            /* Fix missing THE LINEUP heading */
+            .framer-qejdxe {
+                background-image: url('/conferences/2024/assets/images/the-lineup-heading.svg') !important;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+            }
+
             .speaker-popover, .agenda-tooltip {
                 position: fixed;
                 z-index: 999999;
