@@ -370,7 +370,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Free Membership */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center flex flex-col">
-              <div className="w-32 h-32 mx-auto mb-6 relative">
+              <div className="w-24 h-24 mx-auto mb-6 relative">
                 <Image
                   src="/images/icons/icon-membership.png"
                   alt="Free Membership"
@@ -396,7 +396,7 @@ export default async function HomePage() {
 
             {/* Events */}
             <div className="border border-purple-500/30 rounded-[24px] p-8 text-center flex flex-col">
-              <div className="w-32 h-32 mx-auto mb-6 relative">
+              <div className="w-24 h-24 mx-auto mb-6 relative">
                 <Image
                   src="/images/icons/icon-events.png"
                   alt="Events"
