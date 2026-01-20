@@ -222,11 +222,31 @@ export default function EventsPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
             >
-              <span className="text-gray-900">Visit Conference Site</span>
+              <span className="text-gray-900">UXHI Conference</span>
               <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
+
+            {/* Past Archives */}
+            <div className="mt-6 flex flex-wrap justify-center gap-4">
+              <Link
+                href="https://2024.uxhiconference.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-200 hover:text-white underline underline-offset-2 transition-colors"
+              >
+                2024 UXHI Conference
+              </Link>
+              <Link
+                href="https://2023.uxhiconference.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-200 hover:text-white underline underline-offset-2 transition-colors"
+              >
+                2023 UXHI Conference
+              </Link>
+            </div>
           </div>
 
           {/* Placeholder Content Grid */}
