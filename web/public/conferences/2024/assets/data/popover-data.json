@@ -1,0 +1,553 @@
+{
+  "speakers": [
+    {
+      "name": "Jesse Arneson",
+      "title": "Founder, Welcome Stranger",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/jesse-arneson-5877909/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/welcomestrangerco/",
+          "type": "instagram"
+        },
+        {
+          "href": "https://www.welcomestranger.co/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/oB8Gbg2vvaK9JE3VFbaDrdikE.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Kuhao Zane",
+      "title": "Creative Director, szkaiao",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/kuhao/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/kuhao/",
+          "type": "instagram"
+        },
+        {
+          "href": "https://www.szkaiao.com/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/PFqRdx9w5CqPOX6eTQyCSPcGZpA.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Scott Na‘auao",
+      "title": "Founder, Welcome Stranger",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/naauao/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/welcomestrangerco/",
+          "type": "instagram"
+        },
+        {
+          "href": "https://www.welcomestranger.co/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/Cm9JKGn3GJxYkbT2B7kurq6K33s.png?scale-down-to=512",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Arthur Grau",
+      "title": "Service Design Strategist, Intellibridge",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/isarthurgrau/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/FJD1QIJqBzCaXc5EtS6u2AfD8.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Cedar Lay",
+      "title": "PhD student and Web Production Editor, UH Mānoa",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/cedarlay/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/AjuqTGOEQ3PuW2mkJrbBbCpSIA0.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Chaelin Ryu",
+      "title": "Freelance UX Designer",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/chaelinryu/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/JLFAPPnHHxWTqq1B5aqjtZvAdk.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Chanae Evans",
+      "title": "Senior UX Designer, AT&T",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/chanaeevans/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/cha_noodle/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/qpQmub8B33awTIOnjrrPYcI25aA.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Emily Shi Lee",
+      "title": "Senior UX Writer, Codecademy",
+      "bio": "",
+      "links": [
+        {
+          "href": "http://linkedin.com/in/emilyshilee",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/emilyshilee/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/OWFy4LIcxxa9k8qN4WmdPYxuNQ.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Ikelau Misech",
+      "title": "Pacific Island Research Intern, Pacific Island Development Program",
+      "bio": "",
+      "links": [
+        {
+          "href": "http://www.linkedin.com/in/ikelaumisech",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/ybyrCU0ExM82LFPEdYptCbVOtrw.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Jennifer Ano",
+      "title": "Board Advisor, Wahine Freelance Alliance",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/jenniferano/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/2iLqY1WYC7pi6843IxiSRJ29o.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Jennifer Kumura",
+      "title": "Co-Founder, UXHI",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/jenniferkumura/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/jennku/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/5K1mnOlQBlVJNxzLsv6nX1JvlTY.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Kim Davidson",
+      "title": "Product Leader, Freelance",
+      "bio": "",
+      "links": [
+        {
+          "href": "http://linkedin.com/in/kimwdavidson",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/kwd2102/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/obPzyp5OtxsDYSzavv1B0Y5rrA.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Krizel Tomines",
+      "title": "UX Researcher, Majesco",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/krizelt/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/Id46JkWUAdS56Mm374pjvhsNxE.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Martin Caprile",
+      "title": "UX/UI Designer, Martin Caprile",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/martincaprile",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/martincaprile/",
+          "type": "instagram"
+        },
+        {
+          "href": "https://www.martincaprile.net/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/kASQR0GPResd6ZBnjAFZGucFI8.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "May Sermonia",
+      "title": "Program Director, Piʻikū Co.",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/maysermo",
+          "type": "linkedin"
+        },
+        {
+          "href": "http://instagram.com/piiku.co",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/jmjLHVzyNGBKDe1eMwrPccA.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Mei Jeanne Wagner",
+      "title": "Vice President, Anthology FINN Partners",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/mei-jeanne-wagner/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/FVlFwP4Oe1pXf4fj8sHxMTZktK8.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Nicolas Kim",
+      "title": "Product Designer, Lady Bandit Studios",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/nicolastykim/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/FrhXO6zhnRgzUJJn5RyCGmc3PkY.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Rich Matsuura",
+      "title": "Founder, ProductPOV Previously VP of Product and UX",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/rich-matsuura-product-management-leader/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/VFcMHqSbN4SAi4fgPvUs49bjg.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Shannon Manamtam",
+      "title": "UX Designer, Anthology - FINN Parnters",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/shannon-manamtam/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/shanamtam/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/1rmBhWUf2A7AJsBbGNfebBxo.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Umit Gokce",
+      "title": "Principal Product Designer, Empathico LLC / The Boeing Company",
+      "bio": "",
+      "links": [
+        {
+          "href": "http://www.linkedin.com/in/umitgokce",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/umitgokce/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/caMSfzzg0Z1MMaYnt6l6RVoeP0.jpg?width=547&height=748",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Bryan Wu",
+      "title": "Senior Product / UX Designer, Consultant @ Wu & Associates",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/bryan-wu-1173981/",
+          "type": "linkedin"
+        },
+        {
+          "href": "http://www.wuandassociates.com/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/GqmF8rCRyiMM2dQ4xq4RKhvperk.jpeg?width=800&height=800",
+      "debug": {
+        "maxWidth": 521.875,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Hana Morrison",
+      "title": "Founder & Lead Designer, Sunnyside Studio",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/hanamorrison/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://sunnysidestudio.com/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/VBX8CO3IZO7B2HCuM8Gcq4v67U.webp?width=1200&height=1200",
+      "debug": {
+        "maxWidth": 521.875,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Joe Baranowski",
+      "title": "Creative Director, Purple Mai'a",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/joebaranowski/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/we0good5jV13ZhiYTkO95uuGHuQ.jpg?width=512&height=472",
+      "debug": {
+        "maxWidth": 521.875,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Elné Jenkins",
+      "title": "Creative Director, Purple Mai'a",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/eln%C3%A9-jenkins-062ab258/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.elne.design/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/hpUoPTiUkYYpXagOBHfNl197vC8.jpg?width=2000&height=1610",
+      "debug": {
+        "maxWidth": 521.875,
+        "paragraphCount": 1
+      }
+    }
+  ],
+  "agenda": [
+    {
+      "time": "9:00 am",
+      "room": "Main Room",
+      "type": "keynote",
+      "title": "Agenda",
+      "speaker": "Coffee & Breakfast"
+    },
+    {
+      "time": "9:00 am",
+      "room": "",
+      "type": "",
+      "title": "Coffee & Breakfast",
+      "speaker": ""
+    },
+    {
+      "time": "9:30 am",
+      "room": "Main Room",
+      "type": "",
+      "title": "Opening Remarks",
+      "speaker": "Kat Duran-Higa & Jennifer Kumura"
+    },
+    {
+      "time": "9:45 am",
+      "room": "Main Room",
+      "type": "keynote",
+      "title": "Hawaiian Design Method",
+      "speaker": "Kuhao Zane, Sig Zane Designs and SZKaiao"
+    },
+    {
+      "time": "10:30 am",
+      "room": "Main Room",
+      "type": "talk",
+      "title": "Kuleana and AI: Balancing Responsibility and Innovation in Hawai’i",
+      "speaker": "Mei Jeanne Wagner & Shannon Manamtam"
+    },
+    {
+      "time": "11:30 am",
+      "room": "Main Room",
+      "type": "workshop",
+      "title": "Connecting Community Voices",
+      "speaker": "Krizel Tomines, Chaelin Ryu, Emily Shi Lee & Arthur Grau"
+    },
+    {
+      "time": "12:15 pm",
+      "room": "Main Room",
+      "type": "keynote",
+      "title": "Agenda",
+      "speaker": "Coffee & Breakfast"
+    },
+    {
+      "time": "12:15 pm",
+      "room": "",
+      "type": "",
+      "title": "Lunch",
+      "speaker": ""
+    },
+    {
+      "time": "1:15 pm",
+      "room": "Main Room",
+      "type": "panel",
+      "title": "Stronger by Design: How Community Shapes Your Success",
+      "speaker": "May Sermonia, Chanae Evans, Nicolas Kim, Jennifer Kumura & Martin Caprile"
+    },
+    {
+      "time": "2:15 pm",
+      "room": "Main Room",
+      "type": "talk",
+      "title": "Demystifying Engineering Concepts for Us Non-Engineers",
+      "speaker": ""
+    },
+    {
+      "time": "3:15 pm",
+      "room": "Main Room",
+      "type": "talk",
+      "title": "Integrating UX for Business Success: A Guide for Owners, Managers, and Designers",
+      "speaker": ""
+    },
+    {
+      "time": "4:15 pm",
+      "room": "Main Room",
+      "type": "keynote",
+      "title": "Aloha the Brand",
+      "speaker": "Jesse Arneson & Scott Na‘auao, Welcome Stranger"
+    },
+    {
+      "time": "5:00 pm",
+      "room": "Main Room",
+      "type": "",
+      "title": "Closing Remarks",
+      "speaker": "Kat Duran-Higa & Jennifer Kumura"
+    }
+  ]
+}
