@@ -87,7 +87,7 @@ export function MissionSection() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {values.map((value) => (
                 <div key={value.title} className="bg-white rounded-[20px] p-6 text-center">
-                  <div className="w-[72px] h-[72px] mx-auto mb-4 relative">
+                  <div className="w-20 h-20 mx-auto mb-4 relative">
                     <Image
                       src={value.icon}
                       alt={value.title}
