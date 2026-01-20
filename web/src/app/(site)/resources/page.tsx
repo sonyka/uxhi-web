@@ -483,6 +483,14 @@ export default function ResourcesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             {/* Education Findings */}
             <div className="bg-white/10 rounded-[20px] p-6">
+              <div className="w-16 h-16 mb-4 relative">
+                <Image
+                  src="/images/icons/icon-education-findings.png"
+                  alt="Education Findings"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <h3 className="text-white font-semibold text-lg mb-4">Education Findings</h3>
               <ul className="text-purple-100 space-y-3 text-sm">
                 <li className="flex items-start gap-3">
@@ -502,6 +510,14 @@ export default function ResourcesPage() {
 
             {/* Career Findings */}
             <div className="bg-white/10 rounded-[20px] p-6">
+              <div className="w-16 h-16 mb-4 relative">
+                <Image
+                  src="/images/icons/icon-career-findings.png"
+                  alt="Career Findings"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <h3 className="text-white font-semibold text-lg mb-4">Career Findings</h3>
               <ul className="text-purple-100 space-y-3 text-sm">
                 <li className="flex items-start gap-3">
@@ -522,6 +538,14 @@ export default function ResourcesPage() {
 
           {/* Top Challenges */}
           <div className="bg-white/10 rounded-[20px] p-6 mb-10">
+            <div className="w-16 h-16 mb-4 relative">
+              <Image
+                src="/images/icons/icon-challenges.png"
+                alt="Top Challenges"
+                fill
+                className="object-contain"
+              />
+            </div>
             <h3 className="text-white font-semibold text-lg mb-4">Top Challenges</h3>
             <ul className="text-purple-100 space-y-3">
               <li className="flex items-start gap-3">
