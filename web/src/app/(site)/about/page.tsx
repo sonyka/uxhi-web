@@ -22,6 +22,16 @@ function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
+// External Link Icon (Lucide arrow-up-right)
+function ExternalLinkIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M7 7h10v10" />
+      <path d="M7 17 17 7" />
+    </svg>
+  );
+}
+
 // Lucide Icons with 1.5px stroke
 function SquareUserRoundIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
@@ -180,6 +190,29 @@ export default async function AboutPage() {
           </div>
         </div>
       </div>
+
+      {/* Featured Press Section */}
+      <section className="py-12 px-6">
+        <div className="max-w-[900px] mx-auto">
+          <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span className="text-teal-600 text-sm font-medium uppercase tracking-wider">Featured in Hawai'i Bulletin</span>
+              <p className="text-gray-900 font-display text-xl mt-1">Local group explores user experience and interface design</p>
+            </div>
+            <Link
+              href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group shrink-0"
+            >
+              <span className="text-gray-900">Read Article</span>
+              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <MissionSection values={values} />
       <FoundersSection founders={founders} id="team" />
