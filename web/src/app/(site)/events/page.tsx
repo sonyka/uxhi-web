@@ -161,18 +161,16 @@ export default function EventsPage() {
             Past Events
           </h2>
 
-          {/* Luma Embed */}
-          <div className="rounded-[24px] overflow-hidden bg-cream p-4">
-            <iframe
-              src="https://lu.ma/embed/calendar/cal-gT2HhpGHlTpnIvZ/events?lt=light"
-              width="100%"
-              height="700"
-              frameBorder="0"
-              className="rounded-lg border-0"
-              title="UXHI Past Events on Luma"
-              allowFullScreen
-            />
-          </div>
+          {/* Luma Embed - Past Events */}
+          <iframe
+            src="https://lu.ma/embed/calendar/cal-gT2HhpGHlTpnIvZ/events?lt=light&period=past"
+            width="100%"
+            height="700"
+            frameBorder="0"
+            className="border-0 rounded-lg"
+            title="UXHI Past Events on Luma"
+            allowFullScreen
+          />
 
           <div className="text-center mt-8">
             <Link
