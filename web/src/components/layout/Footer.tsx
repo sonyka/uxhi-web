@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface FooterProps {
   settings: {
@@ -62,6 +63,13 @@ export function Footer({ settings }: FooterProps) {
                   href="/join"
                   className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
+                  <Image
+                    src="/images/about/glyph-slack.png"
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                   <span className="text-[18px]">UXHI Slack</span>
                   <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
                 </Link>
@@ -72,6 +80,13 @@ export function Footer({ settings }: FooterProps) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
+                  <Image
+                    src="/images/about/glyph-insta.png"
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                   <span className="text-[18px]">Instagram</span>
                   <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
                 </a>
@@ -82,7 +97,14 @@ export function Footer({ settings }: FooterProps) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
-                  <span className="text-[18px]">Linkedin</span>
+                  <Image
+                    src="/images/about/glyph-linkedin.svg"
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
+                  <span className="text-[18px]">LinkedIn</span>
                   <ArrowUpRightIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
                 </a>
 
@@ -110,9 +132,10 @@ export function Footer({ settings }: FooterProps) {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[18px] text-white hover:text-white/80 transition-colors"
+                    className="inline-flex items-center gap-1 text-[18px] text-white hover:text-white/80 transition-colors"
                   >
                     {item.label}
+                    <ArrowUpRightIcon className="w-4 h-4 text-white/40" />
                   </a>
                 ) : (
                   <Link
