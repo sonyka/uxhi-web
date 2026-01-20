@@ -18,6 +18,16 @@ function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
+// External Link Icon (Lucide arrow-up-right)
+function ExternalLinkIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M7 7h10v10" />
+      <path d="M7 17 17 7" />
+    </svg>
+  );
+}
+
 export default function EventsPage() {
   return (
     <main className="min-h-screen bg-cream">
@@ -222,7 +232,7 @@ export default function EventsPage() {
             >
               <span className="text-gray-900">UXHI Conference</span>
               <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
+                <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
 
@@ -232,17 +242,19 @@ export default function EventsPage() {
                 href="https://2024.uxhiconference.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-purple-200 hover:text-white underline underline-offset-2 transition-colors"
+                className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
               >
-                2024 UXHI Conference
+                <span>2024 UXHI Conference</span>
+                <ExternalLinkIcon className="w-4 h-4" />
               </Link>
               <Link
                 href="https://2023.uxhiconference.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-purple-200 hover:text-white underline underline-offset-2 transition-colors"
+                className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
               >
-                2023 UXHI Conference
+                <span>2023 UXHI Conference</span>
+                <ExternalLinkIcon className="w-4 h-4" />
               </Link>
             </div>
           </div>
