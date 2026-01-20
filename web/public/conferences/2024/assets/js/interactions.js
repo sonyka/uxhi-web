@@ -35,6 +35,7 @@
         initSpeakerPopovers();
         initAgendaTooltips();
         hideBrokenSocialIcons();
+        hideExpandedKeynoteCard();
 
         // Close popover when clicking outside
         document.addEventListener('click', handleDocumentClick);
@@ -256,19 +257,24 @@
                 item: a
             }));
 
-        // Find and mark all agenda title elements
+        // Find and mark agenda title elements (only first match per title to avoid duplicates)
         const sessionElements = [];
         const textElements = document.querySelectorAll('p.framer-text, h3');
+        const processedTitles = new Set();
 
         textElements.forEach(el => {
             const text = el.textContent.trim();
             const normalizedText = normalizeText(text);
+
+            // Skip if we already processed this title
+            if (processedTitles.has(normalizedText)) return;
 
             const match = agendaSessions.find(a => a.normalizedTitle === normalizedText);
             if (match) {
                 el.style.cursor = 'pointer';
                 el.setAttribute('data-agenda-title', text);
                 sessionElements.push({ el, item: match.item });
+                processedTitles.add(normalizedText);
             }
         });
 
@@ -362,6 +368,19 @@
     }
 
     /**
+     * Hide the expanded keynote card from the original Framer design
+     * to make it consistent with other agenda items
+     */
+    function hideExpandedKeynoteCard() {
+        // Find and hide the expanded card container for Hawaiian Design Method
+        const expandedCard = document.querySelector('.framer-s43hkk');
+        if (expandedCard) {
+            expandedCard.style.display = 'none';
+            console.log('Hidden expanded keynote card');
+        }
+    }
+
+    /**
      * Add popover styles to the page
      */
     function addPopoverStyles() {
@@ -370,12 +389,18 @@
         const styles = document.createElement('style');
         styles.id = 'popover-styles';
         styles.textContent = `
+            /* Hide the expanded keynote card from Framer to match other agenda items */
+            .framer-s43hkk {
+                display: none !important;
+            }
+
             .speaker-popover, .agenda-tooltip {
                 position: fixed;
-                z-index: 10000;
+                z-index: 999999;
                 opacity: 0;
                 transform: translateY(10px);
                 transition: opacity 0.2s ease, transform 0.2s ease;
+                isolation: isolate;
             }
 
             .speaker-popover.visible, .agenda-tooltip.visible {
