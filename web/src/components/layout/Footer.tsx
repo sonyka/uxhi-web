@@ -175,22 +175,21 @@ export function Footer({ settings }: FooterProps) {
         <div className="flex flex-col md:flex-row justify-between items-center mt-16 pt-8 border-t border-white/20">
           <p className="text-white/80 text-sm">
             Copyright by UXHI ©{today.getFullYear()}
+            <span className="text-white/40 ml-3">·</span>
+            <a
+              href="https://www.flaticon.com/free-stickers/password"
+              title="password stickers"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/40 text-xs ml-3 hover:text-white/60 transition-colors"
+            >
+              Icons by Stickers - Flaticon
+            </a>
           </p>
           <p className="text-white/80 text-sm mt-2 md:mt-0">
             {dateString}
           </p>
         </div>
-        <p className="text-white/40 text-xs mt-4 text-center">
-          <a
-            href="https://www.flaticon.com/free-stickers/password"
-            title="password stickers"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white/60 transition-colors"
-          >
-            Icons by Stickers - Flaticon
-          </a>
-        </p>
       </div>
     </footer>
   );
