@@ -75,7 +75,7 @@ function FAQItem({
         }`}
         aria-expanded={isOpen}
       >
-        <span className="font-medium pr-4">{faq.question}</span>
+        <h4 className="font-medium pr-4">{faq.question}</h4>
         <span className="flex-shrink-0">
           {isOpen ? (
             <MinusIcon className="w-6 h-6" />
@@ -92,7 +92,7 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="px-8 pb-6 text-white/90">{faq.answer}</div>
+            <div className="px-8 pb-6 text-white/90 text-base">{faq.answer}</div>
           </motion.div>
         )}
       </AnimatePresence>
