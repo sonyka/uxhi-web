@@ -322,6 +322,24 @@ export default function DesignSystemPage() {
               </div>
             </div>
 
+            {/* Gray Scale */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Gray Scale</h3>
+              <div className="grid grid-cols-5 md:grid-cols-11 gap-3">
+                <ColorSwatch name="50" value="#f9fafb" />
+                <ColorSwatch name="100" value="#f3f4f6" />
+                <ColorSwatch name="200" value="#e5e7eb" />
+                <ColorSwatch name="300" value="#d1d5db" />
+                <ColorSwatch name="400" value="#9ca3af" />
+                <ColorSwatch name="500" value="#6b7280" textColor="text-white" />
+                <ColorSwatch name="600" value="#4b5563" textColor="text-white" />
+                <ColorSwatch name="700" value="#374151" textColor="text-white" />
+                <ColorSwatch name="800" value="#1f2937" textColor="text-white" />
+                <ColorSwatch name="900" value="#111827" textColor="text-white" />
+                <ColorSwatch name="Black" value="#000000" textColor="text-white" />
+              </div>
+            </div>
+
             {/* Neutral / Brand */}
             <div>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Neutral / Brand</h3>
