@@ -19,6 +19,31 @@ npm run lint     # Run ESLint
 
 Sanity Studio is embedded at `/studio` route (no separate Sanity CLI needed for content editing).
 
+## Scripts
+
+### capture.sh - Page Screenshot Utility
+
+Captures viewport-sized screenshots of a page, splitting a full-page capture into multiple viewport-height images. Useful for documentation, refactoring, visual regression testing, or sharing page designs.
+
+**Requirements:** Node.js (npx), ImageMagick
+
+```bash
+# From repo root
+./capture.sh [options] [url]
+
+# Options:
+#   -p, --prefix PREFIX    Output filename prefix (default: page)
+#   -o, --output DIR       Output directory (default: current directory)
+#   -w, --width WIDTH      Viewport width (default: 1492)
+#   -h, --height HEIGHT    Viewport height (default: 824)
+
+# Examples:
+./capture.sh                                    # Captures localhost:3000 → page-00.png, page-01.png, etc.
+./capture.sh /conferences/2024                  # Captures specific path
+./capture.sh -p before /about                   # Creates before-00.png, before-01.png, etc.
+./capture.sh -p after -o ./screenshots /page    # Output to specific directory
+```
+
 ## Architecture
 
 ### Tech Stack
