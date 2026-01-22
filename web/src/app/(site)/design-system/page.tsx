@@ -52,11 +52,13 @@ function Section({
 function ColorSwatch({
   name,
   value,
-  textColor = "text-gray-900"
+  textColor = "text-gray-900",
+  compact = false
 }: {
   name: string;
   value: string;
   textColor?: string;
+  compact?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -72,7 +74,7 @@ function ColorSwatch({
       className="text-left group"
     >
       <div
-        className={`w-full aspect-[4/3] rounded-xl mb-2 transition-transform group-hover:scale-105 ${textColor}`}
+        className={`w-full ${compact ? "aspect-[3/1]" : "aspect-[4/3]"} rounded-xl mb-2 transition-transform group-hover:scale-105 ${textColor}`}
         style={{ backgroundColor: value }}
       />
       <p className="font-medium text-sm text-gray-900">{name}</p>
@@ -343,20 +345,20 @@ export default function DesignSystemPage() {
             <div>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Neutral / Brand</h3>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-                <ColorSwatch name="White" value="#ffffff" />
-                <ColorSwatch name="Section Gray" value="#f5f5f5" />
-                <ColorSwatch name="Cream" value="#f4f1ea" />
-                <ColorSwatch name="Cream Dark" value="#e8e4db" />
-                <ColorSwatch name="Black" value="#000000" textColor="text-white" />
+                <ColorSwatch name="White" value="#ffffff" compact />
+                <ColorSwatch name="Section Gray" value="#f5f5f5" compact />
+                <ColorSwatch name="Cream" value="#f4f1ea" compact />
+                <ColorSwatch name="Cream Dark" value="#e8e4db" compact />
+                <ColorSwatch name="Black" value="#000000" textColor="text-white" compact />
               </div>
             </div>
 
             {/* Accent - Yellow */}
             <div>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Accent — Yellow</h3>
-              <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
-                <ColorSwatch name="Yellow" value="#ffcc40" />
-                <ColorSwatch name="Yellow Hover" value="#e5b532" />
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-3 max-w-xs">
+                <ColorSwatch name="Yellow" value="#ffcc40" compact />
+                <ColorSwatch name="Yellow Hover" value="#e5b532" compact />
               </div>
             </div>
           </div>
