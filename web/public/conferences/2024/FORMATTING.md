@@ -6,7 +6,7 @@ The Framer-exported `index.html` file has extremely long lines (up to 553,000 ch
 
 ## Progress
 
-[ ] page-00.png
+[x] page-00.png
 [ ] page-01.png
 [ ] page-02.png
 [ ] page-03.png
