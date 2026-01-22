@@ -63,7 +63,7 @@ export default async function AboutPage() {
         {/* Left Side - Content */}
         <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
           <div className="flex flex-col gap-6 max-w-[605px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-[84px] text-black">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-hero text-black">
               About Us
             </h1>
             <p className="text-black text-lg lg:text-xl leading-relaxed">
@@ -167,11 +167,11 @@ export default async function AboutPage() {
       {/* Featured Press Section */}
       <section className="pb-16 px-6 bg-cream">
         <div className="max-w-[1100px] mx-auto">
-          <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <span className="text-teal-600 text-sm font-medium uppercase tracking-wider">Featured in Hawai'i Bulletin</span>
-              <p className="text-gray-700 font-medium mt-1">Local group explores user experience and interface design</p>
-            </div>
+          <InfoBox
+            eyebrow="Featured in Hawai'i Bulletin"
+            className="flex flex-col sm:flex-row items-center justify-between gap-4"
+          >
+            <p className="text-base text-gray-700 font-medium">Local group explores user experience and interface design</p>
             <PrimaryCTA href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience" external>
               Read Article
             </PrimaryCTA>

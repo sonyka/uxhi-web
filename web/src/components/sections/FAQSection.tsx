@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { InlineLink } from "@/components/ui/InlineLink";
 import { PlusIcon, MinusIcon } from "@/components/ui/icons";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
@@ -91,12 +91,7 @@ export function FAQSection({ faqs, id }: FAQSectionProps) {
             <p className="text-gray-600 text-lg">
               Questions about what we offer, and how to be a part of it? If the
               answer to your question isn&apos;t found below, just{" "}
-              <Link
-                href="/contact"
-                className="text-teal-500 hover:text-teal-600 transition-colors"
-              >
-                contact us
-              </Link>
+              <InlineLink href="/contact" variant="teal">contact us</InlineLink>
               .
             </p>
           </motion.div>

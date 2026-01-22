@@ -8,6 +8,8 @@ import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { LinkCard } from "@/components/ui/LinkCard";
 import { InfoBox } from "@/components/ui/InfoBox";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
+import { BulletPoint } from "@/components/ui/BulletPoint";
 
 export const metadata: Metadata = {
   title: "Resources | UX Hawaii",
@@ -119,7 +121,7 @@ export default async function ResourcesPage() {
         {/* Left Side - Content */}
         <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
           <div className="flex flex-col gap-6 max-w-[605px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-[84px] text-black">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-hero text-black">
               Resources
             </h1>
             <p className="text-black text-lg lg:text-xl leading-relaxed">
@@ -247,7 +249,7 @@ export default async function ResourcesPage() {
           <div className="mb-12">
             <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Local Programs & Degrees</h3>
             <InfoBox className="mb-6">
-              <p className="text-gray-700 font-medium">Note: There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.</p>
+              <p className="text-base text-gray-700 font-medium">Note: There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.</p>
             </InfoBox>
 
             {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 && (
@@ -299,7 +301,7 @@ export default async function ResourcesPage() {
               ))}
             </div>
             <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-gray-700 font-medium">Do you have more resources to suggest or corrections we should make?</p>
+              <p className="text-base text-gray-700 font-medium">Do you have more resources to suggest or corrections we should make?</p>
               <PrimaryCTA href="mailto:aloha@uxhi.community?subject=Resource%20Suggestion" external>
                 Email Us
               </PrimaryCTA>
@@ -340,85 +342,76 @@ export default async function ResourcesPage() {
           {/* Findings Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {/* Education Findings */}
-            <div className="bg-white/10 rounded-[20px] p-6 text-center">
-              <div className="w-24 h-24 mx-auto mb-4 relative">
-                <Image
-                  src="/images/icons/icon-education-findings.png"
-                  alt="Education Findings"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="font-display text-lg text-white mb-6">Education Findings</h3>
-              <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
+            <SpotIllustrationCard
+              variant="translucent"
+              imageSrc="/images/icons/icon-education-findings.png"
+              imageAlt="Education Findings"
+              title="Education Findings"
+              className="rounded-[20px]"
+            >
+              <ul className="space-y-3 text-base text-left">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                  <BulletPoint variant="yellow" />
                   <span><span className="font-black text-white">75%</span> of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                  <BulletPoint variant="yellow" />
                   <span><span className="font-black text-white">42%</span> of managers have a master&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                  <BulletPoint variant="yellow" />
                   <span><span className="font-black text-white">40%</span> of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
                 </li>
               </ul>
-            </div>
+            </SpotIllustrationCard>
 
             {/* Career Findings */}
-            <div className="bg-white/10 rounded-[20px] p-6 text-center">
-              <div className="w-24 h-24 mx-auto mb-4 relative">
-                <Image
-                  src="/images/icons/icon-career-findings.png"
-                  alt="Career Findings"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="font-display text-lg text-white mb-6">Career Findings</h3>
-              <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
+            <SpotIllustrationCard
+              variant="translucent"
+              imageSrc="/images/icons/icon-career-findings.png"
+              imageAlt="Career Findings"
+              title="Career Findings"
+              className="rounded-[20px]"
+            >
+              <ul className="space-y-3 text-base text-left">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                  <BulletPoint variant="yellow" />
                   <span><span className="font-black text-white">33%</span> of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                  <BulletPoint variant="yellow" />
                   <span>UXers in Hawai&apos;i are working harder - to find consistent employment, to be a &quot;jack of all trades&quot; or as a department of one or within small teams</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                  <BulletPoint variant="yellow" />
                   <span>Are earning an average of <span className="font-black text-white">$75,000</span> versus <span className="font-black text-white">$109,776</span> as the national average</span>
                 </li>
               </ul>
-            </div>
+            </SpotIllustrationCard>
 
             {/* Top Challenges */}
-            <div className="bg-white/10 rounded-[20px] p-6 text-center">
-              <div className="w-24 h-24 mx-auto mb-4 relative">
-                <Image
-                  src="/images/icons/icon-challenges.png"
-                  alt="Top Challenges"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="font-display text-lg text-white mb-6">Top Challenges</h3>
-              <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
+            <SpotIllustrationCard
+              variant="translucent"
+              imageSrc="/images/icons/icon-challenges.png"
+              imageAlt="Top Challenges"
+              title="Top Challenges"
+              className="rounded-[20px]"
+            >
+              <ul className="space-y-3 text-base text-left">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                  <BulletPoint variant="yellow" />
                   <span>Many business leaders do not know what UX is</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                  <BulletPoint variant="yellow" />
                   <span>UX is not prioritized or funded</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                  <BulletPoint variant="yellow" />
                   <span>The UX job market in Hawai&apos;i is limited</span>
                 </li>
               </ul>
-            </div>
+            </SpotIllustrationCard>
           </div>
 
           {/* How Report Helps */}
@@ -426,15 +419,15 @@ export default async function ResourcesPage() {
             <p className="text-purple-100 mb-4">The State of UX report charts our progress towards advancing the field of UX by:</p>
             <ul className="text-purple-100 space-y-2">
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                <BulletPoint variant="yellow" />
                 <span>Inspiring local business leaders to find and hire UX professionals</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                <BulletPoint variant="yellow" />
                 <span>Generate opportunities for new UXers to gain experience</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-2 flex-shrink-0" />
+                <BulletPoint variant="yellow" />
                 <span>Host collaborative events to strengthen the UX community</span>
               </li>
             </ul>
@@ -500,7 +493,7 @@ export default async function ResourcesPage() {
 
           {/* Something Missing CTA */}
           <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-700 font-medium">Something missing?</p>
+            <p className="text-base text-gray-700 font-medium">Something missing?</p>
             <PrimaryCTA href="mailto:aloha@uxhi.community?subject=Tech%20Organization%20Suggestion" external>
               Email Us
             </PrimaryCTA>

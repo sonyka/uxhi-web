@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
-import { ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { InlineLink } from "@/components/ui/InlineLink";
+import { BulletPoint } from "@/components/ui/BulletPoint";
 
 export const metadata: Metadata = {
   title: "Get Involved | UX Hawaii",
@@ -142,14 +142,14 @@ export default function GetInvolvedPage() {
         {/* Left Side - Content */}
         <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
           <div className="flex flex-col gap-6 max-w-[605px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-[84px] text-black">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-hero text-black">
               Get Involved
             </h1>
             <p className="text-black text-lg lg:text-xl leading-relaxed">
               There are many ways to contribute to the UXHI community. Check out our{" "}
-              <Link href="/events" className="text-black underline underline-offset-2 hover:text-purple-700 transition-colors">
+              <InlineLink href="/events" variant="purple">
                 upcoming events
-              </Link>{" "}
+              </InlineLink>{" "}
               or find other ways to get involved below.
             </p>
 
@@ -268,57 +268,43 @@ export default function GetInvolvedPage() {
           </p>
           <ul className="text-gray-700 space-y-3 mb-8">
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>
                 Propose a topic related to the field of UX as a presenter at our{" "}
-                <a href="https://uxhicon.com" target="_blank" rel="noopener noreferrer" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors inline-flex items-center gap-1">
-                  UXHI Conference
-                  <ExternalLinkIcon className="w-3.5 h-3.5" />
-                </a>{" "}
+                <InlineLink href="https://uxhicon.com" variant="purple">UXHI Conference</InlineLink>{" "}
                 or{" "}
-                <Link href="/events" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors">
-                  events
-                </Link>
+                <InlineLink href="/events" variant="purple">events</InlineLink>
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>
                 Propose a topic as a guest author for our{" "}
-                <Link href="/resources" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors">
-                  Resources
-                </Link>
+                <InlineLink href="/resources" variant="purple">Resources</InlineLink>
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>
                 Join our committees for any of our initiatives, like the{" "}
-                <a href="https://uxhicon.com" target="_blank" rel="noopener noreferrer" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors inline-flex items-center gap-1">
-                  UXHI Conference
-                  <ExternalLinkIcon className="w-3.5 h-3.5" />
-                </a>{" "}
+                <InlineLink href="https://uxhicon.com" variant="purple">UXHI Conference</InlineLink>{" "}
                 or the{" "}
-                <Link href="/resources#report" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors">
-                  State of UX Report
-                </Link>
+                <InlineLink href="/resources#report" variant="purple">State of UX Report</InlineLink>
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>
                 Provide general assistance with our{" "}
-                <Link href="/events" className="text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors">
-                  events
-                </Link>
+                <InlineLink href="/events" variant="purple">events</InlineLink>
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>Support with marketing needs like our newsletter and social media</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>And much more!</span>
             </li>
           </ul>
@@ -390,23 +376,23 @@ export default function GetInvolvedPage() {
           </p>
           <ul className="text-gray-700 space-y-3 mb-8">
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>Co-develop resources and/or programs for our membership</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>Co-host an event to feature your company at one of our events</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>Co-host a joint event to bring together both of our communities</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>Sponsor a workshop or speaker series focused on emerging UX topics</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2.5 flex-shrink-0" />
+              <BulletPoint />
               <span>Provide venue space or tech tools to support our events</span>
             </li>
           </ul>

@@ -4,6 +4,7 @@ import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { InlineLink } from "@/components/ui/InlineLink";
 import { urlFor } from "@/sanity/lib/image";
 import { fadeInUp } from "@/lib/animations";
 
@@ -54,14 +55,9 @@ const components: PortableTextComponents = {
     ),
     em: ({ children }) => <em className="italic">{children}</em>,
     link: ({ children, value }) => (
-      <a
-        href={value?.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-teal-500 hover:text-teal-600 underline"
-      >
+      <InlineLink href={value?.href || "#"} variant="teal">
         {children}
-      </a>
+      </InlineLink>
     ),
   },
   types: {

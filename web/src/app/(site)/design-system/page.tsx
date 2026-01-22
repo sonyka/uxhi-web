@@ -9,6 +9,7 @@ import { InfoBox } from "@/components/ui/InfoBox";
 import { LinkCard } from "@/components/ui/LinkCard";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
+import { InlineLink } from "@/components/ui/InlineLink";
 import { FeatureCard, SpotIllustrationCard, SpeechBubbleCard } from "@/components/ui/cards";
 
 // Navigation structure
@@ -38,6 +39,7 @@ const navigationItems = [
       { id: "button-base", label: "Button Component" },
       { id: "button-primarycta", label: "Primary CTA" },
       { id: "button-arrowlink", label: "Arrow Link Button" },
+      { id: "button-inlinelink", label: "Inline Link" },
       { id: "button-quicklink", label: "Quick Link Pill" },
       { id: "button-css", label: "CSS Utility Classes" },
     ],
@@ -263,23 +265,27 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
   "typography-headings": (
-    <ContentSection title="Heading Hierarchy" description="Responsive heading sizes using the display font.">
+    <ContentSection title="Heading Hierarchy" description="Responsive heading sizes. h1-h3 use display font, h4-h5 use body font.">
       <div className="space-y-6 p-6 bg-cream rounded-xl">
         <div>
-          <span className="text-xs text-gray-500 font-mono">h1 — text-4xl/5xl/6xl (responsive)</span>
+          <span className="text-xs text-gray-500 font-mono">h1 — font-display text-4xl/5xl/6xl (responsive)</span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700">Heading One</h1>
         </div>
         <div>
-          <span className="text-xs text-gray-500 font-mono">h2 — text-3xl/4xl/5xl (responsive)</span>
+          <span className="text-xs text-gray-500 font-mono">h2 — font-display text-3xl/4xl/5xl (responsive)</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-purple-700">Heading Two</h2>
         </div>
         <div>
-          <span className="text-xs text-gray-500 font-mono">h3 — text-xl font-semibold</span>
-          <h3 className="font-semibold text-xl text-purple-700">Heading Three</h3>
+          <span className="text-xs text-gray-500 font-mono">h3 — font-display text-2xl/3xl/4xl (responsive) — for callouts, mission statements</span>
+          <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-purple-700">Heading Three</h3>
         </div>
         <div>
-          <span className="text-xs text-gray-500 font-mono">h4 — text-lg font-semibold</span>
-          <h4 className="font-semibold text-lg text-purple-700">Heading Four</h4>
+          <span className="text-xs text-gray-500 font-mono">h4 — text-xl font-semibold</span>
+          <h4 className="font-semibold text-xl text-purple-700">Heading Four</h4>
+        </div>
+        <div>
+          <span className="text-xs text-gray-500 font-mono">h5 — text-lg font-semibold</span>
+          <h5 className="font-semibold text-lg text-purple-700">Heading Five</h5>
         </div>
       </div>
     </ContentSection>
@@ -320,9 +326,8 @@ const contentComponents: Record<string, React.ReactNode> = {
         <span className="text-teal-500 font-bold uppercase tracking-wider text-sm">
           EYEBROW TEXT
         </span>
-        <a href="#" className="text-teal-500 hover:text-teal-600 transition-colors font-semibold underline">
-          Link Style
-        </a>
+        <InlineLink href="#" variant="teal">Link Style (Teal)</InlineLink>
+        <InlineLink href="#" variant="purple">Link Style (Purple)</InlineLink>
       </div>
     </ContentSection>
   ),
@@ -459,6 +464,58 @@ const contentComponents: Record<string, React.ReactNode> = {
       </div>
     </ContentSection>
   ),
+  "button-inlinelink": (
+    <ContentSection
+      title="Inline Link"
+      description="Styled inline text links for use within paragraphs. Auto-detects external links and uses Next.js Link for internal navigation."
+      componentPath="components/ui/InlineLink.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Teal Variant (Rich Text / Content)</h4>
+          <p className="text-base text-gray-600 mb-4">Used for links within rich text content. Font-semibold with teal colors.</p>
+          <div className="p-6 bg-cream rounded-xl">
+            <p className="text-base text-gray-700 leading-relaxed">
+              Learn more about our community on the{" "}
+              <InlineLink href="/about" variant="teal">About page</InlineLink>{" "}
+              or visit the{" "}
+              <InlineLink href="https://uxhicon.com" variant="teal">UXHI Conference website</InlineLink>.
+            </p>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Purple Variant (Paragraph Links)</h4>
+          <p className="text-base text-gray-600 mb-4">Used for inline paragraph links. Purple colors with underline-offset. External links show icon by default.</p>
+          <div className="p-6 bg-cream rounded-xl">
+            <p className="text-base text-gray-700 leading-relaxed">
+              Propose a topic as a presenter at our{" "}
+              <InlineLink href="https://uxhicon.com" variant="purple">UXHI Conference</InlineLink>{" "}
+              or{" "}
+              <InlineLink href="/events" variant="purple">local events</InlineLink>.
+            </p>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Icon Control</h4>
+          <p className="text-base text-gray-600 mb-4">You can override the default icon behavior with showIcon prop.</p>
+          <div className="p-6 bg-cream rounded-xl space-y-3">
+            <p className="text-base text-gray-700">
+              External with icon (default):{" "}
+              <InlineLink href="https://example.com" variant="purple">Example Link</InlineLink>
+            </p>
+            <p className="text-base text-gray-700">
+              External without icon:{" "}
+              <InlineLink href="https://example.com" variant="purple" showIcon={false}>Example Link</InlineLink>
+            </p>
+            <p className="text-base text-gray-700">
+              Internal with icon:{" "}
+              <InlineLink href="/about" variant="purple" showIcon>About Page</InlineLink>
+            </p>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
   "button-quicklink": (
     <ContentSection
       title="Quick Link Pill"
@@ -550,32 +607,70 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-spotillustration": (
     <ContentSection
       title="Spot Illustration Card"
-      description="Card with large illustrated icon (96px desktop, 80px mobile). Variants: dark, cream, white."
+      description="Card with large illustrated icon (96px desktop, 80px mobile). Supports description text or custom children for complex content. Also supports Sanity CMS images."
       componentPath="components/ui/cards/SpotIllustrationCard.tsx"
     >
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <SpotIllustrationCard
-          variant="dark"
-          imageSrc="/images/icons/icon-membership.png"
-          imageAlt="Membership illustration"
-          title="Dark Card with Spot Illustration"
-          description="96px illustrated icon with description and arrow link button below."
-          footer={<ArrowLinkButton href="#">Arrow Link Button</ArrowLinkButton>}
-        />
-        <SpotIllustrationCard
-          variant="cream"
-          imageSrc="/images/icons/icon-community-engagement.png"
-          imageAlt="Community engagement illustration"
-          title="Cream Card with Spot Illustration"
-          description="96px illustrated icon with hover effect, used for committee cards."
-        />
-        <SpotIllustrationCard
-          variant="white"
-          imageSrc="/images/icons/icon-resources.png"
-          imageAlt="Resources illustration"
-          title="White Card with Spot Illustration"
-          description="96px illustrated icon on white background with shadow."
-        />
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">All Variants</h4>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <SpotIllustrationCard
+              variant="dark"
+              imageSrc="/images/icons/icon-membership.png"
+              imageAlt="Membership illustration"
+              title="Dark"
+              description="For purple backgrounds. Used on home features section."
+              footer={<ArrowLinkButton href="#">With Footer</ArrowLinkButton>}
+            />
+            <SpotIllustrationCard
+              variant="cream"
+              imageSrc="/images/icons/icon-community-engagement.png"
+              imageAlt="Community engagement illustration"
+              title="Cream"
+              description="For light backgrounds with hover shadow. Used for committee cards."
+            />
+            <SpotIllustrationCard
+              variant="white"
+              imageSrc="/images/icons/icon-resources.png"
+              imageAlt="Resources illustration"
+              title="White"
+              description="For cream backgrounds. Used for values cards."
+            />
+            <div className="bg-purple-700 rounded-xl p-4">
+              <SpotIllustrationCard
+                variant="translucent"
+                imageSrc="/images/icons/icon-education-findings.png"
+                imageAlt="Education findings"
+                title="Translucent"
+                description="Semi-transparent for purple backgrounds. Used for findings cards."
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">With Custom Children (Bullet List)</h4>
+          <div className="bg-purple-700 rounded-xl p-6">
+            <div className="max-w-sm">
+              <SpotIllustrationCard
+                variant="translucent"
+                imageSrc="/images/icons/icon-challenges.png"
+                imageAlt="Challenges"
+                title="Custom Content"
+              >
+                <ul className="space-y-2 text-left text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-1.5 flex-shrink-0" />
+                    <span>First bullet point item</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-1.5 flex-shrink-0" />
+                    <span>Second bullet point item</span>
+                  </li>
+                </ul>
+              </SpotIllustrationCard>
+            </div>
+          </div>
+        </div>
       </div>
     </ContentSection>
   ),
@@ -629,36 +724,72 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-link": (
     <ContentSection
       title="Link Card"
-      description="Cream card with title, teal description, and external link icon. Used on /resources."
+      description="Cream card with title, teal description, and external link icon. Title turns teal on hover. Used on /resources."
       componentPath="components/ui/LinkCard.tsx"
     >
-      <div className="max-w-sm">
-        <LinkCard
-          href="#"
-          title="Resource Title"
-          description="Description or label"
-        />
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">With Description</h4>
+          <div className="max-w-sm">
+            <LinkCard
+              href="#"
+              title="Resource Title"
+              description="Description or label"
+            />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Title Only</h4>
+          <div className="max-w-sm">
+            <LinkCard
+              href="#"
+              title="External Resource Link"
+            />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Grid Layout (2 columns)</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+            <LinkCard href="#" title="Visual Design" description="shiftnudge.com" />
+            <LinkCard href="#" title="Interaction Design" description="interaction-design.org" />
+            <LinkCard href="#" title="UX Design" description="nngroup.com" />
+            <LinkCard href="#" title="Articles" description="uxdesign.cc" />
+          </div>
+        </div>
       </div>
     </ContentSection>
   ),
   "card-infobox": (
     <ContentSection
       title="Info Box"
-      description="Teal-50 background with teal-100 border. Used for notes and callouts."
+      description="Teal-50 background with teal-100 border. Used for notes, callouts, and featured content."
       componentPath="components/ui/InfoBox.tsx"
     >
       <div className="space-y-6">
         <div>
           <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Simple Note</h4>
           <InfoBox>
-            <p className="text-gray-700 font-medium">Note: This is an informational callout for important notes or disclaimers.</p>
+            <p className="text-base text-gray-700 font-medium">Note: This is an informational callout for important notes or disclaimers.</p>
+          </InfoBox>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">With Eyebrow Label</h4>
+          <InfoBox eyebrow="Featured in Hawai'i Bulletin">
+            <p className="text-base text-gray-700 font-medium">Local group explores user experience and interface design</p>
           </InfoBox>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Note with CTA</h4>
           <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-700 font-medium">Do you have more resources to suggest?</p>
+            <p className="text-base text-gray-700 font-medium">Do you have more resources to suggest?</p>
             <PrimaryCTA href="#">Email Us</PrimaryCTA>
+          </InfoBox>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Featured with Eyebrow + CTA</h4>
+          <InfoBox eyebrow="New Feature" className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-base text-gray-700 font-medium">Check out our latest community resources</p>
+            <PrimaryCTA href="#">Learn More</PrimaryCTA>
           </InfoBox>
         </div>
       </div>

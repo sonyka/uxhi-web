@@ -11,7 +11,7 @@ export function AboutHero() {
         <div className="relative h-full max-w-[1728px] mx-auto">
           {/* Title - Left side - Framer: x=40, y=324 */}
           <div className="absolute left-[32px] top-[316px] z-10">
-            <h1 className="font-display text-[40px] leading-[48px] text-purple-700">
+            <h1 className="font-display text-hero-mobile leading-display text-purple-700">
               Our Mission &amp;<br />Story
             </h1>
           </div>
@@ -73,7 +73,7 @@ export function AboutHero() {
               className="bg-teal-500 w-[244px] h-[300px] px-5 py-6 shadow-lg flex flex-col justify-between"
               style={{ borderRadius: "80px 80px 999px 999px" }}
             >
-              <p className="text-white text-lg leading-[24px] text-right mt-2">
+              <p className="text-white text-lg leading-normal text-right mt-2">
                 &ldquo;Local group explores user experience and interface
                 design&rdquo;
               </p>
@@ -105,7 +105,7 @@ export function AboutHero() {
         <div className="flex flex-col items-center gap-8">
           {/* Title */}
           <div className="text-center">
-            <h1 className="font-display text-[32px] md:text-[40px] leading-[40px] md:leading-[48px] text-purple-700">
+            <h1 className="font-display text-3xl md:text-hero-mobile leading-display text-purple-700">
               Our Mission &amp; Story
             </h1>
           </div>
@@ -126,10 +126,10 @@ export function AboutHero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-12 left-0 right-0 text-center">
-                <span className="font-display text-4xl md:text-[44px] text-white leading-tight block">
+                <span className="font-display text-4xl md:text-stat text-white leading-tight block">
                   Merch
                 </span>
-                <span className="font-display text-4xl md:text-[44px] text-white leading-tight block">
+                <span className="font-display text-4xl md:text-stat text-white leading-tight block">
                   Store
                 </span>
               </div>
@@ -166,7 +166,7 @@ export function AboutHero() {
               className="bg-teal-500 w-[220px] h-[220px] p-5 shadow-lg flex flex-col justify-between"
               style={{ borderRadius: "60px 60px 999px 999px" }}
             >
-              <p className="text-white text-base leading-[20px] text-right mt-2">
+              <p className="text-white text-base leading-tight text-right mt-2">
                 &ldquo;Local group explores user experience and interface
                 design&rdquo;
               </p>

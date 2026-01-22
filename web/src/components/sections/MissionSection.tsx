@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { SanityImage } from "@/components/ui/SanityImage";
+import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 interface Value {
@@ -108,33 +107,16 @@ export function MissionSection({ values }: MissionSectionProps) {
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {displayValues.map((value) => (
-                <div key={value._id} className="bg-white rounded-[20px] p-6 text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 relative">
-                    {"icon" in value && value.icon?.asset ? (
-                      <SanityImage
-                        value={value.icon}
-                        width={96}
-                        height={96}
-                        className="w-full h-full object-contain"
-                      />
-                    ) : "iconPath" in value ? (
-                      <Image
-                        src={(value as typeof defaultValues[0]).iconPath}
-                        alt={value.title}
-                        fill
-                        className="object-contain"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-purple-100 rounded-full" />
-                    )}
-                  </div>
-                  <h4 className="font-display text-lg text-purple-700 mb-2">
-                    {value.title}
-                  </h4>
-                  <p className="text-gray-600 text-base leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
+                <SpotIllustrationCard
+                  key={value._id}
+                  variant="white"
+                  image={"icon" in value ? value.icon : undefined}
+                  imageSrc={"iconPath" in value ? (value as typeof defaultValues[0]).iconPath : undefined}
+                  imageAlt={value.title}
+                  title={value.title}
+                  description={value.description}
+                  className="rounded-[20px] !shadow-none"
+                />
               ))}
             </div>
           </motion.div>

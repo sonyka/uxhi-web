@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { InstagramFeed } from "@/components/sections/InstagramFeed";
@@ -7,6 +6,8 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { INSTAGRAM_POSTS_QUERY, COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
+import { InlineLink } from "@/components/ui/InlineLink";
 
 export const metadata: Metadata = {
   title: "UXHI - A UX design community for people in Hawaiʻi",
@@ -39,7 +40,7 @@ export default async function HomePage() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-display text-[40px] md:text-6xl lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight text-black mb-12">
+          <h1 className="font-display text-hero-mobile md:text-6xl lg:text-hero-desktop leading-[1.05] lg:leading-hero tracking-tight text-black mb-12">
             A{" "}
             <span className="text-black hover:text-purple-700 transition-colors relative inline-block cursor-pointer group/ux">
               UX
@@ -165,7 +166,7 @@ export default async function HomePage() {
                 />
               </div>
               <div className="h-[150px] rounded-[24px] bg-teal-500 p-4 flex flex-col justify-end text-white">
-                <span className="font-display text-[28px] leading-none">2021</span>
+                <span className="font-display text-3xl leading-none">2021</span>
                 <span className="text-sm mt-1 opacity-90">Year founded</span>
               </div>
             </div>
@@ -224,7 +225,7 @@ export default async function HomePage() {
             {/* Column 2: Tall purple pill */}
             <div className="flex-1 max-w-[160px]">
               <div className="h-[356px] rounded-[999px] bg-purple-700 px-4 py-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
-                <p className="text-white/90 text-[12px] leading-relaxed relative z-10">
+                <p className="text-white/90 text-xs leading-relaxed relative z-10">
                   Join our free community to connect with UX friends.
                 </p>
                 <ArrowLinkButton href="/join" className="mt-3 !gap-1 !text-xs !px-2 !py-1 relative z-10">
@@ -236,7 +237,7 @@ export default async function HomePage() {
             {/* Column 3: Teal top + gray rect */}
             <div className="flex flex-col gap-3 flex-1 max-w-[160px]">
               <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-teal-500 px-3 pt-12 pb-4 flex items-end justify-end text-white text-right">
-                <span className="text-[11px] leading-snug font-medium">From students to<br/>industry leaders,<br/>all welcome</span>
+                <span className="text-xs leading-snug font-medium">From students to<br/>industry leaders,<br/>all welcome</span>
               </div>
               <div className="h-[100px] rounded-[20px] overflow-hidden relative">
                 <Image
@@ -259,7 +260,7 @@ export default async function HomePage() {
       <section className="py-20 px-6">
         <div className="max-w-[900px] mx-auto text-center">
           <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-4 block">What we do</span>
-          <h2 className="font-display text-[22px] md:text-[28px] lg:text-[34px] leading-tight text-gray-900">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight text-gray-900">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
             <span className="text-gray-900 hover:text-purple-700 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
               Human-Centered Design
@@ -324,66 +325,40 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Free Membership */}
-            <div className="border border-purple-500/30 rounded-[24px] p-8 text-center flex flex-col">
-              <div className="w-24 h-24 mx-auto mb-6 relative">
-                <Image
-                  src="/images/icons/icon-membership.png"
-                  alt="Free Membership"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="font-display text-2xl text-white mb-4">Free Membership</h3>
-              <p className="text-purple-200 leading-relaxed flex-grow">
+            <SpotIllustrationCard
+              variant="dark"
+              imageSrc="/images/icons/icon-membership.png"
+              imageAlt="Free Membership"
+              title="Free Membership"
+              footer={<ArrowLinkButton href="/join">Join free</ArrowLinkButton>}
+            >
+              <p>
                 Connect with other UX&apos;ers, then keep the conversation going in our{" "}
-                <Link href="/join" className="underline hover:text-white transition-colors">Slack community</Link>
+                <InlineLink href="/join" variant="teal" className="!text-purple-200 hover:!text-white underline !font-normal">Slack community</InlineLink>
                 {" "}or tap into our{" "}
-                <Link href="/find-ux-pro" className="underline hover:text-white transition-colors">membership directory</Link>.
+                <InlineLink href="/find-ux-pro" variant="teal" className="!text-purple-200 hover:!text-white underline !font-normal">membership directory</InlineLink>.
               </p>
-              <ArrowLinkButton href="/join" className="mt-6 self-center">
-                Join free
-              </ArrowLinkButton>
-            </div>
+            </SpotIllustrationCard>
 
             {/* Events */}
-            <div className="border border-purple-500/30 rounded-[24px] p-8 text-center flex flex-col">
-              <div className="w-24 h-24 mx-auto mb-6 relative">
-                <Image
-                  src="/images/icons/icon-events.png"
-                  alt="Events"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="font-display text-2xl text-white mb-4">Events</h3>
-              <p className="text-purple-200 leading-relaxed flex-grow">
-                Experience an array of educational webinars, interactive workshops, and casual meetups we host each month, both virtual and in-person
-              </p>
-              <ArrowLinkButton href="/events" className="mt-6 self-center">
-                View events
-              </ArrowLinkButton>
-            </div>
+            <SpotIllustrationCard
+              variant="dark"
+              imageSrc="/images/icons/icon-events.png"
+              imageAlt="Events"
+              title="Events"
+              description="Experience an array of educational webinars, interactive workshops, and casual meetups we host each month, both virtual and in-person"
+              footer={<ArrowLinkButton href="/events">View events</ArrowLinkButton>}
+            />
 
             {/* Resources */}
-            <div className="border border-purple-500/30 rounded-[24px] p-8 text-center flex flex-col">
-              <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
-                <div className="w-24 h-24 relative">
-                  <Image
-                    src="/images/icons/icon-resources.png"
-                    alt="Resources"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-              <h3 className="font-display text-2xl text-white mb-4">Resources</h3>
-              <p className="text-purple-200 leading-relaxed flex-grow">
-                Discover and share resources in our online content hub to support your UX journey and growth.
-              </p>
-              <ArrowLinkButton href="/resources" className="mt-6 self-center">
-                Browse resources
-              </ArrowLinkButton>
-            </div>
+            <SpotIllustrationCard
+              variant="dark"
+              imageSrc="/images/icons/icon-resources.png"
+              imageAlt="Resources"
+              title="Resources"
+              description="Discover and share resources in our online content hub to support your UX journey and growth."
+              footer={<ArrowLinkButton href="/resources">Browse resources</ArrowLinkButton>}
+            />
           </div>
         </div>
       </section>
@@ -418,7 +393,7 @@ export default async function HomePage() {
               height={168}
               className="mx-auto mb-6"
             />
-            <h2 className="font-display text-4xl md:text-5xl lg:text-[56px] text-teal-500 mb-6 leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-teal-500 mb-6 leading-tight">
               A community<br />
               for designers,<br />
               by designers

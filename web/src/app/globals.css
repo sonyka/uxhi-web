@@ -42,6 +42,16 @@
   /* Custom Text Sizes */
   --font-size-nav: 15px;
 
+  /* Display/Hero Typography - sizes that don't fit standard Tailwind scale */
+  --font-size-hero-mobile: 40px;      /* Hero h1 on mobile */
+  --font-size-hero-desktop: 80px;     /* Hero h1 on desktop */
+  --font-size-display-sm: 22px;       /* Mission/callout text mobile */
+  --font-size-display-md: 28px;       /* Mission/callout text tablet */
+  --font-size-display-lg: 34px;       /* Mission/callout text desktop */
+  --font-size-stat: 44px;             /* Large stat numbers */
+  --line-height-hero: 84px;           /* Hero headline line-height */
+  --line-height-display: 1.2;         /* Display text line-height ratio */
+
   /* Custom breakpoint */
   --breakpoint-2xl: 1380px;
 }
