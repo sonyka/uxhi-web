@@ -172,7 +172,7 @@ export function Header({ settings }: HeaderProps) {
               className="flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-5 pr-1.5 py-1.5 ml-2 hover:bg-gray-50 transition-colors group"
             >
               <span className="text-[15px] font-medium text-gray-900">Join us</span>
-              <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
@@ -295,7 +295,7 @@ export function Header({ settings }: HeaderProps) {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span className="text-gray-900">Join us</span>
-                  <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                  <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
                     <ArrowIcon className="w-4 h-4 text-gray-900" />
                   </span>
                 </Link>

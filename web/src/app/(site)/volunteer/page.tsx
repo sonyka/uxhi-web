@@ -49,7 +49,7 @@ export default function VolunteerPage() {
       {/* Hero Section */}
       <div className="flex flex-col lg:flex-row min-h-screen">
         {/* Left Side - Content */}
-        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center px-8 py-16 lg:py-0">
+        <div className="lg:w-1/2 bg-section-gray flex items-center justify-center px-8 py-16 lg:py-0">
           <div className="max-w-md">
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6">
               Volunteer
@@ -88,7 +88,7 @@ export default function VolunteerPage() {
               className="inline-flex items-center gap-3 px-6 py-3 bg-white text-gray-900 font-semibold rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
             >
               Get Involved
-              <span className="w-8 h-8 bg-[#ffcc40] rounded-full flex items-center justify-center">
+              <span className="w-8 h-8 bg-yellow rounded-full flex items-center justify-center">
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
@@ -96,7 +96,7 @@ export default function VolunteerPage() {
         </div>
 
         {/* Right Side - Image Grid */}
-        <div className="lg:w-1/2 bg-[#f5f5f5] flex items-center justify-center p-8 lg:p-12">
+        <div className="lg:w-1/2 bg-section-gray flex items-center justify-center p-8 lg:p-12">
           <div className="grid grid-cols-2 gap-4 max-w-lg w-full">
             {/* Column 1 - offset down */}
             <div className="flex flex-col gap-4 pt-8">

@@ -453,7 +453,7 @@ export default function DesignSystemPage() {
                 <button className="btn-primary">btn-primary</button>
                 <button className="btn-primary-arrow">
                   <span className="text-white">btn-primary-arrow</span>
-                  <span className="w-8 h-8 rounded-full bg-[#f5c542] flex items-center justify-center">
+                  <span className="w-8 h-8 rounded-full bg-yellow flex items-center justify-center">
                     <ArrowIcon className="w-4 h-4 text-gray-900" />
                   </span>
                 </button>
@@ -646,7 +646,7 @@ export default function DesignSystemPage() {
                 <span className="px-5 py-2.5 text-[15px] text-gray-700 font-medium">Link Three</span>
                 <span className="flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-5 pr-1.5 py-1.5 ml-2">
                   <span className="text-[15px] font-medium text-gray-900">CTA</span>
-                  <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center">
+                  <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center">
                     <ArrowIcon className="w-4 h-4 text-gray-900" />
                   </span>
                 </span>

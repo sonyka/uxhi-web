@@ -229,7 +229,7 @@ export default async function ShopPage() {
                     </span>
                   )}
                   {product.featured && (
-                    <span className="absolute top-4 right-4 bg-[#ffcc40] text-gray-900 text-xs px-3 py-1 rounded-full font-medium">
+                    <span className="absolute top-4 right-4 bg-yellow text-gray-900 text-xs px-3 py-1 rounded-full font-medium">
                       Featured
                     </span>
                   )}
@@ -291,7 +291,7 @@ export default async function ShopPage() {
               className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
             >
               <span className="text-gray-900">Join the community</span>
-              <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>

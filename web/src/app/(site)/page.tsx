@@ -66,7 +66,7 @@ export default async function HomePage() {
             className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full pl-5 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] group"
           >
             <span className="text-black text-[16px]">Join us</span>
-            <span className="w-[30px] h-[30px] rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+            <span className="w-[30px] h-[30px] rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-black" />
             </span>
           </Link>
@@ -319,7 +319,7 @@ export default async function HomePage() {
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Learn more</span>
-            <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
@@ -447,7 +447,7 @@ export default async function HomePage() {
               className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
             >
               <span className="text-gray-900">Join us</span>
-              <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>

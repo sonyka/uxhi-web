@@ -138,7 +138,7 @@ export default async function JoinPage() {
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Membership Directory</span>
-            <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
@@ -196,7 +196,7 @@ export default async function JoinPage() {
       )}
 
       {/* Company Logos Section */}
-      <section className="py-16 px-6 bg-[#f5f5f5]">
+      <section className="py-16 px-6 bg-section-gray">
         <div className="max-w-[1200px] mx-auto">
           <h2 className="font-display text-2xl md:text-3xl text-purple-700 text-center mb-12">
             Representing companies in Hawai&apos;i and beyond
@@ -275,7 +275,7 @@ export default async function JoinPage() {
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Become a member</span>
-            <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>

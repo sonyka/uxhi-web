@@ -331,7 +331,7 @@ export default function GetInvolvedPage() {
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Sign up to volunteer</span>
-            <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
@@ -384,7 +384,7 @@ export default function GetInvolvedPage() {
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Submit your idea</span>
-            <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
@@ -433,7 +433,7 @@ export default function GetInvolvedPage() {
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Let&apos;s connect</span>
-            <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
@@ -441,7 +441,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Successful Partnerships Section */}
-      <section className="py-16 px-6 bg-[#f5f5f5]">
+      <section className="py-16 px-6 bg-section-gray">
         <div className="max-w-[1200px] mx-auto">
           <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 text-center mb-12">
             Successful Partnerships
@@ -484,7 +484,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Past Event Sponsors Section */}
-      <section className="py-16 px-6 bg-[#f5f5f5]">
+      <section className="py-16 px-6 bg-section-gray">
         <div className="max-w-[1200px] mx-auto">
           <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 text-center mb-12">
             Past Event Sponsors
@@ -515,7 +515,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Ready to Collaborate Section */}
-      <section className="py-16 px-6 bg-[#f5f5f5]">
+      <section className="py-16 px-6 bg-section-gray">
         <div className="max-w-[600px] mx-auto text-center">
           <div className="w-24 h-24 mx-auto mb-6 relative">
             <Image
@@ -536,7 +536,7 @@ export default function GetInvolvedPage() {
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Email us</span>
-            <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>
@@ -574,7 +574,7 @@ export default function GetInvolvedPage() {
             className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-900">Donate</span>
-            <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-gray-900" />
             </span>
           </Link>

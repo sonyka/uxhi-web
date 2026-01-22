@@ -180,7 +180,7 @@ export default async function AboutPage() {
               className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group shrink-0"
             >
               <span className="text-gray-900">Read Article</span>
-              <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
                 <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
@@ -206,7 +206,7 @@ export default async function AboutPage() {
               className="inline-flex items-center justify-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
             >
               <span className="text-gray-900">Email us</span>
-              <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
