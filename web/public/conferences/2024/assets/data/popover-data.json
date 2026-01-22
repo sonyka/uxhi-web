@@ -1,0 +1,582 @@
+{
+  "speakers": [
+    {
+      "name": "Jesse Arneson",
+      "title": "Founder, Welcome Stranger",
+      "bio": "We're excited to feature Jesse Arneson, co-founder of Welcome Stranger — a Hawai'i-based brand identity studio that specializes in branding, design, and digital experiences. They focus on creating engaging design and strategy for companies that want more. Jesse Arneson is known for pushing the boundaries of design and storytelling, Jesse's work shapes authentic, culturally grounded experiences. Join us as Jesse and Welcome Stranger's cofounder Scott Na'auao talk about designing with Aloha, and share insights on the roles and responsibilities of design in Hawai'i.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/jesse-arneson-5877909/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/welcomestrangerco/",
+          "type": "instagram"
+        },
+        {
+          "href": "https://www.welcomestranger.co/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/oB8Gbg2vvaK9JE3VFbaDrdikE.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Kuhao Zane",
+      "title": "Creative Director, szkaiao",
+      "bio": "Kuhao Zane, Creative Director of Sig Zane Designs and SZKaiao comes from a generational Hula family practice that grounds and informs his day to day career. Zane has worked with his father, company founder Sig Zane for the past 21 years, from sweeping sidewalks to opening two Oahu locations, Sig On Smith and Kaiao_Space. With his design studio SZKaiao, Kuhao employs their unique approach that blends cultural values with design. Their work with both local and international clients range from branding, art installations, airplane liveries and architectural way-finding.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/kuhao/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/kuhao/",
+          "type": "instagram"
+        },
+        {
+          "href": "https://www.szkaiao.com/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/PFqRdx9w5CqPOX6eTQyCSPcGZpA.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Scott Na'auao",
+      "title": "Founder, Welcome Stranger",
+      "bio": "We're excited to feature Scott Na'auao, co-founder of Welcome Stranger — a Hawai'i-based brand identity studio that specializes in branding, design, and digital experiences. They focus on creating engaging design and strategy for companies that want more. Scott Na'auao's passion for weaving Native Hawaiian culture into design brings a unique, meaningful approach to every project. Join us as Scott and Welcome Stranger's cofounder Jesse Arneson talk about designing with Aloha, and share insights on the roles and responsibilities of design in Hawai'i.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/naauao/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/welcomestrangerco/",
+          "type": "instagram"
+        },
+        {
+          "href": "https://www.welcomestranger.co/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/Cm9JKGn3GJxYkbT2B7kurq6K33s.png?scale-down-to=512",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Arthur Grau",
+      "title": "Service Design Strategist, Intellibridge",
+      "bio": "Every problem is a design problem. As designers we empathetically synthesize human and systemic challenges to build user solutions, engagement, and delight. With Intellibridge, the U.S. Govt., MIT, and as a lifelong mindfulness practitioner and founder of at250.org, Arthur brings awareness-based practices to bear on experience design challenges.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/isarthurgrau/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/FJD1QIJqBzCaXc5EtS6u2AfD8.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Cedar Lay",
+      "title": "PhD student and Web Production Editor, UH Mānoa",
+      "bio": "Cedar is an experienced design professional and a PhD student of Linguistics, combining his professional and academic backgrounds to build impactful narratives and address real world issues. His work with Indigenous and non-dominant communities seeks to preserve and revitalize endangered languages through strategic design practices.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/cedarlay/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/AjuqTGOEQ3PuW2mkJrbBbCpSIA0.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Chaelin Ryu",
+      "title": "Freelance UX Designer",
+      "bio": "Chaelin Ryu is an emerging UX researcher and designer with a background in marketing.  With a knack for uncovering hidden insights and a love for collaboration, she hopes to make the digital world a bit more user-friendly and a lot more fun!",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/chaelinryu/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/JLFAPPnHHxWTqq1B5aqjtZvAdk.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Chanae Evans",
+      "title": "Senior UX Designer, AT&T",
+      "bio": "Chanae's passion for Interactive storytelling through powerful experiences inspired her to pursue a career in user experience design. She brings 7+ years of design experience driving engagement in e-commerce, SaaS, and native apps for Android and IOs. Based in Seattle, Chanae gives back by being a mentor for Piʻikū Co.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/chanaeevans/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/cha_noodle/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/qpQmub8B33awTIOnjrrPYcI25aA.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Emily Shi Lee",
+      "title": "Senior UX Writer, Codecademy",
+      "bio": "Emily Shi Lee is an intensely curious UX content designer and information architect. By day, she designs with words at Codecademy. By night, she designs with clay.",
+      "links": [
+        {
+          "href": "http://linkedin.com/in/emilyshilee",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/emilyshilee/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/OWFy4LIcxxa9k8qN4WmdPYxuNQ.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Ikelau Misech",
+      "title": "Pacific Island Research Intern, Pacific Island Development Program",
+      "bio": "We’re excited to feature Scott Na‘auao, co-founder of Welcome Stranger — a Hawai‘i-based brand identity studio that specializes in branding, design, and digital experiences. They focus on creating engaging design and strategy for companies that want more. 🙌 🎤✨ \n\nScott Na‘auao's passion for weaving Native Hawaiian culture into design brings a unique, meaningful approach to every project.\n\nJoin us as Scott and Welcome Stranger's cofounder Jesse Arneson talk about designing with Aloha, and share insights on the roles and responsibilities of design in Hawai'i. 🙌 ",
+      "links": [
+        {
+          "href": "http://www.linkedin.com/in/ikelaumisech",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/ybyrCU0ExM82LFPEdYptCbVOtrw.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Jennifer Ano",
+      "title": "Board Advisor, Wahine Freelance Alliance",
+      "bio": "Jennifer Ano is an advisor to Wahine Freelance Alliance. She has a long career in the corporate world and is an early in career freelancer. Born in Honolulu, Hawaii, she currently lives in Portland, Oregon.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/jenniferano/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/2iLqY1WYC7pi6843IxiSRJ29o.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Jennifer Kumura",
+      "title": "Co-Founder, UXHI",
+      "bio": "Jenn is a co-founder of UXHI and a proud partner and supporter of Piʻikū Co. By day, she is a product design manager at Servco Pacific Inc. Jenn is passionate about elevating human-centered design here in Hawaiʻi and creating job opportunities for kamaʻaina and kanaka.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/jenniferkumura/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/jennku/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/5K1mnOlQBlVJNxzLsv6nX1JvlTY.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Kim Davidson",
+      "title": "Product Leader, Freelance",
+      "bio": "Kim has worked in social impact tech for 15 years, including website and app builds for nonprofits, government, and political organizations. She currently contracts as a fractional product leader while building Piʻikū Co., a nonprofit helping local people launch technology careers.",
+      "links": [
+        {
+          "href": "http://linkedin.com/in/kimwdavidson",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/kwd2102/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/obPzyp5OtxsDYSzavv1B0Y5rrA.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Krizel Tomines",
+      "title": "UX Researcher, Majesco",
+      "bio": "Krizel Tomines is a passionate UX researcher who combines her love for technology and social justice to amplify human voices, advocating for ethical and inclusive designs that prioritize the needs and fairness of users.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/krizelt/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/Id46JkWUAdS56Mm374pjvhsNxE.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Martin Caprile",
+      "title": "UX/UI Designer, Martin Caprile",
+      "bio": "Martin’s passion for creating impactful digital experiences inspired him to pursue a career in UX/UI design. With years of experience in photography and a B.A. in Communications, he brings a creative and technical approach to designing user-friendly, visually engaging products. Based in Hawai'i, Martin is a Pi'ikū Alumni from Cohort 3, actively growing his skills and sharing his knowledge.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/martincaprile",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/martincaprile/",
+          "type": "instagram"
+        },
+        {
+          "href": "https://www.martincaprile.net/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/kASQR0GPResd6ZBnjAFZGucFI8.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "May Sermonia",
+      "title": "Program Director, Piʻikū Co.",
+      "bio": "Based in Hawai'i, May is a human-centered product designer and founder of Piʻikū Co., with 8+ years of experience helping startups launch and scale. With expertise in tech, design, and collaboration, May connects people and ideas, empowering the local community to thrive in the tech space.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/maysermo",
+          "type": "linkedin"
+        },
+        {
+          "href": "http://instagram.com/piiku.co",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/jmjLHVzyNGBKDe1eMwrPccA.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Mei Jeanne Wagner",
+      "title": "Vice President, Anthology FINN Partners",
+      "bio": "Mei Jeanne is a seasoned marketing and PR professional with deep ties to Hawai‘i's multicultural community. She has led award-winning campaigns for local and national clients, specializing in effective communication strategies. With a strong connection to Native Hawaiian culture, Mei Jeanne bridges cultural knowledge and modern marketing expertise.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/mei-jeanne-wagner/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/FVlFwP4Oe1pXf4fj8sHxMTZktK8.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Nicolas Kim",
+      "title": "Product Designer, Lady Bandit Studios",
+      "bio": "Nic is a product designer with a background in medical device engineering design. He is a Piʻikū Co. cohort 2 alumni and is in the midst of finding a first full-time role as a product designer.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/nicolastykim/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/FrhXO6zhnRgzUJJn5RyCGmc3PkY.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Rich Matsuura",
+      "title": "Founder, ProductPOV Previously VP of Product and UX",
+      "bio": "Rich co-founded PandaTree and Crowdera, and was VP of Product and Design at Dispatch. At eBay, he was Director of Product, leading the Seller Experience team to drive innovation. Now, he’s leading an AI startup to help non-technical founders quickly launch working prototypes and find product-market fit.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/rich-matsuura-product-management-leader/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/VFcMHqSbN4SAi4fgPvUs49bjg.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.59375,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Shannon Manamtam",
+      "title": "UX Designer, Anthology - FINN Parnters",
+      "bio": "Shannon was born and raised in Honolulu, and graduated with BAs in Journalism and Communications from the University of Hawaii at Manoa. She has worked in UX and digital marketing at Anthology - FINN Partners for over 4 years, and currently serves as a board member for Ad 2 Hawaii.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/shannon-manamtam/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/shanamtam/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/1rmBhWUf2A7AJsBbGNfebBxo.png?width=600&height=840",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Umit Gokce",
+      "title": "Principal Product Designer, Empathico LLC / The Boeing Company",
+      "bio": "Umit is a UX and product designer with 15+ years experience including leading design teams at Boeing and Microsoft and founding/co-founding startups in sports, healthcare and wellness education. He also facilitated design workshops for Fortune 500 companies, the Gates Foundation and other nonprofits and institutions including the University of Washington.",
+      "links": [
+        {
+          "href": "http://www.linkedin.com/in/umitgokce",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.instagram.com/umitgokce/",
+          "type": "instagram"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/caMSfzzg0Z1MMaYnt6l6RVoeP0.jpg?width=547&height=748",
+      "debug": {
+        "maxWidth": 344.578125,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Bryan Wu",
+      "title": "Senior Product / UX Designer, Consultant @ Wu & Associates",
+      "bio": "Bryan Wu is a seasoned product design consultant based in the San Francisco Bay Area with over 24 years of experience. Specializing in app design, particularly for iOS, Bryan has worked with a wide range of clients across industries including social networks, finance, and medical. His impressive portfolio includes collaborations with major tech companies like Google, Visa, Skype, Samsung, and E*Trade, as well as startups and non-profits such as the Monterey Bay Aquarium. Bryan excels in consumer-facing products, service design, and early-stage concept development. He is also the lead designer for la.foodoasis.net, a volunteer-run free meal and food pantry directory, where he manages a design team, mentors, and provides product direction. In addition to his consulting work, Bryan enjoys iOS programming in his spare time.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/bryan-wu-1173981/",
+          "type": "linkedin"
+        },
+        {
+          "href": "http://www.wuandassociates.com/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/GqmF8rCRyiMM2dQ4xq4RKhvperk.jpeg?width=800&height=800",
+      "debug": {
+        "maxWidth": 521.875,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Hana Morrison",
+      "title": "Founder & Lead Designer, Sunnyside Studio",
+      "bio": "Hana fell in love with branding in college and has been committed to the craft ever since. She has designed for brands near and far, from Hawaiian Airlines and Hanahauʻoli Schools, to Vans, Dell, Hot Wheels, and Disney. Today, she’s carving her own path: running a boutique design studio that serves clients worldwide, while traveling the world as a digital nomad. Her services span from brand strategy, to identity design, and activation through packaging, digital marketing, print collateral, and more. With a degree in Entrepreneurship, Hana is positioned at the intersection of design and business. She keeps a curious mindset, and an appetite to learn, and is always excited to connect with like-minded creatives.",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/hanamorrison/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://sunnysidestudio.com/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/VBX8CO3IZO7B2HCuM8Gcq4v67U.webp?width=1200&height=1200",
+      "debug": {
+        "maxWidth": 521.875,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Joe Baranowski",
+      "title": "Creative Director, Purple Mai'a",
+      "bio": "We’re excited to feature Scott Na‘auao, co-founder of Welcome Stranger — a Hawai‘i-based brand identity studio that specializes in branding, design, and digital experiences. They focus on creating engaging design and strategy for companies that want more. 🙌 🎤✨ \n\nScott Na‘auao's passion for weaving Native Hawaiian culture into design brings a unique, meaningful approach to every project.\n\nJoin us as Scott and Welcome Stranger's cofounder Jesse Arneson talk about designing with Aloha, and share insights on the roles and responsibilities of design in Hawai'i. 🙌 ",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/joebaranowski/",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/we0good5jV13ZhiYTkO95uuGHuQ.jpg?width=512&height=472",
+      "debug": {
+        "maxWidth": 521.875,
+        "paragraphCount": 1
+      }
+    },
+    {
+      "name": "Elné Jenkins",
+      "title": "Creative Director, Purple Mai'a",
+      "bio": "Elné is a results-driven Product and UX/UI Designer with a knack for creating intuitive B2B and B2C SaaS solutions, as well as sleek websites and app interfaces. With expertise in user research, journey mapping, and prototyping, she excels at turning business ideas into successful products. Originally from Johannesburg, South Africa, Elné moved to New York City in 2016 to pursue her studies and now resides in Honolulu, Hawai’i with her husband and a thriving collection of house plants. She loves collaborating with cross-functional teams to bring innovative designs to life!",
+      "links": [
+        {
+          "href": "https://www.linkedin.com/in/eln%C3%A9-jenkins-062ab258/",
+          "type": "linkedin"
+        },
+        {
+          "href": "https://www.elne.design/",
+          "type": "website"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/hpUoPTiUkYYpXagOBHfNl197vC8.jpg?width=2000&height=1610",
+      "debug": {
+        "maxWidth": 521.875,
+        "paragraphCount": 1
+      }
+    }
+  ],
+  "agenda": [
+    {
+      "time": "9:00 am",
+      "room": "",
+      "type": "",
+      "title": "Coffee & Breakfast",
+      "speaker": "",
+      "description": "Sponsored by Zippys"
+    },
+    {
+      "time": "9:30 am",
+      "room": "Main Room",
+      "type": "",
+      "title": "Opening Remarks",
+      "speaker": "Kat Duran-Higa & Jennifer Kumura",
+      "description": "Opening Remarks by Kat Duran-Higa & Jennifer Kumura"
+    },
+    {
+      "time": "9:45 am",
+      "room": "Main Room",
+      "type": "keynote",
+      "title": "Hawaiian Design Method",
+      "speaker": "Kuhao Zane, Sig Zane Designs and SZKaiao",
+      "description": "Keynote presentation by Kuhao Zane of Sig Zane Designs and SZKaiao exploring Hawaiian design principles and methodologies."
+    },
+    {
+      "time": "10:30 am",
+      "room": "Main Room",
+      "type": "talk",
+      "title": "Kuleana and AI: Balancing Responsibility and Innovation in Hawai'i",
+      "speaker": "Mei Jeanne Wagner & Shannon Manamtam",
+      "description": "This talk explores the intersection of Hawai'i's cultural values and artificial intelligence, focusing on how the concept of kuleana can guide ethical AI adoption, particularly in user experience. Key points include: Examining AI biases affecting native peoples, Asians, women, and other marginalized groups; Impact of these biases on marketing, content development, and web/app design in Hawai'i; Strategies for UX professionals to identify and mitigate AI bias; Promoting responsible AI use aligned with Hawai'i's unique cultural landscape. The presentation aims to help Hawai'i UX professionals navigate ethical challenges of AI implementation while fostering inclusive and culturally-sensitive methodologies."
+    },
+    {
+      "time": "10:30 am",
+      "room": "Purple Box",
+      "type": "workshop",
+      "title": "AI and UX: Being Problem-First, Human-Centered and Data-Driven",
+      "speaker": "Umit Gokce",
+      "description": "Join this interactive workshop to learn a real-world-tested, research and design methodology for integrating AI into UX. Using this problem-first, human-centered approach, you'll leverage AI tools together with workplace-proven processes to identify, analyze and solve for the most significant customer problems by systematically addressing their pain points, triggers and metrics."
+    },
+    {
+      "time": "11:30 am",
+      "room": "Main Room",
+      "type": "workshop",
+      "title": "Connecting Community Voices",
+      "speaker": "Krizel Tomines, Chaelin Ryu, Emily Shi Lee & Arthur Grau",
+      "description": "Join the UXHI Research Team as we demonstrate one data collection and analysis technique inspired by the methodology of Participatory Action Research. In this workshop, we invite our community to co-research with us in our exploration of the state of UX in Hawai'i in 2024. This session is grounded in these guiding principles: People closest to an issue generally know the most about it; Everyone can contribute to research and knowledge creation, without being specialists in research; All individuals, groups, and cultures have biases in conducting research. Involving diverse participants with many perspectives and backgrounds helps us arrive at a clearer and wider understanding of the questions we are researching."
+    },
+    {
+      "time": "12:15 pm",
+      "room": "",
+      "type": "",
+      "title": "Lunch",
+      "speaker": "",
+      "description": "Ono grindz"
+    },
+    {
+      "time": "1:15 pm",
+      "room": "Main Room",
+      "type": "panel",
+      "title": "Stronger by Design: How Community Shapes Your Success",
+      "speaker": "May Sermonia, Chanae Evans, Nicolas Kim, Jennifer Kumura & Martin Caprile",
+      "description": "Success in design goes beyond individual effort—it's built on community. This session explores how networks rooted in connection and collaboration can foster lasting growth for individuals and the design field. Hear from mentors, alumni, and leaders on how unity, kindness, and support empower career transitions and drive personal and professional success. Discover how communities based on shared values can shape the future of design in Hawai'i and beyond."
+    },
+    {
+      "time": "1:15 pm",
+      "room": "Purple Box",
+      "type": "workshop",
+      "title": "Designing from an Emerging Future",
+      "speaker": "Arthur Grau",
+      "description": "Technologists and designers empathize, sense systems, and manage people to create solutions that solve complex challenges with elegant experiences. To do our work well, we need to enhance three superpowers: our powers to Observe, empathize with people, and sense systems; Reflect, make sense and meaning; and Act, play, prototype, and create while letting go of outcomes and assumptions. Today's workshop explores two simple awareness-based practices we can integrate into our designer or problem-solver toolkits to help us better observe, reflect, and act."
+    },
+    {
+      "time": "2:15 pm",
+      "room": "Main Room",
+      "type": "talk",
+      "title": "Demystifying Engineering Concepts for Us Non-Engineers",
+      "speaker": "Kim Davidson",
+      "description": "You don't need to know how to code to work in tech, but designing, delivering, selling, and supporting software on a cross-functional team means working closely with the engineers who build the products we work on. That can make working in technology pretty intimidating, and it can feel like the coworkers we're supposed to be collaborating with are speaking a completely different language. But it doesn't need to be this way! Learning a few high-level concepts about how engineering works can go a long way in demystifying tech. Whether you're trying to break into the industry, but it all seems too foreign or you've been in tech for a while and there are questions you've just been too embarrassed to ask, we'll talk through what you need to know to become a stronger collaborator and gain confidence as a team member."
+    },
+    {
+      "time": "2:15 pm",
+      "room": "Purple Box",
+      "type": "talk",
+      "title": "Leveraging Human-Centered Design to Develop Impactful Language Resources for the Palauan Community",
+      "speaker": "Cedar Lay & Ikelau Misech",
+      "description": "This project explores human-centered design as a method to create products and resources that address the needs of Indigenous and non-dominant communities who are all too often overlooked by larger design initiatives. As a case study, we will discuss ongoing work with the Palauan diaspora community here in Hawaiʻi to create resources promoting the learning and usage of the Palauan language. Following the human-centered design framework, local Palauan community members are involved from the very inception of the project to the final creation and testing of these language resources, whether they take the form of apps, websites, online dictionaries, or other needs identified from within the community."
+    },
+    {
+      "time": "3:15 pm",
+      "room": "Main Room",
+      "type": "talk",
+      "title": "Integrating UX for Business Success: A Guide for Owners, Managers, and Designers",
+      "speaker": "Rich Matsuura",
+      "description": "Unlock the true potential of UX design as a driving force for business success. In this session, I'll share insights from my journey at eBay, Dispatch, and startups I co-founded, where I led product and UX teams. You'll discover how to transform UX teams into essential business partners, fostering a shared sense of ownership over challenges, solutions, customer experiences, and outcomes. We'll explore practical ways to build a collaborative culture where designers are empowered, respected, and aligned with business goals. Together, we'll dive into the Hawaiian values of Ho'ohana (purposeful work), Lōkahi (unity), Ho'ohanohano (integrity), and Ha'aha'a (humility) to create impactful, mission-driven product development."
+    },
+    {
+      "time": "3:15 pm",
+      "room": "Purple Box",
+      "type": "talk",
+      "title": "Wāhine Freelance Alliance: Engaging Wāhine in the Metaverse",
+      "speaker": "Jennifer Ano",
+      "description": "In today's remote workforce, virtual collaboration and networking are essential, especially for designers, developers, entrepreneurs, and other creatives who must quickly form meaningful and professional relationships to get work done. For wāhine, the need for such spaces is particularly critical as they often face unique challenges, such as balancing multiple roles, overcoming gender biases, and finding mentors and networks that genuinely support their professional growth. However, setting up a virtual co-working hub that fosters aloha and is useful, relevant, and valuable to a diverse group of wāhine from varying backgrounds, industries, interests, and goals is no easy task. It takes a village to create such an inclusive user experience."
+    },
+    {
+      "time": "4:15 pm",
+      "room": "Main Room",
+      "type": "keynote",
+      "title": "Aloha the Brand",
+      "speaker": "Jesse Arneson & Scott Na'auao, Welcome Stranger",
+      "description": "Keynote presentation by Jesse Arneson & Scott Na'auao of Welcome Stranger exploring the concept of aloha in branding and design."
+    },
+    {
+      "time": "5:00 pm",
+      "room": "Main Room",
+      "type": "",
+      "title": "Closing Remarks",
+      "speaker": "Kat Duran-Higa & Jennifer Kumura",
+      "description": "Closing Remarks by Kat Duran-Higa & Jennifer Kumura"
+    }
+  ]
+}
