@@ -35,11 +35,11 @@ export default async function HomePage() {
               height={36}
               className="h-9 w-auto"
             />
-            <span className="text-[15px] text-gray-700 font-medium">500 members and growing</span>
+            <span className="text-nav text-gray-700 font-medium">500 members and growing</span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-display text-[40px] md:text-[60px] lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight text-black mb-12">
+          <h1 className="font-display text-[40px] md:text-6xl lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight text-black mb-12">
             A{" "}
             <span className="text-black hover:text-purple-700 transition-colors relative inline-block cursor-pointer group/ux">
               UX
@@ -65,7 +65,7 @@ export default async function HomePage() {
             href="/join"
             className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full pl-5 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] group"
           >
-            <span className="text-black text-[16px]">Join us</span>
+            <span className="text-black text-base">Join us</span>
             <span className="w-[30px] h-[30px] rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
               <ArrowIcon className="w-4 h-4 text-black" />
             </span>
@@ -89,7 +89,7 @@ export default async function HomePage() {
                 />
               </div>
               <div className="h-[182px] rounded-[24px] bg-teal-500 p-5 flex flex-col justify-end text-white">
-                <span className="font-display text-[36px] leading-none">2021</span>
+                <span className="font-display text-4xl leading-none">2021</span>
                 <span className="text-base mt-1 opacity-90">Year founded</span>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default async function HomePage() {
             <div className="w-[234px]">
               <div className="h-[582px] rounded-[999px] bg-purple-700 px-6 pt-16 pb-14 flex flex-col items-center justify-center text-center relative overflow-hidden">
                 <span className="absolute -right-4 top-1/4 font-display text-[180px] text-purple-600/30 leading-none select-none pointer-events-none">52</span>
-                <p className="text-white/90 text-[15px] leading-relaxed relative z-10">
+                <p className="text-white/90 text-nav leading-relaxed relative z-10">
                   Come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
                 </p>
                 <ArrowLinkButton href="/join" className="mt-4 relative z-10">
@@ -135,7 +135,7 @@ export default async function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-teal-600/90 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-4 right-4 text-center">
-                  <span className="font-display text-[20px] text-white leading-tight">Connect,<br/>learn, grow<br/>together</span>
+                  <span className="font-display text-xl text-white leading-tight">Connect,<br/>learn, grow<br/>together</span>
                 </div>
               </div>
             </div>
@@ -143,7 +143,7 @@ export default async function HomePage() {
             {/* Column 5: Teal rounded-top + gray rectangle */}
             <div className="flex flex-col gap-4 w-[234px]">
               <div className="h-[382px] rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-5 pt-20 pb-6 flex items-end justify-end text-white text-right">
-                <span className="text-[15px] leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
+                <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
               </div>
               <div className="h-[182px] rounded-[24px] overflow-hidden relative">
                 <Image
@@ -182,7 +182,7 @@ export default async function HomePage() {
             <div className="w-[200px]">
               <div className="h-[486px] rounded-[999px] bg-purple-700 px-5 py-12 flex flex-col items-center justify-center text-center relative overflow-hidden">
                 <span className="absolute -right-4 top-1/4 font-display text-[140px] text-purple-600/30 leading-none select-none pointer-events-none">52</span>
-                <p className="text-white/90 text-[14px] leading-relaxed relative z-10">
+                <p className="text-white/90 text-sm leading-relaxed relative z-10">
                   Come join our free UXHI community to connect and learn with new UX friends.
                 </p>
                 <ArrowLinkButton href="/join" className="mt-4 relative z-10">
@@ -194,7 +194,7 @@ export default async function HomePage() {
             {/* Column 3: Teal rounded-top + gray rectangle */}
             <div className="flex flex-col gap-4 w-[200px]">
               <div className="h-[320px] rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-4 pt-16 pb-5 flex items-end justify-end text-white text-right">
-                <span className="text-[14px] leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
+                <span className="text-sm leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
               </div>
               <div className="h-[150px] rounded-[24px] overflow-hidden relative">
                 <Image
@@ -224,7 +224,7 @@ export default async function HomePage() {
                 />
               </div>
               <div className="h-[100px] rounded-[20px] bg-teal-500 p-3 flex flex-col justify-end text-white">
-                <span className="font-display text-[24px] leading-none">2021</span>
+                <span className="font-display text-2xl leading-none">2021</span>
                 <span className="text-xs mt-0.5 opacity-90">Year founded</span>
               </div>
             </div>

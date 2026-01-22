@@ -62,7 +62,7 @@ export function Footer({ settings }: FooterProps) {
                     height={20}
                     className="brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-300"
                   />
-                  <span className="text-[18px]">UXHI Slack</span>
+                  <span className="text-lg">UXHI Slack</span>
                   <ExternalLinkIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
                 </Link>
 
@@ -79,7 +79,7 @@ export function Footer({ settings }: FooterProps) {
                     height={20}
                     className="brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-300"
                   />
-                  <span className="text-[18px]">Instagram</span>
+                  <span className="text-lg">Instagram</span>
                   <ExternalLinkIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
                 </a>
 
@@ -96,7 +96,7 @@ export function Footer({ settings }: FooterProps) {
                     height={20}
                     className="brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-300"
                   />
-                  <span className="text-[18px]">LinkedIn</span>
+                  <span className="text-lg">LinkedIn</span>
                   <ExternalLinkIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
                 </a>
 
@@ -104,7 +104,7 @@ export function Footer({ settings }: FooterProps) {
                   href="mailto:aloha@uxhi.community"
                   className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
-                  <span className="text-[18px]">Get in touch</span>
+                  <span className="text-lg">Get in touch</span>
                   <ExternalLinkIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
                 </a>
               </div>
@@ -124,7 +124,7 @@ export function Footer({ settings }: FooterProps) {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[18px] text-white hover:text-white/80 transition-colors"
+                    className="inline-flex items-center gap-1 text-lg text-white hover:text-white/80 transition-colors"
                   >
                     {item.label}
                     <ExternalLinkIcon className="w-4 h-4 text-white/40" />
@@ -133,7 +133,7 @@ export function Footer({ settings }: FooterProps) {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-[18px] text-white hover:text-white/80 transition-colors"
+                    className="text-lg text-white hover:text-white/80 transition-colors"
                   >
                     {item.label}
                   </Link>

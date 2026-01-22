@@ -32,10 +32,10 @@ export function AboutHero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-16 left-0 right-0 text-center">
-                <span className="font-display text-[48px] text-white leading-tight block">
+                <span className="font-display text-5xl text-white leading-tight block">
                   Merch
                 </span>
-                <span className="font-display text-[48px] text-white leading-tight block">
+                <span className="font-display text-5xl text-white leading-tight block">
                   Store
                 </span>
               </div>
@@ -57,10 +57,10 @@ export function AboutHero() {
               />
               <div className="absolute inset-0 bg-black/30" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="font-display text-[20px] text-white leading-tight block">
+                <span className="font-display text-xl text-white leading-tight block">
                   Find a UX
                 </span>
-                <span className="font-display text-[20px] text-white leading-tight block">
+                <span className="font-display text-xl text-white leading-tight block">
                   Professional
                 </span>
               </div>
@@ -73,11 +73,11 @@ export function AboutHero() {
               className="bg-teal-500 w-[244px] h-[300px] px-5 py-6 shadow-lg flex flex-col justify-between"
               style={{ borderRadius: "80px 80px 999px 999px" }}
             >
-              <p className="text-white text-[18px] leading-[24px] text-right mt-2">
+              <p className="text-white text-lg leading-[24px] text-right mt-2">
                 &ldquo;Local group explores user experience and interface
                 design&rdquo;
               </p>
-              <p className="text-white text-[18px] text-right mb-8">
+              <p className="text-white text-lg text-right mb-8">
                 Hawai&apos;i Bulletin
               </p>
             </div>
@@ -86,12 +86,12 @@ export function AboutHero() {
           {/* Purple Card (376x141px) - Framer: x=1032, y=676, overlaps oval right edge */}
           <div className="absolute left-1/2 translate-x-[80px] top-[676px]">
             <div className="bg-purple-700 rounded-[10px] px-6 py-5 w-[376px] h-[141px] shadow-lg flex flex-col justify-between">
-              <p className="text-white/90 text-[16px]">
+              <p className="text-white/90 text-base">
                 State of UX in Hawaii 2025 is here!
               </p>
               <Link
                 href="/resources"
-                className="inline-block bg-white text-purple-700 px-6 py-2.5 rounded-full text-[14px] font-semibold hover:bg-gray-100 transition-colors w-full text-center"
+                className="inline-block bg-white text-purple-700 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors w-full text-center"
               >
                 Read report
               </Link>
@@ -126,10 +126,10 @@ export function AboutHero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-12 left-0 right-0 text-center">
-                <span className="font-display text-[36px] md:text-[44px] text-white leading-tight block">
+                <span className="font-display text-4xl md:text-[44px] text-white leading-tight block">
                   Merch
                 </span>
-                <span className="font-display text-[36px] md:text-[44px] text-white leading-tight block">
+                <span className="font-display text-4xl md:text-[44px] text-white leading-tight block">
                   Store
                 </span>
               </div>
@@ -152,10 +152,10 @@ export function AboutHero() {
               />
               <div className="absolute inset-0 bg-black/30" />
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="font-display text-[16px] text-white leading-tight block">
+                <span className="font-display text-base text-white leading-tight block">
                   Find a UX
                 </span>
-                <span className="font-display text-[16px] text-white leading-tight block">
+                <span className="font-display text-base text-white leading-tight block">
                   Professional
                 </span>
               </div>
@@ -166,11 +166,11 @@ export function AboutHero() {
               className="bg-teal-500 w-[220px] h-[220px] p-5 shadow-lg flex flex-col justify-between"
               style={{ borderRadius: "60px 60px 999px 999px" }}
             >
-              <p className="text-white text-[16px] leading-[20px] text-right mt-2">
+              <p className="text-white text-base leading-[20px] text-right mt-2">
                 &ldquo;Local group explores user experience and interface
                 design&rdquo;
               </p>
-              <p className="text-white text-[16px] text-right mb-6">
+              <p className="text-white text-base text-right mb-6">
                 Hawai&apos;i Bulletin
               </p>
             </div>
@@ -179,12 +179,12 @@ export function AboutHero() {
           {/* Purple Card */}
           <div>
             <div className="bg-purple-700 rounded-[10px] px-6 py-5 w-[280px] md:w-[340px] shadow-lg">
-              <p className="text-white/90 text-[16px] mb-3">
+              <p className="text-white/90 text-base mb-3">
                 State of UX in Hawaii 2025 is here!
               </p>
               <Link
                 href="/resources"
-                className="inline-block bg-white text-purple-700 px-6 py-2.5 rounded-full text-[14px] font-semibold hover:bg-gray-100 transition-colors w-full text-center"
+                className="inline-block bg-white text-purple-700 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors w-full text-center"
               >
                 Read report
               </Link>

@@ -146,7 +146,7 @@ function DropdownDemo() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         onBlur={() => setTimeout(() => setIsOpen(false), 150)}
-        className="flex items-center gap-2 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium border border-gray-200 rounded-full bg-white"
+        className="flex items-center gap-2 px-5 py-2.5 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium border border-gray-200 rounded-full bg-white"
       >
         Dropdown Example
         <ChevronDownIcon className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -168,7 +168,7 @@ function DropdownDemo() {
                   key={i}
                   className="block w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors"
                 >
-                  <span className="block text-[15px] font-medium text-gray-900">{item}</span>
+                  <span className="block text-nav font-medium text-gray-900">{item}</span>
                   <span className="block text-sm text-gray-500 mt-0.5">Description text</span>
                 </button>
               ))}
@@ -641,11 +641,11 @@ export default function DesignSystemPage() {
               <p className="text-xs text-gray-400 font-mono mb-4">components/layout/Header.tsx (inline)</p>
               <p className="text-sm text-gray-500 mb-4">Header navigation container with pill-shaped border.</p>
               <div className="inline-flex items-center gap-1 border border-gray-200 rounded-full px-2 py-2 bg-white/80">
-                <span className="px-5 py-2.5 text-[15px] text-gray-700 font-medium">Link One</span>
-                <span className="px-5 py-2.5 text-[15px] text-gray-700 font-medium">Link Two</span>
-                <span className="px-5 py-2.5 text-[15px] text-gray-700 font-medium">Link Three</span>
+                <span className="px-5 py-2.5 text-nav text-gray-700 font-medium">Link One</span>
+                <span className="px-5 py-2.5 text-nav text-gray-700 font-medium">Link Two</span>
+                <span className="px-5 py-2.5 text-nav text-gray-700 font-medium">Link Three</span>
                 <span className="flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-5 pr-1.5 py-1.5 ml-2">
-                  <span className="text-[15px] font-medium text-gray-900">CTA</span>
+                  <span className="text-nav font-medium text-gray-900">CTA</span>
                   <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center">
                     <ArrowIcon className="w-4 h-4 text-gray-900" />
                   </span>

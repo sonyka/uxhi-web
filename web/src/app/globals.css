@@ -39,6 +39,9 @@
   --font-display: var(--font-dela-gothic), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 
+  /* Custom Text Sizes */
+  --font-size-nav: 15px;
+
   /* Custom breakpoint */
   --breakpoint-2xl: 1380px;
 }

@@ -41,10 +41,10 @@ export default async function JoinPage() {
         {/* Left Side - Content */}
         <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
           <div className="flex flex-col gap-6 max-w-[605px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-[48px] lg:leading-[84px] text-black">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-[84px] text-black">
               Become a member!
             </h1>
-            <p className="text-black text-lg lg:text-[20px] leading-relaxed">
+            <p className="text-black text-lg lg:text-xl leading-relaxed">
               Joining UXHI is free! As a member, you gain access to our community
               Slack group with 400+ designers, an invitation to join our member
               directory, and early updates on the latest UX events through our
@@ -127,7 +127,7 @@ export default async function JoinPage() {
       {/* Who are we? Section */}
       <section className="pt-12 pb-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-[36px] text-purple-700 mb-8">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-purple-700 mb-8">
             Who are we?
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-10">

@@ -141,10 +141,10 @@ export default function GetInvolvedPage() {
         {/* Left Side - Content */}
         <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
           <div className="flex flex-col gap-6 max-w-[605px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-[48px] lg:leading-[84px] text-black">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-[84px] text-black">
               Get Involved
             </h1>
-            <p className="text-black text-lg lg:text-[20px] leading-relaxed">
+            <p className="text-black text-lg lg:text-xl leading-relaxed">
               There are many ways to contribute to the UXHI community. Check out our{" "}
               <Link href="/events" className="text-black underline underline-offset-2 hover:text-purple-700 transition-colors">
                 upcoming events

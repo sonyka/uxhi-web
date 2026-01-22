@@ -18,10 +18,10 @@ export default function EventsPage() {
         {/* Left Side - Content */}
         <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
           <div className="flex flex-col gap-6 max-w-[605px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-[48px] lg:leading-[84px] text-black">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-[84px] text-black">
               Events
             </h1>
-            <p className="text-black text-lg lg:text-[20px] leading-relaxed">
+            <p className="text-black text-lg lg:text-xl leading-relaxed">
               We host a mix of educational webinars, interactive workshops, and casual meetups every month, as well as our annual conference. Become a member and you&apos;ll receive advanced notice on all our events!
             </p>
             <div>
@@ -110,7 +110,7 @@ export default function EventsPage() {
               className="object-contain"
             />
           </div>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-[36px] text-teal-500 mb-8">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-teal-500 mb-8">
             Upcoming Events
           </h2>
 

@@ -16,10 +16,10 @@ export default function FindUXProPage() {
         {/* Left Side - Content */}
         <div className="relative z-10 px-8 pt-24 pb-16 lg:pl-32 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[733px]">
           <div className="flex flex-col gap-6 max-w-[605px]">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-[48px] lg:leading-[64px] text-black">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl lg:leading-[64px] text-black">
               Find A UX Professional
             </h1>
-            <p className="text-black text-lg lg:text-[20px] leading-relaxed">
+            <p className="text-black text-lg lg:text-xl leading-relaxed">
               Connect with talented UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels.
             </p>
             <div>
@@ -118,7 +118,7 @@ export default function FindUXProPage() {
               className="object-contain"
             />
           </div>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-[36px] text-purple-700 mb-8">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-purple-700 mb-8">
             Join our member directory!
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-10">

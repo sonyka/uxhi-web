@@ -107,7 +107,7 @@ export function Header({ settings }: HeaderProps) {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                    className="flex items-center gap-1 px-5 py-2.5 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium"
                   >
                     {item.label}
                     <ChevronDownIcon className={`w-4 h-4 ml-0.5 transition-transform duration-200 ${openDropdown === item.key ? 'rotate-180' : ''}`} />
@@ -133,7 +133,7 @@ export function Header({ settings }: HeaderProps) {
                               href={dropdownItem.href}
                               className="block px-4 py-3 hover:bg-gray-50 transition-colors"
                             >
-                              <span className="block text-[15px] font-medium text-gray-900">{dropdownItem.label}</span>
+                              <span className="block text-nav font-medium text-gray-900">{dropdownItem.label}</span>
                               {dropdownItem.description && (
                                 <span className="block text-sm text-gray-500 mt-0.5">{dropdownItem.description}</span>
                               )}
@@ -150,7 +150,7 @@ export function Header({ settings }: HeaderProps) {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                  className="flex items-center gap-1 px-5 py-2.5 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium"
                 >
                   {item.label}
                   <ExternalLinkIcon className="w-3.5 h-3.5 ml-0.5 opacity-50" />
@@ -159,7 +159,7 @@ export function Header({ settings }: HeaderProps) {
                 <Link
                   key={item.key}
                   href={item.href}
-                  className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                  className="flex items-center gap-1 px-5 py-2.5 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium"
                 >
                   {item.label}
                 </Link>
@@ -171,7 +171,7 @@ export function Header({ settings }: HeaderProps) {
               href="/join"
               className="flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-5 pr-1.5 py-1.5 ml-2 hover:bg-gray-50 transition-colors group"
             >
-              <span className="text-[15px] font-medium text-gray-900">Join us</span>
+              <span className="text-nav font-medium text-gray-900">Join us</span>
               <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
