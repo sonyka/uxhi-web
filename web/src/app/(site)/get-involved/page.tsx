@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
+import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 
 export const metadata: Metadata = {
   title: "Get Involved | UX Hawaii",
@@ -152,56 +153,36 @@ export default function GetInvolvedPage() {
 
             {/* Quick Link Modules */}
             <div className="flex flex-wrap gap-4">
-              <a
+              <QuickLinkPill
                 href="#volunteer"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <HandHeartIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">Volunteer</span>
-                  <span className="block text-[14px] text-[#6b7282]">Help grow our community</span>
-                </div>
-              </a>
-              <a
+                icon={<HandHeartIcon className="w-7 h-7" />}
+                label="Volunteer"
+                subtitle="Help grow our community"
+              />
+              <QuickLinkPill
                 href="#speak"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <MicVocalIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">Become a Speaker</span>
-                  <span className="block text-[14px] text-[#6b7282]">Share your expertise</span>
-                </div>
-              </a>
-              <a
+                icon={<MicVocalIcon className="w-7 h-7" />}
+                label="Become a Speaker"
+                subtitle="Share your expertise"
+              />
+              <QuickLinkPill
                 href="#sponsor"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <MessageSquareHeartIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">Sponsor Us</span>
-                  <span className="block text-[14px] text-[#6b7282]">Support UXHI events</span>
-                </div>
-              </a>
-              <a
+                icon={<MessageSquareHeartIcon className="w-7 h-7" />}
+                label="Sponsor Us"
+                subtitle="Support UXHI events"
+              />
+              <QuickLinkPill
                 href="#partner"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <HeartHandshakeIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">Partner</span>
-                  <span className="block text-[14px] text-[#6b7282]">Collaborate with us</span>
-                </div>
-              </a>
-              <a
+                icon={<HeartHandshakeIcon className="w-7 h-7" />}
+                label="Partner"
+                subtitle="Collaborate with us"
+              />
+              <QuickLinkPill
                 href="#donate"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <HandCoinsIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">Donate</span>
-                  <span className="block text-[14px] text-[#6b7282]">Support our mission</span>
-                </div>
-              </a>
+                icon={<HandCoinsIcon className="w-7 h-7" />}
+                label="Donate"
+                subtitle="Support our mission"
+              />
             </div>
           </div>
         </div>

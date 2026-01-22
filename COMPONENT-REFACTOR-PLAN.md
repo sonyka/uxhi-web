@@ -34,13 +34,13 @@ For *every* page refactored:
 
 ## Implementation Stages
 
-### Stage 1: QuickLinkPill Refactor
+### Stage 1: QuickLinkPill Refactor ✅
 **Impact:** 11 inline patterns → 11 component uses
 **Pages:** resources, get-involved, about
 
-- [ ] `resources/page.tsx` - 3 pills
-- [ ] `get-involved/page.tsx` - 5 pills
-- [ ] `about/page.tsx` - 3 pills
+- [x] `resources/page.tsx` - 3 pills
+- [x] `get-involved/page.tsx` - 5 pills
+- [x] `about/page.tsx` - 3 pills
 
 ### Stage 2: LinkCard Refactor
 **Impact:** ~20+ inline link cards → component uses

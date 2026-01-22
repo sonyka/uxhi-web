@@ -5,6 +5,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { RESOURCE_ITEMS_QUERY, TECH_ORGANIZATIONS_QUERY, STATE_OF_UX_REPORTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
 import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
+import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 
 export const metadata: Metadata = {
   title: "Resources | UX Hawaii",
@@ -125,36 +126,24 @@ export default async function ResourcesPage() {
 
             {/* Quick Link Modules */}
             <div className="flex flex-wrap gap-4">
-              <a
+              <QuickLinkPill
                 href="#students"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <GraduationCapIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">UX for Students</span>
-                  <span className="block text-[14px] text-[#6b7282]">Learning resources</span>
-                </div>
-              </a>
-              <a
+                icon={<GraduationCapIcon className="w-7 h-7" />}
+                label="UX for Students"
+                subtitle="Learning resources"
+              />
+              <QuickLinkPill
                 href="#report"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <BookOpenTextIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">State of UX Report</span>
-                  <span className="block text-[14px] text-[#6b7282]">Industry insights</span>
-                </div>
-              </a>
-              <a
+                icon={<BookOpenTextIcon className="w-7 h-7" />}
+                label="State of UX Report"
+                subtitle="Industry insights"
+              />
+              <QuickLinkPill
                 href="#directory"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <NotebookTabsIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">Directory of Tech Orgs</span>
-                  <span className="block text-[14px] text-[#6b7282]">Local connections</span>
-                </div>
-              </a>
+                icon={<NotebookTabsIcon className="w-7 h-7" />}
+                label="Directory of Tech Orgs"
+                subtitle="Local connections"
+              />
             </div>
           </div>
         </div>

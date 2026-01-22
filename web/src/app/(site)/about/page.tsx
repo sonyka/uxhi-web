@@ -7,6 +7,7 @@ import { MissionSection } from "@/components/sections/MissionSection";
 import { FoundersSection } from "@/components/sections/FoundersSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
+import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 
 export const metadata: Metadata = {
   title: "About | UX Hawaii",
@@ -71,36 +72,24 @@ export default async function AboutPage() {
 
             {/* Quick Link Modules */}
             <div className="flex flex-wrap gap-4">
-              <a
+              <QuickLinkPill
                 href="#team"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <SquareUserRoundIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">Team</span>
-                  <span className="block text-[14px] text-[#6b7282]">Meet our founders</span>
-                </div>
-              </a>
-              <a
+                icon={<SquareUserRoundIcon className="w-7 h-7" />}
+                label="Team"
+                subtitle="Meet our founders"
+              />
+              <QuickLinkPill
                 href="#faqs"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <CircleHelpIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">FAQs</span>
-                  <span className="block text-[14px] text-[#6b7282]">Common questions</span>
-                </div>
-              </a>
-              <a
+                icon={<CircleHelpIcon className="w-7 h-7" />}
+                label="FAQs"
+                subtitle="Common questions"
+              />
+              <QuickLinkPill
                 href="#contact"
-                className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group"
-              >
-                <SendIcon className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" />
-                <div className="text-left">
-                  <span className="block text-[16px] font-medium text-black">Contact</span>
-                  <span className="block text-[14px] text-[#6b7282]">Get in touch</span>
-                </div>
-              </a>
+                icon={<SendIcon className="w-7 h-7" />}
+                label="Contact"
+                subtitle="Get in touch"
+              />
             </div>
           </div>
         </div>
