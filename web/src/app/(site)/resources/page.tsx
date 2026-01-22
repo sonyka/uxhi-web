@@ -305,7 +305,7 @@ export default async function ResourcesPage() {
                 className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
               >
                 <span className="text-gray-900">Email Us</span>
-                <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
                   <ArrowIcon className="w-4 h-4 text-gray-900" />
                 </span>
               </Link>
@@ -358,15 +358,15 @@ export default async function ResourcesPage() {
               <h3 className="font-display text-lg text-white mb-6">Education Findings</h3>
               <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                   <span><span className="font-black text-white">75%</span> of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                   <span><span className="font-black text-white">42%</span> of managers have a master&apos;s degree or higher</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                   <span><span className="font-black text-white">40%</span> of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
                 </li>
               </ul>
@@ -385,15 +385,15 @@ export default async function ResourcesPage() {
               <h3 className="font-display text-lg text-white mb-6">Career Findings</h3>
               <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                   <span><span className="font-black text-white">33%</span> of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                   <span>UXers in Hawai&apos;i are working harder - to find consistent employment, to be a &quot;jack of all trades&quot; or as a department of one or within small teams</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                   <span>Are earning an average of <span className="font-black text-white">$75,000</span> versus <span className="font-black text-white">$109,776</span> as the national average</span>
                 </li>
               </ul>
@@ -412,15 +412,15 @@ export default async function ResourcesPage() {
               <h3 className="font-display text-lg text-white mb-6">Top Challenges</h3>
               <ul className="text-purple-100 space-y-3 text-base text-left leading-relaxed">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                   <span>Many business leaders do not know what UX is</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                   <span>UX is not prioritized or funded</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                   <span>The UX job market in Hawai&apos;i is limited</span>
                 </li>
               </ul>
@@ -432,15 +432,15 @@ export default async function ResourcesPage() {
             <p className="text-purple-100 mb-4">The State of UX report charts our progress towards advancing the field of UX by:</p>
             <ul className="text-purple-100 space-y-2">
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                 <span>Inspiring local business leaders to find and hire UX professionals</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                 <span>Generate opportunities for new UXers to gain experience</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 bg-[#f5c542] rounded-full mt-2 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 bg-[#ffcc40] rounded-full mt-2 flex-shrink-0" />
                 <span>Host collaborative events to strengthen the UX community</span>
               </li>
             </ul>
@@ -455,7 +455,7 @@ export default async function ResourcesPage() {
               className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
             >
               <span className="text-gray-900">2025 State of UXHI Report</span>
-              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
                 <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
@@ -528,7 +528,7 @@ export default async function ResourcesPage() {
               className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
             >
               <span className="text-gray-900">Email Us</span>
-              <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+              <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>

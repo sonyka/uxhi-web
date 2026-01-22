@@ -88,7 +88,7 @@ export default function VolunteerPage() {
               className="inline-flex items-center gap-3 px-6 py-3 bg-white text-gray-900 font-semibold rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
             >
               Get Involved
-              <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
+              <span className="w-8 h-8 bg-[#ffcc40] rounded-full flex items-center justify-center">
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>

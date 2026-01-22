@@ -354,11 +354,9 @@ export default function DesignSystemPage() {
             {/* Accent - Yellow */}
             <div>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Accent — Yellow</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <ColorSwatch name="Yellow" value="#f5c542" />
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
+                <ColorSwatch name="Yellow" value="#ffcc40" />
                 <ColorSwatch name="Yellow Hover" value="#e5b532" />
-                <ColorSwatch name="Yellow Alt" value="#ffcc40" />
-                <ColorSwatch name="Yellow 400" value="#facc15" />
               </div>
             </div>
           </div>

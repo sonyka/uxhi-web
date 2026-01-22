@@ -19,7 +19,7 @@ export function PrimaryCTA({ href, children, external = false }: PrimaryCTAProps
         className={className}
       >
         <span className="text-gray-900">{children}</span>
-        <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+        <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
           <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
         </span>
       </a>
@@ -29,7 +29,7 @@ export function PrimaryCTA({ href, children, external = false }: PrimaryCTAProps
   return (
     <Link href={href} className={className}>
       <span className="text-gray-900">{children}</span>
-      <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+      <span className="w-9 h-9 rounded-full bg-[#ffcc40] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
         <ArrowIcon className="w-4 h-4 text-gray-900" />
       </span>
     </Link>
