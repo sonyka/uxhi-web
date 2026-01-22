@@ -1,11 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { sanityFetch } from "@/sanity/lib/live";
 import { PRODUCTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
-import { ArrowIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Shop | UX Hawaii",
@@ -286,15 +284,7 @@ export default async function ShopPage() {
             <p className="text-gray-600 mb-6 max-w-[500px] mx-auto">
               We&apos;re working on expanding our merch collection. Join our mailing list to be notified when new products drop.
             </p>
-            <Link
-              href="/join"
-              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-            >
-              <span className="text-gray-900">Join the community</span>
-              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
+            <PrimaryCTA href="/join">Join the community</PrimaryCTA>
           </div>
         </div>
       </section>

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
@@ -6,7 +5,6 @@ import { FOUNDERS_QUERY, FAQS_QUERY, VALUES_QUERY } from "@/sanity/lib/queries";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { FoundersSection } from "@/components/sections/FoundersSection";
 import { FAQSection } from "@/components/sections/FAQSection";
-import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InfoBox } from "@/components/ui/InfoBox";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
@@ -174,17 +172,9 @@ export default async function AboutPage() {
               <span className="text-teal-600 text-sm font-medium uppercase tracking-wider">Featured in Hawai'i Bulletin</span>
               <p className="text-gray-700 font-medium mt-1">Local group explores user experience and interface design</p>
             </div>
-            <Link
-              href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group shrink-0"
-            >
-              <span className="text-gray-900">Read Article</span>
-              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
+            <PrimaryCTA href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience" external>
+              Read Article
+            </PrimaryCTA>
           </InfoBox>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { ExternalLinkIcon } from "@/components/ui/icons";
+import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
   title: "Find UX Pro | UX Hawaii",
@@ -23,17 +23,9 @@ export default function FindUXProPage() {
               Connect with talented UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels.
             </p>
             <div>
-              <a
-                href="https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-              >
-                <span className="text-gray-900">Access the directory</span>
-                <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                  <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
-                </span>
-              </a>
+              <PrimaryCTA href="https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6" external>
+                Access the directory
+              </PrimaryCTA>
             </div>
           </div>
         </div>
@@ -136,17 +128,9 @@ export default function FindUXProPage() {
             allowFullScreen
           />
 
-          <a
-            href="https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Access the Directory</span>
-            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </a>
+          <PrimaryCTA href="https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6" external>
+            Access the Directory
+          </PrimaryCTA>
         </div>
       </section>
 

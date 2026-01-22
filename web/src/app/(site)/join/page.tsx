@@ -1,12 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/live";
 import { FAQS_QUERY, TESTIMONIALS_QUERY } from "@/sanity/lib/queries";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SanityImage } from "@/components/ui/SanityImage";
 import { SpeechBubbleCard } from "@/components/ui/cards/SpeechBubbleCard";
-import { ArrowIcon } from "@/components/ui/icons";
 
 // Placeholder images for the grid - using existing bento images
 const gridImages = [
@@ -133,15 +131,7 @@ export default async function JoinPage() {
           <p className="text-gray-700 text-lg leading-relaxed mb-10">
             Our membership includes UX professionals and those transitioning into the field, with ties to Hawai&apos;i. Members work across a mix of local and national companies, as well as freelance, and come from a variety of backgrounds and skill levels. Whether you&apos;re just starting out or an experienced practitioner, UXHI is a community where you can connect, learn, and grow.
           </p>
-          <Link
-            href="/directory"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Membership Directory</span>
-            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
+          <PrimaryCTA href="/directory">Membership Directory</PrimaryCTA>
         </div>
       </section>
 
@@ -270,15 +260,7 @@ export default async function JoinPage() {
           <p className="text-purple-200 text-lg leading-relaxed mb-10">
             A primary benefit of membership at UXHI (which is free!) is access to our Slack community of over 400+ designers connected to Hawai&apos;i and beyond. Become a member today and receive your invite to join!
           </p>
-          <Link
-            href="#join-form"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Become a member</span>
-            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
+          <PrimaryCTA href="#join-form">Become a member</PrimaryCTA>
         </div>
       </section>
 

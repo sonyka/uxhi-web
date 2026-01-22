@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
-import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
+import { ExternalLinkIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Events | UX Hawaii",
@@ -165,17 +165,9 @@ export default function EventsPage() {
           />
 
           <div className="text-center mt-8">
-            <Link
-              href="https://lu.ma/user/uxhi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-            >
-              <span className="text-gray-900">View All Events on Luma</span>
-              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
+            <PrimaryCTA href="https://lu.ma/user/uxhi" external>
+              View All Events on Luma
+            </PrimaryCTA>
           </div>
         </div>
       </section>
@@ -215,17 +207,9 @@ export default function EventsPage() {
 
           {/* CTA */}
           <div className="text-center mb-16">
-            <Link
-              href="https://uxhiconference.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-            >
-              <span className="text-gray-900">UXHI Conference</span>
-              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
+            <PrimaryCTA href="https://uxhiconference.com/" external>
+              UXHI Conference
+            </PrimaryCTA>
 
             {/* Past Archives */}
             <div className="mt-6 flex flex-wrap justify-center gap-4">

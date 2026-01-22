@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowIcon } from "@/components/ui/icons";
+import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
   title: "Volunteer | UX Hawaii",
@@ -83,15 +82,7 @@ export default function VolunteerPage() {
                 <span>And much more!</span>
               </li>
             </ul>
-            <Link
-              href="#inquiry-form"
-              className="inline-flex items-center gap-3 px-6 py-3 bg-white text-gray-900 font-semibold rounded-full border border-gray-200 hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              Get Involved
-              <span className="w-8 h-8 bg-yellow rounded-full flex items-center justify-center">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
+            <PrimaryCTA href="#inquiry-form">Get Involved</PrimaryCTA>
           </div>
         </div>
 

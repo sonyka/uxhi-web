@@ -1,10 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { RESOURCE_ITEMS_QUERY, TECH_ORGANIZATIONS_QUERY, STATE_OF_UX_REPORTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
-import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
+import { ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { LinkCard } from "@/components/ui/LinkCard";
 import { InfoBox } from "@/components/ui/InfoBox";
@@ -301,15 +300,9 @@ export default async function ResourcesPage() {
             </div>
             <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-gray-700 font-medium">Do you have more resources to suggest or corrections we should make?</p>
-              <Link
-                href="mailto:aloha@uxhi.community?subject=Resource%20Suggestion"
-                className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-              >
-                <span className="text-gray-900">Email Us</span>
-                <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                  <ArrowIcon className="w-4 h-4 text-gray-900" />
-                </span>
-              </Link>
+              <PrimaryCTA href="mailto:aloha@uxhi.community?subject=Resource%20Suggestion" external>
+                Email Us
+              </PrimaryCTA>
             </InfoBox>
           </div>
         </div>
@@ -508,15 +501,9 @@ export default async function ResourcesPage() {
           {/* Something Missing CTA */}
           <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-gray-700 font-medium">Something missing?</p>
-            <Link
-              href="mailto:aloha@uxhi.community?subject=Tech%20Organization%20Suggestion"
-              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-            >
-              <span className="text-gray-900">Email Us</span>
-              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
+            <PrimaryCTA href="mailto:aloha@uxhi.community?subject=Tech%20Organization%20Suggestion" external>
+              Email Us
+            </PrimaryCTA>
           </InfoBox>
         </div>
       </section>

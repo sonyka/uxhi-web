@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
+import { ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
+import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
   title: "Get Involved | UX Hawaii",
@@ -324,17 +325,9 @@ export default function GetInvolvedPage() {
           <p className="text-gray-700 text-lg mb-8">
             Let us know how you want to get involved!
           </p>
-          <Link
-            href="https://forms.gle/volunteer-signup"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Sign up to volunteer</span>
-            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
+          <PrimaryCTA href="https://forms.gle/volunteer-signup" external>
+            Sign up to volunteer
+          </PrimaryCTA>
 
           {/* Committees Subsection */}
           <div className="mt-16">
@@ -377,17 +370,9 @@ export default function GetInvolvedPage() {
           <p className="text-gray-700 text-lg leading-relaxed mb-8">
             Fill out our speaker application below and we&apos;ll be in touch!
           </p>
-          <Link
-            href="https://forms.gle/speaker-application"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Submit your idea</span>
-            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
+          <PrimaryCTA href="https://forms.gle/speaker-application" external>
+            Submit your idea
+          </PrimaryCTA>
         </div>
       </section>
 
@@ -426,17 +411,9 @@ export default function GetInvolvedPage() {
             </li>
           </ul>
 
-          <Link
-            href="https://forms.gle/partnership-inquiry"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Let&apos;s connect</span>
-            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
+          <PrimaryCTA href="https://forms.gle/partnership-inquiry" external>
+            Let&apos;s connect
+          </PrimaryCTA>
         </div>
       </section>
 
@@ -531,15 +508,9 @@ export default function GetInvolvedPage() {
           <p className="text-gray-700 leading-relaxed mb-6">
             We understand the value of tailored experiences and are open to working together to create a custom package.
           </p>
-          <Link
-            href="mailto:aloha@uxhi.community?subject=Sponsorship%20Inquiry"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Email us</span>
-            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
+          <PrimaryCTA href="mailto:aloha@uxhi.community?subject=Sponsorship%20Inquiry" external>
+            Email us
+          </PrimaryCTA>
         </div>
       </section>
 
@@ -567,17 +538,9 @@ export default function GetInvolvedPage() {
           <p className="text-purple-200 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
             Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events. Thanks in advance for supporting our community!
           </p>
-          <Link
-            href="https://donate.stripe.com/uxhi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Donate</span>
-            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
+          <PrimaryCTA href="https://donate.stripe.com/uxhi" external>
+            Donate
+          </PrimaryCTA>
         </div>
       </section>
     </main>

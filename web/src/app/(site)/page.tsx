@@ -7,6 +7,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { INSTAGRAM_POSTS_QUERY, COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
 import { ArrowIcon } from "@/components/ui/icons";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
+import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
   title: "UXHI - A UX design community for people in Hawaiʻi",
@@ -314,15 +315,7 @@ export default async function HomePage() {
           <p className="text-gray-600 text-lg mb-8 max-w-[600px] mx-auto">
             Whether you&apos;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
           </p>
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-          >
-            <span className="text-gray-900">Learn more</span>
-            <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ArrowIcon className="w-4 h-4 text-gray-900" />
-            </span>
-          </Link>
+          <PrimaryCTA href="/about">Learn more</PrimaryCTA>
         </div>
       </section>
 
@@ -442,15 +435,7 @@ export default async function HomePage() {
             <p className="text-gray-600 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">
               UXHI is built and run entirely by volunteers who share a passion for human-centered design. We create the spaces we wish existed—to learn together, support each other, and elevate UX across Hawaiʻi.
             </p>
-            <Link
-              href="/join"
-              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-            >
-              <span className="text-gray-900">Join us</span>
-              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
+            <PrimaryCTA href="/join">Join us</PrimaryCTA>
           </div>
         </div>
       </section>
