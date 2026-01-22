@@ -59,15 +59,23 @@ web/
 Pages use a block-based content model. The `PageBuilder` component (`src/components/blocks/PageBuilder.tsx`) maps Sanity block types to React section components. Block types: `heroBlock`, `statsBlock`, `featuresBlock`, `testimonialsBlock`, `teamBlock`, `ctaBlock`, `richTextBlock`.
 
 ### Styling & Design System
-Design tokens defined in `globals.css` using Tailwind v4 `@theme` syntax:
+
+**Design System Reference:** http://localhost:3000/design-system
+
+The design system page is the **single source of truth** for all styling decisions. It documents:
+- **Color palette** - brand colors, semantic colors, and usage guidelines
+- **Typography** - font families, sizes, weights, and text styles
+- **Reusable components** - pre-built UI patterns to use instead of inline code
+
+**Always consult the design system page first** when building UI to ensure consistency. Use existing components rather than writing inline patterns.
+
+Quick reference (see design system for full details):
 - Primary: teal (`--color-teal-500: #09c0d7`)
 - Secondary: purple (`--color-purple-700: #231769`)
 - Background: cream (`--color-cream: #f4f1ea`)
 - Fonts: Dela Gothic One (display), Nunito (body)
 
-**Design System Reference:** http://localhost:3000/design-system
-
-When building UI, **always check the design system page first** and use existing reusable components rather than writing inline patterns. Available components include:
+**Available Components:**
 
 | Component | Path | Use Case |
 |-----------|------|----------|
