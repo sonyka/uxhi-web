@@ -5,6 +5,7 @@ import { FAQS_QUERY, TESTIMONIALS_QUERY } from "@/sanity/lib/queries";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SanityImage } from "@/components/ui/SanityImage";
+import { SpeechBubbleCard } from "@/components/ui/cards/SpeechBubbleCard";
 import { ArrowIcon } from "@/components/ui/icons";
 
 // Placeholder images for the grid - using existing bento images
@@ -170,29 +171,24 @@ export default async function JoinPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {testimonials.map((testimonial: { _id: string; quote: string; author?: { name?: string; role?: string; company?: string; photo?: { asset?: { _id?: string; url?: string } } } }) => (
-                <div key={testimonial._id} className="bg-cream rounded-[20px] p-6">
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    &quot;{testimonial.quote}&quot;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    {testimonial.author?.photo?.asset ? (
+                <SpeechBubbleCard
+                  key={testimonial._id}
+                  variant="testimonial"
+                  quote={testimonial.quote}
+                  authorName={testimonial.author?.name || "Anonymous"}
+                  authorRole={testimonial.author?.role}
+                  authorCompany={testimonial.author?.company}
+                  authorImageNode={
+                    testimonial.author?.photo?.asset ? (
                       <SanityImage
                         value={testimonial.author.photo}
                         width={48}
                         height={48}
                         className="w-12 h-12 rounded-full object-cover"
                       />
-                    ) : (
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-300 to-teal-400" />
-                    )}
-                    <div>
-                      <p className="font-medium text-purple-700">{testimonial.author?.name}</p>
-                      <p className="text-sm text-gray-500">
-                        {testimonial.author?.role}{testimonial.author?.company && ` at ${testimonial.author.company}`}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                    ) : undefined
+                  }
+                />
               ))}
             </div>
           </div>

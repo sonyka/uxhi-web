@@ -15,7 +15,7 @@ Replace inline UI patterns across all pages with the centralized components crea
 | `ArrowLinkButton` | `components/ui/ArrowLinkButton.tsx` | Text link with arrow - for dark backgrounds |
 | `FeatureCard` | `components/ui/cards/FeatureCard.tsx` | Card with icon, title, description (cream/white/teal/purple variants) |
 | `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large 96px icon card (dark/cream/white variants) |
-| `SpeechBubbleCard` | `components/ui/cards/SpeechBubbleCard.tsx` | Testimonial card with notch, quote, and author info |
+| `SpeechBubbleCard` | `components/ui/cards/SpeechBubbleCard.tsx` | Quote card with author info (speech-bubble or testimonial variant) |
 
 ## Verification Checklist
 
@@ -61,11 +61,11 @@ For *every* page refactored:
 - [x] `resources/page.tsx` - Something Missing CTA box
 - [x] `about/page.tsx` - Press callout
 
-### Stage 4: SpeechBubbleCard Refactor
+### Stage 4: SpeechBubbleCard Refactor ✅
 **Impact:** Testimonial cards → component uses
 **Pages:** join
 
-- [ ] `join/page.tsx` - Testimonial cards (verify component API)
+- [x] `join/page.tsx` - Testimonial cards (component enhanced with `testimonial` variant)
 
 ### Stage 5: ArrowLinkButton Refactor
 **Impact:** Dark-bg text links → component uses
@@ -88,4 +88,4 @@ During refactor, these component improvements may be needed:
 
 1. **LinkCard** - May need to handle cases where description is optional
 2. **SpotIllustrationCard** - May need to support bullet list children for report cards
-3. **SpeechBubbleCard** - Verify API matches testimonial data structure from Sanity
+3. ~~**SpeechBubbleCard** - Verify API matches testimonial data structure from Sanity~~ ✅ Enhanced with `variant` prop (`speech-bubble` | `testimonial`), `authorRole`, `authorCompany`, and `authorImageNode` for Sanity images
