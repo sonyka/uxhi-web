@@ -40,7 +40,7 @@ export default async function HomePage() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-display text-hero-mobile md:text-6xl lg:text-hero-desktop leading-[1.05] lg:leading-hero tracking-tight text-black mb-12">
+          <h1 className="font-display text-[40px] md:text-[60px] lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight text-black mb-12">
             A{" "}
             <span className="text-black hover:text-purple-700 transition-colors relative inline-block cursor-pointer group/ux">
               UX
