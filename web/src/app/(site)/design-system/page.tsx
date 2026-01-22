@@ -337,7 +337,6 @@ export default function DesignSystemPage() {
                 <ColorSwatch name="800" value="#1f2937" textColor="text-white" />
                 <ColorSwatch name="900" value="#111827" textColor="text-white" />
               </div>
-              <p className="text-xs text-gray-500 mt-3">Note: <code className="bg-gray-100 px-1 rounded">#6b7282</code> is used in QuickLinkPill subtitle — consider standardizing to gray-500.</p>
             </div>
 
             {/* Neutral / Brand */}

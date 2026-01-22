@@ -20,7 +20,7 @@ export function QuickLinkPill({ href, icon, label, subtitle, external = false, c
       </span>
       <div className="text-left">
         <span className="block text-[16px] font-medium text-black">{label}</span>
-        <span className="block text-[14px] text-[#6b7282]">{subtitle}</span>
+        <span className="block text-[14px] text-gray-500">{subtitle}</span>
       </div>
     </>
   );
