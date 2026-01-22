@@ -67,11 +67,19 @@ For *every* page refactored:
 
 - [x] `join/page.tsx` - Testimonial cards (component enhanced with `testimonial` variant)
 
-### Stage 5: ArrowLinkButton Refactor
+### Stage 5: ArrowLinkButton Refactor ⚠️ NOT APPLICABLE
 **Impact:** Dark-bg text links → component uses
 **Pages:** about
 
-- [ ] `about/page.tsx` - Contact section links
+**Finding:** The Contact section buttons are **styled pill buttons** with circular icon containers, NOT simple text links. The ArrowLinkButton component is designed for subtle text links (like "Read more →"), not for pill buttons with backgrounds and circular icon containers.
+
+**Current patterns in Contact section:**
+- "Email us" → White bg button with yellow circular icon container
+- "Join our Slack" → Transparent button with white border + circular icon container
+
+**Recommendation:** These patterns could be addressed with a new `PillButton` component in a future stage, or left as-is since they're unique to this section.
+
+- [x] `about/page.tsx` - Contact section links (analyzed - patterns don't match ArrowLinkButton)
 
 ### Stage 6: Committee/Feature Cards (Optional)
 **Impact:** Committee cards → component uses
