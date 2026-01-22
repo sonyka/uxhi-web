@@ -9,6 +9,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InfoBox } from "@/components/ui/InfoBox";
+import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
   title: "About | UX Hawaii",
@@ -201,24 +202,12 @@ export default async function AboutPage() {
             Have questions, ideas, or want to collaborate? We&apos;d love to hear from you. Reach out to our team and we&apos;ll get back to you as soon as possible.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="mailto:aloha@uxhi.community"
-              className="inline-flex items-center justify-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-            >
-              <span className="text-gray-900">Email us</span>
-              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
-            <Link
-              href="/join"
-              className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/30 rounded-full pl-6 pr-2 py-2 font-medium text-white hover:bg-white/20 transition-colors group"
-            >
-              <span>Join our Slack</span>
-              <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                <ArrowIcon className="w-4 h-4 text-white" />
-              </span>
-            </Link>
+            <PrimaryCTA href="mailto:aloha@uxhi.community" external>
+              Email us
+            </PrimaryCTA>
+            <PrimaryCTA href="/join" variant="dark">
+              Join our Slack
+            </PrimaryCTA>
           </div>
         </div>
       </section>

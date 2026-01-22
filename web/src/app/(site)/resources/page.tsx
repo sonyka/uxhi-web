@@ -8,6 +8,7 @@ import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { LinkCard } from "@/components/ui/LinkCard";
 import { InfoBox } from "@/components/ui/InfoBox";
+import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
   title: "Resources | UX Hawaii",
@@ -448,28 +449,12 @@ export default async function ResourcesPage() {
 
           {/* View Report CTA */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link
-              href="https://drive.google.com/file/d/1pfHDt2yB-maAs2gOhywdJJv7HzY4wG7s/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group"
-            >
-              <span className="text-gray-900">2025 State of UXHI Report</span>
-              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
-            <Link
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white/10 border border-white/30 rounded-full pl-6 pr-2 py-2 font-medium text-white hover:bg-white/20 transition-colors group"
-            >
-              <span>2023 State of UXHI Report</span>
-              <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                <ExternalLinkIcon className="w-4 h-4 text-white" />
-              </span>
-            </Link>
+            <PrimaryCTA href="https://drive.google.com/file/d/1pfHDt2yB-maAs2gOhywdJJv7HzY4wG7s/" external>
+              2025 State of UXHI Report
+            </PrimaryCTA>
+            <PrimaryCTA href="#" external variant="dark">
+              2023 State of UXHI Report
+            </PrimaryCTA>
           </div>
 
           {/* Report Preview Image */}

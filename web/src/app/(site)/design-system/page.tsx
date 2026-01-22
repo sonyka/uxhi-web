@@ -394,10 +394,16 @@ export default function DesignSystemPage() {
             <div>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Primary CTA</h3>
               <p className="text-xs text-gray-400 font-mono mb-4">components/ui/PrimaryCTA.tsx</p>
-              <p className="text-sm text-gray-500 mb-4">Pill button with yellow arrow circle. Internal links use right arrow, external links use up-right arrow.</p>
-              <div className="flex flex-wrap gap-4 items-center">
-                <PrimaryCTA href="#">Join us</PrimaryCTA>
-                <PrimaryCTA href="#" external>External Link</PrimaryCTA>
+              <p className="text-sm text-gray-500 mb-4">Pill button with arrow circle. Variants: default (yellow circle), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow.</p>
+              <div className="space-y-4">
+                <div className="flex flex-wrap gap-4 items-center">
+                  <PrimaryCTA href="#">Join us</PrimaryCTA>
+                  <PrimaryCTA href="#" external>External Link</PrimaryCTA>
+                </div>
+                <div className="flex flex-wrap gap-4 items-center p-6 bg-purple-700 rounded-xl">
+                  <PrimaryCTA href="#" variant="dark">Dark Variant</PrimaryCTA>
+                  <PrimaryCTA href="#" external variant="dark">External Dark</PrimaryCTA>
+                </div>
               </div>
             </div>
 
