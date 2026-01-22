@@ -7,22 +7,22 @@ The Framer-exported `index.html` file has extremely long lines (up to 553,000 ch
 ## Progress
 
 [x] page-00.png
-[ ] page-01.png
-[ ] page-02.png
-[ ] page-03.png
-[ ] page-04.png
-[ ] page-05.png
-[ ] page-06.png
-[ ] page-07.png
-[ ] page-08.png
-[ ] page-09.png
-[ ] page-10.png
-[ ] page-11.png
-[ ] page-12.png
-[ ] page-13.png
-[ ] page-14.png
-[ ] page-15.png
-[ ] page-16.png
+[x] page-01.png
+[x] page-02.png
+[x] page-03.png
+[x] page-04.png
+[x] page-05.png
+[x] page-06.png
+[x] page-07.png
+[x] page-08.png
+[x] page-09.png
+[x] page-10.png
+[x] page-11.png
+[x] page-12.png
+[x] page-13.png
+[x] page-14.png
+[x] page-15.png
+[x] page-16.png
 
 ## What Was Done
 

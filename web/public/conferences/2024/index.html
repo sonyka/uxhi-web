@@ -6858,13 +6858,26 @@
       }</style
     ><style data-framer-css="true" type="text/css"></style>
     <style data-formatting-fix="navigation-whitespace">
-      /* Fix for formatted HTML: Restore whitespace handling for navigation elements */
+      /* Fix for formatted HTML: Restore whitespace handling for elements broken by Prettier formatting */
+
+      /* Navigation links and CTA buttons */
       [data-framer-name="Links"] .framer-text,
       [data-framer-name="Links"] p,
       [data-framer-name="Links"] a,
       [data-framer-name="CTA"] .framer-text,
       [data-framer-name="CTA"] p,
       [data-framer-name="CTA"] a {
+        white-space: nowrap;
+      }
+
+      /* Button labels */
+      .framer-2Ycmv .framer-1daxy8h {
+        white-space: nowrap;
+      }
+
+      /* Room badges (Main Room, Purple Box) */
+      .framer-597oW .framer-6zm3rg,
+      .framer-597oW .framer-qwru3c {
         white-space: nowrap;
       }
     </style>
