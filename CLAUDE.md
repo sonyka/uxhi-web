@@ -58,12 +58,26 @@ web/
 ### Page Builder Pattern
 Pages use a block-based content model. The `PageBuilder` component (`src/components/blocks/PageBuilder.tsx`) maps Sanity block types to React section components. Block types: `heroBlock`, `statsBlock`, `featuresBlock`, `testimonialsBlock`, `teamBlock`, `ctaBlock`, `richTextBlock`.
 
-### Styling
+### Styling & Design System
 Design tokens defined in `globals.css` using Tailwind v4 `@theme` syntax:
 - Primary: teal (`--color-teal-500: #09c0d7`)
 - Secondary: purple (`--color-purple-700: #231769`)
 - Background: cream (`--color-cream: #f4f1ea`)
 - Fonts: Dela Gothic One (display), Nunito (body)
+
+**Design System Reference:** http://localhost:3000/design-system
+
+When building UI, **always check the design system page first** and use existing reusable components rather than writing inline patterns. Available components include:
+
+| Component | Path | Use Case |
+|-----------|------|----------|
+| `QuickLinkPill` | `components/ui/QuickLinkPill.tsx` | Pill with icon, label, subtitle for hero sections |
+| `LinkCard` | `components/ui/LinkCard.tsx` | Cream card with title, teal description, external link icon |
+| `InfoBox` | `components/ui/InfoBox.tsx` | Teal-50 callout box for notes and CTAs |
+| `ArrowLinkButton` | `components/ui/ArrowLinkButton.tsx` | Text link with arrow for dark backgrounds |
+| `FeatureCard` | `components/ui/cards/FeatureCard.tsx` | Card with icon, title, description (cream/white/teal/purple) |
+| `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/cream/white variants) |
+| `SpeechBubbleCard` | `components/ui/cards/SpeechBubbleCard.tsx` | Quote card (speech-bubble or testimonial variant) |
 
 ### Data Fetching
 Uses `next-sanity` with:
