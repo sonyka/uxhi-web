@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
+import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 
 export const metadata: Metadata = {
   title: "Get Involved | UX Hawaii",
@@ -347,25 +348,14 @@ export default function GetInvolvedPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {committees.map((committee) => (
-                <div
+                <SpotIllustrationCard
                   key={committee.name}
-                  className="bg-cream rounded-[24px] p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center group"
-                >
-                  <div className="w-20 h-20 mb-4 relative">
-                    <Image
-                      src={committee.icon}
-                      alt={committee.name}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors">
-                    {committee.name}
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {committee.description}
-                  </p>
-                </div>
+                  imageSrc={committee.icon}
+                  imageAlt={committee.name}
+                  title={committee.name}
+                  description={committee.description}
+                  variant="cream"
+                />
               ))}
             </div>
           </div>

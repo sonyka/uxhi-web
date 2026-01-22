@@ -82,12 +82,13 @@ For *every* page refactored:
 
 **Note on events/page.tsx:** Has 2 similar patterns but uses `ExternalLinkIcon` instead of `ArrowIcon` - left as-is since icon differs.
 
-### Stage 6: Committee/Feature Cards (Optional)
-**Impact:** Committee cards → component uses
+### Stage 6: Committee/Feature Cards ✅
+**Impact:** 6 inline committee cards → 6 component uses
 **Pages:** get-involved
 
-- [ ] `get-involved/page.tsx` - Committee cards
-- [ ] Verify `SpotIllustrationCard` or `FeatureCard` matches layout
+- [x] `get-involved/page.tsx` - Committee cards (using `SpotIllustrationCard` with `variant="cream"`)
+
+**Note:** Minor visual change on md+ breakpoints - `SpotIllustrationCard` uses responsive sizing (larger icons 96px vs 80px, more padding 32px vs 24px) which improves card readability on desktop.
 
 ---
 
