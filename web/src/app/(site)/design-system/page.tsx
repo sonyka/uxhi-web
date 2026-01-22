@@ -583,6 +583,78 @@ export default function DesignSystemPage() {
                 </div>
               </div>
             </div>
+
+            {/* Link Card */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Link Card</h3>
+              <p className="text-sm text-gray-500 mb-4">Cream background with title, description (teal text), and external link icon - used on /resources for online resources, programs, communities</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a
+                  href="#"
+                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
+                >
+                  <div>
+                    <p className="font-medium text-gray-900">Resource Title</p>
+                    <p className="text-sm text-teal-600">Description or label</p>
+                  </div>
+                  <svg className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17L17 7" />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
+                >
+                  <div>
+                    <p className="font-medium text-gray-900">UX Collective</p>
+                    <p className="text-sm text-teal-600">Online publication</p>
+                  </div>
+                  <svg className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17L17 7" />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
+                >
+                  <div>
+                    <p className="font-medium text-gray-900">Nielsen Norman Group</p>
+                    <p className="text-sm text-teal-600">Research & training</p>
+                  </div>
+                  <svg className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17L17 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Note / Info Box */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Note / Info Box</h3>
+              <p className="text-sm text-gray-500 mb-4">Teal-50 background with teal-100 border - used for informational callouts on /resources</p>
+              <div className="space-y-6">
+                {/* Simple Note */}
+                <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6">
+                  <p className="text-gray-700 font-medium">Note: This is an informational callout for important notes or disclaimers.</p>
+                </div>
+
+                {/* Note with CTA */}
+                <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <p className="text-gray-700 font-medium">Do you have more resources to suggest?</p>
+                  <a href="#" className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group">
+                    <span className="text-gray-900">Email Us</span>
+                    <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
+                      <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </Section>
 
