@@ -982,6 +982,69 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
 };
 
+// Mobile navigation dropdown component
+function MobileNav({
+  activeItem,
+  onItemSelect
+}: {
+  activeItem: string;
+  onItemSelect: (id: string) => void;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Find current item label
+  const currentLabel = navigationItems
+    .flatMap(section => section.items)
+    .find(item => item.id === activeItem)?.label || "Select section";
+
+  return (
+    <div className="lg:hidden mb-6">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-xl text-left"
+      >
+        <span className="font-medium text-gray-900">{currentLabel}</span>
+        <ChevronDownIcon className={`w-5 h-5 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.15 }}
+            className="absolute left-0 right-0 mx-6 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-[60vh] overflow-y-auto"
+          >
+            {navigationItems.map((section) => (
+              <div key={section.category} className="py-2">
+                <p className="px-4 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                  {section.category}
+                </p>
+                {section.items.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      onItemSelect(item.id);
+                      setIsOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                      activeItem === item.id
+                        ? "text-teal-600 bg-teal-50 font-medium"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 // Sidebar navigation component
 function Sidebar({
   activeItem,
@@ -1003,7 +1066,7 @@ function Sidebar({
   };
 
   return (
-    <nav className="w-64 flex-shrink-0 overflow-y-auto pr-4 pb-8">
+    <nav className="hidden lg:block w-64 flex-shrink-0 overflow-y-auto pr-4 pb-8">
       <div className="space-y-1">
         {navigationItems.map((section) => (
           <div key={section.category}>
@@ -1069,12 +1132,15 @@ export default function DesignSystemPage() {
         </div>
 
         {/* Main layout with sidebar - both independently scrollable */}
-        <div className="flex gap-12 flex-1 overflow-hidden py-8">
-          {/* Left sidebar */}
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 flex-1 overflow-hidden py-8 relative">
+          {/* Mobile navigation dropdown */}
+          <MobileNav activeItem={activeItem} onItemSelect={setActiveItem} />
+
+          {/* Left sidebar (desktop only) */}
           <Sidebar activeItem={activeItem} onItemSelect={setActiveItem} />
 
           {/* Right content area */}
-          <div className="flex-1 min-w-0 overflow-y-auto pr-4">
+          <div className="flex-1 min-w-0 overflow-y-auto lg:pr-4">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeItem}
