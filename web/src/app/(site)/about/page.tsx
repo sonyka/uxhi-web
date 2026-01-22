@@ -8,6 +8,7 @@ import { FoundersSection } from "@/components/sections/FoundersSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
+import { InfoBox } from "@/components/ui/InfoBox";
 
 export const metadata: Metadata = {
   title: "About | UX Hawaii",
@@ -167,7 +168,7 @@ export default async function AboutPage() {
       {/* Featured Press Section */}
       <section className="pb-16 px-6 bg-cream">
         <div className="max-w-[1100px] mx-auto">
-          <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <span className="text-teal-600 text-sm font-medium uppercase tracking-wider">Featured in Hawai'i Bulletin</span>
               <p className="text-gray-700 font-medium mt-1">Local group explores user experience and interface design</p>
@@ -183,7 +184,7 @@ export default async function AboutPage() {
                 <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
-          </div>
+          </InfoBox>
         </div>
       </section>
 

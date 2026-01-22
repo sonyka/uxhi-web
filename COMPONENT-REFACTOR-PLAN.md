@@ -52,13 +52,14 @@ For *every* page refactored:
 - [x] `resources/page.tsx` - Communities section
 - [ ] `resources/page.tsx` - Tech Organizations section (needs LinkCard logo support - see Component Enhancement Needs)
 
-### Stage 3: InfoBox Refactor
-**Impact:** 3 inline callouts → component uses
+### Stage 3: InfoBox Refactor ✅
+**Impact:** 4 inline callouts → component uses
 **Pages:** resources, about
 
-- [ ] `resources/page.tsx` - Note box
-- [ ] `resources/page.tsx` - Suggestion CTA box
-- [ ] `about/page.tsx` - Press callout
+- [x] `resources/page.tsx` - Note box
+- [x] `resources/page.tsx` - Suggestion CTA box
+- [x] `resources/page.tsx` - Something Missing CTA box
+- [x] `about/page.tsx` - Press callout
 
 ### Stage 4: SpeechBubbleCard Refactor
 **Impact:** Testimonial cards → component uses

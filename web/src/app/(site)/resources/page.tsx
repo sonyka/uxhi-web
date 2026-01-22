@@ -7,6 +7,7 @@ import { SanityImage } from "@/components/ui/SanityImage";
 import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { LinkCard } from "@/components/ui/LinkCard";
+import { InfoBox } from "@/components/ui/InfoBox";
 
 export const metadata: Metadata = {
   title: "Resources | UX Hawaii",
@@ -245,9 +246,9 @@ export default async function ResourcesPage() {
           {/* Local Programs */}
           <div className="mb-12">
             <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Local Programs & Degrees</h3>
-            <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 mb-6">
+            <InfoBox className="mb-6">
               <p className="text-gray-700 font-medium">Note: There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.</p>
-            </div>
+            </InfoBox>
 
             {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -297,7 +298,7 @@ export default async function ResourcesPage() {
                 />
               ))}
             </div>
-            <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-gray-700 font-medium">Do you have more resources to suggest or corrections we should make?</p>
               <Link
                 href="mailto:aloha@uxhi.community?subject=Resource%20Suggestion"
@@ -308,7 +309,7 @@ export default async function ResourcesPage() {
                   <ArrowIcon className="w-4 h-4 text-gray-900" />
                 </span>
               </Link>
-            </div>
+            </InfoBox>
           </div>
         </div>
       </section>
@@ -520,7 +521,7 @@ export default async function ResourcesPage() {
           </div>
 
           {/* Something Missing CTA */}
-          <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-gray-700 font-medium">Something missing?</p>
             <Link
               href="mailto:aloha@uxhi.community?subject=Tech%20Organization%20Suggestion"
@@ -531,7 +532,7 @@ export default async function ResourcesPage() {
                 <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
-          </div>
+          </InfoBox>
         </div>
       </section>
     </main>
