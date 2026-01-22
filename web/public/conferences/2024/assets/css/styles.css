@@ -6837,3 +6837,28 @@ html body {
           );
         }
 
+
+/* === Motif scroll animation === */
+@keyframes motifScrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.motif-scroll-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.motif-scroll-img {
+  width: 100%;
+  height: auto;
+  min-height: 200%;
+  object-fit: cover;
+  object-position: top;
+  animation: motifScrollUp 30s linear infinite;
+}
