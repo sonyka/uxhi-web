@@ -5,7 +5,6 @@ import { InstagramFeed } from "@/components/sections/InstagramFeed";
 import { CommunityPhotosGrid } from "@/components/sections/CommunityPhotosGrid";
 import { sanityFetch } from "@/sanity/lib/live";
 import { INSTAGRAM_POSTS_QUERY, COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
-import { ArrowIcon } from "@/components/ui/icons";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
@@ -62,15 +61,7 @@ export default async function HomePage() {
           </h1>
 
           {/* CTA Button */}
-          <Link
-            href="/join"
-            className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full pl-5 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] group"
-          >
-            <span className="text-black text-base">Join us</span>
-            <span className="w-[30px] h-[30px] rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-              <ArrowIcon className="w-4 h-4 text-black" />
-            </span>
-          </Link>
+          <PrimaryCTA href="/join">Join us</PrimaryCTA>
         </div>
       </section>
 
