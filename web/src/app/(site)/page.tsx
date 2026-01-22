@@ -6,6 +6,7 @@ import { CommunityPhotosGrid } from "@/components/sections/CommunityPhotosGrid";
 import { sanityFetch } from "@/sanity/lib/live";
 import { INSTAGRAM_POSTS_QUERY, COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
 import { ArrowIcon } from "@/components/ui/icons";
+import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 
 export const metadata: Metadata = {
   title: "UXHI - A UX design community for people in Hawaiʻi",
@@ -117,13 +118,9 @@ export default async function HomePage() {
                 <p className="text-white/90 text-[15px] leading-relaxed relative z-10">
                   Come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
                 </p>
-                <Link
-                  href="/join"
-                  className="mt-4 inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium relative z-10"
-                >
-                  <span>Join us</span>
-                  <ArrowIcon className="w-4 h-4" />
-                </Link>
+                <ArrowLinkButton href="/join" className="mt-4 relative z-10">
+                  Join us
+                </ArrowLinkButton>
               </div>
             </div>
 
@@ -188,13 +185,9 @@ export default async function HomePage() {
                 <p className="text-white/90 text-[14px] leading-relaxed relative z-10">
                   Come join our free UXHI community to connect and learn with new UX friends.
                 </p>
-                <Link
-                  href="/join"
-                  className="mt-4 inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium relative z-10"
-                >
-                  <span>Join us</span>
-                  <ArrowIcon className="w-4 h-4" />
-                </Link>
+                <ArrowLinkButton href="/join" className="mt-4 relative z-10">
+                  Join us
+                </ArrowLinkButton>
               </div>
             </div>
 
@@ -242,13 +235,9 @@ export default async function HomePage() {
                 <p className="text-white/90 text-[12px] leading-relaxed relative z-10">
                   Join our free community to connect with UX friends.
                 </p>
-                <Link
-                  href="/join"
-                  className="mt-3 inline-flex items-center gap-1 text-purple-200 hover:text-white text-xs font-medium relative z-10"
-                >
-                  <span>Join us</span>
-                  <ArrowIcon className="w-3 h-3" />
-                </Link>
+                <ArrowLinkButton href="/join" className="mt-3 !gap-1 !text-xs !px-2 !py-1 relative z-10">
+                  Join us
+                </ArrowLinkButton>
               </div>
             </div>
 
@@ -367,13 +356,9 @@ export default async function HomePage() {
                 {" "}or tap into our{" "}
                 <Link href="/find-ux-pro" className="underline hover:text-white transition-colors">membership directory</Link>.
               </p>
-              <Link
-                href="/join"
-                className="mt-6 self-center inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
-              >
-                <span>Join free</span>
-                <ArrowIcon className="w-4 h-4" />
-              </Link>
+              <ArrowLinkButton href="/join" className="mt-6 self-center">
+                Join free
+              </ArrowLinkButton>
             </div>
 
             {/* Events */}
@@ -390,13 +375,9 @@ export default async function HomePage() {
               <p className="text-purple-200 leading-relaxed flex-grow">
                 Experience an array of educational webinars, interactive workshops, and casual meetups we host each month, both virtual and in-person
               </p>
-              <Link
-                href="/events"
-                className="mt-6 self-center inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
-              >
-                <span>View events</span>
-                <ArrowIcon className="w-4 h-4" />
-              </Link>
+              <ArrowLinkButton href="/events" className="mt-6 self-center">
+                View events
+              </ArrowLinkButton>
             </div>
 
             {/* Resources */}
@@ -415,13 +396,9 @@ export default async function HomePage() {
               <p className="text-purple-200 leading-relaxed flex-grow">
                 Discover and share resources in our online content hub to support your UX journey and growth.
               </p>
-              <Link
-                href="/resources"
-                className="mt-6 self-center inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
-              >
-                <span>Browse resources</span>
-                <ArrowIcon className="w-4 h-4" />
-              </Link>
+              <ArrowLinkButton href="/resources" className="mt-6 self-center">
+                Browse resources
+              </ArrowLinkButton>
             </div>
           </div>
         </div>

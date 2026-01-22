@@ -67,19 +67,20 @@ For *every* page refactored:
 
 - [x] `join/page.tsx` - Testimonial cards (component enhanced with `testimonial` variant)
 
-### Stage 5: ArrowLinkButton Refactor ⚠️ NOT APPLICABLE
-**Impact:** Dark-bg text links → component uses
-**Pages:** about
+### Stage 5: ArrowLinkButton Refactor ✅
+**Impact:** 6 inline patterns → 6 component uses
+**Pages:** home (page.tsx)
 
-**Finding:** The Contact section buttons are **styled pill buttons** with circular icon containers, NOT simple text links. The ArrowLinkButton component is designed for subtle text links (like "Read more →"), not for pill buttons with backgrounds and circular icon containers.
+- [x] `page.tsx` - Purple bento "Join us" link (desktop)
+- [x] `page.tsx` - Purple bento "Join us" link (tablet)
+- [x] `page.tsx` - Purple bento "Join us" link (mobile)
+- [x] `page.tsx` - "Join free" link in Free Membership card
+- [x] `page.tsx` - "View events" link in Events card
+- [x] `page.tsx` - "Browse resources" link in Resources card
 
-**Current patterns in Contact section:**
-- "Email us" → White bg button with yellow circular icon container
-- "Join our Slack" → Transparent button with white border + circular icon container
+**Note on about/page.tsx:** The Contact section buttons are **styled pill buttons** with circular icon containers - a different pattern from ArrowLinkButton. These could be addressed with a new `PillButton` component in a future stage.
 
-**Recommendation:** These patterns could be addressed with a new `PillButton` component in a future stage, or left as-is since they're unique to this section.
-
-- [x] `about/page.tsx` - Contact section links (analyzed - patterns don't match ArrowLinkButton)
+**Note on events/page.tsx:** Has 2 similar patterns but uses `ExternalLinkIcon` instead of `ArrowIcon` - left as-is since icon differs.
 
 ### Stage 6: Committee/Feature Cards (Optional)
 **Impact:** Committee cards → component uses
