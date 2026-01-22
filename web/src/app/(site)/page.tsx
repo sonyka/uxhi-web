@@ -5,21 +5,13 @@ import { InstagramFeed } from "@/components/sections/InstagramFeed";
 import { CommunityPhotosGrid } from "@/components/sections/CommunityPhotosGrid";
 import { sanityFetch } from "@/sanity/lib/live";
 import { INSTAGRAM_POSTS_QUERY, COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
+import { ArrowIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "UXHI - A UX design community for people in Hawaiʻi",
   description:
     "Join 500+ UX professionals, students, and curious individuals in Hawaiʻi. Connect, learn, and grow together with UXHI.",
 };
-
-// Arrow Icon Component (Feather arrow-right)
-function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-  );
-}
 
 export default async function HomePage() {
   // Fetch data from Sanity

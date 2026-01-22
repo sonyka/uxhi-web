@@ -1,21 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Volunteer | UX Hawaii",
   description:
     "Support UXHI by volunteering! Join our committees, present at events, contribute to resources, and help grow the UX community in Hawaii.",
 };
-
-// Arrow Icon Component (Feather arrow-right)
-function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-  );
-}
 
 // Placeholder images for the grid
 const gridImages = [

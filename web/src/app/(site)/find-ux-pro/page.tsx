@@ -1,20 +1,12 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { ExternalLinkIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Find UX Pro | UX Hawaii",
   description:
     "Connect with UX professionals in Hawaii. Browse our member directory to find designers, researchers, and UX specialists.",
 };
-
-// Arrow Up Right Icon (Feather)
-function ArrowUpRightIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M7 17L17 7M7 7h10v10" />
-    </svg>
-  );
-}
 
 export default function FindUXProPage() {
   return (
@@ -39,7 +31,7 @@ export default function FindUXProPage() {
               >
                 <span className="text-gray-900">Access the directory</span>
                 <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                  <ArrowUpRightIcon className="w-4 h-4 text-gray-900" />
+                  <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
                 </span>
               </a>
             </div>
@@ -152,7 +144,7 @@ export default function FindUXProPage() {
           >
             <span className="text-gray-900">Access the Directory</span>
             <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-              <ArrowUpRightIcon className="w-4 h-4 text-gray-900" />
+              <ExternalLinkIcon className="w-4 h-4 text-gray-900" />
             </span>
           </a>
         </div>

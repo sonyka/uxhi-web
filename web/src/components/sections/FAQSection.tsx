@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { PlusIcon, MinusIcon } from "@/components/ui/icons";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 interface FAQ {
@@ -15,42 +16,6 @@ interface FAQ {
 interface FAQSectionProps {
   faqs: FAQ[];
   id?: string;
-}
-
-function PlusIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M12 6v12M6 12h12"
-      />
-    </svg>
-  );
-}
-
-function MinusIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M20 12H4"
-      />
-    </svg>
-  );
 }
 
 function FAQItem({

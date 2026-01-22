@@ -5,15 +5,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { ArrowIcon, ExternalLinkIcon, PlusIcon, MinusIcon, ChevronDownIcon } from "@/components/ui/icons";
+import { InfoBox } from "@/components/ui/InfoBox";
+import { LinkCard } from "@/components/ui/LinkCard";
+import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
+import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
+import { FeatureCard, SpotIllustrationCard, SpeechBubbleCard } from "@/components/ui/cards";
 
 // Section wrapper for consistent styling
 function Section({
   title,
   description,
+  componentPath,
   children
 }: {
   title: string;
   description?: string;
+  componentPath?: string | string[];
   children: React.ReactNode;
 }) {
   return (
@@ -21,6 +29,19 @@ function Section({
       <div className="mb-8">
         <h2 className="font-display text-2xl md:text-3xl text-purple-700 mb-2">{title}</h2>
         {description && <p className="text-gray-600">{description}</p>}
+        {componentPath && (
+          <div className="mt-2">
+            {Array.isArray(componentPath) ? (
+              componentPath.map((path) => (
+                <p key={path} className="text-xs text-gray-400 font-mono">
+                  {path}
+                </p>
+              ))
+            ) : (
+              <p className="text-xs text-gray-400 font-mono">{componentPath}</p>
+            )}
+          </div>
+        )}
       </div>
       {children}
     </section>
@@ -90,13 +111,9 @@ function FAQAccordionDemo() {
             <h4 className="font-medium pr-4">{faq.question}</h4>
             <span className="flex-shrink-0">
               {openId === faq.id ? (
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                </svg>
+                <MinusIcon className="w-5 h-5" />
               ) : (
-                <svg className="w-5 h-5 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
-                </svg>
+                <PlusIcon className="w-5 h-5 text-teal-500" />
               )}
             </span>
           </button>
@@ -130,14 +147,7 @@ function DropdownDemo() {
         className="flex items-center gap-2 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium border border-gray-200 rounded-full bg-white"
       >
         Dropdown Example
-        <svg
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+        <ChevronDownIcon className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -331,104 +341,91 @@ export default function DesignSystemPage() {
           description="Button variants and sizes used across the site."
         >
           <div className="space-y-10">
-            {/* Variants */}
+            {/* Button Component - Variants & Sizes */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Variants</h3>
-              <div className="flex flex-wrap gap-4 items-center">
-                <Button variant="primary">Primary</Button>
-                <Button variant="secondary">Secondary</Button>
-                <Button variant="outline">Outline</Button>
-                <Button variant="ghost">Ghost</Button>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Button Component</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/ui/Button.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Base button with variants (primary, secondary, outline, ghost) and sizes (sm, md, lg)</p>
+              <div className="space-y-4">
+                <div className="flex flex-wrap gap-4 items-center">
+                  <Button variant="primary">Primary</Button>
+                  <Button variant="secondary">Secondary</Button>
+                  <Button variant="outline">Outline</Button>
+                  <Button variant="ghost">Ghost</Button>
+                </div>
+                <div className="flex flex-wrap gap-4 items-center">
+                  <Button variant="primary" size="sm">Small</Button>
+                  <Button variant="primary" size="md">Medium</Button>
+                  <Button variant="primary" size="lg">Large</Button>
+                </div>
               </div>
             </div>
 
-            {/* Sizes */}
+            {/* PrimaryCTA Component */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Sizes</h3>
-              <div className="flex flex-wrap gap-4 items-center">
-                <Button variant="primary" size="sm">Small</Button>
-                <Button variant="primary" size="md">Medium</Button>
-                <Button variant="primary" size="lg">Large</Button>
-              </div>
-            </div>
-
-            {/* Special CTAs */}
-            <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Primary CTA (with yellow arrow circle)</h3>
-              <p className="text-sm text-gray-500 mb-4">Internal links use right arrow, external links use up-right arrow</p>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Primary CTA</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/ui/PrimaryCTA.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Pill button with yellow arrow circle. Internal links use right arrow, external links use up-right arrow.</p>
               <div className="flex flex-wrap gap-4 items-center">
                 <PrimaryCTA href="#">Join us</PrimaryCTA>
                 <PrimaryCTA href="#" external>External Link</PrimaryCTA>
               </div>
             </div>
 
-            {/* Arrow Link Button */}
+            {/* ArrowLinkButton Component */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Arrow Link Button</h3>
-              <p className="text-sm text-gray-500 mb-4">Text with arrow, pill-shaped hover state - used under feature cards on dark backgrounds</p>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Arrow Link Button</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/ui/ArrowLinkButton.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Text with arrow, pill-shaped hover state. Used under feature cards on dark backgrounds.</p>
               <div className="flex flex-wrap gap-6 items-center p-6 bg-purple-700 rounded-xl">
-                <a href="#" className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium group">
-                  <span>Arrow Link Button</span>
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
+                <ArrowLinkButton href="#">Learn more</ArrowLinkButton>
               </div>
             </div>
 
-            {/* Subcategory Link Button */}
+            {/* QuickLinkPill Component */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Subcategory Link Button</h3>
-              <p className="text-sm text-gray-500 mb-4">Pill with icon, label, and subtitle - used on hero sections (/get-involved, /resources, /about)</p>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Quick Link Pill</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/ui/QuickLinkPill.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Pill with icon, label, and subtitle. Used on hero sections (/get-involved, /resources, /about).</p>
               <div className="flex flex-wrap gap-4">
-                <a href="#" className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group">
-                  <svg className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
-                    <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" />
-                    <path d="m2 15 6 6" />
-                    <path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z" />
-                  </svg>
-                  <div className="text-left">
-                    <span className="block text-[16px] font-medium text-black">Volunteer</span>
-                    <span className="block text-[14px] text-[#6b7282]">Help grow our community</span>
-                  </div>
-                </a>
-                <a href="#" className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group">
-                  <svg className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <path d="m11 7.601-5.994 8.19a1 1 0 0 0 .1 1.298l.817.818a1 1 0 0 0 1.314.087L15.09 12" />
-                    <circle cx="16" cy="7" r="5" />
-                  </svg>
-                  <div className="text-left">
-                    <span className="block text-[16px] font-medium text-black">Become a Speaker</span>
-                    <span className="block text-[14px] text-[#6b7282]">Share your expertise</span>
-                  </div>
-                </a>
-                <a href="#" className="flex items-center gap-2 px-5 py-2 bg-white rounded-full shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:shadow-md transition-all group">
-                  <svg className="w-7 h-7 text-gray-400 group-hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                    <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" />
-                    <path d="m18 15-2-2" />
-                    <path d="m15 18-2-2" />
-                  </svg>
-                  <div className="text-left">
-                    <span className="block text-[16px] font-medium text-black">Partner</span>
-                    <span className="block text-[14px] text-[#6b7282]">Collaborate with us</span>
-                  </div>
-                </a>
+                <QuickLinkPill
+                  href="#"
+                  icon={
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                      <path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
+                      <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" />
+                      <path d="m2 15 6 6" />
+                      <path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z" />
+                    </svg>
+                  }
+                  label="Volunteer"
+                  subtitle="Help grow our community"
+                />
+                <QuickLinkPill
+                  href="#"
+                  icon={
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                      <path d="m11 7.601-5.994 8.19a1 1 0 0 0 .1 1.298l.817.818a1 1 0 0 0 1.314.087L15.09 12" />
+                      <circle cx="16" cy="7" r="5" />
+                    </svg>
+                  }
+                  label="Become a Speaker"
+                  subtitle="Share your expertise"
+                />
               </div>
             </div>
 
-            {/* CSS Class Buttons */}
+            {/* CSS Utility Classes */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">CSS Utility Classes</h3>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">CSS Utility Classes</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">globals.css</p>
+              <p className="text-sm text-gray-500 mb-4">CSS classes for custom button styling (not component-based).</p>
               <div className="flex flex-wrap gap-4 items-center">
                 <button className="btn-primary">btn-primary</button>
                 <button className="btn-primary-arrow">
                   <span className="text-white">btn-primary-arrow</span>
                   <span className="w-8 h-8 rounded-full bg-[#f5c542] flex items-center justify-center">
-                    <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <ArrowIcon className="w-4 h-4 text-gray-900" />
                   </span>
                 </button>
               </div>
@@ -442,132 +439,100 @@ export default function DesignSystemPage() {
           description="Reusable card patterns and container styles."
         >
           <div className="space-y-12">
-            {/* Standard Cards Grid */}
+            {/* Feature Cards */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Standard Cards</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Feature Card */}
-                <div className="bg-cream p-6 md:p-8 rounded-2xl hover:shadow-lg transition-shadow">
-                  <div className="text-teal-500 mb-4">
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Feature Card</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/ui/cards/FeatureCard.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Card with optional icon, title, and description. Variants: cream (default), white, teal, purple.</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <FeatureCard
+                  variant="cream"
+                  icon={
                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                  </div>
-                  <h3 className="font-semibold text-xl text-purple-700 mb-2">Feature Card</h3>
-                  <p className="text-gray-600">Used in feature grids with icon, title, and description.</p>
-                </div>
-
-                {/* White Card */}
-                <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
-                  <h3 className="font-semibold text-xl text-purple-700 mb-2">White Card</h3>
-                  <p className="text-gray-600">Clean card with subtle shadow for content sections.</p>
-                </div>
-
-                {/* Colored Card - Teal */}
-                <div className="bg-teal-500 p-6 md:p-8 rounded-2xl text-white">
-                  <h3 className="font-semibold text-xl mb-2">Teal Card</h3>
-                  <p className="text-white/90">Accent card for highlighting important information.</p>
-                </div>
-
-                {/* Colored Card - Purple */}
-                <div className="bg-purple-700 p-6 md:p-8 rounded-2xl text-white">
-                  <h3 className="font-semibold text-xl mb-2">Purple Card</h3>
-                  <p className="text-white/90">Secondary accent card for variety.</p>
-                </div>
+                  }
+                  title="Cream Card"
+                  description="Default variant with icon, title, and description."
+                />
+                <FeatureCard
+                  variant="white"
+                  title="White Card"
+                  description="Clean card with subtle shadow for content sections."
+                />
+                <FeatureCard
+                  variant="teal"
+                  title="Teal Card"
+                  description="Accent card for highlighting important information."
+                />
+                <FeatureCard
+                  variant="purple"
+                  title="Purple Card"
+                  description="Secondary accent card for variety."
+                />
               </div>
             </div>
 
-            {/* Large Illustrated Icon Card */}
+            {/* Spot Illustration Cards */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Card with Large Illustrated Icon (Spot Illustration)</h3>
-              <p className="text-sm text-gray-500 mb-4">96px icon on desktop (80px mobile) - used for committees, features on dark backgrounds</p>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Spot Illustration Card</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/ui/cards/SpotIllustrationCard.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Card with large illustrated icon (96px desktop, 80px mobile). Variants: dark, cream, white.</p>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Dark Background Version */}
-                <div className="bg-purple-700 border border-purple-500/30 rounded-[24px] p-8 text-center flex flex-col">
-                  <div className="w-24 h-24 mx-auto mb-6 relative">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/icons/icon-membership.png"
-                      alt="Spot illustration"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="font-display text-2xl text-white mb-4">Dark Card with Spot Illustration</h4>
-                  <p className="text-purple-200 leading-relaxed flex-grow">96px illustrated icon with description and arrow link button below.</p>
-                  <a href="#" className="mt-6 self-center inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium group">
-                    <span>Arrow Link Button</span>
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </div>
-
-                {/* Cream Background Version (Committee style) */}
-                <div className="bg-cream rounded-[24px] p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center group">
-                  <div className="w-24 h-24 mb-4 relative">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/icons/icon-community-engagement.png"
-                      alt="Spot illustration"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors">Cream Card with Spot Illustration</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">96px illustrated icon with hover effect, used for committee cards.</p>
-                </div>
-
-                {/* White Background Version */}
-                <div className="bg-white rounded-[24px] p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center">
-                  <div className="w-24 h-24 mb-4 relative">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/icons/icon-resources.png"
-                      alt="Spot illustration"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="font-display text-lg text-purple-700 mb-2">White Card with Spot Illustration</h4>
-                  <p className="text-gray-600 text-sm">96px illustrated icon on white background with shadow.</p>
-                </div>
+                <SpotIllustrationCard
+                  variant="dark"
+                  imageSrc="/images/icons/icon-membership.png"
+                  imageAlt="Membership illustration"
+                  title="Dark Card with Spot Illustration"
+                  description="96px illustrated icon with description and arrow link button below."
+                  footer={<ArrowLinkButton href="#">Arrow Link Button</ArrowLinkButton>}
+                />
+                <SpotIllustrationCard
+                  variant="cream"
+                  imageSrc="/images/icons/icon-community-engagement.png"
+                  imageAlt="Community engagement illustration"
+                  title="Cream Card with Spot Illustration"
+                  description="96px illustrated icon with hover effect, used for committee cards."
+                />
+                <SpotIllustrationCard
+                  variant="white"
+                  imageSrc="/images/icons/icon-resources.png"
+                  imageAlt="Resources illustration"
+                  title="White Card with Spot Illustration"
+                  description="96px illustrated icon on white background with shadow."
+                />
               </div>
             </div>
 
-            {/* Speech Bubble Testimonial Card */}
+            {/* Speech Bubble Card */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Speech Bubble Testimonial Card</h3>
-              <p className="text-sm text-gray-500 mb-4">White card with notch, teal quote text, avatar, and author info</p>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Speech Bubble Card</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/ui/cards/SpeechBubbleCard.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Testimonial card with notch, quote, avatar placeholder, and author info.</p>
               <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  { quote: "Receiving education support has been a life-changing experience for me. It gave me the financial freedom and confidence to focus fully on my studies.", name: "Emma Helson", time: "1 week ago" },
-                  { quote: "Getting education support has been truly life-changing. It gave me the stability and assurance to concentrate fully on my learning without distractions.", name: "Sophia Marie", time: "2 weeks ago" },
-                  { quote: "Education support has made a world of difference in my life. It offered me the security and confidence to focus completely on my academic goals.", name: "Jackson Lee", time: "3 weeks ago" },
-                ].map((testimonial, i) => (
-                  <div key={i} className="relative">
-                    {/* Speech bubble card */}
-                    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 relative">
-                      <blockquote className="text-teal-600 text-base leading-relaxed mb-4">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </blockquote>
-                      {/* Notch at bottom left */}
-                      <div className="absolute -bottom-3 left-8 w-6 h-6 bg-white border-b border-r border-gray-100 transform rotate-45" />
-                    </div>
-                    {/* Author info below */}
-                    <div className="flex items-center gap-3 mt-6 ml-4">
-                      <div className="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium text-teal-600">{testimonial.name}</p>
-                        <p className="text-teal-500 text-sm">{testimonial.time}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                <SpeechBubbleCard
+                  quote="Receiving education support has been a life-changing experience for me. It gave me the financial freedom and confidence to focus fully on my studies."
+                  authorName="Emma Helson"
+                  timestamp="1 week ago"
+                />
+                <SpeechBubbleCard
+                  quote="Getting education support has been truly life-changing. It gave me the stability and assurance to concentrate fully on my learning without distractions."
+                  authorName="Sophia Marie"
+                  timestamp="2 weeks ago"
+                />
+                <SpeechBubbleCard
+                  quote="Education support has made a world of difference in my life. It offered me the security and confidence to focus completely on my academic goals."
+                  authorName="Jackson Lee"
+                  timestamp="3 weeks ago"
+                />
               </div>
             </div>
 
             {/* Carousel Testimonial Card */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Carousel Testimonial Card</h3>
-              <p className="text-sm text-gray-500 mb-4">Centered large quote with navigation - used in testimonial carousels</p>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Carousel Testimonial Card</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">Inline pattern (not a separate component)</p>
+              <p className="text-sm text-gray-500 mb-4">Centered large quote with photo and author. Used in testimonial carousels.</p>
               <div className="bg-cream p-8 rounded-2xl">
                 <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg max-w-2xl mx-auto text-center">
                   <blockquote className="text-xl md:text-2xl text-gray-700 mb-6">
@@ -586,47 +551,34 @@ export default function DesignSystemPage() {
 
             {/* Link Card */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Link Card</h3>
-              <p className="text-sm text-gray-500 mb-4">Cream background with title, description (teal text), and external link icon - used on /resources for online resources, programs, communities</p>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Link Card</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/ui/LinkCard.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Cream card with title, teal description, and external link icon. Used on /resources.</p>
               <div className="max-w-sm">
-                <a
+                <LinkCard
                   href="#"
-                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
-                >
-                  <div>
-                    <p className="font-medium text-gray-900">Resource Title</p>
-                    <p className="text-sm text-teal-600">Description or label</p>
-                  </div>
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <path d="M7 7h10v10" />
-                    <path d="M7 17L17 7" />
-                  </svg>
-                </a>
+                  title="Resource Title"
+                  description="Description or label"
+                />
               </div>
             </div>
 
-            {/* Note / Info Box */}
+            {/* Info Box */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Note / Info Box</h3>
-              <p className="text-sm text-gray-500 mb-4">Teal-50 background with teal-100 border - used for informational callouts on /resources</p>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Info Box</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/ui/InfoBox.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Teal-50 background with teal-100 border. Used for notes and callouts.</p>
               <div className="space-y-6">
                 {/* Simple Note */}
-                <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6">
+                <InfoBox>
                   <p className="text-gray-700 font-medium">Note: This is an informational callout for important notes or disclaimers.</p>
-                </div>
+                </InfoBox>
 
                 {/* Note with CTA */}
-                <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <p className="text-gray-700 font-medium">Do you have more resources to suggest?</p>
-                  <a href="#" className="inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-6 pr-2 py-2 font-medium hover:bg-gray-50 transition-colors group">
-                    <span className="text-gray-900">Email Us</span>
-                    <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                      <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                    </span>
-                  </a>
-                </div>
+                  <PrimaryCTA href="#">Email Us</PrimaryCTA>
+                </InfoBox>
               </div>
             </div>
           </div>
@@ -640,19 +592,25 @@ export default function DesignSystemPage() {
           <div className="space-y-12">
             {/* FAQ Accordion */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">FAQ Accordion</h3>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">FAQ Accordion</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/sections/FAQSection.tsx</p>
+              <p className="text-sm text-gray-500 mb-4">Expandable accordion with teal active state. Uses PlusIcon/MinusIcon from components/ui/icons/.</p>
               <FAQAccordionDemo />
             </div>
 
             {/* Dropdown */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Dropdown Menu</h3>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Dropdown Menu</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/layout/Header.tsx (inline)</p>
+              <p className="text-sm text-gray-500 mb-4">Animated dropdown with tail pointer. Uses ChevronDownIcon from components/ui/icons/.</p>
               <DropdownDemo />
             </div>
 
             {/* Navigation Pill */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Navigation Pill</h3>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Navigation Pill</h3>
+              <p className="text-xs text-gray-400 font-mono mb-4">components/layout/Header.tsx (inline)</p>
+              <p className="text-sm text-gray-500 mb-4">Header navigation container with pill-shaped border.</p>
               <div className="inline-flex items-center gap-1 border border-gray-200 rounded-full px-2 py-2 bg-white/80">
                 <span className="px-5 py-2.5 text-[15px] text-gray-700 font-medium">Link One</span>
                 <span className="px-5 py-2.5 text-[15px] text-gray-700 font-medium">Link Two</span>
@@ -660,9 +618,7 @@ export default function DesignSystemPage() {
                 <span className="flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-5 pr-1.5 py-1.5 ml-2">
                   <span className="text-[15px] font-medium text-gray-900">CTA</span>
                   <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center">
-                    <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <ArrowIcon className="w-4 h-4 text-gray-900" />
                   </span>
                 </span>
               </div>
@@ -782,27 +738,40 @@ export default function DesignSystemPage() {
         {/* Icons */}
         <Section
           title="Icons"
-          description="Common icons used throughout the site (inline SVGs)."
+          description="Centralized icon components used throughout the site."
+          componentPath="components/ui/icons/"
         >
           <div className="flex flex-wrap gap-6">
-            {[
-              { name: "Arrow", path: "M5 12h14M12 5l7 7-7 7" },
-              { name: "External", path: "M7 7h10v10M7 17L17 7" },
-              { name: "Plus", path: "M12 6v12M6 12h12" },
-              { name: "Minus", path: "M20 12H4" },
-              { name: "Chevron", path: "M19 9l-7 7-7-7" },
-              { name: "Users", path: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" },
-              { name: "Calendar", path: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" },
-            ].map((icon) => (
-              <div key={icon.name} className="flex flex-col items-center gap-2">
-                <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <path d={icon.path} />
-                  </svg>
-                </div>
-                <span className="text-xs text-gray-500">{icon.name}</span>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
+                <ArrowIcon className="w-6 h-6 text-gray-700" />
               </div>
-            ))}
+              <span className="text-xs text-gray-500">ArrowIcon</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
+                <ExternalLinkIcon className="w-6 h-6 text-gray-700" />
+              </div>
+              <span className="text-xs text-gray-500">ExternalLinkIcon</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
+                <PlusIcon className="w-6 h-6 text-gray-700" />
+              </div>
+              <span className="text-xs text-gray-500">PlusIcon</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
+                <MinusIcon className="w-6 h-6 text-gray-700" />
+              </div>
+              <span className="text-xs text-gray-500">MinusIcon</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
+                <ChevronDownIcon className="w-6 h-6 text-gray-700" />
+              </div>
+              <span className="text-xs text-gray-500">ChevronDownIcon</span>
+            </div>
           </div>
         </Section>
       </Container>

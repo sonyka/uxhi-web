@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowIcon, ExternalLinkIcon, ChevronDownIcon } from "@/components/ui/icons";
 
 interface DropdownItem {
   label: string;
@@ -109,14 +110,7 @@ export function Header({ settings }: HeaderProps) {
                     className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
                   >
                     {item.label}
-                    <svg
-                      className={`w-4 h-4 ml-0.5 transition-transform duration-200 ${openDropdown === item.key ? 'rotate-180' : ''}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <ChevronDownIcon className={`w-4 h-4 ml-0.5 transition-transform duration-200 ${openDropdown === item.key ? 'rotate-180' : ''}`} />
                   </Link>
 
                   {/* Dropdown Menu */}
@@ -159,10 +153,7 @@ export function Header({ settings }: HeaderProps) {
                   className="flex items-center gap-1 px-5 py-2.5 text-[15px] text-gray-700 hover:text-gray-900 transition-colors font-medium"
                 >
                   {item.label}
-                  <svg className="w-3.5 h-3.5 ml-0.5 opacity-50" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <path d="M7 7h10v10" />
-                    <path d="M7 17 17 7" />
-                  </svg>
+                  <ExternalLinkIcon className="w-3.5 h-3.5 ml-0.5 opacity-50" />
                 </a>
               ) : (
                 <Link
@@ -182,9 +173,7 @@ export function Header({ settings }: HeaderProps) {
             >
               <span className="text-[15px] font-medium text-gray-900">Join us</span>
               <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                <ArrowIcon className="w-4 h-4 text-gray-900" />
               </span>
             </Link>
           </div>
@@ -248,14 +237,7 @@ export function Header({ settings }: HeaderProps) {
                         className="p-1 text-gray-700 hover:text-teal-500"
                         aria-label={`Toggle ${item.label} submenu`}
                       >
-                        <svg
-                          className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === item.key ? 'rotate-180' : ''}`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                        <ChevronDownIcon className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === item.key ? 'rotate-180' : ''}`} />
                       </button>
                     </div>
                     <AnimatePresence>
@@ -293,10 +275,7 @@ export function Header({ settings }: HeaderProps) {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
-                    <svg className="w-3.5 h-3.5 ml-1.5 opacity-50" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d="M7 7h10v10" />
-                      <path d="M7 17 17 7" />
-                    </svg>
+                    <ExternalLinkIcon className="w-3.5 h-3.5 ml-1.5 opacity-50" />
                   </a>
                 ) : (
                   <Link
@@ -317,9 +296,7 @@ export function Header({ settings }: HeaderProps) {
                 >
                   <span className="text-gray-900">Join us</span>
                   <span className="w-9 h-9 rounded-full bg-[#f5c542] flex items-center justify-center group-hover:bg-[#e5b532] transition-colors">
-                    <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
+                    <ArrowIcon className="w-4 h-4 text-gray-900" />
                   </span>
                 </Link>
               </div>

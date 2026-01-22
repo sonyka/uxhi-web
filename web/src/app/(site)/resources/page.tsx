@@ -4,21 +4,13 @@ import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { RESOURCE_ITEMS_QUERY, TECH_ORGANIZATIONS_QUERY, STATE_OF_UX_REPORTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
+import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Resources | UX Hawaii",
   description:
     "Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaii.",
 };
-
-// Arrow Icon Component
-function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-  );
-}
 
 // Lucide Icons with 1.5px stroke
 function GraduationCapIcon({ className = "w-5 h-5" }: { className?: string }) {
@@ -56,16 +48,6 @@ function NotebookTabsIcon({ className = "w-5 h-5" }: { className?: string }) {
       <path d="M15 12h5" />
       <path d="M15 17h5" />
       <rect width="16" height="20" x="4" y="2" rx="2" />
-    </svg>
-  );
-}
-
-// External Link Icon (Lucide arrow-up-right)
-function ExternalLinkIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M7 7h10v10" />
-      <path d="M7 17 17 7" />
     </svg>
   );
 }

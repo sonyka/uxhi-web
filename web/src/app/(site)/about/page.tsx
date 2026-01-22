@@ -6,31 +6,13 @@ import { FOUNDERS_QUERY, FAQS_QUERY, VALUES_QUERY } from "@/sanity/lib/queries";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { FoundersSection } from "@/components/sections/FoundersSection";
 import { FAQSection } from "@/components/sections/FAQSection";
+import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "About | UX Hawaii",
   description:
     "Learn about UX Hawaii, Hawaii's premier UX community dedicated to connecting, educating, and empowering UX professionals.",
 };
-
-// Arrow Icon Component
-function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-  );
-}
-
-// External Link Icon (Lucide arrow-up-right)
-function ExternalLinkIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M7 7h10v10" />
-      <path d="M7 17 17 7" />
-    </svg>
-  );
-}
 
 // Lucide Icons with 1.5px stroke
 function SquareUserRoundIcon({ className = "w-5 h-5" }: { className?: string }) {

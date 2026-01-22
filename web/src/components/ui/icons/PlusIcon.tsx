@@ -1,0 +1,19 @@
+interface IconProps {
+  className?: string;
+}
+
+export function PlusIcon({ className = "w-4 h-4" }: IconProps) {
+  return (
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      viewBox="0 0 24 24"
+    >
+      <path d="M12 6v12M6 12h12" />
+    </svg>
+  );
+}

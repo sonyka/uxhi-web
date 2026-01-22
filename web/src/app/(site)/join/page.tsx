@@ -5,15 +5,7 @@ import { FAQS_QUERY, TESTIMONIALS_QUERY } from "@/sanity/lib/queries";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SanityImage } from "@/components/ui/SanityImage";
-
-// Arrow Icon Component (Feather arrow-right)
-function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-  );
-}
+import { ArrowIcon } from "@/components/ui/icons";
 
 // Placeholder images for the grid - using existing bento images
 const gridImages = [

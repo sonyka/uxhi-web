@@ -1,21 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Get Involved | UX Hawaii",
   description:
     "Join the UXHI community! Volunteer, speak at events, sponsor, partner, or donate to support UX in Hawaii.",
 };
-
-// Arrow Icon Component
-function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-  );
-}
 
 // Lucide Icons with 1.5px stroke
 function HandHeartIcon({ className = "w-5 h-5" }: { className?: string }) {
@@ -67,15 +59,6 @@ function HandCoinsIcon({ className = "w-5 h-5" }: { className?: string }) {
       <path d="m2 16 6 6" />
       <circle cx="16" cy="9" r="2.9" />
       <circle cx="6" cy="5" r="3" />
-    </svg>
-  );
-}
-
-function ExternalLinkIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M7 7h10v10" />
-      <path d="M7 17 17 7" />
     </svg>
   );
 }
