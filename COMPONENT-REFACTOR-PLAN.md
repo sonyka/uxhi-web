@@ -42,15 +42,15 @@ For *every* page refactored:
 - [x] `get-involved/page.tsx` - 5 pills
 - [x] `about/page.tsx` - 3 pills
 
-### Stage 2: LinkCard Refactor
+### Stage 2: LinkCard Refactor ✅
 **Impact:** ~20+ inline link cards → component uses
 **Pages:** resources
 
-- [ ] `resources/page.tsx` - Online Resources section
-- [ ] `resources/page.tsx` - Local Programs section
-- [ ] `resources/page.tsx` - Online Programs section
-- [ ] `resources/page.tsx` - Communities section
-- [ ] `resources/page.tsx` - Tech Organizations section
+- [x] `resources/page.tsx` - Online Resources section
+- [x] `resources/page.tsx` - Local Programs section
+- [x] `resources/page.tsx` - Online Programs section
+- [x] `resources/page.tsx` - Communities section
+- [ ] `resources/page.tsx` - Tech Organizations section (needs LinkCard logo support - see Component Enhancement Needs)
 
 ### Stage 3: InfoBox Refactor
 **Impact:** 3 inline callouts → component uses

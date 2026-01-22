@@ -6,6 +6,7 @@ import { RESOURCE_ITEMS_QUERY, TECH_ORGANIZATIONS_QUERY, STATE_OF_UX_REPORTS_QUE
 import { SanityImage } from "@/components/ui/SanityImage";
 import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
+import { LinkCard } from "@/components/ui/LinkCard";
 
 export const metadata: Metadata = {
   title: "Resources | UX Hawaii",
@@ -231,19 +232,12 @@ export default async function ResourcesPage() {
                 ? groupedResources['online-resources-students']
                 : onlineResources
               ).map((resource: { _id?: string; name?: string; title?: string; url?: string; description?: string; label?: string }) => (
-                <a
+                <LinkCard
                   key={resource._id || resource.name || resource.title}
                   href={resource.url || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
-                >
-                  <div>
-                    <p className="font-medium text-gray-900">{resource.title || resource.name}</p>
-                    <p className="text-sm text-teal-600">{resource.description || resource.label || new URL(resource.url || "").hostname}</p>
-                  </div>
-                  <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
-                </a>
+                  title={resource.title || resource.name || ""}
+                  description={resource.description || resource.label || new URL(resource.url || "").hostname}
+                />
               ))}
             </div>
           </div>
@@ -258,21 +252,12 @@ export default async function ResourcesPage() {
             {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {groupedResources['local-programs-degrees'].map((program: { _id?: string; title?: string; url?: string; description?: string }) => (
-                  <a
+                  <LinkCard
                     key={program._id}
                     href={program.url || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
-                  >
-                    <div>
-                      <p className="font-medium text-gray-900">{program.title}</p>
-                      {program.description && (
-                        <p className="text-sm text-teal-600">{program.description}</p>
-                      )}
-                    </div>
-                    <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
-                  </a>
+                    title={program.title || ""}
+                    description={program.description}
+                  />
                 ))}
               </div>
             )}
@@ -286,19 +271,12 @@ export default async function ResourcesPage() {
                 ? groupedResources['online-programs-students']
                 : onlinePrograms
               ).map((program: { _id?: string; name?: string; title?: string; url?: string; description?: string; label?: string }) => (
-                <a
+                <LinkCard
                   key={program._id || program.name || program.title}
                   href={program.url || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
-                >
-                  <div>
-                    <p className="font-medium text-gray-900">{program.title || program.name}</p>
-                    <p className="text-sm text-teal-600">{program.description || program.label || new URL(program.url || "").hostname}</p>
-                  </div>
-                  <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
-                </a>
+                  title={program.title || program.name || ""}
+                  description={program.description || program.label || new URL(program.url || "").hostname}
+                />
               ))}
             </div>
           </div>
@@ -311,21 +289,12 @@ export default async function ResourcesPage() {
                 ? groupedResources['design-communities']
                 : communities
               ).map((community: { _id?: string; name?: string; title?: string; url?: string; description?: string }) => (
-                <a
+                <LinkCard
                   key={community._id || community.name || community.title}
                   href={community.url || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
-                >
-                  <div>
-                    <p className="font-medium text-gray-900">{community.title || community.name}</p>
-                    {community.description && (
-                      <p className="text-sm text-teal-600">{community.description}</p>
-                    )}
-                  </div>
-                  <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors" />
-                </a>
+                  title={community.title || community.name || ""}
+                  description={community.description}
+                />
               ))}
             </div>
             <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
