@@ -325,7 +325,7 @@ export default function DesignSystemPage() {
             {/* Gray Scale */}
             <div>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Gray Scale</h3>
-              <div className="grid grid-cols-5 md:grid-cols-11 gap-3">
+              <div className="grid grid-cols-5 md:grid-cols-10 gap-3">
                 <ColorSwatch name="50" value="#f9fafb" />
                 <ColorSwatch name="100" value="#f3f4f6" />
                 <ColorSwatch name="200" value="#e5e7eb" />
@@ -336,18 +336,30 @@ export default function DesignSystemPage() {
                 <ColorSwatch name="700" value="#374151" textColor="text-white" />
                 <ColorSwatch name="800" value="#1f2937" textColor="text-white" />
                 <ColorSwatch name="900" value="#111827" textColor="text-white" />
-                <ColorSwatch name="Black" value="#000000" textColor="text-white" />
               </div>
+              <p className="text-xs text-gray-500 mt-3">Note: <code className="bg-gray-100 px-1 rounded">#6b7282</code> is used in QuickLinkPill subtitle — consider standardizing to gray-500.</p>
             </div>
 
             {/* Neutral / Brand */}
             <div>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Neutral / Brand</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                <ColorSwatch name="White" value="#ffffff" />
+                <ColorSwatch name="Section Gray" value="#f5f5f5" />
                 <ColorSwatch name="Cream" value="#f4f1ea" />
                 <ColorSwatch name="Cream Dark" value="#e8e4db" />
-                <ColorSwatch name="Yellow (Accent)" value="#f5c542" />
-                <ColorSwatch name="White" value="#ffffff" />
+                <ColorSwatch name="Black" value="#000000" textColor="text-white" />
+              </div>
+            </div>
+
+            {/* Accent - Yellow */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Accent — Yellow</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <ColorSwatch name="Yellow" value="#f5c542" />
+                <ColorSwatch name="Yellow Hover" value="#e5b532" />
+                <ColorSwatch name="Yellow Alt" value="#ffcc40" />
+                <ColorSwatch name="Yellow 400" value="#facc15" />
               </div>
             </div>
           </div>
