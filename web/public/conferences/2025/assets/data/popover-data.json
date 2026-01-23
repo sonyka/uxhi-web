@@ -1,0 +1,259 @@
+{
+  "speakers": [
+    {
+      "name": "Kim",
+      "title": "",
+      "bio": "Listening with Aloha: Designing Research That Feeds the People Who Feed Us",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Sean",
+      "title": "",
+      "bio": "Listening with Aloha: Designing Research That Feeds the People Who Feed Us",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Taryn",
+      "title": "2 pm",
+      "bio": "Built By Us: Why Local Talent Should Design Local Tech- A Zippy’s Case Study",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Michelle Tran",
+      "title": "",
+      "bio": "Impossible to Ignore: Expanding Your Luck for Design Opportunities",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Sage Suzuki",
+      "title": "2 pm",
+      "bio": "Built By Us: Why Local Talent Should Design Local Tech- A Zippy’s Case Study",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Krizel Tomines",
+      "title": "Krizel Tomines",
+      "bio": "",
+      "links": [],
+      "imageUrl": "https://framerusercontent.com/images/hudmT0ysD4EczH8S7mNsa8jrOfM.png?width=800&height=800"
+    },
+    {
+      "name": "David Sharek, PhD",
+      "title": "David Sharek, PhD",
+      "bio": "",
+      "links": [],
+      "imageUrl": "https://framerusercontent.com/images/7J3dwFxYz0Mb9GnRjkJOIDfzqBE.png?width=800&height=800"
+    },
+    {
+      "name": "Yan Vishnepolsky",
+      "title": "10 am",
+      "bio": "",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Arleen Fernando",
+      "title": "10 am",
+      "bio": "",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Jenn",
+      "title": "9 am",
+      "bio": "",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Karli",
+      "title": "Karli Young",
+      "bio": "",
+      "links": [],
+      "imageUrl": "https://framerusercontent.com/images/uZcXVUCUDZ6igOpbanqBNgGG4ME.jpeg?width=520&height=589"
+    },
+    {
+      "name": "Micah",
+      "title": "Micah Chao",
+      "bio": "",
+      "links": [],
+      "imageUrl": "https://framerusercontent.com/images/RMQNyVZQ9DAtjshhtp3zoAX2o.jpg?width=456&height=503"
+    },
+    {
+      "name": "YiTing",
+      "title": "Yiting Wang, Ph.D.",
+      "bio": "",
+      "links": [
+        {
+          "href": "https://linkedin.com/in/dr-yiting-wang",
+          "type": "linkedin"
+        }
+      ],
+      "imageUrl": "https://framerusercontent.com/images/IDurShByz3P78odrzyC1cPTFgwI.jpg?width=800&height=800"
+    },
+    {
+      "name": "Chris Ota",
+      "title": "",
+      "bio": "",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Gustavo",
+      "title": "",
+      "bio": "",
+      "links": [],
+      "imageUrl": ""
+    },
+    {
+      "name": "Kaulana Mahina",
+      "title": "",
+      "bio": "",
+      "links": [],
+      "imageUrl": "https://framerusercontent.com/images/EWgtPgBfJYlCOHyK2wbSvWOc0.png?width=281&height=280"
+    }
+  ],
+  "agenda": [
+    {
+      "time": "",
+      "room": "",
+      "type": "",
+      "title": "Portfolio Reviews",
+      "speaker": "",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "",
+      "title": "Photo Booth",
+      "speaker": "Sponsored by Boom Photo Booth",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "",
+      "title": "Professional Headshot",
+      "speaker": "",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "",
+      "title": "Doors Open\nCoffee & Breakfast",
+      "speaker": "",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "",
+      "title": "Opening Remarks",
+      "speaker": "Kat Duran-Higa & Jennifer Kumura",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "keynote",
+      "title": "Wahi Pana: Storied Places",
+      "speaker": "Wahi Pana",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "panel",
+      "title": "Generative AI and the future of UX",
+      "speaker": "",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "talk",
+      "title": "Impossible to Ignore: Expanding Your Luck for Design Opportunities",
+      "speaker": "Michelle Tran and Gage Minamoto",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "workshop",
+      "title": "State of UX in Hawai’i",
+      "speaker": "Michelle Tran",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "panel",
+      "title": "Connecting to Place: Bridging Community, Culture, and Practice in Hawaiʻi",
+      "speaker": "",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "workshop",
+      "title": "Listening with Aloha: Designing Research That Feeds the People Who Feed Us",
+      "speaker": "Sean Tangco and Romyn Kim Sabatchi",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "talk",
+      "title": "Built By Us: Why Local Talent Should Design Local Tech- A Zippy’s Case Study",
+      "speaker": "",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "talk",
+      "title": "Innovating Within Boundaries: Designing Change in Regulated Systems",
+      "speaker": "",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "",
+      "title": "Round Table Discussion",
+      "speaker": "Let’s Talk Story: Round-table Discussions",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "talk",
+      "title": "An Introduction to Tech Criticism",
+      "speaker": "Kim Davidson",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "keynote",
+      "title": "Designing with ʻĀina: Place-Based Design from an ʻŌiwi Perspective",
+      "speaker": "",
+      "description": ""
+    },
+    {
+      "time": "",
+      "room": "",
+      "type": "",
+      "title": "Closing Remarks",
+      "speaker": "Kat Duran-Higa & Jennifer Kumura",
+      "description": ""
+    }
+  ]
+}

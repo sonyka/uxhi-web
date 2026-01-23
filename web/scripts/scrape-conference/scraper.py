@@ -58,7 +58,7 @@ class ConferenceScraper:
         (self.assets_dir / "fonts").mkdir(parents=True, exist_ok=True)
 
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
+            browser = p.chromium.launch(headless=False)
             context = browser.new_context(
                 viewport={"width": 1440, "height": 900},
                 user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
@@ -73,6 +73,10 @@ class ConferenceScraper:
             # Scroll through page to trigger lazy loading
             print("Scrolling to trigger lazy content...")
             self._scroll_page(page)
+
+            # Fix overlay blocking before capturing
+            print("Fixing overlay blocking...")
+            self._fix_overlay_blocking(page)
 
             # Capture interactive elements
             print("Capturing agenda popovers...")
@@ -125,6 +129,29 @@ class ConferenceScraper:
         """)
         time.sleep(1)
 
+    def _fix_overlay_blocking(self, page: Page):
+        """Disable pointer events on Framer overlay elements that block interactions."""
+        page.evaluate("""
+            () => {
+                // Fix template-overlay which blocks all clicks
+                const overlay = document.getElementById('template-overlay');
+                if (overlay) {
+                    overlay.style.pointerEvents = 'none';
+                    overlay.querySelectorAll('*').forEach(el => {
+                        el.style.pointerEvents = 'none';
+                    });
+                    console.log('Fixed template-overlay pointer events');
+                }
+
+                // Also fix any other overlays with similar patterns
+                document.querySelectorAll('[id*="overlay"], [class*="overlay"]').forEach(el => {
+                    if (el.style.position === 'fixed' || el.style.position === 'absolute') {
+                        el.style.pointerEvents = 'none';
+                    }
+                });
+            }
+        """)
+
     def _capture_agenda_popovers(self, page: Page):
         """Capture agenda session tooltips."""
         # Find agenda items using Framer's data attributes
@@ -144,7 +171,10 @@ class ConferenceScraper:
                     continue
 
                 # Try clicking the title to see if tooltip appears
-                title_el.click()
+                try:
+                    title_el.click(timeout=3000, force=True)
+                except PlaywrightTimeout:
+                    continue
                 time.sleep(0.6)
 
                 # Check for any new visible overlay/tooltip
