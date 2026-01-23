@@ -55,7 +55,7 @@ export function MissionSection({ values }: MissionSectionProps) {
   const displayValues = values && values.length > 0 ? values : defaultValues;
 
   return (
-    <section className="py-16 md:py-24 bg-cream">
+    <section className="pb-16 md:pb-24 bg-cream">
       <Container>
         <motion.div
           variants={staggerContainer}
