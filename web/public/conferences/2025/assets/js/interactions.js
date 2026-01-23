@@ -8,36 +8,19 @@
     // Will be populated by extract_popovers.py
     let popoverData = null;
 
-    // Wait for Framer hydration to complete before initializing
-    // Framer loads via async modules and hydrates after initial page parse
-    function initAfterFramerHydration() {
-        if (document.readyState === 'complete') {
-            // Page fully loaded - wait a bit for Framer to finish hydrating
-            setTimeout(performInitialization, 150);
-        } else {
-            // Wait for load event (all resources loaded), then wait for Framer
-            window.addEventListener('load', () => {
-                setTimeout(performInitialization, 150);
-            });
-        }
-    }
+    // Load popover data
+    fetch('/conferences/2025/assets/data/popover-data.json')
+        .then(r => r.json())
+        .then(data => {
+            popoverData = data;
+            console.log('Loaded popover data:', data);
+            initInteractions();
+        })
+        .catch(err => console.log('No popover data yet:', err));
 
-    function performInitialization() {
-        initOverlayFix();
-        initFAQAccordions();
+    function initInteractions() {
+        if (!popoverData) return;
 
-        // Load popover data for speaker popovers
-        fetch('/conferences/2025/assets/data/popover-data.json')
-            .then(r => r.json())
-            .then(data => {
-                popoverData = data;
-                console.log('Loaded popover data:', data);
-                initSpeakerPopovers();
-            })
-            .catch(err => console.log('No popover data yet:', err));
-    }
-
-    function initOverlayFix() {
         // Fix overlay blocking
         const overlay = document.getElementById('template-overlay');
         if (overlay) {
@@ -46,10 +29,12 @@
                 el.style.pointerEvents = 'none';
             });
         }
-    }
 
-    // Start initialization process
-    initAfterFramerHydration();
+        initSpeakerPopovers();
+        initFAQAccordions();
+
+        console.log('Conference interactions initialized');
+    }
 
     function normalizeText(str) {
         return str
@@ -155,29 +140,12 @@
     function initFAQAccordions() {
         document.querySelectorAll('[data-framer-name="Question"]').forEach(question => {
             question.style.cursor = 'pointer';
-            const parent = question.parentElement;
-            const answer = parent.querySelector('[data-framer-name="Answer"]');
-
-            // Framer uses opacity/height for animations, not display
-            // Hide all answers initially
-            if (answer) {
-                answer.style.opacity = '0';
-                answer.style.height = '0';
-                answer.style.overflow = 'hidden';
-            }
-
             question.addEventListener('click', () => {
+                const parent = question.parentElement;
+                const answer = parent.querySelector('[data-framer-name="Answer"]');
                 if (answer) {
-                    const isHidden = answer.style.opacity === '0';
-                    if (isHidden) {
-                        answer.style.opacity = '1';
-                        answer.style.height = 'auto';
-                        answer.style.overflow = 'visible';
-                    } else {
-                        answer.style.opacity = '0';
-                        answer.style.height = '0';
-                        answer.style.overflow = 'hidden';
-                    }
+                    const isHidden = answer.style.display === 'none';
+                    answer.style.display = isHidden ? 'block' : 'none';
                 }
             });
         });
