@@ -15336,5 +15336,21 @@
     </div>
     <!-- Start of bodyEnd -->
     <!-- End of bodyEnd -->
+    <script>
+      // Intercept Framer's client-side navigation for lineup links
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href*="lineup"]');
+        if (link) {
+          var href = link.getAttribute('href');
+          // If Framer modified the href to not have .html, fix it
+          if (href && !href.includes('.html') && href.includes('lineup')) {
+            e.preventDefault();
+            e.stopPropagation();
+            var hash = href.includes('#') ? href.substring(href.indexOf('#')) : '';
+            window.location.href = '/conferences/2025/lineup.html' + hash;
+          }
+        }
+      }, true);
+    </script>
 </body
 ></html>
