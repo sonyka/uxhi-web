@@ -18,14 +18,6 @@ const nextConfig: NextConfig = {
       fullUrl: true,
     },
   },
-  async rewrites() {
-    return [
-      {
-        source: "/conferences/:year",
-        destination: "/conferences/:year/index.html",
-      },
-    ];
-  },
 };
 
 export default nextConfig;
