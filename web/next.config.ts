@@ -20,6 +20,15 @@ const nextConfig: NextConfig = {
       fullUrl: true,
     },
   },
+  async redirects() {
+    return [
+      {
+        source: "/conferences/:year(\\d{4})/index.html",
+        destination: "/conferences/:year/",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
