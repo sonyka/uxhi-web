@@ -81,7 +81,7 @@ export function Header({ settings }: HeaderProps) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 px-6 lg:px-9 pt-6">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -96,7 +96,7 @@ export function Header({ settings }: HeaderProps) {
 
         {/* Desktop Navigation - Pill shaped container */}
         <nav className="hidden lg:flex items-center">
-          <div className="flex items-center gap-1 border border-gray-200 rounded-full px-2 py-2 bg-white/80 backdrop-blur-sm">
+          <div className="flex items-center gap-6 rounded-full pl-8 pr-6 py-4 bg-white">
             {navItems.map((item) =>
               item.dropdown ? (
                 <div
@@ -107,7 +107,7 @@ export function Header({ settings }: HeaderProps) {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1 px-5 py-2.5 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                    className="flex items-center gap-1 py-2 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium"
                   >
                     {item.label}
                     <ChevronDownIcon className={`w-4 h-4 ml-0.5 transition-transform duration-200 ${openDropdown === item.key ? 'rotate-180' : ''}`} />
@@ -150,7 +150,7 @@ export function Header({ settings }: HeaderProps) {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 px-5 py-2.5 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                  className="flex items-center gap-1 py-2 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium"
                 >
                   {item.label}
                   <ExternalLinkIcon className="w-3.5 h-3.5 ml-0.5 opacity-50" />
@@ -159,7 +159,7 @@ export function Header({ settings }: HeaderProps) {
                 <Link
                   key={item.key}
                   href={item.href}
-                  className="flex items-center gap-1 px-5 py-2.5 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                  className="flex items-center gap-1 py-2 text-nav text-gray-700 hover:text-gray-900 transition-colors font-medium"
                 >
                   {item.label}
                 </Link>
@@ -169,7 +169,7 @@ export function Header({ settings }: HeaderProps) {
             {/* CTA Button inside nav pill */}
             <Link
               href="/join"
-              className="flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-5 pr-1.5 py-1.5 ml-2 hover:bg-gray-50 transition-colors group"
+              className="flex items-center gap-2 bg-white rounded-full pl-5 pr-2 py-2 shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:bg-gray-50 transition-colors group"
             >
               <span className="text-nav font-medium text-gray-900">Join us</span>
               <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
