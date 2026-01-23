@@ -1,5 +1,5 @@
-/* === Style block 1 === */
-/* cyrillic-ext */
+
+
       @font-face {
         font-family: "Fragment Mono";
         font-style: normal;
@@ -10,7 +10,7 @@
           U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
           U+FE2E-FE2F;
       }
-      /* latin-ext */
+      
       @font-face {
         font-family: "Fragment Mono";
         font-style: normal;
@@ -22,7 +22,7 @@
           U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
           U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
       }
-      /* latin */
+      
       @font-face {
         font-family: "Fragment Mono";
         font-style: normal;
@@ -444,7 +444,7 @@
         size-adjust: 107.89%;
       }
 
-/* === Style block 2 === */
+
 html,
       body,
       #main {
@@ -6692,7 +6692,7 @@ html,
         padding: 16px;
       }
 
-/* === Style block 3 === */
+
 #__framer-editorbar-container {
         align-items: center;
         display: flex;
@@ -6771,9 +6771,9 @@ html,
         }
       }
 
-/* === Style block 4 === */
+
 #__framer-editorbar {
-        /* https://sergeyski.com/css-color-scheme-and-iframes-lessons-learned-from-disqus-background-bug */
+        
         color-scheme: light dark;
         overflow: hidden;
         position: fixed;
@@ -6805,10 +6805,10 @@ html,
         clip-path: unset;
       }
 
-/* === Style block 6 === */
-/* Fix for formatted HTML: Restore whitespace handling for elements broken by Prettier formatting */
 
-      /* Navigation links and CTA buttons */
+
+
+      
       [data-framer-name="Links"] .framer-text,
       [data-framer-name="Links"] p,
       [data-framer-name="Links"] a,
@@ -6818,18 +6818,18 @@ html,
         white-space: nowrap;
       }
 
-      /* Button labels */
+      
       .framer-2Ycmv .framer-1daxy8h {
         white-space: nowrap;
       }
 
-      /* Room badges (Main Room, Purple Box) */
+      
       .framer-597oW .framer-6zm3rg,
       .framer-597oW .framer-qwru3c {
         white-space: nowrap;
       }
 
-/* === Style block 7 === */
+
 html body {
           background: var(
             --token-80553515-7ab0-44ac-b981-96d7680674fd,
@@ -6838,7 +6838,7 @@ html body {
         }
 
 
-/* === Motif scroll animation === */
+
 @keyframes motifScrollUp {
   0% {
     transform: translateY(0);
