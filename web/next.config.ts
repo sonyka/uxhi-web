@@ -18,11 +18,12 @@ const nextConfig: NextConfig = {
       fullUrl: true,
     },
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
-        source: "/conferences/:year",
-        destination: "/conferences/:year/index.html",
+        source: "/conferences/:year(\\d{4})",
+        destination: "/conferences/:year/",
+        permanent: true,
       },
     ];
   },
