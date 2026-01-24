@@ -48,8 +48,7 @@ export default async function HomePage() {
               <img
                 src="/images/ux-circle.svg?v=3"
                 alt=""
-                className="absolute pointer-events-none"
-                style={{ width: '270px', height: '110px', left: '-70px', top: '-10px', maxWidth: 'none' }}
+                className="absolute pointer-events-none max-w-none w-[100px] h-[45px] -left-[20px] -top-[3px] sm:w-[110px] sm:h-[48px] sm:-left-[22px] sm:-top-[4px] md:w-[160px] md:h-[70px] md:-left-[40px] md:-top-[7px] lg:w-[270px] lg:h-[110px] lg:-left-[70px] lg:-top-[10px]"
               />
               {/* Tooltip */}
               <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal leading-relaxed tracking-normal rounded-xl shadow-lg border border-gray-100 w-72 text-left opacity-0 invisible group-hover/ux:opacity-100 group-hover/ux:visible transition-all duration-200 delay-300 z-50" style={{ wordSpacing: '0.1em' }}>
