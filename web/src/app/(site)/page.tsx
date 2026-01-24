@@ -165,8 +165,8 @@ export default async function HomePage() {
                 />
               </div>
               <div className="h-[150px] rounded-[24px] bg-teal-500 p-4 flex flex-col justify-end text-white">
-                <span className="font-display text-3xl leading-none">2021</span>
-                <span className="text-sm mt-1 opacity-90">Year founded</span>
+                <span className="font-display text-4xl leading-none">2021</span>
+                <span className="text-base mt-1 opacity-90">Year founded</span>
               </div>
             </div>
 
@@ -174,7 +174,7 @@ export default async function HomePage() {
             <div className="w-[200px]">
               <div className="h-[486px] rounded-[999px] bg-purple-700 px-5 py-12 flex flex-col items-center justify-center text-center relative overflow-hidden">
                 <span className="absolute -right-4 top-1/4 font-display text-[140px] text-purple-600/30 leading-none select-none pointer-events-none">52</span>
-                <p className="text-white/90 text-sm leading-relaxed relative z-10">
+                <p className="text-white/90 text-nav leading-relaxed relative z-10">
                   Come join our free UXHI community to connect and learn with new UX friends.
                 </p>
                 <ArrowLinkButton href="/join" className="mt-4 relative z-10">
@@ -186,7 +186,7 @@ export default async function HomePage() {
             {/* Column 3: Teal rounded-top + gray rectangle */}
             <div className="flex flex-col gap-4 w-[200px]">
               <div className="h-[320px] rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-4 pt-16 pb-5 flex items-end justify-end text-white text-right">
-                <span className="text-sm leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
+                <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
               </div>
               <div className="h-[150px] rounded-[24px] overflow-hidden relative">
                 <Image
@@ -197,7 +197,7 @@ export default async function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3">
-                  <span className="font-display text-base text-white leading-tight">UXHI Annual<br/>Conference</span>
+                  <span className="font-display text-lg text-white leading-tight">UXHI Annual<br/>Conference</span>
                 </div>
               </div>
             </div>
@@ -216,13 +216,13 @@ export default async function HomePage() {
                 />
               </div>
               <div className="h-[100px] rounded-[20px] bg-teal-500 p-3 flex flex-col justify-end text-white">
-                <span className="font-display text-2xl leading-none">2021</span>
-                <span className="text-xs mt-0.5 opacity-90">Year founded</span>
+                <span className="font-display text-4xl leading-none">2021</span>
+                <span className="text-base mt-0.5 opacity-90">Year founded</span>
               </div>
             </div>
 
-            {/* Column 2: Tall purple pill */}
-            <div className="flex-1 max-w-[160px]">
+            {/* Column 2: Tall purple pill - hidden on SM and mobile */}
+            <div className="hidden flex-1 max-w-[160px]">
               <div className="h-[356px] rounded-[999px] bg-purple-700 px-4 py-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
                 <p className="text-white/90 text-xs leading-relaxed relative z-10">
                   Join our free community to connect with UX friends.
@@ -236,7 +236,7 @@ export default async function HomePage() {
             {/* Column 3: Teal top + gray rect */}
             <div className="flex flex-col gap-3 flex-1 max-w-[160px]">
               <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-teal-500 px-3 pt-12 pb-4 flex items-end justify-end text-white text-right">
-                <span className="text-xs leading-snug font-medium">From students to<br/>industry leaders,<br/>all welcome</span>
+                <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all welcome</span>
               </div>
               <div className="h-[100px] rounded-[20px] overflow-hidden relative">
                 <Image
@@ -247,7 +247,7 @@ export default async function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-2 left-2 right-2">
-                  <span className="font-display text-xs text-white leading-tight">UXHI Conference</span>
+                  <span className="font-display text-lg text-white leading-tight">UXHI Conference</span>
                 </div>
               </div>
             </div>
