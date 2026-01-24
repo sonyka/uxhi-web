@@ -8,6 +8,7 @@ import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { InlineLink } from "@/components/ui/InlineLink";
+import { MobileTooltip } from "@/components/ui/MobileTooltip";
 
 export const metadata: Metadata = {
   title: "UXHI - A UX design community for people in Hawaiʻi",
@@ -28,7 +29,7 @@ export default async function HomePage() {
       <section className="pt-[200px] pb-12 px-4">
         <div className="max-w-[1280px] mx-auto text-center">
           {/* Member Badge */}
-          <div className="inline-flex items-center gap-3 bg-white rounded-full pl-2 pr-6 py-2 mb-10 border border-gray-100 shadow-sm">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-white rounded-3xl sm:rounded-full px-4 py-3 sm:pl-2 sm:pr-6 sm:py-2 mb-10 border border-gray-100 shadow-sm">
             <Image
               src="/images/members.png"
               alt="UXHI community members"
@@ -42,21 +43,19 @@ export default async function HomePage() {
           {/* Main Headline */}
           <h1 className="font-display text-[40px] md:text-[60px] lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight text-black mb-12">
             A{" "}
-            <span className="text-black hover:text-purple-700 transition-colors relative inline-block cursor-pointer group/ux">
+            <MobileTooltip
+              tooltip="UX is the overall experience a user has when interacting with a product or service."
+              decorationElement={
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src="/images/ux-circle.svg?v=3"
+                  alt=""
+                  className="absolute pointer-events-none max-w-none w-[100px] h-[45px] -left-[20px] -top-[3px] sm:w-[110px] sm:h-[48px] sm:-left-[22px] sm:-top-[4px] md:w-[160px] md:h-[70px] md:-left-[40px] md:-top-[7px] lg:w-[270px] lg:h-[110px] lg:-left-[70px] lg:-top-[10px]"
+                />
+              }
+            >
               UX
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/ux-circle.svg?v=3"
-                alt=""
-                className="absolute pointer-events-none max-w-none w-[100px] h-[45px] -left-[20px] -top-[3px] sm:w-[110px] sm:h-[48px] sm:-left-[22px] sm:-top-[4px] md:w-[160px] md:h-[70px] md:-left-[40px] md:-top-[7px] lg:w-[270px] lg:h-[110px] lg:-left-[70px] lg:-top-[10px]"
-              />
-              {/* Tooltip */}
-              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal leading-relaxed tracking-normal rounded-xl shadow-lg border border-gray-100 w-72 text-left opacity-0 invisible group-hover/ux:opacity-100 group-hover/ux:visible transition-all duration-200 delay-300 z-50" style={{ wordSpacing: '0.1em' }}>
-                UX is the overall experience a user has when interacting with a product or service.
-                {/* Tail */}
-                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
-              </span>
-            </span>{" "}
+            </MobileTooltip>{" "}
             design<br className="hidden md:block" /> community for<br className="hidden md:block" /> people in Hawaiʻi
           </h1>
 
@@ -261,22 +260,20 @@ export default async function HomePage() {
           <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-4 block">What we do</span>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight text-gray-900">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
-            <span className="text-gray-900 hover:text-purple-700 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
+            <MobileTooltip
+              tooltip="Human-centered design is an approach that prioritizes the unique needs of users."
+              className="whitespace-nowrap"
+              decorationElement={
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src="/images/hcd-underline.svg"
+                  alt=""
+                  className="absolute left-0 right-0 -bottom-2 w-full h-auto pointer-events-none hidden md:block"
+                />
+              }
+            >
               Human-Centered Design
-              {/* Underline image */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/hcd-underline.svg"
-                alt=""
-                className="absolute left-0 right-0 -bottom-2 w-full h-auto pointer-events-none"
-              />
-              {/* Tooltip */}
-              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal leading-relaxed tracking-normal rounded-xl shadow-lg border border-gray-100 w-80 text-left opacity-0 invisible group-hover/hcd:opacity-100 group-hover/hcd:visible transition-all duration-200 delay-300 z-50 whitespace-normal" style={{ wordSpacing: '0.1em' }}>
-                Human-centered design is an approach that prioritizes the unique needs of users.
-                {/* Tail */}
-                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
-              </span>
-            </span>{" "}
+            </MobileTooltip>{" "}
             in Hawaiʻi through career development, community networking, and industry advocacy{" "}
             <span className="inline-block">🌺</span>
           </h2>
