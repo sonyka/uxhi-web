@@ -15,7 +15,7 @@ interface LinkCardProps {
  * LinkCard - External link card with cream background
  *
  * Design tokens:
- * - Background: cream (#f4f1ea), hover: gray-100
+ * - Background: cream (#f4f1ea), hover: cream-dark
  * - Border radius: 16px (rounded-[16px])
  * - Padding: 20px (p-5)
  * - Title: text-base, font-medium, gray-900, hover: teal-600
@@ -30,7 +30,7 @@ export function LinkCard({ href, title, description, className = "" }: LinkCardP
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group ${className}`}
+      className={`flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-cream-dark transition-colors group ${className}`}
     >
       <div>
         <p className="text-base font-medium text-gray-900 group-hover:text-teal-600 transition-colors">
