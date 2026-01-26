@@ -73,7 +73,7 @@ export default async function HomePage() {
             <div className="flex flex-col gap-4 w-[234px]">
               <div className="h-[382px] rounded-[999px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/ux101-group.jpg"
+                  src="/images/home/ux101-group.jpg"
                   alt="UXHI UX 101 workshop"
                   fill
                   className="object-cover"
@@ -89,7 +89,7 @@ export default async function HomePage() {
             <div className="flex flex-col justify-end w-[234px]">
               <div className="h-[382px] rounded-[999px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/crowd-community.jpg"
+                  src="/images/home/crowd-community.jpg"
                   alt="UXHI community gathering"
                   fill
                   className="object-cover"
@@ -119,7 +119,7 @@ export default async function HomePage() {
             <div className="flex flex-col justify-end w-[234px]">
               <div className="h-[382px] rounded-[999px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/photobooth.jpg"
+                  src="/images/home/photobooth.jpg"
                   alt="UXHI members at photo booth"
                   fill
                   className="object-cover"
@@ -138,7 +138,7 @@ export default async function HomePage() {
               </div>
               <div className="h-[182px] rounded-[24px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/uxhicon-25.jpg"
+                  src="/images/home/uxhicon-25.jpg"
                   alt="UXHI Annual Conference"
                   fill
                   className="object-cover"
@@ -157,7 +157,7 @@ export default async function HomePage() {
             <div className="flex flex-col gap-4 w-[200px]">
               <div className="h-[320px] rounded-[999px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/ux101-group.jpg"
+                  src="/images/home/ux101-group.jpg"
                   alt="UXHI UX 101 workshop"
                   fill
                   className="object-cover"
@@ -189,7 +189,7 @@ export default async function HomePage() {
               </div>
               <div className="h-[150px] rounded-[24px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/uxhicon-25.jpg"
+                  src="/images/home/uxhicon-25.jpg"
                   alt="UXHI Annual Conference"
                   fill
                   className="object-cover"
@@ -208,7 +208,7 @@ export default async function HomePage() {
             <div className="flex flex-col gap-3 flex-1 max-w-[160px]">
               <div className="h-[240px] rounded-[999px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/ux101-group.jpg"
+                  src="/images/home/ux101-group.jpg"
                   alt="UXHI UX 101 workshop"
                   fill
                   className="object-cover"
@@ -239,7 +239,7 @@ export default async function HomePage() {
               </div>
               <div className="h-[100px] rounded-[20px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/uxhicon-25.jpg"
+                  src="/images/home/uxhicon-25.jpg"
                   alt="UXHI Annual Conference"
                   fill
                   className="object-cover"
