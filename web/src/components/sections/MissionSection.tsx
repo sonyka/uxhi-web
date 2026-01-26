@@ -74,7 +74,7 @@ export function MissionSection({ values }: MissionSectionProps) {
               {/* Underline image */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/hcd-underline.svg"
+                src="/images/home/hcd-underline.svg"
                 alt=""
                 className="absolute left-0 right-0 -bottom-1 w-full h-auto pointer-events-none"
               />

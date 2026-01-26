@@ -132,7 +132,7 @@ export default async function JoinPage() {
         <div className="max-w-[1300px] mx-auto">
           <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
             <Image
-              src="/images/community-photo.jpg"
+              src="/images/home/community-photo.jpg"
               alt="UXHI community group photo"
               fill
               className="object-cover"

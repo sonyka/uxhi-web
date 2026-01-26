@@ -114,6 +114,7 @@ const pastPartners = [
   { name: "AI Hawaii", logo: "/images/company_logos/HiAI-logo.jpg", width: 80, height: 32 },
   { name: "Honolulu Tech Network", logo: "/images/company_logos/htn-logo.jpeg", width: 80, height: 28 },
   { name: "Honolulu BitDevs", logo: "/images/company_logos/hnl-bitdevs-logo.jpg", width: 80, height: 28 },
+  { name: "HTW", logo: "/images/company_logos/htw-logo.webp", width: 80, height: 32 },
 ];
 
 // Past sponsors with logos - sizes adjusted for optical balance
