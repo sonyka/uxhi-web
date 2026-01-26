@@ -2,7 +2,7 @@
         font-family: "Fragment Mono";
         font-style: normal;
         font-weight: 400;
-        src: url(/conferences/2024/assets/images/50c8c8c8f965.woff)
+        src: url(https://fonts.gstatic.com/s/fragmentmono/v6/4iCr6K5wfMRRjxp0DA6-2CLnB45HhrUI.woff2)
           format("woff2");
         unicode-range:
           U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F,
@@ -12,7 +12,7 @@
         font-family: "Fragment Mono";
         font-style: normal;
         font-weight: 400;
-        src: url(/conferences/2024/assets/images/389315d3c069.woff)
+        src: url(https://fonts.gstatic.com/s/fragmentmono/v6/4iCr6K5wfMRRjxp0DA6-2CLnB41HhrUI.woff2)
           format("woff2");
         unicode-range:
           U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
@@ -23,7 +23,7 @@
         font-family: "Fragment Mono";
         font-style: normal;
         font-weight: 400;
-        src: url(/conferences/2024/assets/images/5fe3cfd44152.woff)
+        src: url(https://fonts.gstatic.com/s/fragmentmono/v6/4iCr6K5wfMRRjxp0DA6-2CLnB4NHhg.woff2)
           format("woff2");
         unicode-range:
           U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
@@ -32,31 +32,31 @@
       }
       @font-face {
         font-family: "Comfortaa";
-        src: url(/conferences/2024/assets/images/aad5e4462a55.woff);
+        src: url("https://fonts.gstatic.com/s/comfortaa/v47/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4Y_LPrEVIT9c2c8.woff2");
         font-style: normal;
         font-weight: 700;
       }
       @font-face {
         font-family: "Comfortaa";
-        src: url(/conferences/2024/assets/images/1cb08cbd2c0e.woff);
+        src: url("https://fonts.gstatic.com/s/comfortaa/v47/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4WjMPrEVIT9c2c8.woff2");
         font-style: normal;
         font-weight: 400;
       }
       @font-face {
         font-family: "Dela Gothic One";
-        src: url(/conferences/2024/assets/images/8090a1a22fff.woff);
+        src: url("https://fonts.gstatic.com/s/delagothicone/v18/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsJQAlbUA.woff2");
         font-style: normal;
         font-weight: 400;
       }
       @font-face {
         font-family: "Comfortaa";
-        src: url(/conferences/2024/assets/images/03a694ab36ce.woff);
+        src: url("https://fonts.gstatic.com/s/comfortaa/v47/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4bbLPrEVIT9c2c8.woff2");
         font-style: normal;
         font-weight: 600;
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/5f8cf06e1405.woff);
+        src: url("https://framerusercontent.com/assets/5vvr9Vy74if2I6bQbJvbw7SY1pQ.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 400;
@@ -66,7 +66,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/edff10a1b001.woff);
+        src: url("https://framerusercontent.com/assets/EOr0mi4hNtlgWNn9if640EZzXCo.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 400;
@@ -74,7 +74,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/b99090d9c1c5.woff);
+        src: url("https://framerusercontent.com/assets/Y9k9QrlZAqio88Klkmbd8VoMQc.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 400;
@@ -82,7 +82,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/a49dcef5466f.woff);
+        src: url("https://framerusercontent.com/assets/OYrD2tBIBPvoJXiIHnLoOXnY9M.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 400;
@@ -90,7 +90,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/a428543ca5a6.woff);
+        src: url("https://framerusercontent.com/assets/JeYwfuaPfZHQhEG8U5gtPDZ7WQ.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 400;
@@ -100,7 +100,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/4eab013a4d52.woff);
+        src: url("https://framerusercontent.com/assets/GrgcKwrN6d3Uz8EwcLHZxwEfC4.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 400;
@@ -111,7 +111,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/9265fc7e6089.woff);
+        src: url("https://framerusercontent.com/assets/b6Y37FthZeALduNqHicBT6FutY.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 400;
@@ -121,7 +121,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/93a40ae2565c.woff);
+        src: url("https://framerusercontent.com/assets/mkY5Sgyq51ik0AMrSBwhm9DJg.woff2");
         font-style: normal;
         font-weight: 900;
         unicode-range:
@@ -130,28 +130,28 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/7a53feaf62a3.woff);
+        src: url("https://framerusercontent.com/assets/X5hj6qzcHUYv7h1390c8Rhm6550.woff2");
         font-style: normal;
         font-weight: 900;
         unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/c1e13cc8bb82.woff);
+        src: url("https://framerusercontent.com/assets/gQhNpS3tN86g8RcVKYUUaKt2oMQ.woff2");
         font-style: normal;
         font-weight: 900;
         unicode-range: U+1F00-1FFF;
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/c03d5e34cbbd.woff);
+        src: url("https://framerusercontent.com/assets/cugnVhSraaRyANCaUtI5FV17wk.woff2");
         font-style: normal;
         font-weight: 900;
         unicode-range: U+0370-03FF;
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/0375e80e6ea5.woff);
+        src: url("https://framerusercontent.com/assets/5HcVoGak8k5agFJSaKa4floXVu0.woff2");
         font-style: normal;
         font-weight: 900;
         unicode-range:
@@ -160,7 +160,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/37c6e7cc0ba9.woff);
+        src: url("https://framerusercontent.com/assets/jn4BtSPLlS0NDp1KiFAtFKiiY0o.woff2");
         font-style: normal;
         font-weight: 900;
         unicode-range:
@@ -170,7 +170,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/c98217719eb2.woff);
+        src: url("https://framerusercontent.com/assets/P2Bw01CtL0b9wqygO0sSVogWbo.woff2");
         font-style: normal;
         font-weight: 900;
         unicode-range:
@@ -179,7 +179,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/6f3715cab07d.woff);
+        src: url("https://framerusercontent.com/assets/05KsVHGDmqXSBXM4yRZ65P8i0s.woff2");
         font-style: italic;
         font-weight: 900;
         unicode-range:
@@ -188,28 +188,28 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/b58413a1e72d.woff);
+        src: url("https://framerusercontent.com/assets/ky8ovPukK4dJ1Pxq74qGhOqCYI.woff2");
         font-style: italic;
         font-weight: 900;
         unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/221ad35a7237.woff);
+        src: url("https://framerusercontent.com/assets/vvNSqIj42qeQ2bvCRBIWKHscrc.woff2");
         font-style: italic;
         font-weight: 900;
         unicode-range: U+1F00-1FFF;
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/cb6ae4da3a96.woff);
+        src: url("https://framerusercontent.com/assets/3ZmXbBKToJifDV9gwcifVd1tEY.woff2");
         font-style: italic;
         font-weight: 900;
         unicode-range: U+0370-03FF;
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/ffd1934e8f5f.woff);
+        src: url("https://framerusercontent.com/assets/FNfhX3dt4ChuLJq2PwdlxHO7PU.woff2");
         font-style: italic;
         font-weight: 900;
         unicode-range:
@@ -218,7 +218,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/0d22fde47203.woff);
+        src: url("https://framerusercontent.com/assets/g0c8vEViiXNlKAgI4Ymmk3Ig.woff2");
         font-style: italic;
         font-weight: 900;
         unicode-range:
@@ -228,7 +228,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/12d420a6448f.woff);
+        src: url("https://framerusercontent.com/assets/efTfQcBJ53kM2pB1hezSZ3RDUFs.woff2");
         font-style: italic;
         font-weight: 900;
         unicode-range:
@@ -237,7 +237,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/c25b237e726a.woff);
+        src: url("https://framerusercontent.com/assets/H89BbHkbHDzlxZzxi8uPzTsp90.woff2");
         font-display: swap;
         font-style: italic;
         font-weight: 700;
@@ -247,7 +247,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/41a43b049536.woff);
+        src: url("https://framerusercontent.com/assets/u6gJwDuwB143kpNK1T1MDKDWkMc.woff2");
         font-display: swap;
         font-style: italic;
         font-weight: 700;
@@ -255,7 +255,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/2c792394544c.woff);
+        src: url("https://framerusercontent.com/assets/43sJ6MfOPh1LCJt46OvyDuSbA6o.woff2");
         font-display: swap;
         font-style: italic;
         font-weight: 700;
@@ -263,7 +263,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/7fa5929aa255.woff);
+        src: url("https://framerusercontent.com/assets/wccHG0r4gBDAIRhfHiOlq6oEkqw.woff2");
         font-display: swap;
         font-style: italic;
         font-weight: 700;
@@ -271,7 +271,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/e83c64438d1b.woff);
+        src: url("https://framerusercontent.com/assets/WZ367JPwf9bRW6LdTHN8rXgSjw.woff2");
         font-display: swap;
         font-style: italic;
         font-weight: 700;
@@ -281,7 +281,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/9102815a8c00.woff);
+        src: url("https://framerusercontent.com/assets/QxmhnWTzLtyjIiZcfaLIJ8EFBXU.woff2");
         font-display: swap;
         font-style: italic;
         font-weight: 700;
@@ -292,7 +292,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/85822109b28c.woff);
+        src: url("https://framerusercontent.com/assets/2A4Xx7CngadFGlVV4xrO06OBHY.woff2");
         font-display: swap;
         font-style: italic;
         font-weight: 700;
@@ -302,7 +302,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/c34cb7c87d81.woff);
+        src: url("https://framerusercontent.com/assets/5A3Ce6C9YYmCjpQx9M4inSaKU.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 500;
@@ -312,7 +312,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/b5dccd4828a2.woff);
+        src: url("https://framerusercontent.com/assets/Qx95Xyt0Ka3SGhinnbXIGpEIyP4.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 500;
@@ -320,7 +320,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/30cb6f23af06.woff);
+        src: url("https://framerusercontent.com/assets/6mJuEAguuIuMog10gGvH5d3cl8.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 500;
@@ -328,7 +328,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/21835c5cdbaa.woff);
+        src: url("https://framerusercontent.com/assets/xYYWaj7wCU5zSQH0eXvSaS19wo.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 500;
@@ -336,7 +336,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/0d786044c3da.woff);
+        src: url("https://framerusercontent.com/assets/otTaNuNpVK4RbdlT7zDDdKvQBA.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 500;
@@ -346,7 +346,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/5a028a332981.woff);
+        src: url("https://framerusercontent.com/assets/UjlFhCnUjxhNfep4oYBPqnEssyo.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 500;
@@ -357,7 +357,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/6e3aa1183f1d.woff);
+        src: url("https://framerusercontent.com/assets/DolVirEGb34pEXEp8t8FQBSK4.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 500;
@@ -367,7 +367,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/471627fda4d9.woff);
+        src: url("https://framerusercontent.com/assets/DpPBYI0sL4fYLgAkX8KXOPVt7c.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 700;
@@ -377,7 +377,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/0a9da4a937ce.woff);
+        src: url("https://framerusercontent.com/assets/4RAEQdEOrcnDkhHiiCbJOw92Lk.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 700;
@@ -385,7 +385,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/54246b8fb2af.woff);
+        src: url("https://framerusercontent.com/assets/1K3W8DizY3v4emK8Mb08YHxTbs.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 700;
@@ -393,7 +393,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/101b08c6b065.woff);
+        src: url("https://framerusercontent.com/assets/tUSCtfYVM1I1IchuyCwz9gDdQ.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 700;
@@ -401,7 +401,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/5e3a9b6acc91.woff);
+        src: url("https://framerusercontent.com/assets/VgYFWiwsAC5OYxAycRXXvhze58.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 700;
@@ -411,7 +411,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/e75bc0c6a416.woff);
+        src: url("https://framerusercontent.com/assets/syRNPWzAMIrcJ3wIlPIP43KjQs.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 700;
@@ -422,7 +422,7 @@
       }
       @font-face {
         font-family: "Inter";
-        src: url(/conferences/2024/assets/images/d464fb106244.woff);
+        src: url("https://framerusercontent.com/assets/GIryZETIX4IFypco5pYZONKhJIo.woff2");
         font-display: swap;
         font-style: normal;
         font-weight: 700;
@@ -438,7 +438,7 @@
         line-gap-override: 0%;
         size-adjust: 107.89%;
       }
-html,
+      html,
       body,
       #main {
         box-sizing: border-box;
@@ -1133,877 +1133,16 @@ html,
           --framer-aspect-ratio-supported: auto;
         }
       }
-      .framer-ovyBe.framer-1ksk5cr,
-      .framer-ovyBe .framer-1ksk5cr {
+      .framer-8l0yD.framer-q0smb8,
+      .framer-8l0yD .framer-q0smb8 {
         display: block;
       }
-      .framer-ovyBe.framer-kkgkns {
+      .framer-8l0yD.framer-1bt6uvj {
         background-color: var(
-          --token-80553515-7ab0-44ac-b981-96d7680674fd,
-          #fff
+          --token-6bc95936-841f-4358-a84e-b5a3fd26ffd0,
+          #11292b
         );
         flex-flow: column;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 0;
-        width: 1200px;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-atxw53 {
-        background-color: #201052;
-        flex-flow: column;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 0;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1qfu9p {
-        flex-flow: row;
-        flex: none;
-        place-content: flex-start center;
-        align-items: flex-start;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 10px;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-2s0pd7 {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 10px;
-        width: 75%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1a9ggsh {
-        will-change: var(--framer-will-change-effect-override, transform);
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 10px;
-        width: 100%;
-        height: 98vh;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1hqaz5b {
-        will-change: var(--framer-will-change-override, transform);
-        background-color: #ffc4fe;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 0;
-        width: 100%;
-        height: 82%;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1d21tig-container,
-      .framer-ovyBe .framer-10t8u83-container,
-      .framer-ovyBe .framer-walweb-container,
-      .framer-ovyBe .framer-iy41qx-container,
-      .framer-ovyBe .framer-1h8f55v-container,
-      .framer-ovyBe .framer-cw915p-container,
-      .framer-ovyBe .framer-wftedg-container,
-      .framer-ovyBe .framer-yqa6pj-container,
-      .framer-ovyBe .framer-15zvyvk-container,
-      .framer-ovyBe .framer-1yc86c-container,
-      .framer-ovyBe .framer-3ru1ge-container,
-      .framer-ovyBe .framer-g9irs2-container,
-      .framer-ovyBe .framer-5r3vn9-container,
-      .framer-ovyBe .framer-1m7ef11-container,
-      .framer-ovyBe .framer-qbr7o3-container,
-      .framer-ovyBe .framer-6j14wl-container,
-      .framer-ovyBe .framer-7dgyti-container,
-      .framer-ovyBe .framer-1ljootp-container,
-      .framer-ovyBe .framer-1cs5e5v-container,
-      .framer-ovyBe .framer-1qddq11-container,
-      .framer-ovyBe .framer-pgak3s-container,
-      .framer-ovyBe .framer-11pr3gt-container,
-      .framer-ovyBe .framer-16arkp3-container {
-        flex: none;
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1r0uc7v,
-      .framer-ovyBe .framer-odbgu8,
-      .framer-ovyBe .framer-yhmqcv {
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: center;
-        align-items: center;
-        gap: 0;
-        width: 100%;
-        height: 1px;
-        padding: 0;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1rzh110 {
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: center;
-        align-items: center;
-        gap: 30px;
-        width: 100%;
-        max-width: 700px;
-        height: 1px;
-        padding: 0;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1lyhwvh,
-      .framer-ovyBe .framer-lhdv3z,
-      .framer-ovyBe .framer-xnge2e {
-        flex-flow: column;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 20px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1omdrzv {
-        flex-flow: row;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0 0 20px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-14nwdkr-container {
-        flex: none;
-        width: 183px;
-        height: 128px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-m9z9yj,
-      .framer-ovyBe .framer-rmzo3b,
-      .framer-ovyBe .framer-1dsmkvx {
-        flex-flow: column;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 20px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1he5j8w {
-        flex: none;
-        width: 700px;
-        height: 153px;
-        position: relative;
-        background-image: url('/conferences/2024/assets/images/uxperience-aloha-text.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-      .framer-ovyBe .framer-uro67s {
-        flex-flow: column;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 4px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-gn251a {
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1pow5v6 {
-        flex-flow: row;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 4px;
-        width: 100%;
-        height: 24px;
-        padding: 0;
-        text-decoration: none;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-18lhgfu {
-        --framer-link-text-color: #09f;
-        --framer-link-text-decoration: underline;
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: auto;
-        max-width: 50%;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-3rg6z4-container {
-        flex: none;
-        width: 16px;
-        height: 16px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-169e7zu {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-end;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1ecoesn-container,
-      .framer-ovyBe .framer-5rvi1d-container {
-        flex: 1 0 0;
-        width: 1px;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-n0ihkd {
-        flex-flow: row;
-        flex: 1 0 0;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: 1px;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-r7ju6w,
-      .framer-ovyBe .framer-temeup,
-      .framer-ovyBe .framer-74tor3,
-      .framer-ovyBe .framer-9rgz7w {
-        background-color: #4424a7;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 16px;
-        width: 1px;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-16rm89l,
-      .framer-ovyBe .framer-dojvxs,
-      .framer-ovyBe .framer-1w5b92k,
-      .framer-ovyBe .framer-1357g9m,
-      .framer-ovyBe .framer-1c1hz8j,
-      .framer-ovyBe .framer-1b89spl,
-      .framer-ovyBe .framer-8kruf9,
-      .framer-ovyBe .framer-1pbso0u,
-      .framer-ovyBe .framer-1wfbkpu,
-      .framer-ovyBe .framer-1e3uip0,
-      .framer-ovyBe .framer-1n1satu,
-      .framer-ovyBe .framer-y2vxy,
-      .framer-ovyBe .framer-1ne5cm4 {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start center;
-        align-items: flex-start;
-        gap: 8px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1t4fj6c,
-      .framer-ovyBe .framer-ckqqlb,
-      .framer-ovyBe .framer-z3kqyl,
-      .framer-ovyBe .framer-1h37ea0,
-      .framer-ovyBe .framer-bi9cbm,
-      .framer-ovyBe .framer-hvsgdf,
-      .framer-ovyBe .framer-b7yver,
-      .framer-ovyBe .framer-zduzu4 {
-        --framer-link-text-color: #09f;
-        --framer-link-text-decoration: underline;
-        opacity: 0.7;
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-ie1of6,
-      .framer-ovyBe .framer-1w0zojn,
-      .framer-ovyBe .framer-1yhi7pu,
-      .framer-ovyBe .framer-a1sqjj,
-      .framer-ovyBe .framer-nfltke,
-      .framer-ovyBe .framer-1p33790,
-      .framer-ovyBe .framer-feajql,
-      .framer-ovyBe .framer-hoi65m,
-      .framer-ovyBe .framer-18ofch1,
-      .framer-ovyBe .framer-1gdazrf,
-      .framer-ovyBe .framer-1py2j8n,
-      .framer-ovyBe .framer-16ebtp0,
-      .framer-ovyBe .framer-11d1urp,
-      .framer-ovyBe .framer-lgfdpx,
-      .framer-ovyBe .framer-cicbis,
-      .framer-ovyBe .framer-qpqanl,
-      .framer-ovyBe .framer-k6xok7,
-      .framer-ovyBe .framer-146cfzb,
-      .framer-ovyBe .framer-1dztceh,
-      .framer-ovyBe .framer-1wbirxs,
-      .framer-ovyBe .framer-1eol2uh,
-      .framer-ovyBe .framer-hhar17,
-      .framer-ovyBe .framer-1sww0h1,
-      .framer-ovyBe .framer-hgrvdg,
-      .framer-ovyBe .framer-1rg7a2c,
-      .framer-ovyBe .framer-1n9aett,
-      .framer-ovyBe .framer-s7rqpr,
-      .framer-ovyBe .framer-oyxpdf,
-      .framer-ovyBe .framer-o621a,
-      .framer-ovyBe .framer-u3ld2u,
-      .framer-ovyBe .framer-1fg99de,
-      .framer-ovyBe .framer-1hhqupp,
-      .framer-ovyBe .framer-394cep,
-      .framer-ovyBe .framer-11n989,
-      .framer-ovyBe .framer-2op824,
-      .framer-ovyBe .framer-gwhm6,
-      .framer-ovyBe .framer-1sar3xy,
-      .framer-ovyBe .framer-ucbsdp,
-      .framer-ovyBe .framer-2ezkmj,
-      .framer-ovyBe .framer-1wqc466 {
-        --framer-link-text-color: #09f;
-        --framer-link-text-decoration: underline;
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-p9olr4,
-      .framer-ovyBe .framer-7zkm82,
-      .framer-ovyBe .framer-qg2hvo {
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-p8x9re {
-        background-color: var(
-          --token-90274b3e-3774-4918-b87c-85663abdd5b9,
-          #f1fdfb
-        );
-        border-radius: 10px;
-        flex-flow: column;
-        flex: none;
-        place-content: flex-end;
-        align-items: flex-end;
-        gap: 0;
-        width: 100%;
-        height: min-content;
-        padding: 8px;
-        scroll-margin-top: 10px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-13ei6hu {
-        flex-flow: row;
-        flex: none;
-        place-content: flex-end flex-start;
-        align-items: flex-end;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 24px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1t9j2au,
-      .framer-ovyBe .framer-1luyww2,
-      .framer-ovyBe .framer-k0e8r4,
-      .framer-ovyBe .framer-87v9t6,
-      .framer-ovyBe .framer-tv1jor,
-      .framer-ovyBe .framer-1sszo59 {
-        --framer-link-text-color: #09f;
-        --framer-link-text-decoration: underline;
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: 70%;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1jpsnfv-container,
-      .framer-ovyBe .framer-1eke1v9-container {
-        flex: none;
-        width: 100%;
-        height: 56px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-13ewjmm,
-      .framer-ovyBe .framer-7yqctd {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: 500px;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-15rk8dc {
-        background-color: #ffcc40;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 16px;
-        width: 1px;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-51fvnb {
-        flex-flow: row;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0 70px 0 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1j8kew6 {
-        --framer-link-text-color: #09f;
-        --framer-link-text-decoration: underline;
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: 1 0 0;
-        width: 1px;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1sjy4ao {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 20px 0 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1dgr5d4-container,
-      .framer-ovyBe .framer-1bvrl8y-container,
-      .framer-ovyBe .framer-1y12m4v-container,
-      .framer-ovyBe .framer-5cpw48-container,
-      .framer-ovyBe .framer-3icdwn-container {
-        flex: none;
-        width: auto;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1s8140m {
-        background-color: var(
-          --token-27200f83-8cbc-4f0e-bfb7-1a842b62a15c,
-          #fde68a
-        );
-        will-change: var(--framer-will-change-override, transform);
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 20px;
-        width: 1px;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-zmmsl3,
-      .framer-ovyBe .framer-1kz669r,
-      .framer-ovyBe .framer-urcs1f {
-        will-change: var(--framer-will-change-override, transform);
-        border-radius: 6px;
-        flex-flow: row;
-        flex: 1 0 0;
-        place-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: 1px;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-ji7357-container {
-        flex: none;
-        width: 606px;
-        height: 702px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-18whoki {
-        width: 605px;
-        height: 605px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-horhnl {
-        flex: none;
-        grid-template-rows: repeat(1, minmax(0, 1fr));
-        grid-template-columns: repeat(3, minmax(50px, 1fr));
-        grid-auto-rows: minmax(0, 1fr);
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-        height: 156px;
-        padding: 0;
-        display: grid;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-fhawkh,
-      .framer-ovyBe .framer-10osf50,
-      .framer-ovyBe .framer-1re09g7 {
-        background-color: #0c032b;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start flex-end;
-        place-self: start;
-        align-items: flex-start;
-        gap: 16px;
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1rhp0ws,
-      .framer-ovyBe .framer-oc9f52,
-      .framer-ovyBe .framer-1cmwb0f,
-      .framer-ovyBe .framer-meyub8,
-      .framer-ovyBe .framer-2y53ni,
-      .framer-ovyBe .framer-2rr9on,
-      .framer-ovyBe .framer-1tlvdv4,
-      .framer-ovyBe .framer-mug4uy {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-ti2ljv {
-        background-color: #0c032b;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-end;
-        align-items: flex-end;
-        gap: 36px;
-        width: 1px;
-        height: min-content;
-        padding: 50px 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1grfzab,
-      .framer-ovyBe .framer-3oinn {
-        flex-flow: column;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-saofpd-container {
-        flex: none;
-        width: 330px;
-        height: 124px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1m4kion {
-        width: 134px;
-        height: 42px;
-        text-decoration: none;
-        position: relative;
-      }
-      .framer-ovyBe .framer-qnpy9k {
-        width: 158px;
-        height: 46px;
-        text-decoration: none;
-        position: relative;
-      }
-      .framer-ovyBe .framer-ar4y3z {
-        flex-flow: row;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 50px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-yl97r1 {
-        flex: none;
-        width: 158px;
-        height: 46px;
-        text-decoration: none;
-        position: relative;
-      }
-      .framer-ovyBe .framer-ymk5dv {
-        aspect-ratio: 1.07955;
-        height: var(--framer-aspect-ratio-supported, 57px);
-        flex: none;
-        width: 61px;
-        text-decoration: none;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-b0f68b {
-        flex: none;
-        width: 134px;
-        height: 42px;
-        text-decoration: none;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1lc5sqf {
-        will-change: var(--framer-will-change-override, transform);
-        background-color: #0c032b;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-self: stretch;
-        align-items: flex-start;
-        gap: 20px;
-        width: 1px;
-        height: auto;
-        padding: 20px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1deg4c7-container {
-        flex: 1 0 0;
-        width: 1px;
-        height: 100%;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1tm0e23 {
-        aspect-ratio: 0.731931;
-        height: var(--framer-aspect-ratio-supported, 547px);
-        width: 400px;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-372jfi {
-        aspect-ratio: 1.82375;
-        height: var(--framer-aspect-ratio-supported, 401px);
-        width: 730px;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-fyi9ct,
-      .framer-ovyBe .framer-anv6fz,
-      .framer-ovyBe .framer-1109o45 {
-        aspect-ratio: 1.5;
-        height: var(--framer-aspect-ratio-supported, 400px);
-        width: 600px;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-otzqiy {
-        aspect-ratio: 1.31625;
-        height: var(--framer-aspect-ratio-supported, 401px);
-        width: 527px;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-cdodtf {
-        aspect-ratio: 1.7775;
-        height: var(--framer-aspect-ratio-supported, 400px);
-        width: 711px;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-g6f9z7 {
-        aspect-ratio: 0.926999;
-        height: var(--framer-aspect-ratio-supported, 432px);
-        width: 400px;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-d3vetm {
-        aspect-ratio: 0.666667;
-        height: var(--framer-aspect-ratio-supported, 600px);
-        width: 400px;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-10ojy78 {
-        aspect-ratio: 0.702988;
-        height: var(--framer-aspect-ratio-supported, 569px);
-        width: 400px;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1vrufc7 {
-        background-color: #ffcc40;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 20px;
-        width: 50%;
-        height: min-content;
-        padding: 40px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-zxhtsy {
-        will-change: var(--framer-will-change-override, transform);
-        border-radius: 5px;
-        flex: none;
-        width: 100%;
-        height: 80px;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-6dfbu3 {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start center;
-        align-items: flex-start;
-        gap: 12px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1x9p076,
-      .framer-ovyBe .framer-1kc0p57 {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: 431px;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-2akevg {
-        background-color: #0c032b;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 20px;
-        width: 1px;
-        height: 100%;
-        padding: 50px 20px 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-fb1bar,
-      .framer-ovyBe .framer-4lyj3b {
-        flex-flow: row;
-        flex: none;
         place-content: flex-end flex-start;
         align-items: flex-end;
         gap: 0;
@@ -2012,748 +1151,59 @@ html,
         padding: 0;
         display: flex;
         position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-dwm8j4,
-      .framer-ovyBe .framer-xzblx9 {
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start center;
-        align-items: flex-start;
-        gap: 8px;
-        width: 1px;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
         overflow: visible;
       }
-      .framer-ovyBe .framer-bf9c0l {
-        flex-flow: row;
+      .framer-8l0yD .framer-laxrn4-container {
+        z-index: 2;
         flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 40px;
         width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1xzfy4m {
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start center;
-        align-items: flex-start;
-        gap: 8px;
-        width: 1px;
-        height: min-content;
-        padding: 0 30px 0 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-sv2g3w,
-      .framer-ovyBe .framer-1rv1c3d {
-        background-color: #07c0d7;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 16px;
-        width: 1px;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-10zhzb3 {
-        will-change: var(--framer-will-change-override, transform);
-        border-radius: 5px;
-        flex: 1 0 0;
-        width: 100%;
-        height: 1px;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1a19fp {
-        will-change: var(--framer-will-change-override, transform);
-        background-color: #0c032b;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 40px;
-        width: 100%;
-        height: min-content;
-        padding: 56px 20px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-lrud5 {
-        flex-flow: wrap;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 40px;
-        width: 1000px;
-        max-width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-mhm7qn {
-        aspect-ratio: 6.38;
-        height: var(--framer-aspect-ratio-supported, 25px);
-        flex: none;
-        width: 160px;
-        text-decoration: none;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-8bz7ij {
-        flex: none;
-        width: 81px;
-        height: 46px;
-        text-decoration: none;
-        position: relative;
-      }
-      .framer-ovyBe .framer-k8lxjp {
-        flex: none;
-        width: 179px;
-        height: 25px;
-        text-decoration: none;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1ql5ulk {
-        aspect-ratio: 5.03497;
-        height: var(--framer-aspect-ratio-supported, 20px);
-        flex: none;
-        width: 101px;
-        text-decoration: none;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1kzxv7x {
-        flex: none;
-        width: 111px;
-        height: 30px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1brkc8s {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        scroll-margin-top: 10px;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-19y0vin {
-        background-color: #0c032b;
-        border-radius: 10px;
-        flex-flow: row;
-        flex: 1 0 0;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 16px;
-        width: 1px;
-        height: min-content;
-        padding: 80px 20px 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1k9oheb {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 10px;
-        width: min-content;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1uhd0n {
-        --framer-link-text-color: #09f;
-        --framer-link-text-decoration: underline;
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: 290px;
         height: auto;
         position: relative;
       }
-      .framer-ovyBe .framer-1une2pw {
-        --framer-link-text-color: #09f;
-        --framer-link-text-decoration: underline;
-        opacity: 0.7;
-        white-space: normal;
-        flex: none;
-        width: auto;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-15sngtl {
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 10px;
-        width: 1px;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-25kjvv {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1dwocvs {
-        background-color: #4424a7;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 20px;
-        width: 1px;
-        height: 100%;
-        padding: 50px 20px 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-auv20j {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 24px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-kdyf7y {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 8px;
-        width: 100%;
-        height: min-content;
-        padding: 0 30px 0 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-yz9qis {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1njo4k1 {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 16px;
-        width: 153px;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-sv9r2h,
-      .framer-ovyBe .framer-ozdpf1,
-      .framer-ovyBe .framer-13psaxm {
-        background-color: #ffc4fe;
-        border-radius: 21px;
-        flex-flow: row;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 0;
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        text-decoration: none;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1sc5s86-container,
-      .framer-ovyBe .framer-i9g6f9,
-      .framer-ovyBe .framer-2me38l,
-      .framer-ovyBe .framer-1vkrnwc-container {
-        flex: none;
-        width: 24px;
-        height: 24px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-gxmdnw,
-      .framer-ovyBe .framer-dzgffb {
-        will-change: var(--framer-will-change-effect-override, transform);
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        scroll-margin-top: 10px;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-1qvgyq0 {
-        will-change: var(--framer-will-change-override, transform);
-        background-color: #faecc5;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 0;
-        width: 100%;
-        height: 588px;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-qejdxe {
-        flex: none;
-        width: 594px;
-        height: 69px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1adm97e,
-      .framer-ovyBe .framer-16i8cjv {
-        flex-flow: column;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 24px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-tlgn8x,
-      .framer-ovyBe .framer-13dj2r3,
-      .framer-ovyBe .framer-1jzqann {
-        --framer-link-text-color: #09f;
-        --framer-link-text-decoration: underline;
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: 100%;
-        max-width: 75%;
-        height: auto;
-        position: relative;
-      }
-      .framer-ovyBe .framer-vd1teq {
-        flex: none;
-        width: 280px;
-        height: 115px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1mhbb4,
-      .framer-ovyBe .framer-6z2aaw,
-      .framer-ovyBe .framer-xmmayx {
-        background-color: #07c0d7;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-end;
-        align-items: flex-end;
-        gap: 16px;
-        width: 1px;
-        height: min-content;
-        padding: 50px 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1yr7qy0,
-      .framer-ovyBe .framer-1ry2rr6,
-      .framer-ovyBe .framer-1va1yva {
-        flex-flow: row;
-        flex: none;
-        place-content: flex-end flex-start;
-        align-items: flex-end;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1k8nfm8,
-      .framer-ovyBe .framer-1u3rizs,
-      .framer-ovyBe .framer-bwf03l,
-      .framer-ovyBe .framer-15jjxzj,
-      .framer-ovyBe .framer-12f5x09,
-      .framer-ovyBe .framer-1sh6tfa,
-      .framer-ovyBe .framer-kogce6 {
-        flex: none;
-        grid-template-rows: repeat(2, minmax(0, 1fr));
-        grid-template-columns: repeat(3, minmax(50px, 1fr));
-        grid-auto-rows: minmax(0, 1fr);
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-        height: 500px;
-        padding: 0;
-        display: grid;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1krpege-container,
-      .framer-ovyBe .framer-1jj61gb-container,
-      .framer-ovyBe .framer-9t6xiy-container,
-      .framer-ovyBe .framer-a6cwk8-container,
-      .framer-ovyBe .framer-lsrde4-container,
-      .framer-ovyBe .framer-1cje5j6-container,
-      .framer-ovyBe .framer-18mu5tl-container,
-      .framer-ovyBe .framer-lz7yqx-container,
-      .framer-ovyBe .framer-ou78gq-container,
-      .framer-ovyBe .framer-1kbh6og-container,
-      .framer-ovyBe .framer-1e0c8z3-container,
-      .framer-ovyBe .framer-7uihgu-container,
-      .framer-ovyBe .framer-119yr53-container,
-      .framer-ovyBe .framer-ilrtx-container,
-      .framer-ovyBe .framer-2v4pc1-container,
-      .framer-ovyBe .framer-hfcidz-container,
-      .framer-ovyBe .framer-l4eho4-container,
-      .framer-ovyBe .framer-lknwvr-container,
-      .framer-ovyBe .framer-fsgyx3-container,
-      .framer-ovyBe .framer-1e9obpr-container,
-      .framer-ovyBe .framer-w8l8p1-container,
-      .framer-ovyBe .framer-kuy3fr-container,
-      .framer-ovyBe .framer-170jpcj-container,
-      .framer-ovyBe .framer-1pbkopw-container {
-        flex: none;
-        place-self: start;
-        width: 100%;
-        height: 500px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1bluh27 {
-        will-change: var(--framer-will-change-override, transform);
-        background-color: #ffb2a6;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 0;
-        width: 100%;
-        height: 720px;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-afxzt5 {
-        flex: none;
-        width: 594px;
-        height: 158px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-kwcle2,
-      .framer-ovyBe .framer-15576ar {
-        flex: none;
-        grid-template-rows: repeat(2, minmax(0, 1fr));
-        grid-template-columns: repeat(2, minmax(50px, 1fr));
-        grid-auto-rows: minmax(0, 1fr);
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-        height: 500px;
-        padding: 0;
-        display: grid;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1mso2g6 {
-        background-color: #ff9166;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 16px;
-        width: 1px;
-        height: min-content;
-        padding: 48px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-fkdjfl {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0 30px 0 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-1azxm93 {
-        will-change: var(--framer-will-change-override, transform);
-        background-color: #09c0d7;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 20px;
-        width: 1px;
-        height: 100%;
-        padding: 20px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-kd0m82 {
-        aspect-ratio: 1.77778;
-        height: 100%;
-        width: var(--framer-aspect-ratio-supported, 818px);
-        flex: none;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-ovyBe .framer-10a0gnz {
-        background-color: #ffcc40;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 16px;
-        width: 1px;
-        height: min-content;
-        padding: 48px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1xc3qh1 {
-        flex-flow: column;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: min-content;
-        padding: 0 30px 0 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-ixdflb {
-        background-color: #0c032b;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-end;
-        align-items: flex-end;
-        gap: 16px;
-        width: 1px;
-        height: min-content;
-        padding: 50px 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-167cdky {
-        flex-flow: column;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 30px;
-        width: 100%;
-        height: min-content;
-        padding: 0 120px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-pl37ag-container {
-        flex: none;
-        width: 59px;
-        height: 41px;
-        position: relative;
-      }
-      .framer-ovyBe .framer-1a2uoly {
-        will-change: var(--framer-will-change-effect-override, transform);
+      .framer-8l0yD .framer-13f8jmi {
+        bottom: calc(
+          calc(100% - min(var(--framer-viewport-height, 100%), 100%)) + 0px
+        );
+        position: var(--framer-canvas-fixed-position, fixed);
         z-index: 1;
         flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 10px;
-        width: 1px;
-        min-width: 285px;
-        height: 98vh;
-        padding: 0;
-        display: flex;
-        position: sticky;
-        top: 10px;
-      }
-      .framer-ovyBe .framer-17gtp90 {
-        flex-flow: column;
         flex: none;
-        place-content: center;
+        place-content: center space-between;
         align-items: center;
-        gap: 10px;
-        width: 100%;
-        height: 82%;
-        padding: 0;
+        width: 272px;
+        padding: 96px 40px 40px;
         display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-l5joye {
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 16px;
-        width: 100%;
-        height: 1px;
-        padding: 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-utgt2s {
-        will-change: var(--framer-will-change-override, transform);
-        z-index: 2;
-        background: linear-gradient(#0c032b00 0%, #120733 64.9106%);
-        border-radius: 9px;
-        flex: none;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        bottom: -2px;
-        right: 0;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-5el9wy {
-        will-change: var(--framer-will-change-override, transform);
-        border-radius: 10px;
-        flex: none;
-        width: 100%;
-        height: 100%;
-        position: absolute;
         top: 0;
         left: 0;
-        overflow: hidden;
+        overflow: visible;
       }
-      .framer-ovyBe .framer-1o0kfrz-container {
-        z-index: 1;
+      .framer-8l0yD .framer-efsv5k-container {
         flex: none;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: -0.175437%;
+        width: auto;
+        height: auto;
+        position: relative;
       }
-      .framer-ovyBe .framer-190qx3p {
-        z-index: 9;
+      .framer-8l0yD .framer-qzkpjz {
         flex-flow: column;
         flex: none;
-        place-content: flex-start center;
-        align-items: flex-start;
-        gap: 16px;
-        width: 245px;
+        place-content: center;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
         height: min-content;
         padding: 0;
         display: flex;
         position: relative;
         overflow: visible;
       }
-      .framer-ovyBe .framer-k3h3aq,
-      .framer-ovyBe .framer-12sxev3 {
-        background-color: #4424a7;
-        border-radius: 10px;
-        flex-flow: column;
-        flex: 1 0 0;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 16px;
+      .framer-8l0yD .framer-lyhsrm-container {
+        z-index: 1;
+        flex: none;
         width: 100%;
-        height: 1px;
-        padding: 20px;
-        display: flex;
-        position: relative;
-      }
-      .framer-ovyBe .framer-caup8x {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 4px;
-        width: 245px;
-        height: min-content;
-        padding: 0;
-        text-decoration: none;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-ovyBe .framer-wb8ssn {
-        white-space: normal;
-        flex: none;
-        width: auto;
         height: auto;
         position: relative;
       }
-      .framer-ovyBe .framer-jbdz1l {
+      .framer-8l0yD .framer-zbsvji {
         flex-flow: column;
         flex: none;
         place-content: center;
@@ -2761,611 +1211,39 @@ html,
         gap: 10px;
         width: 100%;
         height: min-content;
-        padding: 120px 0 0;
+        padding: 0;
         display: flex;
         position: relative;
-        overflow: hidden;
+        overflow: visible;
       }
-      .framer-ovyBe .framer-m9z32j-container {
+      .framer-8l0yD .framer-6onqyb-container {
+        will-change: var(--framer-will-change-effect-override, transform);
         flex: none;
         width: 100%;
-        height: 30px;
+        height: 55px;
         position: relative;
       }
-      .framer-ovyBe .framer-1rkytt5 {
-        width: 295px;
-        height: 30px;
+      .framer-8l0yD .framer-1qt1qcu {
+        background: 0 0;
+        flex-grow: 1;
+        width: 0;
+        height: 0;
+        margin: 0;
         position: relative;
       }
-      .framer-TUEZ0 .framer-styles-preset-1i1nbxt:not(.rich-text-wrapper),
-      .framer-TUEZ0 .framer-styles-preset-1i1nbxt.rich-text-wrapper a {
-        --framer-link-current-text-decoration: underline;
-        --framer-link-hover-text-color: #fff;
-        --framer-link-hover-text-decoration: underline;
-        --framer-link-text-color: #fff;
-        --framer-link-text-decoration: none;
+      [data-layout-template="true"] > #overlay {
+        margin-bottom: 0;
       }
       @media (min-width: 810px) and (max-width: 1199.98px) {
-        .framer-ovyBe.framer-kkgkns {
-          width: 810px;
-        }
-        .framer-ovyBe .framer-1qfu9p {
-          flex-direction: column;
-        }
-        .framer-ovyBe .framer-2s0pd7 {
-          order: 0;
-          width: 100%;
-        }
-        .framer-ovyBe .framer-1a9ggsh {
-          order: 0;
-        }
-        .framer-ovyBe .framer-1hqaz5b {
-          flex: 1 0 0;
-          height: 1px;
-        }
-        .framer-ovyBe .framer-1r0uc7v,
-        .framer-ovyBe .framer-odbgu8,
-        .framer-ovyBe .framer-yhmqcv {
-          padding: 0 40px;
-        }
-        .framer-ovyBe .framer-1he5j8w {
-          width: 600px;
-          height: 131px;
-        }
-        .framer-ovyBe .framer-n0ihkd {
-          flex: none;
-          height: min-content;
-        }
-        .framer-ovyBe .framer-r7ju6w,
-        .framer-ovyBe .framer-temeup,
-        .framer-ovyBe .framer-74tor3 {
-          height: min-content;
-        }
-        .framer-ovyBe .framer-p8x9re {
-          order: 1;
-        }
-        .framer-ovyBe .framer-13ewjmm {
-          order: 2;
-        }
-        .framer-ovyBe .framer-horhnl {
-          order: 3;
-        }
-        .framer-ovyBe .framer-1rhp0ws {
-          order: 4;
-        }
-        .framer-ovyBe .framer-oc9f52 {
-          order: 5;
-        }
-        .framer-ovyBe .framer-zxhtsy {
-          height: 73px;
-        }
-        .framer-ovyBe .framer-1x9p076 {
-          order: 6;
-        }
-        .framer-ovyBe .framer-1a19fp {
-          order: 7;
-          padding: 40px 20px;
-        }
-        .framer-ovyBe .framer-1brkc8s {
-          order: 10;
-        }
-        .framer-ovyBe .framer-1kc0p57 {
-          order: 11;
-          height: 480px;
-        }
-        .framer-ovyBe .framer-gxmdnw {
-          order: 13;
-          width: 790px;
-        }
-        .framer-ovyBe .framer-1qvgyq0,
-        .framer-ovyBe .framer-1bluh27 {
-          height: 640px;
-        }
-        .framer-ovyBe .framer-1cmwb0f {
-          order: 14;
-        }
-        .framer-ovyBe .framer-1k8nfm8 {
-          flex-flow: row;
-          order: 15;
-          place-content: center flex-start;
+        .framer-8l0yD.framer-1bt6uvj {
+          align-content: center;
           align-items: center;
-          display: flex;
-        }
-        .framer-ovyBe .framer-1krpege-container,
-        .framer-ovyBe .framer-1jj61gb-container,
-        .framer-ovyBe .framer-9t6xiy-container,
-        .framer-ovyBe .framer-a6cwk8-container,
-        .framer-ovyBe .framer-lsrde4-container,
-        .framer-ovyBe .framer-1cje5j6-container,
-        .framer-ovyBe .framer-18mu5tl-container,
-        .framer-ovyBe .framer-lz7yqx-container,
-        .framer-ovyBe .framer-ou78gq-container,
-        .framer-ovyBe .framer-1kbh6og-container,
-        .framer-ovyBe .framer-1e0c8z3-container,
-        .framer-ovyBe .framer-7uihgu-container,
-        .framer-ovyBe .framer-119yr53-container,
-        .framer-ovyBe .framer-ilrtx-container,
-        .framer-ovyBe .framer-2v4pc1-container,
-        .framer-ovyBe .framer-hfcidz-container,
-        .framer-ovyBe .framer-l4eho4-container,
-        .framer-ovyBe .framer-lknwvr-container,
-        .framer-ovyBe .framer-w8l8p1-container,
-        .framer-ovyBe .framer-kuy3fr-container,
-        .framer-ovyBe .framer-170jpcj-container,
-        .framer-ovyBe .framer-1pbkopw-container {
-          align-self: unset;
-          flex: 1 0 0;
-          width: 1px;
-          height: 100%;
-        }
-        .framer-ovyBe .framer-meyub8 {
-          order: 16;
-        }
-        .framer-ovyBe .framer-1u3rizs {
-          flex-flow: row;
-          order: 17;
-          place-content: flex-start;
-          align-items: flex-start;
-          display: flex;
-        }
-        .framer-ovyBe .framer-bwf03l {
-          flex-flow: row;
-          order: 18;
-          place-content: flex-start;
-          align-items: flex-start;
-          display: flex;
-        }
-        .framer-ovyBe .framer-15jjxzj {
-          flex-flow: row;
-          order: 19;
-          place-content: center flex-start;
-          align-items: center;
-          display: flex;
-        }
-        .framer-ovyBe .framer-12f5x09 {
-          flex-flow: row;
-          order: 20;
-          place-content: center flex-start;
-          align-items: center;
-          display: flex;
-        }
-        .framer-ovyBe .framer-1sh6tfa {
-          flex-flow: row;
-          order: 21;
-          place-content: center flex-start;
-          align-items: center;
-          display: flex;
-        }
-        .framer-ovyBe .framer-kogce6 {
-          flex-flow: row;
-          order: 22;
-          place-content: center flex-start;
-          align-items: center;
-          display: flex;
-        }
-        .framer-ovyBe .framer-fsgyx3-container,
-        .framer-ovyBe .framer-1e9obpr-container {
-          align-self: unset;
-          width: 33%;
-          height: 100%;
-        }
-        .framer-ovyBe .framer-dzgffb {
-          order: 23;
-          width: 790px;
-        }
-        .framer-ovyBe .framer-afxzt5 {
-          width: 481px;
-          height: 128px;
-        }
-        .framer-ovyBe .framer-2y53ni {
-          order: 24;
-        }
-        .framer-ovyBe .framer-kwcle2 {
-          flex-flow: row;
-          order: 25;
-          place-content: center flex-start;
-          align-items: center;
-          display: flex;
-        }
-        .framer-ovyBe .framer-15576ar {
-          flex-flow: row;
-          order: 26;
-          place-content: center flex-start;
-          align-items: center;
-          display: flex;
-        }
-        .framer-ovyBe .framer-2rr9on {
-          order: 27;
-        }
-        .framer-ovyBe .framer-fkdjfl,
-        .framer-ovyBe .framer-1xc3qh1 {
-          padding: 0;
-        }
-        .framer-ovyBe .framer-7yqctd {
-          order: 28;
-        }
-        .framer-ovyBe .framer-1tlvdv4 {
-          order: 29;
-        }
-        .framer-ovyBe .framer-mug4uy {
-          order: 12;
         }
       }
       @media (max-width: 809.98px) {
-        .framer-ovyBe.framer-kkgkns {
-          width: 390px;
-        }
-        .framer-ovyBe .framer-2s0pd7,
-        .framer-ovyBe .framer-1t9j2au,
-        .framer-ovyBe .framer-1luyww2,
-        .framer-ovyBe .framer-k0e8r4,
-        .framer-ovyBe .framer-87v9t6,
-        .framer-ovyBe .framer-tv1jor,
-        .framer-ovyBe .framer-1sszo59 {
-          width: 100%;
-        }
-        .framer-ovyBe .framer-1a9ggsh {
-          order: 0;
-          height: min-content;
-        }
-        .framer-ovyBe .framer-1hqaz5b {
-          height: 80vh;
-        }
-        .framer-ovyBe .framer-1r0uc7v {
-          padding: 0 20px 20px;
-        }
-        .framer-ovyBe .framer-1he5j8w {
-          width: 325px;
-          height: 71px;
-        }
-        .framer-ovyBe .framer-gn251a,
-        .framer-ovyBe .framer-18lhgfu,
-        .framer-ovyBe .framer-tlgn8x,
-        .framer-ovyBe .framer-13dj2r3,
-        .framer-ovyBe .framer-1jzqann {
-          max-width: 90%;
-        }
-        .framer-ovyBe .framer-n0ihkd {
-          flex-direction: column;
-          flex: none;
-          align-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-        }
-        .framer-ovyBe .framer-r7ju6w,
-        .framer-ovyBe .framer-temeup,
-        .framer-ovyBe .framer-74tor3,
-        .framer-ovyBe .framer-15rk8dc,
-        .framer-ovyBe .framer-2akevg,
-        .framer-ovyBe .framer-sv2g3w,
-        .framer-ovyBe .framer-1dwocvs,
-        .framer-ovyBe .framer-1rv1c3d {
-          flex: none;
-          justify-content: flex-start;
-          width: 100%;
-          height: min-content;
-        }
-        .framer-ovyBe .framer-p8x9re {
-          order: 1;
-          justify-content: flex-start;
-        }
-        .framer-ovyBe .framer-13ei6hu,
-        .framer-ovyBe .framer-yz9qis,
-        .framer-ovyBe .framer-1yr7qy0,
-        .framer-ovyBe .framer-1ry2rr6,
-        .framer-ovyBe .framer-1va1yva {
-          flex-direction: column;
-          align-content: flex-start;
-          align-items: flex-start;
-        }
-        .framer-ovyBe .framer-1jpsnfv-container,
-        .framer-ovyBe .framer-1eke1v9-container {
-          height: auto;
-        }
-        .framer-ovyBe .framer-13ewjmm {
-          flex-direction: column;
-          order: 3;
-          align-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-        }
-        .framer-ovyBe .framer-horhnl {
-          flex-flow: column;
-          order: 2;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-fhawkh,
-        .framer-ovyBe .framer-10osf50,
-        .framer-ovyBe .framer-1re09g7 {
-          align-self: unset;
-          justify-content: flex-start;
-          height: min-content;
-        }
-        .framer-ovyBe .framer-1rhp0ws {
-          order: 4;
-          align-content: flex-start;
-          align-items: flex-start;
-        }
-        .framer-ovyBe .framer-ti2ljv,
-        .framer-ovyBe .framer-ixdflb {
-          justify-content: flex-start;
-        }
-        .framer-ovyBe .framer-oc9f52 {
-          flex-direction: column;
-          order: 5;
-          align-content: flex-start;
-          align-items: flex-start;
-        }
-        .framer-ovyBe .framer-1lc5sqf {
-          align-self: unset;
-          flex: none;
-          order: 1;
-          justify-content: flex-start;
-          width: 100%;
-          height: 480px;
-        }
-        .framer-ovyBe .framer-1vrufc7 {
-          order: 0;
-          width: 100%;
-          padding: 60px 20px;
-        }
-        .framer-ovyBe .framer-zxhtsy {
-          height: 72px;
-        }
-        .framer-ovyBe .framer-1x9p076 {
-          flex-direction: column;
-          order: 6;
-          align-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-        }
-        .framer-ovyBe .framer-10zhzb3 {
-          flex: none;
-          height: 245px;
-        }
-        .framer-ovyBe .framer-1a19fp {
-          order: 7;
-          padding: 60px 20px;
-        }
-        .framer-ovyBe .framer-lrud5 {
-          gap: 36px;
-        }
-        .framer-ovyBe .framer-1brkc8s {
-          order: 10;
-          align-content: flex-start;
-          align-items: flex-start;
-        }
-        .framer-ovyBe .framer-19y0vin {
-          flex-direction: column;
-        }
-        .framer-ovyBe .framer-15sngtl {
-          flex: none;
-          width: 100%;
-        }
-        .framer-ovyBe .framer-1kc0p57 {
-          flex-direction: column;
-          order: 11;
-          align-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-        }
-        .framer-ovyBe .framer-gxmdnw {
-          order: 13;
-        }
-        .framer-ovyBe .framer-1qvgyq0 {
-          justify-content: flex-end;
-          height: min-content;
-          padding: 0 0 64px;
-        }
-        .framer-ovyBe .framer-odbgu8,
-        .framer-ovyBe .framer-yhmqcv {
-          flex: none;
-          gap: 30px;
-          height: min-content;
-          padding: 40px 20px 0;
-        }
-        .framer-ovyBe .framer-1adm97e {
-          order: 2;
-        }
-        .framer-ovyBe .framer-vd1teq {
-          order: 1;
-        }
-        .framer-ovyBe .framer-1cmwb0f {
-          order: 14;
-          align-content: flex-start;
-          align-items: flex-start;
-        }
-        .framer-ovyBe .framer-1mhbb4,
-        .framer-ovyBe .framer-6z2aaw,
-        .framer-ovyBe .framer-xmmayx {
-          justify-content: flex-start;
-          padding: 24px 20px;
-        }
-        .framer-ovyBe .framer-1k8nfm8 {
-          flex-flow: column;
-          order: 15;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-1krpege-container,
-        .framer-ovyBe .framer-1cje5j6-container,
-        .framer-ovyBe .framer-ou78gq-container,
-        .framer-ovyBe .framer-7uihgu-container,
-        .framer-ovyBe .framer-2v4pc1-container,
-        .framer-ovyBe .framer-lknwvr-container {
-          align-self: unset;
-          order: 2;
-          height: auto;
-        }
-        .framer-ovyBe .framer-1jj61gb-container,
-        .framer-ovyBe .framer-a6cwk8-container,
-        .framer-ovyBe .framer-18mu5tl-container,
-        .framer-ovyBe .framer-1kbh6og-container,
-        .framer-ovyBe .framer-119yr53-container,
-        .framer-ovyBe .framer-hfcidz-container,
-        .framer-ovyBe .framer-fsgyx3-container,
-        .framer-ovyBe .framer-kuy3fr-container,
-        .framer-ovyBe .framer-170jpcj-container {
-          align-self: unset;
-          order: 0;
-          height: auto;
-        }
-        .framer-ovyBe .framer-9t6xiy-container,
-        .framer-ovyBe .framer-lsrde4-container,
-        .framer-ovyBe .framer-lz7yqx-container,
-        .framer-ovyBe .framer-1e0c8z3-container,
-        .framer-ovyBe .framer-ilrtx-container,
-        .framer-ovyBe .framer-l4eho4-container,
-        .framer-ovyBe .framer-1e9obpr-container,
-        .framer-ovyBe .framer-w8l8p1-container,
-        .framer-ovyBe .framer-1pbkopw-container {
-          align-self: unset;
-          order: 1;
-          height: auto;
-        }
-        .framer-ovyBe .framer-meyub8 {
-          order: 16;
-          align-content: flex-start;
-          align-items: flex-start;
-        }
-        .framer-ovyBe .framer-1u3rizs {
-          flex-flow: column;
-          order: 17;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-bwf03l {
-          flex-flow: column;
-          order: 18;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-15jjxzj {
-          flex-flow: column;
-          order: 19;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-12f5x09 {
-          flex-flow: column;
-          order: 20;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-1sh6tfa {
-          flex-flow: column;
-          order: 21;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-kogce6 {
-          flex-flow: column;
-          order: 22;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-dzgffb {
-          order: 23;
-        }
-        .framer-ovyBe .framer-1bluh27 {
-          justify-content: flex-end;
-          height: min-content;
-          padding: 0 0 40px;
-        }
-        .framer-ovyBe .framer-afxzt5 {
-          width: 310px;
-          height: 82px;
-        }
-        .framer-ovyBe .framer-2y53ni {
-          order: 24;
-          align-content: flex-start;
-          align-items: flex-start;
-        }
-        .framer-ovyBe .framer-kwcle2 {
-          flex-flow: column;
-          order: 25;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-15576ar {
-          flex-flow: column;
-          order: 26;
-          place-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-          display: flex;
-        }
-        .framer-ovyBe .framer-2rr9on {
-          flex-direction: column;
-          order: 27;
-          align-content: flex-start;
-          align-items: flex-start;
-        }
-        .framer-ovyBe .framer-1mso2g6,
-        .framer-ovyBe .framer-10a0gnz {
-          flex: none;
-          justify-content: flex-start;
-          width: 100%;
-        }
-        .framer-ovyBe .framer-fkdjfl,
-        .framer-ovyBe .framer-1xc3qh1,
-        .framer-ovyBe .framer-167cdky {
-          padding: 0;
-        }
-        .framer-ovyBe .framer-7yqctd {
-          flex-direction: column;
-          order: 28;
-          align-content: flex-start;
-          align-items: flex-start;
-          height: min-content;
-        }
-        .framer-ovyBe .framer-1azxm93 {
-          flex: none;
-          justify-content: flex-start;
-          width: 100%;
-          height: 142px;
-          padding: 8px;
-        }
-        .framer-ovyBe .framer-kd0m82 {
-          height: var(--framer-aspect-ratio-supported, 225px);
-          width: 400px;
-        }
-        .framer-ovyBe .framer-9rgz7w {
-          flex: none;
-          justify-content: flex-start;
-          width: 100%;
-          height: min-content;
-          padding: 70px 20px 20px;
-        }
-        .framer-ovyBe .framer-1tlvdv4 {
-          flex-direction: column;
-          order: 29;
-          align-content: flex-start;
-          align-items: flex-start;
-        }
-        .framer-ovyBe .framer-mug4uy {
-          order: 12;
-          align-content: flex-start;
-          align-items: flex-start;
+        .framer-8l0yD.framer-1bt6uvj {
+          align-content: center;
+          align-items: center;
         }
       }
       .ssr-variant {
@@ -3376,150 +1254,440 @@ html,
           --framer-aspect-ratio-supported: auto;
         }
       }
-      .framer-1b7Ct.framer-zaak45,
-      .framer-1b7Ct .framer-zaak45 {
+      .framer-kNv2R.framer-1baljko,
+      .framer-kNv2R .framer-1baljko {
         display: block;
       }
-      .framer-1b7Ct.framer-1qlx0gz {
+      .framer-kNv2R.framer-sur2lb {
         flex-flow: row;
-        place-content: center flex-start;
+        place-content: center space-between;
         align-items: center;
-        gap: 28px;
-        width: 885px;
-        height: min-content;
-        padding: 20px 20px 0;
+        width: 800px;
+        height: 130px;
+        padding: 0 16px;
         display: flex;
         position: relative;
-        overflow: visible;
+        overflow: hidden;
       }
-      .framer-1b7Ct .framer-1e22yot {
-        flex-flow: row;
+      .framer-kNv2R .framer-13ngb3b-container {
+        z-index: 1;
+        flex: none;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 20px;
+        left: 24px;
+      }
+      .framer-kNv2R .framer-uge4qu {
+        z-index: 1;
+        flex-flow: column;
         flex: none;
         place-content: center;
         align-items: center;
-        gap: 0;
-        width: min-content;
-        height: 44px;
+        gap: 10px;
+        width: 192px;
+        height: min-content;
         padding: 0;
         display: flex;
-        position: relative;
+        position: absolute;
+        top: 427px;
+        left: 24px;
         overflow: visible;
       }
-      .framer-1b7Ct .framer-gb7now {
+      .framer-kNv2R .framer-1w3bgbh-container,
+      .framer-kNv2R .framer-rgx45g-container {
+        will-change: var(--framer-will-change-effect-override, transform);
+        flex: none;
+        width: 100%;
+        height: 55px;
+        position: relative;
+      }
+      .framer-kNv2R .framer-1ag0ds2 {
+        cursor: pointer;
+        z-index: 2;
+        flex-flow: column;
+        flex: none;
+        place-content: flex-end center;
+        align-items: flex-end;
+        gap: 10px;
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        display: flex;
+        position: absolute;
+        top: 14px;
+        right: 24px;
+        overflow: visible;
+      }
+      .framer-kNv2R .framer-2ysghh {
+        z-index: 1;
+        flex: none;
+        width: 36px;
+        height: 2px;
+        position: absolute;
+        top: 19px;
+        left: calc(50% - 18px);
+        overflow: visible;
+      }
+      .framer-kNv2R .framer-z1mseh {
+        z-index: 1;
+        flex: none;
+        width: 25px;
+        height: 2px;
+        position: absolute;
+        bottom: 18px;
+        left: calc(50% - 12.5px);
+        overflow: visible;
+      }
+      .framer-kNv2R .framer-1r3p6tc {
+        z-index: 1;
         flex-flow: column;
         flex: none;
         place-content: flex-start center;
         align-items: flex-start;
-        gap: 10px;
-        width: min-content;
+        gap: 24px;
+        width: 170px;
         height: min-content;
+        min-height: 260px;
         padding: 0;
         display: flex;
-        position: relative;
+        position: absolute;
+        top: 151px;
+        left: 24px;
         overflow: hidden;
       }
-      .framer-1b7Ct .framer-xgvow1 {
+      .framer-kNv2R .framer-hmihvt-container {
+        z-index: 1;
         flex: none;
-        width: 80px;
-        height: 30px;
-        text-decoration: none;
-        position: relative;
-      }
-      .framer-1b7Ct .framer-zbf99h-container {
-        flex: none;
-        width: 44px;
-        height: 44px;
-        position: relative;
-      }
-      .framer-1b7Ct .framer-u2tfj0 {
-        flex-flow: row;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 12px;
-        width: min-content;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-1b7Ct .framer-110tw24,
-      .framer-1b7Ct .framer-afdez0,
-      .framer-1b7Ct .framer-dpnug0 {
-        white-space: normal;
-        flex: none;
-        width: auto;
         height: auto;
-        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: -46px;
       }
-      .framer-1b7Ct .framer-1fvkhpz {
-        flex-flow: row;
-        flex: 1 0 0;
-        place-content: center flex-end;
-        align-items: center;
-        gap: 10px;
-        width: 1px;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
+      .framer-kNv2R.framer-v-q6nb9b.framer-sur2lb {
+        height: 1466px;
+        padding: 0 24px;
       }
-      .framer-1b7Ct .framer-1rag531-container,
-      .framer-1b7Ct .framer-1qai6xf-container {
-        flex: none;
-        width: auto;
-        height: auto;
-        position: relative;
+      .framer-kNv2R.framer-v-q6nb9b .framer-13ngb3b-container {
+        order: 3;
+        top: 20px;
       }
-      .framer-1b7Ct.framer-v-gdv3oh.framer-1qlx0gz,
-      .framer-1b7Ct.framer-v-1jv026j.framer-1qlx0gz {
-        cursor: pointer;
-        gap: unset;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 390px;
-        padding: 20px 16px 0;
-      }
-      .framer-1b7Ct.framer-v-gdv3oh .framer-1e22yot,
-      .framer-1b7Ct.framer-v-1jv026j .framer-1e22yot {
-        gap: unset;
-        justify-content: space-between;
-        width: 100%;
-      }
-      .framer-1b7Ct.framer-v-gdv3oh .framer-gb7now,
-      .framer-1b7Ct.framer-v-1jv026j .framer-gb7now {
+      .framer-kNv2R.framer-v-q6nb9b .framer-uge4qu,
+      .framer-kNv2R.framer-v-q6nb9b .framer-1w3bgbh-container {
         order: 0;
       }
-      .framer-1b7Ct.framer-v-gdv3oh .framer-zbf99h-container,
-      .framer-1b7Ct.framer-v-1jv026j .framer-zbf99h-container {
-        order: 1;
+      .framer-kNv2R.framer-v-q6nb9b .framer-1ag0ds2 {
+        order: 4;
+        align-content: center;
+        align-items: center;
       }
-      .framer-1b7Ct.framer-v-1jv026j .framer-u2tfj0 {
-        flex-direction: column;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 24px;
-        width: 100%;
-        padding: 24px 0;
+      .framer-kNv2R.framer-v-q6nb9b .framer-2ysghh {
+        width: 28px;
+        top: calc(50% - 1px);
+        left: calc(50% - 14px);
       }
-      .framer-1b7Ct.framer-v-1jv026j .framer-1fvkhpz {
-        flex-direction: column;
-        flex: none;
-        align-content: flex-start;
-        align-items: flex-start;
-        width: 100%;
-        padding: 0 0 24px;
+      .framer-kNv2R.framer-v-q6nb9b .framer-z1mseh {
+        bottom: unset;
+        width: 28px;
+        top: calc(50% - 1px);
+        left: calc(50% - 14px);
       }
-      .framer-GtX9L .framer-styles-preset-1kqifey:not(.rich-text-wrapper),
-      .framer-GtX9L .framer-styles-preset-1kqifey.rich-text-wrapper a {
-        --framer-link-current-text-color: #111;
-        --framer-link-current-text-decoration: underline;
-        --framer-link-hover-text-color: #4424a7;
-        --framer-link-hover-text-decoration: underline;
-        --framer-link-text-color: #231769;
-        --framer-link-text-decoration: none;
+      .framer-kNv2R.framer-v-q6nb9b .framer-1r3p6tc {
+        order: 5;
+      }
+      @supports (aspect-ratio: 1) {
+        body {
+          --framer-aspect-ratio-supported: auto;
+        }
+      }
+      .framer-eB63w.framer-1s24cbf,
+      .framer-eB63w .framer-1s24cbf {
+        display: block;
+      }
+      .framer-eB63w.framer-tu2sa1 {
+        flex-flow: row;
+        place-content: center;
+        align-items: center;
+        gap: 10px;
+        width: min-content;
+        height: min-content;
+        padding: 0;
+        text-decoration: none;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .framer-eB63w .framer-mg20pl {
+        width: 96px;
+        height: 91px;
+        position: relative;
+      }
+      .framer-eB63w .framer-nfa5t5 {
+        width: 95px;
+        height: 42px;
+        position: absolute;
+        top: 50px;
+        left: 1px;
+      }
+      .framer-eB63w .framer-ckigj2 {
+        width: 14px;
+        height: 11px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .framer-eB63w .framer-5jms9o {
+        width: 14px;
+        height: 13px;
+        position: absolute;
+        top: 10px;
+        left: 6px;
+      }
+      .framer-eB63w .framer-d00bz1 {
+        width: 8px;
+        height: 7px;
+        position: absolute;
+        top: 13px;
+        left: 8px;
+      }
+      .framer-eB63w .framer-1t7jztg {
+        width: 15px;
+        height: 16px;
+        position: absolute;
+        top: 17px;
+        left: 13px;
+      }
+      .framer-eB63w .framer-1ieswr5 {
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 24px;
+        left: 24px;
+      }
+      .framer-eB63w .framer-oapit8 {
+        width: 10px;
+        height: 15px;
+        position: absolute;
+        top: 27px;
+        left: 36px;
+      }
+      .framer-eB63w .framer-s1oasw {
+        width: 11px;
+        height: 14px;
+        position: absolute;
+        top: 27px;
+        left: 47px;
+      }
+      .framer-eB63w .framer-17ru7om {
+        width: 4px;
+        height: 4px;
+        position: absolute;
+        top: 30px;
+        left: 50px;
+      }
+      .framer-eB63w .framer-1ti19ax {
+        width: 13px;
+        height: 16px;
+        position: absolute;
+        top: 24px;
+        left: 57px;
+      }
+      .framer-eB63w .framer-arjff8 {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 18px;
+        left: 66px;
+      }
+      .framer-eB63w .framer-ky1zpc {
+        width: 14px;
+        height: 13px;
+        position: absolute;
+        top: 11px;
+        left: 75px;
+      }
+      .framer-eB63w .framer-1tk90dy {
+        width: 15px;
+        height: 12px;
+        position: absolute;
+        top: 1px;
+        left: 80px;
+      }
+      .framer-eB63w .framer-bsoy14 {
+        width: 64px;
+        height: 44px;
+        position: absolute;
+        top: 22px;
+        left: 16px;
+      }
+      .framer-eB63w .framer-16knemh {
+        width: 64px;
+        height: 42px;
+        position: absolute;
+        top: 2px;
+        left: 0;
+      }
+      .framer-eB63w .framer-1v18dor {
+        width: 11px;
+        height: 13px;
+        position: absolute;
+        top: 9px;
+        left: 37px;
+      }
+      .framer-eB63w .framer-1rty8y2 {
+        width: 11px;
+        height: 15px;
+        position: absolute;
+        top: 3px;
+        left: 30px;
+      }
+      .framer-eB63w .framer-3fauur {
+        width: 8px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 22px;
+      }
+      .framer-eB63w .framer-1esp7he {
+        width: 70px;
+        height: 50px;
+        position: absolute;
+        top: 19px;
+        left: 13px;
+      }
+      .framer-eB63w .framer-aiktq3 {
+        width: 70px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .framer-eB63w .framer-pqrr16 {
+        width: 11px;
+        height: 13px;
+        position: absolute;
+        top: 12px;
+        left: 40px;
+      }
+      .framer-eB63w .framer-16roudc {
+        width: 11px;
+        height: 15px;
+        position: absolute;
+        top: 7px;
+        left: 33px;
+      }
+      .framer-eB63w .framer-7hoa6z {
+        width: 8px;
+        height: 15px;
+        position: absolute;
+        top: 3px;
+        left: 25px;
+      }
+      .framer-eB63w .framer-hyq0i2 {
+        width: 64px;
+        height: 42px;
+        position: absolute;
+        top: 5px;
+        left: 4px;
+      }
+      .framer-eB63w .framer-1dj6zgh {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 53px;
+        left: 61px;
+      }
+      .framer-eB63w .framer-zm565n {
+        width: 21px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 52px;
+      }
+      .framer-eB63w .framer-1q2cnok {
+        width: 14px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .framer-eB63w .framer-zulnns {
+        width: 5px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 16px;
+      }
+      .framer-eB63w .framer-1z086bs {
+        width: 28px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 25px;
+      }
+      .framer-eB63w .framer-1bkztw6 {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 13px;
+      }
+      .framer-eB63w .framer-n5sbrp {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .framer-eB63w .framer-rktih6 {
+        width: 96px;
+        height: 9px;
+        position: absolute;
+        top: 36px;
+        left: 0;
+      }
+      .framer-eB63w .framer-y164bs {
+        width: 5px;
+        height: 8px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .framer-eB63w .framer-1ywbo7f {
+        width: 5px;
+        height: 9px;
+        position: absolute;
+        top: 0;
+        left: 6px;
+      }
+      .framer-eB63w .framer-3vaq9e {
+        width: 3px;
+        height: 6px;
+        position: absolute;
+        top: 1px;
+        left: 7px;
+      }
+      .framer-eB63w .framer-qo25fj {
+        width: 1px;
+        height: 1px;
+        position: absolute;
+        top: 4px;
+        left: 8px;
+      }
+      .framer-eB63w .framer-1ukdcxs {
+        width: 5px;
+        height: 8px;
+        position: absolute;
+        top: 0;
+        left: 86px;
+      }
+      .framer-eB63w .framer-d7z4mg {
+        width: 5px;
+        height: 9px;
+        position: absolute;
+        top: 0;
+        left: 91px;
       }
       body {
         --framer-will-change-override: none;
@@ -5980,33 +4148,90 @@ html,
           --framer-aspect-ratio-supported: auto;
         }
       }
-      .framer-2Ycmv.framer-vynknf,
-      .framer-2Ycmv .framer-vynknf {
+      .framer-n74QA.framer-1bi7ujb,
+      .framer-n74QA .framer-1bi7ujb {
         display: block;
       }
-      .framer-2Ycmv.framer-v25ikx {
+      .framer-n74QA.framer-1yzypby {
+        cursor: pointer;
+        flex-flow: column;
+        place-content: flex-start center;
+        align-items: flex-start;
+        gap: 12px;
+        width: 170px;
+        height: min-content;
+        padding: 0;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .framer-n74QA .framer-10sxwdn-container,
+      .framer-n74QA .framer-16006pr-container,
+      .framer-n74QA .framer-au1jcs-container,
+      .framer-n74QA .framer-deg5rc-container,
+      .framer-n74QA .framer-1ger9zi-container,
+      .framer-n74QA .framer-17kii2w-container {
+        flex: none;
+        width: auto;
+        height: auto;
+        position: relative;
+      }
+      .framer-n74QA .framer-1xm1rvc {
+        flex-flow: row;
+        flex: none;
+        place-content: center flex-start;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        height: min-content;
+        padding: 40px 0 0;
+        display: flex;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-n74QA .framer-3s3fpv,
+      .framer-n74QA .framer-1q5s9oz {
+        flex: none;
+        width: 24px;
+        height: 27px;
+        text-decoration: none;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-n74QA .framer-1p466z8-container,
+      .framer-n74QA .framer-49rxsl-container {
+        aspect-ratio: 1;
+        height: var(--framer-aspect-ratio-supported, 27px);
+        flex: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      @supports (aspect-ratio: 1) {
+        body {
+          --framer-aspect-ratio-supported: auto;
+        }
+      }
+      .framer-VXO4t.framer-1apgb3e,
+      .framer-VXO4t .framer-1apgb3e {
+        display: block;
+      }
+      .framer-VXO4t.framer-1d9t88b {
         cursor: pointer;
         flex-flow: row;
         place-content: center;
         align-items: center;
-        gap: 0;
+        gap: 10px;
         width: min-content;
         height: min-content;
-        min-height: 40px;
-        padding: 10px;
+        padding: 0;
         text-decoration: none;
         display: flex;
         position: relative;
         overflow: visible;
       }
-      .framer-2Ycmv .framer-nrng14-container,
-      .framer-2Ycmv .framer-1ltt3kp-container {
-        flex: none;
-        width: 20px;
-        height: 20px;
-        position: relative;
-      }
-      .framer-2Ycmv .framer-1qauvia {
+      .framer-VXO4t .framer-1tssxp2 {
         flex-flow: row;
         flex: none;
         place-content: center;
@@ -6014,318 +4239,336 @@ html,
         gap: 0;
         width: min-content;
         height: min-content;
-        padding: 0 4px;
+        padding: 0;
         display: flex;
         position: relative;
         overflow: visible;
       }
-      .framer-2Ycmv .framer-1daxy8h {
-        -webkit-user-select: none;
-        user-select: none;
+      .framer-VXO4t .framer-1wxwqde {
+        flex: none;
+        width: 1px;
+        height: 2px;
+        position: relative;
+        overflow: hidden;
+      }
+      .framer-VXO4t .framer-1ondhmc {
         white-space: normal;
         flex: none;
         width: auto;
         height: auto;
         position: relative;
-        overflow: visible;
       }
-      .framer-2Ycmv.framer-v-oyxnff.framer-v25ikx,
-      .framer-2Ycmv.framer-v-125eeiu.framer-v25ikx,
-      .framer-2Ycmv.framer-v-1tqxl6s.framer-v25ikx {
-        min-height: 32px;
-        padding: 8px;
-      }
-      .framer-2Ycmv.framer-v-oyxnff .framer-nrng14-container,
-      .framer-2Ycmv.framer-v-oyxnff .framer-1ltt3kp-container,
-      .framer-2Ycmv.framer-v-125eeiu .framer-nrng14-container,
-      .framer-2Ycmv.framer-v-125eeiu .framer-1ltt3kp-container,
-      .framer-2Ycmv.framer-v-1tqxl6s .framer-nrng14-container,
-      .framer-2Ycmv.framer-v-1tqxl6s .framer-1ltt3kp-container {
+      .framer-VXO4t .framer-1szvlab-container {
+        flex: none;
         width: 16px;
         height: 16px;
+        position: relative;
+      }
+      .framer-VXO4t.framer-v-1li00bn .framer-1tssxp2 {
+        gap: 8px;
+      }
+      .framer-VXO4t.framer-v-1li00bn .framer-1ondhmc {
+        order: 2;
+      }
+      .framer-VXO4t.framer-v-1li00bn .framer-1szvlab-container {
+        order: 1;
       }
       @supports (aspect-ratio: 1) {
         body {
           --framer-aspect-ratio-supported: auto;
         }
       }
-      .framer-7Eeqv.framer-1dgwytd,
-      .framer-7Eeqv .framer-1dgwytd {
+      .framer-aspyn.framer-wz0tpt,
+      .framer-aspyn .framer-wz0tpt {
         display: block;
       }
-      .framer-7Eeqv.framer-1hc8fws {
+      .framer-aspyn.framer-17vb51d {
         cursor: pointer;
-        width: 44px;
-        height: 44px;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-7Eeqv .framer-1gy9hgs {
         will-change: var(--framer-will-change-override, transform);
-        flex: none;
-        width: 20px;
-        height: 2px;
-        position: absolute;
-        top: calc(62.5% - 1px);
-        left: calc(50% - 10px);
-        overflow: hidden;
-      }
-      .framer-7Eeqv .framer-49ufe4 {
-        will-change: var(--framer-will-change-override, transform);
-        flex: none;
-        width: 20px;
-        height: 2px;
-        position: absolute;
-        top: calc(37.5% - 1px);
-        left: calc(50% - 10px);
-        overflow: hidden;
-      }
-      .framer-7Eeqv.framer-v-wld5p3 .framer-1gy9hgs {
-        height: unset;
-        width: unset;
-        inset: 21px 12px;
-      }
-      .framer-7Eeqv.framer-v-wld5p3 .framer-49ufe4 {
-        top: calc(50% - 1px);
-      }
-      @supports (aspect-ratio: 1) {
-        body {
-          --framer-aspect-ratio-supported: auto;
-        }
-      }
-      .framer-597oW.framer-1fhygr1,
-      .framer-597oW .framer-1fhygr1 {
-        display: block;
-      }
-      .framer-597oW.framer-dj0adu {
-        cursor: pointer;
-        flex-flow: row;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 12px;
-        width: 730px;
-        height: min-content;
-        padding: 12px 24px;
-        display: flex;
-        position: relative;
-      }
-      .framer-597oW .framer-8ywkyy {
         flex-flow: column;
-        flex: none;
-        place-content: flex-start;
-        align-items: flex-start;
-        gap: 6px;
-        width: 210px;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-597oW .framer-gm3fa7,
-      .framer-597oW .framer-1vz4lyg,
-      .framer-597oW .framer-t75vl5,
-      .framer-597oW .framer-k3jxsv,
-      .framer-597oW .framer-96dbo5 {
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
-      .framer-597oW .framer-s2rjwd {
-        flex-flow: column;
-        flex: none;
         place-content: center;
         align-items: center;
         gap: 10px;
         width: min-content;
         height: min-content;
-        padding: 8px 10px 5px;
+        padding: 12px 24px;
+        text-decoration: none;
         display: flex;
         position: relative;
-        overflow: visible;
+        overflow: hidden;
       }
-      .framer-597oW .framer-6zm3rg,
-      .framer-597oW .framer-qwru3c {
+      .framer-aspyn .framer-15z3ipk {
         white-space: normal;
         flex: none;
         width: auto;
         height: auto;
         position: relative;
       }
-      .framer-597oW .framer-n5k6na {
+      .framer-aspyn.framer-v-pzkpyu.framer-17vb51d {
+        padding: 8px 16px;
+      }
+      .framer-aspyn[data-border="true"]:after,
+      .framer-aspyn [data-border="true"]:after {
+        content: "";
+        border-width: var(--border-top-width, 0) var(--border-right-width, 0)
+          var(--border-bottom-width, 0) var(--border-left-width, 0);
+        border-color: var(--border-color, none);
+        border-style: var(--border-style, none);
+        box-sizing: border-box;
+        border-radius: inherit;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      @supports (aspect-ratio: 1) {
+        body {
+          --framer-aspect-ratio-supported: auto;
+        }
+      }
+      .framer-yNhQm.framer-dyb14w,
+      .framer-yNhQm .framer-dyb14w {
+        display: block;
+      }
+      .framer-yNhQm.framer-1pf0ifg {
+        background-color: var(
+          --token-80553515-7ab0-44ac-b981-96d7680674fd,
+          #fff
+        );
+        height: min-content;
+        overflow: var(--overflow-clip-fallback, clip);
         flex-flow: column;
-        flex: 1 0 0;
+        place-content: center flex-start;
+        align-items: center;
+        gap: 0;
+        width: 1200px;
+        padding: 0;
+        display: flex;
+        position: relative;
+      }
+      .framer-yNhQm .framer-16lcyg0 {
+        flex-flow: column;
+        flex: none;
         place-content: flex-start;
         align-items: flex-start;
-        gap: 6px;
-        width: 1px;
+        gap: 80px;
+        width: 77%;
+        max-width: 1200px;
         height: min-content;
+        min-height: 481px;
         padding: 0;
         display: flex;
         position: relative;
-        overflow: hidden;
+        overflow: visible;
       }
-      .framer-597oW .framer-s43hkk {
-        will-change: var(--framer-will-change-override, transform);
-        flex-flow: column;
-        place-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 600px;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
+      .framer-yNhQm .framer-w2bzp8 {
+        aspect-ratio: 2.13281;
+        height: var(--framer-aspect-ratio-supported, 130px);
+        z-index: 1;
+        flex: none;
+        width: 277px;
+        position: absolute;
+        top: 89px;
+        left: 561px;
       }
-      .framer-597oW .framer-176mm69 {
+      .framer-yNhQm .framer-miz100 {
+        z-index: 3;
         flex-flow: column;
         flex: none;
         place-content: flex-start center;
         align-items: flex-start;
-        gap: 12px;
+        gap: 0;
+        width: 830px;
+        height: min-content;
+        padding: 88px 0 40px;
+        display: flex;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        overflow: visible;
+      }
+      .framer-yNhQm .framer-lq261x {
+        flex-flow: column;
+        flex: none;
+        place-content: flex-start center;
+        align-items: flex-start;
+        gap: 32px;
         width: 100%;
         height: min-content;
-        padding: 20px;
+        padding: 0;
         display: flex;
         position: relative;
         overflow: visible;
       }
-      .framer-597oW.framer-v-6j9srd.framer-dj0adu {
-        flex-direction: column;
-        gap: 0;
-        width: 375px;
-      }
-      .framer-597oW.framer-v-6j9srd .framer-8ywkyy {
-        flex-direction: row;
-        width: 100%;
-      }
-      .framer-597oW.framer-v-6j9srd .framer-gm3fa7 {
-        flex: 1 0 0;
-        width: 1px;
-      }
-      .framer-597oW.framer-v-6j9srd .framer-n5k6na {
-        flex: none;
-        width: 100%;
-      }
-      .framer-597oW.framer-v-6j9srd .framer-s43hkk {
-        width: 340px;
-        max-height: 100%;
-      }
-      .framer-597oW.framer-v-6j9srd .framer-176mm69 {
-        gap: 8px;
-        padding: 16px;
-      }
-      @supports (aspect-ratio: 1) {
-        body {
-          --framer-aspect-ratio-supported: auto;
-        }
-      }
-      .framer-n9LHt.framer-1uixix3,
-      .framer-n9LHt .framer-1uixix3 {
-        display: block;
-      }
-      .framer-n9LHt.framer-16xr4sj {
-        cursor: pointer;
-        will-change: var(--framer-will-change-override, transform);
-        flex-flow: column;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 16px;
-        width: 500px;
-        height: min-content;
-        padding: 24px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-n9LHt .framer-1fxqc6g {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 12px;
-        width: 100%;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-n9LHt .framer-1oymzie-container {
-        flex: none;
-        width: 24px;
-        height: 24px;
-        position: relative;
-      }
-      .framer-n9LHt .framer-83dql {
-        flex-flow: row;
-        flex: 1 0 0;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 16px;
-        width: 1px;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-n9LHt .framer-7h6pur,
-      .framer-n9LHt .framer-1jp5rhd {
+      .framer-yNhQm .framer-utuxgz {
+        --framer-link-text-color: #09f;
+        --framer-link-text-decoration: underline;
+        --framer-paragraph-spacing: 0px;
         white-space: normal;
         word-break: break-word;
         word-wrap: break-word;
-        flex: 1 0 0;
-        width: 1px;
+        flex: none;
+        width: 100%;
         height: auto;
         position: relative;
       }
-      .framer-n9LHt .framer-10zygqk {
+      .framer-yNhQm .framer-1ltpfby {
+        --framer-link-text-color: #09f;
+        --framer-link-text-decoration: underline;
+        white-space: normal;
+        will-change: var(--framer-will-change-effect-override, transform);
+        word-break: break-word;
+        word-wrap: break-word;
+        flex: none;
+        width: 90%;
+        height: auto;
+        position: relative;
+      }
+      .framer-yNhQm .framer-1agdzkv-container {
+        z-index: 0;
+        flex: none;
+        position: absolute;
+        inset: 0;
+      }
+      .framer-yNhQm .framer-4gibpq {
+        height: min-content;
+        overflow: var(--overflow-clip-fallback, clip);
+        flex-flow: column;
+        flex: none;
+        place-content: center;
+        align-items: center;
+        gap: 48px;
+        width: 77%;
+        padding: 0 40px 0 0;
+        display: flex;
+        position: relative;
+      }
+      .framer-yNhQm .framer-1vsignr-container,
+      .framer-yNhQm .framer-vkrc0g-container,
+      .framer-yNhQm .framer-1isjgs4-container,
+      .framer-yNhQm .framer-jlwoqz-container,
+      .framer-yNhQm .framer-sts39c-container,
+      .framer-yNhQm .framer-1nkjebi-container,
+      .framer-yNhQm .framer-nd9p8t-container,
+      .framer-yNhQm .framer-6dof4x-container,
+      .framer-yNhQm .framer-3rdf2z-container,
+      .framer-yNhQm .framer-1jgg6xe-container,
+      .framer-yNhQm .framer-s8s0aq-container,
+      .framer-yNhQm .framer-1wiex60-container,
+      .framer-yNhQm .framer-tev5gd-container,
+      .framer-yNhQm .framer-1ilqnld-container,
+      .framer-yNhQm .framer-17un22t-container,
+      .framer-yNhQm .framer-19vmiqk-container,
+      .framer-yNhQm .framer-198heza-container,
+      .framer-yNhQm .framer-19ae2tm-container,
+      .framer-yNhQm .framer-ta73dt-container,
+      .framer-yNhQm .framer-10oh2kl-container,
+      .framer-yNhQm .framer-109tdrn-container,
+      .framer-yNhQm .framer-1befvkf-container,
+      .framer-yNhQm .framer-2ydmty-container,
+      .framer-yNhQm .framer-11g8dgv-container,
+      .framer-yNhQm .framer-955eik-container,
+      .framer-yNhQm .framer-5yd8d-container {
+        flex: none;
+        width: 100%;
+        height: auto;
+        scroll-margin-top: 36px;
+        position: relative;
+      }
+      .framer-yNhQm .framer-1xza9iu {
         flex-flow: row;
         flex: none;
-        place-content: flex-end space-evenly;
-        align-items: flex-end;
-        width: 100%;
+        place-content: flex-start;
+        align-items: flex-start;
+        gap: 40px;
+        width: 77%;
+        height: min-content;
+        padding: 100px 0;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .framer-yNhQm .framer-4p7206 {
+        flex-flow: row;
+        flex: 0.9 0 0;
+        place-content: center;
+        align-items: center;
+        gap: 40px;
+        width: 1px;
+        max-width: 100%;
+        height: min-content;
+        padding: 0;
+        display: flex;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-yNhQm .framer-i0svv-container {
+        flex: none;
+        width: auto;
+        height: auto;
+        position: relative;
+      }
+      .framer-yNhQm .framer-m3pr83 {
+        flex: 1 0 0;
+        width: 1px;
+        height: 100px;
+        position: relative;
+        overflow: hidden;
+      }
+      .framer-yNhQm .framer-1fqwrar {
+        flex-flow: row;
+        flex: none;
+        place-content: center;
+        align-items: center;
+        gap: 36px;
+        width: min-content;
         height: min-content;
         padding: 0;
         display: flex;
         position: relative;
         overflow: hidden;
       }
-      .framer-n9LHt.framer-v-g1aba7.framer-16xr4sj {
-        gap: 0;
+      .framer-yNhQm .framer-1x9t9nj-container,
+      .framer-yNhQm .framer-2s9k2y-container {
+        will-change: var(--framer-will-change-effect-override, transform);
+        flex: none;
+        width: auto;
+        height: auto;
+        position: relative;
       }
-      .framer-n9LHt.framer-v-g1aba7 .framer-10zygqk {
-        height: 1px;
+      .framer-yNhQm .framer-1us3muc {
+        flex-flow: row;
+        flex: none;
+        place-content: center;
+        align-items: center;
+        gap: 10px;
+        width: min-content;
+        height: min-content;
+        padding: 0;
+        display: flex;
+        position: relative;
+        overflow: visible;
       }
-      .framer-W1uCI .framer-styles-preset-71o1ko:not(.rich-text-wrapper),
-      .framer-W1uCI .framer-styles-preset-71o1ko.rich-text-wrapper p {
-        --framer-font-family: "Comfortaa", sans-serif;
-        --framer-font-family-bold: "Comfortaa", sans-serif;
-        --framer-font-open-type-features: normal;
-        --framer-font-size: 16px;
-        --framer-font-style: normal;
-        --framer-font-style-bold: normal;
-        --framer-font-variation-axes: normal;
-        --framer-font-weight: 400;
-        --framer-font-weight-bold: 700;
-        --framer-letter-spacing: 0em;
-        --framer-line-height: 1.5em;
-        --framer-paragraph-spacing: 20px;
-        --framer-text-alignment: start;
-        --framer-text-color: var(
-          --token-ace4c784-9b3a-44bb-9f2f-4ae735effa92,
-          #000
-        );
-        --framer-text-decoration: none;
-        --framer-text-stroke-color: initial;
-        --framer-text-stroke-width: initial;
-        --framer-text-transform: none;
+      .framer-yNhQm .framer-16qd4jc,
+      .framer-yNhQm .framer-1gaop1v {
+        flex: none;
+        width: 24px;
+        height: 27px;
+        text-decoration: none;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-yNhQm .framer-xkzhq6-container,
+      .framer-yNhQm .framer-13jeaqc-container {
+        aspect-ratio: 1;
+        height: var(--framer-aspect-ratio-supported, 27px);
+        flex: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
       }
       .framer-0Tw74 .framer-styles-preset-13wthud:not(.rich-text-wrapper),
       .framer-0Tw74 .framer-styles-preset-13wthud.rich-text-wrapper h1 {
@@ -6370,6 +4613,269 @@ html,
         --framer-text-stroke-width: initial;
         --framer-text-transform: none;
       }
+      .framer-ol9h5 .framer-styles-preset-1m06dvn:not(.rich-text-wrapper),
+      .framer-ol9h5 .framer-styles-preset-1m06dvn.rich-text-wrapper h5 {
+        --framer-font-family: "Comfortaa", sans-serif;
+        --framer-font-family-bold: "Comfortaa", sans-serif;
+        --framer-font-open-type-features:
+          "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
+        --framer-font-size: 20px;
+        --framer-font-style: normal;
+        --framer-font-style-bold: normal;
+        --framer-font-variation-axes: normal;
+        --framer-font-weight: 600;
+        --framer-font-weight-bold: 700;
+        --framer-letter-spacing: 0.02em;
+        --framer-line-height: 1.4em;
+        --framer-paragraph-spacing: 40px;
+        --framer-text-alignment: start;
+        --framer-text-color: var(
+          --token-d59ed565-ba55-41e1-b41e-7c9a4508e38f,
+          #fff
+        );
+        --framer-text-decoration: none;
+        --framer-text-stroke-color: initial;
+        --framer-text-stroke-width: initial;
+        --framer-text-transform: none;
+      }
+      @media (min-width: 810px) and (max-width: 1199.98px) {
+        .framer-yNhQm.framer-1pf0ifg {
+          width: 810px;
+        }
+        .framer-yNhQm .framer-16lcyg0 {
+          min-height: unset;
+          width: 100%;
+        }
+        .framer-yNhQm .framer-w2bzp8 {
+          top: 9px;
+          left: 511px;
+        }
+        .framer-yNhQm .framer-miz100 {
+          left: unset;
+          top: unset;
+          width: 100%;
+          padding: 88px 48px 80px;
+          position: relative;
+        }
+        .framer-yNhQm .framer-4gibpq {
+          width: 100%;
+          padding: 0 40px;
+        }
+        .framer-yNhQm .framer-1xza9iu {
+          width: 100%;
+          padding: 80px 40px;
+        }
+        .framer-yNhQm .framer-4p7206 {
+          flex: 1 0 0;
+        }
+      }
+      @media (max-width: 809.98px) {
+        .framer-yNhQm.framer-1pf0ifg {
+          width: 390px;
+        }
+        .framer-yNhQm .framer-16lcyg0 {
+          width: 100%;
+        }
+        .framer-yNhQm .framer-w2bzp8 {
+          height: var(--framer-aspect-ratio-supported, 115px);
+          left: unset;
+          width: 247px;
+          top: 14px;
+          right: -9px;
+        }
+        .framer-yNhQm .framer-miz100 {
+          width: 100%;
+          padding: 88px 16px 40px;
+        }
+        .framer-yNhQm .framer-4gibpq {
+          width: 100%;
+          padding: 0 16px;
+        }
+        .framer-yNhQm .framer-1xza9iu {
+          width: 100%;
+          padding: 50px 0;
+        }
+        .framer-yNhQm .framer-4p7206 {
+          flex-direction: column;
+          flex: 1 0 0;
+        }
+        .framer-yNhQm .framer-1fqwrar {
+          flex-direction: column;
+        }
+        .framer-yNhQm .framer-xkzhq6-container,
+        .framer-yNhQm .framer-13jeaqc-container {
+          height: var(--framer-aspect-ratio-supported, 24px);
+        }
+      }
+      @supports (aspect-ratio: 1) {
+        body {
+          --framer-aspect-ratio-supported: auto;
+        }
+      }
+      .framer-xdtiQ.framer-g971r6,
+      .framer-xdtiQ .framer-g971r6 {
+        display: block;
+      }
+      .framer-xdtiQ.framer-13623tu {
+        flex-flow: row;
+        place-content: flex-start center;
+        align-items: flex-start;
+        gap: 48px;
+        width: 900px;
+        height: min-content;
+        padding: 0;
+        display: flex;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-xdtiQ .framer-h6s7nx {
+        flex-flow: column;
+        flex: 1 0 0;
+        place-content: flex-start;
+        align-items: flex-start;
+        gap: 24px;
+        width: 1px;
+        height: min-content;
+        padding: 0;
+        display: flex;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-xdtiQ .framer-8muha1 {
+        flex-flow: column;
+        flex: none;
+        place-content: flex-start center;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+        height: min-content;
+        padding: 0;
+        display: flex;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-xdtiQ .framer-1kpdwog {
+        flex-flow: column;
+        flex: none;
+        place-content: center;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        height: min-content;
+        padding: 0;
+        display: flex;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-xdtiQ .framer-vht6jt,
+      .framer-xdtiQ .framer-14pc9pk {
+        white-space: normal;
+        word-break: break-word;
+        word-wrap: break-word;
+        flex: none;
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      .framer-xdtiQ .framer-15wirsr {
+        flex-flow: column;
+        flex: none;
+        place-content: center;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+        height: min-content;
+        padding: 0;
+        display: flex;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-xdtiQ .framer-14j1gdu,
+      .framer-xdtiQ .framer-1y6rvhl {
+        --framer-text-wrap-override: balance;
+        flex: none;
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      .framer-xdtiQ .framer-8wu9we {
+        flex-flow: row;
+        flex: none;
+        place-content: flex-start;
+        align-items: flex-start;
+        gap: 8px;
+        width: min-content;
+        height: min-content;
+        padding: 0;
+        display: flex;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-xdtiQ .framer-1ykpj41,
+      .framer-xdtiQ .framer-arbj9y,
+      .framer-xdtiQ .framer-nx12ds {
+        flex-flow: column;
+        flex: none;
+        place-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 24px;
+        height: min-content;
+        padding: 0;
+        text-decoration: none;
+        display: flex;
+        position: relative;
+        overflow: visible;
+      }
+      .framer-xdtiQ .framer-1nqumle-container,
+      .framer-xdtiQ .framer-18xqy8w-container,
+      .framer-xdtiQ .framer-hbnnq6-container {
+        flex: none;
+        width: 100%;
+        height: 24px;
+        position: relative;
+      }
+      .framer-xdtiQ .framer-mhdb95 {
+        aspect-ratio: 1;
+        height: var(--framer-aspect-ratio-supported, 426px);
+        will-change: var(--framer-will-change-override, transform);
+        flex: 1 0 0;
+        width: 1px;
+        position: relative;
+        overflow: hidden;
+      }
+      .framer-xdtiQ .framer-xtj1sl {
+        will-change: var(--framer-will-change-override, transform);
+        flex: none;
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .framer-xdtiQ.framer-v-1si6i3g .framer-h6s7nx,
+      .framer-xdtiQ.framer-v-1si6i3g .framer-15wirsr {
+        order: 1;
+      }
+      .framer-xdtiQ.framer-v-1si6i3g .framer-1kpdwog,
+      .framer-xdtiQ.framer-v-1si6i3g .framer-mhdb95 {
+        order: 0;
+      }
+      .framer-xdtiQ.framer-v-vklztb.framer-13623tu {
+        flex-direction: column;
+        gap: 24px;
+        width: 390px;
+      }
+      .framer-xdtiQ.framer-v-vklztb .framer-h6s7nx {
+        flex: none;
+        order: 1;
+        width: 100%;
+      }
+      .framer-xdtiQ.framer-v-vklztb .framer-mhdb95 {
+        aspect-ratio: unset;
+        flex: none;
+        order: 0;
+        width: 100%;
+        height: 360px;
+      }
       .framer-ZdmBg .framer-styles-preset-185ree:not(.rich-text-wrapper),
       .framer-ZdmBg .framer-styles-preset-185ree.rich-text-wrapper h3 {
         --framer-font-family: "Dela Gothic One", sans-serif;
@@ -6400,50 +4906,6 @@ html,
         --framer-text-stroke-width: initial;
         --framer-text-transform: none;
       }
-      .framer-v7cFw .framer-styles-preset-1kvdt9d:not(.rich-text-wrapper),
-      .framer-v7cFw .framer-styles-preset-1kvdt9d.rich-text-wrapper h4 {
-        --framer-font-family: "Dela Gothic One", sans-serif;
-        --framer-font-open-type-features:
-          "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
-        --framer-font-size: 22px;
-        --framer-font-style: normal;
-        --framer-font-variation-axes: normal;
-        --framer-font-weight: 400;
-        --framer-letter-spacing: -0.04em;
-        --framer-line-height: 1.4em;
-        --framer-paragraph-spacing: 40px;
-        --framer-text-alignment: start;
-        --framer-text-color: #000;
-        --framer-text-decoration: none;
-        --framer-text-stroke-color: initial;
-        --framer-text-stroke-width: initial;
-        --framer-text-transform: none;
-      }
-      .framer-ol9h5 .framer-styles-preset-1m06dvn:not(.rich-text-wrapper),
-      .framer-ol9h5 .framer-styles-preset-1m06dvn.rich-text-wrapper h5 {
-        --framer-font-family: "Comfortaa", sans-serif;
-        --framer-font-family-bold: "Comfortaa", sans-serif;
-        --framer-font-open-type-features:
-          "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
-        --framer-font-size: 20px;
-        --framer-font-style: normal;
-        --framer-font-style-bold: normal;
-        --framer-font-variation-axes: normal;
-        --framer-font-weight: 600;
-        --framer-font-weight-bold: 700;
-        --framer-letter-spacing: 0.02em;
-        --framer-line-height: 1.4em;
-        --framer-paragraph-spacing: 40px;
-        --framer-text-alignment: start;
-        --framer-text-color: var(
-          --token-d59ed565-ba55-41e1-b41e-7c9a4508e38f,
-          #fff
-        );
-        --framer-text-decoration: none;
-        --framer-text-stroke-color: initial;
-        --framer-text-stroke-width: initial;
-        --framer-text-transform: none;
-      }
       .framer-Xsudw .framer-styles-preset-1jv6x2p:not(.rich-text-wrapper),
       .framer-Xsudw .framer-styles-preset-1jv6x2p.rich-text-wrapper h6 {
         --framer-font-family: "Comfortaa", sans-serif;
@@ -6463,362 +4925,44 @@ html,
         --framer-text-stroke-width: initial;
         --framer-text-transform: uppercase;
       }
-      .framer-lA6EK .framer-styles-preset-19bxqj6:not(.rich-text-wrapper),
-      .framer-lA6EK .framer-styles-preset-19bxqj6.rich-text-wrapper a {
-        --framer-link-current-text-color: #111;
-        --framer-link-current-text-decoration: underline;
-        --framer-link-hover-text-color: #1f0f4f;
-        --framer-link-hover-text-decoration: underline;
-        --framer-link-text-color: #4424a7;
-        --framer-link-text-decoration: none;
+      .framer-6ofwz .framer-styles-preset-b0ox7n:not(.rich-text-wrapper),
+      .framer-6ofwz .framer-styles-preset-b0ox7n.rich-text-wrapper p {
+        --framer-font-family: "Comfortaa", sans-serif;
+        --framer-font-family-bold: "Comfortaa", sans-serif;
+        --framer-font-open-type-features:
+          "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
+        --framer-font-size: 16px;
+        --framer-font-style: normal;
+        --framer-font-style-bold: normal;
+        --framer-font-variation-axes: normal;
+        --framer-font-weight: 400;
+        --framer-font-weight-bold: 700;
+        --framer-letter-spacing: -0.02em;
+        --framer-line-height: 1.6em;
+        --framer-paragraph-spacing: 20px;
+        --framer-text-alignment: start;
+        --framer-text-color: var(
+          --token-d59ed565-ba55-41e1-b41e-7c9a4508e38f,
+          #fff
+        );
+        --framer-text-decoration: none;
+        --framer-text-stroke-color: initial;
+        --framer-text-stroke-width: initial;
+        --framer-text-transform: none;
+      [data-framer-name="PrimaryMenu"] *,
+      [data-framer-name="Links"] *,
+      nav * {
+        white-space: nowrap !important;
       }
-      .framer-tJcEC .framer-styles-preset-14w9cz8:not(.rich-text-wrapper),
-      .framer-tJcEC .framer-styles-preset-14w9cz8.rich-text-wrapper code {
-        --framer-code-font-family: "Fragment Mono", monospace;
-        --framer-code-font-style: normal;
-        --framer-code-font-weight: 400;
-        --framer-code-text-color: #333;
-        --framer-font-size-scale: 1;
-        background-color: #0000001a;
-        border-radius: 6px;
-        padding: 0.1em 0.2em;
+      [data-framer-name="Status"] * {
+        white-space: nowrap !important;
       }
-      @supports (aspect-ratio: 1) {
-        body {
-          --framer-aspect-ratio-supported: auto;
-        }
+      [data-framer-name="SecondaryButton"] *,
+      [data-framer-name="PrimaryButton"] *,
+      button * {
+        white-space: nowrap !important;
       }
-      .framer-GFaBS.framer-ttdqsk,
-      .framer-GFaBS .framer-ttdqsk {
-        display: block;
+      [data-framer-name="Slider"] *,
+      [class*="marquee"] * {
+        white-space: nowrap !important;
       }
-      .framer-GFaBS.framer-13t2psp {
-        cursor: pointer;
-        will-change: var(--framer-will-change-override, transform);
-        flex-flow: column;
-        place-content: flex-start flex-end;
-        align-items: flex-start;
-        gap: 0;
-        width: 288px;
-        height: 500px;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-GFaBS .framer-oa322q {
-        flex: none;
-        width: 100%;
-        height: 415px;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-GFaBS .framer-bgk9q4 {
-        aspect-ratio: 0.714286;
-        height: var(--framer-aspect-ratio-supported, 420px);
-        flex: none;
-        position: absolute;
-        top: 53px;
-        left: 0;
-        right: -12px;
-        overflow: visible;
-      }
-      .framer-GFaBS .framer-1csebkw {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start center;
-        align-items: flex-start;
-        gap: 8px;
-        width: 100%;
-        height: min-content;
-        padding: 20px;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-GFaBS .framer-kp0o4o,
-      .framer-GFaBS .framer-lpw11s,
-      .framer-GFaBS .framer-qnk336,
-      .framer-GFaBS .framer-14i95o2,
-      .framer-GFaBS .framer-1p0hxps {
-        white-space: normal;
-        word-break: break-word;
-        word-wrap: break-word;
-        flex: none;
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
-      .framer-GFaBS .framer-1i2lxzv,
-      .framer-GFaBS .framer-1rby9x2 {
-        flex-flow: row;
-        flex: none;
-        place-content: center flex-start;
-        align-items: center;
-        gap: 16px;
-        width: 153px;
-        height: min-content;
-        padding: 8px 0 0;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-GFaBS .framer-gomuws,
-      .framer-GFaBS .framer-1ehopfz,
-      .framer-GFaBS .framer-1l8z7vx,
-      .framer-GFaBS .framer-40h1t5,
-      .framer-GFaBS .framer-1vgypp3,
-      .framer-GFaBS .framer-12yaru7 {
-        flex-flow: row;
-        flex: none;
-        place-content: center;
-        align-items: center;
-        gap: 0;
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        text-decoration: none;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-GFaBS .framer-fmpsoq,
-      .framer-GFaBS .framer-1k2n893,
-      .framer-GFaBS .framer-1h2f4if-container,
-      .framer-GFaBS .framer-1lbm72d,
-      .framer-GFaBS .framer-15b79z,
-      .framer-GFaBS .framer-yvdozy-container {
-        flex: none;
-        width: 24px;
-        height: 24px;
-        position: relative;
-      }
-      .framer-GFaBS .framer-1priphl {
-        will-change: var(--framer-will-change-override, transform);
-        flex-flow: column;
-        place-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 600px;
-        height: min-content;
-        padding: 0;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-      }
-      .framer-GFaBS .framer-xiq1p3 {
-        flex-flow: column;
-        flex: none;
-        place-content: flex-start center;
-        align-items: flex-start;
-        gap: 16px;
-        width: 100%;
-        height: min-content;
-        padding: 20px;
-        display: flex;
-        position: relative;
-        overflow: visible;
-      }
-      .framer-GFaBS.framer-v-19evcp8.framer-13t2psp {
-        width: 390px;
-        height: 560px;
-      }
-      .framer-GFaBS.framer-v-19evcp8 .framer-oa322q {
-        height: 75%;
-      }
-      .framer-GFaBS.framer-v-19evcp8 .framer-bgk9q4 {
-        height: var(--framer-aspect-ratio-supported, 563px);
-        top: -14px;
-      }
-      .framer-GFaBS.framer-v-19evcp8 .framer-1csebkw {
-        height: 156px;
-        padding: 16px;
-      }
-      .framer-GFaBS.framer-v-1lz8t2g.framer-13t2psp {
-        flex-direction: row;
-        width: 375px;
-        min-width: 320px;
-        max-width: 420px;
-        height: 215px;
-      }
-      .framer-GFaBS.framer-v-1lz8t2g .framer-oa322q {
-        flex-flow: column;
-        place-content: center;
-        align-items: center;
-        gap: 0;
-        width: 50%;
-        height: 215px;
-        padding: 0;
-        display: flex;
-      }
-      .framer-GFaBS.framer-v-1lz8t2g .framer-bgk9q4 {
-        height: var(--framer-aspect-ratio-supported, 266px);
-        bottom: -51px;
-        left: 51%;
-        right: unset;
-        top: unset;
-        z-index: 1;
-        order: 0;
-        width: 190px;
-      }
-      .framer-GFaBS.framer-v-1lz8t2g .framer-1csebkw {
-        width: 50%;
-        height: 100%;
-        padding: 16px;
-      }
-      .framer-GFaBS.framer-v-1lz8t2g .framer-1i2lxzv {
-        gap: 12px;
-      }
-      .framer-GFaBS.framer-v-1lz8t2g .framer-gomuws,
-      .framer-GFaBS.framer-v-1lz8t2g .framer-1ehopfz,
-      .framer-GFaBS.framer-v-1lz8t2g .framer-1l8z7vx {
-        aspect-ratio: 1;
-        height: var(--framer-aspect-ratio-supported, 32px);
-        width: 32px;
-      }
-      .framer-GFaBS.framer-v-1lz8t2g .framer-1priphl {
-        gap: 0;
-        width: 360px;
-      }
-      .framer-GFaBS.framer-v-1lz8t2g .framer-xiq1p3 {
-        gap: 8px;
-        padding: 16px;
-      }
-#__framer-editorbar-container {
-        align-items: center;
-        display: flex;
-        gap: 8px;
-        position: fixed;
-        z-index: calc(2147483647);
-        width: max-content;
-        cursor: pointer;
-      }
-      #__framer-editorbar-label {
-        background-color: #111;
-        border-radius: 8px;
-        font-family: "Inter", "Inter-Regular", system-ui, Arial, sans-serif;
-        font-size: 12px;
-        height: fit-content;
-        opacity: 0;
-        padding: 4px 8px;
-        transition: opacity 0.4s ease-out;
-        font-weight: 500;
-        flex-shrink: 0;
-        position: fixed;
-        width: max-content;
-        pointer-events: none;
-        user-select: none;
-      }
-      #__framer-editorbar-button {
-        all: unset;
-        align-items: center;
-        border-radius: 15px;
-        display: flex;
-        height: 30px;
-        justify-content: center;
-        width: 30px;
-        flex-shrink: 0;
-      }
-      #__framer-editorbar-label.__framer-editorbar-button-tooltip-visible {
-        opacity: 1;
-      }
-      #__framer-editorbar-label,
-      #__framer-editorbar-button {
-        backdrop-filter: blur(10px);
-        background-color: rgba(34, 34, 34, 0.8);
-        box-shadow:
-          rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
-          rgba(0, 0, 0, 0.05) 0px 1px 0px 0px,
-          rgba(255, 255, 255, 0.15) 0px 0px 0px 1px;
-        color: #fff;
-      }
-      #__framer-editorbar-loading-spinner {
-        width: 12px;
-        height: 12px;
-        -webkit-mask: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAApNJREFUSA2tlUtLlFEYgEe7mtFFQ8NLFBG1SJAwahtiLVy5ceVSEPQH1LZf0Lp9FO1bdYNyI7gyBFcS2kAzilYq3sfxeYZ55Zv6FGfohWfOd97vnPd23u9MXeZoaeb1Q7gPHXAFzsAS5GACxiEPqVKXqs1kmtAPQi+cAtedToz1PJ8ExxPwDl7CAlRImoN7rBiF86ABHTiGAzMIh8n3O+ifwWc4EL0n5TGTYQijvjNSxbUadozInUeGZ3nuh1WYgpIkM+hGMwYajAgdrfUn+AaLoLTCAxiAOxCZxL4RdB+gZMjxEjwHo4hS8Jh5DR9hz0mKaNizegoNEI7Wee6FXJTISG6AUgDr+QImoAiHie+mwZJow/PRps4uwnsnRj8Epqc4voVJJ8eULOtW4BFYYjPpgjc+3IWI2sh/wFeoVl6xYQ48dDGLfjOwc/ygQqz595hUMVouS9QHBm4l6k3HWpnBLqicgVrlCxujSbR1Swd+UDpQYRS/oVaZZ2MWwlZBB9Zdxf+QTYw8SRgq6sAvz7vH6JULEB9USVHFjzZskgPRQR4ayxoXXIdaHdg9HrB2rErByWxZERnYtrWUzD0esDbtTmXPhzXwHrKLxEUbYGbVyDkWWwkdadfqbPmwDXZSCyh2VAf8BM/nOOJH5Y0QopMt2I5U/KO4DZZJB47XwEX+ex0mGroMV8sLwp56gyuGwiyW4SZ4c8bt2cZzO7jBNeqtsRHbeZ1g9krsMbhfYPv/c5gecA+4yAVuitFszE5Hjva872OMdXagF19JIoOYWyozMTI3J0tmA6gLvXPfO1cc/XOqOLe/HbjwD8yCXRD3VNJROEgatiRZMJsKsbZHia3nAdphtq8fkiWyXJbBe8uM1aXKPouNnz2Bm1kwAAAAAElFTkSuQmCC);
-        mask: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAApNJREFUSA2tlUtLlFEYgEe7mtFFQ8NLFBG1SJAwahtiLVy5ceVSEPQH1LZf0Lp9FO1bdYNyI7gyBFcS2kAzilYq3sfxeYZ55Zv6FGfohWfOd97vnPd23u9MXeZoaeb1Q7gPHXAFzsAS5GACxiEPqVKXqs1kmtAPQi+cAtedToz1PJ8ExxPwDl7CAlRImoN7rBiF86ABHTiGAzMIh8n3O+ifwWc4EL0n5TGTYQijvjNSxbUadozInUeGZ3nuh1WYgpIkM+hGMwYajAgdrfUn+AaLoLTCAxiAOxCZxL4RdB+gZMjxEjwHo4hS8Jh5DR9hz0mKaNizegoNEI7Wee6FXJTISG6AUgDr+QImoAiHie+mwZJow/PRps4uwnsnRj8Epqc4voVJJ8eULOtW4BFYYjPpgjc+3IWI2sh/wFeoVl6xYQ48dDGLfjOwc/ygQqz595hUMVouS9QHBm4l6k3HWpnBLqicgVrlCxujSbR1Swd+UDpQYRS/oVaZZ2MWwlZBB9Zdxf+QTYw8SRgq6sAvz7vH6JULEB9USVHFjzZskgPRQR4ayxoXXIdaHdg9HrB2rErByWxZERnYtrWUzD0esDbtTmXPhzXwHrKLxEUbYGbVyDkWWwkdadfqbPmwDXZSCyh2VAf8BM/nOOJH5Y0QopMt2I5U/KO4DZZJB47XwEX+ex0mGroMV8sLwp56gyuGwiyW4SZ4c8bt2cZzO7jBNeqtsRHbeZ1g9krsMbhfYPv/c5gecA+4yAVuitFszE5Hjva872OMdXagF19JIoOYWyozMTI3J0tmA6gLvXPfO1cc/XOqOLe/HbjwD8yCXRD3VNJROEgatiRZMJsKsbZHia3nAdphtq8fkiWyXJbBe8uM1aXKPouNnz2Bm1kwAAAAAElFTkSuQmCC);
-        -webkit-mask-size: 12px;
-        mask-size: 12px;
-        background-color: #fff;
-        animation-duration: 800ms;
-        animation-iteration-count: infinite;
-        animation-name: __framer-loading-spin;
-        animation-timing-function: linear;
-      }
-      @keyframes __framer-loading-spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-#__framer-editorbar {
-        color-scheme: light dark;
-        overflow: hidden;
-        position: fixed;
-        border: none;
-        z-index: calc(2147483647);
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        touch-action: manipulation;
-      }
-      @supports (height: 100dvh) {
-        #__framer-editorbar {
-          height: 100dvh;
-        }
-      }
-      #__framer-editorbar.status_hidden {
-        display: none;
-      }
-      #__framer-editorbar.status_visually_hidden {
-        clip-path: circle(1px at calc(100% - 20px) calc(50% + 4px));
-        z-index: calc(2147483647 - 1);
-      }
-      #__framer-editorbar.status_measuring {
-        clip-path: unset;
-      }
-      [data-framer-name="Links"] .framer-text,
-      [data-framer-name="Links"] p,
-      [data-framer-name="Links"] a,
-      [data-framer-name="CTA"] .framer-text,
-      [data-framer-name="CTA"] p,
-      [data-framer-name="CTA"] a {
-        white-space: nowrap;
-      }
-      .framer-2Ycmv .framer-1daxy8h {
-        white-space: nowrap;
-      }
-      .framer-597oW .framer-6zm3rg,
-      .framer-597oW .framer-qwru3c {
-        white-space: nowrap;
-      }
-html body {
-          background: var(
-            --token-80553515-7ab0-44ac-b981-96d7680674fd,
-            rgb(255, 255, 255)
-          );
-        }
-@keyframes motifScrollUp {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
-.motif-scroll-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.motif-scroll-img {
-  width: 100%;
-  height: auto;
-  min-height: 200%;
-  object-fit: cover;
-  object-position: top;
-  animation: motifScrollUp 30s linear infinite;
-}

@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  trailingSlash: true,
+  skipTrailingSlashRedirect: false,
   images: {
     remotePatterns: [
       {
@@ -21,8 +23,16 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/conferences/:year",
+        source: "/conferences/:year(\\d{4})/",
         destination: "/conferences/:year/index.html",
+      },
+      {
+        source: "/conferences/:year(\\d{4})/lineup",
+        destination: "/conferences/:year/lineup.html",
+      },
+      {
+        source: "/conferences/:year(\\d{4})/lineup/",
+        destination: "/conferences/:year/lineup.html",
       },
     ];
   },
