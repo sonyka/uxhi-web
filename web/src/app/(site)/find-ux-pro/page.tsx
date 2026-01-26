@@ -40,7 +40,7 @@ export default function FindUXProPage() {
               <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={120} height={120} className="w-[120px] h-[120px]" />
             </div>
             <div className="flex-1 h-[140px] rounded-t-xl rounded-b-[99px] overflow-hidden relative">
-              <Image src="/images/find-ux-pro/bento-find-ux-02.jpg" alt="UXHI conference" fill className="object-cover" />
+              <Image src="/images/find-ux-pro/bento-find-ux-02.png" alt="UXHI conference" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function FindUXProPage() {
               <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={114} height={114} className="w-[114px] h-[114px]" />
             </div>
             <div className="w-full h-[180px] rounded-t-[7px] rounded-b-[88px] overflow-hidden relative">
-              <Image src="/images/find-ux-pro/bento-find-ux-02.jpg" alt="UXHI conference" fill className="object-cover" />
+              <Image src="/images/find-ux-pro/bento-find-ux-02.png" alt="UXHI conference" fill className="object-cover" />
             </div>
           </div>
 
@@ -71,7 +71,7 @@ export default function FindUXProPage() {
                 <Image src="/images/find-ux-pro/bento-find-ux-01.png" alt="UXHI community" fill className="object-cover" />
               </div>
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
-                <Image src="/images/find-ux-pro/bento-find-ux-02.jpg" alt="UXHI conference" fill className="object-cover" />
+                <Image src="/images/find-ux-pro/bento-find-ux-02.png" alt="UXHI conference" fill className="object-cover" />
               </div>
             </div>
             {/* Column 2 - Right (positioned at bottom) */}
