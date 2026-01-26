@@ -8,12 +8,12 @@ import { SpeechBubbleCard } from "@/components/ui/cards/SpeechBubbleCard";
 
 // Placeholder images for the grid - using existing bento images
 const gridImages = [
-  { id: "1", src: "/images/bento/group-leis.jpg", alt: "UXHI community members with leis" },
-  { id: "2", src: "/images/bento/conference.jpg", alt: "UXHI conference" },
-  { id: "3", src: "/images/bento/ux101-group.jpg", alt: "UX101 group" },
-  { id: "4", src: "/images/bento/crowd-community.jpg", alt: "UXHI community crowd" },
-  { id: "5", src: "/images/bento/photobooth.jpg", alt: "UXHI photobooth" },
-  { id: "6", src: "/images/bento/uxhicon-25.jpg", alt: "UXHICon 25" },
+  { id: "1", src: "/images/join/bento-join-01.png", alt: "UXHI members" },
+  { id: "2", src: "/images/join/bento-join-02.png", alt: "UXHICon" },
+  { id: "3", src: "/images/join/bento-join-03.png", alt: "UXHI conference" },
+  { id: "4", src: "/images/join/bento-join-04.png", alt: "UXHI community members with leis" },
+  { id: "5", src: "/images/join/bento-join-05.png", alt: "UXHI photobooth" },
+  { id: "6", src: "/images/join/bento-join-01.png", alt: "UXHI members" },
 ];
 
 
@@ -58,13 +58,13 @@ export default async function JoinPage() {
         <div className="sm:hidden px-6 pb-8">
           <div className="flex gap-3.5 items-center w-full">
             <div className="flex-1 h-[140px] rounded-[99px] overflow-hidden relative">
-              <Image src="/images/bento/couple-sunglasses.png" alt="UXHI members" fill className="object-cover" />
+              <Image src="/images/join/bento-join-01.png" alt="UXHI members" fill className="object-cover" />
             </div>
             <div className="w-[120px] shrink-0 flex items-center justify-center">
               <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={120} height={120} className="w-[120px] h-[120px]" />
             </div>
             <div className="flex-1 h-[140px] rounded-t-xl rounded-b-[99px] overflow-hidden relative">
-              <Image src="/images/bento/uxhicon-25.jpg" alt="UXHICon 25" fill className="object-cover" />
+              <Image src="/images/join/bento-join-02.png" alt="UXHICon 25" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -74,13 +74,13 @@ export default async function JoinPage() {
           {/* SM layout - Single column only */}
           <div className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
             <div className="w-full h-[180px] rounded-[88px] overflow-hidden relative">
-              <Image src="/images/bento/couple-sunglasses.png" alt="UXHI members" fill className="object-cover" />
+              <Image src="/images/join/bento-join-01.png" alt="UXHI members" fill className="object-cover" />
             </div>
             <div className="w-[114px] mx-auto flex items-center justify-center">
               <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={114} height={114} className="w-[114px] h-[114px]" />
             </div>
             <div className="w-full h-[180px] rounded-t-[7px] rounded-b-[88px] overflow-hidden relative">
-              <Image src="/images/bento/uxhicon-25.jpg" alt="UXHICon 25" fill className="object-cover" />
+              <Image src="/images/join/bento-join-02.png" alt="UXHICon 25" fill className="object-cover" />
             </div>
           </div>
 
@@ -89,25 +89,25 @@ export default async function JoinPage() {
             {/* Column 1 - Left (positioned higher) */}
             <div className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[114px] lg:h-[128px] rounded-[24px] overflow-hidden relative">
-                <Image src="/images/bento/conference.jpg" alt="UXHI conference" fill className="object-cover" />
+                <Image src="/images/join/bento-join-03.png" alt="UXHI conference" fill className="object-cover" />
               </div>
               <div className="w-full h-[180px] lg:h-[201px] rounded-[88px] lg:rounded-[99px] overflow-hidden relative opacity-90">
-                <Image src="/images/bento/couple-sunglasses.png" alt="UXHI members" fill className="object-cover" />
+                <Image src="/images/join/bento-join-01.png" alt="UXHI members" fill className="object-cover" />
               </div>
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
-                <Image src="/images/bento/uxhicon-25.jpg" alt="UXHICon 25" fill className="object-cover" />
+                <Image src="/images/join/bento-join-02.png" alt="UXHICon 25" fill className="object-cover" />
               </div>
             </div>
             {/* Column 2 - Right (positioned at bottom) */}
             <div className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
-                <Image src="/images/bento/group-leis.jpg" alt="UXHI community members with leis" fill className="object-cover" />
+                <Image src="/images/join/bento-join-04.png" alt="UXHI community members with leis" fill className="object-cover" />
               </div>
               <div className="w-[114px] lg:w-[128px] mx-auto flex items-center justify-center">
                 <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={128} height={128} className="w-[114px] lg:w-[128px] h-[114px] lg:h-[128px]" />
               </div>
               <div className="w-full h-[180px] lg:h-[201px] rounded-[7px] lg:rounded-lg overflow-hidden relative">
-                <Image src="/images/bento/photobooth.jpg" alt="UXHI photobooth" fill className="object-cover" />
+                <Image src="/images/join/bento-join-05.png" alt="UXHI photobooth" fill className="object-cover" />
               </div>
             </div>
           </div>

@@ -195,7 +195,7 @@ export default function GetInvolvedPage() {
             {/* Pill-bottom shape */}
             <div className="flex-1 h-[140px] rounded-t-xl rounded-b-[99px] overflow-hidden relative">
               <Image
-                src="/images/bento/conference.jpg"
+                src="/images/get-involved/bento-getinvolved-01.png"
                 alt="UXHI conference"
                 fill
                 className="object-cover"
@@ -214,7 +214,7 @@ export default function GetInvolvedPage() {
             {/* Full pill */}
             <div className="flex-1 h-[140px] rounded-[99px] overflow-hidden relative">
               <Image
-                src="/images/bento/crowd-community.jpg"
+                src="/images/get-involved/bento-getinvolved-02.png"
                 alt="UXHI community crowd"
                 fill
                 className="object-cover"
@@ -230,7 +230,7 @@ export default function GetInvolvedPage() {
             {/* Pill-bottom shape */}
             <div className="w-full h-[180px] rounded-t-[7px] rounded-b-[88px] overflow-hidden relative">
               <Image
-                src="/images/bento/conference.jpg"
+                src="/images/get-involved/bento-getinvolved-01.png"
                 alt="UXHI conference"
                 fill
                 className="object-cover"
@@ -249,7 +249,7 @@ export default function GetInvolvedPage() {
             {/* Full pill */}
             <div className="w-full h-[180px] rounded-[88px] overflow-hidden relative opacity-90">
               <Image
-                src="/images/bento/crowd-community.jpg"
+                src="/images/get-involved/bento-getinvolved-02.png"
                 alt="UXHI community crowd"
                 fill
                 className="object-cover"
@@ -264,7 +264,7 @@ export default function GetInvolvedPage() {
               {/* Pill-bottom shape */}
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/conference.jpg"
+                  src="/images/get-involved/bento-getinvolved-01.png"
                   alt="UXHI conference"
                   fill
                   className="object-cover"
@@ -283,7 +283,7 @@ export default function GetInvolvedPage() {
               {/* Full tall pill */}
               <div className="w-full h-[180px] lg:h-[201px] rounded-[88px] lg:rounded-[99px] overflow-hidden relative opacity-90">
                 <Image
-                  src="/images/bento/crowd-community.jpg"
+                  src="/images/get-involved/bento-getinvolved-02.png"
                   alt="UXHI community crowd"
                   fill
                   className="object-cover"
@@ -296,7 +296,7 @@ export default function GetInvolvedPage() {
               {/* Small rectangle */}
               <div className="w-full h-[114px] lg:h-[128px] rounded-[7px] lg:rounded-lg overflow-hidden relative">
                 <Image
-                  src="/images/bento/ux101-group.jpg"
+                  src="/images/get-involved/bento-getinvolved-03.png"
                   alt="UX101 group"
                   fill
                   className="object-cover"
@@ -305,7 +305,7 @@ export default function GetInvolvedPage() {
               {/* Medium rectangle */}
               <div className="w-full h-[180px] lg:h-[201px] rounded-[7px] lg:rounded-lg overflow-hidden relative">
                 <Image
-                  src="/images/bento/group-leis.jpg"
+                  src="/images/get-involved/bento-getinvolved-04.png"
                   alt="UXHI community members with leis"
                   fill
                   className="object-cover"
@@ -314,7 +314,7 @@ export default function GetInvolvedPage() {
               {/* Pill-bottom shape */}
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
                 <Image
-                  src="/images/bento/photobooth.jpg"
+                  src="/images/get-involved/bento-getinvolved-05.png"
                   alt="UXHI photobooth"
                   fill
                   className="object-cover"
