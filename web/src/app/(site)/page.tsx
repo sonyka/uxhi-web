@@ -31,7 +31,7 @@ export default async function HomePage() {
           {/* Member Badge */}
           <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-white rounded-3xl sm:rounded-full px-4 py-3 sm:pl-2 sm:pr-6 sm:py-2 mb-10 border border-gray-100 shadow-sm">
             <Image
-              src="/images/members.png"
+              src="/images/home/members.png"
               alt="UXHI community members"
               width={130}
               height={36}
@@ -48,7 +48,7 @@ export default async function HomePage() {
               decorationElement={
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src="/images/ux-circle.svg?v=3"
+                  src="/images/home/ux-circle.svg"
                   alt=""
                   className="absolute pointer-events-none max-w-none w-[100px] h-[45px] -left-[20px] -top-[3px] sm:w-[110px] sm:h-[48px] sm:-left-[22px] sm:-top-[4px] md:w-[160px] md:h-[70px] md:-left-[40px] md:-top-[7px] lg:w-[270px] lg:h-[110px] lg:-left-[70px] lg:-top-[10px]"
                 />
@@ -266,7 +266,7 @@ export default async function HomePage() {
               decorationElement={
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src="/images/hcd-underline.svg"
+                  src="/images/home/hcd-underline.svg"
                   alt=""
                   className="absolute left-0 right-0 -bottom-2 w-full h-auto pointer-events-none hidden md:block"
                 />
@@ -285,7 +285,7 @@ export default async function HomePage() {
         <div className="max-w-[1300px] mx-auto">
           <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
             <Image
-              src="/images/community-photo.jpg"
+              src="/images/home/community-photo.jpg"
               alt="UXHI community group photo on rooftop"
               fill
               className="object-cover"
