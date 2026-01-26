@@ -86,7 +86,7 @@ export function Header({ settings }: HeaderProps) {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/uxhi-logo.svg"
+            src="/images/nav/uxhi-logo.svg"
             alt="UXHI"
             width={96}
             height={22}

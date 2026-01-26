@@ -56,7 +56,7 @@ export function Footer({ settings }: FooterProps) {
                   className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
                   <Image
-                    src="/images/about/glyph-slack.png"
+                    src="/images/nav/glyph-slack.png"
                     alt=""
                     width={20}
                     height={20}
@@ -73,7 +73,7 @@ export function Footer({ settings }: FooterProps) {
                   className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
                   <Image
-                    src="/images/about/glyph-insta.png"
+                    src="/images/nav/glyph-insta.png"
                     alt=""
                     width={20}
                     height={20}
@@ -90,7 +90,7 @@ export function Footer({ settings }: FooterProps) {
                   className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
                 >
                   <Image
-                    src="/images/about/glyph-linkedin.svg"
+                    src="/images/nav/glyph-linkedin.svg"
                     alt=""
                     width={20}
                     height={20}

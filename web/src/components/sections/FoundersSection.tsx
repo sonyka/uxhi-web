@@ -103,7 +103,7 @@ export function FoundersSection({ founders, id }: FoundersSectionProps) {
                       aria-label={`${founder.name}'s LinkedIn profile`}
                     >
                       <Image
-                        src="/images/about/glyph-linkedin.svg"
+                        src="/images/nav/glyph-linkedin.svg"
                         alt="LinkedIn"
                         width={32}
                         height={32}
