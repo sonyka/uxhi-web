@@ -438,7 +438,7 @@ export default async function ResourcesPage() {
           {/* Report Preview Image */}
           <div className="mt-12 rounded-[20px] overflow-hidden">
             <Image
-              src="/images/bento/state-of-ux.png"
+              src="/images/resources/state-of-ux.png"
               alt="State of UX in Hawaii Report preview"
               width={1100}
               height={400}
