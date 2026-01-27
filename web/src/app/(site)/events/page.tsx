@@ -108,7 +108,7 @@ export default function EventsPage() {
 
           {/* Temporary content from Notion */}
           <div className="bg-cream rounded-[20px] p-6 md:p-8 text-left max-w-[700px] mx-auto">
-            <p className="text-xs uppercase tracking-widest font-bold text-purple-600 mb-4">From Notion (Draft)</p>
+            <p className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-4">From Notion (Draft)</p>
             <ul className="space-y-3 text-gray-700">
               <li className="flex gap-3">
                 <span className="text-teal-500 font-semibold shrink-0">Feb. 26</span>

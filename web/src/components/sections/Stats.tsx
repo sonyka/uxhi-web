@@ -47,7 +47,7 @@ export function Stats({ stats, backgroundColor = "teal" }: StatsProps) {
               </div>
               <div
                 className={cn(
-                  "text-sm md:text-base uppercase tracking-wide",
+                  "text-sm md:text-base uppercase tracking-wider",
                   backgroundColor === "teal" || backgroundColor === "purple"
                     ? "text-white/80"
                     : "text-gray-600"

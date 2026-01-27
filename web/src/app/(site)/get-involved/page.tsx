@@ -387,7 +387,7 @@ export default function GetInvolvedPage() {
           {/* Committees Subsection */}
           <div className="mt-16">
             <div className="text-center mb-10">
-              <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-3">
+              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-3">
                 Our Committees
               </h3>
               <p className="text-gray-600 max-w-[600px] mx-auto">
@@ -475,7 +475,7 @@ export default function GetInvolvedPage() {
       {/* Successful Partnerships Section */}
       <section className="py-16 px-6 bg-section-gray">
         <div className="max-w-[1200px] mx-auto">
-          <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 text-center mb-12">
+          <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 text-center mb-12">
             Successful Partnerships
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
@@ -518,7 +518,7 @@ export default function GetInvolvedPage() {
       {/* Past Event Sponsors Section */}
       <section className="py-16 px-6 bg-section-gray">
         <div className="max-w-[1200px] mx-auto">
-          <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 text-center mb-12">
+          <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 text-center mb-12">
             Past Event Sponsors
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">

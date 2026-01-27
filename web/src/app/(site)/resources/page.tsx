@@ -221,7 +221,7 @@ export default async function ResourcesPage() {
 
           {/* Online Resources */}
           <div className="mb-12">
-            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Online Resources</h3>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-6">Online Resources</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {(groupedResources['online-resources-students'] && groupedResources['online-resources-students'].length > 0
                 ? groupedResources['online-resources-students']
@@ -239,7 +239,7 @@ export default async function ResourcesPage() {
 
           {/* Local Programs */}
           <div className="mb-12">
-            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Local Programs & Degrees</h3>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-6">Local Programs & Degrees</h3>
             <InfoBox className="mb-6">
               <p className="text-base text-gray-700 font-medium">Note: There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.</p>
             </InfoBox>
@@ -260,7 +260,7 @@ export default async function ResourcesPage() {
 
           {/* Online Programs */}
           <div className="mb-12">
-            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Online Programs</h3>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-6">Online Programs</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {(groupedResources['online-programs-students'] && groupedResources['online-programs-students'].length > 0
                 ? groupedResources['online-programs-students']
@@ -278,7 +278,7 @@ export default async function ResourcesPage() {
 
           {/* Communities */}
           <div>
-            <h3 className="text-base uppercase tracking-widest font-bold text-purple-600 mb-6">Communities</h3>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-6">Communities</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {(groupedResources['design-communities'] && groupedResources['design-communities'].length > 0
                 ? groupedResources['design-communities']

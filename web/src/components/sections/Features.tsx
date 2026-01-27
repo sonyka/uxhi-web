@@ -138,7 +138,7 @@ export function Features({
               {eyebrow && (
                 <motion.p
                   variants={fadeInUp}
-                  className="text-teal-500 font-semibold uppercase tracking-wide text-sm mb-3"
+                  className="text-teal-500 font-bold uppercase tracking-wider text-sm mb-3"
                 >
                   {eyebrow}
                 </motion.p>

@@ -61,7 +61,7 @@ export function Hero({
         >
           {badge && (
             <motion.div variants={fadeInUp} className="mb-6">
-              <span className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-medium">
+              <span className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-bold">
                 <span className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
                 {badge}
               </span>

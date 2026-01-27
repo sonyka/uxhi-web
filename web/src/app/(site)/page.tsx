@@ -257,7 +257,7 @@ export default async function HomePage() {
       {/* Mission Section */}
       <section className="py-20 px-6">
         <div className="max-w-[900px] mx-auto text-center">
-          <span className="text-teal-500 text-sm font-medium uppercase tracking-wider mb-4 block">What we do</span>
+          <span className="text-teal-500 text-sm font-bold uppercase tracking-wider mb-4 block">What we do</span>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight text-gray-900">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
             <MobileTooltip

@@ -26,7 +26,7 @@ export function InfoBox({ children, eyebrow, className = "" }: InfoBoxProps) {
   return (
     <div className={`bg-teal-50 border border-teal-100 rounded-[20px] p-6 ${className}`}>
       {eyebrow && (
-        <span className="block text-sm font-medium uppercase tracking-wider text-teal-600 mb-1">
+        <span className="block text-sm font-bold uppercase tracking-wider text-teal-500 mb-1">
           {eyebrow}
         </span>
       )}
