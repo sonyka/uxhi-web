@@ -56,7 +56,7 @@ export function Header({ settings }: HeaderProps) {
       ],
     },
     { key: "events", label: "Events", href: "/events" },
-    { key: "conference", label: "Conference", href: "https://uxhiconference.com/", external: true },
+    { key: "conference", label: "Conference", href: "/conferences/2025/", external: true },
     {
       key: "resources",
       label: "Resources",

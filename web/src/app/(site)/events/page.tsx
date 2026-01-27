@@ -199,14 +199,14 @@ export default function EventsPage() {
 
           {/* CTA */}
           <div className="text-center mb-16">
-            <PrimaryCTA href="https://uxhiconference.com/" external>
+            <PrimaryCTA href="/conferences/2025/" external>
               UXHI Conference
             </PrimaryCTA>
 
             {/* Past Archives */}
             <div className="mt-6 flex flex-wrap justify-center gap-4">
               <Link
-                href="https://web-git-feature-2025-conference-static-site-sonykas-projects.vercel.app/conferences/2024/"
+                href="/conferences/2024/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
