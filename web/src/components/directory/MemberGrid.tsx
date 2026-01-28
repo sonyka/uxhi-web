@@ -6,6 +6,7 @@ import { MemberCard, type DirectoryMember } from "./MemberCard";
 
 interface MemberGridProps {
   members: DirectoryMember[];
+  onMemberClick?: (member: DirectoryMember) => void;
 }
 
 const containerVariants = {
@@ -23,7 +24,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-export function MemberGrid({ members }: MemberGridProps) {
+export function MemberGrid({ members, onMemberClick }: MemberGridProps) {
   if (members.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 px-4">
@@ -53,7 +54,7 @@ export function MemberGrid({ members }: MemberGridProps) {
     >
       {members.map((member) => (
         <motion.div key={member._id} variants={itemVariants}>
-          <MemberCard member={member} />
+          <MemberCard member={member} onClick={() => onMemberClick?.(member)} />
         </motion.div>
       ))}
     </motion.div>

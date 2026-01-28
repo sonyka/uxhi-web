@@ -25,3 +25,22 @@ export const EXPERIENCE_LEVEL_OPTIONS = [
   { title: "10-19 years", value: "10-19-years" },
   { title: "20+ years", value: "20-plus-years" },
 ] as const;
+
+export const INDUSTRY_OPTIONS = [
+  { title: "Technology", value: "technology" },
+  { title: "Healthcare", value: "healthcare" },
+  { title: "Finance", value: "finance" },
+  { title: "E-commerce", value: "ecommerce" },
+  { title: "Education", value: "education" },
+  { title: "Government", value: "government" },
+  { title: "Non-profit", value: "nonprofit" },
+  { title: "Entertainment", value: "entertainment" },
+  { title: "Travel & Hospitality", value: "travel-hospitality" },
+  { title: "Real Estate", value: "real-estate" },
+  { title: "Food & Beverage", value: "food-beverage" },
+  { title: "Retail", value: "retail" },
+  { title: "Automotive", value: "automotive" },
+  { title: "Energy", value: "energy" },
+  { title: "Agriculture", value: "agriculture" },
+  { title: "Other", value: "other" },
+] as const;

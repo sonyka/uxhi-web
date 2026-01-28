@@ -171,7 +171,9 @@ export const DIRECTORY_MEMBERS_QUERY = defineQuery(/* groq */ `
     openToWork,
     focus,
     experienceLevel,
+    industries,
     location,
+    educationBootcamp,
     linkedIn,
     portfolio
   }

@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { MemberFilters } from "./MemberFilters";
 import { MemberGrid } from "./MemberGrid";
+import { MemberDrawer } from "./MemberDrawer";
 import type { DirectoryMember } from "./MemberCard";
 
 interface MemberDirectoryProps {
@@ -13,6 +14,17 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
   const [selectedFocus, setSelectedFocus] = useState<string[]>([]);
   const [selectedExperience, setSelectedExperience] = useState<string | null>(null);
   const [openToWorkOnly, setOpenToWorkOnly] = useState(false);
+  const [selectedMember, setSelectedMember] = useState<DirectoryMember | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleMemberClick = (member: DirectoryMember) => {
+    setSelectedMember(member);
+    setIsDrawerOpen(true);
+  };
+
+  const handleCloseDrawer = () => {
+    setIsDrawerOpen(false);
+  };
 
   const filteredMembers = useMemo(() => {
     return members.filter((member) => {
@@ -48,19 +60,26 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
   };
 
   return (
-    <div className="space-y-6">
-      <MemberFilters
-        selectedFocus={selectedFocus}
-        selectedExperience={selectedExperience}
-        openToWorkOnly={openToWorkOnly}
-        onFocusChange={setSelectedFocus}
-        onExperienceChange={setSelectedExperience}
-        onOpenToWorkChange={setOpenToWorkOnly}
-        onClearFilters={handleClearFilters}
-        totalCount={members.length}
-        filteredCount={filteredMembers.length}
+    <>
+      <div className="space-y-6">
+        <MemberFilters
+          selectedFocus={selectedFocus}
+          selectedExperience={selectedExperience}
+          openToWorkOnly={openToWorkOnly}
+          onFocusChange={setSelectedFocus}
+          onExperienceChange={setSelectedExperience}
+          onOpenToWorkChange={setOpenToWorkOnly}
+          onClearFilters={handleClearFilters}
+          totalCount={members.length}
+          filteredCount={filteredMembers.length}
+        />
+        <MemberGrid members={filteredMembers} onMemberClick={handleMemberClick} />
+      </div>
+      <MemberDrawer
+        member={selectedMember}
+        isOpen={isDrawerOpen}
+        onClose={handleCloseDrawer}
       />
-      <MemberGrid members={filteredMembers} />
-    </div>
+    </>
   );
 }
