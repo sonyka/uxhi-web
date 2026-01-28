@@ -1,5 +1,12 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { sanityFetch } from "@/sanity/lib/live";
+import {
+  DIRECTORY_MEMBERS_QUERY,
+  SPECIALTIES_QUERY,
+  EXPERIENCE_LEVELS_QUERY,
+} from "@/sanity/lib/queries";
+import { MemberDirectory } from "@/components/directory";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
 export const metadata: Metadata = {
@@ -8,7 +15,14 @@ export const metadata: Metadata = {
     "Connect with UX professionals in Hawaii. Browse our member directory to find designers, researchers, and UX specialists.",
 };
 
-export default function FindUXProPage() {
+export default async function FindUXProPage() {
+  const [{ data: members }, { data: specialties }, { data: experienceLevels }] =
+    await Promise.all([
+      sanityFetch({ query: DIRECTORY_MEMBERS_QUERY }),
+      sanityFetch({ query: SPECIALTIES_QUERY }),
+      sanityFetch({ query: EXPERIENCE_LEVELS_QUERY }),
+    ]);
+
   return (
     <main className="min-h-screen bg-cream">
       {/* Hero Section */}
@@ -20,12 +34,11 @@ export default function FindUXProPage() {
               Find A UX Professional
             </h1>
             <p className="text-black text-lg lg:text-xl leading-relaxed">
-              Connect with talented UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels.
+              Connect with talented UX design professionals in Hawaiʻi and those
+              with Hawaiʻi ties, across all experience levels.
             </p>
             <div>
-              <PrimaryCTA href="https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6" external>
-                Access the directory
-              </PrimaryCTA>
+              <PrimaryCTA href="#directory">Browse the directory</PrimaryCTA>
             </div>
           </div>
         </div>
@@ -34,13 +47,29 @@ export default function FindUXProPage() {
         <div className="sm:hidden px-6 pb-8">
           <div className="flex gap-3.5 items-center w-full">
             <div className="flex-1 h-[140px] rounded-[99px] overflow-hidden relative">
-              <Image src="/images/find-ux-pro/bento-find-ux-01.png" alt="UXHI community" fill className="object-cover" />
+              <Image
+                src="/images/find-ux-pro/bento-find-ux-01.png"
+                alt="UXHI community"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="w-[120px] shrink-0 flex items-center justify-center">
-              <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={120} height={120} className="w-[120px] h-[120px]" />
+              <Image
+                src="/images/bento/uxhi-motif-2.svg"
+                alt="UXHI motif"
+                width={120}
+                height={120}
+                className="w-[120px] h-[120px]"
+              />
             </div>
             <div className="flex-1 h-[140px] rounded-t-xl rounded-b-[99px] overflow-hidden relative">
-              <Image src="/images/find-ux-pro/bento-find-ux-02.png" alt="UXHI conference" fill className="object-cover" />
+              <Image
+                src="/images/find-ux-pro/bento-find-ux-02.png"
+                alt="UXHI conference"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -50,13 +79,29 @@ export default function FindUXProPage() {
           {/* SM layout - Single column only */}
           <div className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
             <div className="w-full h-[180px] rounded-[88px] overflow-hidden relative">
-              <Image src="/images/find-ux-pro/bento-find-ux-01.png" alt="UXHI community" fill className="object-cover" />
+              <Image
+                src="/images/find-ux-pro/bento-find-ux-01.png"
+                alt="UXHI community"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="w-[114px] mx-auto flex items-center justify-center">
-              <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={114} height={114} className="w-[114px] h-[114px]" />
+              <Image
+                src="/images/bento/uxhi-motif-2.svg"
+                alt="UXHI motif"
+                width={114}
+                height={114}
+                className="w-[114px] h-[114px]"
+              />
             </div>
             <div className="w-full h-[180px] rounded-t-[7px] rounded-b-[88px] overflow-hidden relative">
-              <Image src="/images/find-ux-pro/bento-find-ux-02.png" alt="UXHI conference" fill className="object-cover" />
+              <Image
+                src="/images/find-ux-pro/bento-find-ux-02.png"
+                alt="UXHI conference"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
@@ -65,33 +110,75 @@ export default function FindUXProPage() {
             {/* Column 1 - Left (positioned higher) */}
             <div className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[114px] lg:h-[128px] rounded-[24px] overflow-hidden relative">
-                <Image src="/images/find-ux-pro/bento-find-ux-03.png" alt="UX101 group" fill className="object-cover" />
+                <Image
+                  src="/images/find-ux-pro/bento-find-ux-03.png"
+                  alt="UX101 group"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="w-full h-[180px] lg:h-[201px] rounded-[88px] lg:rounded-[99px] overflow-hidden relative opacity-90">
-                <Image src="/images/find-ux-pro/bento-find-ux-01.png" alt="UXHI community" fill className="object-cover" />
+                <Image
+                  src="/images/find-ux-pro/bento-find-ux-01.png"
+                  alt="UXHI community"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
-                <Image src="/images/find-ux-pro/bento-find-ux-02.png" alt="UXHI conference" fill className="object-cover" />
+                <Image
+                  src="/images/find-ux-pro/bento-find-ux-02.png"
+                  alt="UXHI conference"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
             {/* Column 2 - Right (positioned at bottom) */}
             <div className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
-                <Image src="/images/find-ux-pro/bento-find-ux-04.png" alt="UXHICon" fill className="object-cover" />
+                <Image
+                  src="/images/find-ux-pro/bento-find-ux-04.png"
+                  alt="UXHICon"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="w-[114px] lg:w-[128px] mx-auto flex items-center justify-center">
-                <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={128} height={128} className="w-[114px] lg:w-[128px] h-[114px] lg:h-[128px]" />
+                <Image
+                  src="/images/bento/uxhi-motif-2.svg"
+                  alt="UXHI motif"
+                  width={128}
+                  height={128}
+                  className="w-[114px] lg:w-[128px] h-[114px] lg:h-[128px]"
+                />
               </div>
               <div className="w-full h-[180px] lg:h-[201px] rounded-[7px] lg:rounded-lg overflow-hidden relative">
-                <Image src="/images/find-ux-pro/bento-find-ux-05.png" alt="UXHI photobooth" fill className="object-cover" />
+                <Image
+                  src="/images/find-ux-pro/bento-find-ux-05.png"
+                  alt="UXHI photobooth"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Browse Member Directory Section */}
-      <section className="pt-12 pb-20 px-6 bg-white">
+      {/* Member Directory Section */}
+      <section id="directory" className="py-12 px-6 bg-cream scroll-mt-24">
+        <div className="max-w-[1400px] mx-auto">
+          <MemberDirectory
+            members={members || []}
+            specialties={specialties || []}
+            experienceLevels={experienceLevels || []}
+          />
+        </div>
+      </section>
+
+      {/* Join Directory Section */}
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
           {/* Directory Icon */}
           <div className="w-32 h-32 mx-auto mb-6 relative">
@@ -106,7 +193,12 @@ export default function FindUXProPage() {
             Join our member directory!
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-10">
-            Welcome to the UXHI Member Directory, your hub for connecting with UX design professionals in Hawaiʻi and those with Hawaiʻi ties, across all experience levels. Not only does this serve as a go-to resource for companies and recruiters seeking talented local UX professionals, but it also fosters connections between UX practitioners themselves.
+            Welcome to the UXHI Member Directory, your hub for connecting with
+            UX design professionals in Hawaiʻi and those with Hawaiʻi ties,
+            across all experience levels. Not only does this serve as a go-to
+            resource for companies and recruiters seeking talented local UX
+            professionals, but it also fosters connections between UX
+            practitioners themselves.
           </p>
 
           {/* Aidaform Embed */}
@@ -119,10 +211,6 @@ export default function FindUXProPage() {
             title="UXHI Member Directory Form"
             allowFullScreen
           />
-
-          <PrimaryCTA href="https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6" external>
-            Access the Directory
-          </PrimaryCTA>
         </div>
       </section>
 
@@ -148,12 +236,15 @@ export default function FindUXProPage() {
               Join criteria
             </h2>
             <p className="text-gray-700 font-medium">
-              UX professionals and anyone transitioning into UX design who lives in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request will automatically be added to the directory and a UXHI team member will manually add your head shot and island, if applicable, within a few business days.
+              UX professionals and anyone transitioning into UX design who lives
+              in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request
+              will automatically be added to the directory and a UXHI team
+              member will manually add your head shot and island, if applicable,
+              within a few business days.
             </p>
           </div>
         </div>
       </section>
-
     </main>
   );
 }

@@ -160,3 +160,37 @@ export const TECH_ORGANIZATIONS_QUERY = defineQuery(/* groq */ `
     location
   }
 `);
+
+// Member Directory - Members
+export const DIRECTORY_MEMBERS_QUERY = defineQuery(/* groq */ `
+  *[_type == "directoryMember"] | order(openToWork desc, order asc, name asc) {
+    _id,
+    name,
+    title,
+    photo { ${imageFragment} },
+    openToWork,
+    specialties[]->{ _id, title, "slug": slug.current },
+    experienceLevel->{ _id, title, "slug": slug.current },
+    location,
+    linkedIn,
+    portfolio
+  }
+`);
+
+// Member Directory - Specialties (for filter options)
+export const SPECIALTIES_QUERY = defineQuery(/* groq */ `
+  *[_type == "specialty"] | order(order asc) {
+    _id,
+    title,
+    "slug": slug.current
+  }
+`);
+
+// Member Directory - Experience Levels (for filter options)
+export const EXPERIENCE_LEVELS_QUERY = defineQuery(/* groq */ `
+  *[_type == "experienceLevel"] | order(order asc) {
+    _id,
+    title,
+    "slug": slug.current
+  }
+`);

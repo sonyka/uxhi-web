@@ -12,6 +12,11 @@ import { resourceItem } from "./documents/resourceItem";
 import { stateOfUxReport } from "./documents/stateOfUxReport";
 import { techOrganization } from "./documents/techOrganization";
 
+// Member Directory
+import { specialty } from "./documents/specialty";
+import { experienceLevel } from "./documents/experienceLevel";
+import { directoryMember } from "./documents/directoryMember";
+
 export const schemaTypes = [
   // Documents
   testimonial,
@@ -26,4 +31,9 @@ export const schemaTypes = [
   resourceItem,
   stateOfUxReport,
   techOrganization,
+
+  // Member Directory
+  specialty,
+  experienceLevel,
+  directoryMember,
 ];
