@@ -143,7 +143,7 @@ export default function GetInvolvedPage() {
         {/* Left Side - Content */}
         <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
           <div className="flex flex-col gap-6">
-            <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] xl:leading-[84px] text-black">
+            <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
               Get Involved
             </h1>
             <p className="text-black text-lg lg:text-xl leading-relaxed">

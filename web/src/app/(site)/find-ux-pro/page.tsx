@@ -21,7 +21,7 @@ export default async function FindUXProPage() {
         {/* Left Side - Content */}
         <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
           <div className="flex flex-col gap-6">
-            <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] xl:leading-[84px] text-black">
+            <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
               Find A UX Professional
             </h1>
             <p className="text-black text-lg lg:text-xl leading-relaxed">
@@ -160,7 +160,7 @@ export default async function FindUXProPage() {
       {/* Member Directory Section */}
       <section id="directory" className="py-12 px-6 bg-cream scroll-mt-24">
         <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-[900px] mb-10">
+          <div className="max-w-[900px] mx-auto text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-4">
               Member Directory
             </h2>
