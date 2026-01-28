@@ -11,6 +11,7 @@ import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { FeatureCard, SpotIllustrationCard, SpeechBubbleCard } from "@/components/ui/cards";
+import { MemberCard } from "@/components/directory";
 
 // Navigation structure
 const navigationItems = [
@@ -53,6 +54,7 @@ const navigationItems = [
       { id: "card-carousel", label: "Carousel Testimonial" },
       { id: "card-link", label: "Link Card" },
       { id: "card-infobox", label: "Info Box" },
+      { id: "card-member", label: "Member Card" },
     ],
   },
   {
@@ -60,6 +62,8 @@ const navigationItems = [
     items: [
       { id: "interactive-accordion", label: "FAQ Accordion" },
       { id: "interactive-dropdown", label: "Dropdown Menu" },
+      { id: "interactive-filter-dropdown", label: "Filter Dropdown" },
+      { id: "interactive-toggle", label: "Toggle Button" },
       { id: "interactive-navpill", label: "Navigation Pill" },
     ],
   },
@@ -795,6 +799,72 @@ const contentComponents: Record<string, React.ReactNode> = {
       </div>
     </ContentSection>
   ),
+  "card-member": (
+    <ContentSection
+      title="Member Card"
+      description="Directory member card with photo, badges, tags, and hover overlay. Used on /find-ux-pro."
+      componentPath="components/directory/MemberCard.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Card States</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
+            <MemberCard
+              member={{
+                _id: "1",
+                name: "Jane Doe",
+                title: "Senior Product Designer",
+                photo: { asset: undefined },
+                openToWork: true,
+                focus: ["product-design", "user-research", "interaction-design"],
+                experienceLevel: "5-9-years",
+                location: "Honolulu",
+                linkedIn: "https://linkedin.com",
+                portfolio: "https://example.com",
+              }}
+            />
+            <MemberCard
+              member={{
+                _id: "2",
+                name: "John Smith",
+                title: "UX Researcher",
+                photo: { asset: undefined },
+                openToWork: false,
+                focus: ["user-research"],
+                experienceLevel: "3-4-years",
+                location: "Maui",
+              }}
+            />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Key Elements</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl">
+              <p className="text-sm font-semibold text-gray-700 mb-2">Open to Work Badge</p>
+              <div className="flex items-center gap-1.5 bg-teal-500 text-white px-3 py-1.5 rounded-full text-xs font-medium w-fit">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                </span>
+                Open to Work
+              </div>
+              <p className="text-xs text-gray-500 font-mono mt-2">bg-teal-500, rounded-full, animate-ping</p>
+            </div>
+            <div className="p-4 bg-cream rounded-xl">
+              <p className="text-sm font-semibold text-gray-700 mb-2">Focus Tags</p>
+              <div className="flex flex-wrap gap-1.5">
+                <span className="bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full text-xs">Product Design</span>
+                <span className="bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full text-xs">User Research</span>
+                <span className="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full text-xs">+2</span>
+              </div>
+              <p className="text-xs text-gray-500 font-mono mt-2">bg-teal-50, text-teal-700, rounded-full</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
 
   // Interactive
   "interactive-accordion": (
@@ -813,6 +883,111 @@ const contentComponents: Record<string, React.ReactNode> = {
       componentPath="components/layout/Header.tsx (inline)"
     >
       <DropdownDemo />
+    </ContentSection>
+  ),
+  "interactive-filter-dropdown": (
+    <ContentSection
+      title="Filter Dropdown"
+      description="Dropdown for filtering content. Supports single-select and multi-select with checkboxes. Active state shows teal styling."
+      componentPath="components/directory/MemberFilters.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">States</h4>
+          <div className="flex flex-wrap gap-4">
+            {/* Default State */}
+            <div className="flex flex-col gap-2">
+              <span className="text-xs text-gray-500">Default</span>
+              <button className="flex items-center justify-between gap-2 px-4 py-2.5 rounded-lg border bg-white border-gray-200 text-gray-700 text-sm font-medium min-w-[160px]">
+                <span>Focus</span>
+                <ChevronDownIcon className="w-4 h-4" />
+              </button>
+            </div>
+            {/* Active/Selected State */}
+            <div className="flex flex-col gap-2">
+              <span className="text-xs text-gray-500">Selected</span>
+              <button className="flex items-center justify-between gap-2 px-4 py-2.5 rounded-lg border bg-teal-50 border-teal-200 text-teal-700 text-sm font-medium min-w-[160px]">
+                <span>Focus (3)</span>
+                <ChevronDownIcon className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Dropdown Panel</h4>
+          <div className="w-64 bg-white rounded-xl border border-gray-200 shadow-lg p-2">
+            <button className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-sm bg-teal-50 text-teal-700">
+              <div className="w-4 h-4 rounded border bg-teal-500 border-teal-500 flex items-center justify-center flex-shrink-0">
+                <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span>Product Design</span>
+            </button>
+            <button className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-sm text-gray-700 hover:bg-gray-50">
+              <div className="w-4 h-4 rounded border border-gray-300 flex-shrink-0" />
+              <span>User Research</span>
+            </button>
+            <button className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-sm text-gray-700 hover:bg-gray-50">
+              <div className="w-4 h-4 rounded border border-gray-300 flex-shrink-0" />
+              <span>UI Design</span>
+            </button>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Styling</h4>
+          <div className="text-sm text-gray-600 space-y-1">
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">rounded-lg</span> for trigger button</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">rounded-xl</span> for dropdown panel</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-50 border-teal-200 text-teal-700</span> for selected state</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-500</span> for checkbox fill</p>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "interactive-toggle": (
+    <ContentSection
+      title="Toggle Button"
+      description="Toggle button with pulsing indicator. Used for Open to Work filter."
+      componentPath="components/directory/MemberFilters.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">States</h4>
+          <div className="flex flex-wrap gap-6">
+            {/* Inactive State */}
+            <div className="flex flex-col gap-2">
+              <span className="text-xs text-gray-500">Inactive</span>
+              <button className="flex items-center gap-2 px-4 py-2.5 rounded-lg border bg-white border-gray-200 text-gray-700 text-sm font-medium">
+                <span className="relative flex h-2 w-2">
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                </span>
+                Open to Work
+              </button>
+            </div>
+            {/* Active State */}
+            <div className="flex flex-col gap-2">
+              <span className="text-xs text-gray-500">Active</span>
+              <button className="flex items-center gap-2 px-4 py-2.5 rounded-lg border bg-teal-500 border-teal-500 text-white text-sm font-medium">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                </span>
+                Open to Work
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Styling</h4>
+          <div className="text-sm text-gray-600 space-y-1">
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">rounded-lg</span> border radius</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-500 border-teal-500 text-white</span> for active state</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">animate-ping</span> for pulsing dot when active</p>
+          </div>
+        </div>
+      </div>
     </ContentSection>
   ),
   "interactive-navpill": (
