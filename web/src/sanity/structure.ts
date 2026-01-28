@@ -108,7 +108,7 @@ export const structure = (S: StructureBuilder) =>
 
       // Other content
       S.documentTypeListItem("testimonial").title("Testimonials").icon(CommentIcon),
-      S.documentTypeListItem("product").title("Merch Products").icon(BasketIcon),
+      S.documentTypeListItem("product").title("Shop Products").icon(BasketIcon),
       S.documentTypeListItem("faq").title("FAQs").icon(BookIcon),
 
       S.divider(),

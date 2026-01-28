@@ -67,7 +67,7 @@ export function Header({ settings }: HeaderProps) {
         { label: "Directory of Local Tech Orgs", href: "/resources#directory", description: "Local tech community" },
       ],
     },
-    { key: "merch", label: "Merch", href: "/merch" },
+    { key: "shop", label: "Shop", href: "/merch" },
     {
       key: "about",
       label: "About",

@@ -24,7 +24,7 @@ export function Footer({ settings }: FooterProps) {
     { label: "Events", href: "/events" },
     { label: "Conference", href: "https://uxhiconference.com/", external: true },
     { label: "Resources", href: "/resources" },
-    { label: "Merch", href: "/merch" },
+    { label: "Shop", href: "/merch" },
     { label: "About", href: "/about" },
   ];
 

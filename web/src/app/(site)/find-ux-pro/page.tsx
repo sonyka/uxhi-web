@@ -160,6 +160,19 @@ export default async function FindUXProPage() {
       {/* Member Directory Section */}
       <section id="directory" className="py-12 px-6 bg-cream scroll-mt-24">
         <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-[900px] mb-10">
+            <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-4">
+              Member Directory
+            </h2>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Welcome to the UXHI Member Directory, your hub for connecting with
+              UX design professionals in Hawaiʻi and those with Hawaiʻi ties,
+              across all experience levels. Not only does this serve as a go-to
+              resource for companies and recruiters seeking talented local UX
+              professionals, but it also fosters connections between UX
+              practitioners themselves.
+            </p>
+          </div>
           <MemberDirectory members={members || []} />
         </div>
       </section>
@@ -180,12 +193,10 @@ export default async function FindUXProPage() {
             Join our member directory!
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-10">
-            Welcome to the UXHI Member Directory, your hub for connecting with
-            UX design professionals in Hawaiʻi and those with Hawaiʻi ties,
-            across all experience levels. Not only does this serve as a go-to
-            resource for companies and recruiters seeking talented local UX
-            professionals, but it also fosters connections between UX
-            practitioners themselves.
+            Are you a UX professional with ties to Hawaiʻi? Add yourself to the
+            directory and connect with our growing community. Whether you're
+            looking for new opportunities, seeking collaborators, or wanting to
+            give back as a mentor, this is your chance to be discovered.
           </p>
 
           {/* Aidaform Embed */}
@@ -198,20 +209,6 @@ export default async function FindUXProPage() {
             title="UXHI Member Directory Form"
             allowFullScreen
           />
-        </div>
-      </section>
-
-      {/* Large Directory Photo */}
-      <section className="px-6 pb-16 bg-white">
-        <div className="max-w-[1300px] mx-auto">
-          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
-            <Image
-              src="/images/find-ux-pro/directory.png"
-              alt="UXHI member directory"
-              fill
-              className="object-cover"
-            />
-          </div>
         </div>
       </section>
 
