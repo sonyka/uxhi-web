@@ -2,21 +2,14 @@
 
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
-
-interface FilterOption {
-  _id: string;
-  title: string;
-  slug: string;
-}
+import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS } from "./constants";
 
 interface MemberFiltersProps {
-  specialties: FilterOption[];
-  experienceLevels: FilterOption[];
-  selectedSpecialties: string[];
+  selectedFocus: string[];
   selectedExperience: string | null;
   openToWorkOnly: boolean;
-  onSpecialtiesChange: (slugs: string[]) => void;
-  onExperienceChange: (slug: string | null) => void;
+  onFocusChange: (values: string[]) => void;
+  onExperienceChange: (value: string | null) => void;
   onOpenToWorkChange: (value: boolean) => void;
   onClearFilters: () => void;
   totalCount: number;
@@ -31,7 +24,7 @@ function Dropdown({
   isMulti = false,
 }: {
   label: string;
-  options: FilterOption[];
+  options: readonly { title: string; value: string }[];
   selected: string | string[] | null;
   onChange: (value: string | string[] | null) => void;
   isMulti?: boolean;
@@ -57,16 +50,16 @@ function Dropdown({
 
   const selectedCount = selectedArray.length;
 
-  const handleOptionClick = (slug: string) => {
+  const handleOptionClick = (value: string) => {
     if (isMulti) {
       const currentSelected = selected as string[] || [];
-      if (currentSelected.includes(slug)) {
-        onChange(currentSelected.filter((s) => s !== slug));
+      if (currentSelected.includes(value)) {
+        onChange(currentSelected.filter((s) => s !== value));
       } else {
-        onChange([...currentSelected, slug]);
+        onChange([...currentSelected, value]);
       }
     } else {
-      onChange(selected === slug ? null : slug);
+      onChange(selected === value ? null : value);
       setIsOpen(false);
     }
   };
@@ -86,7 +79,7 @@ function Dropdown({
           {selectedCount > 0
             ? isMulti
               ? `${label} (${selectedCount})`
-              : options.find((o) => o.slug === selected)?.title || label
+              : options.find((o) => o.value === selected)?.title || label
             : label}
         </span>
         <svg
@@ -104,11 +97,11 @@ function Dropdown({
         <div className="absolute top-full left-0 mt-2 w-64 max-h-64 overflow-y-auto bg-white rounded-xl border border-gray-200 shadow-lg z-50">
           <div className="p-2">
             {options.map((option) => {
-              const isSelected = selectedArray.includes(option.slug);
+              const isSelected = selectedArray.includes(option.value);
               return (
                 <button
-                  key={option._id}
-                  onClick={() => handleOptionClick(option.slug)}
+                  key={option.value}
+                  onClick={() => handleOptionClick(option.value)}
                   className={cn(
                     "w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-sm transition-colors",
                     isSelected
@@ -144,12 +137,10 @@ function Dropdown({
 }
 
 export function MemberFilters({
-  specialties,
-  experienceLevels,
-  selectedSpecialties,
+  selectedFocus,
   selectedExperience,
   openToWorkOnly,
-  onSpecialtiesChange,
+  onFocusChange,
   onExperienceChange,
   onOpenToWorkChange,
   onClearFilters,
@@ -157,26 +148,26 @@ export function MemberFilters({
   filteredCount,
 }: MemberFiltersProps) {
   const hasActiveFilters =
-    selectedSpecialties.length > 0 || selectedExperience !== null || openToWorkOnly;
+    selectedFocus.length > 0 || selectedExperience !== null || openToWorkOnly;
 
   return (
     <div className="bg-white rounded-[20px] p-4 md:p-6 shadow-sm">
       <div className="flex flex-col gap-4">
         {/* Filter Controls */}
         <div className="flex flex-wrap items-center gap-3">
-          {/* Specialty Dropdown */}
+          {/* Focus Dropdown */}
           <Dropdown
-            label="Specialty"
-            options={specialties}
-            selected={selectedSpecialties}
-            onChange={(value) => onSpecialtiesChange(value as string[])}
+            label="Focus"
+            options={FOCUS_OPTIONS}
+            selected={selectedFocus}
+            onChange={(value) => onFocusChange(value as string[])}
             isMulti
           />
 
           {/* Experience Level Dropdown */}
           <Dropdown
             label="Experience"
-            options={experienceLevels}
+            options={EXPERIENCE_LEVEL_OPTIONS}
             selected={selectedExperience}
             onChange={(value) => onExperienceChange(value as string | null)}
           />

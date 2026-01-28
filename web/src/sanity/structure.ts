@@ -11,8 +11,6 @@ import {
   FolderIcon,
   LinkIcon,
   DocumentIcon,
-  TagIcon,
-  TrendUpwardIcon,
   SearchIcon,
 } from "@sanity/icons";
 
@@ -104,19 +102,7 @@ export const structure = (S: StructureBuilder) =>
       S.divider(),
 
       // Member Directory
-      S.listItem()
-        .title("Member Directory")
-        .icon(SearchIcon)
-        .child(
-          S.list()
-            .title("Member Directory")
-            .items([
-              S.documentTypeListItem("directoryMember").title("Members").icon(UsersIcon),
-              S.divider(),
-              S.documentTypeListItem("specialty").title("Specialties").icon(TagIcon),
-              S.documentTypeListItem("experienceLevel").title("Experience Levels").icon(TrendUpwardIcon),
-            ])
-        ),
+      S.documentTypeListItem("directoryMember").title("Member Directory").icon(SearchIcon),
 
       S.divider(),
 

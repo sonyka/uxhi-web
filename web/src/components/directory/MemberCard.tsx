@@ -5,18 +5,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-
-interface Specialty {
-  _id: string;
-  title: string;
-  slug: string;
-}
-
-interface ExperienceLevel {
-  _id: string;
-  title: string;
-  slug: string;
-}
+import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS } from "./constants";
 
 interface Photo {
   asset?: {
@@ -41,8 +30,8 @@ export interface DirectoryMember {
   title?: string;
   photo: Photo;
   openToWork?: boolean;
-  specialties?: Specialty[];
-  experienceLevel?: ExperienceLevel;
+  focus?: string[];
+  experienceLevel?: string;
   location?: string;
   linkedIn?: string;
   portfolio?: string;
@@ -59,8 +48,12 @@ export function MemberCard({ member }: MemberCardProps) {
     ? urlFor(member.photo).width(400).height(533).auto("format").url()
     : null;
 
-  const displayedSpecialties = member.specialties?.slice(0, 3) || [];
-  const remainingCount = (member.specialties?.length || 0) - 3;
+  const displayedFocus = member.focus?.slice(0, 3) || [];
+  const remainingCount = (member.focus?.length || 0) - 3;
+
+  const experienceLevelLabel = member.experienceLevel
+    ? EXPERIENCE_LEVEL_OPTIONS.find((o) => o.value === member.experienceLevel)?.title
+    : null;
 
   return (
     <motion.div
@@ -148,26 +141,27 @@ export function MemberCard({ member }: MemberCardProps) {
 
         {/* Experience Level & Location */}
         <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
-          {member.experienceLevel && (
-            <span>{member.experienceLevel.title}</span>
-          )}
-          {member.experienceLevel && member.location && (
+          {experienceLevelLabel && <span>{experienceLevelLabel}</span>}
+          {experienceLevelLabel && member.location && (
             <span className="text-gray-300">•</span>
           )}
           {member.location && <span>{member.location}</span>}
         </div>
 
-        {/* Specialty Tags */}
-        {displayedSpecialties.length > 0 && (
+        {/* Focus Tags */}
+        {displayedFocus.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mt-3">
-            {displayedSpecialties.map((specialty) => (
-              <span
-                key={specialty._id}
-                className="bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full text-xs"
-              >
-                {specialty.title}
-              </span>
-            ))}
+            {displayedFocus.map((focusValue) => {
+              const label = FOCUS_OPTIONS.find((o) => o.value === focusValue)?.title || focusValue;
+              return (
+                <span
+                  key={focusValue}
+                  className="bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full text-xs"
+                >
+                  {label}
+                </span>
+              );
+            })}
             {remainingCount > 0 && (
               <span className="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full text-xs">
                 +{remainingCount}

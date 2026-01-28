@@ -5,24 +5,12 @@ import { MemberFilters } from "./MemberFilters";
 import { MemberGrid } from "./MemberGrid";
 import type { DirectoryMember } from "./MemberCard";
 
-interface FilterOption {
-  _id: string;
-  title: string;
-  slug: string;
-}
-
 interface MemberDirectoryProps {
   members: DirectoryMember[];
-  specialties: FilterOption[];
-  experienceLevels: FilterOption[];
 }
 
-export function MemberDirectory({
-  members,
-  specialties,
-  experienceLevels,
-}: MemberDirectoryProps) {
-  const [selectedSpecialties, setSelectedSpecialties] = useState<string[]>([]);
+export function MemberDirectory({ members }: MemberDirectoryProps) {
+  const [selectedFocus, setSelectedFocus] = useState<string[]>([]);
   const [selectedExperience, setSelectedExperience] = useState<string | null>(null);
   const [openToWorkOnly, setOpenToWorkOnly] = useState(false);
 
@@ -33,28 +21,28 @@ export function MemberDirectory({
         return false;
       }
 
-      // Filter by specialties (OR logic - member must have at least one selected specialty)
-      if (selectedSpecialties.length > 0) {
-        const memberSpecialtySlugs = member.specialties?.map((s) => s.slug) || [];
-        const hasMatchingSpecialty = selectedSpecialties.some((slug) =>
-          memberSpecialtySlugs.includes(slug)
+      // Filter by focus (OR logic - member must have at least one selected focus)
+      if (selectedFocus.length > 0) {
+        const memberFocus = member.focus || [];
+        const hasMatchingFocus = selectedFocus.some((value) =>
+          memberFocus.includes(value)
         );
-        if (!hasMatchingSpecialty) {
+        if (!hasMatchingFocus) {
           return false;
         }
       }
 
       // Filter by experience level
-      if (selectedExperience && member.experienceLevel?.slug !== selectedExperience) {
+      if (selectedExperience && member.experienceLevel !== selectedExperience) {
         return false;
       }
 
       return true;
     });
-  }, [members, selectedSpecialties, selectedExperience, openToWorkOnly]);
+  }, [members, selectedFocus, selectedExperience, openToWorkOnly]);
 
   const handleClearFilters = () => {
-    setSelectedSpecialties([]);
+    setSelectedFocus([]);
     setSelectedExperience(null);
     setOpenToWorkOnly(false);
   };
@@ -62,12 +50,10 @@ export function MemberDirectory({
   return (
     <div className="space-y-6">
       <MemberFilters
-        specialties={specialties}
-        experienceLevels={experienceLevels}
-        selectedSpecialties={selectedSpecialties}
+        selectedFocus={selectedFocus}
         selectedExperience={selectedExperience}
         openToWorkOnly={openToWorkOnly}
-        onSpecialtiesChange={setSelectedSpecialties}
+        onFocusChange={setSelectedFocus}
         onExperienceChange={setSelectedExperience}
         onOpenToWorkChange={setOpenToWorkOnly}
         onClearFilters={handleClearFilters}

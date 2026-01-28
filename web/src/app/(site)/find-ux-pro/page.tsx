@@ -1,11 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
-import {
-  DIRECTORY_MEMBERS_QUERY,
-  SPECIALTIES_QUERY,
-  EXPERIENCE_LEVELS_QUERY,
-} from "@/sanity/lib/queries";
+import { DIRECTORY_MEMBERS_QUERY } from "@/sanity/lib/queries";
 import { MemberDirectory } from "@/components/directory";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 
@@ -16,12 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function FindUXProPage() {
-  const [{ data: members }, { data: specialties }, { data: experienceLevels }] =
-    await Promise.all([
-      sanityFetch({ query: DIRECTORY_MEMBERS_QUERY }),
-      sanityFetch({ query: SPECIALTIES_QUERY }),
-      sanityFetch({ query: EXPERIENCE_LEVELS_QUERY }),
-    ]);
+  const { data: members } = await sanityFetch({ query: DIRECTORY_MEMBERS_QUERY });
 
   return (
     <main className="min-h-screen bg-cream">
@@ -169,11 +160,7 @@ export default async function FindUXProPage() {
       {/* Member Directory Section */}
       <section id="directory" className="py-12 px-6 bg-cream scroll-mt-24">
         <div className="max-w-[1400px] mx-auto">
-          <MemberDirectory
-            members={members || []}
-            specialties={specialties || []}
-            experienceLevels={experienceLevels || []}
-          />
+          <MemberDirectory members={members || []} />
         </div>
       </section>
 

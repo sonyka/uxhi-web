@@ -169,28 +169,10 @@ export const DIRECTORY_MEMBERS_QUERY = defineQuery(/* groq */ `
     title,
     photo { ${imageFragment} },
     openToWork,
-    specialties[]->{ _id, title, "slug": slug.current },
-    experienceLevel->{ _id, title, "slug": slug.current },
+    focus,
+    experienceLevel,
     location,
     linkedIn,
     portfolio
-  }
-`);
-
-// Member Directory - Specialties (for filter options)
-export const SPECIALTIES_QUERY = defineQuery(/* groq */ `
-  *[_type == "specialty"] | order(order asc) {
-    _id,
-    title,
-    "slug": slug.current
-  }
-`);
-
-// Member Directory - Experience Levels (for filter options)
-export const EXPERIENCE_LEVELS_QUERY = defineQuery(/* groq */ `
-  *[_type == "experienceLevel"] | order(order asc) {
-    _id,
-    title,
-    "slug": slug.current
   }
 `);
