@@ -547,7 +547,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Ready to Collaborate Section */}
-      <section className="py-16 px-6 bg-section-gray">
+      <section className="py-16 px-6 bg-cream">
         <div className="max-w-[600px] mx-auto text-center">
           <div className="w-24 h-24 mx-auto mb-6 relative">
             <Image
