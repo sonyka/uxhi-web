@@ -39,7 +39,7 @@ export default function SiteLayout({
     <>
       <Header settings={siteSettings} />
       <main>{children}</main>
-      <Footer settings={siteSettings} />
+      <Footer />
     </>
   );
 }

@@ -107,6 +107,7 @@ Quick reference (see design system for full details):
 | `Navbar` | `components/layout/Navbar.tsx` | Desktop navigation with dropdowns (used in Header) |
 | `MobileNavbar` | `components/layout/Navbar.tsx` | Collapsible mobile nav with accordion dropdowns |
 | `HamburgerButton` | `components/layout/Navbar.tsx` | Animated hamburger menu toggle button |
+| `Footer` | `components/layout/Footer.tsx` | Site footer with headline, logo, 4-column nav grid |
 | `QuickLinkPill` | `components/ui/QuickLinkPill.tsx` | Pill with icon, label, subtitle for hero sections |
 | `LinkCard` | `components/ui/LinkCard.tsx` | Cream card with title, teal description, external link icon |
 | `InfoBox` | `components/ui/InfoBox.tsx` | Teal-50 callout box for notes and CTAs |

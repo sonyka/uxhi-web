@@ -1,177 +1,143 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowIcon, ExternalLinkIcon } from "@/components/ui/icons";
+import { ExternalLinkIcon, SendIcon } from "@/components/ui/icons";
 
-interface FooterProps {
-  settings: {
-    logo?: {
-      asset?: { _id?: string; url?: string };
-      alt?: string;
-    };
-    siteName: string;
-    footerText?: string;
-    contactEmail?: string;
-    socialLinks?: unknown[];
-    footerNavigation?: unknown[];
-  };
-}
+/**
+ * Footer Component
+ *
+ * Figma specs:
+ * - Background: bg-teal-300 (#4ddce9)
+ * - Headline: font-display, text-4xl (36px), leading-[45px], text-gray-700
+ * - Logo row: UXHI logo (76px) + "© {year}" text-sm (14px), text-gray-700, gap-2, items-end
+ * - Nav grid: 4 columns, gap-12 (48px), vertically centered
+ * - Nav links: text-base (16px), font-normal, text-gray-700, gap-3 (12px) between items
+ * - Social icons: w-4 h-4 (16px), gap-1.5 (6px) between icon and text
+ */
+export function Footer() {
+  const currentYear = new Date().getFullYear();
 
-export function Footer({ settings }: FooterProps) {
-  // All top-level navigation links
-  const navLinks: { label: string; href: string; external?: boolean }[] = [
-    { label: "Find UX Pro", href: "/find-ux-pro" },
-    { label: "Get Involved", href: "/get-involved" },
-    { label: "Events", href: "/events" },
-    { label: "Conference", href: "https://uxhiconference.com/", external: true },
-    { label: "Resources", href: "/resources" },
-    { label: "Shop", href: "/merch" },
-    { label: "About", href: "/about" },
+  const navColumns = [
+    {
+      links: [
+        { label: "Home", href: "/" },
+        { label: "Find UX Pro", href: "/find-ux-pro" },
+        { label: "Get Involved", href: "/get-involved" },
+      ],
+    },
+    {
+      links: [
+        { label: "Events", href: "/events" },
+        { label: "Conference", href: "/conferences/2025/", external: true },
+        { label: "Resources", href: "/resources" },
+      ],
+    },
+    {
+      links: [
+        { label: "Shop", href: "/merch" },
+        { label: "About", href: "/about" },
+        { label: "Join us", href: "/join" },
+      ],
+    },
   ];
 
-  // Get current date
-  const today = new Date();
-  const dateString = today.toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  });
+  const socialLinks = [
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/uxhi/",
+      icon: (
+        <Image
+          src="/images/nav/glyph-linkedin.svg"
+          alt=""
+          width={16}
+          height={16}
+        />
+      ),
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/uxhicommunity",
+      icon: (
+        <Image
+          src="/images/nav/glyph-insta.png"
+          alt=""
+          width={16}
+          height={16}
+        />
+      ),
+    },
+    {
+      label: "Get in touch",
+      href: "mailto:aloha@uxhi.community",
+      icon: <SendIcon className="w-4 h-4 text-gray-700" />,
+    },
+  ];
 
   return (
-    <footer className="bg-teal-500 py-16 px-6">
-      <div className="max-w-[1300px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column - About & Contact */}
-          <div>
-            <h2 className="font-display text-3xl md:text-4xl text-white leading-tight mb-10 max-w-[500px]">
-              UXHI is a design community for people in Hawaiʻi.
-            </h2>
-
-            <div className="space-y-6">
-              <p className="text-white/80 text-sm uppercase tracking-wider">Contact</p>
-
-              <div className="space-y-3">
-                <Link
-                  href="/join"
-                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
-                >
-                  <Image
-                    src="/images/nav/glyph-slack.png"
-                    alt=""
-                    width={20}
-                    height={20}
-                    className="brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-300"
-                  />
-                  <span className="text-lg">UXHI Slack</span>
-                  <ExternalLinkIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
-                </Link>
-
-                <a
-                  href="https://www.instagram.com/uxhicommunity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
-                >
-                  <Image
-                    src="/images/nav/glyph-insta.png"
-                    alt=""
-                    width={20}
-                    height={20}
-                    className="brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-300"
-                  />
-                  <span className="text-lg">Instagram</span>
-                  <ExternalLinkIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/company/uxhi/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
-                >
-                  <Image
-                    src="/images/nav/glyph-linkedin.svg"
-                    alt=""
-                    width={20}
-                    height={20}
-                    className="brightness-0 invert opacity-60 group-hover:brightness-100 group-hover:invert-0 group-hover:opacity-100 transition-all duration-300"
-                  />
-                  <span className="text-lg">LinkedIn</span>
-                  <ExternalLinkIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
-                </a>
-
-                <a
-                  href="mailto:aloha@uxhi.community"
-                  className="flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
-                >
-                  <span className="text-lg">Get in touch</span>
-                  <ExternalLinkIcon className="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Navigation */}
-          <div className="lg:text-right">
-            <p className="text-white/80 text-sm uppercase tracking-wider mb-6">Navigation</p>
-
-            {/* Page Links - 2 columns */}
-            <nav className="grid grid-cols-2 gap-x-10 gap-y-2 lg:justify-items-end mb-8">
-              {navLinks.map((item) =>
-                item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-lg text-white hover:text-white/80 transition-colors"
-                  >
-                    {item.label}
-                    <ExternalLinkIcon className="w-4 h-4 text-white/40" />
-                  </a>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-lg text-white hover:text-white/80 transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                )
-              )}
-            </nav>
-
-            {/* Primary CTA */}
-            <Link
-              href="/join"
-              className="inline-flex items-center gap-3 bg-white rounded-full pl-6 pr-2 py-2 font-medium hover:bg-white/90 transition-colors group"
-            >
-              <span className="text-gray-900">Join us</span>
-              <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
-                <ArrowIcon className="w-4 h-4 text-gray-900" />
-              </span>
-            </Link>
+    <footer className="bg-teal-300 px-6 py-10">
+      <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+        {/* Left: Headline + Logo/Copyright */}
+        <div className="lg:w-[58%] shrink-0">
+          <h2 className="font-display text-4xl leading-[45px] text-gray-700 max-w-[604px] mb-8">
+            UXHI is a design community for people in Hawaiʻi.
+          </h2>
+          <div className="flex items-end gap-2">
+            <Image
+              src="/images/nav/uxhi-logo.svg"
+              alt="UXHI"
+              width={76}
+              height={24}
+            />
+            <span className="text-sm leading-[10px] text-gray-700">
+              © {currentYear}
+            </span>
           </div>
         </div>
 
-        {/* Bottom Row */}
-        <div className="flex flex-col md:flex-row justify-between items-center mt-16 pt-8 border-t border-white/20">
-          <p className="text-white/80 text-sm">
-            Copyright by UXHI ©{today.getFullYear()}
-            <span className="text-white/40 ml-3">·</span>
-            <a
-              href="https://www.flaticon.com/free-stickers/password"
-              title="password stickers"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/40 text-xs ml-3 hover:text-white/60 transition-colors"
-            >
-              Icons by Stickers - Flaticon
-            </a>
-          </p>
-          <p className="text-white/80 text-sm mt-2 md:mt-0">
-            {dateString}
-          </p>
+        {/* Right: 4-column nav grid */}
+        <div className="flex flex-wrap gap-12">
+          {/* Nav columns */}
+          {navColumns.map((column, colIndex) => (
+            <div key={colIndex} className="flex flex-col gap-3">
+              {column.links.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-0.5 text-base text-gray-700 hover:text-gray-900 transition-colors"
+                  >
+                    {link.label}
+                    <ExternalLinkIcon className="w-5 h-5 opacity-60" />
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-base text-gray-700 hover:text-gray-900 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
+            </div>
+          ))}
+
+          {/* Social column */}
+          <div className="flex flex-col gap-3">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                className="flex items-center gap-1.5 text-base text-gray-700 hover:text-gray-900 transition-colors"
+              >
+                {link.icon}
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

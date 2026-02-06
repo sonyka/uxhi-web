@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
-import { ArrowIcon, ExternalLinkIcon, PlusIcon, MinusIcon, ChevronDownIcon } from "@/components/ui/icons";
+import { ArrowIcon, ExternalLinkIcon, PlusIcon, MinusIcon, ChevronDownIcon, SendIcon } from "@/components/ui/icons";
 import { InfoBox } from "@/components/ui/InfoBox";
 import { LinkCard } from "@/components/ui/LinkCard";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
@@ -13,6 +13,7 @@ import { InlineLink } from "@/components/ui/InlineLink";
 import { FeatureCard, SpotIllustrationCard, SpeechBubbleCard } from "@/components/ui/cards";
 import { MemberCard } from "@/components/directory";
 import { Navbar, MobileNavbar, HamburgerButton } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
 // Navigation structure
 const navigationItems = [
@@ -21,6 +22,7 @@ const navigationItems = [
     items: [
       { id: "nav-desktop", label: "Desktop Navbar" },
       { id: "nav-mobile", label: "Mobile Navbar" },
+      { id: "nav-footer", label: "Footer" },
     ],
   },
   {
@@ -465,6 +467,64 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Height: 0 → auto</p>
                 <p>Opacity: 0 → 1</p>
                 <p>Duration: 0.2s (menu), 0.15s (dropdown)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "nav-footer": (
+    <ContentSection
+      title="Footer"
+      description="Site-wide footer with headline, logo, copyright, and 4-column navigation grid."
+      componentPath="components/layout/Footer.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="rounded-xl overflow-hidden">
+            <Footer />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Container</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-300</span> (#4ddce9)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">px-6 py-10</span> padding</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">max-w-[1300px]</span> content width</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Headline</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">font-display</span> Dela Gothic One</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-4xl</span> (36px)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">leading-[45px]</span> line height</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-gray-700</span></p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">max-w-[604px]</span></p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Logo + Copyright</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>UXHI logo: <span className="font-mono text-xs bg-gray-100 px-1 rounded">76px × 24px</span></p>
+                <p>Copyright: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-sm</span> (14px)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">gap-2</span> between logo and text</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">items-end</span> alignment</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Nav Grid</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>4 columns with <span className="font-mono text-xs bg-gray-100 px-1 rounded">gap-12</span> (48px)</p>
+                <p>Items: <span className="font-mono text-xs bg-gray-100 px-1 rounded">gap-3</span> (12px) vertical</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-base</span> (16px), font-normal</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-gray-700</span></p>
+                <p>Social icons: <span className="font-mono text-xs bg-gray-100 px-1 rounded">w-4 h-4</span>, <span className="font-mono text-xs bg-gray-100 px-1 rounded">gap-1.5</span></p>
               </div>
             </div>
           </div>
@@ -1352,6 +1412,12 @@ const contentComponents: Record<string, React.ReactNode> = {
             <ChevronDownIcon className="w-6 h-6 text-gray-700" />
           </div>
           <span className="text-xs text-gray-500">ChevronDownIcon</span>
+        </div>
+        <div className="flex flex-col items-center gap-2">
+          <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
+            <SendIcon className="w-6 h-6 text-gray-700" />
+          </div>
+          <span className="text-xs text-gray-500">SendIcon</span>
         </div>
       </div>
     </ContentSection>
