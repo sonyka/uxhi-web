@@ -11,7 +11,8 @@ import { resourceItem } from "./documents/resourceItem";
 import { stateOfUxReport } from "./documents/stateOfUxReport";
 import { techOrganization } from "./documents/techOrganization";
 import { event } from "./documents/event";
-import { partnerSponsor } from "./documents/partnerSponsor";
+import { partner } from "./documents/partner";
+import { sponsor } from "./documents/sponsor";
 import { committee } from "./documents/committee";
 
 // Member Directory
@@ -31,7 +32,8 @@ export const schemaTypes = [
   stateOfUxReport,
   techOrganization,
   event,
-  partnerSponsor,
+  partner,
+  sponsor,
   committee,
 
   // Member Directory

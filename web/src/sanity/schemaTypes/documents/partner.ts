@@ -1,28 +1,15 @@
 import { defineType, defineField } from "sanity";
 import { UsersIcon } from "@sanity/icons";
 
-export const partnerSponsor = defineType({
-  name: "partnerSponsor",
-  title: "Partner / Sponsor",
+export const partner = defineType({
+  name: "partner",
+  title: "Partner",
   type: "document",
   icon: UsersIcon,
   fields: [
     defineField({
       name: "name",
       type: "string",
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: "type",
-      type: "string",
-      title: "Type",
-      options: {
-        list: [
-          { title: "Partner", value: "partner" },
-          { title: "Sponsor", value: "sponsor" },
-        ],
-        layout: "radio",
-      },
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -57,15 +44,7 @@ export const partnerSponsor = defineType({
   preview: {
     select: {
       title: "name",
-      type: "type",
       media: "logo",
-    },
-    prepare({ title, type, media }) {
-      return {
-        title,
-        subtitle: type === "partner" ? "Partner" : "Sponsor",
-        media,
-      };
     },
   },
   orderings: [

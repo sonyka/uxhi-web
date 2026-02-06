@@ -163,7 +163,7 @@ export const EVENTS_QUERY = defineQuery(/* groq */ `
 
 // Partners
 export const PARTNERS_QUERY = defineQuery(/* groq */ `
-  *[_type == "partnerSponsor" && type == "partner"] | order(order asc) {
+  *[_type == "partner"] | order(order asc) {
     _id,
     name,
     logo { ${imageFragment} },
@@ -175,7 +175,7 @@ export const PARTNERS_QUERY = defineQuery(/* groq */ `
 
 // Sponsors
 export const SPONSORS_QUERY = defineQuery(/* groq */ `
-  *[_type == "partnerSponsor" && type == "sponsor"] | order(order asc) {
+  *[_type == "sponsor"] | order(order asc) {
     _id,
     name,
     logo { ${imageFragment} },

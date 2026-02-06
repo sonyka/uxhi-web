@@ -12,6 +12,7 @@ import {
   SearchIcon,
   CalendarIcon,
   ComponentIcon,
+  CreditCardIcon,
 } from "@sanity/icons";
 
 export const structure = (S: StructureBuilder) =>
@@ -59,7 +60,8 @@ export const structure = (S: StructureBuilder) =>
           S.list()
             .title("Get Involved Content")
             .items([
-              S.documentTypeListItem("partnerSponsor").title("Partners & Sponsors").icon(UsersIcon),
+              S.documentTypeListItem("partner").title("Partners").icon(UsersIcon),
+              S.documentTypeListItem("sponsor").title("Sponsors").icon(CreditCardIcon),
               S.documentTypeListItem("committee").title("Committees").icon(ComponentIcon),
             ])
         ),
