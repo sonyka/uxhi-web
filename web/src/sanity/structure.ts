@@ -44,6 +44,7 @@ export const structure = (S: StructureBuilder) =>
             .items([
               S.documentTypeListItem("member").title("Team Members").icon(UsersIcon),
               S.documentTypeListItem("value").title("Values").icon(StarIcon),
+              S.documentTypeListItem("aboutFaq").title("FAQs - About").icon(BookIcon),
             ])
         ),
 
@@ -128,7 +129,7 @@ export const structure = (S: StructureBuilder) =>
 
       // Other content
       S.documentTypeListItem("product").title("Shop Products").icon(BasketIcon),
-      S.documentTypeListItem("faq").title("FAQs").icon(BookIcon),
+      S.documentTypeListItem("faq").title("FAQs - Join").icon(BookIcon),
 
       S.divider(),
 

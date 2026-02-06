@@ -3,6 +3,7 @@ import { product } from "./documents/product";
 import { submission } from "./documents/submission";
 import { member } from "./documents/member";
 import { faq } from "./documents/faq";
+import { aboutFaq } from "./documents/aboutFaq";
 import { instagramPost } from "./documents/instagramPost";
 import { communityPhoto } from "./documents/communityPhoto";
 import { value } from "./documents/value";
@@ -24,6 +25,7 @@ export const schemaTypes = [
   submission,
   member,
   faq,
+  aboutFaq,
   instagramPost,
   communityPhoto,
   value,

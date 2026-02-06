@@ -53,9 +53,18 @@ export const FOUNDERS_QUERY = defineQuery(/* groq */ `
   }
 `);
 
-// FAQs (for About page)
+// FAQs (for Join page)
 export const FAQS_QUERY = defineQuery(/* groq */ `
   *[_type == "faq"] | order(order asc) {
+    _id,
+    question,
+    answer
+  }
+`);
+
+// FAQs (for About page)
+export const ABOUT_FAQS_QUERY = defineQuery(/* groq */ `
+  *[_type == "aboutFaq"] | order(order asc) {
     _id,
     question,
     answer
