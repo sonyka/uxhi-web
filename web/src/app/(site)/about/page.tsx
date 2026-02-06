@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
-import { FOUNDERS_QUERY, FAQS_QUERY, VALUES_QUERY } from "@/sanity/lib/queries";
+import { FOUNDERS_QUERY, FAQS_QUERY, VALUES_QUERY, FEATURED_PRESS_QUERY } from "@/sanity/lib/queries";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { FoundersSection } from "@/components/sections/FoundersSection";
 import { FAQSection } from "@/components/sections/FAQSection";
@@ -46,15 +46,17 @@ function SendIcon({ className = "w-5 h-5" }: { className?: string }) {
 }
 
 export default async function AboutPage() {
-  const [foundersResult, faqsResult, valuesResult] = await Promise.all([
+  const [foundersResult, faqsResult, valuesResult, pressResult] = await Promise.all([
     sanityFetch({ query: FOUNDERS_QUERY }),
     sanityFetch({ query: FAQS_QUERY }),
     sanityFetch({ query: VALUES_QUERY }),
+    sanityFetch({ query: FEATURED_PRESS_QUERY }),
   ]);
 
   const founders = foundersResult.data || [];
   const faqs = faqsResult.data || [];
   const values = valuesResult.data || [];
+  const featuredPress: Array<{ _id: string; source: string; headline: string; url: string; date: string | null }> = pressResult.data || [];
 
   return (
     <main className="min-h-screen bg-cream">
@@ -159,15 +161,30 @@ export default async function AboutPage() {
       {/* Featured Press Section */}
       <section className="pb-16 px-6 bg-cream">
         <div className="max-w-[1100px] mx-auto">
-          <InfoBox
-            eyebrow="Featured in Hawai'i Bulletin"
-            className="flex flex-col sm:flex-row items-center justify-between gap-4"
-          >
-            <p className="text-base text-gray-700 font-medium">Local group explores user experience and interface design</p>
-            <PrimaryCTA href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience" external>
-              Read Article
-            </PrimaryCTA>
-          </InfoBox>
+          {featuredPress.length > 0 ? (
+            featuredPress.map((press) => (
+              <InfoBox
+                key={press._id}
+                eyebrow={`Featured in ${press.source}`}
+                className="flex flex-col sm:flex-row items-center justify-between gap-4"
+              >
+                <p className="text-base text-gray-700 font-medium">{press.headline}</p>
+                <PrimaryCTA href={press.url} external>
+                  Read Article
+                </PrimaryCTA>
+              </InfoBox>
+            ))
+          ) : (
+            <InfoBox
+              eyebrow="Featured in Hawai'i Bulletin"
+              className="flex flex-col sm:flex-row items-center justify-between gap-4"
+            >
+              <p className="text-base text-gray-700 font-medium">Local group explores user experience and interface design</p>
+              <PrimaryCTA href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience" external>
+                Read Article
+              </PrimaryCTA>
+            </InfoBox>
+          )}
         </div>
       </section>
 

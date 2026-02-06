@@ -1,5 +1,8 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { sanityFetch } from "@/sanity/lib/live";
+import { PARTNERS_QUERY, SPONSORS_QUERY, COMMITTEES_QUERY } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
@@ -66,8 +69,8 @@ function HandCoinsIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-// Committee data with expanded descriptions and icons
-const committees = [
+// Hardcoded fallback committees
+const fallbackCommittees = [
   {
     name: "Educational Outreach",
     description: "Fosters UX education at foundational levels. Initiatives focus on engaging K-12 students through introductory workshops and programs, and collaborating with colleges and universities to support their UX curricula, offer guest lectures, and connect with emerging talent.",
@@ -95,14 +98,13 @@ const committees = [
   },
   {
     name: "Conference",
-    description: "Plans and executes our annual UXHICon conference, bringing together speakers, sponsors, and attendees for Hawai'i's premier UX event. Help shape the program, coordinate logistics, and create memorable experiences for our community.",
+    description: "Plans and executes our annual UXHICon conference, bringing together speakers, sponsors, and attendees for Hawai\u2018i\u2019s premier UX event. Help shape the program, coordinate logistics, and create memorable experiences for our community.",
     icon: "/images/icons/icon-conference.png",
   },
 ];
 
-// Past partners
-// Past partners with logos
-const pastPartners = [
+// Hardcoded fallback partners
+const fallbackPartners = [
   { name: "Pi'iku Co.", logo: "/images/company_logos/piiku-logo.png", width: 80, height: 32 },
   { name: "Hawaii Coworking", logo: "/images/company_logos/hawaii-coworking-logo.jpg", width: 128, height: 44 },
   { name: "Hub Coworking Hawaii", logo: "/images/company_logos/hub-logo.png", width: 90, height: 36 },
@@ -117,8 +119,8 @@ const pastPartners = [
   { name: "HTW", logo: "/images/company_logos/htw-logo.webp", width: 80, height: 32 },
 ];
 
-// Past sponsors with logos - sizes adjusted for optical balance
-const pastSponsors = [
+// Hardcoded fallback sponsors
+const fallbackSponsors = [
   { name: "HTDC", logo: "/images/company_logos/htdc-logo.svg", width: 80, height: 32 },
   { name: "Entrepreneurs Sandbox", logo: "/images/company_logos/sandbox-logo.svg", width: 100, height: 32 },
   { name: "Purple Mai'a", logo: "/images/company_logos/purple-maia.png", width: 72, height: 32 },
@@ -135,7 +137,21 @@ const pastSponsors = [
   { name: "RVCM", logo: "/images/company_logos/rvcm-logo.svg", width: 72, height: 28 },
 ];
 
-export default function GetInvolvedPage() {
+export default async function GetInvolvedPage() {
+  const [partnersResult, sponsorsResult, committeesResult] = await Promise.all([
+    sanityFetch({ query: PARTNERS_QUERY }),
+    sanityFetch({ query: SPONSORS_QUERY }),
+    sanityFetch({ query: COMMITTEES_QUERY }),
+  ]);
+
+  type SanityImage = { asset?: { _id?: string; url?: string; metadata?: { lqip?: string; dimensions?: unknown } }; alt?: string; hotspot?: unknown; crop?: unknown };
+  type PartnerSponsor = { _id: string; name: string; logo: SanityImage | null; website: string | null; displayWidth: number | null; darkGray: boolean | null };
+  type Committee = { _id: string; name: string; description: string; icon: SanityImage | null };
+
+  const partners: PartnerSponsor[] = partnersResult.data || [];
+  const sponsors: PartnerSponsor[] = sponsorsResult.data || [];
+  const committees: Committee[] = committeesResult.data || [];
+
   return (
     <main className="min-h-screen bg-cream">
       {/* Hero Section */}
@@ -395,16 +411,29 @@ export default function GetInvolvedPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {committees.map((committee) => (
-                <SpotIllustrationCard
-                  key={committee.name}
-                  imageSrc={committee.icon}
-                  imageAlt={committee.name}
-                  title={committee.name}
-                  description={committee.description}
-                  variant="cream"
-                />
-              ))}
+              {committees.length > 0 ? (
+                committees.map((committee) => (
+                  <SpotIllustrationCard
+                    key={committee._id}
+                    image={committee.icon ?? undefined}
+                    imageAlt={committee.name}
+                    title={committee.name}
+                    description={committee.description}
+                    variant="cream"
+                  />
+                ))
+              ) : (
+                fallbackCommittees.map((committee) => (
+                  <SpotIllustrationCard
+                    key={committee.name}
+                    imageSrc={committee.icon}
+                    imageAlt={committee.name}
+                    title={committee.name}
+                    description={committee.description}
+                    variant="cream"
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>
@@ -479,12 +508,34 @@ export default function GetInvolvedPage() {
             Successful Partnerships
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
-            {pastPartners.map((partner) => (
-              <div
-                key={partner.name}
-                className="flex items-center justify-center"
-              >
-                {partner.logo ? (
+            {partners.length > 0 ? (
+              partners.map((partner) => (
+                <div
+                  key={partner._id}
+                  className="flex items-center justify-center"
+                >
+                  {partner.logo?.asset ? (
+                    <Image
+                      src={urlFor(partner.logo).width((partner.displayWidth || 100) * 2).url()}
+                      alt={partner.name}
+                      width={partner.displayWidth || 100}
+                      height={40}
+                      className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${partner.darkGray ? 'opacity-70' : 'opacity-50'}`}
+                      style={{ width: partner.displayWidth || 100, height: 'auto' }}
+                    />
+                  ) : (
+                    <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
+                      {partner.name}
+                    </span>
+                  )}
+                </div>
+              ))
+            ) : (
+              fallbackPartners.map((partner) => (
+                <div
+                  key={partner.name}
+                  className="flex items-center justify-center"
+                >
                   <Image
                     src={partner.logo}
                     alt={partner.name}
@@ -492,13 +543,9 @@ export default function GetInvolvedPage() {
                     height={partner.height || 40}
                     className="object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   />
-                ) : (
-                  <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
-                    {partner.name}
-                  </span>
-                )}
-              </div>
-            ))}
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -522,12 +569,34 @@ export default function GetInvolvedPage() {
             Past Event Sponsors
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
-            {pastSponsors.map((sponsor) => (
-              <div
-                key={sponsor.name}
-                className="flex items-center justify-center"
-              >
-                {sponsor.logo ? (
+            {sponsors.length > 0 ? (
+              sponsors.map((sponsor) => (
+                <div
+                  key={sponsor._id}
+                  className="flex items-center justify-center"
+                >
+                  {sponsor.logo?.asset ? (
+                    <Image
+                      src={urlFor(sponsor.logo).width((sponsor.displayWidth || 100) * 2).url()}
+                      alt={sponsor.name}
+                      width={sponsor.displayWidth || 100}
+                      height={40}
+                      className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${sponsor.darkGray ? 'opacity-70' : 'opacity-50'}`}
+                      style={{ width: sponsor.displayWidth || 100, height: 'auto' }}
+                    />
+                  ) : (
+                    <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
+                      {sponsor.name}
+                    </span>
+                  )}
+                </div>
+              ))
+            ) : (
+              fallbackSponsors.map((sponsor) => (
+                <div
+                  key={sponsor.name}
+                  className="flex items-center justify-center"
+                >
                   <Image
                     src={sponsor.logo}
                     alt={sponsor.name}
@@ -535,13 +604,9 @@ export default function GetInvolvedPage() {
                     height={sponsor.height || 40}
                     className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${sponsor.darkGray ? 'opacity-70' : 'opacity-50'}`}
                   />
-                ) : (
-                  <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
-                    {sponsor.name}
-                  </span>
-                )}
-              </div>
-            ))}
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>
