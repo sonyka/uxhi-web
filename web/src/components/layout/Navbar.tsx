@@ -39,7 +39,7 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <nav className="flex items-center gap-8 rounded-full bg-white px-7 py-5">
+    <nav className="flex items-center gap-8 rounded-full bg-white/90 backdrop-blur-sm px-7 py-5">
       {items.map((item) =>
         item.dropdown ? (
           <div
