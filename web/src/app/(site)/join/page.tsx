@@ -3,6 +3,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { FAQS_QUERY } from "@/sanity/lib/queries";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { MembershipForm } from "@/components/forms/MembershipForm";
 
 // Placeholder images for the grid - using existing bento images
 const gridImages = [
@@ -189,16 +190,8 @@ export default async function JoinPage() {
             </p>
           </div>
 
-          {/* Membership Form Embed */}
-          <iframe
-            src="https://uxhicommunity.aidaform.com/membership"
-            width="100%"
-            height="1600"
-            frameBorder="0"
-            className="border-0"
-            title="UXHI Membership Form"
-            allowFullScreen
-          />
+          {/* Membership Form */}
+          <MembershipForm />
         </div>
       </section>
 

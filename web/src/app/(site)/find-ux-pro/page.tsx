@@ -4,6 +4,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { DIRECTORY_MEMBERS_QUERY } from "@/sanity/lib/queries";
 import { MemberDirectory } from "@/components/directory";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
 
 export const metadata: Metadata = {
   title: "Find UX Pro | UX Hawaii",
@@ -199,16 +200,8 @@ export default async function FindUXProPage() {
             give back as a mentor, this is your chance to be discovered.
           </p>
 
-          {/* Aidaform Embed */}
-          <iframe
-            src="https://uxhicommunity.aidaform.com/directory"
-            width="100%"
-            height="1600"
-            frameBorder="0"
-            className="border-0 mb-10"
-            title="UXHI Member Directory Form"
-            allowFullScreen
-          />
+          {/* Directory Submission Form */}
+          <DirectorySubmitForm />
         </div>
       </section>
 

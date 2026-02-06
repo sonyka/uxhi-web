@@ -18,6 +18,22 @@ export const submission = defineType({
       readOnly: true,
     }),
     defineField({
+      name: "role",
+      type: "string",
+      readOnly: true,
+    }),
+    defineField({
+      name: "company",
+      type: "string",
+      readOnly: true,
+    }),
+    defineField({
+      name: "interestType",
+      title: "Interested In",
+      type: "string",
+      readOnly: true,
+    }),
+    defineField({
       name: "interests",
       type: "array",
       of: [defineArrayMember({ type: "string" })],
