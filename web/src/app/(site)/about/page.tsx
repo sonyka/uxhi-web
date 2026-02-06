@@ -175,12 +175,20 @@ export default async function AboutPage() {
       <FAQSection faqs={faqs} id="faqs" />
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-teal-500 scroll-mt-24">
+      <section id="contact" className="py-20 px-6 bg-purple-700 scroll-mt-24">
         <div className="max-w-[800px] mx-auto text-center">
+          <div className="w-24 h-24 mx-auto mb-6 relative">
+            <Image
+              src="/images/icons/icon-contact.png"
+              alt="Contact"
+              fill
+              className="object-contain"
+            />
+          </div>
           <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
             Get in touch
           </h2>
-          <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-[600px] mx-auto">
+          <p className="text-purple-200 text-lg leading-relaxed mb-8 max-w-[600px] mx-auto">
             Have questions, ideas, or want to collaborate? We&apos;d love to hear from you. Reach out to our team and we&apos;ll get back to you as soon as possible.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
