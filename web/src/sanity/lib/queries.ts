@@ -161,6 +161,89 @@ export const TECH_ORGANIZATIONS_QUERY = defineQuery(/* groq */ `
   }
 `);
 
+// Upcoming Events (future dates only, sorted ascending)
+export const EVENTS_QUERY = defineQuery(/* groq */ `
+  *[_type == "event" && date >= now()] | order(date asc) {
+    _id,
+    title,
+    date,
+    time,
+    location,
+    description,
+    url,
+    tentative
+  }
+`);
+
+// Conferences (sorted by year descending)
+export const CONFERENCES_QUERY = defineQuery(/* groq */ `
+  *[_type == "conference"] | order(year desc) {
+    _id,
+    year,
+    title,
+    url,
+    description,
+    isCurrent
+  }
+`);
+
+// Partners
+export const PARTNERS_QUERY = defineQuery(/* groq */ `
+  *[_type == "partnerSponsor" && type == "partner"] | order(order asc) {
+    _id,
+    name,
+    logo { ${imageFragment} },
+    website,
+    displayWidth,
+    darkGray
+  }
+`);
+
+// Sponsors
+export const SPONSORS_QUERY = defineQuery(/* groq */ `
+  *[_type == "partnerSponsor" && type == "sponsor"] | order(order asc) {
+    _id,
+    name,
+    logo { ${imageFragment} },
+    website,
+    displayWidth,
+    darkGray
+  }
+`);
+
+// Committees
+export const COMMITTEES_QUERY = defineQuery(/* groq */ `
+  *[_type == "committee"] | order(order asc) {
+    _id,
+    name,
+    description,
+    icon { ${imageFragment} }
+  }
+`);
+
+// Featured Press Mentions (for About page)
+export const FEATURED_PRESS_QUERY = defineQuery(/* groq */ `
+  *[_type == "pressMention" && featured == true] | order(date desc) {
+    _id,
+    source,
+    headline,
+    url,
+    date
+  }
+`);
+
+// All Press Mentions
+export const PRESS_MENTIONS_QUERY = defineQuery(/* groq */ `
+  *[_type == "pressMention"] | order(date desc) {
+    _id,
+    source,
+    headline,
+    url,
+    date,
+    featured
+  }
+`);
+
 // Member Directory - Members
 export const DIRECTORY_MEMBERS_QUERY = defineQuery(/* groq */ `
   *[_type == "directoryMember"] | order(openToWork desc, order asc, name asc) {

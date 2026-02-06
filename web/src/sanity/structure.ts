@@ -12,6 +12,9 @@ import {
   LinkIcon,
   DocumentIcon,
   SearchIcon,
+  CalendarIcon,
+  PresentationIcon,
+  ComponentIcon,
 } from "@sanity/icons";
 
 export const structure = (S: StructureBuilder) =>
@@ -43,6 +46,35 @@ export const structure = (S: StructureBuilder) =>
             .items([
               S.documentTypeListItem("member").title("Team Members").icon(UsersIcon),
               S.documentTypeListItem("value").title("Values").icon(StarIcon),
+              S.documentTypeListItem("pressMention").title("Press Mentions").icon(DocumentIcon),
+            ])
+        ),
+
+      S.divider(),
+
+      // Events
+      S.listItem()
+        .title("Events")
+        .icon(CalendarIcon)
+        .child(
+          S.list()
+            .title("Events Content")
+            .items([
+              S.documentTypeListItem("event").title("Upcoming Events").icon(CalendarIcon),
+              S.documentTypeListItem("conference").title("Conferences").icon(PresentationIcon),
+            ])
+        ),
+
+      // Get Involved
+      S.listItem()
+        .title("Get Involved")
+        .icon(ComponentIcon)
+        .child(
+          S.list()
+            .title("Get Involved Content")
+            .items([
+              S.documentTypeListItem("partnerSponsor").title("Partners & Sponsors").icon(UsersIcon),
+              S.documentTypeListItem("committee").title("Committees").icon(ComponentIcon),
             ])
         ),
 
