@@ -35,7 +35,7 @@ export function MobileTooltip({ children, tooltip, className = "", decorationEle
   return (
     <span
       ref={ref}
-      className={`relative inline-block cursor-pointer group ${className}`}
+      className={`relative inline-block cursor-pointer group hover:text-teal-500 transition-colors ${className}`}
       onClick={() => setIsOpen(!isOpen)}
     >
       {/* Text with dotted underline on mobile only */}

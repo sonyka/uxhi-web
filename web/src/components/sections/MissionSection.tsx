@@ -66,10 +66,10 @@ export function MissionSection({ values }: MissionSectionProps) {
           {/* Mission Statement */}
           <motion.h2
             variants={fadeInUp}
-            className="font-display text-2xl md:text-3xl lg:text-4xl text-teal-500 leading-tight mb-8 max-w-4xl"
+            className="font-display text-2xl md:text-3xl lg:text-4xl text-purple-600 leading-tight mb-8 max-w-4xl"
           >
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
-            <span className="text-teal-500 hover:text-purple-700 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
+            <span className="text-purple-600 hover:text-purple-800 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
               Human-Centered Design
               {/* Underline image */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
