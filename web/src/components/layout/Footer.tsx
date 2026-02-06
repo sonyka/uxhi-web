@@ -7,9 +7,11 @@ import { ExternalLinkIcon, SendIcon } from "@/components/ui/icons";
  *
  * Figma specs:
  * - Background: bg-teal-300 (#4ddce9)
- * - Headline: font-display, text-4xl (36px), leading-[45px], text-gray-700
+ * - Layout: justify-between, items-start, px-6 py-12 (48px vertical)
+ * - Headline: font-semibold, text-xl (20px), leading-[45px], text-gray-700
+ * - Left column: gap-14 (56px) between headline and logo row
  * - Logo row: UXHI logo (76px) + "© {year}" text-sm (14px), text-gray-700, gap-2, items-end
- * - Nav grid: 4 columns, gap-12 (48px), vertically centered
+ * - Nav grid: 4 columns, gap-12 (48px), flex-nowrap
  * - Nav links: text-base (16px), font-normal, text-gray-700, gap-3 (12px) between items
  * - Social icons: w-4 h-4 (16px), gap-1.5 (6px) between icon and text
  */
@@ -73,14 +75,15 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-teal-300 px-6 py-10">
-      <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
-        {/* Left: Headline + Logo/Copyright */}
-        <div className="lg:w-[58%] shrink-0">
-          <h2 className="font-display text-4xl leading-[45px] text-gray-700 max-w-[604px] mb-8">
+    <footer className="bg-teal-300 px-6 py-12">
+      <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+        {/* Headline — on desktop sits above logo in left column via lg:flex wrapper */}
+        <div className="flex flex-col gap-14 shrink-0 order-1">
+          <p className="font-semibold text-xl text-gray-700 max-w-[604px]">
             UXHI is a design community for people in Hawaiʻi.
-          </h2>
-          <div className="flex items-end gap-2">
+          </p>
+          {/* Logo/Copyright — visible only on desktop (inline with headline column) */}
+          <div className="hidden lg:flex items-end gap-2">
             <Image
               src="/images/nav/uxhi-logo.svg"
               alt="UXHI"
@@ -93,9 +96,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Right: 4-column nav grid */}
-        <div className="flex flex-wrap gap-12">
-          {/* Nav columns */}
+        {/* Nav grid */}
+        <div className="flex flex-wrap lg:flex-nowrap gap-12 shrink-0 order-2">
           {navColumns.map((column, colIndex) => (
             <div key={colIndex} className="flex flex-col gap-3">
               {column.links.map((link) =>
@@ -138,6 +140,19 @@ export function Footer() {
               </a>
             ))}
           </div>
+        </div>
+
+        {/* Logo/Copyright — mobile/tablet: appears last, below links */}
+        <div className="flex lg:hidden items-end gap-2 order-3">
+          <Image
+            src="/images/nav/uxhi-logo.svg"
+            alt="UXHI"
+            width={76}
+            height={24}
+          />
+          <span className="text-sm leading-[10px] text-gray-700">
+            © {currentYear}
+          </span>
         </div>
       </div>
     </footer>

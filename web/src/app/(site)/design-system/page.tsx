@@ -494,18 +494,19 @@ const contentComponents: Record<string, React.ReactNode> = {
               <p className="text-sm font-semibold text-gray-700">Container</p>
               <div className="text-sm text-gray-600 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-300</span> (#4ddce9)</p>
-                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">px-6 py-10</span> padding</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">px-6 py-12</span> (48px vertical) padding</p>
                 <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">max-w-[1300px]</span> content width</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">items-start justify-between</span></p>
               </div>
             </div>
             <div className="p-4 bg-cream rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-700">Headline</p>
               <div className="text-sm text-gray-600 space-y-1">
-                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">font-display</span> Dela Gothic One</p>
-                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-4xl</span> (36px)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">font-semibold</span> Nunito</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-xl</span> (20px)</p>
                 <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">leading-[45px]</span> line height</p>
                 <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-gray-700</span></p>
-                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">max-w-[604px]</span></p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">gap-14</span> (56px) to logo row</p>
               </div>
             </div>
             <div className="p-4 bg-cream rounded-xl space-y-3">
@@ -520,7 +521,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-cream rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-700">Nav Grid</p>
               <div className="text-sm text-gray-600 space-y-1">
-                <p>4 columns with <span className="font-mono text-xs bg-gray-100 px-1 rounded">gap-12</span> (48px)</p>
+                <p>4 columns, <span className="font-mono text-xs bg-gray-100 px-1 rounded">gap-12</span> (48px), <span className="font-mono text-xs bg-gray-100 px-1 rounded">flex-nowrap</span></p>
                 <p>Items: <span className="font-mono text-xs bg-gray-100 px-1 rounded">gap-3</span> (12px) vertical</p>
                 <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-base</span> (16px), font-normal</p>
                 <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-gray-700</span></p>
