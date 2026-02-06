@@ -12,9 +12,17 @@ import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { FeatureCard, SpotIllustrationCard, SpeechBubbleCard } from "@/components/ui/cards";
 import { MemberCard } from "@/components/directory";
+import { Navbar, MobileNavbar, HamburgerButton } from "@/components/layout/Navbar";
 
 // Navigation structure
 const navigationItems = [
+  {
+    category: "Navigation",
+    items: [
+      { id: "nav-desktop", label: "Desktop Navbar" },
+      { id: "nav-mobile", label: "Mobile Navbar" },
+    ],
+  },
   {
     category: "Foundation",
     items: [
@@ -64,7 +72,6 @@ const navigationItems = [
       { id: "interactive-dropdown", label: "Dropdown Menu" },
       { id: "interactive-filter-dropdown", label: "Filter Dropdown" },
       { id: "interactive-toggle", label: "Toggle Button" },
-      { id: "interactive-navpill", label: "Navigation Pill" },
     ],
   },
   {
@@ -251,8 +258,221 @@ function ContentSection({
   );
 }
 
+// Demo nav items for design system (simplified)
+const demoNavItems = [
+  { key: "find-ux-pro", label: "Find UX Pro", href: "#" },
+  {
+    key: "get-involved",
+    label: "Get Involved",
+    href: "#",
+    dropdown: [
+      { label: "Volunteer", href: "#", description: "Help grow our community" },
+      { label: "Become a Speaker", href: "#", description: "Share your expertise" },
+    ],
+  },
+  { key: "events", label: "Events", href: "#" },
+  { key: "conference", label: "Conference", href: "#", external: true },
+  {
+    key: "resources",
+    label: "Resources",
+    href: "#",
+    dropdown: [
+      { label: "UX for Students", href: "#", description: "Start your UX journey" },
+      { label: "State of UX Report", href: "#", description: "Industry insights" },
+    ],
+  },
+  { key: "shop", label: "Shop", href: "#" },
+  {
+    key: "about",
+    label: "About",
+    href: "#",
+    dropdown: [
+      { label: "Team", href: "#", description: "Meet our volunteers" },
+      { label: "FAQs", href: "#", description: "Common questions" },
+    ],
+  },
+];
+
+// Mobile Navbar Demo with state
+function MobileNavbarDemo() {
+  const [isOpen, setIsOpen] = useState(true);
+  return (
+    <div className="max-w-md">
+      <div className="flex items-center justify-between mb-4">
+        <span className="text-sm text-gray-500">Toggle to see animation:</span>
+        <HamburgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+      </div>
+      <MobileNavbar
+        items={demoNavItems}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
+    </div>
+  );
+}
+
 // All content components mapped by ID
 const contentComponents: Record<string, React.ReactNode> = {
+  // Navigation
+  "nav-desktop": (
+    <ContentSection
+      title="Desktop Navbar"
+      description="Main navigation component with dropdowns. Used in the site header."
+      componentPath="components/layout/Navbar.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-gray-100 p-6 rounded-xl overflow-x-auto">
+            <Navbar items={demoNavItems} />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Container</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white</span> background</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">rounded-full</span> border radius</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">px-7</span> (28px) horizontal padding</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">py-5</span> (20px) vertical padding</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">gap-8</span> (32px) between items</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Typography</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-base</span> (16px) font size</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">font-medium</span> weight</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-black</span> default color</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">hover:text-gray-700</span> hover</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Icons</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">w-5 h-5</span> (20px) chevron icons</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">rotate-180</span> on dropdown open</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">opacity-60</span> external link icon</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">CTA Button</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)]</span></p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">pl-5 pr-2 py-2</span> padding</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">w-[30px] h-[30px]</span> yellow circle</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-yellow</span> → <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-yellow-hover</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Link Types</h4>
+          <div className="flex flex-wrap gap-6 items-center p-4 bg-cream rounded-xl">
+            <div className="flex flex-col gap-1">
+              <span className="text-xs text-gray-500">Standard Link</span>
+              <span className="text-base font-medium text-black">Events</span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-xs text-gray-500">With Dropdown</span>
+              <span className="flex items-center gap-0.5 text-base font-medium text-black">
+                Get Involved
+                <ChevronDownIcon className="w-5 h-5" />
+              </span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-xs text-gray-500">External Link</span>
+              <span className="flex items-center gap-0.5 text-base font-medium text-black">
+                Conference
+                <ExternalLinkIcon className="w-5 h-5 opacity-60" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "nav-mobile": (
+    <ContentSection
+      title="Mobile Navbar"
+      description="Collapsible mobile navigation with accordion-style dropdowns."
+      componentPath="components/layout/Navbar.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <MobileNavbarDemo />
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Hamburger Button</h4>
+          <div className="flex gap-8 items-center p-4 bg-cream rounded-xl">
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-xs text-gray-500">Closed</span>
+              <div className="p-2 bg-white rounded-lg">
+                <div className="w-6 h-5 flex flex-col justify-between">
+                  <span className="h-0.5 w-full bg-gray-900 rounded" />
+                  <span className="h-0.5 w-full bg-gray-900 rounded" />
+                  <span className="h-0.5 w-full bg-gray-900 rounded" />
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-xs text-gray-500">Open (X)</span>
+              <div className="p-2 bg-white rounded-lg">
+                <div className="w-6 h-5 flex flex-col justify-center relative">
+                  <span className="h-0.5 w-full bg-gray-900 rounded rotate-45 absolute" />
+                  <span className="h-0.5 w-full bg-gray-900 rounded -rotate-45 absolute" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Container</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white</span> background</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">rounded-2xl</span> border radius</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">border border-gray-200</span></p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">py-4 px-6</span> padding</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Links</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-base</span> (16px)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">font-medium</span></p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-gray-700</span> default</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">hover:text-teal-500</span></p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Dropdown Items</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">pl-4 ml-2</span> indent</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">border-l-2 border-gray-100</span></p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">text-gray-600</span></p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Animation</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">framer-motion</span></p>
+                <p>Height: 0 → auto</p>
+                <p>Opacity: 0 → 1</p>
+                <p>Duration: 0.2s (menu), 0.15s (dropdown)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
   // Typography
   "typography-fonts": (
     <ContentSection title="Font Families" description="The two font families used throughout the site.">
@@ -987,25 +1207,6 @@ const contentComponents: Record<string, React.ReactNode> = {
             <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">animate-ping</span> for pulsing dot when active</p>
           </div>
         </div>
-      </div>
-    </ContentSection>
-  ),
-  "interactive-navpill": (
-    <ContentSection
-      title="Navigation Pill"
-      description="Header navigation container with pill-shaped border."
-      componentPath="components/layout/Header.tsx (inline)"
-    >
-      <div className="inline-flex items-center gap-1 border border-gray-200 rounded-full px-2 py-2 bg-white/80">
-        <span className="px-5 py-2.5 text-nav text-gray-700 font-medium">Link One</span>
-        <span className="px-5 py-2.5 text-nav text-gray-700 font-medium">Link Two</span>
-        <span className="px-5 py-2.5 text-nav text-gray-700 font-medium">Link Three</span>
-        <span className="flex items-center gap-3 bg-white border border-gray-200 rounded-full pl-5 pr-1.5 py-1.5 ml-2">
-          <span className="text-nav font-medium text-gray-900">CTA</span>
-          <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center">
-            <ArrowIcon className="w-4 h-4 text-gray-900" />
-          </span>
-        </span>
       </div>
     </ContentSection>
   ),
