@@ -79,9 +79,9 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="h-[182px] rounded-[24px] bg-teal-500 p-5 flex flex-col justify-end text-white">
+              <div className="h-[182px] rounded-[24px] bg-teal-500 p-5 flex flex-col justify-end text-gray-900">
                 <span className="font-display text-4xl leading-none">2021</span>
-                <span className="text-base mt-1 opacity-90">Year founded</span>
+                <span className="text-base mt-1">Year founded</span>
               </div>
             </div>
 
@@ -133,7 +133,7 @@ export default async function HomePage() {
 
             {/* Column 5: Teal rounded-top + gray rectangle */}
             <div className="flex flex-col gap-4 w-[234px]">
-              <div className="h-[382px] rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-5 pt-20 pb-6 flex items-end justify-end text-white text-right">
+              <div className="h-[382px] rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-5 pt-20 pb-6 flex items-end justify-end text-gray-900 text-right">
                 <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
               </div>
               <div className="h-[182px] rounded-[24px] overflow-hidden relative">
@@ -163,9 +163,9 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="h-[150px] rounded-[24px] bg-teal-500 p-4 flex flex-col justify-end text-white">
+              <div className="h-[150px] rounded-[24px] bg-teal-500 p-4 flex flex-col justify-end text-gray-900">
                 <span className="font-display text-4xl leading-none">2021</span>
-                <span className="text-base mt-1 opacity-90">Year founded</span>
+                <span className="text-base mt-1">Year founded</span>
               </div>
             </div>
 
@@ -184,7 +184,7 @@ export default async function HomePage() {
 
             {/* Column 3: Teal rounded-top + gray rectangle */}
             <div className="flex flex-col gap-4 w-[200px]">
-              <div className="h-[320px] rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-4 pt-16 pb-5 flex items-end justify-end text-white text-right">
+              <div className="h-[320px] rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-4 pt-16 pb-5 flex items-end justify-end text-gray-900 text-right">
                 <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
               </div>
               <div className="h-[150px] rounded-[24px] overflow-hidden relative">
@@ -214,9 +214,9 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="h-[100px] rounded-[20px] bg-teal-500 p-3 flex flex-col justify-end text-white">
+              <div className="h-[100px] rounded-[20px] bg-teal-500 p-3 flex flex-col justify-end text-gray-900">
                 <span className="font-display text-4xl leading-none">2021</span>
-                <span className="text-base mt-0.5 opacity-90">Year founded</span>
+                <span className="text-base mt-0.5">Year founded</span>
               </div>
             </div>
 
@@ -234,7 +234,7 @@ export default async function HomePage() {
 
             {/* Column 3: Teal top + gray rect */}
             <div className="flex flex-col gap-3 flex-1 max-w-[160px]">
-              <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-teal-500 px-3 pt-12 pb-4 flex items-end justify-end text-white text-right">
+              <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-teal-500 px-3 pt-12 pb-4 flex items-end justify-end text-gray-900 text-right">
                 <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all welcome</span>
               </div>
               <div className="h-[100px] rounded-[20px] overflow-hidden relative">
