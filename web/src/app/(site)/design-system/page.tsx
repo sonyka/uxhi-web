@@ -145,13 +145,13 @@ function FAQAccordionDemo() {
         <div
           key={faq.id}
           className={`rounded-[2rem] overflow-hidden transition-colors duration-300 ${
-            openId === faq.id ? "bg-teal-500" : "bg-white shadow-sm"
+            openId === faq.id ? "bg-teal-300" : "bg-white shadow-sm"
           }`}
         >
           <button
             onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
             className={`w-full px-6 py-4 flex items-center justify-between text-left transition-colors ${
-              openId === faq.id ? "text-white" : "text-gray-800"
+              openId === faq.id ? "text-gray-700" : "text-gray-800"
             }`}
           >
             <h4 className="font-medium pr-4">{faq.question}</h4>
@@ -171,7 +171,7 @@ function FAQAccordionDemo() {
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
-                <div className="px-6 pb-4 text-white/90 text-base">{faq.answer}</div>
+                <div className="px-6 pb-4 text-gray-700 text-base">{faq.answer}</div>
               </motion.div>
             )}
           </AnimatePresence>

@@ -30,20 +30,20 @@ function FAQItem({
   return (
     <div
       className={`rounded-[2rem] overflow-hidden transition-colors duration-300 ${
-        isOpen ? "bg-teal-500" : "bg-white shadow-sm"
+        isOpen ? "bg-teal-300" : "bg-white shadow-sm"
       }`}
     >
       <button
         onClick={onToggle}
         className={`w-full px-8 py-5 flex items-center justify-between text-left transition-colors ${
-          isOpen ? "text-white" : "text-gray-800"
+          isOpen ? "text-gray-700" : "text-gray-800"
         }`}
         aria-expanded={isOpen}
       >
         <h4 className="font-medium pr-4">{faq.question}</h4>
         <span className="flex-shrink-0">
           {isOpen ? (
-            <MinusIcon className="w-6 h-6" />
+            <MinusIcon className="w-6 h-6 text-gray-700" />
           ) : (
             <PlusIcon className="w-6 h-6 text-teal-500" />
           )}
@@ -57,7 +57,7 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="px-8 pb-6 text-white/90 text-base">{faq.answer}</div>
+            <div className="px-8 pb-6 text-gray-700 text-base">{faq.answer}</div>
           </motion.div>
         )}
       </AnimatePresence>
