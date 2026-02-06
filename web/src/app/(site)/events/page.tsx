@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
-import { EVENTS_QUERY, CONFERENCES_QUERY, PRESS_MENTIONS_QUERY } from "@/sanity/lib/queries";
+import { EVENTS_QUERY } from "@/sanity/lib/queries";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { ExternalLinkIcon } from "@/components/ui/icons";
 
@@ -21,47 +21,17 @@ const fallbackEvents = [
   { date: "March 12 OR April 7", title: "Talk Story with Tech Pros", time: "evening", tentative: false },
 ];
 
-// Hardcoded fallback conferences
-const fallbackConferences = [
-  { year: 2025, title: "UXHI Conference", url: "/conferences/2025/", isCurrent: true },
-  { year: 2024, title: "2024 UXHI Conference", url: "/conferences/2024/", isCurrent: false },
-  { year: 2023, title: "2023 UXHI Conference", url: "https://2023.uxhiconference.com/", isCurrent: false },
-];
-
-// Hardcoded fallback press mention for conference section
-const fallbackPressMention = {
-  source: "Hawaii Public Radio - Bytemarks Cafe",
-  url: "https://www.hawaiipublicradio.org/podcast/bytemarks-cafe",
-  label: "UXHI Conference coverage",
-};
-
 function formatEventDate(dateStr: string) {
   const date = new Date(dateStr + "T00:00:00");
   return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
 export default async function EventsPage() {
-  const [eventsResult, conferencesResult, pressResult] = await Promise.all([
-    sanityFetch({ query: EVENTS_QUERY }),
-    sanityFetch({ query: CONFERENCES_QUERY }),
-    sanityFetch({ query: PRESS_MENTIONS_QUERY }),
-  ]);
+  const eventsResult = await sanityFetch({ query: EVENTS_QUERY });
 
   type Event = { _id: string; title: string; date: string; time: string | null; location: string | null; description: string | null; url: string | null; tentative: boolean | null };
-  type Conference = { _id: string; year: number; title: string; url: string; description: string | null; isCurrent: boolean | null };
-  type PressMention = { _id: string; source: string; headline: string; url: string; date: string | null; featured: boolean | null };
 
   const events: Event[] = eventsResult.data || [];
-  const conferences: Conference[] = conferencesResult.data || [];
-  const pressMentions: PressMention[] = pressResult.data || [];
-
-  const currentConference = conferences.find((c) => c.isCurrent) || null;
-  const archiveConferences = conferences.filter((c) => !c.isCurrent);
-
-  // Find the HPR press mention for the conference section (or use fallback)
-  const hprMention = pressMentions.find((p) =>
-    p.source?.toLowerCase().includes("public radio") || p.source?.toLowerCase().includes("bytemarks")
-  );
 
   return (
     <main className="min-h-screen bg-cream">
@@ -248,84 +218,46 @@ export default async function EventsPage() {
           </p>
 
           {/* Press Mention */}
-          {hprMention ? (
-            <p className="text-purple-200 text-center mb-10">
-              <span className="font-medium">Press:</span>{" "}
-              <a
-                href={hprMention.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 hover:text-white transition-colors"
-              >
-                {hprMention.source}
-              </a>{" "}
-              {hprMention.headline}
-            </p>
-          ) : (
-            <p className="text-purple-200 text-center mb-10">
-              <span className="font-medium">Press:</span>{" "}
-              <a
-                href={fallbackPressMention.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 hover:text-white transition-colors"
-              >
-                {fallbackPressMention.source}
-              </a>{" "}
-              {fallbackPressMention.label}
-            </p>
-          )}
+          <p className="text-purple-200 text-center mb-10">
+            <span className="font-medium">Press:</span>{" "}
+            <a
+              href="https://www.hawaiipublicradio.org/podcast/bytemarks-cafe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-white transition-colors"
+            >
+              Hawaii Public Radio - Bytemarks Cafe
+            </a>{" "}
+            UXHI Conference coverage
+          </p>
 
           {/* CTA */}
           <div className="text-center mb-16">
-            {conferences.length > 0 ? (
-              <>
-                {currentConference && (
-                  <PrimaryCTA href={currentConference.url} external>
-                    UXHI Conference
-                  </PrimaryCTA>
-                )}
+            <PrimaryCTA href="/conferences/2025/" external>
+              UXHI Conference
+            </PrimaryCTA>
 
-                {/* Past Archives */}
-                {archiveConferences.length > 0 && (
-                  <div className="mt-6 flex flex-wrap justify-center gap-4">
-                    {archiveConferences.map((conf) => (
-                      <Link
-                        key={conf._id}
-                        href={conf.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
-                      >
-                        <span>{conf.title}</span>
-                        <ExternalLinkIcon className="w-4 h-4" />
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </>
-            ) : (
-              <>
-                <PrimaryCTA href={fallbackConferences[0].url} external>
-                  UXHI Conference
-                </PrimaryCTA>
-
-                <div className="mt-6 flex flex-wrap justify-center gap-4">
-                  {fallbackConferences.filter((c) => !c.isCurrent).map((conf) => (
-                    <Link
-                      key={conf.year}
-                      href={conf.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
-                    >
-                      <span>{conf.title}</span>
-                      <ExternalLinkIcon className="w-4 h-4" />
-                    </Link>
-                  ))}
-                </div>
-              </>
-            )}
+            {/* Past Archives */}
+            <div className="mt-6 flex flex-wrap justify-center gap-4">
+              <Link
+                href="/conferences/2024/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
+              >
+                <span>2024 UXHI Conference</span>
+                <ExternalLinkIcon className="w-4 h-4" />
+              </Link>
+              <Link
+                href="https://2023.uxhiconference.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
+              >
+                <span>2023 UXHI Conference</span>
+                <ExternalLinkIcon className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
 
           {/* Placeholder Content Grid */}

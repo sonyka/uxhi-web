@@ -1,5 +1,4 @@
 // Documents
-import { testimonial } from "./documents/testimonial";
 import { product } from "./documents/product";
 import { submission } from "./documents/submission";
 import { member } from "./documents/member";
@@ -12,17 +11,14 @@ import { resourceItem } from "./documents/resourceItem";
 import { stateOfUxReport } from "./documents/stateOfUxReport";
 import { techOrganization } from "./documents/techOrganization";
 import { event } from "./documents/event";
-import { conference } from "./documents/conference";
 import { partnerSponsor } from "./documents/partnerSponsor";
 import { committee } from "./documents/committee";
-import { pressMention } from "./documents/pressMention";
 
 // Member Directory
 import { directoryMember } from "./documents/directoryMember";
 
 export const schemaTypes = [
   // Documents
-  testimonial,
   product,
   submission,
   member,
@@ -35,10 +31,8 @@ export const schemaTypes = [
   stateOfUxReport,
   techOrganization,
   event,
-  conference,
   partnerSponsor,
   committee,
-  pressMention,
 
   // Member Directory
   directoryMember,

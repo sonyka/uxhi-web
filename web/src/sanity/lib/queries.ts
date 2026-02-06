@@ -12,20 +12,6 @@ const imageFragment = /* groq */ `
   crop
 `;
 
-// Testimonials (for standalone testimonials page if needed)
-export const TESTIMONIALS_QUERY = defineQuery(/* groq */ `
-  *[_type == "testimonial" && featured == true] | order(order asc) {
-    _id,
-    quote,
-    author {
-      name,
-      role,
-      company,
-      photo { ${imageFragment} }
-    }
-  }
-`);
-
 // Products (Merch)
 export const PRODUCTS_QUERY = defineQuery(/* groq */ `
   *[_type == "product" && available == true] | order(featured desc, name asc) {
@@ -175,18 +161,6 @@ export const EVENTS_QUERY = defineQuery(/* groq */ `
   }
 `);
 
-// Conferences (sorted by year descending)
-export const CONFERENCES_QUERY = defineQuery(/* groq */ `
-  *[_type == "conference"] | order(year desc) {
-    _id,
-    year,
-    title,
-    url,
-    description,
-    isCurrent
-  }
-`);
-
 // Partners
 export const PARTNERS_QUERY = defineQuery(/* groq */ `
   *[_type == "partnerSponsor" && type == "partner"] | order(order asc) {
@@ -218,29 +192,6 @@ export const COMMITTEES_QUERY = defineQuery(/* groq */ `
     name,
     description,
     icon { ${imageFragment} }
-  }
-`);
-
-// Featured Press Mentions (for About page)
-export const FEATURED_PRESS_QUERY = defineQuery(/* groq */ `
-  *[_type == "pressMention" && featured == true] | order(date desc) {
-    _id,
-    source,
-    headline,
-    url,
-    date
-  }
-`);
-
-// All Press Mentions
-export const PRESS_MENTIONS_QUERY = defineQuery(/* groq */ `
-  *[_type == "pressMention"] | order(date desc) {
-    _id,
-    source,
-    headline,
-    url,
-    date,
-    featured
   }
 `);
 

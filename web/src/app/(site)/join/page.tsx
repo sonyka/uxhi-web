@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { sanityFetch } from "@/sanity/lib/live";
-import { FAQS_QUERY, TESTIMONIALS_QUERY } from "@/sanity/lib/queries";
+import { FAQS_QUERY } from "@/sanity/lib/queries";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
-import { SanityImage } from "@/components/ui/SanityImage";
-import { SpeechBubbleCard } from "@/components/ui/cards/SpeechBubbleCard";
 
 // Placeholder images for the grid - using existing bento images
 const gridImages = [
@@ -27,10 +25,7 @@ const companyLogos = [
 ];
 
 export default async function JoinPage() {
-  const [{ data: faqs }, { data: testimonials }] = await Promise.all([
-    sanityFetch({ query: FAQS_QUERY }),
-    sanityFetch({ query: TESTIMONIALS_QUERY }),
-  ]);
+  const { data: faqs } = await sanityFetch({ query: FAQS_QUERY });
 
   return (
     <main className="min-h-screen bg-cream">
@@ -140,42 +135,6 @@ export default async function JoinPage() {
           </div>
         </div>
       </section>
-
-      {/* Testimonials Section */}
-      {testimonials && testimonials.length > 0 && (
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-[1200px] mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-2">
-                What our members are saying
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {testimonials.map((testimonial: { _id: string; quote: string; author?: { name?: string; role?: string; company?: string; photo?: { asset?: { _id?: string; url?: string } } } }) => (
-                <SpeechBubbleCard
-                  key={testimonial._id}
-                  variant="testimonial"
-                  quote={testimonial.quote}
-                  authorName={testimonial.author?.name || "Anonymous"}
-                  authorRole={testimonial.author?.role}
-                  authorCompany={testimonial.author?.company}
-                  authorImageNode={
-                    testimonial.author?.photo?.asset ? (
-                      <SanityImage
-                        value={testimonial.author.photo}
-                        width={48}
-                        height={48}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                    ) : undefined
-                  }
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Company Logos Section */}
       <section className="py-16 px-6 bg-section-gray">
