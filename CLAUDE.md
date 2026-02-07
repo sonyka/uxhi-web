@@ -115,6 +115,9 @@ Quick reference (see design system for full details):
 | `FeatureCard` | `components/ui/cards/FeatureCard.tsx` | Card with icon, title, description (cream/white/teal/purple) |
 | `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/cream/white variants) |
 | `SpeechBubbleCard` | `components/ui/cards/SpeechBubbleCard.tsx` | Quote card (speech-bubble or testimonial variant) |
+| `InquiryForm` | `components/forms/InquiryForm.tsx` | Contact form for /about#contact (purple bg, saves to Sanity + Slack) |
+| `MembershipForm` | `components/forms/MembershipForm.tsx` | Membership application for /join (purple bg, Google Sheet + Slack) |
+| `DirectorySubmitForm` | `components/forms/DirectorySubmitForm.tsx` | Directory submission for /find-ux-pro (purple bg, Sanity draft + Slack) |
 
 ### Data Fetching
 Uses `next-sanity` with:

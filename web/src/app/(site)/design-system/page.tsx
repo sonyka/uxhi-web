@@ -14,6 +14,9 @@ import { FeatureCard, SpotIllustrationCard, SpeechBubbleCard } from "@/component
 import { MemberCard } from "@/components/directory";
 import { Navbar, MobileNavbar, HamburgerButton } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { InquiryForm } from "@/components/forms/InquiryForm";
+import { MembershipForm } from "@/components/forms/MembershipForm";
+import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
 
 // Navigation structure
 const navigationItems = [
@@ -65,6 +68,14 @@ const navigationItems = [
       { id: "card-link", label: "Link Card" },
       { id: "card-infobox", label: "Info Box" },
       { id: "card-member", label: "Member Card" },
+    ],
+  },
+  {
+    category: "Forms",
+    items: [
+      { id: "form-inquiry", label: "Inquiry Form" },
+      { id: "form-membership", label: "Membership Form" },
+      { id: "form-directory", label: "Directory Submission Form" },
     ],
   },
   {
@@ -1140,6 +1151,152 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <span className="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full text-xs">+2</span>
               </div>
               <p className="text-xs text-gray-500 font-mono mt-2">bg-teal-50, text-teal-700, rounded-full</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  // Forms
+  "form-inquiry": (
+    <ContentSection
+      title="Inquiry Form"
+      description="Contact form on /about#contact. Saves to Sanity submission + Slack notification. Designed for purple (bg-purple-700) backgrounds."
+      componentPath={["components/forms/InquiryForm.tsx", "lib/actions/inquiry.ts"]}
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8">
+            <InquiryForm />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Fields</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>First Name, Last Name (required)</p>
+                <p>Email (required)</p>
+                <p>Role, Company Name (optional)</p>
+                <p>Interest type — radio (required)</p>
+                <p>Message — textarea (required)</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Labels: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-purple-200</span></p>
+                <p>Inputs: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white/10 border-white/20</span></p>
+                <p>Errors: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-yellow</span></p>
+                <p>Button: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white/10 border-white/30</span></p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Integrations</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Saves to Sanity <span className="font-mono text-xs bg-gray-100 px-1 rounded">submission</span> schema</p>
+                <p>Slack notification via webhook</p>
+                <p>Honeypot spam protection</p>
+                <p>Rate limiting (1/hr per email)</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Pattern</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>React 19 <span className="font-mono text-xs bg-gray-100 px-1 rounded">useActionState</span></p>
+                <p>Zod validation (client + server)</p>
+                <p>Server Action in <span className="font-mono text-xs bg-gray-100 px-1 rounded">lib/actions/inquiry.ts</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "form-membership": (
+    <ContentSection
+      title="Membership Form"
+      description="Join form on /join. Appends to Google Sheet + Slack notification. Designed for purple (bg-purple-700) backgrounds."
+      componentPath={["components/forms/MembershipForm.tsx", "lib/actions/membership.ts"]}
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8">
+            <MembershipForm />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Fields</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>First Name (required)</p>
+                <p>Email (required)</p>
+                <p>LinkedIn or Website — url (required)</p>
+                <p>Experience Level — radio, 6 options (required)</p>
+                <p>Hopes — textarea (optional)</p>
+                <p>Contributions — checkboxes, 5 options (optional)</p>
+                <p>How did you hear about us — radio (optional)</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Integrations</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Appends row to Google Sheet</p>
+                <p>Slack notification via webhook</p>
+                <p>Honeypot spam protection</p>
+                <p>Rate limiting (1/hr per email)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "form-directory": (
+    <ContentSection
+      title="Directory Submission Form"
+      description="Directory submission form on /find-ux-pro. Creates draft directoryMember in Sanity + Slack notification. Designed for purple (bg-purple-700) backgrounds."
+      componentPath={["components/forms/DirectorySubmitForm.tsx", "lib/actions/directory-submit.ts"]}
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8">
+            <DirectorySubmitForm />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Fields</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Name (required)</p>
+                <p>Job Title (optional)</p>
+                <p>Photo — file upload with preview (required)</p>
+                <p>Open to Work — checkbox (optional)</p>
+                <p>Focus — multi-select, 15 options (optional)</p>
+                <p>Experience Level — dropdown, 7 options (optional)</p>
+                <p>Industries — multi-select, 16 options (optional)</p>
+                <p>Location, Education/Bootcamp (optional)</p>
+                <p>LinkedIn URL, Portfolio URL (optional)</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Integrations</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Uploads photo to Sanity assets</p>
+                <p>Creates draft <span className="font-mono text-xs bg-gray-100 px-1 rounded">directoryMember</span> doc</p>
+                <p>Admin publishes in Sanity Studio</p>
+                <p>Slack notification via webhook</p>
+                <p>Honeypot spam protection</p>
+              </div>
             </div>
           </div>
         </div>
