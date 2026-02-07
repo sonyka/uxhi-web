@@ -8,10 +8,10 @@ import {
   HEAR_ABOUT_OPTIONS,
 } from "@/lib/validations";
 
-const labelClass = "block text-sm font-semibold text-gray-700 mb-1.5";
+const labelClass = "block text-sm font-semibold text-purple-200 mb-1.5";
 const inputClass =
-  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors";
-const errorClass = "text-red-600 text-sm mt-1";
+  "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-purple-300/60 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors";
+const errorClass = "text-yellow text-sm mt-1";
 
 function FieldError({ errors, field }: { errors?: Record<string, string[]>; field: string }) {
   const messages = errors?.[field];
@@ -27,10 +27,10 @@ export function MembershipForm() {
 
   if (state?.success) {
     return (
-      <div className="bg-teal-50 border border-teal-100 rounded-2xl p-8 text-center">
+      <div className="bg-white/10 border border-white/20 rounded-2xl p-8 text-center">
         <div className="text-4xl mb-4">&#127881;</div>
-        <h3 className="font-display text-2xl text-purple-700 mb-2">Application received!</h3>
-        <p className="text-gray-700">{state.message}</p>
+        <h3 className="font-display text-2xl text-white mb-2">Application received!</h3>
+        <p className="text-purple-200">{state.message}</p>
       </div>
     );
   }
@@ -44,7 +44,7 @@ export function MembershipForm() {
       </div>
 
       {state?.message && !state.success && (
-        <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-red-700 text-sm">
+        <div className="bg-red-500/20 border border-red-400/30 rounded-xl px-4 py-3 text-red-200 text-sm">
           {state.message}
         </div>
       )}
@@ -84,9 +84,9 @@ export function MembershipForm() {
                 name="experienceLevel"
                 value={option}
                 required
-                className="w-4 h-4 text-teal-500 border-gray-300 focus:ring-teal-500 accent-teal-500"
+                className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 focus:ring-teal-500 accent-teal-500"
               />
-              <span className="text-gray-700 group-hover:text-gray-900 transition-colors">{option}</span>
+              <span className="text-purple-200 group-hover:text-white transition-colors">{option}</span>
             </label>
           ))}
         </div>
@@ -112,9 +112,9 @@ export function MembershipForm() {
                 type="checkbox"
                 name="contributions"
                 value={option}
-                className="w-4 h-4 text-teal-500 border-gray-300 rounded focus:ring-teal-500 accent-teal-500"
+                className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 rounded focus:ring-teal-500 accent-teal-500"
               />
-              <span className="text-gray-700 group-hover:text-gray-900 transition-colors">{option}</span>
+              <span className="text-purple-200 group-hover:text-white transition-colors">{option}</span>
             </label>
           ))}
         </div>
@@ -129,9 +129,9 @@ export function MembershipForm() {
                 type="radio"
                 name="hearAboutUs"
                 value={option}
-                className="w-4 h-4 text-teal-500 border-gray-300 focus:ring-teal-500 accent-teal-500"
+                className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 focus:ring-teal-500 accent-teal-500"
               />
-              <span className="text-gray-700 group-hover:text-gray-900 transition-colors">{option}</span>
+              <span className="text-purple-200 group-hover:text-white transition-colors">{option}</span>
             </label>
           ))}
         </div>
@@ -140,11 +140,11 @@ export function MembershipForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 font-medium transition-colors bg-white border border-gray-200 hover:bg-gray-50 text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 font-medium transition-colors bg-white/10 border border-white/30 hover:bg-white/20 text-white disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <span>{isPending ? "Submitting..." : "Submit application"}</span>
-        <span className="w-9 h-9 rounded-full flex items-center justify-center bg-yellow group-hover:bg-yellow-hover transition-colors">
-          <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+        <span className="w-9 h-9 rounded-full flex items-center justify-center bg-white/20 transition-colors">
+          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>

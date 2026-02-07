@@ -179,26 +179,28 @@ export default async function FindUXProPage() {
       </section>
 
       {/* Join Directory Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-[900px] mx-auto text-center">
-          {/* Directory Icon */}
-          <div className="w-32 h-32 mx-auto mb-6 relative">
-            <Image
-              src="/images/icons/icon-directory.png"
-              alt="Directory"
-              fill
-              className="object-contain"
-            />
+      <section className="py-20 px-6 bg-purple-700">
+        <div className="max-w-[900px] mx-auto">
+          <div className="text-center">
+            {/* Directory Icon */}
+            <div className="w-32 h-32 mx-auto mb-6 relative">
+              <Image
+                src="/images/icons/icon-directory.png"
+                alt="Directory"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-white mb-8">
+              Join our member directory!
+            </h2>
+            <p className="text-purple-200 text-lg leading-relaxed mb-10">
+              Are you a UX professional with ties to Hawaiʻi? Add yourself to the
+              directory and connect with our growing community. Whether you&apos;re
+              looking for new opportunities, seeking collaborators, or wanting to
+              give back as a mentor, this is your chance to be discovered.
+            </p>
           </div>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-purple-700 mb-8">
-            Join our member directory!
-          </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-10">
-            Are you a UX professional with ties to Hawaiʻi? Add yourself to the
-            directory and connect with our growing community. Whether you're
-            looking for new opportunities, seeking collaborators, or wanting to
-            give back as a mentor, this is your chance to be discovered.
-          </p>
 
           {/* Directory Submission Form */}
           <DirectorySubmitForm />

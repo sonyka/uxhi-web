@@ -8,10 +8,10 @@ import {
   INDUSTRY_OPTIONS,
 } from "@/components/directory/constants";
 
-const labelClass = "block text-sm font-semibold text-gray-700 mb-1.5";
+const labelClass = "block text-sm font-semibold text-purple-200 mb-1.5";
 const inputClass =
-  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors";
-const errorClass = "text-red-600 text-sm mt-1";
+  "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-purple-300/60 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors";
+const errorClass = "text-yellow text-sm mt-1";
 
 function FieldError({ errors, field }: { errors?: Record<string, string[]>; field: string }) {
   const messages = errors?.[field];
@@ -38,10 +38,10 @@ export function DirectorySubmitForm() {
 
   if (state?.success) {
     return (
-      <div className="bg-teal-50 border border-teal-100 rounded-2xl p-8 text-center">
+      <div className="bg-white/10 border border-white/20 rounded-2xl p-8 text-center">
         <div className="text-4xl mb-4">&#10003;</div>
-        <h3 className="font-display text-2xl text-purple-700 mb-2">Profile submitted!</h3>
-        <p className="text-gray-700">{state.message}</p>
+        <h3 className="font-display text-2xl text-white mb-2">Profile submitted!</h3>
+        <p className="text-purple-200">{state.message}</p>
       </div>
     );
   }
@@ -55,7 +55,7 @@ export function DirectorySubmitForm() {
       </div>
 
       {state?.message && !state.success && (
-        <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-red-700 text-sm">
+        <div className="bg-red-500/20 border border-red-400/30 rounded-xl px-4 py-3 text-red-200 text-sm">
           {state.message}
         </div>
       )}
@@ -81,7 +81,7 @@ export function DirectorySubmitForm() {
         <label htmlFor="photo" className={labelClass}>Photo *</label>
         <div className="flex items-start gap-4">
           {photoPreview && (
-            <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-200">
+            <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/30">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={photoPreview} alt="Preview" className="w-full h-full object-cover" />
             </div>
@@ -93,10 +93,10 @@ export function DirectorySubmitForm() {
             accept="image/jpeg,image/png,image/webp"
             required
             onChange={handlePhotoChange}
-            className="block w-full text-sm text-gray-700 file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border file:border-gray-200 file:text-sm file:font-medium file:bg-white file:text-gray-700 hover:file:bg-gray-50 file:cursor-pointer file:transition-colors"
+            className="block w-full text-sm text-purple-200 file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border file:border-white/20 file:text-sm file:font-medium file:bg-white/10 file:text-white hover:file:bg-white/20 file:cursor-pointer file:transition-colors"
           />
         </div>
-        <p className="text-xs text-gray-500 mt-1">JPG, PNG, or WebP. Max 5MB.</p>
+        <p className="text-xs text-purple-300/60 mt-1">JPG, PNG, or WebP. Max 5MB.</p>
         <FieldError errors={state?.errors} field="photo" />
       </div>
 
@@ -105,9 +105,9 @@ export function DirectorySubmitForm() {
           <input
             type="checkbox"
             name="openToWork"
-            className="w-4 h-4 text-teal-500 border-gray-300 rounded focus:ring-teal-500 accent-teal-500"
+            className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 rounded focus:ring-teal-500 accent-teal-500"
           />
-          <span className="text-sm font-semibold text-gray-700">Open to Work</span>
+          <span className="text-sm font-semibold text-purple-200">Open to Work</span>
         </label>
       </div>
 
@@ -120,9 +120,9 @@ export function DirectorySubmitForm() {
                 type="checkbox"
                 name="focus"
                 value={option.value}
-                className="w-4 h-4 text-teal-500 border-gray-300 rounded focus:ring-teal-500 accent-teal-500"
+                className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 rounded focus:ring-teal-500 accent-teal-500"
               />
-              <span className="text-gray-700 group-hover:text-gray-900 transition-colors text-sm">{option.title}</span>
+              <span className="text-purple-200 group-hover:text-white transition-colors text-sm">{option.title}</span>
             </label>
           ))}
         </div>
@@ -147,9 +147,9 @@ export function DirectorySubmitForm() {
                 type="checkbox"
                 name="industries"
                 value={option.value}
-                className="w-4 h-4 text-teal-500 border-gray-300 rounded focus:ring-teal-500 accent-teal-500"
+                className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 rounded focus:ring-teal-500 accent-teal-500"
               />
-              <span className="text-gray-700 group-hover:text-gray-900 transition-colors text-sm">{option.title}</span>
+              <span className="text-purple-200 group-hover:text-white transition-colors text-sm">{option.title}</span>
             </label>
           ))}
         </div>
@@ -205,11 +205,11 @@ export function DirectorySubmitForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 font-medium transition-colors bg-white border border-gray-200 hover:bg-gray-50 text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 font-medium transition-colors bg-white/10 border border-white/30 hover:bg-white/20 text-white disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <span>{isPending ? "Submitting..." : "Submit profile"}</span>
-        <span className="w-9 h-9 rounded-full flex items-center justify-center bg-yellow group-hover:bg-yellow-hover transition-colors">
-          <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+        <span className="w-9 h-9 rounded-full flex items-center justify-center bg-white/20 transition-colors">
+          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>

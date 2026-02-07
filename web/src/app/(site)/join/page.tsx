@@ -163,7 +163,7 @@ export default async function JoinPage() {
       </section>
 
       {/* How to Join Section */}
-      <section id="join-form" className="py-20 px-6 bg-white">
+      <section id="join-form" className="py-20 px-6 bg-purple-700">
         <div className="max-w-[800px] mx-auto">
           <div className="text-center mb-10">
             {/* Slack Icon */}
@@ -175,13 +175,13 @@ export default async function JoinPage() {
                 className="object-contain"
               />
             </div>
-            <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-6">
-              How to Join
+            <h2 className="font-display text-4xl md:text-5xl text-white mb-6">
+              Join the community
             </h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-purple-200 text-lg leading-relaxed">
               Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with 400+ designers!{" "}
               <span className="relative inline-block group/slack-link">
-                <span className="text-purple-700 underline underline-offset-2 cursor-help">What is Slack?</span>
+                <span className="text-white underline underline-offset-2 cursor-help">What is Slack?</span>
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-4 py-3 bg-white text-gray-700 text-sm font-normal leading-relaxed rounded-xl shadow-lg border border-gray-100 w-72 text-left opacity-0 invisible group-hover/slack-link:opacity-100 group-hover/slack-link:visible transition-all duration-200 z-50">
                   Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has 400+ designers sharing resources, job opportunities, and community support.
                   <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
@@ -196,12 +196,12 @@ export default async function JoinPage() {
       </section>
 
       {/* Slack Community Section */}
-      <section className="py-20 px-6 bg-purple-700">
+      <section className="py-20 px-6 bg-cream">
         <div className="max-w-[900px] mx-auto text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-white mb-6">
+          <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-6">
             400+ Slack members and growing
           </h2>
-          <p className="text-purple-200 text-lg leading-relaxed mb-10">
+          <p className="text-gray-700 text-lg leading-relaxed mb-10">
             A primary benefit of membership at UXHI (which is free!) is access to our Slack community of over 400+ designers connected to Hawai&apos;i and beyond. Become a member today and receive your invite to join!
           </p>
           <PrimaryCTA href="#join-form">Become a member</PrimaryCTA>
