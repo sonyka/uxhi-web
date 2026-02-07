@@ -60,10 +60,17 @@ export function DirectorySubmitForm() {
         </div>
       )}
 
-      <div>
-        <label htmlFor="name" className={labelClass}>Name *</label>
-        <input type="text" id="name" name="name" required className={inputClass} />
-        <FieldError errors={state?.errors} field="name" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <label htmlFor="firstName" className={labelClass}>First Name *</label>
+          <input type="text" id="firstName" name="firstName" required className={inputClass} />
+          <FieldError errors={state?.errors} field="firstName" />
+        </div>
+        <div>
+          <label htmlFor="lastName" className={labelClass}>Last Name *</label>
+          <input type="text" id="lastName" name="lastName" required className={inputClass} />
+          <FieldError errors={state?.errors} field="lastName" />
+        </div>
       </div>
 
       <div>

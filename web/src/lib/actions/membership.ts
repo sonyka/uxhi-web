@@ -34,6 +34,7 @@ export async function submitMembership(
 
   const raw = {
     firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
     email: formData.get("email"),
     linkedinOrWebsite: formData.get("linkedinOrWebsite"),
     experienceLevel: formData.get("experienceLevel"),
@@ -58,6 +59,7 @@ export async function submitMembership(
     await appendToSheet([
       new Date().toISOString(),
       data.firstName,
+      data.lastName,
       data.email,
       data.linkedinOrWebsite,
       data.experienceLevel,
@@ -75,7 +77,7 @@ export async function submitMembership(
       {
         type: "section",
         fields: [
-          { type: "mrkdwn", text: `*Name:*\n${data.firstName}` },
+          { type: "mrkdwn", text: `*Name:*\n${data.firstName} ${data.lastName}` },
           { type: "mrkdwn", text: `*Email:*\n${data.email}` },
           { type: "mrkdwn", text: `*LinkedIn/Website:*\n${data.linkedinOrWebsite}` },
           { type: "mrkdwn", text: `*Experience:*\n${data.experienceLevel}` },

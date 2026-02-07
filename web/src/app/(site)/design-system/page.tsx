@@ -1235,7 +1235,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-cream rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-700">Fields</p>
               <div className="text-sm text-gray-600 space-y-1">
-                <p>First Name (required)</p>
+                <p>First Name, Last Name (required)</p>
                 <p>Email (required)</p>
                 <p>LinkedIn or Website — url (required)</p>
                 <p>Experience Level — radio, 6 options (required)</p>
@@ -1277,7 +1277,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-cream rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-700">Fields</p>
               <div className="text-sm text-gray-600 space-y-1">
-                <p>Name (required)</p>
+                <p>First Name, Last Name (required)</p>
                 <p>Job Title (optional)</p>
                 <p>Photo — file upload with preview (required)</p>
                 <p>Open to Work — checkbox (optional)</p>

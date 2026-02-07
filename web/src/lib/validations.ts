@@ -46,6 +46,7 @@ export const HEAR_ABOUT_OPTIONS = [
 
 export const membershipSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Please enter a valid email"),
   linkedinOrWebsite: z.string().url("Please enter a valid URL"),
   experienceLevel: z.enum(EXPERIENCE_OPTIONS, {
@@ -61,7 +62,8 @@ export type MembershipFormData = z.infer<typeof membershipSchema>;
 // ── Directory Submission Form ───────────────────────────────────────────────
 
 export const directorySubmissionSchema = z.object({
-  name: z.string().min(1, "Name is required"),
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
   jobTitle: z.string().optional(),
   openToWork: z.boolean().optional(),
   focus: z.array(z.string()).optional(),

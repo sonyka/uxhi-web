@@ -27,9 +27,10 @@ export async function submitDirectoryEntry(
   }
 
   // Rate limiting by name (no email field in this form)
-  const name = formData.get("name") as string;
+  const firstName = formData.get("firstName") as string;
+  const lastName = formData.get("lastName") as string;
   const now = Date.now();
-  const key = name?.toLowerCase().trim();
+  const key = `${firstName} ${lastName}`.toLowerCase().trim();
   const lastSubmission = submissions.get(key);
   if (lastSubmission && now - lastSubmission < 60 * 60 * 1000) {
     return {
@@ -39,7 +40,8 @@ export async function submitDirectoryEntry(
   }
 
   const raw = {
-    name: formData.get("name"),
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
     jobTitle: formData.get("jobTitle") || undefined,
     openToWork: formData.get("openToWork") === "on",
     focus: formData.getAll("focus").filter(Boolean) as string[],
@@ -104,12 +106,12 @@ export async function submitDirectoryEntry(
     await writeClient.create({
       _id: draftId,
       _type: "directoryMember",
-      name: data.name,
+      name: `${data.firstName} ${data.lastName}`,
       title: data.jobTitle || "",
       photo: {
         _type: "image",
         asset: { _type: "reference", _ref: asset._id },
-        alt: data.name,
+        alt: `${data.firstName} ${data.lastName}`,
       },
       openToWork: data.openToWork || false,
       focus: data.focus?.length ? data.focus : undefined,
@@ -131,7 +133,7 @@ export async function submitDirectoryEntry(
       {
         type: "section",
         fields: [
-          { type: "mrkdwn", text: `*Name:*\n${data.name}` },
+          { type: "mrkdwn", text: `*Name:*\n${data.firstName} ${data.lastName}` },
           ...(data.jobTitle ? [{ type: "mrkdwn", text: `*Title:*\n${data.jobTitle}` }] : []),
           ...(data.location ? [{ type: "mrkdwn", text: `*Location:*\n${data.location}` }] : []),
           ...(data.experienceLevel ? [{ type: "mrkdwn", text: `*Experience:*\n${data.experienceLevel}` }] : []),
