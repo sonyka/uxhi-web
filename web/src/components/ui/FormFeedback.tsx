@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 /* ------------------------------------------------------------------ */
@@ -16,8 +19,13 @@ const alertStyles = {
 } as const;
 
 export function FormAlert({ message, variant = "error", className }: FormAlertProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, []);
   return (
     <div
+      ref={ref}
       role="alert"
       className={cn(
         "rounded-xl border px-4 py-3 text-sm",
@@ -66,8 +74,12 @@ interface FormSuccessProps {
 }
 
 export function FormSuccess({ icon, title, message, className }: FormSuccessProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, []);
   return (
-    <div className={cn("bg-white/10 border border-white/20 rounded-2xl p-8 text-center", className)}>
+    <div ref={ref} className={cn("bg-white/10 border border-white/20 rounded-2xl p-8 text-center", className)}>
       <div className="text-4xl mb-4">{icon}</div>
       <h3 className="font-display text-2xl text-white mb-2">{title}</h3>
       <p className="text-purple-200">{message}</p>
