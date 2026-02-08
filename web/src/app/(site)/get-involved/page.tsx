@@ -460,6 +460,20 @@ export default async function GetInvolvedPage() {
         </div>
       </section>
 
+      {/* Speaker Photo */}
+      <section className="px-6 pb-16 bg-white">
+        <div className="max-w-[1300px] mx-auto">
+          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
+            <Image
+              src="/images/get-involved/image-speaker.jpg"
+              alt="UXHI speaking event"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Partnerships Section */}
       <section id="partner" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">

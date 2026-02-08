@@ -257,7 +257,25 @@ export default async function ResourcesPage() {
               </div>
             )}
           </div>
+        </div>
+      </section>
 
+      {/* Conference Photo */}
+      <section className="px-6 pb-16 bg-white">
+        <div className="max-w-[1300px] mx-auto">
+          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
+            <Image
+              src="/images/resources/image-conference2.jpg"
+              alt="UXHI conference"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 px-6 bg-white">
+        <div className="max-w-[900px] mx-auto">
           {/* Online Programs */}
           <div className="mb-12">
             <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-6">Online Programs</h3>
