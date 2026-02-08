@@ -9,7 +9,7 @@ export const inquirySchema = z.object({
   role: z.string().optional(),
   company: z.string().optional(),
   interestType: z.enum(
-    ["Guest speaking", "Partnerships and collaborations", "Something else"],
+    ["Becoming a volunteer", "Becoming a speaker", "Becoming partners and collaborators", "Something else"],
     { message: "Please select what you're interested in" },
   ),
   message: z.string().min(1, "Message is required"),

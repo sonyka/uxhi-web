@@ -1,12 +1,14 @@
 "use client";
 
-import { useActionState } from "react";
+import { Suspense, useActionState } from "react";
+import { useSearchParams } from "next/navigation";
 import { submitInquiry, type InquiryState } from "@/lib/actions/inquiry";
 import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
 
 const INTEREST_OPTIONS = [
-  "Guest speaking",
-  "Partnerships and collaborations",
+  "Becoming a volunteer",
+  "Becoming a speaker",
+  "Becoming partners and collaborators",
   "Something else",
 ] as const;
 
@@ -14,7 +16,9 @@ const labelClass = "block text-sm font-semibold text-purple-200 mb-1.5";
 const inputClass =
   "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-purple-300/60 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors";
 
-export function InquiryForm() {
+function InquiryFormInner() {
+  const searchParams = useSearchParams();
+  const preselectedInterest = searchParams.get("interest");
   const [state, formAction, isPending] = useActionState<InquiryState, FormData>(
     submitInquiry,
     null,
@@ -78,6 +82,7 @@ export function InquiryForm() {
                 name="interestType"
                 value={option}
                 required
+                defaultChecked={preselectedInterest === option}
                 className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 focus:ring-teal-500 accent-teal-500"
               />
               <span className="text-purple-200 group-hover:text-white transition-colors">{option}</span>
@@ -113,5 +118,13 @@ export function InquiryForm() {
         </span>
       </button>
     </form>
+  );
+}
+
+export function InquiryForm() {
+  return (
+    <Suspense>
+      <InquiryFormInner />
+    </Suspense>
   );
 }

@@ -396,7 +396,7 @@ export default async function GetInvolvedPage() {
           <p className="text-gray-700 text-lg mb-8">
             Let us know how you want to get involved!
           </p>
-          <PrimaryCTA href="https://forms.gle/volunteer-signup" external>
+          <PrimaryCTA href="/about?interest=Becoming+a+volunteer#contact">
             Sign up to volunteer
           </PrimaryCTA>
 
@@ -454,7 +454,7 @@ export default async function GetInvolvedPage() {
           <p className="text-gray-700 text-lg leading-relaxed mb-8">
             Fill out our speaker application below and we&apos;ll be in touch!
           </p>
-          <PrimaryCTA href="https://forms.gle/speaker-application" external>
+          <PrimaryCTA href="/about?interest=Becoming+a+speaker#contact">
             Submit your idea
           </PrimaryCTA>
         </div>
@@ -495,7 +495,7 @@ export default async function GetInvolvedPage() {
             </li>
           </ul>
 
-          <PrimaryCTA href="https://forms.gle/partnership-inquiry" external>
+          <PrimaryCTA href="/about?interest=Becoming+partners+and+collaborators#contact">
             Let&apos;s connect
           </PrimaryCTA>
         </div>
@@ -628,8 +628,8 @@ export default async function GetInvolvedPage() {
           <p className="text-gray-700 leading-relaxed mb-6">
             We understand the value of tailored experiences and are open to working together to create a custom package.
           </p>
-          <PrimaryCTA href="mailto:aloha@uxhi.community?subject=Sponsorship%20Inquiry" external>
-            Email us
+          <PrimaryCTA href="/about?interest=Becoming+partners+and+collaborators#contact">
+            Collaborate with us
           </PrimaryCTA>
         </div>
       </section>
