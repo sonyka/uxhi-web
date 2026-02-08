@@ -5,7 +5,7 @@ interface PrimaryCTAProps {
   href: string;
   children: React.ReactNode;
   external?: boolean;
-  variant?: "default" | "dark";
+  variant?: "default" | "dark" | "subdued";
 }
 
 const variants = {
@@ -13,6 +13,12 @@ const variants = {
     button: "bg-white border border-gray-200 hover:bg-gray-50",
     text: "text-gray-900",
     circle: "bg-yellow group-hover:bg-yellow-hover",
+    icon: "text-gray-900",
+  },
+  subdued: {
+    button: "bg-white border border-gray-200 hover:bg-gray-50",
+    text: "text-gray-900",
+    circle: "bg-gray-200 group-hover:bg-gray-300",
     icon: "text-gray-900",
   },
   dark: {

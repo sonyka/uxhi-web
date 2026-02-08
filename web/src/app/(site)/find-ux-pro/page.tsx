@@ -31,7 +31,7 @@ export default async function FindUXProPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <PrimaryCTA href="#directory">Browse the directory</PrimaryCTA>
-              <PrimaryCTA href="#join-directory">Join the directory</PrimaryCTA>
+              <PrimaryCTA href="#join-directory" variant="subdued">Join the directory</PrimaryCTA>
             </div>
           </div>
         </div>
@@ -195,27 +195,13 @@ export default async function FindUXProPage() {
             <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-white mb-8">
               Join our member directory!
             </h2>
-            <p className="text-purple-200 text-lg leading-relaxed mb-10">
+            <p className="text-purple-200 text-lg leading-relaxed mb-4">
               Are you a UX professional with ties to Hawaiʻi? Add yourself to the
               directory and connect with our growing community. Whether you&apos;re
               looking for new opportunities, seeking collaborators, or wanting to
               give back as a mentor, this is your chance to be discovered.
             </p>
-          </div>
-
-          {/* Directory Submission Form */}
-          <DirectorySubmitForm />
-        </div>
-      </section>
-
-      {/* Criteria Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-[900px] mx-auto">
-          <div className="bg-teal-50 border border-teal-100 rounded-[20px] p-6">
-            <h2 className="font-display text-2xl text-purple-700 mb-3">
-              Join criteria
-            </h2>
-            <p className="text-gray-700 font-medium">
+            <p className="text-purple-200 text-lg leading-relaxed mb-10">
               UX professionals and anyone transitioning into UX design who lives
               in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request
               will automatically be added to the directory and a UXHI team
@@ -223,6 +209,9 @@ export default async function FindUXProPage() {
               within a few business days.
             </p>
           </div>
+
+          {/* Directory Submission Form */}
+          <DirectorySubmitForm />
         </div>
       </section>
     </main>

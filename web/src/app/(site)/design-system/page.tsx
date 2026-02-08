@@ -737,7 +737,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-primarycta": (
     <ContentSection
       title="Primary CTA"
-      description="Pill button with arrow circle. Variants: default (yellow circle), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow."
+      description="Pill button with arrow circle. Variants: default (yellow circle), subdued (gray circle, for secondary CTAs), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow."
       componentPath="components/ui/PrimaryCTA.tsx"
     >
       <div className="space-y-6">
@@ -746,6 +746,13 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="flex flex-wrap gap-4 items-center">
             <PrimaryCTA href="#">Join us</PrimaryCTA>
             <PrimaryCTA href="#" external>External Link</PrimaryCTA>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Subdued Variant</h4>
+          <div className="flex flex-wrap gap-4 items-center">
+            <PrimaryCTA href="#" variant="subdued">Secondary action</PrimaryCTA>
+            <PrimaryCTA href="#" external variant="subdued">External Subdued</PrimaryCTA>
           </div>
         </div>
         <div>
