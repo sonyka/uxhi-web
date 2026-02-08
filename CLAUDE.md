@@ -118,6 +118,9 @@ Quick reference (see design system for full details):
 | `InquiryForm` | `components/forms/InquiryForm.tsx` | Contact form for /about#contact (purple bg, saves to Sanity + Slack) |
 | `MembershipForm` | `components/forms/MembershipForm.tsx` | Membership application for /join (purple bg, Google Sheet + Slack) |
 | `DirectorySubmitForm` | `components/forms/DirectorySubmitForm.tsx` | Directory submission for /find-ux-pro (purple bg, Sanity draft + Slack) |
+| `FormAlert` | `components/ui/FormFeedback.tsx` | Error/info banner for forms (error or info variant) |
+| `FieldError` | `components/ui/FormFeedback.tsx` | Field-level validation message (yellow text below inputs) |
+| `FormSuccess` | `components/ui/FormFeedback.tsx` | Post-submission success card (icon, title, message) |
 
 ### Data Fetching
 Uses `next-sanity` with:

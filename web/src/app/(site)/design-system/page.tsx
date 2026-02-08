@@ -17,6 +17,7 @@ import { Footer } from "@/components/layout/Footer";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { MembershipForm } from "@/components/forms/MembershipForm";
 import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
+import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
 
 // Navigation structure
 const navigationItems = [
@@ -76,6 +77,14 @@ const navigationItems = [
       { id: "form-inquiry", label: "Inquiry Form" },
       { id: "form-membership", label: "Membership Form" },
       { id: "form-directory", label: "Directory Submission Form" },
+    ],
+  },
+  {
+    category: "Alerts & Feedback",
+    items: [
+      { id: "feedback-alert", label: "Form Alert" },
+      { id: "feedback-fielderror", label: "Field Error" },
+      { id: "feedback-success", label: "Form Success" },
     ],
   },
   {
@@ -1296,6 +1305,152 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Admin publishes in Sanity Studio</p>
                 <p>Slack notification via webhook</p>
                 <p>Honeypot spam protection</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  // Alerts & Feedback
+  "feedback-alert": (
+    <ContentSection
+      title="Form Alert"
+      description="Banner for form-level error or info messages. Used on purple (bg-purple-700) backgrounds."
+      componentPath="components/ui/FormFeedback.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Variants</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-4">
+            <div>
+              <span className="text-xs text-purple-300 mb-2 block">error (default)</span>
+              <FormAlert message="Something went wrong. Please try again." />
+            </div>
+            <div>
+              <span className="text-xs text-purple-300 mb-2 block">info</span>
+              <FormAlert message="Your session has been restored." variant="info" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Props</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">message</span> — string (required)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">variant</span> — &quot;error&quot; | &quot;info&quot; (default: &quot;error&quot;)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">className</span> — optional overrides</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Error: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-red-500/20 border-red-400/30 text-red-200</span></p>
+                <p>Info: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white/10 border-white/20 text-purple-200</span></p>
+                <p>Adds <span className="font-mono text-xs bg-gray-100 px-1 rounded">role=&quot;alert&quot;</span> for accessibility</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "feedback-fielderror": (
+    <ContentSection
+      title="Field Error"
+      description="Inline field-level validation message. Renders below form inputs on purple (bg-purple-700) backgrounds."
+      componentPath="components/ui/FormFeedback.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-4">
+            <div>
+              <label className="block text-sm font-semibold text-purple-200 mb-1.5">Email *</label>
+              <input
+                type="email"
+                disabled
+                placeholder="invalid-email"
+                className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-purple-300/60"
+              />
+              <FieldError errors={{ email: ["Please enter a valid email address."] }} field="email" />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-purple-200 mb-1.5">Name *</label>
+              <input
+                type="text"
+                disabled
+                className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-purple-300/60"
+              />
+              <FieldError errors={{ name: ["Name is required."] }} field="name" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Props</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">errors</span> — Record&lt;string, string[]&gt; (optional)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">field</span> — string (required)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">className</span> — optional overrides</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Text: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-yellow text-sm mt-1</span></p>
+                <p>Adds <span className="font-mono text-xs bg-gray-100 px-1 rounded">role=&quot;alert&quot;</span> and <span className="font-mono text-xs bg-gray-100 px-1 rounded">id=&quot;&#123;field&#125;-error&quot;</span></p>
+                <p>Returns null when no errors for the given field</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "feedback-success": (
+    <ContentSection
+      title="Form Success"
+      description="Post-submission success card. Replaces the form after a successful submit. Used on purple (bg-purple-700) backgrounds."
+      componentPath="components/ui/FormFeedback.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Examples</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-6">
+            <div>
+              <span className="text-xs text-purple-300 mb-2 block">Inquiry form</span>
+              <FormSuccess icon="&#9989;" title="Message sent!" message="We'll get back to you within a few business days." />
+            </div>
+            <div>
+              <span className="text-xs text-purple-300 mb-2 block">Membership form</span>
+              <FormSuccess icon="&#127881;" title="Application received!" message="Welcome to the UXHI community!" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Props</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">icon</span> — string (required, e.g. emoji or HTML entity)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">title</span> — string (required)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">message</span> — string (required)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">className</span> — optional overrides</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Container: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white/10 border-white/20 rounded-2xl p-8</span></p>
+                <p>Title: <span className="font-mono text-xs bg-gray-100 px-1 rounded">font-display text-2xl text-white</span></p>
+                <p>Message: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-purple-200</span></p>
               </div>
             </div>
           </div>

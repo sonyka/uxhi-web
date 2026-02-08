@@ -7,17 +7,11 @@ import {
   EXPERIENCE_LEVEL_OPTIONS,
   INDUSTRY_OPTIONS,
 } from "@/components/directory/constants";
+import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
 
 const labelClass = "block text-sm font-semibold text-purple-200 mb-1.5";
 const inputClass =
   "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-purple-300/60 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors";
-const errorClass = "text-yellow text-sm mt-1";
-
-function FieldError({ errors, field }: { errors?: Record<string, string[]>; field: string }) {
-  const messages = errors?.[field];
-  if (!messages?.length) return null;
-  return <p className={errorClass}>{messages[0]}</p>;
-}
 
 export function DirectorySubmitForm() {
   const [state, formAction, isPending] = useActionState<DirectorySubmitState, FormData>(
@@ -38,11 +32,7 @@ export function DirectorySubmitForm() {
 
   if (state?.success) {
     return (
-      <div className="bg-white/10 border border-white/20 rounded-2xl p-8 text-center">
-        <div className="text-4xl mb-4">&#10003;</div>
-        <h3 className="font-display text-2xl text-white mb-2">Profile submitted!</h3>
-        <p className="text-purple-200">{state.message}</p>
-      </div>
+      <FormSuccess icon="&#9989;" title="Profile submitted!" message={state.message} />
     );
   }
 
@@ -55,9 +45,7 @@ export function DirectorySubmitForm() {
       </div>
 
       {state?.message && !state.success && (
-        <div className="bg-red-500/20 border border-red-400/30 rounded-xl px-4 py-3 text-red-200 text-sm">
-          {state.message}
-        </div>
+        <FormAlert message={state.message} />
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
