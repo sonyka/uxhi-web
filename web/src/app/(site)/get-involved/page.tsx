@@ -658,7 +658,7 @@ export default async function GetInvolvedPage() {
           <p className="text-purple-200 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
             Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events. Thanks in advance for supporting our community!
           </p>
-          <PrimaryCTA href="https://donate.stripe.com/uxhi" external>
+          <PrimaryCTA href="https://ko-fi.com/uxhicommunity" external>
             Donate
           </PrimaryCTA>
         </div>
