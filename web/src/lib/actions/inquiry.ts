@@ -102,9 +102,10 @@ export async function submitInquiry(
     return { success: true, message: "Thanks! We'll be in touch soon." };
   } catch (error) {
     console.error("Inquiry submission error:", error);
+    const errMsg = error instanceof Error ? error.message : String(error);
     return {
       success: false,
-      message: "Something went wrong. Please try again.",
+      message: `Something went wrong: ${errMsg}`,
     };
   }
 }
