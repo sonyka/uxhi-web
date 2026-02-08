@@ -1,8 +1,13 @@
 "use server";
 
 import { membershipSchema } from "@/lib/validations";
+import { client } from "@/sanity/lib/client";
 import { sendSlackNotification } from "@/lib/slack";
-import { appendToSheet } from "@/lib/google-sheets";
+
+const writeClient = client.withConfig({
+  token: process.env.SANITY_API_WRITE_TOKEN,
+  useCdn: false,
+});
 
 export type MembershipState = {
   success: boolean;
@@ -55,18 +60,19 @@ export async function submitMembership(
   const data = result.data;
 
   try {
-    // Append to Google Sheet
-    await appendToSheet([
-      new Date().toISOString(),
-      data.firstName,
-      data.lastName,
-      data.email,
-      data.linkedinOrWebsite,
-      data.experienceLevel,
-      data.hopes || "",
-      (data.contributions || []).join(", "),
-      data.hearAboutUs || "",
-    ]);
+    // Save to Sanity
+    await writeClient.create({
+      _type: "membershipApplication",
+      name: `${data.firstName} ${data.lastName}`,
+      email: data.email,
+      linkedinOrWebsite: data.linkedinOrWebsite,
+      experienceLevel: data.experienceLevel,
+      hopes: data.hopes || "",
+      contributions: data.contributions || [],
+      hearAboutUs: data.hearAboutUs || "",
+      status: "new",
+      submittedAt: new Date().toISOString(),
+    });
 
     // Slack notification
     await sendSlackNotification([

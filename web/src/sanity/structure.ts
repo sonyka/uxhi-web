@@ -13,6 +13,7 @@ import {
   CalendarIcon,
   ComponentIcon,
   CreditCardIcon,
+  AddUserIcon,
 } from "@sanity/icons";
 
 export const structure = (S: StructureBuilder) =>
@@ -138,9 +139,27 @@ export const structure = (S: StructureBuilder) =>
         .title("Form Submissions")
         .icon(EnvelopeIcon)
         .child(
-          S.documentList()
-            .title("Submissions")
-            .filter('_type == "submission"')
-            .defaultOrdering([{ field: "submittedAt", direction: "desc" }])
+          S.list()
+            .title("Form Submissions")
+            .items([
+              S.listItem()
+                .title("Contact Inquiries")
+                .icon(EnvelopeIcon)
+                .child(
+                  S.documentList()
+                    .title("Contact Inquiries")
+                    .filter('_type == "submission"')
+                    .defaultOrdering([{ field: "submittedAt", direction: "desc" }])
+                ),
+              S.listItem()
+                .title("Membership Applications")
+                .icon(AddUserIcon)
+                .child(
+                  S.documentList()
+                    .title("Membership Applications")
+                    .filter('_type == "membershipApplication"')
+                    .defaultOrdering([{ field: "submittedAt", direction: "desc" }])
+                ),
+            ])
         ),
     ]);

@@ -19,6 +19,9 @@ import { committee } from "./documents/committee";
 // Member Directory
 import { directoryMember } from "./documents/directoryMember";
 
+// Form Submissions
+import { membershipApplication } from "./documents/membershipApplication";
+
 export const schemaTypes = [
   // Documents
   product,
@@ -40,4 +43,7 @@ export const schemaTypes = [
 
   // Member Directory
   directoryMember,
+
+  // Form Submissions
+  membershipApplication,
 ];
