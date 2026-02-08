@@ -152,10 +152,9 @@ export async function submitDirectoryEntry(
     };
   } catch (error) {
     console.error("Directory submission error:", error);
-    const errMsg = error instanceof Error ? error.message : String(error);
     return {
       success: false,
-      message: `Something went wrong: ${errMsg}`,
+      message: "Something went wrong. Please try again.",
     };
   }
 }
