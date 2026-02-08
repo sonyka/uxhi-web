@@ -100,8 +100,8 @@ export function SpotIllustrationCard({
         {image?.asset ? (
           <SanityImage
             value={image}
-            width={96}
-            height={96}
+            width={192}
+            height={192}
             className="w-full h-full object-contain"
           />
         ) : imageSrc ? (
