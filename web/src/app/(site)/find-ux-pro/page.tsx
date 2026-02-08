@@ -29,8 +29,9 @@ export default async function FindUXProPage() {
               Connect with talented UX design professionals in Hawaiʻi and those
               with Hawaiʻi ties, across all experience levels.
             </p>
-            <div>
+            <div className="flex flex-wrap gap-3">
               <PrimaryCTA href="#directory">Browse the directory</PrimaryCTA>
+              <PrimaryCTA href="#join-directory">Join the directory</PrimaryCTA>
             </div>
           </div>
         </div>
@@ -179,7 +180,7 @@ export default async function FindUXProPage() {
       </section>
 
       {/* Join Directory Section */}
-      <section className="py-20 px-6 bg-purple-700">
+      <section id="join-directory" className="py-20 px-6 bg-purple-700 scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <div className="text-center">
             {/* Directory Icon */}
