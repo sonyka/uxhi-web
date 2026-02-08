@@ -198,6 +198,20 @@ export default async function EventsPage() {
         </div>
       </section>
 
+      {/* Conference Attendees Photo */}
+      <section className="px-6 pb-16 bg-white">
+        <div className="max-w-[1300px] mx-auto">
+          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
+            <Image
+              src="/images/events/image-conf-attendees.jpg"
+              alt="UXHI conference attendees"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Conference Section */}
       <section className="py-20 px-6 bg-purple-700">
         <div className="max-w-[900px] mx-auto">
@@ -260,18 +274,6 @@ export default async function EventsPage() {
             </div>
           </div>
 
-        </div>
-
-        {/* Conference Attendees Photo */}
-        <div className="max-w-[1300px] mx-auto">
-          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
-            <Image
-              src="/images/events/image-conf-attendees.jpg"
-              alt="UXHI conference attendees"
-              fill
-              className="object-cover"
-            />
-          </div>
         </div>
       </section>
     </main>
