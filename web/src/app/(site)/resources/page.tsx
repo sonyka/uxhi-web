@@ -265,7 +265,7 @@ export default async function ResourcesPage() {
         <div className="max-w-[1300px] mx-auto">
           <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
             <Image
-              src="/images/resources/image-conference2.jpg"
+              src="/images/resources/image-resources.jpg"
               alt="UXHI conference"
               fill
               className="object-cover"

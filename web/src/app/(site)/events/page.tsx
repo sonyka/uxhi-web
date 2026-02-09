@@ -203,7 +203,7 @@ export default async function EventsPage() {
         <div className="max-w-[1300px] mx-auto">
           <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
             <Image
-              src="/images/events/image-conf-attendees.jpg"
+              src="/images/events/image-events.jpg"
               alt="UXHI conference attendees"
               fill
               className="object-cover"

@@ -465,7 +465,7 @@ export default async function GetInvolvedPage() {
         <div className="max-w-[1300px] mx-auto">
           <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
             <Image
-              src="/images/get-involved/image-speaker.jpg"
+              src="/images/get-involved/image-getinvolved.jpg"
               alt="UXHI speaking event"
               fill
               className="object-cover"
