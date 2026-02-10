@@ -69,7 +69,7 @@ export function Footer() {
     },
     {
       label: "Get in touch",
-      href: "mailto:aloha@uxhi.community",
+      href: "/about#contact",
       icon: <SendIcon className="w-4 h-4 text-gray-700" />,
     },
   ];
