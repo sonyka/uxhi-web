@@ -312,8 +312,8 @@ export default async function ResourcesPage() {
             </div>
             <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-base text-gray-700 font-medium">Do you have more resources to suggest or corrections we should make?</p>
-              <PrimaryCTA href="mailto:aloha@uxhi.community?subject=Resource%20Suggestion" external>
-                Email Us
+              <PrimaryCTA href="/about#contact">
+                Share with us
               </PrimaryCTA>
             </InfoBox>
           </div>
@@ -448,6 +448,7 @@ export default async function ResourcesPage() {
             <PrimaryCTA href="https://drive.google.com/file/d/1pfHDt2yB-maAs2gOhywdJJv7HzY4wG7s/" external>
               2025 State of UXHI Report
             </PrimaryCTA>
+            {/* TODO: insert link for 2023 report */}
             <PrimaryCTA href="#" external variant="dark">
               2023 State of UXHI Report
             </PrimaryCTA>
@@ -504,8 +505,8 @@ export default async function ResourcesPage() {
           {/* Something Missing CTA */}
           <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-base text-gray-700 font-medium">Something missing?</p>
-            <PrimaryCTA href="mailto:aloha@uxhi.community?subject=Tech%20Organization%20Suggestion" external>
-              Email Us
+            <PrimaryCTA href="/about#contact">
+              Share with us
             </PrimaryCTA>
           </InfoBox>
         </div>
