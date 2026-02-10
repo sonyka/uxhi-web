@@ -119,7 +119,7 @@ export default async function JoinPage() {
           <p className="text-gray-700 text-lg leading-relaxed mb-10">
             Our membership includes UX professionals and those transitioning into the field, with ties to Hawai&apos;i. Members work across a mix of local and national companies, as well as freelance, and come from a variety of backgrounds and skill levels. Whether you&apos;re just starting out or an experienced practitioner, UXHI is a community where you can connect, learn, and grow.
           </p>
-          <PrimaryCTA href="/directory">Membership Directory</PrimaryCTA>
+          <PrimaryCTA href="/find-ux-pro">Membership Directory</PrimaryCTA>
         </div>
       </section>
 
