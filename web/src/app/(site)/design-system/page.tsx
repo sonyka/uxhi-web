@@ -154,7 +154,7 @@ function FAQAccordionDemo() {
   const [openId, setOpenId] = useState<string | null>("1");
 
   const demoFaqs = [
-    { id: "1", question: "What is UXHI?", answer: "UXHI is Hawaii's premier UX community, connecting designers, researchers, and product professionals across the islands." },
+    { id: "1", question: "What is UXHI?", answer: "UXHI is Hawaiʻi's premier UX community, connecting designers, researchers, and product professionals across the islands." },
     { id: "2", question: "How can I get involved?", answer: "You can join our events, volunteer, speak at meetups, or become a sponsor. Visit our Get Involved page for more details." },
     { id: "3", question: "Are events free?", answer: "Most of our community events are free to attend. Some workshops and the annual conference may have a fee." },
   ];
@@ -600,23 +600,23 @@ const contentComponents: Record<string, React.ReactNode> = {
       <div className="space-y-4 p-6 bg-cream rounded-xl">
         <div>
           <span className="text-xs text-gray-500 font-mono">Extra Large — text-xl (20px)</span>
-          <p className="text-xl text-gray-600">UXHI is Hawaii&apos;s premier UX community, connecting designers and researchers.</p>
+          <p className="text-xl text-gray-600">UXHI is Hawaiʻi&apos;s premier UX community, connecting designers and researchers.</p>
         </div>
         <div>
           <span className="text-xs text-gray-500 font-mono">Large — text-lg (18px)</span>
-          <p className="text-lg text-gray-600">UXHI is Hawaii&apos;s premier UX community, connecting designers and researchers.</p>
+          <p className="text-lg text-gray-600">UXHI is Hawaiʻi&apos;s premier UX community, connecting designers and researchers.</p>
         </div>
         <div>
           <span className="text-xs text-gray-500 font-mono">Medium — text-md (16px, same as base)</span>
-          <p className="text-base text-gray-600">UXHI is Hawaii&apos;s premier UX community, connecting designers and researchers across the islands.</p>
+          <p className="text-base text-gray-600">UXHI is Hawaiʻi&apos;s premier UX community, connecting designers and researchers across the islands.</p>
         </div>
         <div>
           <span className="text-xs text-gray-500 font-mono">Base — text-base (16px)</span>
-          <p className="text-base text-gray-600">UXHI is Hawaii&apos;s premier UX community, connecting designers and researchers across the islands.</p>
+          <p className="text-base text-gray-600">UXHI is Hawaiʻi&apos;s premier UX community, connecting designers and researchers across the islands.</p>
         </div>
         <div>
           <span className="text-xs text-gray-500 font-mono">Small — text-sm (14px)</span>
-          <p className="text-sm text-gray-600">UXHI is Hawaii&apos;s premier UX community, connecting designers and researchers across the islands.</p>
+          <p className="text-sm text-gray-600">UXHI is Hawaiʻi&apos;s premier UX community, connecting designers and researchers across the islands.</p>
         </div>
       </div>
     </ContentSection>

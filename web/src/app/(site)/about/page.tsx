@@ -68,7 +68,7 @@ export default async function AboutPage() {
               About Us
             </h1>
             <p className="text-black text-lg lg:text-xl leading-relaxed">
-              Learn about UX Hawaii, Hawai&apos;i&apos;s premier UX community dedicated to connecting, educating, and empowering UX professionals.
+              Learn about UX Hawaiʻi, Hawaiʻi&apos;s premier UX community dedicated to connecting, educating, and empowering UX professionals.
             </p>
 
             {/* Quick Link Modules - hidden on mobile */}

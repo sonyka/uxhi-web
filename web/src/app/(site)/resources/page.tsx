@@ -125,7 +125,7 @@ export default async function ResourcesPage() {
               Resources
             </h1>
             <p className="text-black text-lg lg:text-xl leading-relaxed">
-              Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaii.
+              Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaiʻi.
             </p>
 
             {/* Quick Link Modules - hidden on mobile */}
@@ -340,7 +340,7 @@ export default async function ResourcesPage() {
       <section id="report" className="py-20 px-6 bg-purple-700 scroll-mt-24">
         <div className="max-w-[1100px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
-            State of UX in Hawaii Report
+            State of UX in Hawaiʻi Report
           </h2>
           <p className="text-purple-100 text-lg leading-relaxed mb-4">
             To answer that question, we conducted our own study on the status of UX jobs, hiring, education, awareness, and audiences to give us a better understanding of how our programming could best support UXers in Hawai&apos;i.
@@ -457,7 +457,7 @@ export default async function ResourcesPage() {
           <div className="mt-12 rounded-[20px] overflow-hidden">
             <Image
               src="/images/resources/state-of-ux.png"
-              alt="State of UX in Hawaii Report preview"
+              alt="State of UX in Hawaiʻi Report preview"
               width={1100}
               height={400}
               className="w-full h-auto"

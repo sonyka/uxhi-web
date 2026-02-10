@@ -667,7 +667,7 @@ export default async function GetInvolvedPage() {
             Your support is important to us.
           </p>
           <p className="text-purple-200 text-lg leading-relaxed mb-4 max-w-[650px] mx-auto">
-            UXHI is a volunteer-run UX design community that connects people in Hawaii and those with Hawaii ties to learn together and make new UX friends.
+            UXHI is a volunteer-run UX design community that connects people in Hawaiʻi and those with Hawaiʻi ties to learn together and make new UX friends.
           </p>
           <p className="text-purple-200 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
             Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events. Thanks in advance for supporting our community!
