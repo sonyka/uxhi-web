@@ -121,6 +121,7 @@ Quick reference (see design system for full details):
 | `FormAlert` | `components/ui/FormFeedback.tsx` | Error/info banner for forms (error or info variant) |
 | `FieldError` | `components/ui/FormFeedback.tsx` | Field-level validation message (yellow text below inputs) |
 | `FormSuccess` | `components/ui/FormFeedback.tsx` | Post-submission success card (icon, title, message) |
+| `TextSlideUp` | `components/ui/TextSlideUp.tsx` | Text slide-up hover animation (used in Navbar, PrimaryCTA) |
 
 ### Data Fetching
 Uses `next-sanity` with:

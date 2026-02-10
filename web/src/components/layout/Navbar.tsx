@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowIcon, ExternalLinkIcon, ChevronDownIcon } from "@/components/ui/icons";
+import { TextSlideUp } from "@/components/ui/TextSlideUp";
 
 export interface DropdownItem {
   label: string;
@@ -50,9 +51,11 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
           >
             <Link
               href={item.href}
-              className="flex items-center gap-0.5 text-base font-medium text-black hover:text-gray-700 transition-colors"
+              className="flex items-center gap-0.5 text-base font-medium text-black hover:text-gray-700 transition-colors group/link"
             >
-              {item.label}
+              <TextSlideUp group="group/link">
+                {item.label}
+              </TextSlideUp>
               <ChevronDownIcon
                 className={`w-5 h-5 transition-transform duration-200 ${
                   openDropdown === item.key ? 'rotate-180' : ''
@@ -101,18 +104,22 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-0.5 text-base font-medium text-black hover:text-gray-700 transition-colors"
+            className="flex items-center gap-0.5 text-base font-medium text-black hover:text-gray-700 transition-colors group/link"
           >
-            {item.label}
+            <TextSlideUp group="group/link">
+              {item.label}
+            </TextSlideUp>
             <ExternalLinkIcon className="w-5 h-5 opacity-60" />
           </a>
         ) : (
           <Link
             key={item.key}
             href={item.href}
-            className="text-base font-medium text-black hover:text-gray-700 transition-colors"
+            className="text-base font-medium text-black hover:text-gray-700 transition-colors group/link"
           >
-            {item.label}
+            <TextSlideUp group="group/link">
+              {item.label}
+            </TextSlideUp>
           </Link>
         )
       )}
@@ -122,7 +129,9 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
         href={ctaHref}
         className="flex items-center gap-2 bg-white rounded-full pl-5 pr-2 py-2 shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:bg-gray-50 transition-colors group"
       >
-        <span className="text-base font-medium text-black">{ctaLabel}</span>
+        <TextSlideUp className="text-base font-medium text-black">
+          {ctaLabel}
+        </TextSlideUp>
         <span className="w-[30px] h-[30px] rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
           <ArrowIcon className="w-4 h-4 text-black" />
         </span>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowIcon, ExternalLinkIcon } from "./icons";
+import { TextSlideUp } from "./TextSlideUp";
 
 interface PrimaryCTAProps {
   href: string;
@@ -41,7 +42,9 @@ export function PrimaryCTA({ href, children, external = false, variant = "defaul
         rel="noopener noreferrer"
         className={className}
       >
-        <span className={styles.text}>{children}</span>
+        <TextSlideUp className={styles.text}>
+          {children}
+        </TextSlideUp>
         <span className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors ${styles.circle}`}>
           <ExternalLinkIcon className={`w-4 h-4 ${styles.icon}`} />
         </span>
@@ -51,7 +54,9 @@ export function PrimaryCTA({ href, children, external = false, variant = "defaul
 
   return (
     <Link href={href} className={className}>
-      <span className={styles.text}>{children}</span>
+      <TextSlideUp className={styles.text}>
+        {children}
+      </TextSlideUp>
       <span className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors ${styles.circle}`}>
         <ArrowIcon className={`w-4 h-4 ${styles.icon}`} />
       </span>
