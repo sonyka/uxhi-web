@@ -40,7 +40,7 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <nav className="flex items-center gap-8 rounded-full bg-white/90 backdrop-blur-sm px-7 py-5">
+    <nav className="flex items-center gap-8 rounded-full bg-white/90 backdrop-blur-sm px-7 py-5 whitespace-nowrap">
       {items.map((item) =>
         item.dropdown ? (
           <div
@@ -276,7 +276,7 @@ interface HamburgerButtonProps {
 export function HamburgerButton({ isOpen, onClick }: HamburgerButtonProps) {
   return (
     <button
-      className="lg:hidden p-2 -mr-2"
+      className="xl:hidden p-2 -mr-2"
       onClick={onClick}
       aria-label="Toggle menu"
       aria-expanded={isOpen}

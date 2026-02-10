@@ -24,7 +24,7 @@ export function Header({ settings }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 lg:px-9 pt-6">
+    <header className="fixed top-0 left-0 right-0 z-50 px-6 xl:px-9 pt-6">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -38,7 +38,7 @@ export function Header({ settings }: HeaderProps) {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <Navbar
             items={defaultNavItems}
             ctaLabel={settings.ctaButton?.label || "Join us"}
@@ -54,7 +54,7 @@ export function Header({ settings }: HeaderProps) {
       </div>
 
       {/* Mobile Menu */}
-      <div className="lg:hidden max-w-[1400px] mx-auto">
+      <div className="xl:hidden max-w-[1400px] mx-auto">
         <MobileNavbar
           items={defaultNavItems}
           ctaLabel={settings.ctaButton?.label || "Join us"}
