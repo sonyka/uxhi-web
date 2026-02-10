@@ -356,7 +356,7 @@ export default async function GetInvolvedPage() {
               <BulletPoint />
               <span>
                 Propose a topic related to the field of UX as a presenter at our{" "}
-                <InlineLink href="https://uxhicon.com" variant="purple">UXHI Conference</InlineLink>{" "}
+                <InlineLink href="https://uxhi.hisony.com/conferences/2025/" variant="purple">UXHI Conference</InlineLink>{" "}
                 or{" "}
                 <InlineLink href="/events" variant="purple">events</InlineLink>
               </span>
@@ -372,7 +372,7 @@ export default async function GetInvolvedPage() {
               <BulletPoint />
               <span>
                 Join our committees for any of our initiatives, like the{" "}
-                <InlineLink href="https://uxhicon.com" variant="purple">UXHI Conference</InlineLink>{" "}
+                <InlineLink href="https://uxhi.hisony.com/conferences/2025/" variant="purple">UXHI Conference</InlineLink>{" "}
                 or the{" "}
                 <InlineLink href="/resources#report" variant="purple">State of UX Report</InlineLink>
               </span>
