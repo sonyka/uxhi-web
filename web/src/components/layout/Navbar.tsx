@@ -30,9 +30,11 @@ interface NavbarProps {
  * Desktop Navbar Component
  *
  * Specs from Figma:
- * - Container: bg-white, gap-8 (32px), px-7 (28px), py-5 (20px), rounded-full
+ * - Container: bg-white, gap-8 (32px), pl-8 (32px), pr-6 (24px), py-5 (20px), rounded-full
  * - Text: text-base (16px), font-medium, text-black
- * - Chevron icons: w-5 h-5 (20px)
+ * - Nav icon gap: gap-0.5 (2px) between text and icon
+ * - Chevron icons: w-4 h-4 (16px), text-gray-500 (#6B7280)
+ * - External link icons: w-4 h-4 (16px), text-gray-400 (#9CA3AF)
  * - CTA: shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)], pl-5, pr-2, py-2, gap-2
  * - Yellow circle: bg-yellow, w-[30px] h-[30px], rounded-full
  */
@@ -40,7 +42,7 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <nav className="flex items-center gap-4 xl:gap-8 rounded-full bg-white/90 backdrop-blur-sm px-5 xl:px-7 py-4 xl:py-5 whitespace-nowrap">
+    <nav className="flex items-center gap-4 xl:gap-8 rounded-full bg-white/90 backdrop-blur-sm px-5 xl:pl-8 xl:pr-6 py-4 xl:py-5 whitespace-nowrap">
       {items.map((item) =>
         item.dropdown ? (
           <div
@@ -57,7 +59,7 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
                 {item.label}
               </TextSlideUp>
               <ChevronDownIcon
-                className={`w-5 h-5 transition-transform duration-200 ${
+                className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
                   openDropdown === item.key ? 'rotate-180' : ''
                 }`}
               />
@@ -109,7 +111,7 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
             <TextSlideUp group="group/link">
               {item.label}
             </TextSlideUp>
-            <ExternalLinkIcon className="w-5 h-5 opacity-60" />
+            <ExternalLinkIcon className="w-4 h-4 text-gray-400" />
           </a>
         ) : (
           <Link
