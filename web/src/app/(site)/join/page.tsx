@@ -119,7 +119,7 @@ export default async function JoinPage() {
           <p className="text-gray-700 text-lg leading-relaxed mb-10">
             Our membership includes UX professionals and those transitioning into the field, with ties to Hawai&apos;i. Members work across a mix of local and national companies, as well as freelance, and come from a variety of backgrounds and skill levels. Whether you&apos;re just starting out or an experienced practitioner, UXHI is a community where you can connect, learn, and grow.
           </p>
-          <PrimaryCTA href="/find-ux-pro">Membership Directory</PrimaryCTA>
+          <PrimaryCTA href="/find-ux-pro#directory">Membership Directory</PrimaryCTA>
         </div>
       </section>
 
@@ -141,7 +141,7 @@ export default async function JoinPage() {
       <section className="py-16 px-6 bg-section-gray">
         <div className="max-w-[1200px] mx-auto">
           <h2 className="font-display text-2xl md:text-3xl text-purple-700 text-center mb-12">
-            Representing companies in Hawai&apos;i and beyond
+            Representing companies in Hawaiʻi and beyond
           </h2>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
             {companyLogos.map((company) => (
