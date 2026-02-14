@@ -8,10 +8,14 @@ import {
   HEAR_ABOUT_OPTIONS,
 } from "@/lib/validations";
 import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
-
-const labelClass = "block text-sm font-semibold text-purple-200 mb-1.5";
-const inputClass =
-  "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-purple-300/60 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors";
+import {
+  FormLabel,
+  FormInput,
+  FormTextarea,
+  FormRadio,
+  FormCheckbox,
+  FormSubmitButton,
+} from "@/components/ui/form-elements";
 
 export function MembershipForm() {
   const [state, formAction, isPending] = useActionState<MembershipState, FormData>(
@@ -39,112 +43,90 @@ export function MembershipForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="firstName" className={labelClass}>First Name *</label>
-          <input type="text" id="firstName" name="firstName" required className={inputClass} />
+          <FormLabel htmlFor="firstName">First Name *</FormLabel>
+          <FormInput type="text" id="firstName" name="firstName" required />
           <FieldError errors={state?.errors} field="firstName" />
         </div>
         <div>
-          <label htmlFor="lastName" className={labelClass}>Last Name *</label>
-          <input type="text" id="lastName" name="lastName" required className={inputClass} />
+          <FormLabel htmlFor="lastName">Last Name *</FormLabel>
+          <FormInput type="text" id="lastName" name="lastName" required />
           <FieldError errors={state?.errors} field="lastName" />
         </div>
       </div>
 
       <div>
-        <label htmlFor="email" className={labelClass}>Email *</label>
-        <input type="email" id="email" name="email" required className={inputClass} />
+        <FormLabel htmlFor="email">Email *</FormLabel>
+        <FormInput type="email" id="email" name="email" required />
         <FieldError errors={state?.errors} field="email" />
       </div>
 
       <div>
-        <label htmlFor="linkedinOrWebsite" className={labelClass}>LinkedIn or Website *</label>
-        <input
+        <FormLabel htmlFor="linkedinOrWebsite">LinkedIn or Website *</FormLabel>
+        <FormInput
           type="url"
           id="linkedinOrWebsite"
           name="linkedinOrWebsite"
           required
           placeholder="https://"
-          className={inputClass}
         />
         <FieldError errors={state?.errors} field="linkedinOrWebsite" />
       </div>
 
       <fieldset>
-        <legend className={labelClass}>Experience Level *</legend>
+        <FormLabel as="legend">Experience Level *</FormLabel>
         <div className="space-y-2 mt-1">
           {EXPERIENCE_OPTIONS.map((option) => (
-            <label key={option} className="flex items-center gap-3 cursor-pointer group">
-              <input
-                type="radio"
-                name="experienceLevel"
-                value={option}
-                required
-                className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 focus:ring-teal-500 accent-teal-500"
-              />
-              <span className="text-purple-200 group-hover:text-white transition-colors">{option}</span>
-            </label>
+            <FormRadio
+              key={option}
+              name="experienceLevel"
+              value={option}
+              label={option}
+              required
+            />
           ))}
         </div>
         <FieldError errors={state?.errors} field="experienceLevel" />
       </fieldset>
 
       <div>
-        <label htmlFor="hopes" className={labelClass}>What do you hope to get out of the community?</label>
-        <textarea
-          id="hopes"
-          name="hopes"
-          rows={3}
-          className={inputClass + " resize-y"}
-        />
+        <FormLabel htmlFor="hopes">What do you hope to get out of the community?</FormLabel>
+        <FormTextarea id="hopes" name="hopes" rows={3} />
       </div>
 
       <fieldset>
-        <legend className={labelClass}>What can you contribute?</legend>
+        <FormLabel as="legend">What can you contribute?</FormLabel>
         <div className="space-y-2 mt-1">
           {CONTRIBUTE_OPTIONS.map((option) => (
-            <label key={option} className="flex items-center gap-3 cursor-pointer group">
-              <input
-                type="checkbox"
-                name="contributions"
-                value={option}
-                className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 rounded focus:ring-teal-500 accent-teal-500"
-              />
-              <span className="text-purple-200 group-hover:text-white transition-colors">{option}</span>
-            </label>
+            <FormCheckbox
+              key={option}
+              name="contributions"
+              value={option}
+              label={option}
+            />
           ))}
         </div>
       </fieldset>
 
       <fieldset>
-        <legend className={labelClass}>How did you hear about us?</legend>
+        <FormLabel as="legend">How did you hear about us?</FormLabel>
         <div className="space-y-2 mt-1">
           {HEAR_ABOUT_OPTIONS.map((option) => (
-            <label key={option} className="flex items-center gap-3 cursor-pointer group">
-              <input
-                type="radio"
-                name="hearAboutUs"
-                value={option}
-                className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 focus:ring-teal-500 accent-teal-500"
-              />
-              <span className="text-purple-200 group-hover:text-white transition-colors">{option}</span>
-            </label>
+            <FormRadio
+              key={option}
+              name="hearAboutUs"
+              value={option}
+              label={option}
+            />
           ))}
         </div>
       </fieldset>
 
-      <button
-        type="submit"
-        disabled={isPending}
-        className="inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 font-medium transition-colors bg-white/10 border border-white/30 hover:bg-white/20 text-white disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        <span>{isPending ? "Submitting..." : "Submit application"}</span>
-        <span className="w-9 h-9 rounded-full flex items-center justify-center bg-white/20 transition-colors">
-          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </span>
-      </button>
+      <FormSubmitButton
+        label="Submit application"
+        pendingLabel="Submitting..."
+        isPending={isPending}
+        icon="arrow"
+      />
     </form>
   );
 }

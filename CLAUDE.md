@@ -115,6 +115,14 @@ Quick reference (see design system for full details):
 | `FeatureCard` | `components/ui/cards/FeatureCard.tsx` | Card with icon, title, description (cream/white/teal/purple) |
 | `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/cream/white variants) |
 | `SpeechBubbleCard` | `components/ui/cards/SpeechBubbleCard.tsx` | Quote card (speech-bubble or testimonial variant) |
+| `FormLabel` | `components/ui/form-elements/FormLabel.tsx` | Shared form label; supports `as="legend"` for fieldsets |
+| `FormInput` | `components/ui/form-elements/FormInput.tsx` | Glassmorphic text input for purple form backgrounds |
+| `FormTextarea` | `components/ui/form-elements/FormTextarea.tsx` | Glassmorphic textarea with vertical resize |
+| `FormRadio` | `components/ui/form-elements/FormRadio.tsx` | Custom radio with teal fill + white inner dot |
+| `FormCheckbox` | `components/ui/form-elements/FormCheckbox.tsx` | Custom checkbox with teal fill + SVG checkmark |
+| `FormSelect` | `components/ui/form-elements/FormSelect.tsx` | Custom dropdown with purple panel + hidden input |
+| `FormFileUpload` | `components/ui/form-elements/FormFileUpload.tsx` | Styled file upload with optional circular preview |
+| `FormSubmitButton` | `components/ui/form-elements/FormSubmitButton.tsx` | Pill button with icon circle (send or arrow variant) |
 | `InquiryForm` | `components/forms/InquiryForm.tsx` | Contact form for /about#contact (purple bg, saves to Sanity + Slack) |
 | `MembershipForm` | `components/forms/MembershipForm.tsx` | Membership application for /join (purple bg, Google Sheet + Slack) |
 | `DirectorySubmitForm` | `components/forms/DirectorySubmitForm.tsx` | Directory submission for /find-ux-pro (purple bg, Sanity draft + Slack) |

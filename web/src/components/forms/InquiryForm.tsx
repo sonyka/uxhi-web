@@ -4,6 +4,13 @@ import { Suspense, useActionState } from "react";
 import { useSearchParams } from "next/navigation";
 import { submitInquiry, type InquiryState } from "@/lib/actions/inquiry";
 import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
+import {
+  FormLabel,
+  FormInput,
+  FormTextarea,
+  FormRadio,
+  FormSubmitButton,
+} from "@/components/ui/form-elements";
 
 const INTEREST_OPTIONS = [
   "Becoming a volunteer",
@@ -11,10 +18,6 @@ const INTEREST_OPTIONS = [
   "Becoming partners and collaborators",
   "Something else",
 ] as const;
-
-const labelClass = "block text-sm font-semibold text-purple-200 mb-1.5";
-const inputClass =
-  "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-purple-300/60 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors";
 
 function InquiryFormInner() {
   const searchParams = useSearchParams();
@@ -44,79 +47,63 @@ function InquiryFormInner() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="firstName" className={labelClass}>First Name *</label>
-          <input type="text" id="firstName" name="firstName" required className={inputClass} />
+          <FormLabel htmlFor="firstName">First Name *</FormLabel>
+          <FormInput type="text" id="firstName" name="firstName" required />
           <FieldError errors={state?.errors} field="firstName" />
         </div>
         <div>
-          <label htmlFor="lastName" className={labelClass}>Last Name *</label>
-          <input type="text" id="lastName" name="lastName" required className={inputClass} />
+          <FormLabel htmlFor="lastName">Last Name *</FormLabel>
+          <FormInput type="text" id="lastName" name="lastName" required />
           <FieldError errors={state?.errors} field="lastName" />
         </div>
       </div>
 
       <div>
-        <label htmlFor="email" className={labelClass}>Email *</label>
-        <input type="email" id="email" name="email" required className={inputClass} />
+        <FormLabel htmlFor="email">Email *</FormLabel>
+        <FormInput type="email" id="email" name="email" required />
         <FieldError errors={state?.errors} field="email" />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="role" className={labelClass}>Role</label>
-          <input type="text" id="role" name="role" className={inputClass} />
+          <FormLabel htmlFor="role">Role</FormLabel>
+          <FormInput type="text" id="role" name="role" />
         </div>
         <div>
-          <label htmlFor="company" className={labelClass}>Company Name</label>
-          <input type="text" id="company" name="company" className={inputClass} />
+          <FormLabel htmlFor="company">Company Name</FormLabel>
+          <FormInput type="text" id="company" name="company" />
         </div>
       </div>
 
       <fieldset>
-        <legend className={labelClass}>I&apos;m interested in... *</legend>
+        <FormLabel as="legend">I&apos;m interested in... *</FormLabel>
         <div className="space-y-2 mt-1">
           {INTEREST_OPTIONS.map((option) => (
-            <label key={option} className="flex items-center gap-3 cursor-pointer group">
-              <input
-                type="radio"
-                name="interestType"
-                value={option}
-                required
-                defaultChecked={preselectedInterest === option}
-                className="w-4 h-4 text-teal-500 border-white/30 bg-white/10 focus:ring-teal-500 accent-teal-500"
-              />
-              <span className="text-purple-200 group-hover:text-white transition-colors">{option}</span>
-            </label>
+            <FormRadio
+              key={option}
+              name="interestType"
+              value={option}
+              label={option}
+              required
+              defaultChecked={preselectedInterest === option}
+            />
           ))}
         </div>
         <FieldError errors={state?.errors} field="interestType" />
       </fieldset>
 
       <div>
-        <label htmlFor="message" className={labelClass}>Message *</label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={4}
-          className={inputClass + " resize-y"}
-        />
+        <FormLabel htmlFor="message">Message *</FormLabel>
+        <FormTextarea id="message" name="message" required rows={4} />
         <FieldError errors={state?.errors} field="message" />
       </div>
 
-      <button
-        type="submit"
-        disabled={isPending}
-        className="inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 font-medium transition-colors bg-white/10 border border-white/30 hover:bg-white/20 text-white disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        <span>{isPending ? "Sending..." : "Send message"}</span>
-        <span className="w-9 h-9 rounded-full flex items-center justify-center bg-white/20">
-          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-            <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
-            <path d="m21.854 2.147-10.94 10.939" />
-          </svg>
-        </span>
-      </button>
+      <FormSubmitButton
+        label="Send message"
+        pendingLabel="Sending..."
+        isPending={isPending}
+        icon="send"
+      />
     </form>
   );
 }

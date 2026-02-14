@@ -18,6 +18,16 @@ import { InquiryForm } from "@/components/forms/InquiryForm";
 import { MembershipForm } from "@/components/forms/MembershipForm";
 import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
 import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
+import {
+  FormLabel,
+  FormInput,
+  FormTextarea,
+  FormRadio,
+  FormCheckbox,
+  FormSelect,
+  FormFileUpload,
+  FormSubmitButton,
+} from "@/components/ui/form-elements";
 
 // Navigation structure
 const navigationItems = [
@@ -74,6 +84,13 @@ const navigationItems = [
   {
     category: "Forms",
     items: [
+      { id: "form-input", label: "Text Input" },
+      { id: "form-textarea", label: "Textarea" },
+      { id: "form-radio", label: "Radio Button" },
+      { id: "form-checkbox", label: "Checkbox" },
+      { id: "form-select", label: "Select Dropdown" },
+      { id: "form-file", label: "File Upload" },
+      { id: "form-submit", label: "Submit Button" },
       { id: "form-inquiry", label: "Inquiry Form" },
       { id: "form-membership", label: "Membership Form" },
       { id: "form-directory", label: "Directory Submission Form" },
@@ -1167,6 +1184,336 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <span className="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full text-xs">+2</span>
               </div>
               <p className="text-xs text-gray-500 font-mono mt-2">bg-teal-50, text-teal-700, rounded-full</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  // Form Elements
+  "form-input": (
+    <ContentSection
+      title="Text Input"
+      description="Glassmorphic text input for purple form backgrounds. Shared across all forms."
+      componentPath="components/ui/form-elements/FormInput.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-4 max-w-md">
+            <div>
+              <FormLabel htmlFor="demo-text">Default</FormLabel>
+              <FormInput type="text" id="demo-text" placeholder="Placeholder text" />
+            </div>
+            <div>
+              <FormLabel htmlFor="demo-text-filled">With Value</FormLabel>
+              <FormInput type="text" id="demo-text-filled" defaultValue="John Doe" />
+            </div>
+            <div>
+              <FormLabel htmlFor="demo-email">Email Type</FormLabel>
+              <FormInput type="email" id="demo-email" placeholder="you@example.com" />
+            </div>
+            <div>
+              <FormLabel htmlFor="demo-url">URL Type</FormLabel>
+              <FormInput type="url" id="demo-url" placeholder="https://" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Background: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white/10</span></p>
+                <p>Border: <span className="font-mono text-xs bg-gray-100 px-1 rounded">border-white/20</span></p>
+                <p>Radius: <span className="font-mono text-xs bg-gray-100 px-1 rounded">rounded-xl</span></p>
+                <p>Placeholder: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-purple-300/60</span></p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">States</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Focus: <span className="font-mono text-xs bg-gray-100 px-1 rounded">ring-2 ring-teal-500</span></p>
+                <p>Text color: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-white</span></p>
+                <p>Supports all native input types</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "form-textarea": (
+    <ContentSection
+      title="Textarea"
+      description="Glassmorphic textarea with vertical resize. Matches FormInput styling."
+      componentPath="components/ui/form-elements/FormTextarea.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-4 max-w-md">
+            <div>
+              <FormLabel htmlFor="demo-textarea">Default</FormLabel>
+              <FormTextarea id="demo-textarea" rows={3} placeholder="Type your message..." />
+            </div>
+            <div>
+              <FormLabel htmlFor="demo-textarea-filled">With Value</FormLabel>
+              <FormTextarea id="demo-textarea-filled" rows={3} defaultValue="This textarea is resizable vertically. It uses the same glassmorphic styling as FormInput." />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="p-4 bg-cream rounded-xl space-y-3 max-w-md">
+            <p className="text-sm font-semibold text-gray-700">Behavior</p>
+            <div className="text-sm text-gray-600 space-y-1">
+              <p>Inherits all FormInput styles</p>
+              <p>Resize: <span className="font-mono text-xs bg-gray-100 px-1 rounded">resize-y</span></p>
+              <p>Default rows configurable via props</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "form-radio": (
+    <ContentSection
+      title="Radio Button"
+      description="Custom-styled radio with teal fill and inner white dot. Uses sr-only native input for FormData compatibility and keyboard navigation."
+      componentPath="components/ui/form-elements/FormRadio.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-4 max-w-md">
+            <FormLabel as="legend">Select an option</FormLabel>
+            <div className="space-y-2">
+              <FormRadio name="demo-radio" value="option1" label="Option one" defaultChecked />
+              <FormRadio name="demo-radio" value="option2" label="Option two" />
+              <FormRadio name="demo-radio" value="option3" label="Option three" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Unchecked: <span className="font-mono text-xs bg-gray-100 px-1 rounded">border-white/30 bg-white/5</span></p>
+                <p>Checked: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-500 border-teal-500</span></p>
+                <p>Inner dot: white, scales in on check</p>
+                <p>Label: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-purple-200</span>, white on hover</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Behavior</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Native radio mutual exclusion</p>
+                <p>Keyboard navigable (arrow keys)</p>
+                <p>Focus ring via <span className="font-mono text-xs bg-gray-100 px-1 rounded">:focus-visible</span></p>
+                <p>FormData-compatible (sr-only native input)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "form-checkbox": (
+    <ContentSection
+      title="Checkbox"
+      description="Custom-styled checkbox with teal fill and SVG checkmark. Matches the directory's custom checkbox rendering."
+      componentPath="components/ui/form-elements/FormCheckbox.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-4 max-w-md">
+            <FormLabel as="legend">Select multiple</FormLabel>
+            <div className="space-y-2">
+              <FormCheckbox name="demo-cb" value="a" label="Mentorship" defaultChecked />
+              <FormCheckbox name="demo-cb" value="b" label="Speaking" />
+              <FormCheckbox name="demo-cb" value="c" label="Volunteering" defaultChecked />
+              <FormCheckbox name="demo-cb" value="d" label="Content creation" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Unchecked: <span className="font-mono text-xs bg-gray-100 px-1 rounded">border-white/30 bg-white/5</span></p>
+                <p>Checked: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-500 border-teal-500</span></p>
+                <p>Checkmark: white SVG stroke</p>
+                <p>4px rounded corners</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Behavior</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Click and keyboard toggle</p>
+                <p>Hidden native checkbox (sr-only)</p>
+                <p>State managed via React useState</p>
+                <p>FormData-compatible</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "form-select": (
+    <ContentSection
+      title="Select Dropdown"
+      description="Custom dropdown with purple glassmorphic styling. Uses hidden input for FormData compatibility."
+      componentPath="components/ui/form-elements/FormSelect.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-4 max-w-md">
+            <div>
+              <FormLabel>Experience Level</FormLabel>
+              <FormSelect
+                name="demo-select"
+                placeholder="Select..."
+                options={[
+                  { title: "Student", value: "student" },
+                  { title: "Junior (0-2 years)", value: "junior" },
+                  { title: "Mid-level (3-5 years)", value: "mid" },
+                  { title: "Senior (6-10 years)", value: "senior" },
+                  { title: "Lead / Principal (10+ years)", value: "lead" },
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Trigger: matches FormInput style</p>
+                <p>Panel: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-purple-600 border-white/20</span></p>
+                <p>Selected: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-500/20 text-teal-300</span></p>
+                <p>Chevron rotates on open</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Behavior</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Click-outside to close</p>
+                <p>Hidden input for FormData</p>
+                <p>Scrollable when many options</p>
+                <p>Single-select only</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "form-file": (
+    <ContentSection
+      title="File Upload"
+      description="Styled file upload button with optional circular image preview. Hides the native file input."
+      componentPath="components/ui/form-elements/FormFileUpload.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-6 max-w-md">
+            <div>
+              <FormLabel>With Preview</FormLabel>
+              <FormFileUpload
+                name="demo-file-preview"
+                showPreview
+                helpText="JPG, PNG, or WebP. Max 5MB."
+              />
+            </div>
+            <div>
+              <FormLabel>Without Preview</FormLabel>
+              <FormFileUpload
+                name="demo-file-basic"
+                helpText="Upload any supported file."
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Button: pill shape, <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white/10 border-white/20</span></p>
+                <p>Preview: 80px circle with border</p>
+                <p>Help text: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-purple-300/60</span></p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Behavior</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Native file input hidden, triggered via ref</p>
+                <p>Preview via <span className="font-mono text-xs bg-gray-100 px-1 rounded">URL.createObjectURL</span></p>
+                <p>Shows selected filename</p>
+                <p>Configurable accept types</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "form-submit": (
+    <ContentSection
+      title="Submit Button"
+      description="Pill-shaped submit button with icon circle. Two icon variants: send (paper plane) and arrow."
+      componentPath="components/ui/form-elements/FormSubmitButton.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-700 rounded-2xl p-8 space-y-6">
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-purple-300 uppercase tracking-wide">Send Icon (InquiryForm)</p>
+              <FormSubmitButton label="Send message" pendingLabel="Sending..." isPending={false} icon="send" />
+            </div>
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-purple-300 uppercase tracking-wide">Arrow Icon (Membership / Directory)</p>
+              <FormSubmitButton label="Submit application" pendingLabel="Submitting..." isPending={false} icon="arrow" />
+            </div>
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-purple-300 uppercase tracking-wide">Pending State</p>
+              <FormSubmitButton label="Send message" pendingLabel="Sending..." isPending={true} icon="send" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Shape: <span className="font-mono text-xs bg-gray-100 px-1 rounded">rounded-full</span></p>
+                <p>Background: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white/10 border-white/30</span></p>
+                <p>Icon circle: <span className="font-mono text-xs bg-gray-100 px-1 rounded">w-9 h-9 bg-white/20</span></p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Variants</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">icon=&quot;send&quot;</span> — paper plane (InquiryForm)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">icon=&quot;arrow&quot;</span> — right arrow (default)</p>
+                <p>Disabled state: 50% opacity, not-allowed cursor</p>
+              </div>
             </div>
           </div>
         </div>
