@@ -18,6 +18,7 @@ import { InquiryForm } from "@/components/forms/InquiryForm";
 import { MembershipForm } from "@/components/forms/MembershipForm";
 import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
 import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
+import { PressMention } from "@/components/ui/PressMention";
 import {
   FormLabel,
   FormInput,
@@ -78,6 +79,7 @@ const navigationItems = [
       { id: "card-carousel", label: "Carousel Testimonial" },
       { id: "card-link", label: "Link Card" },
       { id: "card-infobox", label: "Info Box" },
+      { id: "card-pressmention", label: "Press Mention" },
       { id: "card-member", label: "Member Card" },
     ],
   },
@@ -181,8 +183,8 @@ function FAQAccordionDemo() {
       {demoFaqs.map((faq) => (
         <div
           key={faq.id}
-          className={`rounded-[2rem] overflow-hidden transition-colors duration-300 ${
-            openId === faq.id ? "bg-teal-300" : "bg-white shadow-sm"
+          className={`overflow-hidden transition-all duration-300 ${
+            openId === faq.id ? "rounded-2xl bg-teal-300" : "rounded-[2rem] bg-white shadow-sm"
           }`}
         >
           <button
@@ -1120,6 +1122,55 @@ const contentComponents: Record<string, React.ReactNode> = {
             <p className="text-base text-gray-700 font-medium">Check out our latest community resources</p>
             <PrimaryCTA href="#">Learn More</PrimaryCTA>
           </InfoBox>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "card-pressmention": (
+    <ContentSection
+      title="Press Mention"
+      description="Reusable callout for press/media features. Built on InfoBox with standardized eyebrow, title, and CTA layout."
+      componentPath="components/ui/PressMention.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="space-y-4">
+            <PressMention
+              source="Hawai'i Bulletin"
+              title="Local group explores user experience and interface design"
+              href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience"
+            />
+            <PressMention
+              source="Hawaii Public Radio"
+              title="Bytemarks Cafe — UXHI Conference coverage"
+              href="https://www.hawaiipublicradio.org/podcast/bytemarks-cafe"
+              ctaLabel="Listen Now"
+            />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Props</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">source</span> — publication name (used in eyebrow)</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">title</span> — article headline or description</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">href</span> — link to the article</p>
+                <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">ctaLabel</span> — button text (default: &quot;Read Article&quot;)</p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Built on <span className="font-mono text-xs bg-gray-100 px-1 rounded">InfoBox</span></p>
+                <p>Eyebrow: <span className="font-mono text-xs bg-gray-100 px-1 rounded">Featured in {"{source}"}</span></p>
+                <p>Responsive: stacks on mobile, row on sm+</p>
+                <p>CTA: <span className="font-mono text-xs bg-gray-100 px-1 rounded">PrimaryCTA</span> with external link</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </ContentSection>

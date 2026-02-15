@@ -29,8 +29,8 @@ function FAQItem({
 }) {
   return (
     <div
-      className={`rounded-[2rem] overflow-hidden transition-colors duration-300 ${
-        isOpen ? "bg-teal-300" : "bg-white shadow-sm"
+      className={`overflow-hidden transition-all duration-300 ${
+        isOpen ? "rounded-2xl bg-teal-300" : "rounded-[2rem] bg-white shadow-sm"
       }`}
     >
       <button

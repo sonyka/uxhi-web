@@ -6,8 +6,7 @@ import { MissionSection } from "@/components/sections/MissionSection";
 import { FoundersSection } from "@/components/sections/FoundersSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
-import { InfoBox } from "@/components/ui/InfoBox";
-import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { PressMention } from "@/components/ui/PressMention";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 
 export const metadata: Metadata = {
@@ -160,15 +159,11 @@ export default async function AboutPage() {
       {/* Featured Press Section */}
       <section className="pb-16 px-6 bg-cream">
         <div className="max-w-[1100px] mx-auto">
-          <InfoBox
-            eyebrow="Featured in Hawai'i Bulletin"
-            className="flex flex-col sm:flex-row items-center justify-between gap-4"
-          >
-            <p className="text-base text-gray-700 font-medium">Local group explores user experience and interface design</p>
-            <PrimaryCTA href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience" external>
-              Read Article
-            </PrimaryCTA>
-          </InfoBox>
+          <PressMention
+            source="Hawai'i Bulletin"
+            title="Local group explores user experience and interface design"
+            href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience"
+          />
         </div>
       </section>
 

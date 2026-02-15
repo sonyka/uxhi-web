@@ -268,16 +268,27 @@ export default async function ShopPage() {
             ))}
           </div>
 
-          {/* Coming Soon Notice */}
-          <div className="mt-16 bg-purple-50 border border-purple-100 rounded-[24px] p-8 text-center">
-            <h3 className="font-display text-2xl text-purple-700 mb-4">
-              More products coming soon!
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-[500px] mx-auto">
-              We&apos;re working on expanding our merch collection. Join our mailing list to be notified when new products drop.
-            </p>
-            <PrimaryCTA href="/join">Join the community</PrimaryCTA>
+        </div>
+      </section>
+
+      {/* Coming Soon Section */}
+      <section className="py-16 px-6 bg-cream">
+        <div className="max-w-[600px] mx-auto text-center">
+          <div className="w-24 h-24 mx-auto mb-6 relative">
+            <Image
+              src="/images/icons/shopping.png"
+              alt="Shopping"
+              fill
+              className="object-contain"
+            />
           </div>
+          <h3 className="font-display text-xl md:text-2xl text-purple-700 mb-4">
+            More products coming soon!
+          </h3>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            We&apos;re working on expanding our merch collection. Join our mailing list to be notified when new products drop.
+          </p>
+          <PrimaryCTA href="/join">Join the community</PrimaryCTA>
         </div>
       </section>
     </main>

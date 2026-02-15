@@ -111,6 +111,7 @@ Quick reference (see design system for full details):
 | `QuickLinkPill` | `components/ui/QuickLinkPill.tsx` | Pill with icon, label, subtitle for hero sections |
 | `LinkCard` | `components/ui/LinkCard.tsx` | Cream card with title, teal description, external link icon |
 | `InfoBox` | `components/ui/InfoBox.tsx` | Teal-50 callout box for notes and CTAs |
+| `PressMention` | `components/ui/PressMention.tsx` | Press/media callout with source eyebrow, title, and CTA |
 | `ArrowLinkButton` | `components/ui/ArrowLinkButton.tsx` | Text link with arrow for dark backgrounds |
 | `FeatureCard` | `components/ui/cards/FeatureCard.tsx` | Card with icon, title, description (cream/white/teal/purple) |
 | `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/cream/white variants) |

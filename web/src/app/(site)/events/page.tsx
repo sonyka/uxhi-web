@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { EVENTS_QUERY } from "@/sanity/lib/queries";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { PressMention } from "@/components/ui/PressMention";
 import { ExternalLinkIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
@@ -231,20 +232,6 @@ export default async function EventsPage() {
             Our third annual conference is a hub for those infused in human-centered design, user experience, design thinking, and everything in between, offering an opportunity to deepen your expertise. Whether you&apos;re a newcomer eager to learn more about UX or an industry pro, you&apos;ll find value in the immersive day filled with inspiration, knowledge-sharing, and networking!
           </p>
 
-          {/* Press Mention */}
-          <p className="text-purple-200 text-center mb-10">
-            <span className="font-medium">Press:</span>{" "}
-            <a
-              href="https://www.hawaiipublicradio.org/podcast/bytemarks-cafe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-white transition-colors"
-            >
-              Hawaii Public Radio - Bytemarks Cafe
-            </a>{" "}
-            UXHI Conference coverage
-          </p>
-
           {/* CTA */}
           <div className="text-center mb-16">
             <PrimaryCTA href="/conferences/2025/" external>
@@ -273,6 +260,14 @@ export default async function EventsPage() {
               </Link>
             </div>
           </div>
+
+          {/* Press Mention */}
+          <PressMention
+            source="Hawaii Public Radio"
+            title="Bytemarks Cafe — UXHI Conference coverage"
+            href="https://www.hawaiipublicradio.org/podcast/bytemarks-cafe"
+            ctaLabel="Listen Now"
+          />
 
         </div>
       </section>
