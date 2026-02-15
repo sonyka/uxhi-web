@@ -26,6 +26,7 @@ interface Photo {
 
 export interface DirectoryMember {
   _id: string;
+  _createdAt?: string;
   name: string;
   title?: string;
   photo: Photo;
@@ -73,7 +74,7 @@ export function MemberCard({ member, onClick }: MemberCardProps) {
         {imageUrl ? (
           <Image
             src={imageUrl}
-            alt={member.photo.alt || member.name}
+            alt={member.photo.alt || `Headshot of ${member.name}`}
             fill
             className={cn(
               "object-cover transition-transform duration-300",

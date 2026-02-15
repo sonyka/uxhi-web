@@ -4,13 +4,17 @@ import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS } from "./constants";
 
+import type { SortOption } from "./MemberDirectory";
+
 interface MemberFiltersProps {
   selectedFocus: string[];
   selectedExperience: string | null;
   openToWorkOnly: boolean;
+  sortBy: SortOption;
   onFocusChange: (values: string[]) => void;
   onExperienceChange: (value: string | null) => void;
   onOpenToWorkChange: (value: boolean) => void;
+  onSortChange: (value: SortOption) => void;
   onClearFilters: () => void;
   totalCount: number;
   filteredCount: number;
@@ -136,13 +140,21 @@ function Dropdown({
   );
 }
 
+const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: "shuffle", label: "Shuffle" },
+  { value: "alpha", label: "A–Z" },
+  { value: "newest", label: "Newest" },
+];
+
 export function MemberFilters({
   selectedFocus,
   selectedExperience,
   openToWorkOnly,
+  sortBy,
   onFocusChange,
   onExperienceChange,
   onOpenToWorkChange,
+  onSortChange,
   onClearFilters,
   totalCount,
   filteredCount,
@@ -198,6 +210,24 @@ export function MemberFilters({
             </span>
             Open to Work
           </button>
+
+          {/* Sort */}
+          <div className="flex items-center gap-1 ml-auto bg-gray-100 rounded-lg p-1">
+            {SORT_OPTIONS.map((option) => (
+              <button
+                key={option.value}
+                onClick={() => onSortChange(option.value)}
+                className={cn(
+                  "px-3 py-1.5 rounded-md text-xs font-medium transition-colors",
+                  sortBy === option.value
+                    ? "bg-white text-gray-900 shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                )}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Results Count & Clear */}

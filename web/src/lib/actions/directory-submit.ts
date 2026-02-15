@@ -111,7 +111,7 @@ export async function submitDirectoryEntry(
       photo: {
         _type: "image",
         asset: { _type: "reference", _ref: asset._id },
-        alt: `${data.firstName} ${data.lastName}`,
+        alt: `Headshot of ${data.firstName} ${data.lastName}`,
       },
       openToWork: data.openToWork || false,
       focus: data.focus?.length ? data.focus : undefined,

@@ -89,7 +89,7 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
               {imageUrl ? (
                 <Image
                   src={imageUrl}
-                  alt={member.photo.alt || member.name}
+                  alt={member.photo.alt || `Headshot of ${member.name}`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 512px) 100vw, 400px"

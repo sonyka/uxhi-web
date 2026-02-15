@@ -208,6 +208,7 @@ export const COMMITTEES_QUERY = defineQuery(/* groq */ `
 export const DIRECTORY_MEMBERS_QUERY = defineQuery(/* groq */ `
   *[_type == "directoryMember"] | order(openToWork desc, order asc, name asc) {
     _id,
+    _createdAt,
     name,
     title,
     photo { ${imageFragment} },
