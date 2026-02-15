@@ -10,6 +10,7 @@ import { InfoBox } from "@/components/ui/InfoBox";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { BulletPoint } from "@/components/ui/BulletPoint";
+import { InlineLink } from "@/components/ui/InlineLink";
 
 export const metadata: Metadata = {
   title: "Resources | UX Hawaii",
@@ -426,19 +427,28 @@ export default async function ResourcesPage() {
 
           {/* How Report Helps */}
           <div className="mb-10">
-            <p className="text-purple-100 mb-4">The State of UX report charts our progress towards advancing the field of UX by:</p>
-            <ul className="text-purple-100 space-y-2">
-              <li className="flex items-start gap-3">
+            <p className="text-purple-100 text-lg mb-6">The State of UX report charts our progress towards advancing the field of UX by:</p>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-4">
                 <BulletPoint variant="yellow" />
-                <span>Inspiring local business leaders to find and hire UX professionals</span>
+                <span className="text-white text-lg">
+                  Inspiring local business leaders to{" "}
+                  <InlineLink href="/find-ux-pro" variant="teal">find and hire UX professionals</InlineLink>
+                </span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-4">
                 <BulletPoint variant="yellow" />
-                <span>Generate opportunities for new UXers to gain experience</span>
+                <span className="text-white text-lg">
+                  <InlineLink href="/join" variant="teal">Generate opportunities</InlineLink>
+                  {" "}for new UXers to gain experience
+                </span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-4">
                 <BulletPoint variant="yellow" />
-                <span>Host collaborative events to strengthen the UX community</span>
+                <span className="text-white text-lg">
+                  <InlineLink href="/events" variant="teal">Host collaborative events</InlineLink>
+                  {" "}to strengthen the UX community
+                </span>
               </li>
             </ul>
           </div>

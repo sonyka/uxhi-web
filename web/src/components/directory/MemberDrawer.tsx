@@ -57,7 +57,7 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/50 z-40"
+            className="fixed inset-0 bg-black/50 z-[60]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -67,7 +67,7 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
 
           {/* Drawer */}
           <motion.div
-            className="fixed top-0 right-0 h-full w-full max-w-lg bg-white z-50 shadow-2xl overflow-y-auto"
+            className="fixed top-0 right-0 h-full w-full max-w-lg bg-white z-[70] shadow-2xl overflow-y-auto"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
