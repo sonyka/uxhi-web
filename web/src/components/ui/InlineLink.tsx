@@ -61,7 +61,7 @@ export function InlineLink({
   };
 
   const baseStyles = variantStyles[variant];
-  const combinedStyles = `${baseStyles} ${shouldShowIcon ? "inline-flex items-center gap-1" : ""} ${className}`.trim();
+  const combinedStyles = `${baseStyles} ${shouldShowIcon ? "inline-flex items-center gap-0.5" : ""} ${className}`.trim();
 
   const content = (
     <>

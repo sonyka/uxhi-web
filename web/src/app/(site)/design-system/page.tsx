@@ -137,12 +137,14 @@ function ColorSwatch({
   name,
   value,
   textColor = "text-gray-900",
-  compact = false
+  compact = false,
+  badge,
 }: {
   name: string;
   value: string;
   textColor?: string;
   compact?: boolean;
+  badge?: string;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -158,9 +160,15 @@ function ColorSwatch({
       className="text-left group"
     >
       <div
-        className={`w-full ${compact ? "aspect-[3/1]" : "aspect-[4/3]"} rounded-xl mb-2 transition-transform group-hover:scale-105 ${textColor}`}
+        className={`relative w-full ${compact ? "aspect-[3/1]" : "aspect-[4/3]"} rounded-xl mb-2 transition-transform group-hover:scale-105 ${textColor}`}
         style={{ backgroundColor: value }}
-      />
+      >
+        {badge && (
+          <span className="absolute bottom-1.5 left-1.5 bg-white/90 text-gray-900 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-md leading-tight">
+            {badge}
+          </span>
+        )}
+      </div>
       <p className="font-medium text-sm text-gray-900">{name}</p>
       <p className="text-xs text-gray-500 font-mono">
         {copied ? "Copied!" : value}
@@ -666,7 +674,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <ColorSwatch name="200" value="#80e6ef" />
         <ColorSwatch name="300" value="#4ddce9" />
         <ColorSwatch name="400" value="#1ad2e3" />
-        <ColorSwatch name="500" value="#09c0d7" textColor="text-white" />
+        <ColorSwatch name="500" value="#09c0d7" textColor="text-white" badge="Primary" />
         <ColorSwatch name="600" value="#079aac" textColor="text-white" />
         <ColorSwatch name="700" value="#057381" textColor="text-white" />
         <ColorSwatch name="800" value="#034d56" textColor="text-white" />
@@ -684,7 +692,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <ColorSwatch name="400" value="#5d42e0" />
         <ColorSwatch name="500" value="#4329c7" textColor="text-white" />
         <ColorSwatch name="600" value="#34209b" textColor="text-white" />
-        <ColorSwatch name="700" value="#231769" textColor="text-white" />
+        <ColorSwatch name="700" value="#231769" textColor="text-white" badge="Secondary" />
         <ColorSwatch name="800" value="#1a1150" textColor="text-white" />
         <ColorSwatch name="900" value="#110b34" textColor="text-white" />
       </div>
@@ -711,7 +719,7 @@ const contentComponents: Record<string, React.ReactNode> = {
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         <ColorSwatch name="White" value="#ffffff" compact />
         <ColorSwatch name="Section Gray" value="#f5f5f5" compact />
-        <ColorSwatch name="Cream" value="#f4f1ea" compact />
+        <ColorSwatch name="Cream" value="#f4f1ea" compact badge="Background" />
         <ColorSwatch name="Cream Dark" value="#e8e4db" compact />
         <ColorSwatch name="Black" value="#000000" textColor="text-white" compact />
       </div>

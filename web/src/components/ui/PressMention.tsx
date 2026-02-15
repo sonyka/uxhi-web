@@ -16,10 +16,10 @@ export function PressMention({
 }: PressMentionProps) {
   return (
     <InfoBox
-      eyebrow={`Featured in ${source}`}
-      className="flex flex-col sm:flex-row items-center justify-between gap-4"
+      eyebrow={source}
+      className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
     >
-      <p className="text-base text-gray-700 font-medium">{title}</p>
+      <p className="text-base text-purple-700 font-medium">{title}</p>
       <PrimaryCTA href={href} external>
         {ctaLabel}
       </PrimaryCTA>

@@ -252,7 +252,7 @@ export default async function EventsPage() {
                 href="/conferences/2024/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
+                className="inline-flex items-center gap-1 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
               >
                 <span>2024 UXHI Conference</span>
                 <ExternalLinkIcon className="w-4 h-4" />
@@ -261,7 +261,7 @@ export default async function EventsPage() {
                 href="https://2023.uxhiconference.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
+                className="inline-flex items-center gap-1 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
               >
                 <span>2023 UXHI Conference</span>
                 <ExternalLinkIcon className="w-4 h-4" />
