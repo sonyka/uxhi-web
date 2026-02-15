@@ -45,7 +45,7 @@ export function FormCheckbox({
           </svg>
         )}
       </div>
-      <span className="text-purple-200 group-hover:text-white transition-colors text-sm">{label}</span>
+      <span className="text-purple-200 group-hover:text-white transition-colors">{label}</span>
     </label>
   );
 }
