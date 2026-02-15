@@ -129,38 +129,46 @@ export default async function EventsPage() {
             Upcoming Events
           </h2>
 
-          <div className="bg-cream rounded-[20px] p-6 md:p-8 text-left max-w-[700px] mx-auto">
+          <div className="text-left max-w-[700px] mx-auto">
             {events.length > 0 ? (
-              <ul className="space-y-3 text-gray-700">
+              <ul className="space-y-4">
                 {events.map((event) => (
-                  <li key={event._id} className="flex gap-3">
-                    <span className="text-teal-500 font-semibold shrink-0">
+                  <li key={event._id} className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
+                    <span className="text-teal-500 font-bold text-sm uppercase tracking-wide shrink-0">
                       {formatEventDate(event.date)}{event.tentative ? " (TBC)" : ""}
                     </span>
-                    <span>
-                      {event.url ? (
-                        <a href={event.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-teal-500 transition-colors">
-                          {event.title}
-                        </a>
-                      ) : (
-                        event.title
+                    <div className="flex flex-col">
+                      <span className="font-semibold text-gray-900">
+                        {event.url ? (
+                          <a href={event.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-teal-500 transition-colors">
+                            {event.title}
+                          </a>
+                        ) : (
+                          event.title
+                        )}
+                      </span>
+                      {(event.time || event.location) && (
+                        <span className="text-sm text-gray-500 mt-0.5">
+                          {[event.time, event.location].filter(Boolean).join(" · ")}
+                        </span>
                       )}
-                      {event.time && ` (${event.time})`}
-                      {event.location && ` — ${event.location}`}
-                    </span>
+                    </div>
                   </li>
                 ))}
               </ul>
             ) : (
               <>
                 <p className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-4">From Notion (Draft)</p>
-                <ul className="space-y-3 text-gray-700">
+                <ul className="space-y-4">
                   {fallbackEvents.map((event) => (
-                    <li key={event.title} className="flex gap-3">
-                      <span className="text-teal-500 font-semibold shrink-0">
+                    <li key={event.title} className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
+                      <span className="text-teal-500 font-bold text-sm uppercase tracking-wide shrink-0">
                         {event.date}{event.tentative ? " (TBC)" : ""}
                       </span>
-                      <span>{event.title} ({event.time})</span>
+                      <div className="flex flex-col">
+                        <span className="font-semibold text-gray-900">{event.title}</span>
+                        <span className="text-sm text-gray-500 mt-0.5">{event.time}</span>
+                      </div>
                     </li>
                   ))}
                 </ul>

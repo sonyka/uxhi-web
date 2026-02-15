@@ -80,6 +80,7 @@ const navigationItems = [
       { id: "card-link", label: "Link Card" },
       { id: "card-infobox", label: "Info Box" },
       { id: "card-pressmention", label: "Press Mention" },
+      { id: "card-upcomingevent", label: "Upcoming Event" },
       { id: "card-member", label: "Member Card" },
     ],
   },
@@ -1168,6 +1169,73 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Eyebrow: <span className="font-mono text-xs bg-gray-100 px-1 rounded">Featured in {"{source}"}</span></p>
                 <p>Responsive: stacks on mobile, row on sm+</p>
                 <p>CTA: <span className="font-mono text-xs bg-gray-100 px-1 rounded">PrimaryCTA</span> with external link</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "card-upcomingevent": (
+    <ContentSection
+      title="Upcoming Event"
+      description="Card-style list item for upcoming events. Displays date, title (optionally linked), time, and location with clear visual hierarchy."
+      componentPath="app/(site)/events/page.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="max-w-[700px] space-y-4">
+            <div className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
+              <span className="text-teal-500 font-bold text-sm uppercase tracking-wide shrink-0">
+                Mar 15, 2026
+              </span>
+              <div className="flex flex-col">
+                <span className="font-semibold text-gray-900">
+                  <a href="#" className="underline underline-offset-2 hover:text-teal-500 transition-colors">UX Portfolio Workshop</a>
+                </span>
+                <span className="text-sm text-gray-500 mt-0.5">6:00 PM HST · Impact Hub Honolulu</span>
+              </div>
+            </div>
+            <div className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
+              <span className="text-teal-500 font-bold text-sm uppercase tracking-wide shrink-0">
+                Apr 5, 2026 (TBC)
+              </span>
+              <div className="flex flex-col">
+                <span className="font-semibold text-gray-900">Design Systems Meetup</span>
+                <span className="text-sm text-gray-500 mt-0.5">10:00 AM HST</span>
+              </div>
+            </div>
+            <div className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
+              <span className="text-teal-500 font-bold text-sm uppercase tracking-wide shrink-0">
+                May 20, 2026
+              </span>
+              <div className="flex flex-col">
+                <span className="font-semibold text-gray-900">UXHICon 2026</span>
+                <span className="text-sm text-gray-500 mt-0.5">9:00 AM – 5:00 PM · Honolulu Convention Center</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Styling</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Card: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-cream rounded-2xl px-6 py-5</span></p>
+                <p>Date: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-teal-500 font-bold text-sm uppercase</span></p>
+                <p>Title: <span className="font-mono text-xs bg-gray-100 px-1 rounded">font-semibold text-gray-900</span></p>
+                <p>Meta: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-sm text-gray-500</span></p>
+              </div>
+            </div>
+            <div className="p-4 bg-cream rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-700">Layout</p>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p>Stacks vertically on mobile</p>
+                <p>Date + content side-by-side on <span className="font-mono text-xs bg-gray-100 px-1 rounded">sm+</span></p>
+                <p>Time and location joined with &quot;·&quot; separator</p>
+                <p>Title links externally when URL is provided</p>
               </div>
             </div>
           </div>
