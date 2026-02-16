@@ -190,7 +190,7 @@ export function MemberFilters({
             className={cn(
               "flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors",
               openToWorkOnly
-                ? "bg-teal-500 border-teal-500 text-white"
+                ? "bg-teal-500 border-teal-500 text-teal-800"
                 : "bg-white border-gray-200 text-gray-700 hover:border-gray-300"
             )}
           >
@@ -198,13 +198,13 @@ export function MemberFilters({
               <span
                 className={cn(
                   "absolute inline-flex h-full w-full rounded-full opacity-75",
-                  openToWorkOnly ? "bg-white animate-ping" : "bg-teal-500"
+                  openToWorkOnly ? "bg-teal-800 animate-ping" : "bg-teal-500"
                 )}
               ></span>
               <span
                 className={cn(
                   "relative inline-flex rounded-full h-2 w-2",
-                  openToWorkOnly ? "bg-white" : "bg-teal-500"
+                  openToWorkOnly ? "bg-teal-800" : "bg-teal-500"
                 )}
               ></span>
             </span>

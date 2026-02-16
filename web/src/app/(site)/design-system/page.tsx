@@ -1241,10 +1241,10 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-4 bg-cream rounded-xl">
               <p className="text-sm font-semibold text-gray-700 mb-2">Open to Work Badge</p>
-              <div className="flex items-center gap-1.5 bg-teal-500 text-purple-700 px-3 py-1.5 rounded-full text-xs font-medium w-fit">
+              <div className="flex items-center gap-1.5 bg-teal-500 text-teal-800 px-3 py-1.5 rounded-full text-xs font-medium w-fit">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-700 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-700"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-800 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-800"></span>
                 </span>
                 Open to Work
               </div>
@@ -1990,10 +1990,10 @@ const contentComponents: Record<string, React.ReactNode> = {
             {/* Active State */}
             <div className="flex flex-col gap-2">
               <span className="text-xs text-gray-500">Active</span>
-              <button className="flex items-center gap-2 px-4 py-2.5 rounded-lg border bg-teal-500 border-teal-500 text-white text-sm font-medium">
+              <button className="flex items-center gap-2 px-4 py-2.5 rounded-lg border bg-teal-500 border-teal-500 text-teal-800 text-sm font-medium">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-800 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-800"></span>
                 </span>
                 Open to Work
               </button>
@@ -2004,7 +2004,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Styling</h4>
           <div className="text-sm text-gray-600 space-y-1">
             <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">rounded-lg</span> border radius</p>
-            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-500 border-teal-500 text-white</span> for active state</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-teal-500 border-teal-500 text-teal-800</span> for active state</p>
             <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">animate-ping</span> for pulsing dot when active</p>
           </div>
         </div>

@@ -105,10 +105,10 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
 
               {/* Open to Work Badge */}
               {member.openToWork && (
-                <div className="absolute top-4 left-4 flex items-center gap-2 bg-teal-500 text-purple-700 px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-teal-500 text-teal-800 px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-700 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-700"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-800 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-800"></span>
                   </span>
                   Open to Work
                 </div>
