@@ -117,7 +117,7 @@ export default async function EventsPage() {
       <section className="pt-12 pb-20 px-6 bg-white">
         <div className="max-w-[900px] mx-auto text-center">
           {/* Upcoming Events Icon */}
-          <div className="w-24 h-24 mx-auto mb-6 relative">
+          <div className="w-32 h-32 mx-auto mb-6 relative">
             <Image
               src="/images/icons/icon-upcoming-events.png"
               alt="Upcoming Events"
@@ -225,7 +225,7 @@ export default async function EventsPage() {
       <section className="py-20 px-6 bg-purple-700">
         <div className="max-w-[900px] mx-auto">
           {/* Conference Icon */}
-          <div className="w-24 h-24 mx-auto mb-6 relative">
+          <div className="w-32 h-32 mx-auto mb-6 relative">
             <Image
               src="/images/icons/icon-uxhicon.svg"
               alt=""

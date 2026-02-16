@@ -174,7 +174,7 @@ export default async function AboutPage() {
       <section id="contact" className="py-20 px-6 bg-purple-700 scroll-mt-24">
         <div className="max-w-[800px] mx-auto">
           <div className="text-center">
-            <div className="w-24 h-24 mx-auto mb-6 relative">
+            <div className="w-32 h-32 mx-auto mb-6 relative">
               <Image
                 src="/images/icons/icon-contact.png"
                 alt="Contact"

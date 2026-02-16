@@ -274,7 +274,7 @@ export default async function ShopPage() {
       {/* Coming Soon Section */}
       <section className="py-16 px-6 bg-cream">
         <div className="max-w-[600px] mx-auto text-center">
-          <div className="w-24 h-24 mx-auto mb-6 relative">
+          <div className="w-32 h-32 mx-auto mb-6 relative">
             <Image
               src="/images/icons/shopping.png"
               alt="Shopping"

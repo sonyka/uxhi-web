@@ -628,7 +628,7 @@ export default async function GetInvolvedPage() {
       {/* Ready to Collaborate Section */}
       <section className="py-16 px-6 bg-cream">
         <div className="max-w-[600px] mx-auto text-center">
-          <div className="w-24 h-24 mx-auto mb-6 relative">
+          <div className="w-32 h-32 mx-auto mb-6 relative">
             <Image
               src="/images/icons/icon-collaborate.png"
               alt="Collaborate"
@@ -652,7 +652,7 @@ export default async function GetInvolvedPage() {
       <section id="donate" className="py-20 px-6 bg-purple-700 scroll-mt-24">
         <div className="max-w-[800px] mx-auto text-center">
           {/* Donate Icon */}
-          <div className="w-24 h-24 mx-auto mb-6 relative">
+          <div className="w-32 h-32 mx-auto mb-6 relative">
             <Image
               src="/images/icons/icon-donate.png"
               alt="Donate"
