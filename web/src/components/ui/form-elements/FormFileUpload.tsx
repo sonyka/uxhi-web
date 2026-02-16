@@ -40,8 +40,12 @@ export function FormFileUpload({
 
   return (
     <div className={cn("space-y-2", className)}>
+      <label htmlFor={`file-${name}`} className="sr-only">
+        Upload {name}
+      </label>
       <input
         ref={inputRef}
+        id={`file-${name}`}
         type="file"
         name={name}
         accept={accept}
