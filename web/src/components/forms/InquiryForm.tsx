@@ -16,12 +16,14 @@ const INTEREST_OPTIONS = [
   "Becoming a volunteer",
   "Becoming a speaker",
   "Becoming partners and collaborators",
+  "Updating my directory profile",
   "Something else",
 ] as const;
 
 function InquiryFormInner() {
   const searchParams = useSearchParams();
   const preselectedInterest = searchParams.get("interest");
+  const prefillMessage = searchParams.get("message");
   const [state, formAction, isPending] = useActionState<InquiryState, FormData>(
     submitInquiry,
     null,
@@ -94,7 +96,7 @@ function InquiryFormInner() {
 
       <div>
         <FormLabel htmlFor="message">Message *</FormLabel>
-        <FormTextarea id="message" name="message" required rows={4} />
+        <FormTextarea id="message" name="message" required rows={4} defaultValue={prefillMessage || undefined} />
         <FieldError errors={state?.errors} field="message" />
       </div>
 

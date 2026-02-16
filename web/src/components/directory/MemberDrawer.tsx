@@ -3,6 +3,7 @@
 import { useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { urlFor } from "@/sanity/lib/image";
 import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS, INDUSTRY_OPTIONS } from "./constants";
 import type { DirectoryMember } from "./MemberCard";
@@ -67,7 +68,7 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
 
           {/* Drawer */}
           <motion.div
-            className="fixed top-0 right-0 h-full w-full max-w-lg bg-white z-[70] shadow-2xl overflow-y-auto"
+            className="fixed top-0 right-0 h-full w-full max-w-lg bg-white z-[70] shadow-2xl flex flex-col"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -84,6 +85,8 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
               </svg>
             </button>
 
+            {/* Scrollable content */}
+            <div className="flex-1 overflow-y-auto">
             {/* Photo */}
             <div className="relative aspect-square bg-gray-100">
               {imageUrl ? (
@@ -227,6 +230,19 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
                   )}
                 </div>
               )}
+
+            </div>
+            </div>
+
+            {/* Docked Footer */}
+            <div className="border-t border-gray-200 px-6 py-4 flex items-center gap-1">
+              <span className="text-sm text-gray-600">Is this your profile?</span>
+              <ArrowLinkButton
+                href={`/about?interest=${encodeURIComponent("Updating my directory profile")}&message=${encodeURIComponent(`Regarding the profile for: ${member.name}\n\nI'd like to request the following changes:\n`)}#contact`}
+                variant="light"
+              >
+                Request changes
+              </ArrowLinkButton>
             </div>
           </motion.div>
         </>

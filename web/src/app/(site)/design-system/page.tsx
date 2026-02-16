@@ -811,11 +811,16 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-arrowlink": (
     <ContentSection
       title="Arrow Link Button"
-      description="Text with arrow, pill-shaped hover state. Used under feature cards on dark backgrounds."
+      description="Text with arrow, pill-shaped hover state. Supports dark (default, for purple backgrounds) and light (for white/cream backgrounds) variants."
       componentPath="components/ui/ArrowLinkButton.tsx"
     >
-      <div className="flex flex-wrap gap-6 items-center p-6 bg-purple-700 rounded-xl">
-        <ArrowLinkButton href="#">Learn more</ArrowLinkButton>
+      <div className="space-y-4">
+        <div className="flex flex-wrap gap-6 items-center p-6 bg-purple-700 rounded-xl">
+          <ArrowLinkButton href="#">Dark (default)</ArrowLinkButton>
+        </div>
+        <div className="flex flex-wrap gap-6 items-center p-6 bg-white rounded-xl border border-gray-200">
+          <ArrowLinkButton href="#" variant="light">Light</ArrowLinkButton>
+        </div>
       </div>
     </ContentSection>
   ),
