@@ -79,7 +79,7 @@ export function FoundersSection({ founders, id }: FoundersSectionProps) {
 
                 {/* Info */}
                 <div className={isEven ? "md:order-2" : "md:order-1"}>
-                  <h3 className="font-display text-3xl md:text-4xl text-teal-500 mb-2">
+                  <h3 className="font-display text-3xl md:text-4xl text-purple-700 mb-2">
                     {founder.name}
                   </h3>
                   {founder.role && (

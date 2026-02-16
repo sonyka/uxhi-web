@@ -125,7 +125,7 @@ export default async function EventsPage() {
               className="object-contain"
             />
           </div>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-teal-500 mb-8">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-purple-700 mb-8">
             Upcoming Events
           </h2>
 
@@ -134,7 +134,7 @@ export default async function EventsPage() {
               <ul className="space-y-4">
                 {events.map((event) => (
                   <li key={event._id} className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
-                    <span className="text-teal-500 font-bold text-sm uppercase tracking-wide shrink-0">
+                    <span className="text-purple-700 font-bold text-sm uppercase tracking-wide shrink-0">
                       {formatEventDate(event.date)}{event.tentative ? " (TBC)" : ""}
                     </span>
                     <div className="flex flex-col">
@@ -162,7 +162,7 @@ export default async function EventsPage() {
                 <ul className="space-y-4">
                   {fallbackEvents.map((event) => (
                     <li key={event.title} className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
-                      <span className="text-teal-500 font-bold text-sm uppercase tracking-wide shrink-0">
+                      <span className="text-purple-700 font-bold text-sm uppercase tracking-wide shrink-0">
                         {event.date}{event.tentative ? " (TBC)" : ""}
                       </span>
                       <div className="flex flex-col">

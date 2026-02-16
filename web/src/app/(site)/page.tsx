@@ -257,7 +257,7 @@ export default async function HomePage() {
       {/* Mission Section */}
       <section className="py-20 px-6">
         <div className="max-w-[900px] mx-auto text-center">
-          <span className="text-teal-500 text-sm font-bold uppercase tracking-wider mb-4 block">What we do</span>
+          <span className="text-purple-700 text-sm font-bold uppercase tracking-wider mb-4 block">What we do</span>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight text-gray-800">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
             <MobileTooltip
@@ -297,7 +297,7 @@ export default async function HomePage() {
       {/* Connect Learn Grow Section */}
       <section className="py-16 px-6">
         <div className="max-w-[800px] mx-auto text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-6">
+          <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-6">
             Connect, learn, grow together
           </h2>
           <p className="text-gray-600 text-lg mb-8 max-w-[600px] mx-auto">
@@ -363,7 +363,7 @@ export default async function HomePage() {
       <section className="py-20 px-6">
         <div className="max-w-[1300px] mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl text-teal-500 mb-2">
+            <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-2">
               IRL &gt; Instagram
             </h2>
             <p className="text-gray-600 text-lg">Stay connected with our latest events and community updates</p>
@@ -389,7 +389,7 @@ export default async function HomePage() {
               height={168}
               className="mx-auto mb-6"
             />
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-teal-500 mb-6 leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6 leading-tight">
               A community<br />
               for designers,<br />
               by designers

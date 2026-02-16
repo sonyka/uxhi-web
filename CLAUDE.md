@@ -94,6 +94,9 @@ The design system page is the **single source of truth** for all styling decisio
 
 **Always consult the design system page first** when building UI to ensure consistency. Use existing components rather than writing inline patterns.
 
+**CRITICAL: Design System Sync Rule**
+Whenever a UI component's styling, props, or behavior is changed, the design system page (`src/app/(site)/design-system/page.tsx`) **MUST be updated in the same changeset** to reflect those changes. The design system is the single source of truth — it must never go stale. This includes: color changes, new variants, removed variants, renamed props, and any visual modifications to existing components.
+
 Quick reference (see design system for full details):
 - Primary: teal (`--color-teal-500: #09c0d7`)
 - Secondary: purple (`--color-purple-700: #231769`)
@@ -108,14 +111,16 @@ Quick reference (see design system for full details):
 | `MobileNavbar` | `components/layout/Navbar.tsx` | Collapsible mobile nav with accordion dropdowns |
 | `HamburgerButton` | `components/layout/Navbar.tsx` | Animated hamburger menu toggle button |
 | `Footer` | `components/layout/Footer.tsx` | Site footer with headline, logo, 4-column nav grid |
+| `Container` | `components/ui/Container.tsx` | Responsive max-width wrapper (default/narrow/wide) |
+| `SanityImage` | `components/ui/SanityImage.tsx` | Next.js Image wrapper for Sanity CMS assets with LQIP |
 | `QuickLinkPill` | `components/ui/QuickLinkPill.tsx` | Pill with icon, label, subtitle for hero sections |
 | `LinkCard` | `components/ui/LinkCard.tsx` | Cream card with title, teal description, external link icon |
 | `InfoBox` | `components/ui/InfoBox.tsx` | Teal-50 callout box for notes and CTAs |
 | `PressMention` | `components/ui/PressMention.tsx` | Press/media callout with source eyebrow, title, and CTA |
 | `ArrowLinkButton` | `components/ui/ArrowLinkButton.tsx` | Text link with arrow for dark backgrounds |
-| `FeatureCard` | `components/ui/cards/FeatureCard.tsx` | Card with icon, title, description (cream/white/teal/purple) |
+| `BulletPoint` | `components/ui/BulletPoint.tsx` | Styled bullet dot (teal on light, yellow on dark bg) |
+| `MobileTooltip` | `components/ui/MobileTooltip.tsx` | Tap-to-reveal tooltip (mobile), hover (desktop) |
 | `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/cream/white variants) |
-| `SpeechBubbleCard` | `components/ui/cards/SpeechBubbleCard.tsx` | Quote card (speech-bubble or testimonial variant) |
 | `FormLabel` | `components/ui/form-elements/FormLabel.tsx` | Shared form label; supports `as="legend"` for fieldsets |
 | `FormInput` | `components/ui/form-elements/FormInput.tsx` | Glassmorphic text input for purple form backgrounds |
 | `FormTextarea` | `components/ui/form-elements/FormTextarea.tsx` | Glassmorphic textarea with vertical resize |

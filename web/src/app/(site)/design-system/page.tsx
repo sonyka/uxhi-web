@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/Button";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { ArrowIcon, ExternalLinkIcon, PlusIcon, MinusIcon, ChevronDownIcon, SendIcon } from "@/components/ui/icons";
 import { InfoBox } from "@/components/ui/InfoBox";
@@ -10,7 +9,10 @@ import { LinkCard } from "@/components/ui/LinkCard";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InlineLink } from "@/components/ui/InlineLink";
-import { FeatureCard, SpotIllustrationCard, SpeechBubbleCard } from "@/components/ui/cards";
+import { SpotIllustrationCard } from "@/components/ui/cards";
+import { BulletPoint } from "@/components/ui/BulletPoint";
+import { MobileTooltip } from "@/components/ui/MobileTooltip";
+import { Container } from "@/components/ui/Container";
 import { MemberCard } from "@/components/directory";
 import { Navbar, MobileNavbar, HamburgerButton } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -47,6 +49,7 @@ const navigationItems = [
       { id: "typography-headings", label: "Headings" },
       { id: "typography-body", label: "Body Text" },
       { id: "typography-special", label: "Special Styles" },
+      { id: "typography-bulletpoint", label: "Bullet Point" },
     ],
   },
   {
@@ -62,7 +65,6 @@ const navigationItems = [
   {
     category: "Buttons",
     items: [
-      { id: "button-base", label: "Button Component" },
       { id: "button-primarycta", label: "Primary CTA" },
       { id: "button-arrowlink", label: "Arrow Link Button" },
       { id: "button-inlinelink", label: "Inline Link" },
@@ -73,9 +75,7 @@ const navigationItems = [
   {
     category: "Cards & Modules",
     items: [
-      { id: "card-feature", label: "Feature Card" },
       { id: "card-spotillustration", label: "Spot Illustration Card" },
-      { id: "card-speechbubble", label: "Speech Bubble Card" },
       { id: "card-carousel", label: "Carousel Testimonial" },
       { id: "card-link", label: "Link Card" },
       { id: "card-infobox", label: "Info Box" },
@@ -114,11 +114,14 @@ const navigationItems = [
       { id: "interactive-dropdown", label: "Dropdown Menu" },
       { id: "interactive-filter-dropdown", label: "Filter Dropdown" },
       { id: "interactive-toggle", label: "Toggle Button" },
+      { id: "interactive-tooltip", label: "Mobile Tooltip" },
     ],
   },
   {
     category: "Layout",
     items: [
+      { id: "layout-container", label: "Container" },
+      { id: "layout-sanityimage", label: "Sanity Image" },
       { id: "layout-grids", label: "Image Grids" },
       { id: "layout-spacing", label: "Spacing & Container" },
       { id: "layout-radius", label: "Border Radius" },
@@ -656,11 +659,49 @@ const contentComponents: Record<string, React.ReactNode> = {
           <span className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
           Badge / Eyebrow
         </span>
-        <span className="text-teal-500 font-bold uppercase tracking-wider text-sm">
+        <span className="text-purple-700 font-bold uppercase tracking-wider text-sm">
           EYEBROW TEXT
         </span>
         <InlineLink href="#" variant="teal">Link Style (Teal)</InlineLink>
         <InlineLink href="#" variant="purple">Link Style (Purple)</InlineLink>
+      </div>
+    </ContentSection>
+  ),
+  "typography-bulletpoint": (
+    <ContentSection
+      title="Bullet Point"
+      description="Styled bullet dot for list items. Teal variant for light backgrounds, yellow for dark/purple backgrounds."
+      componentPath="components/ui/BulletPoint.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Teal (default)</h4>
+          <ul className="space-y-2">
+            <li className="flex items-start gap-3">
+              <BulletPoint />
+              <span className="text-gray-700">List item on a light background</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <BulletPoint />
+              <span className="text-gray-700">Another list item example</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Yellow (dark backgrounds)</h4>
+          <div className="bg-purple-700 rounded-xl p-6">
+            <ul className="space-y-2">
+              <li className="flex items-start gap-3">
+                <BulletPoint variant="yellow" />
+                <span className="text-white">List item on a dark background</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint variant="yellow" />
+                <span className="text-white">Another list item example</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </ContentSection>
   ),
@@ -735,33 +776,6 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
 
   // Buttons
-  "button-base": (
-    <ContentSection
-      title="Button Component"
-      description="Base button with variants (primary, secondary, outline, ghost) and sizes (sm, md, lg)."
-      componentPath="components/ui/Button.tsx"
-    >
-      <div className="space-y-6">
-        <div>
-          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Variants</h4>
-          <div className="flex flex-wrap gap-4 items-center">
-            <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost</Button>
-          </div>
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Sizes</h4>
-          <div className="flex flex-wrap gap-4 items-center">
-            <Button variant="primary" size="sm">Small</Button>
-            <Button variant="primary" size="md">Medium</Button>
-            <Button variant="primary" size="lg">Large</Button>
-          </div>
-        </div>
-      </div>
-    </ContentSection>
-  ),
   "button-primarycta": (
     <ContentSection
       title="Primary CTA"
@@ -909,41 +923,6 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
 
   // Cards
-  "card-feature": (
-    <ContentSection
-      title="Feature Card"
-      description="Card with optional icon, title, and description. Variants: cream (default), white, teal, purple."
-      componentPath="components/ui/cards/FeatureCard.tsx"
-    >
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <FeatureCard
-          variant="cream"
-          icon={
-            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
-          }
-          title="Cream Card"
-          description="Default variant with icon, title, and description."
-        />
-        <FeatureCard
-          variant="white"
-          title="White Card"
-          description="Clean card with subtle shadow for content sections."
-        />
-        <FeatureCard
-          variant="teal"
-          title="Teal Card"
-          description="Accent card for highlighting important information."
-        />
-        <FeatureCard
-          variant="purple"
-          title="Purple Card"
-          description="Secondary accent card for variety."
-        />
-      </div>
-    </ContentSection>
-  ),
   "card-spotillustration": (
     <ContentSection
       title="Spot Illustration Card"
@@ -1011,31 +990,6 @@ const contentComponents: Record<string, React.ReactNode> = {
             </div>
           </div>
         </div>
-      </div>
-    </ContentSection>
-  ),
-  "card-speechbubble": (
-    <ContentSection
-      title="Speech Bubble Card"
-      description="Testimonial card with notch, quote, avatar placeholder, and author info."
-      componentPath="components/ui/cards/SpeechBubbleCard.tsx"
-    >
-      <div className="grid md:grid-cols-3 gap-6">
-        <SpeechBubbleCard
-          quote="Receiving education support has been a life-changing experience for me. It gave me the financial freedom and confidence to focus fully on my studies."
-          authorName="Emma Helson"
-          timestamp="1 week ago"
-        />
-        <SpeechBubbleCard
-          quote="Getting education support has been truly life-changing. It gave me the stability and assurance to concentrate fully on my learning without distractions."
-          authorName="Sophia Marie"
-          timestamp="2 weeks ago"
-        />
-        <SpeechBubbleCard
-          quote="Education support has made a world of difference in my life. It offered me the security and confidence to focus completely on my academic goals."
-          authorName="Jackson Lee"
-          timestamp="3 weeks ago"
-        />
       </div>
     </ContentSection>
   ),
@@ -1123,13 +1077,6 @@ const contentComponents: Record<string, React.ReactNode> = {
           <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-base text-gray-700 font-medium">Do you have more resources to suggest?</p>
             <PrimaryCTA href="#">Email Us</PrimaryCTA>
-          </InfoBox>
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Featured with Eyebrow + CTA</h4>
-          <InfoBox eyebrow="New Feature" className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-base text-gray-700 font-medium">Check out our latest community resources</p>
-            <PrimaryCTA href="#">Learn More</PrimaryCTA>
           </InfoBox>
         </div>
       </div>
@@ -2065,7 +2012,100 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
 
+  "interactive-tooltip": (
+    <ContentSection
+      title="Mobile Tooltip"
+      description="Tap-to-reveal tooltip on mobile, hover on desktop. Shows dotted underline on mobile to indicate interactivity. Used for inline definitions."
+      componentPath="components/ui/MobileTooltip.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Live Example</h4>
+          <p className="text-gray-700 text-lg">
+            UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
+            <MobileTooltip tooltip="Human-centered design is an approach that prioritizes the unique needs of users.">
+              human-centered design
+            </MobileTooltip>{" "}
+            in Hawai&apos;i.
+          </p>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Styling</h4>
+          <div className="text-sm text-gray-600 space-y-1">
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">decoration-dotted</span> underline on mobile, hidden on desktop</p>
+            <p>Tooltip: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-white rounded-xl shadow-lg</span> with tail arrow</p>
+            <p>Accepts optional <span className="font-mono text-xs bg-gray-100 px-1 rounded">decorationElement</span> prop for custom visuals</p>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
   // Layout
+  "layout-container": (
+    <ContentSection
+      title="Container"
+      description="Responsive max-width wrapper with horizontal padding. Three size variants for consistent page layouts."
+      componentPath="components/ui/Container.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Size Variants</h4>
+          <div className="space-y-4">
+            <div>
+              <span className="text-xs text-gray-500 mb-1 block">default — max-w-7xl (1280px)</span>
+              <Container className="bg-teal-50 border border-teal-100 rounded-lg py-3 text-center text-sm text-teal-700">Container default</Container>
+            </div>
+            <div>
+              <span className="text-xs text-gray-500 mb-1 block">narrow — max-w-4xl (896px)</span>
+              <Container size="narrow" className="bg-purple-50 border border-purple-100 rounded-lg py-3 text-center text-sm text-purple-700">Container narrow</Container>
+            </div>
+            <div>
+              <span className="text-xs text-gray-500 mb-1 block">wide — max-w-[1440px]</span>
+              <Container size="wide" className="bg-gray-50 border border-gray-200 rounded-lg py-3 text-center text-sm text-gray-600">Container wide</Container>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Props</h4>
+          <div className="text-sm text-gray-600 space-y-1">
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">size</span> — &quot;default&quot; | &quot;narrow&quot; | &quot;wide&quot;</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">className</span> — additional CSS classes merged via <span className="font-mono text-xs bg-gray-100 px-1 rounded">cn()</span></p>
+            <p>Padding: <span className="font-mono text-xs bg-gray-100 px-1 rounded">px-4 sm:px-6 lg:px-8</span></p>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "layout-sanityimage": (
+    <ContentSection
+      title="Sanity Image"
+      description="Wrapper around Next.js Image for Sanity CMS assets. Handles URL building, LQIP blur placeholders, hotspot/crop, and responsive sizing."
+      componentPath="components/ui/SanityImage.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Props</h4>
+          <div className="text-sm text-gray-600 space-y-1">
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">value</span> — Sanity image object with asset, alt, hotspot, crop</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">width</span> — render width in px (default: 800)</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">height</span> — render height in px (default: width &times; 0.66)</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">fill</span> — use fill mode for parent-sized containers</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">priority</span> — enable LCP priority loading</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">sizes</span> — responsive sizes string</p>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Features</h4>
+          <div className="text-sm text-gray-600 space-y-1">
+            <p>Auto-generates optimized URLs via <span className="font-mono text-xs bg-gray-100 px-1 rounded">urlFor()</span></p>
+            <p>LQIP blur placeholder when available from Sanity metadata</p>
+            <p>Returns <span className="font-mono text-xs bg-gray-100 px-1 rounded">null</span> if no asset — safe to render unconditionally</p>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
   "layout-grids": (
     <ContentSection title="Image Grid Patterns" description="Responsive image layouts and bento-style grids.">
       <div className="space-y-12">
