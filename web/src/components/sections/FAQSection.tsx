@@ -40,7 +40,7 @@ function FAQItem({
         }`}
         aria-expanded={isOpen}
       >
-        <h4 className="font-medium pr-4">{faq.question}</h4>
+        <h3 className="font-medium pr-4 text-base">{faq.question}</h3>
         <span className="flex-shrink-0">
           {isOpen ? (
             <MinusIcon className="w-6 h-6 text-gray-700" />

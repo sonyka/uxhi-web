@@ -1241,10 +1241,10 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-4 bg-cream rounded-xl">
               <p className="text-sm font-semibold text-gray-700 mb-2">Open to Work Badge</p>
-              <div className="flex items-center gap-1.5 bg-teal-500 text-gray-900 px-3 py-1.5 rounded-full text-xs font-medium w-fit">
+              <div className="flex items-center gap-1.5 bg-teal-500 text-purple-700 px-3 py-1.5 rounded-full text-xs font-medium w-fit">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-900 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-900"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-700 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-700"></span>
                 </span>
                 Open to Work
               </div>

@@ -245,7 +245,7 @@ export default async function ShopPage() {
                       {typeof product.price === "number" ? `$${product.price}` : product.price}
                     </span>
                     {product.comingSoon ? (
-                      <span className="text-gray-400 text-sm font-medium">
+                      <span className="text-gray-500 text-sm font-medium">
                         Coming soon
                       </span>
                     ) : product.purchaseUrl ? (
@@ -258,7 +258,7 @@ export default async function ShopPage() {
                         Buy Now
                       </a>
                     ) : (
-                      <span className="text-gray-400 text-sm font-medium">
+                      <span className="text-gray-500 text-sm font-medium">
                         Coming soon
                       </span>
                     )}

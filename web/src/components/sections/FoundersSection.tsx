@@ -83,7 +83,7 @@ export function FoundersSection({ founders, id }: FoundersSectionProps) {
                     {founder.name}
                   </h3>
                   {founder.role && (
-                    <p className="text-gray-500 text-base mb-5">
+                    <p className="text-gray-600 text-base mb-5">
                       {founder.role.includes("Co-Founder")
                         ? "Co-Founder"
                         : founder.role}

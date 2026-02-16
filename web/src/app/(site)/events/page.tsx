@@ -148,7 +148,7 @@ export default async function EventsPage() {
                         )}
                       </span>
                       {(event.time || event.location) && (
-                        <span className="text-sm text-gray-500 mt-0.5">
+                        <span className="text-sm text-gray-600 mt-0.5">
                           {[event.time, event.location].filter(Boolean).join(" · ")}
                         </span>
                       )}
@@ -167,7 +167,7 @@ export default async function EventsPage() {
                       </span>
                       <div className="flex flex-col">
                         <span className="font-semibold text-gray-900">{event.title}</span>
-                        <span className="text-sm text-gray-500 mt-0.5">{event.time}</span>
+                        <span className="text-sm text-gray-600 mt-0.5">{event.time}</span>
                       </div>
                     </li>
                   ))}

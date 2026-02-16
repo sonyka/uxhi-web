@@ -92,10 +92,10 @@ export function MemberCard({ member, onClick }: MemberCardProps) {
 
         {/* Open to Work Badge */}
         {member.openToWork && (
-          <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-teal-500 text-gray-900 px-3 py-1.5 rounded-full text-xs font-medium shadow-md">
+          <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-teal-500 text-purple-700 px-3 py-1.5 rounded-full text-xs font-medium shadow-md">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-900 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-900"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-700 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-700"></span>
             </span>
             Open to Work
           </div>
