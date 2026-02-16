@@ -458,8 +458,7 @@ export default async function ResourcesPage() {
             <PrimaryCTA href="https://drive.google.com/file/d/1pfHDt2yB-maAs2gOhywdJJv7HzY4wG7s/" external>
               2025 State of UXHI Report
             </PrimaryCTA>
-            {/* TODO: insert link for 2023 report */}
-            <PrimaryCTA href="#" external variant="dark">
+            <PrimaryCTA href="https://drive.google.com/file/d/1YPUpg6C3x_eOlskTLexD_x3wgxN5E16L/view?usp=sharing" external variant="dark">
               2023 State of UXHI Report
             </PrimaryCTA>
           </div>
