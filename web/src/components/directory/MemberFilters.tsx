@@ -7,10 +7,12 @@ import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS } from "./constants";
 import type { SortOption } from "./MemberDirectory";
 
 interface MemberFiltersProps {
+  searchQuery: string;
   selectedFocus: string[];
   selectedExperience: string | null;
   openToWorkOnly: boolean;
   sortBy: SortOption;
+  onSearchChange: (value: string) => void;
   onFocusChange: (values: string[]) => void;
   onExperienceChange: (value: string | null) => void;
   onOpenToWorkChange: (value: boolean) => void;
@@ -147,10 +149,12 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 ];
 
 export function MemberFilters({
+  searchQuery,
   selectedFocus,
   selectedExperience,
   openToWorkOnly,
   sortBy,
+  onSearchChange,
   onFocusChange,
   onExperienceChange,
   onOpenToWorkChange,
@@ -160,13 +164,44 @@ export function MemberFilters({
   filteredCount,
 }: MemberFiltersProps) {
   const hasActiveFilters =
-    selectedFocus.length > 0 || selectedExperience !== null || openToWorkOnly;
+    searchQuery.length > 0 || selectedFocus.length > 0 || selectedExperience !== null || openToWorkOnly;
 
   return (
     <div className="bg-white rounded-[20px] p-4 md:p-6 shadow-sm">
       <div className="flex flex-col gap-4">
-        {/* Filter Controls */}
-        <div className="flex flex-wrap items-center gap-3">
+        {/* Search + Filters + Sort — single row */}
+        <div className="flex items-center gap-3">
+          {/* Search — fills remaining width */}
+          <div className="relative flex-1 min-w-0">
+            <svg
+              className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => onSearchChange(e.target.value)}
+              placeholder="Search by name or title..."
+              className="w-full pl-10 pr-10 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => onSearchChange("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors"
+                aria-label="Clear search"
+              >
+                <svg className="w-3 h-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+          </div>
+
           {/* Focus Dropdown */}
           <Dropdown
             label="Focus"
@@ -188,7 +223,7 @@ export function MemberFilters({
           <button
             onClick={() => onOpenToWorkChange(!openToWorkOnly)}
             className={cn(
-              "flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors",
+              "flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors whitespace-nowrap",
               openToWorkOnly
                 ? "bg-teal-500 border-teal-500 text-teal-800"
                 : "bg-white border-gray-200 text-gray-700 hover:border-gray-300"
@@ -212,7 +247,7 @@ export function MemberFilters({
           </button>
 
           {/* Sort */}
-          <div className="flex items-center gap-1 ml-auto bg-gray-100 rounded-lg p-1">
+          <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
             {SORT_OPTIONS.map((option) => (
               <button
                 key={option.value}

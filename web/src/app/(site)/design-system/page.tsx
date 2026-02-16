@@ -112,6 +112,7 @@ const navigationItems = [
     items: [
       { id: "interactive-accordion", label: "FAQ Accordion" },
       { id: "interactive-dropdown", label: "Dropdown Menu" },
+      { id: "interactive-search", label: "Search Input" },
       { id: "interactive-filter-dropdown", label: "Filter Dropdown" },
       { id: "interactive-toggle", label: "Toggle Button" },
       { id: "interactive-tooltip", label: "Mobile Tooltip" },
@@ -1904,6 +1905,65 @@ const contentComponents: Record<string, React.ReactNode> = {
       componentPath="components/layout/Header.tsx (inline)"
     >
       <DropdownDemo />
+    </ContentSection>
+  ),
+  "interactive-search": (
+    <ContentSection
+      title="Search Input"
+      description="Inline search field with icon and clear button. Used in the member directory filter bar to search by name or title."
+      componentPath="components/directory/MemberFilters.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">States</h4>
+          <div className="space-y-4 max-w-md">
+            {/* Empty */}
+            <div className="flex flex-col gap-2">
+              <span className="text-xs text-gray-500">Empty</span>
+              <div className="relative">
+                <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input
+                  type="text"
+                  readOnly
+                  placeholder="Search by name or title..."
+                  className="w-full pl-10 pr-10 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none"
+                />
+              </div>
+            </div>
+            {/* With value */}
+            <div className="flex flex-col gap-2">
+              <span className="text-xs text-gray-500">With value + clear button</span>
+              <div className="relative">
+                <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input
+                  type="text"
+                  readOnly
+                  value="Jane"
+                  className="w-full pl-10 pr-10 py-2.5 rounded-lg border border-teal-500 ring-1 ring-teal-500 text-sm text-gray-900 focus:outline-none"
+                />
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center">
+                  <svg className="w-3 h-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Styling</h4>
+          <div className="text-sm text-gray-600 space-y-1">
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">rounded-lg border-gray-200</span> default border</p>
+            <p><span className="font-mono text-xs bg-gray-100 px-1 rounded">border-teal-500 ring-1 ring-teal-500</span> on focus</p>
+            <p>Search icon: <span className="font-mono text-xs bg-gray-100 px-1 rounded">text-gray-400</span>, clear button: <span className="font-mono text-xs bg-gray-100 px-1 rounded">bg-gray-200 rounded-full</span></p>
+            <p>Auto-switches sort to A–Z while searching</p>
+          </div>
+        </div>
+      </div>
     </ContentSection>
   ),
   "interactive-filter-dropdown": (

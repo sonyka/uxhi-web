@@ -25,6 +25,7 @@ interface MemberDirectoryProps {
 }
 
 export function MemberDirectory({ members }: MemberDirectoryProps) {
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedFocus, setSelectedFocus] = useState<string[]>([]);
   const [selectedExperience, setSelectedExperience] = useState<string | null>(null);
   const [openToWorkOnly, setOpenToWorkOnly] = useState(false);
@@ -46,6 +47,14 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
 
   const filteredAndSortedMembers = useMemo(() => {
     const filtered = members.filter((member) => {
+      // Search filter
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        const matchesName = member.name.toLowerCase().includes(q);
+        const matchesTitle = member.title?.toLowerCase().includes(q);
+        if (!matchesName && !matchesTitle) return false;
+      }
+
       if (openToWorkOnly && !member.openToWork) {
         return false;
       }
@@ -67,7 +76,10 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
       return true;
     });
 
-    switch (sortBy) {
+    // Auto-sort alphabetically when searching, otherwise use selected sort
+    const effectiveSort = searchQuery ? "alpha" : sortBy;
+
+    switch (effectiveSort) {
       case "alpha":
         return [...filtered].sort((a, b) => a.name.localeCompare(b.name));
       case "newest":
@@ -78,9 +90,10 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
       default:
         return shuffleArray(filtered, shuffleSeed.current);
     }
-  }, [members, selectedFocus, selectedExperience, openToWorkOnly, sortBy]);
+  }, [members, searchQuery, selectedFocus, selectedExperience, openToWorkOnly, sortBy]);
 
   const handleClearFilters = () => {
+    setSearchQuery("");
     setSelectedFocus([]);
     setSelectedExperience(null);
     setOpenToWorkOnly(false);
@@ -90,10 +103,12 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
     <>
       <div className="space-y-6">
         <MemberFilters
+          searchQuery={searchQuery}
           selectedFocus={selectedFocus}
           selectedExperience={selectedExperience}
           openToWorkOnly={openToWorkOnly}
           sortBy={sortBy}
+          onSearchChange={setSearchQuery}
           onFocusChange={setSelectedFocus}
           onExperienceChange={setSelectedExperience}
           onOpenToWorkChange={setOpenToWorkOnly}
