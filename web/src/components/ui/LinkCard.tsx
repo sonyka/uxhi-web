@@ -19,7 +19,7 @@ interface LinkCardProps {
  * - Border radius: 16px (rounded-[16px])
  * - Padding: 20px (p-5)
  * - Title: text-base, font-medium, gray-900, hover: teal-600
- * - Description: text-sm, teal-600
+ * - Description: text-sm, purple-700
  * - Icon: gray-400, hover: teal-500
  *
  * @see /design-system for usage examples
@@ -37,7 +37,7 @@ export function LinkCard({ href, title, description, className = "" }: LinkCardP
           {title}
         </p>
         {description && (
-          <p className="text-sm text-teal-600">{description}</p>
+          <p className="text-sm text-purple-700">{description}</p>
         )}
       </div>
       <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors flex-shrink-0" />
