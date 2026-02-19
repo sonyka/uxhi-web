@@ -113,9 +113,9 @@ export default async function EventsPage() {
         </div>
       </div>
 
-      {/* Upcoming Events Section */}
+      {/* Upcoming Events Section - Luma Embed */}
       <section className="pt-12 pb-20 px-6 bg-white">
-        <div className="max-w-[900px] mx-auto text-center">
+        <div className="max-w-[1100px] mx-auto text-center">
           {/* Upcoming Events Icon */}
           <div className="w-32 h-32 mx-auto mb-6 relative">
             <Image
@@ -125,87 +125,26 @@ export default async function EventsPage() {
               className="object-contain"
             />
           </div>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-purple-700 mb-8">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-purple-700 mb-12">
             Upcoming Events
           </h2>
 
-          <div className="text-left max-w-[700px] mx-auto">
-            {events.length > 0 ? (
-              <ul className="space-y-4">
-                {events.map((event) => (
-                  <li key={event._id} className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
-                    <span className="text-purple-700 font-bold text-sm uppercase tracking-wide shrink-0">
-                      {formatEventDate(event.date)}{event.tentative ? " (TBC)" : ""}
-                    </span>
-                    <div className="flex flex-col">
-                      <span className="font-semibold text-gray-900">
-                        {event.url ? (
-                          <a href={event.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-teal-500 transition-colors">
-                            {event.title}
-                          </a>
-                        ) : (
-                          event.title
-                        )}
-                      </span>
-                      {(event.time || event.location) && (
-                        <span className="text-sm text-gray-600 mt-0.5">
-                          {[event.time, event.location].filter(Boolean).join(" · ")}
-                        </span>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <>
-                <p className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-4">From Notion (Draft)</p>
-                <ul className="space-y-4">
-                  {fallbackEvents.map((event) => (
-                    <li key={event.title} className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
-                      <span className="text-purple-700 font-bold text-sm uppercase tracking-wide shrink-0">
-                        {event.date}{event.tentative ? " (TBC)" : ""}
-                      </span>
-                      <div className="flex flex-col">
-                        <span className="font-semibold text-gray-900">{event.title}</span>
-                        <span className="text-sm text-gray-600 mt-0.5">{event.time}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-6 text-gray-600 text-sm italic">
-                  ** They are interested in hosting another UX 101 session, we will just need to respond with preferred date(s)/time(s)
-                </p>
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Past Events Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-[1100px] mx-auto">
-          <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-12 text-center">
-            Past Events
-          </h2>
-
-          {/* Luma Embed - Past Events */}
           <iframe
-            src="https://lu.ma/embed/calendar/cal-gT2HhpGHlTpnIvZ/events?lt=light&period=past"
+            src="https://luma.com/embed/calendar/cal-eVKNyHwNb84u0D4/events?lt=light"
             width="100%"
-            height="700"
-            frameBorder="0"
-            className="border-0 rounded-lg"
-            title="UXHI Past Events on Luma"
+            className="border-0 rounded-lg min-h-[400px] h-[60vh] bg-white"
+            title="UXHI Upcoming Events on Luma"
             allowFullScreen
           />
 
           <div className="text-center mt-8">
-            <PrimaryCTA href="https://lu.ma/user/uxhi" external>
+            <PrimaryCTA href="https://luma.com/user/uxhi" variant="subdued" external>
               View All Events on Luma
             </PrimaryCTA>
           </div>
         </div>
       </section>
+
 
       {/* Conference Attendees Photo */}
       <section className="px-6 pb-16 bg-white">
