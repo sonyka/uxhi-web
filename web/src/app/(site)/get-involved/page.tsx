@@ -463,46 +463,47 @@ export default async function GetInvolvedPage() {
       {/* Speaker Photo Bento Grid */}
       <section className="px-6 pb-16 bg-white">
         <div className="max-w-[1300px] mx-auto">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2">
+          <div className="flex flex-col lg:flex-row gap-4 lg:h-[500px]">
             {/* Left column — tall */}
-            <div className="relative lg:row-span-2">
+            <div className="relative flex-1 min-h-0">
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-t-[calc(2rem_+_1px)] lg:rounded-l-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
+                <div className="relative aspect-[3/4] lg:aspect-auto w-full lg:flex-1">
                   <Image src="/images/get-involved/bentogrid-getinvolved-1.jpg" alt="UXHI speaker with lei" fill className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
             </div>
-            {/* Row 1, Center */}
-            <div className="relative">
-              <div className="absolute inset-px rounded-lg bg-white" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
-                <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/get-involved/bentogrid-getinvolved-2.jpg" alt="UXHI conference audience" fill className="object-cover" />
+            {/* Center column — two stacked images */}
+            <div className="flex flex-col gap-4 flex-1 min-h-0">
+              <div className="relative flex-1 min-h-0">
+                <div className="absolute inset-px rounded-lg bg-white" />
+                <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
+                  <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
+                    <Image src="/images/get-involved/bentogrid-getinvolved-2.jpg" alt="UXHI conference audience" fill className="object-cover" />
+                  </div>
                 </div>
+                <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
               </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
-            </div>
-            {/* Row 1, Right */}
-            <div className="relative">
-              <div className="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] lg:rounded-tr-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/get-involved/bentogrid-getinvolved-3.jpg" alt="UXHI panelists speaking" fill className="object-cover" />
+              <div className="relative flex-1 min-h-0">
+                <div className="absolute inset-px rounded-lg bg-white" />
+                <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
+                  <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
+                    <Image src="/images/get-involved/bentogrid-getinvolved-3.jpg" alt="UXHI panelists speaking" fill className="object-cover" />
+                  </div>
                 </div>
+                <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
               </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]" />
             </div>
-            {/* Row 2, Wide — spans center + right columns */}
-            <div className="relative lg:col-span-2">
-              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-b-[calc(2rem_+_1px)] lg:rounded-br-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
+            {/* Right column — tall */}
+            <div className="relative flex-1 min-h-0">
+              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-b-[calc(2rem_+_1px)] lg:rounded-r-[calc(2rem_+_1px)]">
+                <div className="relative aspect-[3/4] lg:aspect-auto w-full lg:flex-1">
                   <Image src="/images/get-involved/bentogrid-getinvolved-4.jpg" alt="UX means no user gets left behind sticker" fill className="object-cover" />
                 </div>
               </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]" />
             </div>
           </div>
         </div>
