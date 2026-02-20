@@ -146,16 +146,50 @@ export default async function EventsPage() {
       </section>
 
 
-      {/* Conference Attendees Photo */}
+      {/* Conference Attendees Bento Grid */}
       <section className="px-6 pb-16 bg-white">
         <div className="max-w-[1300px] mx-auto">
-          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
-            <Image
-              src="/images/events/image-events.jpg"
-              alt="UXHI conference attendees"
-              fill
-              className="object-cover"
-            />
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2">
+            {/* Row 1, Left — wide */}
+            <div className="relative lg:col-span-2">
+              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-t-[calc(2rem_+_1px)] lg:rounded-tl-[calc(2rem_+_1px)]">
+                <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
+                  <Image src="/images/events/bento-events-01.png" alt="UXHI photobooth" fill className="object-cover" />
+                </div>
+              </div>
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
+            </div>
+            {/* Row 1, Right — narrow */}
+            <div className="relative">
+              <div className="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] lg:rounded-tr-[calc(2rem_+_1px)]">
+                <div className="relative aspect-[3/2] w-full">
+                  <Image src="/images/events/bento-events-04.png" alt="UXHI community members" fill className="object-cover" />
+                </div>
+              </div>
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]" />
+            </div>
+            {/* Row 2, Left — narrow */}
+            <div className="relative">
+              <div className="absolute inset-px rounded-lg bg-white lg:rounded-bl-[2rem]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] lg:rounded-bl-[calc(2rem_+_1px)]">
+                <div className="relative aspect-[3/2] w-full">
+                  <Image src="/images/events/bento-events-03.png" alt="UXHICon" fill className="object-cover" />
+                </div>
+              </div>
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]" />
+            </div>
+            {/* Row 2, Right — wide */}
+            <div className="relative lg:col-span-2">
+              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-b-[calc(2rem_+_1px)] lg:rounded-br-[calc(2rem_+_1px)]">
+                <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
+                  <Image src="/images/events/bento-events-05.png" alt="UXHI community crowd" fill className="object-cover" />
+                </div>
+              </div>
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
+            </div>
           </div>
         </div>
       </section>

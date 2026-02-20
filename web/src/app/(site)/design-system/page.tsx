@@ -2172,46 +2172,29 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
   "layout-grids": (
-    <ContentSection title="Image Grid Patterns" description="Responsive image layouts and bento-style grids.">
+    <ContentSection title="Image Grid Patterns" description="Responsive image layouts used on the site.">
       <div className="space-y-12">
         <div>
           <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Staggered Community Grid</h4>
-          <p className="text-sm text-gray-500 mb-4">9-column desktop, 5-column tablet, 3-column mobile with offset columns</p>
-          <div className="grid grid-cols-5 gap-3">
-            {[0, 16, 24, 8, 16].map((offset, i) => (
-              <div key={i} className="flex flex-col gap-3" style={{ paddingTop: `${offset}px` }}>
-                <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200" />
-                {i !== 2 && <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-200" />}
+          <p className="text-sm text-gray-500 mb-4">Used by <code className="bg-gray-100 px-2 py-1 rounded">CommunityPhotosGrid</code> on the homepage. 9-column desktop grid, 5-column tablet, 3-column mobile. Each column has a vertical offset for a staggered look, with 3:4 aspect-ratio photo cells.</p>
+          <div className="grid grid-cols-9 gap-4">
+            {[
+              { offset: "pt-16", rows: 2 },
+              { offset: "",      rows: 2 },
+              { offset: "pt-24", rows: 1 },
+              { offset: "pt-8",  rows: 1 },
+              { offset: "pt-24", rows: 1 },
+              { offset: "pt-8",  rows: 1 },
+              { offset: "pt-24", rows: 1 },
+              { offset: "",      rows: 2 },
+              { offset: "pt-16", rows: 2 },
+            ].map((col, i) => (
+              <div key={i} className={`flex flex-col gap-4 ${col.offset}`}>
+                {Array.from({ length: col.rows }).map((_, j) => (
+                  <div key={j} className="w-full aspect-[3/4] rounded-[16px] bg-gray-200" />
+                ))}
               </div>
             ))}
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Standard Image Grid</h4>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="aspect-square rounded-xl bg-gray-200" />
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Bento Grid</h4>
-          <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[400px]">
-            <div className="col-span-2 row-span-2 rounded-xl bg-purple-700 p-6 text-white flex flex-col justify-end">
-              <h4 className="font-display text-2xl">Large Feature</h4>
-              <p className="text-white/80">2x2 cell</p>
-            </div>
-            <div className="rounded-xl bg-teal-500 p-4 text-white flex flex-col justify-end">
-              <p className="font-medium">Small</p>
-            </div>
-            <div className="rounded-xl bg-cream p-4 flex flex-col justify-end">
-              <p className="font-medium text-purple-700">Small</p>
-            </div>
-            <div className="col-span-2 rounded-xl bg-gray-200 p-4 flex flex-col justify-end">
-              <p className="font-medium text-gray-700">Wide (2x1)</p>
-            </div>
           </div>
         </div>
       </div>
