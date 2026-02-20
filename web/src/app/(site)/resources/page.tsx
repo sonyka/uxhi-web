@@ -263,57 +263,56 @@ export default async function ResourcesPage() {
 
       {/* Conference Photo Bento Grid */}
       <section className="px-6 pb-16 bg-white">
-        <div className="max-w-[1300px] mx-auto">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2">
-            {/* Row 1, Left — wide */}
-            <div className="relative lg:col-span-2">
-              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-t-[calc(2rem_+_1px)] lg:rounded-tl-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
-                  <Image src="/images/resources/bento-resources-01.png" alt="UX101 group" fill className="object-cover" />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
-            </div>
-            {/* Row 1, Right */}
-            <div className="relative">
-              <div className="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] lg:rounded-tr-[calc(2rem_+_1px)]">
+        <div className="max-w-[1300px] mx-auto flex flex-col gap-4">
+          {/* Top row — 2 equal images */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="relative flex-1">
+              <div className="absolute inset-px rounded-lg bg-white max-sm:rounded-t-[2rem] sm:rounded-tl-[2rem]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-sm:rounded-t-[calc(2rem_+_1px)] sm:rounded-tl-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bento-resources-02.png" alt="UXHI conference" fill className="object-cover" />
+                  <Image src="/images/resources/bentogrid-resources-1.jpg" alt="UXHI conference stickers and swag" fill className="object-cover" />
                 </div>
               </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]" />
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-sm:rounded-t-[2rem] sm:rounded-tl-[2rem]" />
             </div>
-            {/* Row 2, Left */}
-            <div className="relative">
-              <div className="absolute inset-px rounded-lg bg-white lg:rounded-bl-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] lg:rounded-bl-[calc(2rem_+_1px)]">
+            <div className="relative flex-1">
+              <div className="absolute inset-px rounded-lg bg-white sm:rounded-tr-[2rem]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] sm:rounded-tr-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bento-resources-03.png" alt="UXHI community members" fill className="object-cover" />
+                  <Image src="/images/resources/bentogrid-resources-2.jpg" alt="UXHI panelists speaking at conference" fill className="object-cover" />
                 </div>
               </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]" />
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 sm:rounded-tr-[2rem]" />
             </div>
-            {/* Row 2, Center */}
-            <div className="relative">
+          </div>
+          {/* Bottom row — 3 equal images */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="relative flex-1">
+              <div className="absolute inset-px rounded-lg bg-white sm:rounded-bl-[2rem]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] sm:rounded-bl-[calc(2rem_+_1px)]">
+                <div className="relative aspect-[3/2] w-full">
+                  <Image src="/images/resources/bentogrid-resources-3.jpg" alt="UXHI speaker with lei" fill className="object-cover" />
+                </div>
+              </div>
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 sm:rounded-bl-[2rem]" />
+            </div>
+            <div className="relative flex-1">
               <div className="absolute inset-px rounded-lg bg-white" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bento-resources-04.png" alt="UXHI community crowd" fill className="object-cover" />
+                  <Image src="/images/resources/bentogrid-resources-4.jpg" alt="UXHI member sharing phone at event" fill className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
             </div>
-            {/* Row 2, Right */}
-            <div className="relative">
-              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-b-[calc(2rem_+_1px)] lg:rounded-br-[calc(2rem_+_1px)]">
+            <div className="relative flex-1">
+              <div className="absolute inset-px rounded-lg bg-white max-sm:rounded-b-[2rem] sm:rounded-br-[2rem]" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-sm:rounded-b-[calc(2rem_+_1px)] sm:rounded-br-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bento-resources-05.png" alt="UXHI photobooth" fill className="object-cover" />
+                  <Image src="/images/resources/bentogrid-resources-5.jpg" alt="UXHI community members posing together" fill className="object-cover" />
                 </div>
               </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-sm:rounded-b-[2rem] sm:rounded-br-[2rem]" />
             </div>
           </div>
         </div>
