@@ -469,7 +469,7 @@ export default async function GetInvolvedPage() {
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-t-[calc(2rem_+_1px)] lg:rounded-l-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
-                  <Image src="/images/get-involved/bento-getinvolved-01.png" alt="UXHI conference" fill className="object-cover" />
+                  <Image src="/images/get-involved/bentogrid-getinvolved-1.jpg" alt="UXHI speaker with lei" fill className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
@@ -479,7 +479,7 @@ export default async function GetInvolvedPage() {
               <div className="absolute inset-px rounded-lg bg-white" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/get-involved/bento-getinvolved-02.png" alt="UXHI community crowd" fill className="object-cover" />
+                  <Image src="/images/get-involved/bentogrid-getinvolved-2.jpg" alt="UXHI conference audience" fill className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
@@ -489,27 +489,17 @@ export default async function GetInvolvedPage() {
               <div className="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] lg:rounded-tr-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/get-involved/bento-getinvolved-03.png" alt="UX101 group" fill className="object-cover" />
+                  <Image src="/images/get-involved/bentogrid-getinvolved-3.jpg" alt="UXHI panelists speaking" fill className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]" />
             </div>
-            {/* Row 2, Center */}
-            <div className="relative">
-              <div className="absolute inset-px rounded-lg bg-white" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
-                <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/get-involved/bento-getinvolved-04.png" alt="UXHI community members" fill className="object-cover" />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
-            </div>
-            {/* Row 2, Right */}
-            <div className="relative">
+            {/* Row 2, Wide — spans center + right columns */}
+            <div className="relative lg:col-span-2">
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-b-[calc(2rem_+_1px)] lg:rounded-br-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/get-involved/bento-getinvolved-05.png" alt="UXHI photobooth" fill className="object-cover" />
+                <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
+                  <Image src="/images/get-involved/bentogrid-getinvolved-4.jpg" alt="UX means no user gets left behind sticker" fill className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
