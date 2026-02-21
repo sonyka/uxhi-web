@@ -166,11 +166,10 @@ export default async function JoinPage() {
       <section id="join-form" className="py-20 px-6 bg-purple-700">
         <div className="max-w-[800px] mx-auto">
           <div className="text-center mb-10">
-            {/* Slack Icon */}
             <div className="w-32 h-32 mx-auto mb-6 relative">
               <Image
-                src="/images/icons/icon-slack.png"
-                alt="Slack"
+                src="/images/motifs/uxhi-rounds-motif.svg"
+                alt=""
                 fill
                 className="object-contain"
               />
