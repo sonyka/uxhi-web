@@ -166,7 +166,7 @@ export default async function JoinPage() {
       <section id="join-form" className="py-20 px-6 bg-purple-700">
         <div className="max-w-[800px] mx-auto">
           <div className="text-center mb-10">
-            <div className="mx-auto mb-6">
+            <div className="flex justify-center mb-6">
               <Image
                 src="/images/motifs/uxhi-rounds-motif.svg"
                 alt=""
