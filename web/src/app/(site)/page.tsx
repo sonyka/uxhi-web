@@ -385,8 +385,8 @@ export default async function HomePage() {
             <Image
               src="/images/motifs/uxhi-rounds-motif.svg"
               alt=""
-              width={280}
-              height={168}
+              width={256}
+              height={256}
               className="mx-auto mb-6"
             />
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6 leading-tight">
