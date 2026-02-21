@@ -49,7 +49,7 @@ export default async function FindUXProPage() {
             </div>
             <div className="w-[120px] shrink-0 flex items-center justify-center">
               <Image
-                src="/images/bento/uxhi-motif-2.svg"
+                src="/images/motifs/uxhi-motif-2.svg"
                 alt="UXHI motif"
                 width={120}
                 height={120}
@@ -81,7 +81,7 @@ export default async function FindUXProPage() {
             </div>
             <div className="w-[114px] mx-auto flex items-center justify-center">
               <Image
-                src="/images/bento/uxhi-motif-2.svg"
+                src="/images/motifs/uxhi-motif-2.svg"
                 alt="UXHI motif"
                 width={114}
                 height={114}
@@ -139,7 +139,7 @@ export default async function FindUXProPage() {
               </div>
               <div className="w-[114px] lg:w-[128px] mx-auto flex items-center justify-center">
                 <Image
-                  src="/images/bento/uxhi-motif-2.svg"
+                  src="/images/motifs/uxhi-motif-2.svg"
                   alt="UXHI motif"
                   width={128}
                   height={128}

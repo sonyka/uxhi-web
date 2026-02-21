@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 // Placeholder images for the grid
 const gridImages = [
-  { id: "1", src: "/images/bento/group-leis.jpg", alt: "UXHI community members with leis" },
-  { id: "2", src: "/images/bento/conference.jpg", alt: "UXHI conference" },
-  { id: "3", src: "/images/bento/ux101-group.jpg", alt: "UX101 group" },
-  { id: "4", src: "/images/bento/crowd-community.jpg", alt: "UXHI community crowd" },
-  { id: "5", src: "/images/bento/photobooth.jpg", alt: "UXHI photobooth" },
-  { id: "6", src: "/images/bento/uxhicon-25.jpg", alt: "UXHICon 25" },
+  { id: "1", src: "/images/motifs/group-leis.jpg", alt: "UXHI community members with leis" },
+  { id: "2", src: "/images/motifs/conference.jpg", alt: "UXHI conference" },
+  { id: "3", src: "/images/motifs/ux101-group.jpg", alt: "UX101 group" },
+  { id: "4", src: "/images/motifs/crowd-community.jpg", alt: "UXHI community crowd" },
+  { id: "5", src: "/images/motifs/photobooth.jpg", alt: "UXHI photobooth" },
+  { id: "6", src: "/images/motifs/uxhicon-25.jpg", alt: "UXHICon 25" },
 ];
 
 // Committees data

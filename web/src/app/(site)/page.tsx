@@ -383,7 +383,7 @@ export default async function HomePage() {
           <div className="text-center pt-4">
             {/* Decorative Motif */}
             <Image
-              src="/images/bento/uxhi-rounds-motif.svg"
+              src="/images/motifs/uxhi-rounds-motif.svg"
               alt=""
               width={280}
               height={168}

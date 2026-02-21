@@ -60,7 +60,7 @@ export default async function EventsPage() {
               <Image src="/images/events/bento-events-01.png" alt="UXHI photobooth" fill className="object-cover" />
             </div>
             <div className="w-[120px] shrink-0 flex items-center justify-center">
-              <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={120} height={120} className="w-[120px] h-[120px]" />
+              <Image src="/images/motifs/uxhi-motif-2.svg" alt="UXHI motif" width={120} height={120} className="w-[120px] h-[120px]" />
             </div>
             <div className="flex-1 h-[140px] rounded-t-xl rounded-b-[99px] overflow-hidden relative">
               <Image src="/images/events/bento-events-02.png" alt="UXHI conference" fill className="object-cover" />
@@ -76,7 +76,7 @@ export default async function EventsPage() {
               <Image src="/images/events/bento-events-01.png" alt="UXHI photobooth" fill className="object-cover" />
             </div>
             <div className="w-[114px] mx-auto flex items-center justify-center">
-              <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={114} height={114} className="w-[114px] h-[114px]" />
+              <Image src="/images/motifs/uxhi-motif-2.svg" alt="UXHI motif" width={114} height={114} className="w-[114px] h-[114px]" />
             </div>
             <div className="w-full h-[180px] rounded-t-[7px] rounded-b-[88px] overflow-hidden relative">
               <Image src="/images/events/bento-events-02.png" alt="UXHI conference" fill className="object-cover" />
@@ -103,7 +103,7 @@ export default async function EventsPage() {
                 <Image src="/images/events/bento-events-04.png" alt="UXHI community members with leis" fill className="object-cover" />
               </div>
               <div className="w-[114px] lg:w-[128px] mx-auto flex items-center justify-center">
-                <Image src="/images/bento/uxhi-motif-2.svg" alt="UXHI motif" width={128} height={128} className="w-[114px] lg:w-[128px] h-[114px] lg:h-[128px]" />
+                <Image src="/images/motifs/uxhi-motif-2.svg" alt="UXHI motif" width={128} height={128} className="w-[114px] lg:w-[128px] h-[114px] lg:h-[128px]" />
               </div>
               <div className="w-full h-[180px] lg:h-[201px] rounded-[7px] lg:rounded-lg overflow-hidden relative">
                 <Image src="/images/events/bento-events-05.png" alt="UXHI community crowd" fill className="object-cover" />
