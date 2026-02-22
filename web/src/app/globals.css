@@ -55,8 +55,23 @@
 
   /* Colors - Neutral / Brand */
   --color-cream: #f4f1ea;
-  --color-cream-dark: #e8e4db;
 
+  /* Colors - Beige */
+  --color-beige-10: #FDFBF7;
+  --color-beige-20: #F9F5ED;
+  --color-beige-30: #F4F1EA;
+  --color-beige-40: #EDE8DD;
+  --color-beige-50: #E5DED0;
+  --color-beige-60: #DCD3C2;
+  --color-beige-70: #D0C5B0;
+  --color-beige-80: #C0B49B;
+  --color-beige-90: #ADA084;
+  --color-beige-100: #968A6D;
+  --color-beige-110: #7B7159;
+  --color-beige-120: #625A47;
+  --color-beige-130: #4A4335;
+  --color-beige-140: #332E25;
+  --color-beige-150: #1C1A14;
 
   /* Colors - Orange */
   --color-orange-10: #FFE7DE;

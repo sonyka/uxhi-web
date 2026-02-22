@@ -58,9 +58,11 @@ const navigationItems = [
       { id: "colors-teal", label: "Primary — Teal" },
       { id: "colors-purple", label: "Secondary — Purple" },
       { id: "colors-gray", label: "Gray Scale" },
+      { id: "colors-beige", label: "Beige" },
       { id: "colors-orange", label: "Orange" },
       { id: "colors-yellow", label: "Yellow" },
       { id: "colors-neutral", label: "Neutral" },
+      { id: "colors-semantic", label: "Semantic Colors" },
     ],
   },
   {
@@ -772,13 +774,86 @@ const contentComponents: Record<string, React.ReactNode> = {
       </div>
     </ContentSection>
   ),
+  "colors-beige": (
+    <ContentSection title="Beige" description="Warm neutral palette (15-step scale). Beige-30 matches Cream background. Click any swatch to copy its hex value.">
+      <div className="grid grid-cols-5 md:grid-cols-8 gap-3">
+        <ColorSwatch name="10" value="#FDFBF7" />
+        <ColorSwatch name="20" value="#F9F5ED" />
+        <ColorSwatch name="30" value="#F4F1EA" badge="Cream" />
+        <ColorSwatch name="40" value="#EDE8DD" />
+        <ColorSwatch name="50" value="#E5DED0" />
+        <ColorSwatch name="60" value="#DCD3C2" />
+        <ColorSwatch name="70" value="#D0C5B0" />
+        <ColorSwatch name="80" value="#C0B49B" />
+        <ColorSwatch name="90" value="#ADA084" textColor="text-white" />
+        <ColorSwatch name="100" value="#968A6D" textColor="text-white" />
+        <ColorSwatch name="110" value="#7B7159" textColor="text-white" />
+        <ColorSwatch name="120" value="#625A47" textColor="text-white" />
+        <ColorSwatch name="130" value="#4A4335" textColor="text-white" />
+        <ColorSwatch name="140" value="#332E25" textColor="text-white" />
+        <ColorSwatch name="150" value="#1C1A14" textColor="text-white" />
+      </div>
+    </ContentSection>
+  ),
   "colors-neutral": (
     <ContentSection title="Neutral" description="Background and accent colors. Click any swatch to copy its hex value.">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         <ColorSwatch name="White" value="#ffffff" />
         <ColorSwatch name="Cream" value="#f4f1ea" badge="Background" />
-        <ColorSwatch name="Cream Dark" value="#e8e4db" />
         <ColorSwatch name="Black" value="#000000" textColor="text-white" />
+      </div>
+    </ContentSection>
+  ),
+  "colors-semantic": (
+    <ContentSection title="Semantic Colors" description="Maps raw scale values to their semantic roles. These are not new CSS variables — they reference the scale tokens above. Use these mappings when choosing colors by purpose.">
+      <div className="space-y-10">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Background</h4>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            <ColorSwatch name="Background" value="#F4F1EA" badge="beige-30" />
+            <ColorSwatch name="Background Elevated" value="#FFFFFF" badge="white" />
+            <ColorSwatch name="Background Subtle" value="#F8F9FA" badge="gray-10" />
+            <ColorSwatch name="Background Accent" value="#F1FDFB" badge="teal-10" />
+            <ColorSwatch name="Background Inverse" value="#231769" textColor="text-white" badge="purple-140" />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Text</h4>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            <ColorSwatch name="Text Primary" value="#16191B" textColor="text-white" badge="gray-140" />
+            <ColorSwatch name="Text Secondary" value="#50555A" textColor="text-white" badge="gray-110" />
+            <ColorSwatch name="Text Tertiary" value="#676D73" textColor="text-white" badge="gray-100" />
+            <ColorSwatch name="Text Inverse" value="#FFFFFF" badge="white" />
+            <ColorSwatch name="Text Inverse Secondary" value="#9C8FE6" badge="purple-50" />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Foreground (Icons & Accents)</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <ColorSwatch name="Foreground Primary" value="#231769" textColor="text-white" badge="purple-140" />
+            <ColorSwatch name="Foreground Secondary" value="#09C0D7" textColor="text-white" badge="teal-90" />
+            <ColorSwatch name="Foreground Inverse" value="#FFFFFF" badge="white" />
+            <ColorSwatch name="Foreground Muted" value="#969DA4" textColor="text-white" badge="gray-80" />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Dividers & Borders</h4>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <ColorSwatch name="Border Default" value="#DFE2E6" badge="gray-30" />
+            <ColorSwatch name="Border Subtle" value="#ECEEF0" badge="gray-20" />
+            <ColorSwatch name="Border Inverse" value="rgba(255,255,255,0.2)" badge="white/20" />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Status</h4>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            <ColorSwatch name="Warning" value="#FF6933" textColor="text-white" badge="orange-90" />
+            <ColorSwatch name="Warning Subtle" value="rgba(255,105,51,0.2)" badge="orange-90/20" />
+            <ColorSwatch name="Success" value="#09C0D7" textColor="text-white" badge="teal-90" />
+            <ColorSwatch name="Danger" value="#F34100" textColor="text-white" badge="orange-110" />
+            <ColorSwatch name="Info" value="#9C8FE6" badge="purple-50" />
+          </div>
+        </div>
       </div>
     </ContentSection>
   ),
