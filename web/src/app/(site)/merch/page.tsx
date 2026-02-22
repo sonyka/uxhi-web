@@ -219,7 +219,7 @@ export default async function ShopPage() {
                     </span>
                   )}
                   {product.featured && (
-                    <span className="absolute top-4 right-4 bg-yellow text-gray-140 text-xs px-3 py-1 rounded-full font-medium">
+                    <span className="absolute top-4 right-4 bg-yellow-80 text-gray-140 text-xs px-3 py-1 rounded-full font-medium">
                       Featured
                     </span>
                   )}

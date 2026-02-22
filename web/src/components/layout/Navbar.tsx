@@ -36,7 +36,7 @@ interface NavbarProps {
  * - Chevron icons: w-4 h-4 (16px), text-gray-100 (#676D73)
  * - External link icons: w-4 h-4 (16px), text-gray-80 (#969DA4)
  * - CTA: shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)], pl-5, pr-2, py-2, gap-2
- * - Yellow circle: bg-yellow, w-[30px] h-[30px], rounded-full
+ * - Yellow circle: bg-yellow-80, w-[30px] h-[30px], rounded-full
  */
 export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: NavbarProps) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -134,7 +134,7 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
         <TextSlideUp className="text-base font-medium text-black">
           {ctaLabel}
         </TextSlideUp>
-        <span className="w-[30px] h-[30px] rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
+        <span className="w-[30px] h-[30px] rounded-full bg-yellow-80 flex items-center justify-center group-hover:bg-yellow-100 transition-colors">
           <ArrowIcon className="w-4 h-4 text-black" />
         </span>
       </Link>
@@ -255,7 +255,7 @@ export function MobileNavbar({
                 onClick={onClose}
               >
                 <span className="text-base text-black">{ctaLabel}</span>
-                <span className="w-9 h-9 rounded-full bg-yellow flex items-center justify-center group-hover:bg-yellow-hover transition-colors">
+                <span className="w-9 h-9 rounded-full bg-yellow-80 flex items-center justify-center group-hover:bg-yellow-100 transition-colors">
                   <ArrowIcon className="w-4 h-4 text-black" />
                 </span>
               </Link>

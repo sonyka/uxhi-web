@@ -58,8 +58,9 @@ const navigationItems = [
       { id: "colors-teal", label: "Primary — Teal" },
       { id: "colors-purple", label: "Secondary — Purple" },
       { id: "colors-gray", label: "Gray Scale" },
+      { id: "colors-orange", label: "Orange" },
+      { id: "colors-yellow", label: "Yellow" },
       { id: "colors-neutral", label: "Neutral / Brand" },
-      { id: "colors-yellow", label: "Accent — Yellow" },
     ],
   },
   {
@@ -417,7 +418,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)]</span></p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">pl-5 pr-2 py-2</span> padding</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">w-[30px] h-[30px]</span> yellow circle</p>
-                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-yellow</span> → <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-yellow-hover</span></p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-yellow-80</span> → <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-yellow-100</span></p>
               </div>
             </div>
           </div>
@@ -719,7 +720,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <ColorSwatch name="60" value="#60D7E5" />
         <ColorSwatch name="70" value="#43CFE0" />
         <ColorSwatch name="80" value="#26C8DC" />
-        <ColorSwatch name="90" value="#09C0D7" textColor="text-white" badge="Primary" />
+        <ColorSwatch name="90" value="#09C0D7" textColor="text-white" badge="Brand" />
         <ColorSwatch name="100" value="#08A5B8" textColor="text-white" />
         <ColorSwatch name="110" value="#06899A" textColor="text-white" />
         <ColorSwatch name="120" value="#056E7B" textColor="text-white" />
@@ -742,10 +743,10 @@ const contentComponents: Record<string, React.ReactNode> = {
         <ColorSwatch name="80" value="#614CD8" textColor="text-white" />
         <ColorSwatch name="90" value="#4D35D3" textColor="text-white" />
         <ColorSwatch name="100" value="#412BC2" textColor="text-white" />
-        <ColorSwatch name="110" value="#4424A7" textColor="text-white" />
+        <ColorSwatch name="110" value="#4424A7" textColor="text-white" badge="Brand" />
         <ColorSwatch name="120" value="#392092" textColor="text-white" />
         <ColorSwatch name="130" value="#2E1B7E" textColor="text-white" />
-        <ColorSwatch name="140" value="#231769" textColor="text-white" badge="Secondary" />
+        <ColorSwatch name="140" value="#231769" textColor="text-white" badge="Brand" />
         <ColorSwatch name="150" value="#120C35" textColor="text-white" />
       </div>
     </ContentSection>
@@ -781,11 +782,45 @@ const contentComponents: Record<string, React.ReactNode> = {
       </div>
     </ContentSection>
   ),
+  "colors-orange": (
+    <ContentSection title="Orange" description="Orange color palette (15-step scale from Figma). Click any swatch to copy its hex value.">
+      <div className="grid grid-cols-5 md:grid-cols-8 lg:grid-cols-15 gap-3">
+        <ColorSwatch name="10" value="#FFE7DE" />
+        <ColorSwatch name="20" value="#FFD7C8" />
+        <ColorSwatch name="30" value="#FFCBB8" />
+        <ColorSwatch name="40" value="#FFBFA8" />
+        <ColorSwatch name="50" value="#FFB398" />
+        <ColorSwatch name="60" value="#FFA787" />
+        <ColorSwatch name="70" value="#FF9B77" />
+        <ColorSwatch name="80" value="#FF9066" badge="Brand" />
+        <ColorSwatch name="90" value="#FF6933" textColor="text-white" />
+        <ColorSwatch name="100" value="#FF571A" textColor="text-white" />
+        <ColorSwatch name="110" value="#F34100" textColor="text-white" />
+        <ColorSwatch name="120" value="#CC3600" textColor="text-white" />
+        <ColorSwatch name="130" value="#A62D00" textColor="text-white" />
+        <ColorSwatch name="140" value="#802200" textColor="text-white" />
+        <ColorSwatch name="150" value="#4D1400" textColor="text-white" />
+      </div>
+    </ContentSection>
+  ),
   "colors-yellow": (
-    <ContentSection title="Accent — Yellow" description="Accent color for CTAs and highlights. Click any swatch to copy its hex value.">
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-3 max-w-xs">
-        <ColorSwatch name="Yellow" value="#ffcc40" compact />
-        <ColorSwatch name="Yellow Hover" value="#e5b532" compact />
+    <ContentSection title="Yellow" description="Yellow color palette (15-step scale from Figma). Click any swatch to copy its hex value.">
+      <div className="grid grid-cols-5 md:grid-cols-8 lg:grid-cols-15 gap-3">
+        <ColorSwatch name="10" value="#FFF4D7" />
+        <ColorSwatch name="20" value="#FFEDBC" />
+        <ColorSwatch name="30" value="#FFE8A8" />
+        <ColorSwatch name="40" value="#FFE293" />
+        <ColorSwatch name="50" value="#FFDD7F" />
+        <ColorSwatch name="60" value="#FFD76B" />
+        <ColorSwatch name="70" value="#FFD257" />
+        <ColorSwatch name="80" value="#FFCC40" badge="Brand" />
+        <ColorSwatch name="90" value="#FFC420" />
+        <ColorSwatch name="100" value="#FCB900" />
+        <ColorSwatch name="110" value="#DBA000" textColor="text-white" />
+        <ColorSwatch name="120" value="#B88700" textColor="text-white" />
+        <ColorSwatch name="130" value="#966800" textColor="text-white" />
+        <ColorSwatch name="140" value="#735400" textColor="text-white" />
+        <ColorSwatch name="150" value="#2E2200" textColor="text-white" />
       </div>
     </ContentSection>
   ),
@@ -934,7 +969,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <button className="btn-primary">btn-primary</button>
         <button className="btn-primary-arrow">
           <span className="text-white">btn-primary-arrow</span>
-          <span className="w-8 h-8 rounded-full bg-yellow flex items-center justify-center">
+          <span className="w-8 h-8 rounded-full bg-yellow-80 flex items-center justify-center">
             <ArrowIcon className="w-4 h-4 text-gray-140" />
           </span>
         </button>
@@ -998,11 +1033,11 @@ const contentComponents: Record<string, React.ReactNode> = {
               >
                 <ul className="space-y-2 text-left text-sm">
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-1.5 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 bg-yellow-80 rounded-full mt-1.5 flex-shrink-0" />
                     <span>First bullet point item</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-yellow rounded-full mt-1.5 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 bg-yellow-80 rounded-full mt-1.5 flex-shrink-0" />
                     <span>Second bullet point item</span>
                   </li>
                 </ul>
@@ -1647,7 +1682,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Labels: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-50</span></p>
                 <p>Inputs: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20</span></p>
-                <p>Errors: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-yellow</span></p>
+                <p>Errors: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-yellow-80</span></p>
                 <p>Button: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/30</span></p>
               </div>
             </div>
@@ -1851,7 +1886,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-cream rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Text: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-yellow text-sm mt-1</span></p>
+                <p>Text: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-yellow-80 text-sm mt-1</span></p>
                 <p>Adds <span className="font-mono text-xs bg-gray-20 px-1 rounded">role=&quot;alert&quot;</span> and <span className="font-mono text-xs bg-gray-20 px-1 rounded">id=&quot;&#123;field&#125;-error&quot;</span></p>
                 <p>Returns null when no errors for the given field</p>
               </div>

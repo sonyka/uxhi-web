@@ -58,9 +58,39 @@
   --color-cream-dark: #e8e4db;
 
 
-  /* Colors - Accent Yellow */
-  --color-yellow: #ffcc40;
-  --color-yellow-hover: #e5b532;
+  /* Colors - Orange */
+  --color-orange-10: #FFE7DE;
+  --color-orange-20: #FFD7C8;
+  --color-orange-30: #FFCBB8;
+  --color-orange-40: #FFBFA8;
+  --color-orange-50: #FFB398;
+  --color-orange-60: #FFA787;
+  --color-orange-70: #FF9B77;
+  --color-orange-80: #FF9066;
+  --color-orange-90: #FF6933;
+  --color-orange-100: #FF571A;
+  --color-orange-110: #F34100;
+  --color-orange-120: #CC3600;
+  --color-orange-130: #A62D00;
+  --color-orange-140: #802200;
+  --color-orange-150: #4D1400;
+
+  /* Colors - Yellow */
+  --color-yellow-10: #FFF4D7;
+  --color-yellow-20: #FFEDBC;
+  --color-yellow-30: #FFE8A8;
+  --color-yellow-40: #FFE293;
+  --color-yellow-50: #FFDD7F;
+  --color-yellow-60: #FFD76B;
+  --color-yellow-70: #FFD257;
+  --color-yellow-80: #FFCC40;
+  --color-yellow-90: #FFC420;
+  --color-yellow-100: #FCB900;
+  --color-yellow-110: #DBA000;
+  --color-yellow-120: #B88700;
+  --color-yellow-130: #966800;
+  --color-yellow-140: #735400;
+  --color-yellow-150: #2E2200;
 
   /* Fonts */
   --font-display: var(--font-dela-gothic), ui-sans-serif, system-ui, sans-serif;

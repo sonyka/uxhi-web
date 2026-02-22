@@ -13,7 +13,7 @@ const variants = {
   default: {
     button: "bg-white border border-gray-30 hover:bg-gray-10",
     text: "text-gray-140",
-    circle: "bg-yellow group-hover:bg-yellow-hover",
+    circle: "bg-yellow-80 group-hover:bg-yellow-100",
     icon: "text-gray-140",
   },
   subdued: {

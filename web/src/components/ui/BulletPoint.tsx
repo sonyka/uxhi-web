@@ -25,7 +25,7 @@ interface BulletPointProps {
 export function BulletPoint({ variant = "teal", className = "" }: BulletPointProps) {
   const variantStyles = {
     teal: "bg-teal-90",
-    yellow: "bg-yellow",
+    yellow: "bg-yellow-80",
   };
 
   return (

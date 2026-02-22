@@ -55,7 +55,7 @@ export function FieldError({ errors, field, className }: FieldErrorProps) {
     <p
       role="alert"
       id={`${field}-error`}
-      className={cn("text-yellow text-sm mt-1", className)}
+      className={cn("text-yellow-80 text-sm mt-1", className)}
     >
       {messages[0]}
     </p>
