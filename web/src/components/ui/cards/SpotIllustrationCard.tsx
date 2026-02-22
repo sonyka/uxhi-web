@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { SanityImage } from "@/components/ui/SanityImage";
 
-type SpotIllustrationCardVariant = "dark" | "cream" | "white" | "translucent";
+type SpotIllustrationCardVariant = "dark" | "beige" | "white" | "translucent";
 
 interface SanityImageValue {
   asset?: { _id?: string; url?: string };
@@ -26,7 +26,7 @@ interface SpotIllustrationCardProps {
   /**
    * Visual variant:
    * - dark: Purple background with border (for dark sections)
-   * - cream: Cream background with hover shadow
+   * - beige: Beige background with hover shadow
    * - white: White background with shadow
    * - translucent: Semi-transparent white (for purple backgrounds like findings)
    */
@@ -43,8 +43,8 @@ const variantStyles: Record<SpotIllustrationCardVariant, { card: string; title: 
     title: "font-display text-2xl text-white",
     description: "text-purple-50",
   },
-  cream: {
-    card: "bg-cream hover:shadow-lg transition-shadow duration-300",
+  beige: {
+    card: "bg-beige-30 hover:shadow-lg transition-shadow duration-300",
     title: "font-semibold text-gray-140 group-hover:text-purple-140 transition-colors",
     description: "text-gray-110 text-sm",
   },
@@ -69,8 +69,8 @@ const variantStyles: Record<SpotIllustrationCardVariant, { card: string; title: 
  *
  * Variants:
  * - dark: For purple backgrounds (home features section)
- * - cream: For light backgrounds (committee cards)
- * - white: For cream backgrounds (values cards)
+ * - beige: For light backgrounds (committee cards)
+ * - white: For beige backgrounds (values cards)
  * - translucent: For purple backgrounds with semi-transparent bg (findings cards)
  *
  * @see /design-system for usage examples
@@ -82,7 +82,7 @@ export function SpotIllustrationCard({
   title,
   description,
   children,
-  variant = "cream",
+  variant = "beige",
   footer,
   className = "",
 }: SpotIllustrationCardProps) {

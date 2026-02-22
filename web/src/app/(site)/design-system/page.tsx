@@ -387,7 +387,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Container</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white</span> background</p>
@@ -397,7 +397,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">gap-8</span> (32px) between items</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Typography</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">text-base</span> (16px) font size</p>
@@ -406,7 +406,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">hover:text-gray-120</span> hover</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Icons</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">w-5 h-5</span> (20px) chevron icons</p>
@@ -414,7 +414,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">opacity-60</span> external link icon</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">CTA Button</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)]</span></p>
@@ -427,7 +427,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         </div>
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Link Types</h4>
-          <div className="flex flex-wrap gap-6 items-center p-4 bg-cream rounded-xl">
+          <div className="flex flex-wrap gap-6 items-center p-4 bg-beige-30 rounded-xl">
             <div className="flex flex-col gap-1">
               <span className="text-xs text-gray-100">Standard Link</span>
               <span className="text-base font-medium text-black">Events</span>
@@ -464,7 +464,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         </div>
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Hamburger Button</h4>
-          <div className="flex gap-8 items-center p-4 bg-cream rounded-xl">
+          <div className="flex gap-8 items-center p-4 bg-beige-30 rounded-xl">
             <div className="flex flex-col items-center gap-2">
               <span className="text-xs text-gray-100">Closed</span>
               <div className="p-2 bg-white rounded-lg">
@@ -489,7 +489,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Container</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white</span> background</p>
@@ -498,7 +498,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">py-4 px-6</span> padding</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Links</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">text-base</span> (16px)</p>
@@ -507,7 +507,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">hover:text-teal-90</span></p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Dropdown Items</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">pl-4 ml-2</span> indent</p>
@@ -515,7 +515,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">text-gray-110</span></p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Animation</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">framer-motion</span></p>
@@ -545,7 +545,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Container</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-teal-60</span> (#60D7E5)</p>
@@ -554,7 +554,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">items-start justify-between</span></p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Headline</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">font-semibold</span> Nunito</p>
@@ -564,7 +564,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">gap-14</span> (56px) to logo row</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Logo + Copyright</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>UXHI logo: <span className="font-mono text-xs bg-gray-20 px-1 rounded">76px × 24px</span></p>
@@ -573,7 +573,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">items-end</span> alignment</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Nav Grid</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>4 columns, <span className="font-mono text-xs bg-gray-20 px-1 rounded">gap-12</span> (48px), <span className="font-mono text-xs bg-gray-20 px-1 rounded">flex-nowrap</span></p>
@@ -593,11 +593,11 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-fonts": (
     <ContentSection title="Font Families" description="The two font families used throughout the site.">
       <div className="grid md:grid-cols-2 gap-8">
-        <div className="p-6 bg-cream rounded-xl">
+        <div className="p-6 bg-beige-30 rounded-xl">
           <p className="text-sm text-gray-100 mb-2">Display — Dela Gothic One</p>
           <p className="font-display text-3xl text-purple-140">The quick brown fox jumps over the lazy dog</p>
         </div>
-        <div className="p-6 bg-cream rounded-xl">
+        <div className="p-6 bg-beige-30 rounded-xl">
           <p className="text-sm text-gray-100 mb-2">Body — Nunito</p>
           <p className="font-body text-xl text-gray-120">The quick brown fox jumps over the lazy dog</p>
         </div>
@@ -606,7 +606,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
   "typography-headings": (
     <ContentSection title="Heading Hierarchy" description="Responsive heading sizes. h1-h3 use display font, h4-h5 use body font.">
-      <div className="space-y-6 p-6 bg-cream rounded-xl">
+      <div className="space-y-6 p-6 bg-beige-30 rounded-xl">
         <div>
           <span className="text-xs text-gray-100 font-mono">h1 — font-display text-4xl/5xl/6xl (responsive)</span>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-140">Heading One</h1>
@@ -632,7 +632,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
   "typography-body": (
     <ContentSection title="Body Text" description="Body text sizes using the Nunito font.">
-      <div className="space-y-4 p-6 bg-cream rounded-xl">
+      <div className="space-y-4 p-6 bg-beige-30 rounded-xl">
         <div>
           <span className="text-xs text-gray-100 font-mono">Extra Large — text-xl (20px)</span>
           <p className="text-xl text-gray-110">UXHI is Hawaiʻi&apos;s premier UX community, connecting designers and researchers.</p>
@@ -658,7 +658,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
   "typography-special": (
     <ContentSection title="Special Styles" description="Badges, eyebrows, and link styles.">
-      <div className="flex flex-wrap gap-4 items-center p-6 bg-cream rounded-xl">
+      <div className="flex flex-wrap gap-4 items-center p-6 bg-beige-30 rounded-xl">
         <span className="inline-flex items-center gap-2 bg-teal-30 text-teal-120 px-4 py-2 rounded-full text-sm font-bold">
           <span className="w-2 h-2 bg-teal-90 rounded-full animate-pulse" />
           Badge / Eyebrow
@@ -775,11 +775,11 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
   "colors-beige": (
-    <ContentSection title="Beige" description="Warm neutral palette (15-step scale). Beige-30 matches Cream background. Click any swatch to copy its hex value.">
+    <ContentSection title="Beige" description="Warm neutral palette (15-step scale). Click any swatch to copy its hex value.">
       <div className="grid grid-cols-5 md:grid-cols-8 gap-3">
         <ColorSwatch name="10" value="#FDF9F6" />
         <ColorSwatch name="20" value="#FAF3EB" />
-        <ColorSwatch name="30" value="#F5EDE4" badge="Cream" />
+        <ColorSwatch name="30" value="#F5EDE4" />
         <ColorSwatch name="40" value="#EFE6DA" />
         <ColorSwatch name="50" value="#E7DCCE" />
         <ColorSwatch name="60" value="#DED1C0" />
@@ -799,7 +799,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     <ContentSection title="Neutral" description="Background and accent colors. Click any swatch to copy its hex value.">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         <ColorSwatch name="White" value="#ffffff" />
-        <ColorSwatch name="Cream" value="#f4f1ea" badge="Background" />
+        <ColorSwatch name="Beige-30" value="#f4f1ea" />
         <ColorSwatch name="Black" value="#000000" textColor="text-white" />
       </div>
     </ContentSection>
@@ -935,7 +935,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-arrowlink": (
     <ContentSection
       title="Arrow Link Button"
-      description="Text with arrow, pill-shaped hover state. Supports dark (default, for purple backgrounds) and light (for white/cream backgrounds) variants."
+      description="Text with arrow, pill-shaped hover state. Supports dark (default, for purple backgrounds) and light (for white/beige backgrounds) variants."
       componentPath="components/ui/ArrowLinkButton.tsx"
     >
       <div className="space-y-4">
@@ -958,7 +958,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Teal Variant (Rich Text / Content)</h4>
           <p className="text-base text-gray-110 mb-4">Used for links within rich text content. Font-semibold with teal colors.</p>
-          <div className="p-6 bg-cream rounded-xl">
+          <div className="p-6 bg-beige-30 rounded-xl">
             <p className="text-base text-gray-120 leading-relaxed">
               Learn more about our community on the{" "}
               <InlineLink href="/about" variant="teal">About page</InlineLink>{" "}
@@ -970,7 +970,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Purple Variant (Paragraph Links)</h4>
           <p className="text-base text-gray-110 mb-4">Used for inline paragraph links. Purple colors with underline-offset. External links show icon by default.</p>
-          <div className="p-6 bg-cream rounded-xl">
+          <div className="p-6 bg-beige-30 rounded-xl">
             <p className="text-base text-gray-120 leading-relaxed">
               Propose a topic as a presenter at our{" "}
               <InlineLink href="https://uxhicon.com" variant="purple">UXHI Conference</InlineLink>{" "}
@@ -982,7 +982,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Icon Control</h4>
           <p className="text-base text-gray-110 mb-4">You can override the default icon behavior with showIcon prop.</p>
-          <div className="p-6 bg-cream rounded-xl space-y-3">
+          <div className="p-6 bg-beige-30 rounded-xl space-y-3">
             <p className="text-base text-gray-120">
               External with icon (default):{" "}
               <InlineLink href="https://example.com" variant="purple">Example Link</InlineLink>
@@ -1072,10 +1072,10 @@ const contentComponents: Record<string, React.ReactNode> = {
               footer={<ArrowLinkButton href="#">With Footer</ArrowLinkButton>}
             />
             <SpotIllustrationCard
-              variant="cream"
+              variant="beige"
               imageSrc="/images/icons/icon-community-engagement.png"
               imageAlt="Community engagement illustration"
-              title="Cream"
+              title="Beige"
               description="For light backgrounds with hover shadow. Used for committee cards."
             />
             <SpotIllustrationCard
@@ -1083,7 +1083,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               imageSrc="/images/icons/icon-resources.png"
               imageAlt="Resources illustration"
               title="White"
-              description="For cream backgrounds. Used for values cards."
+              description="For beige backgrounds. Used for values cards."
             />
             <div className="bg-purple-140 rounded-xl p-4">
               <SpotIllustrationCard
@@ -1129,7 +1129,7 @@ const contentComponents: Record<string, React.ReactNode> = {
       description="Centered large quote with photo and author. Used in testimonial carousels."
       componentPath="Inline pattern (not a separate component)"
     >
-      <div className="bg-cream p-8 rounded-2xl">
+      <div className="bg-beige-30 p-8 rounded-2xl">
         <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg max-w-2xl mx-auto text-center">
           <blockquote className="text-xl md:text-2xl text-gray-120 mb-6">
             &ldquo;This is a testimonial carousel card style with larger centered quote text and author attribution below.&rdquo;
@@ -1148,7 +1148,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-link": (
     <ContentSection
       title="Link Card"
-      description="Cream card with title, teal description, and external link icon. Title turns teal on hover. Used on /resources."
+      description="Beige card with title, teal description, and external link icon. Title turns teal on hover. Used on /resources."
       componentPath="components/ui/LinkCard.tsx"
     >
       <div className="space-y-6">
@@ -1238,7 +1238,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Props</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">source</span> — publication name (used in eyebrow)</p>
@@ -1247,7 +1247,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">ctaLabel</span> — button text (default: &quot;Read Article&quot;)</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Built on <span className="font-mono text-xs bg-gray-20 px-1 rounded">InfoBox</span></p>
@@ -1271,7 +1271,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Component</h4>
           <div className="max-w-[700px] space-y-4">
-            <div className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
+            <div className="bg-beige-30 rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
               <span className="text-teal-90 font-bold text-sm uppercase tracking-wide shrink-0">
                 Mar 15, 2026
               </span>
@@ -1282,7 +1282,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <span className="text-sm text-gray-100 mt-0.5">6:00 PM HST · Impact Hub Honolulu</span>
               </div>
             </div>
-            <div className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
+            <div className="bg-beige-30 rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
               <span className="text-teal-90 font-bold text-sm uppercase tracking-wide shrink-0">
                 Apr 5, 2026 (TBC)
               </span>
@@ -1291,7 +1291,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <span className="text-sm text-gray-100 mt-0.5">10:00 AM HST</span>
               </div>
             </div>
-            <div className="bg-cream rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
+            <div className="bg-beige-30 rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5">
               <span className="text-teal-90 font-bold text-sm uppercase tracking-wide shrink-0">
                 May 20, 2026
               </span>
@@ -1305,16 +1305,16 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Card: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-cream rounded-2xl px-6 py-5</span></p>
+                <p>Card: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-beige-30 rounded-2xl px-6 py-5</span></p>
                 <p>Date: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-teal-90 font-bold text-sm uppercase</span></p>
                 <p>Title: <span className="font-mono text-xs bg-gray-20 px-1 rounded">font-semibold text-gray-140</span></p>
                 <p>Meta: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-sm text-gray-100</span></p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Layout</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Stacks vertically on mobile</p>
@@ -1369,7 +1369,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Key Elements</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl">
+            <div className="p-4 bg-beige-30 rounded-xl">
               <p className="text-sm font-semibold text-gray-120 mb-2">Open to Work Badge</p>
               <div className="flex items-center gap-1.5 bg-teal-90 text-teal-130 px-3 py-1.5 rounded-full text-xs font-medium w-fit">
                 <span className="relative flex h-2 w-2">
@@ -1380,7 +1380,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               </div>
               <p className="text-xs text-gray-100 font-mono mt-2">bg-teal-90, rounded-full, animate-ping</p>
             </div>
-            <div className="p-4 bg-cream rounded-xl">
+            <div className="p-4 bg-beige-30 rounded-xl">
               <p className="text-sm font-semibold text-gray-120 mb-2">Focus Tags</p>
               <div className="flex flex-wrap gap-1.5">
                 <span className="bg-teal-10 text-teal-120 px-2 py-0.5 rounded-full text-xs">Product Design</span>
@@ -1427,7 +1427,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Background: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10</span></p>
@@ -1436,7 +1436,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Placeholder: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-60/60</span></p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">States</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Focus: <span className="font-mono text-xs bg-gray-20 px-1 rounded">ring-2 ring-teal-90</span></p>
@@ -1471,7 +1471,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         </div>
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
-          <div className="p-4 bg-cream rounded-xl space-y-3 max-w-md">
+          <div className="p-4 bg-beige-30 rounded-xl space-y-3 max-w-md">
             <p className="text-sm font-semibold text-gray-120">Behavior</p>
             <div className="text-sm text-gray-110 space-y-1">
               <p>Inherits all FormInput styles</p>
@@ -1504,7 +1504,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Unchecked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/30 bg-white/5</span></p>
@@ -1513,7 +1513,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Label: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-50</span>, white on hover</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Behavior</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Native radio mutual exclusion</p>
@@ -1549,7 +1549,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Unchecked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/30 bg-white/5</span></p>
@@ -1558,7 +1558,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>4px rounded corners</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Behavior</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Click and keyboard toggle</p>
@@ -1601,7 +1601,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Trigger: matches FormInput style</p>
@@ -1610,7 +1610,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Chevron rotates on open</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Behavior</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Click-outside to close</p>
@@ -1654,7 +1654,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Button: pill shape, <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20</span></p>
@@ -1662,7 +1662,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Help text: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-60/60</span></p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Behavior</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Native file input hidden, triggered via ref</p>
@@ -1703,7 +1703,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Shape: <span className="font-mono text-xs bg-gray-20 px-1 rounded">rounded-full</span></p>
@@ -1711,7 +1711,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Icon circle: <span className="font-mono text-xs bg-gray-20 px-1 rounded">w-9 h-9 bg-white/20</span></p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Variants</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">icon=&quot;send&quot;</span> — paper plane (InquiryForm)</p>
@@ -1742,7 +1742,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Fields</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>First Name, Last Name (required)</p>
@@ -1752,7 +1752,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Message — textarea (required)</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Labels: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-50</span></p>
@@ -1761,7 +1761,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Button: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/30</span></p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Integrations</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Saves to Sanity <span className="font-mono text-xs bg-gray-20 px-1 rounded">submission</span> schema</p>
@@ -1770,7 +1770,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Rate limiting (1/hr per email)</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Pattern</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>React 19 <span className="font-mono text-xs bg-gray-20 px-1 rounded">useActionState</span></p>
@@ -1799,7 +1799,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Fields</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>First Name, Last Name (required)</p>
@@ -1811,7 +1811,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>How did you hear about us — radio (optional)</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Integrations</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Appends row to Google Sheet</p>
@@ -1841,7 +1841,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Fields</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>First Name, Last Name (required)</p>
@@ -1855,7 +1855,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>LinkedIn URL, Portfolio URL (optional)</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Integrations</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Uploads photo to Sanity assets</p>
@@ -1895,7 +1895,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Props</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">message</span> — string (required)</p>
@@ -1903,7 +1903,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">className</span> — optional overrides</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Error: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-orange-90/20 border-orange-70/30 text-orange-30</span></p>
@@ -1950,7 +1950,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Props</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">errors</span> — Record&lt;string, string[]&gt; (optional)</p>
@@ -1958,7 +1958,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">className</span> — optional overrides</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Text: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-yellow-80 text-sm mt-1</span></p>
@@ -1994,7 +1994,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Props</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">icon</span> — string (required, e.g. emoji or HTML entity)</p>
@@ -2003,7 +2003,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">className</span> — optional overrides</p>
               </div>
             </div>
-            <div className="p-4 bg-cream rounded-xl space-y-3">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Container: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20 rounded-2xl p-8</span></p>
@@ -2337,19 +2337,19 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Section Padding</h4>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            <div className="p-4 bg-cream rounded-lg">
+            <div className="p-4 bg-beige-30 rounded-lg">
               <p className="font-mono text-gray-100">py-16 md:py-24</p>
               <p className="text-gray-120">Standard section</p>
             </div>
-            <div className="p-4 bg-cream rounded-lg">
+            <div className="p-4 bg-beige-30 rounded-lg">
               <p className="font-mono text-gray-100">py-20 md:py-28</p>
               <p className="text-gray-120">Large section</p>
             </div>
-            <div className="p-4 bg-cream rounded-lg">
+            <div className="p-4 bg-beige-30 rounded-lg">
               <p className="font-mono text-gray-100">py-20 md:py-32</p>
               <p className="text-gray-120">Hero section</p>
             </div>
-            <div className="p-4 bg-cream rounded-lg">
+            <div className="p-4 bg-beige-30 rounded-lg">
               <p className="font-mono text-gray-100">gap-4 / gap-8</p>
               <p className="text-gray-120">Grid gaps</p>
             </div>

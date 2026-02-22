@@ -126,7 +126,7 @@ export default function VolunteerPage() {
       </div>
 
       {/* Committees Section */}
-      <section className="py-20 px-6 bg-cream">
+      <section className="py-20 px-6 bg-beige-30">
         <div className="max-w-[1100px] mx-auto">
           <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-12 text-center">
             Committees
@@ -163,7 +163,7 @@ export default function VolunteerPage() {
           </div>
 
           {/* Google Form Embed */}
-          <div className="bg-cream rounded-[24px] p-8">
+          <div className="bg-beige-30 rounded-[24px] p-8">
             <iframe
               src="https://docs.google.com/forms/d/e/YOUR_VOLUNTEER_FORM_ID/viewform?embedded=true"
               width="100%"

@@ -153,7 +153,7 @@ export default async function GetInvolvedPage() {
   const committees: Committee[] = committeesResult.data || [];
 
   return (
-    <main className="min-h-screen bg-cream">
+    <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
@@ -419,7 +419,7 @@ export default async function GetInvolvedPage() {
                     imageAlt={committee.name}
                     title={committee.name}
                     description={committee.description}
-                    variant="cream"
+                    variant="beige"
                   />
                 ))
               ) : (
@@ -430,7 +430,7 @@ export default async function GetInvolvedPage() {
                     imageAlt={committee.name}
                     title={committee.name}
                     description={committee.description}
-                    variant="cream"
+                    variant="beige"
                   />
                 ))
               )}
@@ -661,7 +661,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Ready to Collaborate Section */}
-      <section className="py-16 px-6 bg-cream">
+      <section className="py-16 px-6 bg-beige-30">
         <div className="max-w-[600px] mx-auto text-center">
           <div className="w-32 h-32 mx-auto mb-6 relative">
             <Image

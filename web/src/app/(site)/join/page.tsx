@@ -29,7 +29,7 @@ export default async function JoinPage() {
   const { data: faqs } = await sanityFetch({ query: FAQS_QUERY });
 
   return (
-    <main className="min-h-screen bg-cream">
+    <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
@@ -195,7 +195,7 @@ export default async function JoinPage() {
       </section>
 
       {/* Slack Community Section */}
-      <section className="py-20 px-6 bg-cream">
+      <section className="py-20 px-6 bg-beige-30">
         <div className="max-w-[900px] mx-auto text-center">
           <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-6">
             400+ Slack members and growing

@@ -100,7 +100,7 @@ Whenever a UI component's styling, props, or behavior is changed, the design sys
 Quick reference (see design system for full details):
 - Primary: teal (`--color-teal-90: #09C0D7`)
 - Secondary: purple (`--color-purple-140: #231769`)
-- Background: cream (`--color-cream: #f4f1ea`)
+- Background: beige (`--color-beige-30: #F5EDE4`)
 - Fonts: Dela Gothic One (display), Nunito (body)
 
 **Available Components:**
@@ -114,13 +114,13 @@ Quick reference (see design system for full details):
 | `Container` | `components/ui/Container.tsx` | Responsive max-width wrapper (default/narrow/wide) |
 | `SanityImage` | `components/ui/SanityImage.tsx` | Next.js Image wrapper for Sanity CMS assets with LQIP |
 | `QuickLinkPill` | `components/ui/QuickLinkPill.tsx` | Pill with icon, label, subtitle for hero sections |
-| `LinkCard` | `components/ui/LinkCard.tsx` | Cream card with title, teal description, external link icon |
+| `LinkCard` | `components/ui/LinkCard.tsx` | Beige card with title, teal description, external link icon |
 | `InfoBox` | `components/ui/InfoBox.tsx` | Teal-50 callout box for notes and CTAs |
 | `PressMention` | `components/ui/PressMention.tsx` | Press/media callout with source eyebrow, title, and CTA |
 | `ArrowLinkButton` | `components/ui/ArrowLinkButton.tsx` | Text link with arrow for dark backgrounds |
 | `BulletPoint` | `components/ui/BulletPoint.tsx` | Styled bullet dot (teal on light, yellow on dark bg) |
 | `MobileTooltip` | `components/ui/MobileTooltip.tsx` | Tap-to-reveal tooltip (mobile), hover (desktop) |
-| `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/cream/white variants) |
+| `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/beige/white variants) |
 | `FormLabel` | `components/ui/form-elements/FormLabel.tsx` | Shared form label; supports `as="legend"` for fieldsets |
 | `FormInput` | `components/ui/form-elements/FormInput.tsx` | Glassmorphic text input for purple form backgrounds |
 | `FormTextarea` | `components/ui/form-elements/FormTextarea.tsx` | Glassmorphic textarea with vertical resize |

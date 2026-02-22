@@ -112,7 +112,7 @@ export default async function ShopPage() {
   const displayProducts = sanityProducts && sanityProducts.length > 0 ? sanityProducts : products;
 
   return (
-    <main className="min-h-screen bg-cream">
+    <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
@@ -200,7 +200,7 @@ export default async function ShopPage() {
                 className="bg-white border border-gray-30 rounded-[20px] overflow-hidden hover:shadow-lg transition-shadow"
               >
                 {/* Product Image */}
-                <div className="aspect-square bg-cream flex items-center justify-center relative">
+                <div className="aspect-square bg-beige-30 flex items-center justify-center relative">
                   {product.images && product.images[0]?.asset ? (
                     <SanityImage
                       value={product.images[0]}
@@ -272,7 +272,7 @@ export default async function ShopPage() {
       </section>
 
       {/* Coming Soon Section */}
-      <section className="py-16 px-6 bg-cream">
+      <section className="py-16 px-6 bg-beige-30">
         <div className="max-w-[600px] mx-auto text-center">
           <div className="w-32 h-32 mx-auto mb-6 relative">
             <Image
