@@ -125,7 +125,7 @@ export default async function EventsPage() {
               className="object-contain"
             />
           </div>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-purple-700 mb-12">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-purple-140 mb-12">
             Upcoming Events
           </h2>
 
@@ -195,7 +195,7 @@ export default async function EventsPage() {
       </section>
 
       {/* Conference Section */}
-      <section className="py-20 px-6 bg-purple-700">
+      <section className="py-20 px-6 bg-purple-140">
         <div className="max-w-[900px] mx-auto">
           {/* Conference Icon */}
           <div className="w-32 h-32 mx-auto mb-6 relative">
@@ -209,7 +209,7 @@ export default async function EventsPage() {
           <h2 className="font-display text-4xl md:text-5xl text-white mb-8 text-center">
             Conference
           </h2>
-          <p className="text-purple-100 text-lg leading-relaxed mb-6 text-center max-w-[750px] mx-auto">
+          <p className="text-purple-30 text-lg leading-relaxed mb-6 text-center max-w-[750px] mx-auto">
             Our third annual conference is a hub for those infused in human-centered design, user experience, design thinking, and everything in between, offering an opportunity to deepen your expertise. Whether you&apos;re a newcomer eager to learn more about UX or an industry pro, you&apos;ll find value in the immersive day filled with inspiration, knowledge-sharing, and networking!
           </p>
 
@@ -225,7 +225,7 @@ export default async function EventsPage() {
                 href="/conferences/2024/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
+                className="inline-flex items-center gap-1 text-purple-50 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
               >
                 <span>2024 UXHI Conference</span>
                 <ExternalLinkIcon className="w-4 h-4" />
@@ -234,7 +234,7 @@ export default async function EventsPage() {
                 href="https://2023.uxhiconference.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-purple-200 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
+                className="inline-flex items-center gap-1 text-purple-50 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
               >
                 <span>2023 UXHI Conference</span>
                 <ExternalLinkIcon className="w-4 h-4" />

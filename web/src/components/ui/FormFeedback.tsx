@@ -15,7 +15,7 @@ interface FormAlertProps {
 
 const alertStyles = {
   error: "bg-red-500/20 border-red-400/30 text-red-200",
-  info: "bg-white/10 border-white/20 text-purple-200",
+  info: "bg-white/10 border-white/20 text-purple-50",
 } as const;
 
 export function FormAlert({ message, variant = "error", className }: FormAlertProps) {
@@ -82,7 +82,7 @@ export function FormSuccess({ icon, title, message, className }: FormSuccessProp
     <div ref={ref} className={cn("bg-white/10 border border-white/20 rounded-2xl p-8 text-center", className)}>
       <div className="text-4xl mb-4">{icon}</div>
       <h3 className="font-display text-2xl text-white mb-2">{title}</h3>
-      <p className="text-purple-200">{message}</p>
+      <p className="text-purple-50">{message}</p>
     </div>
   );
 }

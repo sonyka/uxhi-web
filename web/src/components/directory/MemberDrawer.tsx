@@ -80,7 +80,7 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
               className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-md flex items-center justify-center hover:bg-white transition-colors"
               aria-label="Close drawer"
             >
-              <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-5 h-5 text-gray-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -88,7 +88,7 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
             {/* Scrollable content */}
             <div className="flex-1 overflow-y-auto">
             {/* Photo */}
-            <div className="relative aspect-square bg-gray-100">
+            <div className="relative aspect-square bg-gray-20">
               {imageUrl ? (
                 <Image
                   src={imageUrl}
@@ -102,16 +102,16 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-gray-400 text-6xl font-light">{member.name.charAt(0)}</span>
+                  <span className="text-gray-80 text-6xl font-light">{member.name.charAt(0)}</span>
                 </div>
               )}
 
               {/* Open to Work Badge */}
               {member.openToWork && (
-                <div className="absolute top-4 left-4 flex items-center gap-2 bg-teal-500 text-teal-800 px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-teal-90 text-teal-130 px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-800 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-800"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-130 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-130"></span>
                   </span>
                   Open to Work
                 </div>
@@ -122,25 +122,25 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
             <div className="p-6 space-y-6">
               {/* Header */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">{member.name}</h2>
+                <h2 className="text-2xl font-bold text-gray-140">{member.name}</h2>
                 {member.title && (
-                  <p className="text-lg text-gray-600 mt-1">{member.title}</p>
+                  <p className="text-lg text-gray-110 mt-1">{member.title}</p>
                 )}
               </div>
 
               {/* Quick Info */}
               <div className="flex flex-wrap gap-3 text-sm">
                 {experienceLevelLabel && (
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <svg className="w-4 h-4 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <div className="flex items-center gap-2 text-gray-110">
+                    <svg className="w-4 h-4 text-teal-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     {experienceLevelLabel}
                   </div>
                 )}
                 {member.location && (
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <svg className="w-4 h-4 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <div className="flex items-center gap-2 text-gray-110">
+                    <svg className="w-4 h-4 text-teal-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -152,12 +152,12 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
               {/* Focus Areas */}
               {focusLabels.length > 0 && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900 mb-2">Focus Areas</h3>
+                  <h3 className="text-sm font-semibold text-gray-140 mb-2">Focus Areas</h3>
                   <div className="flex flex-wrap gap-2">
                     {focusLabels.map((label) => (
                       <span
                         key={label}
-                        className="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-sm"
+                        className="bg-teal-10 text-teal-120 px-3 py-1 rounded-full text-sm"
                       >
                         {label}
                       </span>
@@ -169,12 +169,12 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
               {/* Industries */}
               {industryLabels.length > 0 && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900 mb-2">Industries</h3>
+                  <h3 className="text-sm font-semibold text-gray-140 mb-2">Industries</h3>
                   <div className="flex flex-wrap gap-2">
                     {industryLabels.map((label) => (
                       <span
                         key={label}
-                        className="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-sm"
+                        className="bg-purple-10 text-purple-140 px-3 py-1 rounded-full text-sm"
                       >
                         {label}
                       </span>
@@ -186,14 +186,14 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
               {/* Education/Bootcamp */}
               {member.educationBootcamp && (
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900 mb-2">Education / Bootcamp</h3>
-                  <p className="text-gray-600">{member.educationBootcamp}</p>
+                  <h3 className="text-sm font-semibold text-gray-140 mb-2">Education / Bootcamp</h3>
+                  <p className="text-gray-110">{member.educationBootcamp}</p>
                 </div>
               )}
 
               {/* Links */}
               {(member.linkedIn || member.portfolio) && (
-                <div className="flex gap-4 pt-4 border-t border-gray-100">
+                <div className="flex gap-4 pt-4 border-t border-gray-20">
                   {member.linkedIn && (
                     <a
                       href={member.linkedIn}
@@ -235,8 +235,8 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
             </div>
 
             {/* Docked Footer */}
-            <div className="border-t border-gray-200 px-6 py-4 flex items-center gap-1">
-              <span className="text-sm text-gray-600">Is this your profile?</span>
+            <div className="border-t border-gray-30 px-6 py-4 flex items-center gap-1">
+              <span className="text-sm text-gray-110">Is this your profile?</span>
               <ArrowLinkButton
                 href={`/about?interest=${encodeURIComponent("Updating my directory profile")}&message=${encodeURIComponent(`Regarding the profile for: ${member.name}\n\nI'd like to request the following changes:\n`)}#contact`}
                 variant="light"

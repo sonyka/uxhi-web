@@ -48,37 +48,37 @@ export default function VolunteerPage() {
       {/* Hero Section */}
       <div className="flex flex-col lg:flex-row min-h-screen">
         {/* Left Side - Content */}
-        <div className="lg:w-1/2 bg-section-gray flex items-center justify-center px-8 py-16 lg:py-0">
+        <div className="lg:w-1/2 bg-gray-10 flex items-center justify-center px-8 py-16 lg:py-0">
           <div className="max-w-md">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-140 mb-6">
               Volunteer
             </h1>
-            <p className="text-gray-700 text-lg leading-relaxed mb-4">
+            <p className="text-gray-120 text-lg leading-relaxed mb-4">
               Support UXHI by volunteering! There are many ways to be involved:
             </p>
-            <ul className="text-gray-700 text-base leading-relaxed mb-6 space-y-2">
+            <ul className="text-gray-120 text-base leading-relaxed mb-6 space-y-2">
               <li className="flex items-start gap-2">
-                <span className="text-teal-500 mt-1">•</span>
+                <span className="text-teal-90 mt-1">•</span>
                 <span>Propose a topic related to the field of UX as a presenter at our UXHI Conference or events</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-teal-500 mt-1">•</span>
+                <span className="text-teal-90 mt-1">•</span>
                 <span>Propose a topic as a guest author for our resources</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-teal-500 mt-1">•</span>
+                <span className="text-teal-90 mt-1">•</span>
                 <span>Join our committees for any of our initiatives, like the UXHI Conference or the State of UX Report</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-teal-500 mt-1">•</span>
+                <span className="text-teal-90 mt-1">•</span>
                 <span>Provide general assistance with our events</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-teal-500 mt-1">•</span>
+                <span className="text-teal-90 mt-1">•</span>
                 <span>Support with marketing needs like our newsletter and social media</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-teal-500 mt-1">•</span>
+                <span className="text-teal-90 mt-1">•</span>
                 <span>And much more!</span>
               </li>
             </ul>
@@ -87,14 +87,14 @@ export default function VolunteerPage() {
         </div>
 
         {/* Right Side - Image Grid */}
-        <div className="lg:w-1/2 bg-section-gray flex items-center justify-center p-8 lg:p-12">
+        <div className="lg:w-1/2 bg-gray-10 flex items-center justify-center p-8 lg:p-12">
           <div className="grid grid-cols-2 gap-4 max-w-lg w-full">
             {/* Column 1 - offset down */}
             <div className="flex flex-col gap-4 pt-8">
               {gridImages.slice(0, 3).map((image) => (
                 <div
                   key={image.id}
-                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
+                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden relative"
                 >
                   <Image
                     src={image.src}
@@ -110,7 +110,7 @@ export default function VolunteerPage() {
               {gridImages.slice(3, 6).map((image) => (
                 <div
                   key={image.id}
-                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
+                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden relative"
                 >
                   <Image
                     src={image.src}
@@ -128,7 +128,7 @@ export default function VolunteerPage() {
       {/* Committees Section */}
       <section className="py-20 px-6 bg-cream">
         <div className="max-w-[1100px] mx-auto">
-          <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-12 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-12 text-center">
             Committees
           </h2>
 
@@ -136,12 +136,12 @@ export default function VolunteerPage() {
             {committees.map((committee) => (
               <div
                 key={committee.name}
-                className="bg-white rounded-[20px] p-6 border border-gray-100"
+                className="bg-white rounded-[20px] p-6 border border-gray-20"
               >
-                <h3 className="font-display text-xl text-purple-700 mb-3">
+                <h3 className="font-display text-xl text-purple-140 mb-3">
                   {committee.name}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-110 text-sm leading-relaxed">
                   {committee.description}
                 </p>
               </div>
@@ -154,10 +154,10 @@ export default function VolunteerPage() {
       <section id="inquiry-form" className="py-20 px-6 bg-white">
         <div className="max-w-[800px] mx-auto">
           <div className="text-center mb-10">
-            <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-6">
+            <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-6">
               Let us know how you want to get involved!
             </h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-120 text-lg leading-relaxed">
               Fill out the form below and a UXHI team member will be in touch.
             </p>
           </div>

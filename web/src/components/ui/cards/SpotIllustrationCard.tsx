@@ -39,24 +39,24 @@ interface SpotIllustrationCardProps {
 
 const variantStyles: Record<SpotIllustrationCardVariant, { card: string; title: string; description: string }> = {
   dark: {
-    card: "bg-purple-700 border border-purple-500/30",
+    card: "bg-purple-140 border border-purple-100/30",
     title: "font-display text-2xl text-white",
-    description: "text-purple-200",
+    description: "text-purple-50",
   },
   cream: {
     card: "bg-cream hover:shadow-lg transition-shadow duration-300",
-    title: "font-semibold text-gray-900 group-hover:text-purple-700 transition-colors",
-    description: "text-gray-600 text-sm",
+    title: "font-semibold text-gray-140 group-hover:text-purple-140 transition-colors",
+    description: "text-gray-110 text-sm",
   },
   white: {
     card: "bg-white shadow-sm hover:shadow-lg transition-shadow duration-300",
-    title: "font-display text-lg text-purple-700",
-    description: "text-gray-600 text-base",
+    title: "font-display text-lg text-purple-140",
+    description: "text-gray-110 text-base",
   },
   translucent: {
     card: "bg-white/10",
     title: "font-display text-lg text-white",
-    description: "text-purple-100",
+    description: "text-purple-30",
   },
 };
 
@@ -112,7 +112,7 @@ export function SpotIllustrationCard({
             className="object-contain"
           />
         ) : (
-          <div className="w-full h-full bg-purple-100 rounded-full" />
+          <div className="w-full h-full bg-purple-30 rounded-full" />
         )}
       </div>
       <h4 className={cn("mb-3 md:mb-4", styles.title)}>

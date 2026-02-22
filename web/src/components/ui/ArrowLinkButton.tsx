@@ -11,8 +11,8 @@ interface ArrowLinkButtonProps {
 
 export function ArrowLinkButton({ href, children, external = false, variant = "dark", className = "" }: ArrowLinkButtonProps) {
   const variantClassName = variant === "light"
-    ? "text-gray-500 hover:text-teal-600 hover:bg-teal-50"
-    : "text-purple-200 hover:text-white hover:bg-white/10";
+    ? "text-gray-100 hover:text-teal-100 hover:bg-teal-10"
+    : "text-purple-50 hover:text-white hover:bg-white/10";
 
   const baseClassName = `inline-flex items-center gap-2 ${variantClassName} rounded-full px-4 py-2 transition-all text-sm font-medium group ${className}`;
 

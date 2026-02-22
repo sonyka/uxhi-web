@@ -48,7 +48,7 @@ export function InstagramFeed({ posts }: InstagramFeedProps) {
             href={post.permalink || instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-[20px] overflow-hidden aspect-[4/5] relative group cursor-pointer bg-gray-100"
+            className="rounded-[20px] overflow-hidden aspect-[4/5] relative group cursor-pointer bg-gray-20"
           >
             <Image
               src={urlFor(post.image).width(400).height(500).url()}
@@ -75,7 +75,7 @@ export function InstagramFeed({ posts }: InstagramFeedProps) {
           href={instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-[20px] overflow-hidden aspect-[4/5] relative group cursor-pointer bg-gray-100"
+          className="rounded-[20px] overflow-hidden aspect-[4/5] relative group cursor-pointer bg-gray-20"
         >
           <Image
             src={post.image}

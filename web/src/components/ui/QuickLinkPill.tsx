@@ -15,12 +15,12 @@ export function QuickLinkPill({ href, icon, label, subtitle, external = false, c
 
   const content = (
     <>
-      <span className="text-gray-400 group-hover:text-purple-600 transition-colors">
+      <span className="text-gray-80 group-hover:text-purple-120 transition-colors">
         {icon}
       </span>
       <div className="text-left">
         <span className="block text-base font-medium text-black">{label}</span>
-        <span className="block text-sm text-gray-500">{subtitle}</span>
+        <span className="block text-sm text-gray-100">{subtitle}</span>
       </div>
     </>
   );

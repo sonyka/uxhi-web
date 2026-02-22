@@ -18,9 +18,9 @@ interface LinkCardProps {
  * - Background: cream (#f4f1ea), hover: cream-dark
  * - Border radius: 16px (rounded-[16px])
  * - Padding: 20px (p-5)
- * - Title: text-base, font-medium, gray-900, hover: teal-600
- * - Description: text-sm, purple-700
- * - Icon: gray-400, hover: teal-500
+ * - Title: text-base, font-medium, gray-140, hover: teal-100
+ * - Description: text-sm, purple-140
+ * - Icon: gray-80, hover: teal-90
  *
  * @see /design-system for usage examples
  */
@@ -33,14 +33,14 @@ export function LinkCard({ href, title, description, className = "" }: LinkCardP
       className={`flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-cream-dark transition-colors group ${className}`}
     >
       <div>
-        <p className="text-base font-medium text-gray-900 group-hover:text-teal-600 transition-colors">
+        <p className="text-base font-medium text-gray-140 group-hover:text-teal-100 transition-colors">
           {title}
         </p>
         {description && (
-          <p className="text-sm text-purple-700">{description}</p>
+          <p className="text-sm text-purple-140">{description}</p>
         )}
       </div>
-      <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors flex-shrink-0" />
+      <ExternalLinkIcon className="w-5 h-5 text-gray-80 group-hover:text-teal-90 transition-colors flex-shrink-0" />
     </a>
   );
 }

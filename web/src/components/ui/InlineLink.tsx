@@ -31,8 +31,8 @@ interface InlineLinkProps {
  * InlineLink - Styled inline text link for use within paragraphs
  *
  * Variants:
- * - **teal**: Rich text/content links - font-semibold, teal-500 → teal-600
- * - **purple**: Paragraph links - purple-700 → purple-900, underline-offset-2
+ * - **teal**: Rich text/content links - font-semibold, teal-90 → teal-100
+ * - **purple**: Paragraph links - purple-140 → purple-150, underline-offset-2
  *
  * Features:
  * - Auto-detects external links (http/https)
@@ -56,8 +56,8 @@ export function InlineLink({
   const shouldShowIcon = showIcon ?? (variant === "purple" && isExternal);
 
   const variantStyles = {
-    teal: "text-teal-500 hover:text-teal-600 transition-colors font-semibold underline",
-    purple: "text-purple-700 underline underline-offset-2 hover:text-purple-900 transition-colors",
+    teal: "text-teal-90 hover:text-teal-100 transition-colors font-semibold underline",
+    purple: "text-purple-140 underline underline-offset-2 hover:text-purple-150 transition-colors",
   };
 
   const baseStyles = variantStyles[variant];

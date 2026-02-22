@@ -345,13 +345,13 @@ export default async function GetInvolvedPage() {
       {/* Volunteer Section */}
       <section id="volunteer" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
             Volunteer
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+          <p className="text-gray-120 text-lg leading-relaxed mb-6">
             Support UXHI by volunteering! There are many ways to be involved:
           </p>
-          <ul className="text-gray-700 space-y-3 mb-8">
+          <ul className="text-gray-120 space-y-3 mb-8">
             <li className="flex items-start gap-3">
               <BulletPoint />
               <span>
@@ -393,7 +393,7 @@ export default async function GetInvolvedPage() {
               <span>And much more!</span>
             </li>
           </ul>
-          <p className="text-gray-700 text-lg mb-8">
+          <p className="text-gray-120 text-lg mb-8">
             Let us know how you want to get involved!
           </p>
           <PrimaryCTA href="/about?interest=Becoming+a+volunteer#contact">
@@ -403,10 +403,10 @@ export default async function GetInvolvedPage() {
           {/* Committees Subsection */}
           <div className="mt-16">
             <div className="text-center mb-10">
-              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-3">
+              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-3">
                 Our Committees
               </h3>
-              <p className="text-gray-600 max-w-[600px] mx-auto">
+              <p className="text-gray-110 max-w-[600px] mx-auto">
                 Join one of our volunteer committees and help shape the future of UX in Hawai&apos;i
               </p>
             </div>
@@ -442,16 +442,16 @@ export default async function GetInvolvedPage() {
       {/* Speaking Opportunities Section */}
       <section id="speak" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
             Speaking Opportunities
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
+          <p className="text-gray-120 text-lg leading-relaxed mb-4">
             Have an idea for a talk or a skill you&apos;d like to share?
           </p>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
+          <p className="text-gray-120 text-lg leading-relaxed mb-4">
             Whether you&apos;d like to teach an interactive workshop, host an education webinar, or a casual talk story session, give back to the community by sharing your experience. Preference is given to speakers with Hawai&apos;i ties.
           </p>
-          <p className="text-gray-700 text-lg leading-relaxed mb-8">
+          <p className="text-gray-120 text-lg leading-relaxed mb-8">
             Fill out our speaker application below and we&apos;ll be in touch!
           </p>
           <PrimaryCTA href="/about?interest=Becoming+a+speaker#contact">
@@ -512,16 +512,16 @@ export default async function GetInvolvedPage() {
       {/* Partnerships Section */}
       <section id="partner" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
             Partnerships
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
+          <p className="text-gray-120 text-lg leading-relaxed mb-4">
             Strong collaboration makes for strong results!
           </p>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+          <p className="text-gray-120 text-lg leading-relaxed mb-6">
             We&apos;re always open to design-forward organizations and individuals who want to partner with us to build initiatives, host or sponsor events, and help us provide resources to our community.
           </p>
-          <ul className="text-gray-700 space-y-3 mb-8">
+          <ul className="text-gray-120 space-y-3 mb-8">
             <li className="flex items-start gap-3">
               <BulletPoint />
               <span>Co-develop resources and/or programs for our membership</span>
@@ -551,9 +551,9 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Successful Partnerships Section */}
-      <section className="py-16 px-6 bg-section-gray">
+      <section className="py-16 px-6 bg-gray-10">
         <div className="max-w-[1200px] mx-auto">
-          <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 text-center mb-12">
+          <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 text-center mb-12">
             Successful Partnerships
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
@@ -573,7 +573,7 @@ export default async function GetInvolvedPage() {
                       style={{ width: partner.displayWidth || 100, height: 'auto' }}
                     />
                   ) : (
-                    <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
+                    <span className="text-gray-100 font-medium text-lg hover:text-gray-120 transition-colors">
                       {partner.name}
                     </span>
                   )}
@@ -602,19 +602,19 @@ export default async function GetInvolvedPage() {
       {/* Sponsorships Section */}
       <section id="sponsor" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-6">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
             Sponsorships
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed">
+          <p className="text-gray-120 text-lg leading-relaxed">
             Our sponsorship packages are designed to elevate your brand, showcase your products, and facilitate connections with influencers, decision-makers, and potential partners. By partnering with us, you&apos;ll not only enhance your brand recognition but also reinforce your dedication to improving the digital landscape through UX design.
           </p>
         </div>
       </section>
 
       {/* Past Event Sponsors Section */}
-      <section className="py-16 px-6 bg-section-gray">
+      <section className="py-16 px-6 bg-gray-10">
         <div className="max-w-[1200px] mx-auto">
-          <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 text-center mb-12">
+          <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 text-center mb-12">
             Past Event Sponsors
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
@@ -634,7 +634,7 @@ export default async function GetInvolvedPage() {
                       style={{ width: sponsor.displayWidth || 100, height: 'auto' }}
                     />
                   ) : (
-                    <span className="text-gray-500 font-medium text-lg hover:text-gray-700 transition-colors">
+                    <span className="text-gray-100 font-medium text-lg hover:text-gray-120 transition-colors">
                       {sponsor.name}
                     </span>
                   )}
@@ -671,10 +671,10 @@ export default async function GetInvolvedPage() {
               className="object-contain"
             />
           </div>
-          <h3 className="font-display text-xl md:text-2xl text-purple-700 mb-4">
+          <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
             Ready to collaborate?
           </h3>
-          <p className="text-gray-700 leading-relaxed mb-6">
+          <p className="text-gray-120 leading-relaxed mb-6">
             We understand the value of tailored experiences and are open to working together to create a custom package.
           </p>
           <PrimaryCTA href="/about?interest=Becoming+partners+and+collaborators#contact">
@@ -684,7 +684,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Donations Section */}
-      <section id="donate" className="py-20 px-6 bg-purple-700 scroll-mt-24">
+      <section id="donate" className="py-20 px-6 bg-purple-140 scroll-mt-24">
         <div className="max-w-[800px] mx-auto text-center">
           {/* Donate Icon */}
           <div className="w-32 h-32 mx-auto mb-6 relative">
@@ -701,10 +701,10 @@ export default async function GetInvolvedPage() {
           <p className="text-white text-xl font-medium mb-4">
             Your support is important to us.
           </p>
-          <p className="text-purple-200 text-lg leading-relaxed mb-4 max-w-[650px] mx-auto">
+          <p className="text-purple-50 text-lg leading-relaxed mb-4 max-w-[650px] mx-auto">
             UXHI is a volunteer-run UX design community that connects people in Hawaiʻi and those with Hawaiʻi ties to learn together and make new UX friends.
           </p>
-          <p className="text-purple-200 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
+          <p className="text-purple-50 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
             Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events. Thanks in advance for supporting our community!
           </p>
           <PrimaryCTA href="https://ko-fi.com/uxhicommunity" external>

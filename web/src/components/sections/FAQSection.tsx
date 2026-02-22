@@ -30,22 +30,22 @@ function FAQItem({
   return (
     <div
       className={`overflow-hidden transition-all duration-300 ${
-        isOpen ? "rounded-2xl bg-teal-300" : "rounded-[2rem] bg-white shadow-sm"
+        isOpen ? "rounded-2xl bg-teal-60" : "rounded-[2rem] bg-white shadow-sm"
       }`}
     >
       <button
         onClick={onToggle}
         className={`w-full px-8 py-5 flex items-center justify-between text-left transition-colors ${
-          isOpen ? "text-gray-700" : "text-gray-800"
+          isOpen ? "text-gray-120" : "text-gray-130"
         }`}
         aria-expanded={isOpen}
       >
         <h3 className="font-medium pr-4 text-base">{faq.question}</h3>
         <span className="flex-shrink-0">
           {isOpen ? (
-            <MinusIcon className="w-6 h-6 text-gray-700" />
+            <MinusIcon className="w-6 h-6 text-gray-120" />
           ) : (
-            <PlusIcon className="w-6 h-6 text-teal-500" />
+            <PlusIcon className="w-6 h-6 text-teal-90" />
           )}
         </span>
       </button>
@@ -57,7 +57,7 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="px-8 pb-6 text-gray-700 text-base">{faq.answer}</div>
+            <div className="px-8 pb-6 text-gray-120 text-base">{faq.answer}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -75,7 +75,7 @@ export function FAQSection({ faqs, id }: FAQSectionProps) {
   };
 
   return (
-    <section id={id} className="py-20 md:py-28 bg-gray-50 scroll-mt-24">
+    <section id={id} className="py-20 md:py-28 bg-gray-10 scroll-mt-24">
       <Container>
         <motion.div
           variants={staggerContainer}
@@ -85,10 +85,10 @@ export function FAQSection({ faqs, id }: FAQSectionProps) {
         >
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="mb-12">
-            <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-4">
+            <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-110 text-lg">
               Questions about what we offer, and how to be a part of it? If the
               answer to your question isn&apos;t found below, just{" "}
               <InlineLink href="/about#contact" variant="teal">contact us</InlineLink>

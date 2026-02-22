@@ -29,7 +29,7 @@ export default async function HomePage() {
       <section className="pt-[200px] pb-12 px-4">
         <div className="max-w-[1280px] mx-auto text-center">
           {/* Member Badge */}
-          <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-white rounded-3xl sm:rounded-full px-4 py-3 sm:pl-2 sm:pr-6 sm:py-2 mb-10 border border-gray-100 shadow-sm">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-white rounded-3xl sm:rounded-full px-4 py-3 sm:pl-2 sm:pr-6 sm:py-2 mb-10 border border-gray-20 shadow-sm">
             <Image
               src="/images/home/members.png"
               alt="UXHI community members"
@@ -37,7 +37,7 @@ export default async function HomePage() {
               height={36}
               className="h-9 w-auto"
             />
-            <span className="text-nav text-gray-700 font-medium">500 members and growing</span>
+            <span className="text-nav text-gray-120 font-medium">500 members and growing</span>
           </div>
 
           {/* Main Headline */}
@@ -79,7 +79,7 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="h-[182px] rounded-[24px] bg-teal-500 p-5 flex flex-col justify-end text-gray-900">
+              <div className="h-[182px] rounded-[24px] bg-teal-90 p-5 flex flex-col justify-end text-gray-140">
                 <span className="font-display text-4xl leading-none">2021</span>
                 <span className="text-base mt-1">Year founded</span>
               </div>
@@ -104,8 +104,8 @@ export default async function HomePage() {
 
             {/* Column 3: Tallest purple pill (center) */}
             <div className="w-[234px]">
-              <div className="h-[582px] rounded-[999px] bg-purple-700 px-6 pt-16 pb-14 flex flex-col items-center justify-center text-center relative overflow-hidden">
-                <span className="absolute -right-4 top-1/4 font-display text-[180px] text-purple-600/30 leading-none select-none pointer-events-none">52</span>
+              <div className="h-[582px] rounded-[999px] bg-purple-140 px-6 pt-16 pb-14 flex flex-col items-center justify-center text-center relative overflow-hidden">
+                <span className="absolute -right-4 top-1/4 font-display text-[180px] text-purple-120/30 leading-none select-none pointer-events-none">52</span>
                 <p className="text-white/90 text-nav leading-relaxed relative z-10">
                   Come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
                 </p>
@@ -124,7 +124,7 @@ export default async function HomePage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-teal-600/90 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-teal-100/90 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-4 right-4 text-center">
                   <span className="font-display text-xl text-white leading-tight">Connect,<br/>learn, grow<br/>together</span>
                 </div>
@@ -133,7 +133,7 @@ export default async function HomePage() {
 
             {/* Column 5: Teal rounded-top + gray rectangle */}
             <div className="flex flex-col gap-4 w-[234px]">
-              <div className="h-[382px] rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-5 pt-20 pb-6 flex items-end justify-end text-gray-900 text-right">
+              <div className="h-[382px] rounded-t-[999px] rounded-b-[40px] bg-teal-90 px-5 pt-20 pb-6 flex items-end justify-end text-gray-140 text-right">
                 <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
               </div>
               <div className="h-[182px] rounded-[24px] overflow-hidden relative">
@@ -163,7 +163,7 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="h-[150px] rounded-[24px] bg-teal-500 p-4 flex flex-col justify-end text-gray-900">
+              <div className="h-[150px] rounded-[24px] bg-teal-90 p-4 flex flex-col justify-end text-gray-140">
                 <span className="font-display text-4xl leading-none">2021</span>
                 <span className="text-base mt-1">Year founded</span>
               </div>
@@ -171,8 +171,8 @@ export default async function HomePage() {
 
             {/* Column 2: Tallest purple pill (center) */}
             <div className="w-[200px]">
-              <div className="h-[486px] rounded-[999px] bg-purple-700 px-5 py-12 flex flex-col items-center justify-center text-center relative overflow-hidden">
-                <span className="absolute -right-4 top-1/4 font-display text-[140px] text-purple-600/30 leading-none select-none pointer-events-none">52</span>
+              <div className="h-[486px] rounded-[999px] bg-purple-140 px-5 py-12 flex flex-col items-center justify-center text-center relative overflow-hidden">
+                <span className="absolute -right-4 top-1/4 font-display text-[140px] text-purple-120/30 leading-none select-none pointer-events-none">52</span>
                 <p className="text-white/90 text-nav leading-relaxed relative z-10">
                   Come join our free UXHI community to connect and learn with new UX friends.
                 </p>
@@ -184,7 +184,7 @@ export default async function HomePage() {
 
             {/* Column 3: Teal rounded-top + gray rectangle */}
             <div className="flex flex-col gap-4 w-[200px]">
-              <div className="h-[320px] rounded-t-[999px] rounded-b-[40px] bg-teal-500 px-4 pt-16 pb-5 flex items-end justify-end text-gray-900 text-right">
+              <div className="h-[320px] rounded-t-[999px] rounded-b-[40px] bg-teal-90 px-4 pt-16 pb-5 flex items-end justify-end text-gray-140 text-right">
                 <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
               </div>
               <div className="h-[150px] rounded-[24px] overflow-hidden relative">
@@ -214,7 +214,7 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="h-[100px] rounded-[20px] bg-teal-500 p-3 flex flex-col justify-end text-gray-900">
+              <div className="h-[100px] rounded-[20px] bg-teal-90 p-3 flex flex-col justify-end text-gray-140">
                 <span className="font-display text-4xl leading-none">2021</span>
                 <span className="text-base mt-0.5">Year founded</span>
               </div>
@@ -222,7 +222,7 @@ export default async function HomePage() {
 
             {/* Column 2: Tall purple pill - hidden on SM and mobile */}
             <div className="hidden flex-1 max-w-[160px]">
-              <div className="h-[356px] rounded-[999px] bg-purple-700 px-4 py-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
+              <div className="h-[356px] rounded-[999px] bg-purple-140 px-4 py-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
                 <p className="text-white/90 text-xs leading-relaxed relative z-10">
                   Join our free community to connect with UX friends.
                 </p>
@@ -234,7 +234,7 @@ export default async function HomePage() {
 
             {/* Column 3: Teal top + gray rect */}
             <div className="flex flex-col gap-3 flex-1 max-w-[160px]">
-              <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-teal-500 px-3 pt-12 pb-4 flex items-end justify-end text-gray-900 text-right">
+              <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-teal-90 px-3 pt-12 pb-4 flex items-end justify-end text-gray-140 text-right">
                 <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all welcome</span>
               </div>
               <div className="h-[100px] rounded-[20px] overflow-hidden relative">
@@ -257,8 +257,8 @@ export default async function HomePage() {
       {/* Mission Section */}
       <section className="py-20 px-6">
         <div className="max-w-[900px] mx-auto text-center">
-          <span className="text-purple-700 text-sm font-bold uppercase tracking-wider mb-4 block">What we do</span>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight text-gray-800">
+          <span className="text-purple-140 text-sm font-bold uppercase tracking-wider mb-4 block">What we do</span>
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight text-gray-130">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
             <MobileTooltip
               tooltip="Human-centered design is an approach that prioritizes the unique needs of users."
@@ -297,10 +297,10 @@ export default async function HomePage() {
       {/* Connect Learn Grow Section */}
       <section className="py-16 px-6">
         <div className="max-w-[800px] mx-auto text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-6">
+          <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-6">
             Connect, learn, grow together
           </h2>
-          <p className="text-gray-600 text-lg mb-8 max-w-[600px] mx-auto">
+          <p className="text-gray-110 text-lg mb-8 max-w-[600px] mx-auto">
             Whether you&apos;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
           </p>
           <PrimaryCTA href="/about">Learn more</PrimaryCTA>
@@ -308,13 +308,13 @@ export default async function HomePage() {
       </section>
 
       {/* Features Section - Dark Purple */}
-      <section className="bg-purple-700 py-20 px-6">
+      <section className="bg-purple-140 py-20 px-6">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl md:text-5xl text-white mb-4">
               Together, we shape the future of UX
             </h2>
-            <p className="text-purple-200 text-lg">
+            <p className="text-purple-50 text-lg">
               UXHI is the perfect place to learn, network, and grow your skills.
             </p>
           </div>
@@ -330,9 +330,9 @@ export default async function HomePage() {
             >
               <p>
                 Connect with other UX&apos;ers, then keep the conversation going in our{" "}
-                <InlineLink href="/join" variant="teal" className="!text-purple-200 hover:!text-white underline !font-normal">Slack community</InlineLink>
+                <InlineLink href="/join" variant="teal" className="!text-purple-50 hover:!text-white underline !font-normal">Slack community</InlineLink>
                 {" "}or tap into our{" "}
-                <InlineLink href="/find-ux-pro" variant="teal" className="!text-purple-200 hover:!text-white underline !font-normal">membership directory</InlineLink>.
+                <InlineLink href="/find-ux-pro" variant="teal" className="!text-purple-50 hover:!text-white underline !font-normal">membership directory</InlineLink>.
               </p>
             </SpotIllustrationCard>
 
@@ -363,10 +363,10 @@ export default async function HomePage() {
       <section className="py-20 px-6">
         <div className="max-w-[1300px] mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-2">
+            <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-2">
               IRL &gt; Instagram
             </h2>
-            <p className="text-gray-600 text-lg">Stay connected with our latest events and community updates</p>
+            <p className="text-gray-110 text-lg">Stay connected with our latest events and community updates</p>
           </div>
 
           <InstagramFeed posts={instagramPosts || []} />
@@ -389,12 +389,12 @@ export default async function HomePage() {
               height={256}
               className="mx-auto mb-6"
             />
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-700 mb-6 leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-140 mb-6 leading-tight">
               A community<br />
               for designers,<br />
               by designers
             </h2>
-            <p className="text-gray-600 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">
+            <p className="text-gray-110 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">
               UXHI is built and run entirely by volunteers who share a passion for human-centered design. We create the spaces we wish existed—to learn together, support each other, and elevate UX across Hawaiʻi.
             </p>
             <PrimaryCTA href="/join">Join us</PrimaryCTA>

@@ -51,7 +51,7 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
               col.photos.map((photo) => (
                 <div
                   key={photo._id}
-                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
+                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden relative"
                 >
                   <Image
                     src={urlFor(photo.image).width(270).height(360).url()}
@@ -66,7 +66,7 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
               Array.from({ length: col.maxRows }).map((_, i) => (
                 <div
                   key={`placeholder-${col.column}-${i}`}
-                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden"
+                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden"
                 />
               ))
             )}
@@ -85,7 +85,7 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
                 colPhotos.map((photo) => (
                   <div
                     key={photo._id}
-                    className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden relative"
+                    className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden relative"
                   >
                     <Image
                       src={urlFor(photo.image).width(270).height(360).url()}
@@ -99,7 +99,7 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
                 Array.from({ length: colNum === 3 ? 1 : 2 }).map((_, i) => (
                   <div
                     key={`tablet-placeholder-${colNum}-${i}`}
-                    className="w-full aspect-[3/4] rounded-[16px] bg-gray-200 overflow-hidden"
+                    className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden"
                   />
                 ))
               )}
@@ -119,7 +119,7 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
                 colPhotos.map((photo) => (
                   <div
                     key={photo._id}
-                    className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden relative"
+                    className="w-full aspect-[3/4] rounded-[12px] bg-gray-30 overflow-hidden relative"
                   >
                     <Image
                       src={urlFor(photo.image).width(200).height(267).url()}
@@ -133,7 +133,7 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
                 Array.from({ length: 2 }).map((_, i) => (
                   <div
                     key={`mobile-placeholder-${colNum}-${i}`}
-                    className="w-full aspect-[3/4] rounded-[12px] bg-gray-200 overflow-hidden"
+                    className="w-full aspect-[3/4] rounded-[12px] bg-gray-30 overflow-hidden"
                   />
                 ))
               )}

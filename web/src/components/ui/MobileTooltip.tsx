@@ -35,11 +35,11 @@ export function MobileTooltip({ children, tooltip, className = "", decorationEle
   return (
     <span
       ref={ref}
-      className={`relative inline-block cursor-pointer group hover:text-purple-800 transition-colors ${className}`}
+      className={`relative inline-block cursor-pointer group hover:text-purple-150 transition-colors ${className}`}
       onClick={() => setIsOpen(!isOpen)}
     >
       {/* Text with dotted underline on mobile only */}
-      <span className="underline decoration-dotted decoration-gray-400 underline-offset-2 md:no-underline">
+      <span className="underline decoration-dotted decoration-gray-80 underline-offset-2 md:no-underline">
         {children}
       </span>
 
@@ -48,7 +48,7 @@ export function MobileTooltip({ children, tooltip, className = "", decorationEle
 
       {/* Tooltip - tap on mobile, hover on desktop */}
       <span
-        className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal leading-snug tracking-normal rounded-xl shadow-lg border border-gray-100 w-72 text-left z-50 whitespace-normal transition-all duration-200
+        className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-120 text-sm font-body font-normal leading-snug tracking-normal rounded-xl shadow-lg border border-gray-20 w-72 text-left z-50 whitespace-normal transition-all duration-200
           ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}
           md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible md:delay-300`}
         style={{ wordSpacing: '0.1em' }}

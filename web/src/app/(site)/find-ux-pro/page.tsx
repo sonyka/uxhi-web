@@ -163,10 +163,10 @@ export default async function FindUXProPage() {
       <section id="directory" className="py-12 px-6 bg-cream scroll-mt-24">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[900px] mx-auto text-center mb-10">
-            <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-4">
+            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-4">
               Member Directory
             </h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-120 text-lg leading-relaxed">
               Welcome to the UXHI Member Directory, your hub for connecting with
               UX design professionals in Hawaiʻi and those with Hawaiʻi ties,
               across all experience levels. Not only does this serve as a go-to
@@ -180,7 +180,7 @@ export default async function FindUXProPage() {
       </section>
 
       {/* Join Directory Section */}
-      <section id="join-directory" className="py-20 px-6 bg-purple-700 scroll-mt-24">
+      <section id="join-directory" className="py-20 px-6 bg-purple-140 scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <div className="text-center">
             {/* Directory Icon */}
@@ -195,13 +195,13 @@ export default async function FindUXProPage() {
             <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-white mb-8">
               Join our member directory!
             </h2>
-            <p className="text-purple-200 text-lg leading-relaxed mb-4">
+            <p className="text-purple-50 text-lg leading-relaxed mb-4">
               Are you a UX professional with ties to Hawaiʻi? Add yourself to the
               directory and connect with our growing community. Whether you&apos;re
               looking for new opportunities, seeking collaborators, or wanting to
               give back as a mentor, this is your chance to be discovered.
             </p>
-            <p className="text-purple-200 text-lg leading-relaxed mb-10">
+            <p className="text-purple-50 text-lg leading-relaxed mb-10">
               UX professionals and anyone transitioning into UX design who lives
               in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request
               will automatically be added to the directory and a UXHI team

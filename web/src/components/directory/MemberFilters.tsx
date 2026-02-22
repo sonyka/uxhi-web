@@ -77,8 +77,8 @@ function Dropdown({
         className={cn(
           "flex items-center justify-between gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors min-w-[160px]",
           selectedCount > 0
-            ? "bg-teal-50 border-teal-200 text-teal-700"
-            : "bg-white border-gray-200 text-gray-700 hover:border-gray-300"
+            ? "bg-teal-10 border-teal-50 text-teal-120"
+            : "bg-white border-gray-30 text-gray-120 hover:border-gray-40"
         )}
       >
         <span className="truncate">
@@ -100,7 +100,7 @@ function Dropdown({
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-64 max-h-64 overflow-y-auto bg-white rounded-xl border border-gray-200 shadow-lg z-50">
+        <div className="absolute top-full left-0 mt-2 w-64 max-h-64 overflow-y-auto bg-white rounded-xl border border-gray-30 shadow-lg z-50">
           <div className="p-2">
             {options.map((option) => {
               const isSelected = selectedArray.includes(option.value);
@@ -111,8 +111,8 @@ function Dropdown({
                   className={cn(
                     "w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-sm transition-colors",
                     isSelected
-                      ? "bg-teal-50 text-teal-700"
-                      : "text-gray-700 hover:bg-gray-50"
+                      ? "bg-teal-10 text-teal-120"
+                      : "text-gray-120 hover:bg-gray-10"
                   )}
                 >
                   {isMulti && (
@@ -120,8 +120,8 @@ function Dropdown({
                       className={cn(
                         "w-4 h-4 rounded border flex items-center justify-center flex-shrink-0",
                         isSelected
-                          ? "bg-teal-500 border-teal-500"
-                          : "border-gray-300"
+                          ? "bg-teal-90 border-teal-90"
+                          : "border-gray-40"
                       )}
                     >
                       {isSelected && (
@@ -172,7 +172,7 @@ export function MemberFilters({
         {/* Search */}
         <div className="relative">
           <svg
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-80 pointer-events-none"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -185,15 +185,15 @@ export function MemberFilters({
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search by name or title..."
-            className="w-full pl-10 pr-10 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors"
+            className="w-full pl-10 pr-10 py-2.5 rounded-lg border border-gray-30 text-sm text-gray-140 placeholder:text-gray-80 focus:outline-none focus:border-teal-90 focus:ring-1 focus:ring-teal-90 transition-colors"
           />
           {searchQuery && (
             <button
               onClick={() => onSearchChange("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-gray-30 flex items-center justify-center hover:bg-gray-40 transition-colors"
               aria-label="Clear search"
             >
-              <svg className="w-3 h-3 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <svg className="w-3 h-3 text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -225,21 +225,21 @@ export function MemberFilters({
             className={cn(
               "flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors whitespace-nowrap",
               openToWorkOnly
-                ? "bg-teal-500 border-teal-500 text-teal-800"
-                : "bg-white border-gray-200 text-gray-700 hover:border-gray-300"
+                ? "bg-teal-90 border-teal-90 text-teal-130"
+                : "bg-white border-gray-30 text-gray-120 hover:border-gray-40"
             )}
           >
             <span className="relative flex h-2 w-2">
               <span
                 className={cn(
                   "absolute inline-flex h-full w-full rounded-full opacity-75",
-                  openToWorkOnly ? "bg-teal-800 animate-ping" : "bg-teal-500"
+                  openToWorkOnly ? "bg-teal-130 animate-ping" : "bg-teal-90"
                 )}
               ></span>
               <span
                 className={cn(
                   "relative inline-flex rounded-full h-2 w-2",
-                  openToWorkOnly ? "bg-teal-800" : "bg-teal-500"
+                  openToWorkOnly ? "bg-teal-130" : "bg-teal-90"
                 )}
               ></span>
             </span>
@@ -247,7 +247,7 @@ export function MemberFilters({
           </button>
 
           {/* Sort — pushed to the right on desktop */}
-          <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1 sm:ml-auto">
+          <div className="flex items-center gap-1 bg-gray-20 rounded-lg p-1 sm:ml-auto">
             {SORT_OPTIONS.map((option) => (
               <button
                 key={option.value}
@@ -255,8 +255,8 @@ export function MemberFilters({
                 className={cn(
                   "px-3 py-1.5 rounded-md text-xs font-medium transition-colors",
                   sortBy === option.value
-                    ? "bg-white text-gray-900 shadow-sm"
-                    : "text-gray-600 hover:text-gray-700"
+                    ? "bg-white text-gray-140 shadow-sm"
+                    : "text-gray-110 hover:text-gray-120"
                 )}
               >
                 {option.label}
@@ -266,15 +266,15 @@ export function MemberFilters({
         </div>
 
         {/* Results Count & Clear */}
-        <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-          <p className="text-sm text-gray-600">
-            Showing <span className="font-semibold text-gray-900">{filteredCount}</span> of{" "}
-            <span className="font-semibold text-gray-900">{totalCount}</span> members
+        <div className="flex items-center justify-between pt-2 border-t border-gray-20">
+          <p className="text-sm text-gray-110">
+            Showing <span className="font-semibold text-gray-140">{filteredCount}</span> of{" "}
+            <span className="font-semibold text-gray-140">{totalCount}</span> members
           </p>
           {hasActiveFilters && (
             <button
               onClick={onClearFilters}
-              className="text-sm text-teal-600 hover:text-teal-700 font-medium"
+              className="text-sm text-teal-100 hover:text-teal-120 font-medium"
             >
               Clear filters
             </button>

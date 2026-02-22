@@ -35,7 +35,7 @@ export function FormCheckbox({
         className={cn(
           "w-4 h-4 rounded border flex items-center justify-center flex-shrink-0 transition-colors",
           checked
-            ? "bg-teal-500 border-teal-500"
+            ? "bg-teal-90 border-teal-90"
             : "border-white/30 bg-white/5",
         )}
       >
@@ -45,7 +45,7 @@ export function FormCheckbox({
           </svg>
         )}
       </div>
-      <span className="text-purple-200 group-hover:text-white transition-colors">{label}</span>
+      <span className="text-purple-50 group-hover:text-white transition-colors">{label}</span>
     </label>
   );
 }

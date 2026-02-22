@@ -98,8 +98,8 @@ The design system page is the **single source of truth** for all styling decisio
 Whenever a UI component's styling, props, or behavior is changed, the design system page (`src/app/(site)/design-system/page.tsx`) **MUST be updated in the same changeset** to reflect those changes. The design system is the single source of truth — it must never go stale. This includes: color changes, new variants, removed variants, renamed props, and any visual modifications to existing components.
 
 Quick reference (see design system for full details):
-- Primary: teal (`--color-teal-500: #09c0d7`)
-- Secondary: purple (`--color-purple-700: #231769`)
+- Primary: teal (`--color-teal-90: #09C0D7`)
+- Secondary: purple (`--color-purple-140: #231769`)
 - Background: cream (`--color-cream: #f4f1ea`)
 - Fonts: Dela Gothic One (display), Nunito (body)
 

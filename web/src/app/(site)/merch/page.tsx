@@ -197,7 +197,7 @@ export default async function ShopPage() {
             {displayProducts.map((product: { _id?: string; id?: string; name: string; price?: number | string; description?: string; category?: string; variants?: string[]; images?: Array<{ asset?: { _id?: string; url?: string } }>; purchaseUrl?: string; comingSoon?: boolean; featured?: boolean }) => (
               <div
                 key={product._id || product.id}
-                className="bg-white border border-gray-200 rounded-[20px] overflow-hidden hover:shadow-lg transition-shadow"
+                className="bg-white border border-gray-30 rounded-[20px] overflow-hidden hover:shadow-lg transition-shadow"
               >
                 {/* Product Image */}
                 <div className="aspect-square bg-cream flex items-center justify-center relative">
@@ -209,17 +209,17 @@ export default async function ShopPage() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="text-purple-300">
+                    <div className="text-purple-60">
                       {getCategoryIcon(product.category || "default")}
                     </div>
                   )}
                   {product.category && (
-                    <span className="absolute top-4 left-4 bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">
+                    <span className="absolute top-4 left-4 bg-gray-20 text-gray-110 text-xs px-3 py-1 rounded-full">
                       {product.category}
                     </span>
                   )}
                   {product.featured && (
-                    <span className="absolute top-4 right-4 bg-yellow text-gray-900 text-xs px-3 py-1 rounded-full font-medium">
+                    <span className="absolute top-4 right-4 bg-yellow text-gray-140 text-xs px-3 py-1 rounded-full font-medium">
                       Featured
                     </span>
                   )}
@@ -227,25 +227,25 @@ export default async function ShopPage() {
 
                 {/* Product Info */}
                 <div className="p-6">
-                  <h2 className="font-semibold text-lg text-gray-900 mb-2">
+                  <h2 className="font-semibold text-lg text-gray-140 mb-2">
                     {product.name}
                   </h2>
                   {product.description && (
-                    <p className="text-sm text-gray-500 mb-3">
+                    <p className="text-sm text-gray-100 mb-3">
                       {product.description}
                     </p>
                   )}
                   {product.variants && (
-                    <p className="text-sm text-gray-500 mb-3">
+                    <p className="text-sm text-gray-100 mb-3">
                       {product.variants.join(" · ")}
                     </p>
                   )}
                   <div className="flex items-center justify-between">
-                    <span className="font-bold text-xl text-purple-700">
+                    <span className="font-bold text-xl text-purple-140">
                       {typeof product.price === "number" ? `$${product.price}` : product.price}
                     </span>
                     {product.comingSoon ? (
-                      <span className="text-gray-500 text-sm font-medium">
+                      <span className="text-gray-100 text-sm font-medium">
                         Coming soon
                       </span>
                     ) : product.purchaseUrl ? (
@@ -253,12 +253,12 @@ export default async function ShopPage() {
                         href={product.purchaseUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-teal-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-teal-600 transition-colors"
+                        className="bg-teal-90 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-teal-100 transition-colors"
                       >
                         Buy Now
                       </a>
                     ) : (
-                      <span className="text-gray-500 text-sm font-medium">
+                      <span className="text-gray-100 text-sm font-medium">
                         Coming soon
                       </span>
                     )}
@@ -282,10 +282,10 @@ export default async function ShopPage() {
               className="object-contain"
             />
           </div>
-          <h3 className="font-display text-xl md:text-2xl text-purple-700 mb-4">
+          <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
             More products coming soon!
           </h3>
-          <p className="text-gray-700 leading-relaxed mb-6">
+          <p className="text-gray-120 leading-relaxed mb-6">
             We&apos;re working on expanding our merch collection. Join our mailing list to be notified when new products drop.
           </p>
           <PrimaryCTA href="/join">Join the community</PrimaryCTA>

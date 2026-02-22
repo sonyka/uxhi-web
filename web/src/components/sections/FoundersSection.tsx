@@ -33,10 +33,10 @@ export function FoundersSection({ founders, id }: FoundersSectionProps) {
       <Container>
         {/* Section Header */}
         <div className="mb-16">
-          <h2 className="font-display text-4xl md:text-5xl text-purple-700 mb-4">
+          <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-4">
             Who we are
           </h2>
-          <p className="text-gray-600 text-lg max-w-5xl">
+          <p className="text-gray-110 text-lg max-w-5xl">
             UXHI is a female-founded community organization whose mission is to
             connect and elevate the field of human-centered design for the
             people of Hawai&apos;i.
@@ -55,7 +55,7 @@ export function FoundersSection({ founders, id }: FoundersSectionProps) {
               >
                 {/* Photo */}
                 <div className={isEven ? "md:order-1" : "md:order-2"}>
-                  <div className="relative aspect-square max-w-[420px] rounded-lg overflow-hidden bg-gray-100 mx-auto md:mx-0">
+                  <div className="relative aspect-square max-w-[420px] rounded-lg overflow-hidden bg-gray-20 mx-auto md:mx-0">
                     {founder.photo?.asset ? (
                       <SanityImage
                         value={founder.photo}
@@ -64,7 +64,7 @@ export function FoundersSection({ founders, id }: FoundersSectionProps) {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-purple-100 text-purple-300">
+                      <div className="w-full h-full flex items-center justify-center bg-purple-30 text-purple-60">
                         <svg
                           className="w-24 h-24"
                           fill="currentColor"
@@ -79,18 +79,18 @@ export function FoundersSection({ founders, id }: FoundersSectionProps) {
 
                 {/* Info */}
                 <div className={isEven ? "md:order-2" : "md:order-1"}>
-                  <h3 className="font-display text-3xl md:text-4xl text-purple-700 mb-2">
+                  <h3 className="font-display text-3xl md:text-4xl text-purple-140 mb-2">
                     {founder.name}
                   </h3>
                   {founder.role && (
-                    <p className="text-gray-600 text-base mb-5">
+                    <p className="text-gray-110 text-base mb-5">
                       {founder.role.includes("Co-Founder")
                         ? "Co-Founder"
                         : founder.role}
                     </p>
                   )}
                   {founder.bio && (
-                    <p className="text-gray-700 text-base leading-relaxed mb-6">
+                    <p className="text-gray-120 text-base leading-relaxed mb-6">
                       {founder.bio}
                     </p>
                   )}

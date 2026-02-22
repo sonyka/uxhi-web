@@ -12,21 +12,21 @@ interface InfoBoxProps {
 /**
  * InfoBox - Callout component for notes, disclaimers, and featured content
  *
- * Uses: teal-50 background with teal-100 border
+ * Uses: teal-10 background with teal-30 border
  * Border radius: 20px (rounded-[20px])
  * Padding: 24px (p-6)
  *
  * Typography patterns for children:
- * - Simple note: <p className="text-base text-gray-700 font-medium">...</p>
+ * - Simple note: <p className="text-base text-gray-120 font-medium">...</p>
  * - With CTA: Use flex layout with text and PrimaryCTA
  *
  * @see /design-system for usage examples
  */
 export function InfoBox({ children, eyebrow, className = "" }: InfoBoxProps) {
   return (
-    <div className={`bg-teal-50 border border-teal-100 rounded-[20px] p-6 ${className}`}>
+    <div className={`bg-teal-10 border border-teal-30 rounded-[20px] p-6 ${className}`}>
       {eyebrow && (
-        <span className="block text-sm font-bold uppercase tracking-wider text-purple-700 mb-1">
+        <span className="block text-sm font-bold uppercase tracking-wider text-purple-140 mb-1">
           {eyebrow}
         </span>
       )}

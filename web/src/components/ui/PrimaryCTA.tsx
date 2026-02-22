@@ -11,16 +11,16 @@ interface PrimaryCTAProps {
 
 const variants = {
   default: {
-    button: "bg-white border border-gray-200 hover:bg-gray-50",
-    text: "text-gray-900",
+    button: "bg-white border border-gray-30 hover:bg-gray-10",
+    text: "text-gray-140",
     circle: "bg-yellow group-hover:bg-yellow-hover",
-    icon: "text-gray-900",
+    icon: "text-gray-140",
   },
   subdued: {
-    button: "bg-white border border-gray-200 hover:bg-gray-50",
-    text: "text-gray-900",
-    circle: "bg-gray-200 group-hover:bg-gray-300",
-    icon: "text-gray-900",
+    button: "bg-white border border-gray-30 hover:bg-gray-10",
+    text: "text-gray-140",
+    circle: "bg-gray-30 group-hover:bg-gray-40",
+    icon: "text-gray-140",
   },
   dark: {
     button: "bg-white/10 border border-white/30 hover:bg-white/20",

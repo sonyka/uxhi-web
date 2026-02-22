@@ -216,13 +216,13 @@ export default async function ResourcesPage() {
       {/* UX for Students Section */}
       <section id="students" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-10">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-10">
             UX for Students
           </h2>
 
           {/* Online Resources */}
           <div className="mb-12">
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-6">Online Resources</h3>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Online Resources</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {(groupedResources['online-resources-students'] && groupedResources['online-resources-students'].length > 0
                 ? groupedResources['online-resources-students']
@@ -240,9 +240,9 @@ export default async function ResourcesPage() {
 
           {/* Local Programs */}
           <div className="mb-12">
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-6">Local Programs & Degrees</h3>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Local Programs & Degrees</h3>
             <InfoBox className="mb-6">
-              <p className="text-base text-gray-700 font-medium">Note: There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.</p>
+              <p className="text-base text-gray-120 font-medium">Note: There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.</p>
             </InfoBox>
 
             {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 && (
@@ -322,7 +322,7 @@ export default async function ResourcesPage() {
         <div className="max-w-[900px] mx-auto">
           {/* Online Programs */}
           <div className="mb-12">
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-6">Online Programs</h3>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Online Programs</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {(groupedResources['online-programs-students'] && groupedResources['online-programs-students'].length > 0
                 ? groupedResources['online-programs-students']
@@ -340,7 +340,7 @@ export default async function ResourcesPage() {
 
           {/* Communities */}
           <div>
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-600 mb-6">Communities</h3>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Communities</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {(groupedResources['design-communities'] && groupedResources['design-communities'].length > 0
                 ? groupedResources['design-communities']
@@ -355,7 +355,7 @@ export default async function ResourcesPage() {
               ))}
             </div>
             <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-base text-gray-700 font-medium">Do you have more resources to suggest or corrections we should make?</p>
+              <p className="text-base text-gray-120 font-medium">Do you have more resources to suggest or corrections we should make?</p>
               <PrimaryCTA href="/about#contact">
                 Share with us
               </PrimaryCTA>
@@ -368,28 +368,28 @@ export default async function ResourcesPage() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-[900px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-[20px] p-8 border border-gray-200">
-              <h3 className="font-display text-2xl text-purple-700 mb-3">UX for Practitioners</h3>
-              <p className="text-gray-500">Coming soon</p>
+            <div className="bg-white rounded-[20px] p-8 border border-gray-30">
+              <h3 className="font-display text-2xl text-purple-140 mb-3">UX for Practitioners</h3>
+              <p className="text-gray-100">Coming soon</p>
             </div>
-            <div className="bg-white rounded-[20px] p-8 border border-gray-200">
-              <h3 className="font-display text-2xl text-purple-700 mb-3">UX for Businesses</h3>
-              <p className="text-gray-500">Coming soon</p>
+            <div className="bg-white rounded-[20px] p-8 border border-gray-30">
+              <h3 className="font-display text-2xl text-purple-140 mb-3">UX for Businesses</h3>
+              <p className="text-gray-100">Coming soon</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* State of UX Report Section */}
-      <section id="report" className="py-20 px-6 bg-purple-700 scroll-mt-24">
+      <section id="report" className="py-20 px-6 bg-purple-140 scroll-mt-24">
         <div className="max-w-[1100px] mx-auto">
           <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
             State of UX in Hawaiʻi Report
           </h2>
-          <p className="text-purple-100 text-lg leading-relaxed mb-4">
+          <p className="text-purple-30 text-lg leading-relaxed mb-4">
             To answer that question, we conducted our own study on the status of UX jobs, hiring, education, awareness, and audiences to give us a better understanding of how our programming could best support UXers in Hawai&apos;i.
           </p>
-          <p className="text-purple-200 mb-10">
+          <p className="text-purple-50 mb-10">
             The report is currently done on a bi-annual basis to gain a better understanding of our UX design community.
           </p>
 
@@ -470,7 +470,7 @@ export default async function ResourcesPage() {
 
           {/* How Report Helps */}
           <div className="mb-10">
-            <p className="text-purple-100 text-lg mb-6">The State of UX report charts our progress towards advancing the field of UX by:</p>
+            <p className="text-purple-30 text-lg mb-6">The State of UX report charts our progress towards advancing the field of UX by:</p>
             <ul className="space-y-4">
               <li className="flex items-start gap-4">
                 <BulletPoint variant="yellow" />
@@ -522,10 +522,10 @@ export default async function ResourcesPage() {
       {/* Directory of Tech Organizations */}
       <section id="directory" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-700 mb-4">
+          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-4">
             Directory of Local Tech Organizations
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-10">
+          <p className="text-gray-120 text-lg leading-relaxed mb-10">
             The tech ecosystem and community in Hawai&apos;i is thriving and growing! This list is a work in progress for UXers to connect with the many communities that advance our shared mission.
           </p>
 
@@ -536,7 +536,7 @@ export default async function ResourcesPage() {
                 href={org.website || org.url || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-100 transition-colors group"
+                className="flex items-center justify-between bg-cream rounded-[16px] p-5 hover:bg-gray-20 transition-colors group"
               >
                 <div className="flex items-center gap-3">
                   {org.logo?.asset && (
@@ -547,16 +547,16 @@ export default async function ResourcesPage() {
                       className="w-8 h-8 object-contain"
                     />
                   )}
-                  <p className="font-medium text-gray-900 group-hover:text-teal-600 transition-colors">{org.name}</p>
+                  <p className="font-medium text-gray-140 group-hover:text-teal-100 transition-colors">{org.name}</p>
                 </div>
-                <ExternalLinkIcon className="w-5 h-5 text-gray-400 group-hover:text-teal-500 transition-colors flex-shrink-0" />
+                <ExternalLinkIcon className="w-5 h-5 text-gray-80 group-hover:text-teal-90 transition-colors flex-shrink-0" />
               </a>
             ))}
           </div>
 
           {/* Something Missing CTA */}
           <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-base text-gray-700 font-medium">Something missing?</p>
+            <p className="text-base text-gray-120 font-medium">Something missing?</p>
             <PrimaryCTA href="/about#contact">
               Share with us
             </PrimaryCTA>

@@ -2,34 +2,61 @@
 
 /* UXHI Design System */
 @theme {
-  /* Colors - Primary Teal */
-  --color-teal-50: #e6fafb;
-  --color-teal-100: #b3f0f5;
-  --color-teal-200: #80e6ef;
-  --color-teal-300: #4ddce9;
-  --color-teal-400: #1ad2e3;
-  --color-teal-500: #09c0d7;
-  --color-teal-600: #079aac;
-  --color-teal-700: #057381;
-  --color-teal-800: #034d56;
-  --color-teal-900: #01262b;
+  /* Colors - Primary Teal (Blue) */
+  --color-teal-10: #F1FDFB;
+  --color-teal-20: #D4F5F7;
+  --color-teal-30: #B7EEF2;
+  --color-teal-40: #9AE6EE;
+  --color-teal-50: #7DDFE9;
+  --color-teal-60: #60D7E5;
+  --color-teal-70: #43CFE0;
+  --color-teal-80: #26C8DC;
+  --color-teal-90: #09C0D7;
+  --color-teal-100: #08A5B8;
+  --color-teal-110: #06899A;
+  --color-teal-120: #056E7B;
+  --color-teal-130: #04525C;
+  --color-teal-140: #03373D;
+  --color-teal-150: #011B1F;
 
   /* Colors - Purple/Navy */
-  --color-purple-50: #edeafc;
-  --color-purple-100: #c9c0f5;
-  --color-purple-200: #a596ee;
-  --color-purple-300: #816ce7;
-  --color-purple-400: #5d42e0;
-  --color-purple-500: #4329c7;
-  --color-purple-600: #34209b;
-  --color-purple-700: #231769;
-  --color-purple-800: #1a1150;
-  --color-purple-900: #110b34;
+  --color-purple-10: #EBE9FA;
+  --color-purple-20: #D7D2F5;
+  --color-purple-30: #C4BCF0;
+  --color-purple-40: #B0A5EB;
+  --color-purple-50: #9C8FE6;
+  --color-purple-60: #8879E1;
+  --color-purple-70: #7562DD;
+  --color-purple-80: #614CD8;
+  --color-purple-90: #4D35D3;
+  --color-purple-100: #412BC2;
+  --color-purple-110: #4424A7;
+  --color-purple-120: #392092;
+  --color-purple-130: #2E1B7E;
+  --color-purple-140: #231769;
+  --color-purple-150: #120C35;
+
+  /* Colors - Gray */
+  --color-gray-10: #F8F9FA;
+  --color-gray-20: #ECEEF0;
+  --color-gray-30: #DFE2E6;
+  --color-gray-40: #D3D7DC;
+  --color-gray-50: #C6CCD1;
+  --color-gray-60: #BAC0C7;
+  --color-gray-70: #ADB5BD;
+  --color-gray-80: #969DA4;
+  --color-gray-90: #7E858C;
+  --color-gray-100: #676D73;
+  --color-gray-110: #50555A;
+  --color-gray-120: #383D42;
+  --color-gray-130: #212529;
+  --color-gray-140: #16191B;
+  --color-gray-150: #0B0C0E;
 
   /* Colors - Neutral / Brand */
   --color-cream: #f4f1ea;
   --color-cream-dark: #e8e4db;
-  --color-section-gray: #f5f5f5;
+
 
   /* Colors - Accent Yellow */
   --color-yellow: #ffcc40;
@@ -84,17 +111,17 @@ html {
 
 /* Focus styles for accessibility */
 *:focus-visible {
-  outline: 2px solid var(--color-teal-500);
+  outline: 2px solid var(--color-teal-90);
   outline-offset: 2px;
 }
 
 /* Custom button styles */
 .btn-primary {
-  @apply inline-flex items-center gap-3 bg-purple-700 text-white rounded-full px-6 py-3 font-medium transition-all hover:bg-purple-800;
+  @apply inline-flex items-center gap-3 bg-purple-140 text-white rounded-full px-6 py-3 font-medium transition-all hover:bg-purple-150;
 }
 
 .btn-primary-arrow {
-  @apply inline-flex items-center gap-3 bg-purple-700 rounded-full pl-6 pr-2 py-2 font-medium transition-all hover:bg-purple-800;
+  @apply inline-flex items-center gap-3 bg-purple-140 rounded-full pl-6 pr-2 py-2 font-medium transition-all hover:bg-purple-150;
 }
 
 /* Card shadows */

@@ -66,10 +66,10 @@ export function MissionSection({ values }: MissionSectionProps) {
           {/* Mission Statement */}
           <motion.h2
             variants={fadeInUp}
-            className="font-display text-2xl md:text-3xl lg:text-4xl text-purple-600 leading-tight mb-8 max-w-4xl"
+            className="font-display text-2xl md:text-3xl lg:text-4xl text-purple-120 leading-tight mb-8 max-w-4xl"
           >
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
-            <span className="text-purple-600 hover:text-purple-800 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
+            <span className="text-purple-120 hover:text-purple-150 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
               Human-Centered Design
               {/* Underline image */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -79,7 +79,7 @@ export function MissionSection({ values }: MissionSectionProps) {
                 className="absolute left-0 right-0 -bottom-1 w-full h-auto pointer-events-none"
               />
               {/* Tooltip */}
-              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-700 text-sm font-body font-normal leading-relaxed tracking-normal rounded-xl shadow-lg border border-gray-100 w-80 text-left opacity-0 invisible group-hover/hcd:opacity-100 group-hover/hcd:visible transition-all duration-200 delay-300 z-50 whitespace-normal" style={{ wordSpacing: '0.1em' }}>
+              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-120 text-sm font-body font-normal leading-relaxed tracking-normal rounded-xl shadow-lg border border-gray-20 w-80 text-left opacity-0 invisible group-hover/hcd:opacity-100 group-hover/hcd:visible transition-all duration-200 delay-300 z-50 whitespace-normal" style={{ wordSpacing: '0.1em' }}>
                 Human-centered design is an approach that prioritizes the unique needs of users.
                 {/* Tail */}
                 <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
@@ -90,7 +90,7 @@ export function MissionSection({ values }: MissionSectionProps) {
 
           {/* Description */}
           <motion.div variants={fadeInUp} className="max-w-4xl mb-12">
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-120 text-lg leading-relaxed">
               Founded in the summer of 2021, we are a female-founded
               volunteer-run organization that acts as the go-to resource for UX
               in the state. Our primary initiatives include our annual UXHI
@@ -102,7 +102,7 @@ export function MissionSection({ values }: MissionSectionProps) {
 
           {/* Values */}
           <motion.div variants={fadeInUp}>
-            <h3 className="font-display text-2xl md:text-3xl text-purple-700 mb-8 text-center">
+            <h3 className="font-display text-2xl md:text-3xl text-purple-140 mb-8 text-center">
               Our Values
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

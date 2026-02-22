@@ -33,8 +33,8 @@ interface NavbarProps {
  * - Container: bg-white, gap-8 (32px), pl-8 (32px), pr-6 (24px), py-5 (20px), rounded-full
  * - Text: text-base (16px), font-medium, text-black
  * - Nav icon gap: gap-0.5 (2px) between text and icon
- * - Chevron icons: w-4 h-4 (16px), text-gray-500 (#6B7280)
- * - External link icons: w-4 h-4 (16px), text-gray-400 (#9CA3AF)
+ * - Chevron icons: w-4 h-4 (16px), text-gray-100 (#676D73)
+ * - External link icons: w-4 h-4 (16px), text-gray-80 (#969DA4)
  * - CTA: shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)], pl-5, pr-2, py-2, gap-2
  * - Yellow circle: bg-yellow, w-[30px] h-[30px], rounded-full
  */
@@ -53,13 +53,13 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
           >
             <Link
               href={item.href}
-              className="flex items-center gap-0.5 text-base font-medium text-black hover:text-gray-700 transition-colors group/link"
+              className="flex items-center gap-0.5 text-base font-medium text-black hover:text-gray-120 transition-colors group/link"
             >
               <TextSlideUp group="group/link">
                 {item.label}
               </TextSlideUp>
               <ChevronDownIcon
-                className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
+                className={`w-4 h-4 text-gray-100 transition-transform duration-200 ${
                   openDropdown === item.key ? 'rotate-180' : ''
                 }`}
               />
@@ -78,18 +78,18 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
                   {/* Tail/Arrow */}
                   <div className="absolute left-1/2 -translate-x-1/2 -top-[7px] w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-white z-10" />
 
-                  <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden py-2 relative">
+                  <div className="bg-white rounded-xl shadow-lg border border-gray-20 overflow-hidden py-2 relative">
                     {item.dropdown.map((dropdownItem, index) => (
                       <Link
                         key={index}
                         href={dropdownItem.href}
-                        className="block px-4 py-3 hover:bg-gray-50 transition-colors"
+                        className="block px-4 py-3 hover:bg-gray-10 transition-colors"
                       >
-                        <span className="block text-base font-medium text-gray-900">
+                        <span className="block text-base font-medium text-gray-140">
                           {dropdownItem.label}
                         </span>
                         {dropdownItem.description && (
-                          <span className="block text-sm text-gray-500 mt-0.5">
+                          <span className="block text-sm text-gray-100 mt-0.5">
                             {dropdownItem.description}
                           </span>
                         )}
@@ -106,18 +106,18 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-0.5 text-base font-medium text-black hover:text-gray-700 transition-colors group/link"
+            className="flex items-center gap-0.5 text-base font-medium text-black hover:text-gray-120 transition-colors group/link"
           >
             <TextSlideUp group="group/link">
               {item.label}
             </TextSlideUp>
-            <ExternalLinkIcon className="w-4 h-4 text-gray-400" />
+            <ExternalLinkIcon className="w-4 h-4 text-gray-80" />
           </a>
         ) : (
           <Link
             key={item.key}
             href={item.href}
-            className="text-base font-medium text-black hover:text-gray-700 transition-colors group/link"
+            className="text-base font-medium text-black hover:text-gray-120 transition-colors group/link"
           >
             <TextSlideUp group="group/link">
               {item.label}
@@ -129,7 +129,7 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
       {/* CTA Button */}
       <Link
         href={ctaHref}
-        className="flex items-center gap-1.5 xl:gap-2 bg-white rounded-full pl-4 xl:pl-5 pr-2 py-2 shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:bg-gray-50 transition-colors group"
+        className="flex items-center gap-1.5 xl:gap-2 bg-white rounded-full pl-4 xl:pl-5 pr-2 py-2 shadow-[0px_0px_4px_0px_rgba(0,0,0,0.25)] hover:bg-gray-10 transition-colors group"
       >
         <TextSlideUp className="text-base font-medium text-black">
           {ctaLabel}
@@ -172,7 +172,7 @@ export function MobileNavbar({
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2 }}
-          className="bg-white border border-gray-200 rounded-2xl mt-4 overflow-hidden"
+          className="bg-white border border-gray-30 rounded-2xl mt-4 overflow-hidden"
         >
           <div className="py-4 px-6 space-y-1">
             {items.map((item) =>
@@ -181,14 +181,14 @@ export function MobileNavbar({
                   <div className="flex items-center justify-between py-3">
                     <Link
                       href={item.href}
-                      className="text-base font-medium text-gray-700 hover:text-teal-500"
+                      className="text-base font-medium text-gray-120 hover:text-teal-90"
                       onClick={onClose}
                     >
                       {item.label}
                     </Link>
                     <button
                       onClick={() => setOpenDropdown(openDropdown === item.key ? null : item.key)}
-                      className="p-1 text-gray-700 hover:text-teal-500"
+                      className="p-1 text-gray-120 hover:text-teal-90"
                       aria-label={`Toggle ${item.label} submenu`}
                     >
                       <ChevronDownIcon
@@ -207,12 +207,12 @@ export function MobileNavbar({
                         transition={{ duration: 0.15 }}
                         className="overflow-hidden"
                       >
-                        <div className="pl-4 border-l-2 border-gray-100 ml-2 space-y-1">
+                        <div className="pl-4 border-l-2 border-gray-20 ml-2 space-y-1">
                           {item.dropdown.map((dropdownItem, index) => (
                             <Link
                               key={index}
                               href={dropdownItem.href}
-                              className="block py-2.5 text-base text-gray-600 hover:text-teal-500 font-medium"
+                              className="block py-2.5 text-base text-gray-110 hover:text-teal-90 font-medium"
                               onClick={onClose}
                             >
                               {dropdownItem.label}
@@ -229,7 +229,7 @@ export function MobileNavbar({
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center py-3 text-base font-medium text-gray-700 hover:text-teal-500"
+                  className="flex items-center py-3 text-base font-medium text-gray-120 hover:text-teal-90"
                   onClick={onClose}
                 >
                   {item.label}
@@ -239,7 +239,7 @@ export function MobileNavbar({
                 <Link
                   key={item.key}
                   href={item.href}
-                  className="flex items-center justify-between py-3 text-base font-medium text-gray-700 hover:text-teal-500"
+                  className="flex items-center justify-between py-3 text-base font-medium text-gray-120 hover:text-teal-90"
                   onClick={onClose}
                 >
                   {item.label}
@@ -251,7 +251,7 @@ export function MobileNavbar({
             <div className="pt-4">
               <Link
                 href={ctaHref}
-                className="flex items-center justify-center gap-3 bg-white border border-gray-200 rounded-full py-2.5 pl-6 pr-2.5 font-medium hover:bg-gray-50 transition-colors group"
+                className="flex items-center justify-center gap-3 bg-white border border-gray-30 rounded-full py-2.5 pl-6 pr-2.5 font-medium hover:bg-gray-10 transition-colors group"
                 onClick={onClose}
               >
                 <span className="text-base text-black">{ctaLabel}</span>
@@ -285,17 +285,17 @@ export function HamburgerButton({ isOpen, onClick }: HamburgerButtonProps) {
     >
       <div className="w-6 h-5 flex flex-col justify-between relative">
         <span
-          className={`h-0.5 w-full bg-gray-900 rounded transition-all duration-300 ${
+          className={`h-0.5 w-full bg-gray-140 rounded transition-all duration-300 ${
             isOpen ? "rotate-45 absolute top-1/2 -translate-y-1/2" : ""
           }`}
         />
         <span
-          className={`h-0.5 w-full bg-gray-900 rounded transition-opacity duration-300 ${
+          className={`h-0.5 w-full bg-gray-140 rounded transition-opacity duration-300 ${
             isOpen ? "opacity-0" : ""
           }`}
         />
         <span
-          className={`h-0.5 w-full bg-gray-900 rounded transition-all duration-300 ${
+          className={`h-0.5 w-full bg-gray-140 rounded transition-all duration-300 ${
             isOpen ? "-rotate-45 absolute top-1/2 -translate-y-1/2" : ""
           }`}
         />

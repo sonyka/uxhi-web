@@ -54,15 +54,15 @@ export function FormSelect({
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-left transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent flex items-center justify-between",
-          selectedValue ? "text-white" : "text-purple-300/60",
+          "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-left transition-colors focus:outline-none focus:ring-2 focus:ring-teal-90 focus:border-transparent flex items-center justify-between",
+          selectedValue ? "text-white" : "text-purple-60/60",
         )}
       >
         <span className="truncate">
           {selectedOption ? selectedOption.title : placeholder}
         </span>
         <svg
-          className={cn("w-4 h-4 text-purple-300/60 transition-transform flex-shrink-0 ml-2", isOpen && "rotate-180")}
+          className={cn("w-4 h-4 text-purple-60/60 transition-transform flex-shrink-0 ml-2", isOpen && "rotate-180")}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -73,7 +73,7 @@ export function FormSelect({
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 max-h-64 overflow-y-auto bg-purple-600 rounded-xl border border-white/20 shadow-lg z-50">
+        <div className="absolute top-full left-0 right-0 mt-2 max-h-64 overflow-y-auto bg-purple-120 rounded-xl border border-white/20 shadow-lg z-50">
           <div className="p-2">
             {options.map((option) => {
               const isSelected = option.value === selectedValue;
@@ -85,8 +85,8 @@ export function FormSelect({
                   className={cn(
                     "w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-sm transition-colors",
                     isSelected
-                      ? "bg-teal-500/20 text-teal-300"
-                      : "text-purple-200 hover:bg-white/10",
+                      ? "bg-teal-90/20 text-teal-60"
+                      : "text-purple-50 hover:bg-white/10",
                   )}
                 >
                   <span className="truncate">{option.title}</span>

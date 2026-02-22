@@ -7,7 +7,7 @@ interface FormLabelProps {
   className?: string;
 }
 
-const baseClass = "block text-sm font-semibold text-purple-200 mb-1.5";
+const baseClass = "block text-sm font-semibold text-purple-50 mb-1.5";
 
 export function FormLabel({
   children,
