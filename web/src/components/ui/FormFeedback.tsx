@@ -14,7 +14,7 @@ interface FormAlertProps {
 }
 
 const alertStyles = {
-  error: "bg-red-500/20 border-red-400/30 text-red-200",
+  error: "bg-orange-90/20 border-orange-70/30 text-orange-30",
   info: "bg-white/10 border-white/20 text-purple-50",
 } as const;
 

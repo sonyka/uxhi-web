@@ -60,7 +60,7 @@ const navigationItems = [
       { id: "colors-gray", label: "Gray Scale" },
       { id: "colors-orange", label: "Orange" },
       { id: "colors-yellow", label: "Yellow" },
-      { id: "colors-neutral", label: "Neutral / Brand" },
+      { id: "colors-neutral", label: "Neutral" },
     ],
   },
   {
@@ -711,7 +711,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   // Colors
   "colors-teal": (
     <ContentSection title="Primary — Teal" description="Primary brand color palette (15-step scale from Figma). Click any swatch to copy its hex value.">
-      <div className="grid grid-cols-5 md:grid-cols-8 lg:grid-cols-15 gap-3">
+      <div className="grid grid-cols-5 md:grid-cols-8 gap-3">
         <ColorSwatch name="10" value="#F1FDFB" />
         <ColorSwatch name="20" value="#D4F5F7" />
         <ColorSwatch name="30" value="#B7EEF2" />
@@ -732,7 +732,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
   "colors-purple": (
     <ContentSection title="Secondary — Purple" description="Secondary brand color palette (15-step scale from Figma). Click any swatch to copy its hex value.">
-      <div className="grid grid-cols-5 md:grid-cols-8 lg:grid-cols-15 gap-3">
+      <div className="grid grid-cols-5 md:grid-cols-8 gap-3">
         <ColorSwatch name="10" value="#EBE9FA" />
         <ColorSwatch name="20" value="#D7D2F5" />
         <ColorSwatch name="30" value="#C4BCF0" />
@@ -753,7 +753,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
   "colors-gray": (
     <ContentSection title="Gray Scale" description="Neutral gray palette (15-step scale from Figma). Click any swatch to copy its hex value.">
-      <div className="grid grid-cols-5 md:grid-cols-8 lg:grid-cols-15 gap-3">
+      <div className="grid grid-cols-5 md:grid-cols-8 gap-3">
         <ColorSwatch name="10" value="#F8F9FA" />
         <ColorSwatch name="20" value="#ECEEF0" />
         <ColorSwatch name="30" value="#DFE2E6" />
@@ -773,18 +773,18 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
   "colors-neutral": (
-    <ContentSection title="Neutral / Brand" description="Background and accent colors. Click any swatch to copy its hex value.">
+    <ContentSection title="Neutral" description="Background and accent colors. Click any swatch to copy its hex value.">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <ColorSwatch name="White" value="#ffffff" compact />
-        <ColorSwatch name="Cream" value="#f4f1ea" compact badge="Background" />
-        <ColorSwatch name="Cream Dark" value="#e8e4db" compact />
-        <ColorSwatch name="Black" value="#000000" textColor="text-white" compact />
+        <ColorSwatch name="White" value="#ffffff" />
+        <ColorSwatch name="Cream" value="#f4f1ea" badge="Background" />
+        <ColorSwatch name="Cream Dark" value="#e8e4db" />
+        <ColorSwatch name="Black" value="#000000" textColor="text-white" />
       </div>
     </ContentSection>
   ),
   "colors-orange": (
     <ContentSection title="Orange" description="Orange color palette (15-step scale from Figma). Click any swatch to copy its hex value.">
-      <div className="grid grid-cols-5 md:grid-cols-8 lg:grid-cols-15 gap-3">
+      <div className="grid grid-cols-5 md:grid-cols-8 gap-3">
         <ColorSwatch name="10" value="#FFE7DE" />
         <ColorSwatch name="20" value="#FFD7C8" />
         <ColorSwatch name="30" value="#FFCBB8" />
@@ -805,7 +805,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
   "colors-yellow": (
     <ContentSection title="Yellow" description="Yellow color palette (15-step scale from Figma). Click any swatch to copy its hex value.">
-      <div className="grid grid-cols-5 md:grid-cols-8 lg:grid-cols-15 gap-3">
+      <div className="grid grid-cols-5 md:grid-cols-8 gap-3">
         <ColorSwatch name="10" value="#FFF4D7" />
         <ColorSwatch name="20" value="#FFEDBC" />
         <ColorSwatch name="30" value="#FFE8A8" />
@@ -1831,7 +1831,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-cream rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Error: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-red-500/20 border-red-400/30 text-red-200</span></p>
+                <p>Error: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-orange-90/20 border-orange-70/30 text-orange-30</span></p>
                 <p>Info: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20 text-purple-50</span></p>
                 <p>Adds <span className="font-mono text-xs bg-gray-20 px-1 rounded">role=&quot;alert&quot;</span> for accessibility</p>
               </div>
