@@ -126,7 +126,7 @@ export default function VolunteerPage() {
       </div>
 
       {/* Committees Section */}
-      <section className="py-20 px-6 bg-beige-30">
+      <section className="py-20 px-6 bg-beige-10">
         <div className="max-w-[1100px] mx-auto">
           <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-12 text-center">
             Committees

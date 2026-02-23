@@ -15,7 +15,7 @@ interface LinkCardProps {
  * LinkCard - External link card with beige-30 background
  *
  * Design tokens:
- * - Background: beige-30 (#f4f1ea), hover: beige-40
+ * - Background: beige-30 (#f4f1ea), hover: beige-30
  * - Border radius: 16px (rounded-[16px])
  * - Padding: 20px (p-5)
  * - Title: text-base, font-medium, gray-140, hover: teal-100
@@ -30,7 +30,7 @@ export function LinkCard({ href, title, description, className = "" }: LinkCardP
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center justify-between bg-beige-30 rounded-[16px] p-5 hover:bg-beige-40 transition-colors group ${className}`}
+      className={`flex items-center justify-between bg-beige-10 rounded-[16px] p-5 hover:bg-beige-30 transition-colors group ${className}`}
     >
       <div>
         <p className="text-base font-medium text-gray-140 group-hover:text-teal-100 transition-colors">

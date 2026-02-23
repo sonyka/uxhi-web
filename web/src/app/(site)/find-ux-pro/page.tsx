@@ -16,7 +16,7 @@ export default async function FindUXProPage() {
   const { data: members } = await sanityFetch({ query: DIRECTORY_MEMBERS_QUERY });
 
   return (
-    <main className="min-h-screen bg-beige-30">
+    <main className="min-h-screen bg-beige-10">
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
@@ -160,7 +160,7 @@ export default async function FindUXProPage() {
       </div>
 
       {/* Member Directory Section */}
-      <section id="directory" className="py-12 px-6 bg-beige-30 scroll-mt-24">
+      <section id="directory" className="py-12 px-6 bg-beige-10 scroll-mt-24">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[900px] mx-auto text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-4">

@@ -100,7 +100,7 @@ Whenever a UI component's styling, props, or behavior is changed, the design sys
 Quick reference (see design system for full details):
 - Primary: teal (`--color-teal-90: #09C0D7`)
 - Secondary: purple (`--color-purple-140: #231769`)
-- Background: beige (`--color-beige-30: #F5EDE4`)
+- Background: beige (`--color-beige-10: #FDF9F6`)
 - Fonts: Dela Gothic One (display), Nunito (body)
 
 **Available Components:**

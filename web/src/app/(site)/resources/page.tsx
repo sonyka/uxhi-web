@@ -116,7 +116,7 @@ export default async function ResourcesPage() {
   const displayTechOrgs = techOrganizations && techOrganizations.length > 0 ? techOrganizations : techOrgs;
 
   return (
-    <main className="min-h-screen bg-beige-30">
+    <main className="min-h-screen bg-beige-10">
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
@@ -536,7 +536,7 @@ export default async function ResourcesPage() {
                 href={org.website || org.url || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between bg-beige-30 rounded-[16px] p-5 hover:bg-gray-20 transition-colors group"
+                className="flex items-center justify-between bg-beige-10 rounded-[16px] p-5 hover:bg-beige-30 transition-colors group"
               >
                 <div className="flex items-center gap-3">
                   {org.logo?.asset && (

@@ -57,7 +57,7 @@ export default async function AboutPage() {
   const values = valuesResult.data || [];
 
   return (
-    <main className="min-h-screen bg-beige-30">
+    <main className="min-h-screen bg-beige-10">
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
@@ -157,7 +157,7 @@ export default async function AboutPage() {
       <MissionSection values={values} />
 
       {/* Featured Press Section */}
-      <section className="pb-16 px-6 bg-beige-30">
+      <section className="pb-16 px-6 bg-beige-10">
         <div className="max-w-[1100px] mx-auto">
           <PressMention
             source="Hawai'i Bulletin"

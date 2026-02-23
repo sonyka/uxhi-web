@@ -799,7 +799,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     <ContentSection title="Neutral" description="Background and accent colors. Click any swatch to copy its hex value.">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         <ColorSwatch name="White" value="#ffffff" />
-        <ColorSwatch name="Beige-30" value="#f4f1ea" />
+        <ColorSwatch name="Beige-10" value="#FDF9F6" badge="Background" />
         <ColorSwatch name="Black" value="#000000" textColor="text-white" />
       </div>
     </ContentSection>
@@ -810,7 +810,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Background</h4>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            <ColorSwatch name="Background" value="#F5EDE4" badge="beige-30" />
+            <ColorSwatch name="Background" value="#FDF9F6" badge="beige-10" />
             <ColorSwatch name="Background Elevated" value="#FFFFFF" badge="white" />
             <ColorSwatch name="Background Subtle" value="#F8F9FA" badge="gray-10" />
             <ColorSwatch name="Background Accent" value="#F1FDFB" badge="teal-10" />
