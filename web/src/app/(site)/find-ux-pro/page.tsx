@@ -160,7 +160,7 @@ export default async function FindUXProPage() {
       </div>
 
       {/* Member Directory Section */}
-      <section id="directory" className="py-12 px-6 bg-beige-10 scroll-mt-24">
+      <section id="directory" className="py-12 px-6 bg-white scroll-mt-24">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[900px] mx-auto text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-4">

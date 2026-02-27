@@ -14,7 +14,7 @@ export function ArrowLinkButton({ href, children, external = false, variant = "d
     ? "text-gray-100 hover:text-teal-100 hover:bg-teal-10"
     : "text-purple-50 hover:text-white hover:bg-white/10";
 
-  const baseClassName = `inline-flex items-center gap-2 ${variantClassName} rounded-full px-4 py-2 transition-all text-sm font-medium group ${className}`;
+  const baseClassName = `inline-flex items-center gap-2 ${variantClassName} rounded-full px-4 py-2 transition-all text-base font-medium group ${className}`;
 
   if (external) {
     return (
