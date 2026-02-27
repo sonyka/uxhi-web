@@ -12,6 +12,7 @@ import { InlineLink } from "@/components/ui/InlineLink";
 import { SpotIllustrationCard } from "@/components/ui/cards";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
+import { Pagination } from "@/components/ui/Pagination";
 import { Container } from "@/components/ui/Container";
 import { MemberCard } from "@/components/directory";
 import { Navbar, MobileNavbar, HamburgerButton } from "@/components/layout/Navbar";
@@ -119,6 +120,7 @@ const navigationItems = [
       { id: "interactive-filter-dropdown", label: "Filter Dropdown" },
       { id: "interactive-toggle", label: "Toggle Button" },
       { id: "interactive-tooltip", label: "Mobile Tooltip" },
+      { id: "interactive-pagination", label: "Pagination" },
     ],
   },
   {
@@ -275,6 +277,18 @@ function DropdownDemo() {
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+  );
+}
+
+function PaginationDemo() {
+  const [page, setPage] = useState(4);
+  return (
+    <div className="space-y-4">
+      <Pagination currentPage={page} totalPages={12} onPageChange={setPage} />
+      <p className="text-center text-sm text-gray-100">
+        Showing page {page} of 12
+      </p>
     </div>
   );
 }
@@ -2224,6 +2238,38 @@ const contentComponents: Record<string, React.ReactNode> = {
             <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">decoration-dotted</span> underline on mobile, hidden on desktop</p>
             <p>Tooltip: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white rounded-xl shadow-lg</span> with tail arrow</p>
             <p>Accepts optional <span className="font-mono text-xs bg-gray-20 px-1 rounded">decorationElement</span> prop for custom visuals</p>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  "interactive-pagination": (
+    <ContentSection
+      title="Pagination"
+      description="Client-side pagination with previous/next buttons, page numbers with ellipsis for large page counts, and a compact mobile mode. Used in the member directory."
+      componentPath="components/ui/Pagination.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Demo</h4>
+          <PaginationDemo />
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Props</h4>
+          <div className="text-sm text-gray-110 space-y-1">
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">currentPage</span> — current active page number (1-indexed)</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">totalPages</span> — total number of pages</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">onPageChange</span> — callback with the new page number</p>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Behavior</h4>
+          <div className="text-sm text-gray-110 space-y-1">
+            <p>Returns <span className="font-mono text-xs bg-gray-20 px-1 rounded">null</span> when totalPages &le; 1</p>
+            <p>Prev/Next disabled at bounds</p>
+            <p>Ellipsis shown when total pages &gt; 7</p>
+            <p>Mobile: shows &ldquo;Page X of Y&rdquo; instead of numbered buttons</p>
           </div>
         </div>
       </div>

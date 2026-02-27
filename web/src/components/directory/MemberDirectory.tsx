@@ -1,10 +1,13 @@
 "use client";
 
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useCallback, useEffect } from "react";
 import { MemberFilters } from "./MemberFilters";
 import { MemberGrid } from "./MemberGrid";
 import { MemberDrawer } from "./MemberDrawer";
+import { Pagination } from "@/components/ui/Pagination";
 import type { DirectoryMember } from "./MemberCard";
+
+const ITEMS_PER_PAGE = 15;
 
 export type SortOption = "shuffle" | "alpha" | "newest";
 
@@ -32,9 +35,11 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
   const [sortBy, setSortBy] = useState<SortOption>("shuffle");
   const [selectedMember, setSelectedMember] = useState<DirectoryMember | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Stable seed per mount so shuffle doesn't change on every re-render
   const shuffleSeed = useRef(Date.now());
+  const directoryRef = useRef<HTMLDivElement>(null);
 
   const handleMemberClick = (member: DirectoryMember) => {
     setSelectedMember(member);
@@ -92,6 +97,22 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
     }
   }, [members, searchQuery, selectedFocus, selectedExperience, openToWorkOnly, sortBy]);
 
+  // Reset to page 1 whenever filters or sort change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedFocus, selectedExperience, openToWorkOnly, sortBy]);
+
+  const totalPages = Math.ceil(filteredAndSortedMembers.length / ITEMS_PER_PAGE);
+  const paginatedMembers = filteredAndSortedMembers.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
+    directoryRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
   const handleClearFilters = () => {
     setSearchQuery("");
     setSelectedFocus([]);
@@ -101,7 +122,7 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
 
   return (
     <>
-      <div className="space-y-6">
+      <div ref={directoryRef} className="space-y-6 scroll-mt-24">
         <MemberFilters
           searchQuery={searchQuery}
           selectedFocus={selectedFocus}
@@ -117,7 +138,16 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
           totalCount={members.length}
           filteredCount={filteredAndSortedMembers.length}
         />
-        <MemberGrid members={filteredAndSortedMembers} onMemberClick={handleMemberClick} />
+        <MemberGrid members={paginatedMembers} onMemberClick={handleMemberClick} />
+        {totalPages > 1 && (
+          <div className="pt-4">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        )}
       </div>
       <MemberDrawer
         member={selectedMember}
