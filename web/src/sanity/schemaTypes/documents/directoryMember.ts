@@ -112,10 +112,34 @@ export const directoryMember = defineType({
       },
     }),
     defineField({
-      name: "location",
-      title: "Location",
+      name: "island",
+      title: "Island",
       type: "string",
-      description: "e.g., Honolulu, Maui, Remote",
+      options: {
+        list: [
+          { title: "O\u02BBahu", value: "oahu" },
+          { title: "Hawai\u02BBi (Big Island)", value: "hawaii" },
+          { title: "Maui", value: "maui" },
+          { title: "Kaua\u02BBi", value: "kauai" },
+          { title: "Moloka\u02BBi", value: "molokai" },
+          { title: "L\u0101na\u02BBi", value: "lanai" },
+          { title: "Mainland / International", value: "mainland-international" },
+        ],
+        layout: "dropdown",
+      },
+    }),
+    defineField({
+      name: "city",
+      title: "City",
+      type: "string",
+      description: "e.g., Honolulu, Kailua, Portland",
+    }),
+    defineField({
+      name: "location",
+      title: "Location (Legacy)",
+      type: "string",
+      description: "Deprecated — use Island + City instead",
+      hidden: true,
     }),
     defineField({
       name: "educationBootcamp",
@@ -147,11 +171,15 @@ export const directoryMember = defineType({
       subtitle: "title",
       media: "photo",
       openToWork: "openToWork",
+      island: "island",
+      city: "city",
     },
-    prepare({ title, subtitle, media, openToWork }) {
+    prepare({ title, subtitle, media, openToWork, island, city }) {
+      const locationParts = [city, island].filter(Boolean).join(", ");
+      const display = [subtitle, locationParts].filter(Boolean).join(" · ");
       return {
         title: openToWork ? `🟢 ${title}` : title,
-        subtitle,
+        subtitle: display,
         media,
       };
     },

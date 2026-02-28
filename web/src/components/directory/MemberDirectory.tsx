@@ -30,6 +30,7 @@ interface MemberDirectoryProps {
 export function MemberDirectory({ members }: MemberDirectoryProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFocus, setSelectedFocus] = useState<string[]>([]);
+  const [selectedIsland, setSelectedIsland] = useState<string[]>([]);
   const [selectedExperience, setSelectedExperience] = useState<string | null>(null);
   const [openToWorkOnly, setOpenToWorkOnly] = useState(false);
   const [sortBy, setSortBy] = useState<SortOption>("shuffle");
@@ -74,6 +75,12 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
         }
       }
 
+      if (selectedIsland.length > 0) {
+        if (!member.island || !selectedIsland.includes(member.island)) {
+          return false;
+        }
+      }
+
       if (selectedExperience && member.experienceLevel !== selectedExperience) {
         return false;
       }
@@ -95,12 +102,12 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
       default:
         return shuffleArray(filtered, shuffleSeed.current);
     }
-  }, [members, searchQuery, selectedFocus, selectedExperience, openToWorkOnly, sortBy]);
+  }, [members, searchQuery, selectedFocus, selectedIsland, selectedExperience, openToWorkOnly, sortBy]);
 
   // Reset to page 1 whenever filters or sort change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, selectedFocus, selectedExperience, openToWorkOnly, sortBy]);
+  }, [searchQuery, selectedFocus, selectedIsland, selectedExperience, openToWorkOnly, sortBy]);
 
   const totalPages = Math.ceil(filteredAndSortedMembers.length / ITEMS_PER_PAGE);
   const paginatedMembers = filteredAndSortedMembers.slice(
@@ -116,6 +123,7 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
   const handleClearFilters = () => {
     setSearchQuery("");
     setSelectedFocus([]);
+    setSelectedIsland([]);
     setSelectedExperience(null);
     setOpenToWorkOnly(false);
   };
@@ -126,11 +134,13 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
         <MemberFilters
           searchQuery={searchQuery}
           selectedFocus={selectedFocus}
+          selectedIsland={selectedIsland}
           selectedExperience={selectedExperience}
           openToWorkOnly={openToWorkOnly}
           sortBy={sortBy}
           onSearchChange={setSearchQuery}
           onFocusChange={setSelectedFocus}
+          onIslandChange={setSelectedIsland}
           onExperienceChange={setSelectedExperience}
           onOpenToWorkChange={setOpenToWorkOnly}
           onSortChange={setSortBy}

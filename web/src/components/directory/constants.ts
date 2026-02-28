@@ -16,6 +16,70 @@ export const FOCUS_OPTIONS = [
   { title: "UX Leadership", value: "ux-leadership" },
 ] as const;
 
+export const ISLAND_OPTIONS = [
+  { title: "O\u02BBahu", value: "oahu" },
+  { title: "Hawai\u02BBi (Big Island)", value: "hawaii" },
+  { title: "Maui", value: "maui" },
+  { title: "Kaua\u02BBi", value: "kauai" },
+  { title: "Moloka\u02BBi", value: "molokai" },
+  { title: "L\u0101na\u02BBi", value: "lanai" },
+  { title: "Mainland / International", value: "mainland-international" },
+] as const;
+
+export const ISLAND_CITIES: Record<string, readonly { title: string; value: string }[]> = {
+  oahu: [
+    { title: "Honolulu", value: "Honolulu" },
+    { title: "Waikīkī", value: "Waikīkī" },
+    { title: "Kailua", value: "Kailua" },
+    { title: "Kāneʻohe", value: "Kāneʻohe" },
+    { title: "Pearl City", value: "Pearl City" },
+    { title: "ʻAiea", value: "ʻAiea" },
+    { title: "Kapolei", value: "Kapolei" },
+    { title: "ʻEwa Beach", value: "ʻEwa Beach" },
+    { title: "Mililani", value: "Mililani" },
+    { title: "Wahiawā", value: "Wahiawā" },
+    { title: "Waipahu", value: "Waipahu" },
+    { title: "Haleʻiwa", value: "Haleʻiwa" },
+  ],
+  hawaii: [
+    { title: "Hilo", value: "Hilo" },
+    { title: "Kailua-Kona", value: "Kailua-Kona" },
+    { title: "Waimea (Kamuela)", value: "Waimea (Kamuela)" },
+    { title: "Waikōloa", value: "Waikōloa" },
+    { title: "Captain Cook", value: "Captain Cook" },
+    { title: "Pāhoa", value: "Pāhoa" },
+    { title: "Keaʻau", value: "Keaʻau" },
+    { title: "Volcano", value: "Volcano" },
+  ],
+  maui: [
+    { title: "Kahului", value: "Kahului" },
+    { title: "Wailuku", value: "Wailuku" },
+    { title: "Kīhei", value: "Kīhei" },
+    { title: "Lahaina", value: "Lahaina" },
+    { title: "Pāʻia", value: "Pāʻia" },
+    { title: "Haʻikū", value: "Haʻikū" },
+    { title: "Makawao", value: "Makawao" },
+    { title: "Pukalani", value: "Pukalani" },
+  ],
+  kauai: [
+    { title: "Līhuʻe", value: "Līhuʻe" },
+    { title: "Kapaʻa", value: "Kapaʻa" },
+    { title: "Pōʻipū", value: "Pōʻipū" },
+    { title: "Princeville", value: "Princeville" },
+    { title: "Kōloa", value: "Kōloa" },
+    { title: "Hanalei", value: "Hanalei" },
+    { title: "Waimea", value: "Waimea" },
+    { title: "Kalāheo", value: "Kalāheo" },
+  ],
+  molokai: [
+    { title: "Kaunakakai", value: "Kaunakakai" },
+    { title: "Maunaloa", value: "Maunaloa" },
+  ],
+  lanai: [
+    { title: "Lānaʻi City", value: "Lānaʻi City" },
+  ],
+};
+
 export const EXPERIENCE_LEVEL_OPTIONS = [
   { title: "Student or Transitioning", value: "student-transitioning" },
   { title: "< 1 year", value: "less-than-1-year" },

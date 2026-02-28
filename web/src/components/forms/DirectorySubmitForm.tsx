@@ -1,9 +1,11 @@
 "use client";
 
-import { useActionState } from "react";
+import { useState, useActionState } from "react";
 import { submitDirectoryEntry, type DirectorySubmitState } from "@/lib/actions/directory-submit";
 import {
   FOCUS_OPTIONS,
+  ISLAND_OPTIONS,
+  ISLAND_CITIES,
   EXPERIENCE_LEVEL_OPTIONS,
   INDUSTRY_OPTIONS,
 } from "@/components/directory/constants";
@@ -22,6 +24,7 @@ export function DirectorySubmitForm() {
     submitDirectoryEntry,
     null,
   );
+  const [selectedIsland, setSelectedIsland] = useState("");
 
   if (state?.success) {
     return (
@@ -120,14 +123,37 @@ export function DirectorySubmitForm() {
         </div>
       </fieldset>
 
-      <div>
-        <FormLabel htmlFor="location">Location</FormLabel>
-        <FormInput
-          type="text"
-          id="location"
-          name="location"
-          placeholder="e.g., Honolulu, Maui, Remote"
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <FormLabel htmlFor="island">Island</FormLabel>
+          <FormSelect
+            name="island"
+            options={ISLAND_OPTIONS}
+            placeholder="Select..."
+            onChange={setSelectedIsland}
+          />
+        </div>
+        <div key={selectedIsland}>
+          <FormLabel htmlFor="city">City</FormLabel>
+          {selectedIsland && selectedIsland !== "mainland-international" && ISLAND_CITIES[selectedIsland] ? (
+            <FormSelect
+              name="city"
+              options={ISLAND_CITIES[selectedIsland]}
+              placeholder="Select city..."
+            />
+          ) : (
+            <FormInput
+              type="text"
+              id="city"
+              name="city"
+              placeholder={
+                selectedIsland === "mainland-international"
+                  ? "e.g., Portland, OR"
+                  : "Select an island first"
+              }
+            />
+          )}
+        </div>
       </div>
 
       <div>

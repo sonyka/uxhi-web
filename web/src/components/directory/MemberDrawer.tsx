@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { urlFor } from "@/sanity/lib/image";
-import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS, INDUSTRY_OPTIONS } from "./constants";
+import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS, INDUSTRY_OPTIONS, ISLAND_OPTIONS } from "./constants";
 import type { DirectoryMember } from "./MemberCard";
 
 interface MemberDrawerProps {
@@ -51,6 +51,13 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
   const industryLabels = member?.industries?.map(
     (value) => INDUSTRY_OPTIONS.find((o) => o.value === value)?.title || value
   ) || [];
+
+  const islandLabel = member?.island
+    ? ISLAND_OPTIONS.find((o) => o.value === member.island)?.title
+    : null;
+  const locationDisplay = islandLabel
+    ? member?.city ? `${member.city}, ${islandLabel}` : islandLabel
+    : member?.location || null;
 
   return (
     <AnimatePresence>
@@ -138,13 +145,13 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
                     {experienceLevelLabel}
                   </div>
                 )}
-                {member.location && (
+                {locationDisplay && (
                   <div className="flex items-center gap-2 text-gray-110">
                     <svg className="w-4 h-4 text-teal-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    {member.location}
+                    {locationDisplay}
                   </div>
                 )}
               </div>

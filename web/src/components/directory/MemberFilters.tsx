@@ -2,18 +2,20 @@
 
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS } from "./constants";
+import { FOCUS_OPTIONS, ISLAND_OPTIONS, EXPERIENCE_LEVEL_OPTIONS } from "./constants";
 
 import type { SortOption } from "./MemberDirectory";
 
 interface MemberFiltersProps {
   searchQuery: string;
   selectedFocus: string[];
+  selectedIsland: string[];
   selectedExperience: string | null;
   openToWorkOnly: boolean;
   sortBy: SortOption;
   onSearchChange: (value: string) => void;
   onFocusChange: (values: string[]) => void;
+  onIslandChange: (values: string[]) => void;
   onExperienceChange: (value: string | null) => void;
   onOpenToWorkChange: (value: boolean) => void;
   onSortChange: (value: SortOption) => void;
@@ -151,11 +153,13 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 export function MemberFilters({
   searchQuery,
   selectedFocus,
+  selectedIsland,
   selectedExperience,
   openToWorkOnly,
   sortBy,
   onSearchChange,
   onFocusChange,
+  onIslandChange,
   onExperienceChange,
   onOpenToWorkChange,
   onSortChange,
@@ -164,7 +168,7 @@ export function MemberFilters({
   filteredCount,
 }: MemberFiltersProps) {
   const hasActiveFilters =
-    searchQuery.length > 0 || selectedFocus.length > 0 || selectedExperience !== null || openToWorkOnly;
+    searchQuery.length > 0 || selectedFocus.length > 0 || selectedIsland.length > 0 || selectedExperience !== null || openToWorkOnly;
 
   return (
     <div className="bg-white rounded-[20px] p-4 md:p-6 shadow-sm">
@@ -208,6 +212,15 @@ export function MemberFilters({
             options={FOCUS_OPTIONS}
             selected={selectedFocus}
             onChange={(value) => onFocusChange(value as string[])}
+            isMulti
+          />
+
+          {/* Island Dropdown */}
+          <Dropdown
+            label="Island"
+            options={ISLAND_OPTIONS}
+            selected={selectedIsland}
+            onChange={(value) => onIslandChange(value as string[])}
             isMulti
           />
 

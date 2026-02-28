@@ -16,6 +16,7 @@ interface FormSelectProps {
   defaultValue?: string;
   required?: boolean;
   className?: string;
+  onChange?: (value: string) => void;
 }
 
 export function FormSelect({
@@ -25,6 +26,7 @@ export function FormSelect({
   defaultValue = "",
   required,
   className,
+  onChange,
 }: FormSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(defaultValue);
@@ -45,6 +47,7 @@ export function FormSelect({
   const handleOptionClick = (value: string) => {
     setSelectedValue(value);
     setIsOpen(false);
+    onChange?.(value);
   };
 
   return (

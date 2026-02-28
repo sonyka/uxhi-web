@@ -5,7 +5,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS } from "./constants";
+import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS, ISLAND_OPTIONS } from "./constants";
 
 interface Photo {
   asset?: {
@@ -34,6 +34,8 @@ export interface DirectoryMember {
   focus?: string[];
   experienceLevel?: string;
   industries?: string[];
+  island?: string;
+  city?: string;
   location?: string;
   educationBootcamp?: string;
   linkedIn?: string;
@@ -58,6 +60,13 @@ export function MemberCard({ member, onClick }: MemberCardProps) {
   const experienceLevelLabel = member.experienceLevel
     ? EXPERIENCE_LEVEL_OPTIONS.find((o) => o.value === member.experienceLevel)?.title
     : null;
+
+  const islandLabel = member.island
+    ? ISLAND_OPTIONS.find((o) => o.value === member.island)?.title
+    : null;
+  const locationDisplay = islandLabel
+    ? member.city ? `${member.city}, ${islandLabel}` : islandLabel
+    : member.location || null;
 
   return (
     <motion.div
@@ -149,10 +158,10 @@ export function MemberCard({ member, onClick }: MemberCardProps) {
         {/* Experience Level & Location */}
         <div className="flex items-center gap-2 mt-2 text-xs text-gray-100">
           {experienceLevelLabel && <span>{experienceLevelLabel}</span>}
-          {experienceLevelLabel && member.location && (
+          {experienceLevelLabel && locationDisplay && (
             <span className="text-gray-40">•</span>
           )}
-          {member.location && <span>{member.location}</span>}
+          {locationDisplay && <span>{locationDisplay}</span>}
         </div>
 
         {/* Focus Tags */}

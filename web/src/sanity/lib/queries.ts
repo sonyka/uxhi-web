@@ -216,6 +216,8 @@ export const DIRECTORY_MEMBERS_QUERY = defineQuery(/* groq */ `
     focus,
     experienceLevel,
     industries,
+    island,
+    city,
     location,
     educationBootcamp,
     linkedIn,

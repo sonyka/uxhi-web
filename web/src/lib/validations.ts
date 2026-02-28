@@ -69,6 +69,8 @@ export const directorySubmissionSchema = z.object({
   focus: z.array(z.string()).optional(),
   experienceLevel: z.string().optional(),
   industries: z.array(z.string()).optional(),
+  island: z.string().optional(),
+  city: z.string().optional(),
   location: z.string().optional(),
   educationBootcamp: z.string().optional(),
   linkedIn: z.string().url("Please enter a valid URL").optional().or(z.literal("")),
