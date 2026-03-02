@@ -28,6 +28,24 @@ export const member = defineType({
       description: "e.g., Co-Founder, Events Manager, Advisor",
     }),
     defineField({
+      name: "category",
+      title: "Category",
+      type: "string",
+      description: "Team category for grouping on the About page",
+      options: {
+        list: [
+          { title: "Founder", value: "founder" },
+          { title: "Community & Events", value: "community-events" },
+          { title: "Annual Conference", value: "annual-conference" },
+          { title: "Professional Development", value: "professional-development" },
+          { title: "Communication & Outreach", value: "communication-outreach" },
+          { title: "Standards & Credentialing", value: "standards-credentialing" },
+          { title: "Research & Industry Partnerships", value: "research-partnerships" },
+        ],
+        layout: "dropdown",
+      },
+    }),
+    defineField({
       name: "bio",
       title: "Bio",
       type: "text",

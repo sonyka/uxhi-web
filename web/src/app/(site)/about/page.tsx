@@ -1,9 +1,9 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
-import { FOUNDERS_QUERY, ABOUT_FAQS_QUERY, VALUES_QUERY } from "@/sanity/lib/queries";
+import { TEAM_MEMBERS_QUERY, ABOUT_FAQS_QUERY, VALUES_QUERY } from "@/sanity/lib/queries";
 import { MissionSection } from "@/components/sections/MissionSection";
-import { FoundersSection } from "@/components/sections/FoundersSection";
+import { TeamSection } from "@/components/sections/team";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { PressMention } from "@/components/ui/PressMention";
@@ -46,13 +46,13 @@ function SendIcon({ className = "w-5 h-5" }: { className?: string }) {
 }
 
 export default async function AboutPage() {
-  const [foundersResult, faqsResult, valuesResult] = await Promise.all([
-    sanityFetch({ query: FOUNDERS_QUERY }),
+  const [membersResult, faqsResult, valuesResult] = await Promise.all([
+    sanityFetch({ query: TEAM_MEMBERS_QUERY }),
     sanityFetch({ query: ABOUT_FAQS_QUERY }),
     sanityFetch({ query: VALUES_QUERY }),
   ]);
 
-  const founders = foundersResult.data || [];
+  const members = membersResult.data || [];
   const faqs = faqsResult.data || [];
   const values = valuesResult.data || [];
 
@@ -76,7 +76,7 @@ export default async function AboutPage() {
                 href="#team"
                 icon={<SquareUserRoundIcon className="w-7 h-7" />}
                 label="Team"
-                subtitle="Meet our founders"
+                subtitle="Meet our team"
               />
               <QuickLinkPill
                 href="#faqs"
@@ -167,7 +167,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <FoundersSection founders={founders} id="team" />
+      <TeamSection members={members} id="team" />
       <FAQSection faqs={faqs} id="faqs" />
 
       {/* Contact Section */}

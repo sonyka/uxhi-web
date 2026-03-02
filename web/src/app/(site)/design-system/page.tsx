@@ -15,6 +15,7 @@ import { MobileTooltip } from "@/components/ui/MobileTooltip";
 import { Pagination } from "@/components/ui/Pagination";
 import { Container } from "@/components/ui/Container";
 import { MemberCard } from "@/components/directory";
+import { TeamCard } from "@/components/sections/team";
 import { Navbar, MobileNavbar, HamburgerButton } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { InquiryForm } from "@/components/forms/InquiryForm";
@@ -86,6 +87,7 @@ const navigationItems = [
       { id: "card-pressmention", label: "Press Mention" },
       { id: "card-upcomingevent", label: "Upcoming Event" },
       { id: "card-member", label: "Member Card" },
+      { id: "card-team", label: "Team Card" },
     ],
   },
   {
@@ -1402,6 +1404,57 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <span className="bg-gray-20 text-gray-100 px-2 py-0.5 rounded-full text-xs">+2</span>
               </div>
               <p className="text-xs text-gray-100 font-mono mt-2">bg-teal-10, text-teal-120, rounded-full</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  "card-team": (
+    <ContentSection
+      title="Team Card"
+      description="Interactive photo card with expand/collapse states. Used on /about#team for the lattice-style team grid. Collapsed shows 4:5 photo with gradient overlay; expanded shows circular photo, bio, and social links."
+      componentPath="components/sections/team/TeamCard.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Collapsed State</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl">
+            <TeamCard
+              member={{ _id: "demo-1", name: "Jane Doe", role: "Co-Founder", photo: { asset: undefined } }}
+              isExpanded={false}
+              onToggle={() => {}}
+            />
+            <TeamCard
+              member={{ _id: "demo-2", name: "John Smith", role: "Board Member", photo: { asset: undefined }, company: "Acme Inc." }}
+              isExpanded={false}
+              onToggle={() => {}}
+            />
+          </div>
+          <p className="text-xs text-gray-100 font-mono mt-3">aspect-[4/5], gradient overlay, font-display name, initials fallback</p>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Expanded State</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl">
+            <TeamCard
+              member={{ _id: "demo-3", name: "Jane Doe", role: "Co-Founder", bio: "A people-centered designer on a mission to craft solutions for well-being.", company: "UXHI", photo: { asset: undefined }, socialLinks: { linkedin: "#" } }}
+              isExpanded={true}
+              onToggle={() => {}}
+            />
+          </div>
+          <p className="text-xs text-gray-100 font-mono mt-3">col-span-2, white bg, 56px circle photo, scrollable bio (max-h-[200px]), social links</p>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Key Details</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-beige-30 rounded-xl">
+              <p className="text-sm font-semibold text-gray-120 mb-2">Accordion Behavior</p>
+              <p className="text-sm text-gray-100">Only one card expanded at a time. Clicking another closes the first. Managed by parent TeamSection via expandedId state.</p>
+            </div>
+            <div className="p-4 bg-beige-30 rounded-xl">
+              <p className="text-sm font-semibold text-gray-120 mb-2">Animation</p>
+              <p className="text-sm text-gray-100">Framer Motion layout animation (~300ms). AnimatePresence mode=&quot;wait&quot; for content swap with 150ms opacity fade.</p>
             </div>
           </div>
         </div>

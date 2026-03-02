@@ -41,17 +41,21 @@ export const PRODUCT_QUERY = defineQuery(/* groq */ `
 `);
 
 // Team members (for About page)
-export const FOUNDERS_QUERY = defineQuery(/* groq */ `
+export const TEAM_MEMBERS_QUERY = defineQuery(/* groq */ `
   *[_type == "member"] | order(order asc, name asc) {
     _id,
     name,
     role,
     bio,
+    category,
     photo { ${imageFragment} },
     socialLinks,
     company
   }
 `);
+
+/** @deprecated Use TEAM_MEMBERS_QUERY instead */
+export const FOUNDERS_QUERY = TEAM_MEMBERS_QUERY;
 
 // FAQs (for Join page)
 export const FAQS_QUERY = defineQuery(/* groq */ `
