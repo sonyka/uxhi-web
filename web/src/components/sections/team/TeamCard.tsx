@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { SanityImage } from "@/components/ui/SanityImage";
+import { urlFor } from "@/sanity/lib/image";
 import { cn } from "@/lib/utils";
 import type { TeamMember } from "./index";
 
@@ -64,8 +65,14 @@ export function TeamCard({ member, isExpanded, onToggle }: TeamCardProps) {
             <div className="flex items-center gap-4 mb-4 pr-8">
               <div className="w-14 h-14 rounded-full overflow-hidden shrink-0 bg-purple-30">
                 {hasPhoto ? (
-                  <SanityImage
-                    value={member.photo!}
+                  <Image
+                    src={urlFor(member.photo!)
+                      .width(112)
+                      .height(112)
+                      .fit("crop")
+                      .auto("format")
+                      .url()}
+                    alt={member.photo!.alt || member.name}
                     width={112}
                     height={112}
                     className="w-full h-full object-cover"
@@ -146,11 +153,19 @@ export function TeamCard({ member, isExpanded, onToggle }: TeamCardProps) {
           >
             {/* Photo or initials fallback */}
             {hasPhoto ? (
-              <SanityImage
-                value={member.photo!}
+              <Image
+                src={urlFor(member.photo!)
+                  .width(400)
+                  .height(500)
+                  .fit("crop")
+                  .auto("format")
+                  .url()}
+                alt={member.photo!.alt || member.name}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
+                placeholder={member.photo!.asset?.metadata?.lqip ? "blur" : undefined}
+                blurDataURL={member.photo!.asset?.metadata?.lqip || undefined}
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-purple-30 text-purple-60 font-display text-3xl">
