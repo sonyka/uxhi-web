@@ -61,7 +61,12 @@ npm run dev
 ### Key URLs (when running locally)
 - **http://localhost:3000** — the website
 - **http://localhost:3000/studio** — Sanity Studio (content editor)
-- **http://localhost:3000/design-system** — component & style reference (read-only for you)
+- **http://localhost:3000/design-system** — design system reference (see below)
+
+### Design System
+The site has a living design system page at `/design-system` that documents every reusable component, color, typography style, and UI pattern used across the site. Think of it as the project's visual dictionary — it shows exactly how buttons, cards, forms, navigation, and other elements look and behave.
+
+**This page is maintained by the project designer.** You don't need to edit it, but it's a useful reference if you want to understand what components exist or how the site's visual language works. If you're ever unsure what a section or element is called, check here first.
 
 ---
 
