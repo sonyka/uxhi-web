@@ -1,6 +1,8 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
+import { scaleReveal } from "@/lib/animations";
 
 export const metadata: Metadata = {
   title: "Volunteer | UX Hawaii",
@@ -49,48 +51,56 @@ export default function VolunteerPage() {
       <div className="flex flex-col lg:flex-row min-h-screen">
         {/* Left Side - Content */}
         <div className="lg:w-1/2 bg-gray-10 flex items-center justify-center px-8 py-16 lg:py-0">
-          <div className="max-w-md">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-140 mb-6">
-              Volunteer
-            </h1>
-            <p className="text-gray-120 text-lg leading-relaxed mb-4">
-              Support UXHI by volunteering! There are many ways to be involved:
-            </p>
-            <ul className="text-gray-120 text-base leading-relaxed mb-6 space-y-2">
-              <li className="flex items-start gap-2">
-                <span className="text-teal-90 mt-1">•</span>
-                <span>Propose a topic related to the field of UX as a presenter at our UXHI Conference or events</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-teal-90 mt-1">•</span>
-                <span>Propose a topic as a guest author for our resources</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-teal-90 mt-1">•</span>
-                <span>Join our committees for any of our initiatives, like the UXHI Conference or the State of UX Report</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-teal-90 mt-1">•</span>
-                <span>Provide general assistance with our events</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-teal-90 mt-1">•</span>
-                <span>Support with marketing needs like our newsletter and social media</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-teal-90 mt-1">•</span>
-                <span>And much more!</span>
-              </li>
-            </ul>
-            <PrimaryCTA href="#inquiry-form">Get Involved</PrimaryCTA>
-          </div>
+          <HeroEntrance className="max-w-md">
+            <HeroItem>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-140 mb-6">
+                Volunteer
+              </h1>
+            </HeroItem>
+            <HeroItem>
+              <p className="text-gray-120 text-lg leading-relaxed mb-4">
+                Support UXHI by volunteering! There are many ways to be involved:
+              </p>
+            </HeroItem>
+            <HeroItem>
+              <ul className="text-gray-120 text-base leading-relaxed mb-6 space-y-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-90 mt-1">•</span>
+                  <span>Propose a topic related to the field of UX as a presenter at our UXHI Conference or events</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-90 mt-1">•</span>
+                  <span>Propose a topic as a guest author for our resources</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-90 mt-1">•</span>
+                  <span>Join our committees for any of our initiatives, like the UXHI Conference or the State of UX Report</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-90 mt-1">•</span>
+                  <span>Provide general assistance with our events</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-90 mt-1">•</span>
+                  <span>Support with marketing needs like our newsletter and social media</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-90 mt-1">•</span>
+                  <span>And much more!</span>
+                </li>
+              </ul>
+            </HeroItem>
+            <HeroItem>
+              <PrimaryCTA href="#inquiry-form">Get Involved</PrimaryCTA>
+            </HeroItem>
+          </HeroEntrance>
         </div>
 
         {/* Right Side - Image Grid */}
         <div className="lg:w-1/2 bg-gray-10 flex items-center justify-center p-8 lg:p-12">
           <div className="grid grid-cols-2 gap-4 max-w-lg w-full">
             {/* Column 1 - offset down */}
-            <div className="flex flex-col gap-4 pt-8">
+            <FadeInOnMount delay={0.5} className="flex flex-col gap-4 pt-8">
               {gridImages.slice(0, 3).map((image) => (
                 <div
                   key={image.id}
@@ -104,9 +114,9 @@ export default function VolunteerPage() {
                   />
                 </div>
               ))}
-            </div>
+            </FadeInOnMount>
             {/* Column 2 - no offset */}
-            <div className="flex flex-col gap-4">
+            <FadeInOnMount delay={0.7} className="flex flex-col gap-4">
               {gridImages.slice(3, 6).map((image) => (
                 <div
                   key={image.id}
@@ -120,7 +130,7 @@ export default function VolunteerPage() {
                   />
                 </div>
               ))}
-            </div>
+            </FadeInOnMount>
           </div>
         </div>
       </div>
@@ -128,52 +138,59 @@ export default function VolunteerPage() {
       {/* Committees Section */}
       <section className="py-20 px-6 bg-beige-10">
         <div className="max-w-[1100px] mx-auto">
-          <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-12 text-center">
-            Committees
-          </h2>
+          <ScrollReveal>
+            <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-12 text-center">
+              Committees
+            </h2>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {committees.map((committee) => (
-              <div
-                key={committee.name}
-                className="bg-white rounded-[20px] p-6 border border-gray-20"
-              >
-                <h3 className="font-display text-xl text-purple-140 mb-3">
-                  {committee.name}
-                </h3>
-                <p className="text-gray-110 text-sm leading-relaxed">
-                  {committee.description}
-                </p>
-              </div>
+              <MotionDiv key={committee.name}>
+                <div className="bg-white rounded-[20px] p-6 border border-gray-20">
+                  <h3 className="font-display text-xl text-purple-140 mb-3">
+                    {committee.name}
+                  </h3>
+                  <p className="text-gray-110 text-sm leading-relaxed">
+                    {committee.description}
+                  </p>
+                </div>
+              </MotionDiv>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Inquiry Form Section */}
       <section id="inquiry-form" className="py-20 px-6 bg-white">
         <div className="max-w-[800px] mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-6">
-              Let us know how you want to get involved!
-            </h2>
-            <p className="text-gray-120 text-lg leading-relaxed">
-              Fill out the form below and a UXHI team member will be in touch.
-            </p>
-          </div>
+          <ScrollReveal stagger className="text-center mb-10">
+            <MotionDiv>
+              <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-6">
+                Let us know how you want to get involved!
+              </h2>
+            </MotionDiv>
+            <MotionDiv>
+              <p className="text-gray-120 text-lg leading-relaxed">
+                Fill out the form below and a UXHI team member will be in touch.
+              </p>
+            </MotionDiv>
+          </ScrollReveal>
 
           {/* Google Form Embed */}
-          <div className="bg-beige-30 rounded-[24px] p-8">
-            <iframe
-              src="https://docs.google.com/forms/d/e/YOUR_VOLUNTEER_FORM_ID/viewform?embedded=true"
-              width="100%"
-              height="800"
-              className="rounded-lg border-0"
-              title="UXHI Volunteer Inquiry Form"
-            >
-              Loading…
-            </iframe>
-          </div>
+          <ScrollReveal variants={scaleReveal}>
+            <div className="bg-beige-30 rounded-[24px] p-8">
+              <iframe
+                src="https://docs.google.com/forms/d/e/YOUR_VOLUNTEER_FORM_ID/viewform?embedded=true"
+                width="100%"
+                height="800"
+                className="rounded-lg border-0"
+                title="UXHI Volunteer Inquiry Form"
+              >
+                Loading…
+              </iframe>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </main>

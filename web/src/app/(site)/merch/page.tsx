@@ -4,6 +4,7 @@ import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { sanityFetch } from "@/sanity/lib/live";
 import { PRODUCTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
+import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
   title: "Shop | UX Hawaii",
@@ -117,22 +118,28 @@ export default async function ShopPage() {
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
         <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
-          <div className="flex flex-col gap-6">
-            <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
-              Shop
-            </h1>
-            <p className="text-black text-lg lg:text-xl leading-relaxed">
-              Show your UXHI pride with official merchandise. All proceeds support community events and programs.
-            </p>
-            <div>
-              <PrimaryCTA href="#products">Browse merch</PrimaryCTA>
-            </div>
-          </div>
+          <HeroEntrance className="flex flex-col gap-6">
+            <HeroItem>
+              <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
+                Shop
+              </h1>
+            </HeroItem>
+            <HeroItem>
+              <p className="text-black text-lg lg:text-xl leading-relaxed">
+                Show your UXHI pride with official merchandise. All proceeds support community events and programs.
+              </p>
+            </HeroItem>
+            <HeroItem>
+              <div>
+                <PrimaryCTA href="#products">Browse merch</PrimaryCTA>
+              </div>
+            </HeroItem>
+          </HeroEntrance>
         </div>
 
         {/* Mobile Bento - Horizontal layout (shown on <sm only) */}
         <div className="sm:hidden px-6 pb-8">
-          <div className="flex gap-3.5 items-center w-full">
+          <FadeInOnMount delay={0.5} className="flex gap-3.5 items-center w-full">
             <div className="flex-1 h-[140px] rounded-[99px] overflow-hidden relative">
               <Image src="/images/merch/bento-merch-01.png" alt="UXHI community members with leis" fill className="object-cover" />
             </div>
@@ -142,13 +149,13 @@ export default async function ShopPage() {
             <div className="flex-1 h-[140px] rounded-t-xl rounded-b-[99px] overflow-hidden relative">
               <Image src="/images/merch/bento-merch-02.png" alt="UXHI conference" fill className="object-cover" />
             </div>
-          </div>
+          </FadeInOnMount>
         </div>
 
         {/* Desktop Bento Grid - Right side (shown on sm+) */}
         <div className="hidden sm:block sm:absolute sm:right-[calc(8.33%+22px)] sm:top-[50px] md:right-[25px] md:top-[50px] lg:right-[calc(8.33%+11px)] lg:top-0 xl:right-24 sm:w-[136px] md:w-[286px] lg:w-[320px] sm:h-[503px] md:h-[585px] lg:h-[655px]">
           {/* SM layout - Single column only */}
-          <div className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
+          <FadeInOnMount delay={0.5} className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
             <div className="w-full h-[180px] rounded-[88px] overflow-hidden relative">
               <Image src="/images/merch/bento-merch-01.png" alt="UXHI community members with leis" fill className="object-cover" />
             </div>
@@ -158,12 +165,12 @@ export default async function ShopPage() {
             <div className="w-full h-[180px] rounded-t-[7px] rounded-b-[88px] overflow-hidden relative">
               <Image src="/images/merch/bento-merch-02.png" alt="UXHI conference" fill className="object-cover" />
             </div>
-          </div>
+          </FadeInOnMount>
 
           {/* MD+ layout - Two columns with absolute positioning */}
           <div className="hidden md:block relative w-full h-full">
             {/* Column 1 - Left (positioned higher) */}
-            <div className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
+            <FadeInOnMount delay={0.5} className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[114px] lg:h-[128px] rounded-[24px] overflow-hidden relative">
                 <Image src="/images/merch/bento-merch-03.png" alt="UXHI photobooth" fill className="object-cover" />
               </div>
@@ -173,9 +180,9 @@ export default async function ShopPage() {
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
                 <Image src="/images/merch/bento-merch-04.png" alt="UXHICon 25" fill className="object-cover" />
               </div>
-            </div>
+            </FadeInOnMount>
             {/* Column 2 - Right (positioned at bottom) */}
-            <div className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
+            <FadeInOnMount delay={0.7} className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
                 <Image src="/images/merch/bento-merch-02.png" alt="UXHI conference" fill className="object-cover" />
               </div>
@@ -185,7 +192,7 @@ export default async function ShopPage() {
               <div className="w-full h-[180px] lg:h-[201px] rounded-[7px] lg:rounded-lg overflow-hidden relative">
                 <Image src="/images/merch/bento-merch-05.png" alt="UXHI community crowd" fill className="object-cover" />
               </div>
-            </div>
+            </FadeInOnMount>
           </div>
         </div>
       </div>
@@ -193,9 +200,9 @@ export default async function ShopPage() {
       {/* Products Grid */}
       <section id="products" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayProducts.map((product: { _id?: string; id?: string; name: string; price?: number | string; description?: string; category?: string; variants?: string[]; images?: Array<{ asset?: { _id?: string; url?: string } }>; purchaseUrl?: string; comingSoon?: boolean; featured?: boolean }) => (
-              <div
+              <MotionDiv
                 key={product._id || product.id}
                 className="bg-white border border-gray-30 rounded-[20px] overflow-hidden hover:shadow-lg transition-shadow"
               >
@@ -264,32 +271,40 @@ export default async function ShopPage() {
                     )}
                   </div>
                 </div>
-              </div>
+              </MotionDiv>
             ))}
-          </div>
+          </ScrollReveal>
 
         </div>
       </section>
 
       {/* Coming Soon Section */}
       <section className="py-16 px-6 bg-beige-10">
-        <div className="max-w-[600px] mx-auto text-center">
-          <div className="w-32 h-32 mx-auto mb-6 relative">
-            <Image
-              src="/images/icons/shopping.png"
-              alt="Shopping"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
-            More products coming soon!
-          </h3>
-          <p className="text-gray-120 leading-relaxed mb-6">
-            We&apos;re working on expanding our merch collection. Join our mailing list to be notified when new products drop.
-          </p>
-          <PrimaryCTA href="/join">Join the community</PrimaryCTA>
-        </div>
+        <ScrollReveal stagger className="max-w-[600px] mx-auto text-center">
+          <MotionDiv>
+            <div className="w-32 h-32 mx-auto mb-6 relative">
+              <Image
+                src="/images/icons/shopping.png"
+                alt="Shopping"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </MotionDiv>
+          <MotionDiv>
+            <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
+              More products coming soon!
+            </h3>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-gray-120 leading-relaxed mb-6">
+              We&apos;re working on expanding our merch collection. Join our mailing list to be notified when new products drop.
+            </p>
+          </MotionDiv>
+          <MotionDiv>
+            <PrimaryCTA href="/join">Join the community</PrimaryCTA>
+          </MotionDiv>
+        </ScrollReveal>
       </section>
     </main>
   );

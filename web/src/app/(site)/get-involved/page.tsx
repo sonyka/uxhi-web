@@ -8,6 +8,8 @@ import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { BulletPoint } from "@/components/ui/BulletPoint";
+import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
+import { scaleReveal } from "@/lib/animations";
 
 export const metadata: Metadata = {
   title: "Get Involved | UX Hawaii",
@@ -158,57 +160,63 @@ export default async function GetInvolvedPage() {
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
         <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
-          <div className="flex flex-col gap-6">
-            <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
-              Get Involved
-            </h1>
-            <p className="text-black text-lg lg:text-xl leading-relaxed">
-              There are many ways to contribute to the UXHI community. Check out our{" "}
-              <InlineLink href="/events" variant="purple">
-                upcoming events
-              </InlineLink>{" "}
-              or find other ways to get involved below.
-            </p>
+          <HeroEntrance className="flex flex-col gap-6">
+            <HeroItem>
+              <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
+                Get Involved
+              </h1>
+            </HeroItem>
+            <HeroItem>
+              <p className="text-black text-lg lg:text-xl leading-relaxed">
+                There are many ways to contribute to the UXHI community. Check out our{" "}
+                <InlineLink href="/events" variant="purple">
+                  upcoming events
+                </InlineLink>{" "}
+                or find other ways to get involved below.
+              </p>
+            </HeroItem>
 
             {/* Quick Link Modules - hidden on mobile (iPhone) */}
-            <div className="hidden sm:flex flex-wrap gap-4">
-              <QuickLinkPill
-                href="#volunteer"
-                icon={<HandHeartIcon className="w-7 h-7" />}
-                label="Volunteer"
-                subtitle="Help grow our community"
-              />
-              <QuickLinkPill
-                href="#speak"
-                icon={<MicVocalIcon className="w-7 h-7" />}
-                label="Become a Speaker"
-                subtitle="Share your expertise"
-              />
-              <QuickLinkPill
-                href="#sponsor"
-                icon={<MessageSquareHeartIcon className="w-7 h-7" />}
-                label="Sponsor Us"
-                subtitle="Support UXHI events"
-              />
-              <QuickLinkPill
-                href="#partner"
-                icon={<HeartHandshakeIcon className="w-7 h-7" />}
-                label="Partner"
-                subtitle="Collaborate with us"
-              />
-              <QuickLinkPill
-                href="#donate"
-                icon={<HandCoinsIcon className="w-7 h-7" />}
-                label="Donate"
-                subtitle="Support our mission"
-              />
-            </div>
-          </div>
+            <HeroItem>
+              <div className="hidden sm:flex flex-wrap gap-4">
+                <QuickLinkPill
+                  href="#volunteer"
+                  icon={<HandHeartIcon className="w-7 h-7" />}
+                  label="Volunteer"
+                  subtitle="Help grow our community"
+                />
+                <QuickLinkPill
+                  href="#speak"
+                  icon={<MicVocalIcon className="w-7 h-7" />}
+                  label="Become a Speaker"
+                  subtitle="Share your expertise"
+                />
+                <QuickLinkPill
+                  href="#sponsor"
+                  icon={<MessageSquareHeartIcon className="w-7 h-7" />}
+                  label="Sponsor Us"
+                  subtitle="Support UXHI events"
+                />
+                <QuickLinkPill
+                  href="#partner"
+                  icon={<HeartHandshakeIcon className="w-7 h-7" />}
+                  label="Partner"
+                  subtitle="Collaborate with us"
+                />
+                <QuickLinkPill
+                  href="#donate"
+                  icon={<HandCoinsIcon className="w-7 h-7" />}
+                  label="Donate"
+                  subtitle="Support our mission"
+                />
+              </div>
+            </HeroItem>
+          </HeroEntrance>
         </div>
 
         {/* Mobile Bento - Horizontal layout (shown on <sm only) */}
         <div className="sm:hidden px-6 pb-8">
-          <div className="flex gap-3.5 items-center w-full">
+          <FadeInOnMount delay={0.5} className="flex gap-3.5 items-center w-full">
             {/* Pill-bottom shape */}
             <div className="flex-1 h-[140px] rounded-t-xl rounded-b-[99px] overflow-hidden relative">
               <Image
@@ -237,13 +245,13 @@ export default async function GetInvolvedPage() {
                 className="object-cover"
               />
             </div>
-          </div>
+          </FadeInOnMount>
         </div>
 
         {/* Desktop Bento Grid - Right side (shown on sm+) */}
         <div className="hidden sm:block sm:absolute sm:right-[calc(8.33%+22px)] sm:top-[50px] md:right-[25px] md:top-[50px] lg:right-[calc(8.33%+11px)] lg:top-0 xl:right-24 sm:w-[136px] md:w-[286px] lg:w-[320px] sm:h-[503px] md:h-[585px] lg:h-[655px]">
           {/* SM layout - Single column only (left column items) */}
-          <div className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
+          <FadeInOnMount delay={0.5} className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
             {/* Pill-bottom shape */}
             <div className="w-full h-[180px] rounded-t-[7px] rounded-b-[88px] overflow-hidden relative">
               <Image
@@ -272,12 +280,12 @@ export default async function GetInvolvedPage() {
                 className="object-cover"
               />
             </div>
-          </div>
+          </FadeInOnMount>
 
           {/* MD+ layout - Two columns with absolute positioning */}
           <div className="hidden md:block relative w-full h-full">
             {/* Column 1 - Left (positioned higher, bottom-82px on MD, bottom-92px on LG) */}
-            <div className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
+            <FadeInOnMount delay={0.5} className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               {/* Pill-bottom shape */}
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
                 <Image
@@ -306,10 +314,10 @@ export default async function GetInvolvedPage() {
                   className="object-cover"
                 />
               </div>
-            </div>
+            </FadeInOnMount>
 
             {/* Column 2 - Right (positioned at bottom) */}
-            <div className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
+            <FadeInOnMount delay={0.7} className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               {/* Small rectangle */}
               <div className="w-full h-[114px] lg:h-[128px] rounded-[7px] lg:rounded-lg overflow-hidden relative">
                 <Image
@@ -337,7 +345,7 @@ export default async function GetInvolvedPage() {
                   className="object-cover"
                 />
               </div>
-            </div>
+            </FadeInOnMount>
           </div>
         </div>
       </div>
@@ -345,127 +353,147 @@ export default async function GetInvolvedPage() {
       {/* Volunteer Section */}
       <section id="volunteer" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
-            Volunteer
-          </h2>
-          <p className="text-gray-120 text-lg leading-relaxed mb-6">
-            Support UXHI by volunteering! There are many ways to be involved:
-          </p>
-          <ul className="text-gray-120 space-y-3 mb-8">
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>
-                Propose a topic related to the field of UX as a presenter at our{" "}
-                <InlineLink href="https://uxhi.hisony.com/conferences/2025/" variant="purple">UXHI Conference</InlineLink>{" "}
-                or{" "}
-                <InlineLink href="/events" variant="purple">events</InlineLink>
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>
-                Propose a topic as a guest author for our{" "}
-                <InlineLink href="/resources" variant="purple">Resources</InlineLink>
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>
-                Join our committees for any of our initiatives, like the{" "}
-                <InlineLink href="https://uxhi.hisony.com/conferences/2025/" variant="purple">UXHI Conference</InlineLink>{" "}
-                or the{" "}
-                <InlineLink href="/resources#report" variant="purple">State of UX Report</InlineLink>
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>
-                Provide general assistance with our{" "}
-                <InlineLink href="/events" variant="purple">events</InlineLink>
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>Support with marketing needs like our newsletter and social media</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>And much more!</span>
-            </li>
-          </ul>
-          <p className="text-gray-120 text-lg mb-8">
-            Let us know how you want to get involved!
-          </p>
-          <PrimaryCTA href="/about?interest=Becoming+a+volunteer#contact">
-            Sign up to volunteer
-          </PrimaryCTA>
+          <ScrollReveal>
+            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
+              Volunteer
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal>
+            <p className="text-gray-120 text-lg leading-relaxed mb-6">
+              Support UXHI by volunteering! There are many ways to be involved:
+            </p>
+            <ul className="text-gray-120 space-y-3 mb-8">
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>
+                  Propose a topic related to the field of UX as a presenter at our{" "}
+                  <InlineLink href="https://uxhi.hisony.com/conferences/2025/" variant="purple">UXHI Conference</InlineLink>{" "}
+                  or{" "}
+                  <InlineLink href="/events" variant="purple">events</InlineLink>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>
+                  Propose a topic as a guest author for our{" "}
+                  <InlineLink href="/resources" variant="purple">Resources</InlineLink>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>
+                  Join our committees for any of our initiatives, like the{" "}
+                  <InlineLink href="https://uxhi.hisony.com/conferences/2025/" variant="purple">UXHI Conference</InlineLink>{" "}
+                  or the{" "}
+                  <InlineLink href="/resources#report" variant="purple">State of UX Report</InlineLink>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>
+                  Provide general assistance with our{" "}
+                  <InlineLink href="/events" variant="purple">events</InlineLink>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>Support with marketing needs like our newsletter and social media</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>And much more!</span>
+              </li>
+            </ul>
+            <p className="text-gray-120 text-lg mb-8">
+              Let us know how you want to get involved!
+            </p>
+            <PrimaryCTA href="/about?interest=Becoming+a+volunteer#contact">
+              Sign up to volunteer
+            </PrimaryCTA>
+          </ScrollReveal>
 
           {/* Committees Subsection */}
           <div className="mt-16">
-            <div className="text-center mb-10">
-              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-3">
-                Our Committees
-              </h3>
-              <p className="text-gray-110 max-w-[600px] mx-auto">
-                Join one of our volunteer committees and help shape the future of UX in Hawai&apos;i
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <ScrollReveal stagger className="text-center mb-10">
+              <MotionDiv>
+                <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-3">
+                  Our Committees
+                </h3>
+              </MotionDiv>
+              <MotionDiv>
+                <p className="text-gray-110 max-w-[600px] mx-auto">
+                  Join one of our volunteer committees and help shape the future of UX in Hawai&apos;i
+                </p>
+              </MotionDiv>
+            </ScrollReveal>
+            <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {committees.length > 0 ? (
                 committees.map((committee) => (
-                  <SpotIllustrationCard
-                    key={committee._id}
-                    image={committee.icon ?? undefined}
-                    imageAlt={committee.name}
-                    title={committee.name}
-                    description={committee.description}
-                    variant="beige"
-                  />
+                  <MotionDiv key={committee._id}>
+                    <SpotIllustrationCard
+                      image={committee.icon ?? undefined}
+                      imageAlt={committee.name}
+                      title={committee.name}
+                      description={committee.description}
+                      variant="beige"
+                    />
+                  </MotionDiv>
                 ))
               ) : (
                 fallbackCommittees.map((committee) => (
-                  <SpotIllustrationCard
-                    key={committee.name}
-                    imageSrc={committee.icon}
-                    imageAlt={committee.name}
-                    title={committee.name}
-                    description={committee.description}
-                    variant="beige"
-                  />
+                  <MotionDiv key={committee.name}>
+                    <SpotIllustrationCard
+                      imageSrc={committee.icon}
+                      imageAlt={committee.name}
+                      title={committee.name}
+                      description={committee.description}
+                      variant="beige"
+                    />
+                  </MotionDiv>
                 ))
               )}
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Speaking Opportunities Section */}
       <section id="speak" className="py-20 px-6 bg-white scroll-mt-24">
-        <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
-            Speaking Opportunities
-          </h2>
-          <p className="text-gray-120 text-lg leading-relaxed mb-4">
-            Have an idea for a talk or a skill you&apos;d like to share?
-          </p>
-          <p className="text-gray-120 text-lg leading-relaxed mb-4">
-            Whether you&apos;d like to teach an interactive workshop, host an education webinar, or a casual talk story session, give back to the community by sharing your experience. Preference is given to speakers with Hawai&apos;i ties.
-          </p>
-          <p className="text-gray-120 text-lg leading-relaxed mb-8">
-            Fill out our speaker application below and we&apos;ll be in touch!
-          </p>
-          <PrimaryCTA href="/about?interest=Becoming+a+speaker#contact">
-            Submit your idea
-          </PrimaryCTA>
-        </div>
+        <ScrollReveal stagger className="max-w-[900px] mx-auto">
+          <MotionDiv>
+            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
+              Speaking Opportunities
+            </h2>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-gray-120 text-lg leading-relaxed mb-4">
+              Have an idea for a talk or a skill you&apos;d like to share?
+            </p>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-gray-120 text-lg leading-relaxed mb-4">
+              Whether you&apos;d like to teach an interactive workshop, host an education webinar, or a casual talk story session, give back to the community by sharing your experience. Preference is given to speakers with Hawai&apos;i ties.
+            </p>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-gray-120 text-lg leading-relaxed mb-8">
+              Fill out our speaker application below and we&apos;ll be in touch!
+            </p>
+          </MotionDiv>
+          <MotionDiv>
+            <PrimaryCTA href="/about?interest=Becoming+a+speaker#contact">
+              Submit your idea
+            </PrimaryCTA>
+          </MotionDiv>
+        </ScrollReveal>
       </section>
 
       {/* Speaker Photo Bento Grid */}
       <section className="px-6 pb-16 bg-white">
         <div className="max-w-[1300px] mx-auto">
-          <div className="flex flex-col lg:flex-row gap-4 lg:h-[500px]">
-            {/* Left column — tall */}
-            <div className="relative flex-1 min-h-0">
+          <ScrollReveal stagger className="flex flex-col lg:flex-row gap-4 lg:h-[500px]">
+            {/* Left column -- tall */}
+            <MotionDiv variants={scaleReveal} className="relative flex-1 min-h-0">
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-t-[calc(2rem_+_1px)] lg:rounded-l-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/4] lg:aspect-auto w-full lg:flex-1">
@@ -473,9 +501,9 @@ export default async function GetInvolvedPage() {
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
-            </div>
-            {/* Center column — two stacked images */}
-            <div className="flex flex-col gap-4 flex-1 min-h-0">
+            </MotionDiv>
+            {/* Center column -- two stacked images */}
+            <MotionDiv variants={scaleReveal} className="flex flex-col gap-4 flex-1 min-h-0">
               <div className="relative flex-1 min-h-0">
                 <div className="absolute inset-px rounded-lg bg-white" />
                 <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
@@ -494,9 +522,9 @@ export default async function GetInvolvedPage() {
                 </div>
                 <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
               </div>
-            </div>
-            {/* Right column — tall */}
-            <div className="relative flex-1 min-h-0">
+            </MotionDiv>
+            {/* Right column -- tall */}
+            <MotionDiv variants={scaleReveal} className="relative flex-1 min-h-0">
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-b-[calc(2rem_+_1px)] lg:rounded-r-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/4] lg:aspect-auto w-full lg:flex-1">
@@ -504,62 +532,70 @@ export default async function GetInvolvedPage() {
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]" />
-            </div>
-          </div>
+            </MotionDiv>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Partnerships Section */}
       <section id="partner" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
-            Partnerships
-          </h2>
-          <p className="text-gray-120 text-lg leading-relaxed mb-4">
-            Strong collaboration makes for strong results!
-          </p>
-          <p className="text-gray-120 text-lg leading-relaxed mb-6">
-            We&apos;re always open to design-forward organizations and individuals who want to partner with us to build initiatives, host or sponsor events, and help us provide resources to our community.
-          </p>
-          <ul className="text-gray-120 space-y-3 mb-8">
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>Co-develop resources and/or programs for our membership</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>Co-host an event to feature your company at one of our events</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>Co-host a joint event to bring together both of our communities</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>Sponsor a workshop or speaker series focused on emerging UX topics</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <BulletPoint />
-              <span>Provide venue space or tech tools to support our events</span>
-            </li>
-          </ul>
+          <ScrollReveal>
+            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
+              Partnerships
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal>
+            <p className="text-gray-120 text-lg leading-relaxed mb-4">
+              Strong collaboration makes for strong results!
+            </p>
+            <p className="text-gray-120 text-lg leading-relaxed mb-6">
+              We&apos;re always open to design-forward organizations and individuals who want to partner with us to build initiatives, host or sponsor events, and help us provide resources to our community.
+            </p>
+            <ul className="text-gray-120 space-y-3 mb-8">
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>Co-develop resources and/or programs for our membership</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>Co-host an event to feature your company at one of our events</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>Co-host a joint event to bring together both of our communities</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>Sponsor a workshop or speaker series focused on emerging UX topics</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BulletPoint />
+                <span>Provide venue space or tech tools to support our events</span>
+              </li>
+            </ul>
+          </ScrollReveal>
 
-          <PrimaryCTA href="/about?interest=Becoming+partners+and+collaborators#contact">
-            Let&apos;s connect
-          </PrimaryCTA>
+          <ScrollReveal>
+            <PrimaryCTA href="/about?interest=Becoming+partners+and+collaborators#contact">
+              Let&apos;s connect
+            </PrimaryCTA>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Successful Partnerships Section */}
       <section className="py-16 px-6 bg-gray-10">
         <div className="max-w-[1200px] mx-auto">
-          <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 text-center mb-12">
-            Successful Partnerships
-          </h3>
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
+          <ScrollReveal>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 text-center mb-12">
+              Successful Partnerships
+            </h3>
+          </ScrollReveal>
+          <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
             {partners.length > 0 ? (
               partners.map((partner) => (
-                <div
+                <MotionDiv
                   key={partner._id}
                   className="flex items-center justify-center"
                 >
@@ -577,11 +613,11 @@ export default async function GetInvolvedPage() {
                       {partner.name}
                     </span>
                   )}
-                </div>
+                </MotionDiv>
               ))
             ) : (
               fallbackPartners.map((partner) => (
-                <div
+                <MotionDiv
                   key={partner.name}
                   className="flex items-center justify-center"
                 >
@@ -592,35 +628,41 @@ export default async function GetInvolvedPage() {
                     height={partner.height || 40}
                     className="object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   />
-                </div>
+                </MotionDiv>
               ))
             )}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Sponsorships Section */}
       <section id="sponsor" className="py-20 px-6 bg-white scroll-mt-24">
-        <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
-            Sponsorships
-          </h2>
-          <p className="text-gray-120 text-lg leading-relaxed">
-            Our sponsorship packages are designed to elevate your brand, showcase your products, and facilitate connections with influencers, decision-makers, and potential partners. By partnering with us, you&apos;ll not only enhance your brand recognition but also reinforce your dedication to improving the digital landscape through UX design.
-          </p>
-        </div>
+        <ScrollReveal stagger className="max-w-[900px] mx-auto">
+          <MotionDiv>
+            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
+              Sponsorships
+            </h2>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-gray-120 text-lg leading-relaxed">
+              Our sponsorship packages are designed to elevate your brand, showcase your products, and facilitate connections with influencers, decision-makers, and potential partners. By partnering with us, you&apos;ll not only enhance your brand recognition but also reinforce your dedication to improving the digital landscape through UX design.
+            </p>
+          </MotionDiv>
+        </ScrollReveal>
       </section>
 
       {/* Past Event Sponsors Section */}
       <section className="py-16 px-6 bg-gray-10">
         <div className="max-w-[1200px] mx-auto">
-          <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 text-center mb-12">
-            Past Event Sponsors
-          </h3>
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
+          <ScrollReveal>
+            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 text-center mb-12">
+              Past Event Sponsors
+            </h3>
+          </ScrollReveal>
+          <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
             {sponsors.length > 0 ? (
               sponsors.map((sponsor) => (
-                <div
+                <MotionDiv
                   key={sponsor._id}
                   className="flex items-center justify-center"
                 >
@@ -638,11 +680,11 @@ export default async function GetInvolvedPage() {
                       {sponsor.name}
                     </span>
                   )}
-                </div>
+                </MotionDiv>
               ))
             ) : (
               fallbackSponsors.map((sponsor) => (
-                <div
+                <MotionDiv
                   key={sponsor.name}
                   className="flex items-center justify-center"
                 >
@@ -653,64 +695,84 @@ export default async function GetInvolvedPage() {
                     height={sponsor.height || 40}
                     className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${sponsor.darkGray ? 'opacity-70' : 'opacity-50'}`}
                   />
-                </div>
+                </MotionDiv>
               ))
             )}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Ready to Collaborate Section */}
       <section className="py-16 px-6 bg-beige-10">
-        <div className="max-w-[600px] mx-auto text-center">
-          <div className="w-32 h-32 mx-auto mb-6 relative">
-            <Image
-              src="/images/icons/icon-collaborate.png"
-              alt="Collaborate"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
-            Ready to collaborate?
-          </h3>
-          <p className="text-gray-120 leading-relaxed mb-6">
-            We understand the value of tailored experiences and are open to working together to create a custom package.
-          </p>
-          <PrimaryCTA href="/about?interest=Becoming+partners+and+collaborators#contact">
-            Collaborate with us
-          </PrimaryCTA>
-        </div>
+        <ScrollReveal stagger className="max-w-[600px] mx-auto text-center">
+          <MotionDiv>
+            <div className="w-32 h-32 mx-auto mb-6 relative">
+              <Image
+                src="/images/icons/icon-collaborate.png"
+                alt="Collaborate"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </MotionDiv>
+          <MotionDiv>
+            <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
+              Ready to collaborate?
+            </h3>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-gray-120 leading-relaxed mb-6">
+              We understand the value of tailored experiences and are open to working together to create a custom package.
+            </p>
+          </MotionDiv>
+          <MotionDiv>
+            <PrimaryCTA href="/about?interest=Becoming+partners+and+collaborators#contact">
+              Collaborate with us
+            </PrimaryCTA>
+          </MotionDiv>
+        </ScrollReveal>
       </section>
 
       {/* Donations Section */}
       <section id="donate" className="py-20 px-6 bg-purple-140 scroll-mt-24">
-        <div className="max-w-[800px] mx-auto text-center">
+        <ScrollReveal stagger className="max-w-[800px] mx-auto text-center">
           {/* Donate Icon */}
-          <div className="w-32 h-32 mx-auto mb-6 relative">
-            <Image
-              src="/images/icons/icon-donate.png"
-              alt="Donate"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
-            Donations
-          </h2>
-          <p className="text-white text-xl font-medium mb-4">
-            Your support is important to us.
-          </p>
-          <p className="text-purple-50 text-lg leading-relaxed mb-4 max-w-[650px] mx-auto">
-            UXHI is a volunteer-run UX design community that connects people in Hawaiʻi and those with Hawaiʻi ties to learn together and make new UX friends.
-          </p>
-          <p className="text-purple-50 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
-            Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events. Thanks in advance for supporting our community!
-          </p>
-          <PrimaryCTA href="https://ko-fi.com/uxhicommunity" external>
-            Donate
-          </PrimaryCTA>
-        </div>
+          <MotionDiv>
+            <div className="w-32 h-32 mx-auto mb-6 relative">
+              <Image
+                src="/images/icons/icon-donate.png"
+                alt="Donate"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </MotionDiv>
+          <MotionDiv>
+            <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
+              Donations
+            </h2>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-white text-xl font-medium mb-4">
+              Your support is important to us.
+            </p>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-purple-50 text-lg leading-relaxed mb-4 max-w-[650px] mx-auto">
+              UXHI is a volunteer-run UX design community that connects people in Hawai&#x02BB;i and those with Hawai&#x02BB;i ties to learn together and make new UX friends.
+            </p>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-purple-50 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
+              Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events. Thanks in advance for supporting our community!
+            </p>
+          </MotionDiv>
+          <MotionDiv>
+            <PrimaryCTA href="https://ko-fi.com/uxhicommunity" external>
+              Donate
+            </PrimaryCTA>
+          </MotionDiv>
+        </ScrollReveal>
       </section>
     </main>
   );

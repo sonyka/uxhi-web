@@ -8,6 +8,8 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { PressMention } from "@/components/ui/PressMention";
 import { InquiryForm } from "@/components/forms/InquiryForm";
+import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
+import { scaleReveal } from "@/lib/animations";
 
 export const metadata: Metadata = {
   title: "About | UX Hawaii",
@@ -62,41 +64,47 @@ export default async function AboutPage() {
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
         <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
-          <div className="flex flex-col gap-6">
-            <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
-              About Us
-            </h1>
-            <p className="text-black text-lg lg:text-xl leading-relaxed">
-              Learn about UX Hawaiʻi, Hawaiʻi&apos;s premier UX community dedicated to connecting, educating, and empowering UX professionals.
-            </p>
+          <HeroEntrance className="flex flex-col gap-6">
+            <HeroItem>
+              <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
+                About Us
+              </h1>
+            </HeroItem>
+            <HeroItem>
+              <p className="text-black text-lg lg:text-xl leading-relaxed">
+                Learn about UX Hawaiʻi, Hawaiʻi&apos;s premier UX community dedicated to connecting, educating, and empowering UX professionals.
+              </p>
+            </HeroItem>
 
             {/* Quick Link Modules - hidden on mobile */}
-            <div className="hidden sm:flex flex-wrap gap-4">
-              <QuickLinkPill
-                href="#team"
-                icon={<SquareUserRoundIcon className="w-7 h-7" />}
-                label="Team"
-                subtitle="Meet our team"
-              />
-              <QuickLinkPill
-                href="#faqs"
-                icon={<CircleHelpIcon className="w-7 h-7" />}
-                label="FAQs"
-                subtitle="Common questions"
-              />
-              <QuickLinkPill
-                href="#contact"
-                icon={<SendIcon className="w-7 h-7" />}
-                label="Contact"
-                subtitle="Get in touch"
-              />
-            </div>
-          </div>
+            <HeroItem>
+              <div className="hidden sm:flex flex-wrap gap-4">
+                <QuickLinkPill
+                  href="#team"
+                  icon={<SquareUserRoundIcon className="w-7 h-7" />}
+                  label="Team"
+                  subtitle="Meet our team"
+                />
+                <QuickLinkPill
+                  href="#faqs"
+                  icon={<CircleHelpIcon className="w-7 h-7" />}
+                  label="FAQs"
+                  subtitle="Common questions"
+                />
+                <QuickLinkPill
+                  href="#contact"
+                  icon={<SendIcon className="w-7 h-7" />}
+                  label="Contact"
+                  subtitle="Get in touch"
+                />
+              </div>
+            </HeroItem>
+          </HeroEntrance>
         </div>
 
         {/* Mobile Bento - Horizontal layout (shown on <sm only) */}
         <div className="sm:hidden px-6 pb-8">
-          <div className="flex gap-3.5 items-center w-full">
+          <FadeInOnMount delay={0.5} className="flex gap-3.5 items-center w-full">
             <div className="flex-1 h-[140px] rounded-t-xl rounded-b-[99px] overflow-hidden relative">
               <Image src="/images/about/bento-about-01.png" alt="UXHI conference" fill className="object-cover" />
             </div>
@@ -106,13 +114,13 @@ export default async function AboutPage() {
             <div className="flex-1 h-[140px] rounded-[99px] overflow-hidden relative">
               <Image src="/images/about/bento-about-02.png" alt="UXHI community crowd" fill className="object-cover" />
             </div>
-          </div>
+          </FadeInOnMount>
         </div>
 
         {/* Desktop Bento Grid - Right side (shown on sm+) */}
         <div className="hidden sm:block sm:absolute sm:right-[calc(8.33%+22px)] sm:top-[50px] md:right-[25px] md:top-[50px] lg:right-[calc(8.33%+11px)] lg:top-0 xl:right-24 sm:w-[136px] md:w-[286px] lg:w-[320px] sm:h-[503px] md:h-[585px] lg:h-[655px]">
           {/* SM layout - Single column only */}
-          <div className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
+          <FadeInOnMount delay={0.5} className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
             <div className="w-full h-[180px] rounded-t-[7px] rounded-b-[88px] overflow-hidden relative">
               <Image src="/images/about/bento-about-01.png" alt="UXHI conference" fill className="object-cover" />
             </div>
@@ -122,12 +130,12 @@ export default async function AboutPage() {
             <div className="w-full h-[180px] rounded-[88px] overflow-hidden relative opacity-90">
               <Image src="/images/about/bento-about-02.png" alt="UXHI community crowd" fill className="object-cover" />
             </div>
-          </div>
+          </FadeInOnMount>
 
           {/* MD+ layout - Two columns with absolute positioning */}
           <div className="hidden md:block relative w-full h-full">
             {/* Column 1 - Left (positioned higher) */}
-            <div className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
+            <FadeInOnMount delay={0.5} className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
                 <Image src="/images/about/bento-about-01.png" alt="UXHI conference" fill className="object-cover" />
               </div>
@@ -137,9 +145,9 @@ export default async function AboutPage() {
               <div className="w-full h-[180px] lg:h-[201px] rounded-[88px] lg:rounded-[99px] overflow-hidden relative opacity-90">
                 <Image src="/images/about/bento-about-02.png" alt="UXHI community crowd" fill className="object-cover" />
               </div>
-            </div>
+            </FadeInOnMount>
             {/* Column 2 - Right (positioned at bottom) */}
-            <div className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
+            <FadeInOnMount delay={0.7} className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[114px] lg:h-[128px] rounded-[7px] lg:rounded-lg overflow-hidden relative">
                 <Image src="/images/about/bento-about-03.png" alt="UXHICon 25" fill className="object-cover" />
               </div>
@@ -149,7 +157,7 @@ export default async function AboutPage() {
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
                 <Image src="/images/about/bento-about-05.png" alt="UXHI photobooth" fill className="object-cover" />
               </div>
-            </div>
+            </FadeInOnMount>
           </div>
         </div>
       </div>
@@ -159,11 +167,13 @@ export default async function AboutPage() {
       {/* Featured Press Section */}
       <section className="pb-16 px-6 bg-beige-10">
         <div className="max-w-[1100px] mx-auto">
-          <PressMention
-            source="Hawai'i Bulletin"
-            title="Local group explores user experience and interface design"
-            href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience"
-          />
+          <ScrollReveal>
+            <PressMention
+              source="Hawai'i Bulletin"
+              title="Local group explores user experience and interface design"
+              href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience"
+            />
+          </ScrollReveal>
         </div>
       </section>
 
@@ -173,22 +183,28 @@ export default async function AboutPage() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6 bg-purple-140 scroll-mt-24">
         <div className="max-w-[800px] mx-auto">
-          <div className="text-center">
-            <div className="w-32 h-32 mx-auto mb-6 relative">
-              <Image
-                src="/images/icons/icon-contact.png"
-                alt="Contact"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
-              Get in touch
-            </h2>
-            <p className="text-purple-50 text-lg leading-relaxed mb-10 max-w-[600px] mx-auto">
-              Have questions, ideas, or want to collaborate? We&apos;d love to hear from you. Reach out to our team and we&apos;ll get back to you as soon as possible.
-            </p>
-          </div>
+          <ScrollReveal stagger className="text-center">
+            <MotionDiv>
+              <div className="w-32 h-32 mx-auto mb-6 relative">
+                <Image
+                  src="/images/icons/icon-contact.png"
+                  alt="Contact"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </MotionDiv>
+            <MotionDiv>
+              <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
+                Get in touch
+              </h2>
+            </MotionDiv>
+            <MotionDiv>
+              <p className="text-purple-50 text-lg leading-relaxed mb-10 max-w-[600px] mx-auto">
+                Have questions, ideas, or want to collaborate? We&apos;d love to hear from you. Reach out to our team and we&apos;ll get back to you as soon as possible.
+              </p>
+            </MotionDiv>
+          </ScrollReveal>
           <InquiryForm />
         </div>
       </section>

@@ -11,6 +11,8 @@ import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { InlineLink } from "@/components/ui/InlineLink";
+import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
+import { scaleReveal } from "@/lib/animations";
 
 export const metadata: Metadata = {
   title: "Resources | UX Hawaii",
@@ -121,41 +123,47 @@ export default async function ResourcesPage() {
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
         <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
-          <div className="flex flex-col gap-6">
-            <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
-              Resources
-            </h1>
-            <p className="text-black text-lg lg:text-xl leading-relaxed">
-              Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaiʻi.
-            </p>
+          <HeroEntrance className="flex flex-col gap-6">
+            <HeroItem>
+              <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
+                Resources
+              </h1>
+            </HeroItem>
+            <HeroItem>
+              <p className="text-black text-lg lg:text-xl leading-relaxed">
+                Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaiʻi.
+              </p>
+            </HeroItem>
 
             {/* Quick Link Modules - hidden on mobile */}
-            <div className="hidden sm:flex flex-wrap gap-4">
-              <QuickLinkPill
-                href="#students"
-                icon={<GraduationCapIcon className="w-7 h-7" />}
-                label="UX for Students"
-                subtitle="Learning resources"
-              />
-              <QuickLinkPill
-                href="#report"
-                icon={<BookOpenTextIcon className="w-7 h-7" />}
-                label="State of UX Report"
-                subtitle="Industry insights"
-              />
-              <QuickLinkPill
-                href="#directory"
-                icon={<NotebookTabsIcon className="w-7 h-7" />}
-                label="Directory of Tech Orgs"
-                subtitle="Local connections"
-              />
-            </div>
-          </div>
+            <HeroItem>
+              <div className="hidden sm:flex flex-wrap gap-4">
+                <QuickLinkPill
+                  href="#students"
+                  icon={<GraduationCapIcon className="w-7 h-7" />}
+                  label="UX for Students"
+                  subtitle="Learning resources"
+                />
+                <QuickLinkPill
+                  href="#report"
+                  icon={<BookOpenTextIcon className="w-7 h-7" />}
+                  label="State of UX Report"
+                  subtitle="Industry insights"
+                />
+                <QuickLinkPill
+                  href="#directory"
+                  icon={<NotebookTabsIcon className="w-7 h-7" />}
+                  label="Directory of Tech Orgs"
+                  subtitle="Local connections"
+                />
+              </div>
+            </HeroItem>
+          </HeroEntrance>
         </div>
 
         {/* Mobile Bento - Horizontal layout (shown on <sm only) */}
         <div className="sm:hidden px-6 pb-8">
-          <div className="flex gap-3.5 items-center w-full">
+          <FadeInOnMount delay={0.5} className="flex gap-3.5 items-center w-full">
             <div className="flex-1 h-[140px] rounded-t-xl rounded-b-[99px] overflow-hidden relative">
               <Image src="/images/resources/bento-resources-01.png" alt="UX101 group" fill className="object-cover" />
             </div>
@@ -165,13 +173,13 @@ export default async function ResourcesPage() {
             <div className="flex-1 h-[140px] rounded-[99px] overflow-hidden relative">
               <Image src="/images/resources/bento-resources-02.png" alt="UXHI conference" fill className="object-cover" />
             </div>
-          </div>
+          </FadeInOnMount>
         </div>
 
         {/* Desktop Bento Grid - Right side (shown on sm+) */}
         <div className="hidden sm:block sm:absolute sm:right-[calc(8.33%+22px)] sm:top-[50px] md:right-[25px] md:top-[50px] lg:right-[calc(8.33%+11px)] lg:top-0 xl:right-24 sm:w-[136px] md:w-[286px] lg:w-[320px] sm:h-[503px] md:h-[585px] lg:h-[655px]">
           {/* SM layout - Single column only */}
-          <div className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
+          <FadeInOnMount delay={0.5} className="sm:flex md:hidden flex-col gap-3.5 absolute bottom-0 left-0 w-full">
             <div className="w-full h-[180px] rounded-t-[7px] rounded-b-[88px] overflow-hidden relative">
               <Image src="/images/resources/bento-resources-01.png" alt="UX101 group" fill className="object-cover" />
             </div>
@@ -181,12 +189,12 @@ export default async function ResourcesPage() {
             <div className="w-full h-[180px] rounded-[88px] overflow-hidden relative opacity-90">
               <Image src="/images/resources/bento-resources-02.png" alt="UXHI conference" fill className="object-cover" />
             </div>
-          </div>
+          </FadeInOnMount>
 
           {/* MD+ layout - Two columns with absolute positioning */}
           <div className="hidden md:block relative w-full h-full">
             {/* Column 1 - Left (positioned higher) */}
-            <div className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
+            <FadeInOnMount delay={0.5} className="absolute bottom-[82px] lg:bottom-[92px] left-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
                 <Image src="/images/resources/bento-resources-01.png" alt="UX101 group" fill className="object-cover" />
               </div>
@@ -196,9 +204,9 @@ export default async function ResourcesPage() {
               <div className="w-full h-[180px] lg:h-[201px] rounded-[88px] lg:rounded-[99px] overflow-hidden relative opacity-90">
                 <Image src="/images/resources/bento-resources-02.png" alt="UXHI conference" fill className="object-cover" />
               </div>
-            </div>
+            </FadeInOnMount>
             {/* Column 2 - Right (positioned at bottom) */}
-            <div className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
+            <FadeInOnMount delay={0.7} className="absolute bottom-0 right-0 w-[calc(50%-7px)] lg:w-[calc(50%-8px)] flex flex-col gap-3.5 lg:gap-4">
               <div className="w-full h-[114px] lg:h-[128px] rounded-[7px] lg:rounded-lg overflow-hidden relative">
                 <Image src="/images/resources/bento-resources-03.png" alt="UXHI community members with leis" fill className="object-cover" />
               </div>
@@ -208,7 +216,7 @@ export default async function ResourcesPage() {
               <div className="w-full h-[180px] lg:h-[201px] rounded-t-[7px] lg:rounded-t-lg rounded-b-[88px] lg:rounded-b-[99px] overflow-hidden relative">
                 <Image src="/images/resources/bento-resources-05.png" alt="UXHI photobooth" fill className="object-cover" />
               </div>
-            </div>
+            </FadeInOnMount>
           </div>
         </div>
       </div>
@@ -216,46 +224,56 @@ export default async function ResourcesPage() {
       {/* UX for Students Section */}
       <section id="students" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-10">
-            UX for Students
-          </h2>
+          <ScrollReveal>
+            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-10">
+              UX for Students
+            </h2>
+          </ScrollReveal>
 
           {/* Online Resources */}
           <div className="mb-12">
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Online Resources</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <ScrollReveal>
+              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Online Resources</h3>
+            </ScrollReveal>
+            <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {(groupedResources['online-resources-students'] && groupedResources['online-resources-students'].length > 0
                 ? groupedResources['online-resources-students']
                 : onlineResources
               ).map((resource: { _id?: string; name?: string; title?: string; url?: string; description?: string; label?: string }) => (
-                <LinkCard
-                  key={resource._id || resource.name || resource.title}
-                  href={resource.url || "#"}
-                  title={resource.title || resource.name || ""}
-                  description={resource.description || resource.label || new URL(resource.url || "").hostname}
-                />
+                <MotionDiv key={resource._id || resource.name || resource.title}>
+                  <LinkCard
+                    href={resource.url || "#"}
+                    title={resource.title || resource.name || ""}
+                    description={resource.description || resource.label || new URL(resource.url || "").hostname}
+                  />
+                </MotionDiv>
               ))}
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Local Programs */}
           <div className="mb-12">
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Local Programs & Degrees</h3>
-            <InfoBox className="mb-6">
-              <p className="text-base text-gray-120 font-medium">Note: There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.</p>
-            </InfoBox>
+            <ScrollReveal>
+              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Local Programs & Degrees</h3>
+            </ScrollReveal>
+            <ScrollReveal>
+              <InfoBox className="mb-6">
+                <p className="text-base text-gray-120 font-medium">Note: There are no local programs that specifically and solely focus on UX Design. Most are adjacent degrees that touch on similar theories and concepts.</p>
+              </InfoBox>
+            </ScrollReveal>
 
             {groupedResources['local-programs-degrees'] && groupedResources['local-programs-degrees'].length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {groupedResources['local-programs-degrees'].map((program: { _id?: string; title?: string; url?: string; description?: string }) => (
-                  <LinkCard
-                    key={program._id}
-                    href={program.url || "#"}
-                    title={program.title || ""}
-                    description={program.description}
-                  />
+                  <MotionDiv key={program._id}>
+                    <LinkCard
+                      href={program.url || "#"}
+                      title={program.title || ""}
+                      description={program.description}
+                    />
+                  </MotionDiv>
                 ))}
-              </div>
+              </ScrollReveal>
             )}
           </div>
         </div>
@@ -265,8 +283,8 @@ export default async function ResourcesPage() {
       <section className="px-6 pb-16 bg-white">
         <div className="max-w-[1300px] mx-auto flex flex-col gap-4">
           {/* Top row — 2 equal images */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="relative flex-1">
+          <ScrollReveal stagger className="flex flex-col sm:flex-row gap-4">
+            <MotionDiv variants={scaleReveal} className="relative flex-1">
               <div className="absolute inset-px rounded-lg bg-white max-sm:rounded-t-[2rem] sm:rounded-tl-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-sm:rounded-t-[calc(2rem_+_1px)] sm:rounded-tl-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
@@ -274,8 +292,8 @@ export default async function ResourcesPage() {
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-sm:rounded-t-[2rem] sm:rounded-tl-[2rem]" />
-            </div>
-            <div className="relative flex-1">
+            </MotionDiv>
+            <MotionDiv variants={scaleReveal} className="relative flex-1">
               <div className="absolute inset-px rounded-lg bg-white sm:rounded-tr-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] sm:rounded-tr-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
@@ -283,11 +301,11 @@ export default async function ResourcesPage() {
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 sm:rounded-tr-[2rem]" />
-            </div>
-          </div>
+            </MotionDiv>
+          </ScrollReveal>
           {/* Bottom row — 3 equal images */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="relative flex-1">
+          <ScrollReveal stagger className="flex flex-col sm:flex-row gap-4">
+            <MotionDiv variants={scaleReveal} className="relative flex-1">
               <div className="absolute inset-px rounded-lg bg-white sm:rounded-bl-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] sm:rounded-bl-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
@@ -295,8 +313,8 @@ export default async function ResourcesPage() {
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 sm:rounded-bl-[2rem]" />
-            </div>
-            <div className="relative flex-1">
+            </MotionDiv>
+            <MotionDiv variants={scaleReveal} className="relative flex-1">
               <div className="absolute inset-px rounded-lg bg-white" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
@@ -304,8 +322,8 @@ export default async function ResourcesPage() {
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
-            </div>
-            <div className="relative flex-1">
+            </MotionDiv>
+            <MotionDiv variants={scaleReveal} className="relative flex-1">
               <div className="absolute inset-px rounded-lg bg-white max-sm:rounded-b-[2rem] sm:rounded-br-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-sm:rounded-b-[calc(2rem_+_1px)] sm:rounded-br-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
@@ -313,8 +331,8 @@ export default async function ResourcesPage() {
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-sm:rounded-b-[2rem] sm:rounded-br-[2rem]" />
-            </div>
-          </div>
+            </MotionDiv>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -322,44 +340,52 @@ export default async function ResourcesPage() {
         <div className="max-w-[900px] mx-auto">
           {/* Online Programs */}
           <div className="mb-12">
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Online Programs</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <ScrollReveal>
+              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Online Programs</h3>
+            </ScrollReveal>
+            <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {(groupedResources['online-programs-students'] && groupedResources['online-programs-students'].length > 0
                 ? groupedResources['online-programs-students']
                 : onlinePrograms
               ).map((program: { _id?: string; name?: string; title?: string; url?: string; description?: string; label?: string }) => (
-                <LinkCard
-                  key={program._id || program.name || program.title}
-                  href={program.url || "#"}
-                  title={program.title || program.name || ""}
-                  description={program.description || program.label || new URL(program.url || "").hostname}
-                />
+                <MotionDiv key={program._id || program.name || program.title}>
+                  <LinkCard
+                    href={program.url || "#"}
+                    title={program.title || program.name || ""}
+                    description={program.description || program.label || new URL(program.url || "").hostname}
+                  />
+                </MotionDiv>
               ))}
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Communities */}
           <div>
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Communities</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <ScrollReveal>
+              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Communities</h3>
+            </ScrollReveal>
+            <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {(groupedResources['design-communities'] && groupedResources['design-communities'].length > 0
                 ? groupedResources['design-communities']
                 : communities
               ).map((community: { _id?: string; name?: string; title?: string; url?: string; description?: string }) => (
-                <LinkCard
-                  key={community._id || community.name || community.title}
-                  href={community.url || "#"}
-                  title={community.title || community.name || ""}
-                  description={community.description}
-                />
+                <MotionDiv key={community._id || community.name || community.title}>
+                  <LinkCard
+                    href={community.url || "#"}
+                    title={community.title || community.name || ""}
+                    description={community.description}
+                  />
+                </MotionDiv>
               ))}
-            </div>
-            <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-base text-gray-120 font-medium">Do you have more resources to suggest or corrections we should make?</p>
-              <PrimaryCTA href="/about#contact">
-                Share with us
-              </PrimaryCTA>
-            </InfoBox>
+            </ScrollReveal>
+            <ScrollReveal>
+              <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p className="text-base text-gray-120 font-medium">Do you have more resources to suggest or corrections we should make?</p>
+                <PrimaryCTA href="/about#contact">
+                  Share with us
+                </PrimaryCTA>
+              </InfoBox>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -367,200 +393,233 @@ export default async function ResourcesPage() {
       {/* UX for Practitioners & Businesses (Coming Soon) */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-[900px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-[20px] p-8 border border-gray-30">
-              <h3 className="font-display text-2xl text-purple-140 mb-3">UX for Practitioners</h3>
-              <p className="text-gray-100">Coming soon</p>
-            </div>
-            <div className="bg-white rounded-[20px] p-8 border border-gray-30">
-              <h3 className="font-display text-2xl text-purple-140 mb-3">UX for Businesses</h3>
-              <p className="text-gray-100">Coming soon</p>
-            </div>
-          </div>
+          <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <MotionDiv>
+              <div className="bg-white rounded-[20px] p-8 border border-gray-30">
+                <h3 className="font-display text-2xl text-purple-140 mb-3">UX for Practitioners</h3>
+                <p className="text-gray-100">Coming soon</p>
+              </div>
+            </MotionDiv>
+            <MotionDiv>
+              <div className="bg-white rounded-[20px] p-8 border border-gray-30">
+                <h3 className="font-display text-2xl text-purple-140 mb-3">UX for Businesses</h3>
+                <p className="text-gray-100">Coming soon</p>
+              </div>
+            </MotionDiv>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* State of UX Report Section */}
       <section id="report" className="py-20 px-6 bg-purple-140 scroll-mt-24">
         <div className="max-w-[1100px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
-            State of UX in Hawaiʻi Report
-          </h2>
-          <p className="text-purple-30 text-lg leading-relaxed mb-4">
-            To answer that question, we conducted our own study on the status of UX jobs, hiring, education, awareness, and audiences to give us a better understanding of how our programming could best support UXers in Hawai&apos;i.
-          </p>
-          <p className="text-purple-50 mb-10">
-            The report is currently done on a bi-annual basis to gain a better understanding of our UX design community.
-          </p>
+          <ScrollReveal stagger>
+            <MotionDiv>
+              <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
+                State of UX in Hawaiʻi Report
+              </h2>
+            </MotionDiv>
+            <MotionDiv>
+              <p className="text-purple-30 text-lg leading-relaxed mb-4">
+                To answer that question, we conducted our own study on the status of UX jobs, hiring, education, awareness, and audiences to give us a better understanding of how our programming could best support UXers in Hawai&apos;i.
+              </p>
+            </MotionDiv>
+            <MotionDiv>
+              <p className="text-purple-50 mb-10">
+                The report is currently done on a bi-annual basis to gain a better understanding of our UX design community.
+              </p>
+            </MotionDiv>
+          </ScrollReveal>
 
           {/* Findings Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {/* Education Findings */}
-            <SpotIllustrationCard
-              variant="translucent"
-              imageSrc="/images/icons/icon-education-findings.png"
-              imageAlt="Education Findings"
-              title="Education Findings"
-              className="rounded-[20px]"
-            >
-              <ul className="space-y-3 text-base text-left">
-                <li className="flex items-start gap-3">
-                  <BulletPoint variant="yellow" />
-                  <span><span className="font-black text-white">75%</span> of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <BulletPoint variant="yellow" />
-                  <span><span className="font-black text-white">42%</span> of managers have a master&apos;s degree or higher</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <BulletPoint variant="yellow" />
-                  <span><span className="font-black text-white">40%</span> of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
-                </li>
-              </ul>
-            </SpotIllustrationCard>
+            <MotionDiv>
+              <SpotIllustrationCard
+                variant="translucent"
+                imageSrc="/images/icons/icon-education-findings.png"
+                imageAlt="Education Findings"
+                title="Education Findings"
+                className="rounded-[20px]"
+              >
+                <ul className="space-y-3 text-base text-left">
+                  <li className="flex items-start gap-3">
+                    <BulletPoint variant="yellow" />
+                    <span><span className="font-black text-white">75%</span> of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BulletPoint variant="yellow" />
+                    <span><span className="font-black text-white">42%</span> of managers have a master&apos;s degree or higher</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BulletPoint variant="yellow" />
+                    <span><span className="font-black text-white">40%</span> of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
+                  </li>
+                </ul>
+              </SpotIllustrationCard>
+            </MotionDiv>
 
             {/* Career Findings */}
-            <SpotIllustrationCard
-              variant="translucent"
-              imageSrc="/images/icons/icon-career-findings.png"
-              imageAlt="Career Findings"
-              title="Career Findings"
-              className="rounded-[20px]"
-            >
-              <ul className="space-y-3 text-base text-left">
-                <li className="flex items-start gap-3">
-                  <BulletPoint variant="yellow" />
-                  <span><span className="font-black text-white">33%</span> of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <BulletPoint variant="yellow" />
-                  <span>UXers in Hawai&apos;i are working harder - to find consistent employment, to be a &quot;jack of all trades&quot; or as a department of one or within small teams</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <BulletPoint variant="yellow" />
-                  <span>Are earning an average of <span className="font-black text-white">$75,000</span> versus <span className="font-black text-white">$109,776</span> as the national average</span>
-                </li>
-              </ul>
-            </SpotIllustrationCard>
+            <MotionDiv>
+              <SpotIllustrationCard
+                variant="translucent"
+                imageSrc="/images/icons/icon-career-findings.png"
+                imageAlt="Career Findings"
+                title="Career Findings"
+                className="rounded-[20px]"
+              >
+                <ul className="space-y-3 text-base text-left">
+                  <li className="flex items-start gap-3">
+                    <BulletPoint variant="yellow" />
+                    <span><span className="font-black text-white">33%</span> of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BulletPoint variant="yellow" />
+                    <span>UXers in Hawai&apos;i are working harder - to find consistent employment, to be a &quot;jack of all trades&quot; or as a department of one or within small teams</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BulletPoint variant="yellow" />
+                    <span>Are earning an average of <span className="font-black text-white">$75,000</span> versus <span className="font-black text-white">$109,776</span> as the national average</span>
+                  </li>
+                </ul>
+              </SpotIllustrationCard>
+            </MotionDiv>
 
             {/* Top Challenges */}
-            <SpotIllustrationCard
-              variant="translucent"
-              imageSrc="/images/icons/icon-challenges.png"
-              imageAlt="Top Challenges"
-              title="Top Challenges"
-              className="rounded-[20px]"
-            >
-              <ul className="space-y-3 text-base text-left">
-                <li className="flex items-start gap-3">
-                  <BulletPoint variant="yellow" />
-                  <span>Many business leaders do not know what UX is</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <BulletPoint variant="yellow" />
-                  <span>UX is not prioritized or funded</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <BulletPoint variant="yellow" />
-                  <span>The UX job market in Hawai&apos;i is limited</span>
-                </li>
-              </ul>
-            </SpotIllustrationCard>
-          </div>
+            <MotionDiv>
+              <SpotIllustrationCard
+                variant="translucent"
+                imageSrc="/images/icons/icon-challenges.png"
+                imageAlt="Top Challenges"
+                title="Top Challenges"
+                className="rounded-[20px]"
+              >
+                <ul className="space-y-3 text-base text-left">
+                  <li className="flex items-start gap-3">
+                    <BulletPoint variant="yellow" />
+                    <span>Many business leaders do not know what UX is</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BulletPoint variant="yellow" />
+                    <span>UX is not prioritized or funded</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <BulletPoint variant="yellow" />
+                    <span>The UX job market in Hawai&apos;i is limited</span>
+                  </li>
+                </ul>
+              </SpotIllustrationCard>
+            </MotionDiv>
+          </ScrollReveal>
 
           {/* How Report Helps */}
-          <div className="mb-10">
-            <p className="text-purple-30 text-lg mb-6">The State of UX report charts our progress towards advancing the field of UX by:</p>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-4">
-                <BulletPoint variant="yellow" />
-                <span className="text-white text-lg">
-                  Inspiring local business leaders to{" "}
-                  <InlineLink href="/find-ux-pro" variant="teal">find and hire UX professionals</InlineLink>
-                </span>
-              </li>
-              <li className="flex items-start gap-4">
-                <BulletPoint variant="yellow" />
-                <span className="text-white text-lg">
-                  <InlineLink href="/join" variant="teal">Generate opportunities</InlineLink>
-                  {" "}for new UXers to gain experience
-                </span>
-              </li>
-              <li className="flex items-start gap-4">
-                <BulletPoint variant="yellow" />
-                <span className="text-white text-lg">
-                  <InlineLink href="/events" variant="teal">Host collaborative events</InlineLink>
-                  {" "}to strengthen the UX community
-                </span>
-              </li>
-            </ul>
-          </div>
+          <ScrollReveal>
+            <div className="mb-10">
+              <p className="text-purple-30 text-lg mb-6">The State of UX report charts our progress towards advancing the field of UX by:</p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-4">
+                  <BulletPoint variant="yellow" />
+                  <span className="text-white text-lg">
+                    Inspiring local business leaders to{" "}
+                    <InlineLink href="/find-ux-pro" variant="teal">find and hire UX professionals</InlineLink>
+                  </span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <BulletPoint variant="yellow" />
+                  <span className="text-white text-lg">
+                    <InlineLink href="/join" variant="teal">Generate opportunities</InlineLink>
+                    {" "}for new UXers to gain experience
+                  </span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <BulletPoint variant="yellow" />
+                  <span className="text-white text-lg">
+                    <InlineLink href="/events" variant="teal">Host collaborative events</InlineLink>
+                    {" "}to strengthen the UX community
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </ScrollReveal>
 
           {/* View Report CTA */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <PrimaryCTA href="https://drive.google.com/file/d/1pfHDt2yB-maAs2gOhywdJJv7HzY4wG7s/" external>
-              2025 State of UXHI Report
-            </PrimaryCTA>
-            <PrimaryCTA href="https://drive.google.com/file/d/1YPUpg6C3x_eOlskTLexD_x3wgxN5E16L/view?usp=sharing" external variant="dark">
-              2023 State of UXHI Report
-            </PrimaryCTA>
-          </div>
+          <ScrollReveal>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <PrimaryCTA href="https://drive.google.com/file/d/1pfHDt2yB-maAs2gOhywdJJv7HzY4wG7s/" external>
+                2025 State of UXHI Report
+              </PrimaryCTA>
+              <PrimaryCTA href="https://drive.google.com/file/d/1YPUpg6C3x_eOlskTLexD_x3wgxN5E16L/view?usp=sharing" external variant="dark">
+                2023 State of UXHI Report
+              </PrimaryCTA>
+            </div>
+          </ScrollReveal>
 
           {/* Report Preview Image */}
-          <div className="mt-12 rounded-[20px] overflow-hidden">
-            <Image
-              src="/images/resources/state-of-ux.png"
-              alt="State of UX in Hawaiʻi Report preview"
-              width={1100}
-              height={400}
-              className="w-full h-auto"
-            />
-          </div>
+          <ScrollReveal variants={scaleReveal}>
+            <div className="mt-12 rounded-[20px] overflow-hidden">
+              <Image
+                src="/images/resources/state-of-ux.png"
+                alt="State of UX in Hawaiʻi Report preview"
+                width={1100}
+                height={400}
+                className="w-full h-auto"
+              />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Directory of Tech Organizations */}
       <section id="directory" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-4">
-            Directory of Local Tech Organizations
-          </h2>
-          <p className="text-gray-120 text-lg leading-relaxed mb-10">
-            The tech ecosystem and community in Hawai&apos;i is thriving and growing! This list is a work in progress for UXers to connect with the many communities that advance our shared mission.
-          </p>
+          <ScrollReveal stagger>
+            <MotionDiv>
+              <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-4">
+                Directory of Local Tech Organizations
+              </h2>
+            </MotionDiv>
+            <MotionDiv>
+              <p className="text-gray-120 text-lg leading-relaxed mb-10">
+                The tech ecosystem and community in Hawai&apos;i is thriving and growing! This list is a work in progress for UXers to connect with the many communities that advance our shared mission.
+              </p>
+            </MotionDiv>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+          <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
             {displayTechOrgs.map((org: { _id?: string; name: string; website?: string; url?: string; logo?: { asset?: { _id?: string; url?: string } } }) => (
-              <a
-                key={org._id || org.name}
-                href={org.website || org.url || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between bg-beige-10 rounded-[16px] p-5 hover:bg-beige-30 transition-colors group"
-              >
-                <div className="flex items-center gap-3">
-                  {org.logo?.asset && (
-                    <SanityImage
-                      value={org.logo}
-                      width={32}
-                      height={32}
-                      className="w-8 h-8 object-contain"
-                    />
-                  )}
-                  <p className="font-medium text-gray-140 group-hover:text-teal-100 transition-colors">{org.name}</p>
-                </div>
-                <ExternalLinkIcon className="w-5 h-5 text-gray-80 group-hover:text-teal-90 transition-colors flex-shrink-0" />
-              </a>
+              <MotionDiv key={org._id || org.name}>
+                <a
+                  href={org.website || org.url || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between bg-beige-10 rounded-[16px] p-5 hover:bg-beige-30 transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    {org.logo?.asset && (
+                      <SanityImage
+                        value={org.logo}
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 object-contain"
+                      />
+                    )}
+                    <p className="font-medium text-gray-140 group-hover:text-teal-100 transition-colors">{org.name}</p>
+                  </div>
+                  <ExternalLinkIcon className="w-5 h-5 text-gray-80 group-hover:text-teal-90 transition-colors flex-shrink-0" />
+                </a>
+              </MotionDiv>
             ))}
-          </div>
+          </ScrollReveal>
 
           {/* Something Missing CTA */}
-          <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-base text-gray-120 font-medium">Something missing?</p>
-            <PrimaryCTA href="/about#contact">
-              Share with us
-            </PrimaryCTA>
-          </InfoBox>
+          <ScrollReveal>
+            <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-base text-gray-120 font-medium">Something missing?</p>
+              <PrimaryCTA href="/about#contact">
+                Share with us
+              </PrimaryCTA>
+            </InfoBox>
+          </ScrollReveal>
         </div>
       </section>
     </main>
