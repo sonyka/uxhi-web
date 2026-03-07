@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { urlFor } from "@/sanity/lib/image";
 
 interface CommunityPhoto {
@@ -28,6 +31,31 @@ const columnConfig = [
   { column: 9, offset: "pt-16", maxRows: 2 },
 ];
 
+const STAGGER_DELAY = 0.07;
+
+function PhotoReveal({
+  children,
+  index,
+}: {
+  children: React.ReactNode;
+  index: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: 0.5,
+        delay: index * STAGGER_DELAY,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
   // Group photos by column
   const photosByColumn = columnConfig.map((config) => ({
@@ -41,6 +69,9 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
   // Check if we have any Sanity photos
   const hasSanityPhotos = photos && photos.length > 0;
 
+  // Build a flat index for staggering across the desktop grid
+  let desktopIndex = 0;
+
   return (
     <>
       {/* Desktop Grid (9 columns) */}
@@ -48,19 +79,21 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
         {photosByColumn.map((col) => (
           <div key={col.column} className={`flex flex-col gap-4 ${col.offset}`}>
             {hasSanityPhotos && col.photos.length > 0 ? (
-              col.photos.map((photo) => (
-                <div
-                  key={photo._id}
-                  className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden relative"
-                >
-                  <Image
-                    src={urlFor(photo.image).width(270).height(360).url()}
-                    alt={photo.name || "Community member"}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))
+              col.photos.map((photo) => {
+                const i = desktopIndex++;
+                return (
+                  <PhotoReveal key={photo._id} index={i}>
+                    <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden relative">
+                      <Image
+                        src={urlFor(photo.image).width(270).height(360).url()}
+                        alt={photo.name || "Community member"}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </PhotoReveal>
+                );
+              })
             ) : (
               // Fallback placeholders
               Array.from({ length: col.maxRows }).map((_, i) => (
@@ -76,70 +109,80 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
 
       {/* Tablet Grid (5 columns) */}
       <div className="hidden md:grid lg:hidden grid-cols-5 gap-4 mb-12">
-        {[1, 2, 3, 4, 5].map((colNum) => {
-          const offset = colNum === 1 ? "pt-8" : colNum === 3 ? "pt-12" : colNum === 4 ? "pt-4" : "";
-          const colPhotos = photos.filter((p) => p.column === colNum || p.column === colNum + 4).slice(0, 2);
-          return (
-            <div key={colNum} className={`flex flex-col gap-4 ${offset}`}>
-              {hasSanityPhotos && colPhotos.length > 0 ? (
-                colPhotos.map((photo) => (
-                  <div
-                    key={photo._id}
-                    className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden relative"
-                  >
-                    <Image
-                      src={urlFor(photo.image).width(270).height(360).url()}
-                      alt={photo.name || "Community member"}
-                      fill
-                      className="object-cover"
+        {(() => {
+          let tabletIndex = 0;
+          return [1, 2, 3, 4, 5].map((colNum) => {
+            const offset = colNum === 1 ? "pt-8" : colNum === 3 ? "pt-12" : colNum === 4 ? "pt-4" : "";
+            const colPhotos = photos.filter((p) => p.column === colNum || p.column === colNum + 4).slice(0, 2);
+            return (
+              <div key={colNum} className={`flex flex-col gap-4 ${offset}`}>
+                {hasSanityPhotos && colPhotos.length > 0 ? (
+                  colPhotos.map((photo) => {
+                    const i = tabletIndex++;
+                    return (
+                      <PhotoReveal key={photo._id} index={i}>
+                        <div className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden relative">
+                          <Image
+                            src={urlFor(photo.image).width(270).height(360).url()}
+                            alt={photo.name || "Community member"}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      </PhotoReveal>
+                    );
+                  })
+                ) : (
+                  Array.from({ length: colNum === 3 ? 1 : 2 }).map((_, i) => (
+                    <div
+                      key={`tablet-placeholder-${colNum}-${i}`}
+                      className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden"
                     />
-                  </div>
-                ))
-              ) : (
-                Array.from({ length: colNum === 3 ? 1 : 2 }).map((_, i) => (
-                  <div
-                    key={`tablet-placeholder-${colNum}-${i}`}
-                    className="w-full aspect-[3/4] rounded-[16px] bg-gray-30 overflow-hidden"
-                  />
-                ))
-              )}
-            </div>
-          );
-        })}
+                  ))
+                )}
+              </div>
+            );
+          });
+        })()}
       </div>
 
       {/* Mobile Grid (3 columns) */}
       <div className="md:hidden grid grid-cols-3 gap-3 mb-10">
-        {[1, 2, 3].map((colNum) => {
-          const offset = colNum === 1 ? "pt-6" : colNum === 3 ? "pt-10" : "";
-          const colPhotos = photos.filter((p) => p.column === colNum || p.column === colNum + 3 || p.column === colNum + 6).slice(0, 2);
-          return (
-            <div key={colNum} className={`flex flex-col gap-3 ${offset}`}>
-              {hasSanityPhotos && colPhotos.length > 0 ? (
-                colPhotos.map((photo) => (
-                  <div
-                    key={photo._id}
-                    className="w-full aspect-[3/4] rounded-[12px] bg-gray-30 overflow-hidden relative"
-                  >
-                    <Image
-                      src={urlFor(photo.image).width(200).height(267).url()}
-                      alt={photo.name || "Community member"}
-                      fill
-                      className="object-cover"
+        {(() => {
+          let mobileIndex = 0;
+          return [1, 2, 3].map((colNum) => {
+            const offset = colNum === 1 ? "pt-6" : colNum === 3 ? "pt-10" : "";
+            const colPhotos = photos.filter((p) => p.column === colNum || p.column === colNum + 3 || p.column === colNum + 6).slice(0, 2);
+            return (
+              <div key={colNum} className={`flex flex-col gap-3 ${offset}`}>
+                {hasSanityPhotos && colPhotos.length > 0 ? (
+                  colPhotos.map((photo) => {
+                    const i = mobileIndex++;
+                    return (
+                      <PhotoReveal key={photo._id} index={i}>
+                        <div className="w-full aspect-[3/4] rounded-[12px] bg-gray-30 overflow-hidden relative">
+                          <Image
+                            src={urlFor(photo.image).width(200).height(267).url()}
+                            alt={photo.name || "Community member"}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      </PhotoReveal>
+                    );
+                  })
+                ) : (
+                  Array.from({ length: 2 }).map((_, i) => (
+                    <div
+                      key={`mobile-placeholder-${colNum}-${i}`}
+                      className="w-full aspect-[3/4] rounded-[12px] bg-gray-30 overflow-hidden"
                     />
-                  </div>
-                ))
-              ) : (
-                Array.from({ length: 2 }).map((_, i) => (
-                  <div
-                    key={`mobile-placeholder-${colNum}-${i}`}
-                    className="w-full aspect-[3/4] rounded-[12px] bg-gray-30 overflow-hidden"
-                  />
-                ))
-              )}
-            </div>
-          );
-        })}
+                  ))
+                )}
+              </div>
+            );
+          });
+        })()}
       </div>
     </>
   );
