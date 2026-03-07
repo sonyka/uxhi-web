@@ -53,22 +53,22 @@
   --color-gray-140: #16191B;
   --color-gray-150: #0B0C0E;
 
-  /* Colors - Beige (warm, slight red tint) */
-  --color-beige-10: #FDF9F6;
-  --color-beige-20: #FAF3EB;
-  --color-beige-30: #F5EDE4;
-  --color-beige-40: #EFE6DA;
-  --color-beige-50: #E7DCCE;
-  --color-beige-60: #DED1C0;
-  --color-beige-70: #D2C3AE;
-  --color-beige-80: #C2B198;
-  --color-beige-90: #AF9D81;
-  --color-beige-100: #99876A;
-  --color-beige-110: #7E6F56;
-  --color-beige-120: #655844;
-  --color-beige-130: #4C4233;
-  --color-beige-140: #352E24;
-  --color-beige-150: #1E1A13;
+  /* Colors - Beige */
+  --color-beige-10: #FDFBF7;
+  --color-beige-20: #F9F5ED;
+  --color-beige-30: #F4F1EA;
+  --color-beige-40: #EDE8DD;
+  --color-beige-50: #E5DED0;
+  --color-beige-60: #DCD3C2;
+  --color-beige-70: #D0C5B0;
+  --color-beige-80: #C0B49B;
+  --color-beige-90: #ADA084;
+  --color-beige-100: #968A6D;
+  --color-beige-110: #7B7159;
+  --color-beige-120: #625A47;
+  --color-beige-130: #4A4335;
+  --color-beige-140: #332E25;
+  --color-beige-150: #1C1A14;
 
   /* Colors - Orange */
   --color-orange-10: #FFE7DE;

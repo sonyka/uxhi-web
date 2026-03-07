@@ -793,21 +793,21 @@ const contentComponents: Record<string, React.ReactNode> = {
   "colors-beige": (
     <ContentSection title="Beige" description="Warm neutral palette (15-step scale). Click any swatch to copy its hex value.">
       <div className="grid grid-cols-5 md:grid-cols-8 gap-3">
-        <ColorSwatch name="10" value="#FDF9F6" />
-        <ColorSwatch name="20" value="#FAF3EB" />
-        <ColorSwatch name="30" value="#F5EDE4" />
-        <ColorSwatch name="40" value="#EFE6DA" />
-        <ColorSwatch name="50" value="#E7DCCE" />
-        <ColorSwatch name="60" value="#DED1C0" />
-        <ColorSwatch name="70" value="#D2C3AE" />
-        <ColorSwatch name="80" value="#C2B198" />
-        <ColorSwatch name="90" value="#AF9D81" textColor="text-white" />
-        <ColorSwatch name="100" value="#99876A" textColor="text-white" />
-        <ColorSwatch name="110" value="#7E6F56" textColor="text-white" />
-        <ColorSwatch name="120" value="#655844" textColor="text-white" />
-        <ColorSwatch name="130" value="#4C4233" textColor="text-white" />
-        <ColorSwatch name="140" value="#352E24" textColor="text-white" />
-        <ColorSwatch name="150" value="#1E1A13" textColor="text-white" />
+        <ColorSwatch name="10" value="#FDFBF7" />
+        <ColorSwatch name="20" value="#F9F5ED" />
+        <ColorSwatch name="30" value="#F4F1EA" />
+        <ColorSwatch name="40" value="#EDE8DD" />
+        <ColorSwatch name="50" value="#E5DED0" />
+        <ColorSwatch name="60" value="#DCD3C2" />
+        <ColorSwatch name="70" value="#D0C5B0" />
+        <ColorSwatch name="80" value="#C0B49B" />
+        <ColorSwatch name="90" value="#ADA084" textColor="text-white" />
+        <ColorSwatch name="100" value="#968A6D" textColor="text-white" />
+        <ColorSwatch name="110" value="#7B7159" textColor="text-white" />
+        <ColorSwatch name="120" value="#625A47" textColor="text-white" />
+        <ColorSwatch name="130" value="#4A4335" textColor="text-white" />
+        <ColorSwatch name="140" value="#332E25" textColor="text-white" />
+        <ColorSwatch name="150" value="#1C1A14" textColor="text-white" />
       </div>
     </ContentSection>
   ),
@@ -815,7 +815,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     <ContentSection title="Neutral" description="Background and accent colors. Click any swatch to copy its hex value.">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         <ColorSwatch name="White" value="#ffffff" />
-        <ColorSwatch name="Beige-10" value="#FDF9F6" badge="Background" />
+        <ColorSwatch name="Beige-10" value="#FDFBF7" badge="Background" />
         <ColorSwatch name="Black" value="#000000" textColor="text-white" />
       </div>
     </ContentSection>
@@ -826,7 +826,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Background</h4>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            <ColorSwatch name="Background" value="#FDF9F6" badge="beige-10" />
+            <ColorSwatch name="Background" value="#FDFBF7" badge="beige-10" />
             <ColorSwatch name="Background Elevated" value="#FFFFFF" badge="white" />
             <ColorSwatch name="Background Subtle" value="#F8F9FA" badge="gray-10" />
             <ColorSwatch name="Background Accent" value="#F1FDFB" badge="teal-10" />
