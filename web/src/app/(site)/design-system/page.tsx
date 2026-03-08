@@ -61,6 +61,7 @@ const navigationItems = [
       { id: "colors-purple", label: "Secondary — Purple" },
       { id: "colors-gray", label: "Gray Scale" },
       { id: "colors-beige", label: "Beige" },
+      { id: "colors-skin", label: "Skin" },
       { id: "colors-orange", label: "Orange" },
       { id: "colors-yellow", label: "Yellow" },
       { id: "colors-neutral", label: "Neutral" },
@@ -808,6 +809,27 @@ const contentComponents: Record<string, React.ReactNode> = {
         <ColorSwatch name="130" value="#4A4335" textColor="text-white" />
         <ColorSwatch name="140" value="#332E25" textColor="text-white" />
         <ColorSwatch name="150" value="#1C1A14" textColor="text-white" />
+      </div>
+    </ContentSection>
+  ),
+  "colors-skin": (
+    <ContentSection title="Skin" description="Peach-to-umber palette for spot illustrations (not UI). 15-step scale covering a range of skin tones. Click any swatch to copy its hex value.">
+      <div className="grid grid-cols-5 md:grid-cols-8 gap-3">
+        <ColorSwatch name="10" value="#FDF0EA" />
+        <ColorSwatch name="20" value="#F8DFD2" />
+        <ColorSwatch name="30" value="#F0CBBA" />
+        <ColorSwatch name="40" value="#E5B5A1" />
+        <ColorSwatch name="50" value="#D9A08A" />
+        <ColorSwatch name="60" value="#CB8B74" />
+        <ColorSwatch name="70" value="#BA7560" textColor="text-white" />
+        <ColorSwatch name="80" value="#A5614E" textColor="text-white" />
+        <ColorSwatch name="90" value="#8E4F3E" textColor="text-white" />
+        <ColorSwatch name="100" value="#774030" textColor="text-white" />
+        <ColorSwatch name="110" value="#613325" textColor="text-white" />
+        <ColorSwatch name="120" value="#4C271C" textColor="text-white" />
+        <ColorSwatch name="130" value="#381C14" textColor="text-white" />
+        <ColorSwatch name="140" value="#26130D" textColor="text-white" />
+        <ColorSwatch name="150" value="#140A07" textColor="text-white" />
       </div>
     </ContentSection>
   ),

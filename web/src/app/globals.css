@@ -70,6 +70,23 @@
   --color-beige-140: #332E25;
   --color-beige-150: #1C1A14;
 
+  /* Colors - Skin (spot illustrations only) */
+  --color-skin-10: #FDF0EA;
+  --color-skin-20: #F8DFD2;
+  --color-skin-30: #F0CBBA;
+  --color-skin-40: #E5B5A1;
+  --color-skin-50: #D9A08A;
+  --color-skin-60: #CB8B74;
+  --color-skin-70: #BA7560;
+  --color-skin-80: #A5614E;
+  --color-skin-90: #8E4F3E;
+  --color-skin-100: #774030;
+  --color-skin-110: #613325;
+  --color-skin-120: #4C271C;
+  --color-skin-130: #381C14;
+  --color-skin-140: #26130D;
+  --color-skin-150: #140A07;
+
   /* Colors - Orange */
   --color-orange-10: #FFE7DE;
   --color-orange-20: #FFD7C8;
