@@ -1103,7 +1103,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <SpotIllustrationCard
               variant="dark"
-              imageSrc="/images/icons/icon-membership.png"
+              imageSrc="/images/icons/icon-membership.svg"
               imageAlt="Membership illustration"
               title="Dark"
               description="For purple backgrounds. Used on home features section."
@@ -1111,14 +1111,14 @@ const contentComponents: Record<string, React.ReactNode> = {
             />
             <SpotIllustrationCard
               variant="beige"
-              imageSrc="/images/icons/icon-community-engagement.png"
+              imageSrc="/images/icons/icon-community-engagement.svg"
               imageAlt="Community engagement illustration"
               title="Beige"
               description="For light backgrounds with hover shadow. Used for committee cards."
             />
             <SpotIllustrationCard
               variant="white"
-              imageSrc="/images/icons/icon-resources.png"
+              imageSrc="/images/icons/icon-resources.svg"
               imageAlt="Resources illustration"
               title="White"
               description="For beige backgrounds. Used for values cards."
@@ -1126,7 +1126,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="bg-purple-140 rounded-xl p-4">
               <SpotIllustrationCard
                 variant="translucent"
-                imageSrc="/images/icons/icon-education-findings.png"
+                imageSrc="/images/icons/icon-education-findings.svg"
                 imageAlt="Education findings"
                 title="Translucent"
                 description="Semi-transparent for purple backgrounds. Used for findings cards."
@@ -1140,7 +1140,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="max-w-sm">
               <SpotIllustrationCard
                 variant="translucent"
-                imageSrc="/images/icons/icon-challenges.png"
+                imageSrc="/images/icons/icon-challenges.svg"
                 imageAlt="Challenges"
                 title="Custom Content"
               >

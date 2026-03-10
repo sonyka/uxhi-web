@@ -187,7 +187,7 @@ export default async function AboutPage() {
             <MotionDiv>
               <div className="w-32 h-32 mx-auto mb-6 relative">
                 <Image
-                  src="/images/icons/icon-contact.png"
+                  src="/images/icons/icon-contact.svg"
                   alt="Contact"
                   fill
                   className="object-contain"

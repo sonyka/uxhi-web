@@ -198,7 +198,7 @@ export default async function FindUXProPage() {
             <MotionDiv>
               <div className="w-32 h-32 mx-auto mb-6 relative">
                 <Image
-                  src="/images/icons/icon-directory.png"
+                  src="/images/icons/icon-directory.svg"
                   alt="Directory"
                   fill
                   className="object-contain"

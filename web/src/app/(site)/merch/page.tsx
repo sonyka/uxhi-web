@@ -284,7 +284,7 @@ export default async function ShopPage() {
           <MotionDiv>
             <div className="w-32 h-32 mx-auto mb-6 relative">
               <Image
-                src="/images/icons/shopping.png"
+                src="/images/icons/icon-shopping.svg"
                 alt="Shopping"
                 fill
                 className="object-contain"

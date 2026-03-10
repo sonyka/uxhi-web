@@ -354,7 +354,7 @@ export default async function HomePage() {
             <MotionDiv>
               <SpotIllustrationCard
                 variant="dark"
-                imageSrc="/images/icons/icon-membership.png"
+                imageSrc="/images/icons/icon-membership.svg"
                 imageAlt="Free Membership"
                 title="Free Membership"
                 footer={<ArrowLinkButton href="/join">Join free</ArrowLinkButton>}
@@ -372,7 +372,7 @@ export default async function HomePage() {
             <MotionDiv>
               <SpotIllustrationCard
                 variant="dark"
-                imageSrc="/images/icons/icon-events.png"
+                imageSrc="/images/icons/icon-events.svg"
                 imageAlt="Events"
                 title="Events"
                 description="Experience an array of educational webinars, interactive workshops, and casual meetups we host each month, both virtual and in-person"
@@ -384,7 +384,7 @@ export default async function HomePage() {
             <MotionDiv>
               <SpotIllustrationCard
                 variant="dark"
-                imageSrc="/images/icons/icon-resources.png"
+                imageSrc="/images/icons/icon-resources.svg"
                 imageAlt="Resources"
                 title="Resources"
                 description="Discover and share resources in our online content hub to support your UX journey and growth."

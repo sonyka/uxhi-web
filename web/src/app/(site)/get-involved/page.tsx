@@ -76,32 +76,32 @@ const fallbackCommittees = [
   {
     name: "Educational Outreach",
     description: "Fosters UX education at foundational levels. Initiatives focus on engaging K-12 students through introductory workshops and programs, and collaborating with colleges and universities to support their UX curricula, offer guest lectures, and connect with emerging talent.",
-    icon: "/images/icons/icon-educational-outreach.png",
+    icon: "/images/icons/icon-educational-outreach.svg",
   },
   {
     name: "Workforce Outreach",
     description: "Develop and deliver educational workshops and presentations to companies, helping them integrate UX principles, methodologies, and best practices into their operations.",
-    icon: "/images/icons/icon-workforce-outreach.png",
+    icon: "/images/icons/icon-workforce-outreach.svg",
   },
   {
     name: "Community Engagement",
     description: "Organize social events, networking opportunities, member spotlights, and initiatives to welcome new members and ensure active participation.",
-    icon: "/images/icons/icon-community-engagement.png",
+    icon: "/images/icons/icon-community-engagement.svg",
   },
   {
     name: "Professional Development",
     description: "Provides continuous learning and upskilling opportunities for our members through workshops, webinars, speaker events, and hands-on sessions designed to enhance practical UX skills.",
-    icon: "/images/icons/icon-professional-development.png",
+    icon: "/images/icons/icon-professional-development.svg",
   },
   {
     name: "Communications",
     description: "Manages all external and internal communications for the community including maintaining the website, managing social media channels, creating newsletters, promoting events, and ensuring consistent branding and messaging.",
-    icon: "/images/icons/icon-communications.png",
+    icon: "/images/icons/icon-communications.svg",
   },
   {
     name: "Conference",
     description: "Plans and executes our annual UXHICon conference, bringing together speakers, sponsors, and attendees for Hawai\u2018i\u2019s premier UX event. Help shape the program, coordinate logistics, and create memorable experiences for our community.",
-    icon: "/images/icons/icon-conference.png",
+    icon: "/images/icons/icon-conference.svg",
   },
 ];
 
@@ -708,7 +708,7 @@ export default async function GetInvolvedPage() {
           <MotionDiv>
             <div className="w-32 h-32 mx-auto mb-6 relative">
               <Image
-                src="/images/icons/icon-collaborate.png"
+                src="/images/icons/icon-collaborate.svg"
                 alt="Collaborate"
                 fill
                 className="object-contain"
@@ -740,7 +740,7 @@ export default async function GetInvolvedPage() {
           <MotionDiv>
             <div className="w-32 h-32 mx-auto mb-6 relative">
               <Image
-                src="/images/icons/icon-donate.png"
+                src="/images/icons/icon-donate.svg"
                 alt="Donate"
                 fill
                 className="object-contain"

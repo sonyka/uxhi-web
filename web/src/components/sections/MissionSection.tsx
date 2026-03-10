@@ -26,28 +26,28 @@ const defaultValues = [
     title: "Service",
     description:
       "Committed to serve our members with compassion, integrity, and dedication",
-    iconPath: "/images/icons/icon-service.png",
+    iconPath: "/images/icons/icon-service.svg",
   },
   {
     _id: "2",
     title: "Community",
     description:
       "Foster an inclusive, supportive environment that encourages collaboration, knowledge-sharing, and growth",
-    iconPath: "/images/icons/icon-community.png",
+    iconPath: "/images/icons/icon-community.svg",
   },
   {
     _id: "3",
     title: "Empowerment",
     description:
       "Provide and connect members to learning and growth opportunities to take charge of their own success",
-    iconPath: "/images/icons/icon-empowerment.png",
+    iconPath: "/images/icons/icon-empowerment.svg",
   },
   {
     _id: "4",
     title: "Inspire",
     description:
       "Ignite the continued passion and practice for human-centered design",
-    iconPath: "/images/icons/icon-inspire.png",
+    iconPath: "/images/icons/icon-inspire.svg",
   },
 ];
 

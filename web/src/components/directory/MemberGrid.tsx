@@ -30,7 +30,7 @@ export function MemberGrid({ members, onMemberClick }: MemberGridProps) {
       <div className="flex flex-col items-center justify-center py-16 px-4">
         <div className="w-24 h-24 relative mb-4">
           <Image
-            src="/images/icons/icon-empty.png"
+            src="/images/icons/icon-empty.svg"
             alt=""
             fill
             className="object-contain"

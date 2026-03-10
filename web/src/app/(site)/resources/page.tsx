@@ -437,7 +437,7 @@ export default async function ResourcesPage() {
             <MotionDiv>
               <SpotIllustrationCard
                 variant="translucent"
-                imageSrc="/images/icons/icon-education-findings.png"
+                imageSrc="/images/icons/icon-education-findings.svg"
                 imageAlt="Education Findings"
                 title="Education Findings"
                 className="rounded-[20px]"
@@ -463,7 +463,7 @@ export default async function ResourcesPage() {
             <MotionDiv>
               <SpotIllustrationCard
                 variant="translucent"
-                imageSrc="/images/icons/icon-career-findings.png"
+                imageSrc="/images/icons/icon-career-findings.svg"
                 imageAlt="Career Findings"
                 title="Career Findings"
                 className="rounded-[20px]"
@@ -489,7 +489,7 @@ export default async function ResourcesPage() {
             <MotionDiv>
               <SpotIllustrationCard
                 variant="translucent"
-                imageSrc="/images/icons/icon-challenges.png"
+                imageSrc="/images/icons/icon-challenges.svg"
                 imageAlt="Top Challenges"
                 title="Top Challenges"
                 className="rounded-[20px]"

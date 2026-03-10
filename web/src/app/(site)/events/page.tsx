@@ -129,7 +129,7 @@ export default async function EventsPage() {
             <MotionDiv>
               <div className="w-32 h-32 mx-auto mb-6 relative">
                 <Image
-                  src="/images/icons/icon-upcoming-events.png"
+                  src="/images/icons/icon-upcoming-events.svg"
                   alt="Upcoming Events"
                   fill
                   className="object-contain"
