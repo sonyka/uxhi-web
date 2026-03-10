@@ -53,11 +53,6 @@ export const stateOfUxReport = defineType({
               rows: 2,
             }),
             defineField({
-              name: "icon",
-              type: "image",
-              title: "Icon",
-            }),
-            defineField({
               name: "stats",
               type: "string",
               title: "Key Stat",
@@ -67,7 +62,6 @@ export const stateOfUxReport = defineType({
           preview: {
             select: {
               title: "title",
-              media: "icon",
             },
           },
         },

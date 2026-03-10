@@ -30,12 +30,6 @@ export const resourceItem = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "icon",
-      type: "image",
-      title: "Icon/Logo",
-      options: { hotspot: false },
-    }),
-    defineField({
       name: "order",
       type: "number",
       title: "Display Order",
@@ -45,7 +39,6 @@ export const resourceItem = defineType({
     select: {
       title: "title",
       subtitle: "category.title",
-      media: "icon",
     },
   },
   orderings: [

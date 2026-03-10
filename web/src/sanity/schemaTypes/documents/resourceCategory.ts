@@ -24,12 +24,6 @@ export const resourceCategory = defineType({
       rows: 2,
     }),
     defineField({
-      name: "icon",
-      type: "image",
-      title: "Icon",
-      options: { hotspot: false },
-    }),
-    defineField({
       name: "order",
       type: "number",
       title: "Display Order",
@@ -38,7 +32,6 @@ export const resourceCategory = defineType({
   preview: {
     select: {
       title: "title",
-      media: "icon",
     },
   },
   orderings: [

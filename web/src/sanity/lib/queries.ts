@@ -112,8 +112,7 @@ export const RESOURCE_CATEGORIES_QUERY = defineQuery(/* groq */ `
     _id,
     title,
     "slug": slug.current,
-    description,
-    icon { ${imageFragment} }
+    description
   }
 `);
 
@@ -124,7 +123,6 @@ export const RESOURCE_ITEMS_QUERY = defineQuery(/* groq */ `
     title,
     description,
     url,
-    icon { ${imageFragment} },
     category->{
       _id,
       title,
