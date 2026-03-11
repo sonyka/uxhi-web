@@ -123,6 +123,11 @@ This is the primary way you'll update content. Go to `/studio` and you'll see th
 - Fill in required fields (marked with a red asterisk)
 - Publish when ready — or leave as draft to come back later
 
+### Spot Illustration Icons (Design-Managed)
+- The **Icon** field on **Values** and **Committees** is managed by the project designer
+- **Do not update or replace icons** without consulting the designer first
+- If uploading a new icon: minimum **192×192px**, **PNG only** (SVG is not supported by Sanity's image pipeline)
+
 ### Team Members (Special Notes)
 - The **Category** dropdown controls which group a member appears under on `/about#team`
 - Options: Founder, Community & Events, Annual Conference, Professional Development, Communication & Outreach, Standards & Credentialing, Research & Industry Partnerships
