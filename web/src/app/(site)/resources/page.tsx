@@ -224,10 +224,22 @@ export default async function ResourcesPage() {
       {/* UX for Students Section */}
       <section id="students" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <ScrollReveal>
-            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-10">
-              UX for Students
-            </h2>
+          <ScrollReveal stagger className="text-center mb-10">
+            <MotionDiv>
+              <div className="w-32 h-32 mx-auto mb-6 relative">
+                <Image
+                  src="/images/icons/icon-student.svg"
+                  alt="UX for Students"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </MotionDiv>
+            <MotionDiv>
+              <h2 className="font-display text-3xl md:text-4xl text-purple-140">
+                UX for Students
+              </h2>
+            </MotionDiv>
           </ScrollReveal>
 
           {/* Online Resources */}
@@ -572,7 +584,17 @@ export default async function ResourcesPage() {
       {/* Directory of Tech Organizations */}
       <section id="directory" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
-          <ScrollReveal stagger>
+          <ScrollReveal stagger className="text-center">
+            <MotionDiv>
+              <div className="w-32 h-32 mx-auto mb-6 relative">
+                <Image
+                  src="/images/icons/icon-tech.svg"
+                  alt="Directory of Local Tech Organizations"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </MotionDiv>
             <MotionDiv>
               <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-4">
                 Directory of Local Tech Organizations

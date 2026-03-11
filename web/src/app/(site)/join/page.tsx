@@ -221,7 +221,17 @@ export default async function JoinPage() {
       <section className="py-20 px-6 bg-beige-10">
         <ScrollReveal stagger className="max-w-[900px] mx-auto text-center">
           <MotionDiv>
-            <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-6">
+            <div className="w-32 h-32 mx-auto mb-6 relative">
+              <Image
+                src="/images/icons/icon-slack.svg"
+                alt="Slack"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </MotionDiv>
+          <MotionDiv>
+            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
               400+ Slack members and growing
             </h2>
           </MotionDiv>
