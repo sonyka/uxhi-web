@@ -22,6 +22,8 @@ export const committee = defineType({
       name: "icon",
       type: "image",
       title: "Icon",
+      description:
+        "⚠️ Design-managed — do not update without consulting the project designer. Minimum 192×192px. Accepted format: PNG (SVG not supported by Sanity image pipeline).",
       options: { hotspot: false },
     }),
     defineField({
