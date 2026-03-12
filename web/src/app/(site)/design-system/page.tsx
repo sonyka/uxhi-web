@@ -334,7 +334,7 @@ function ContentSection({
 
 // Demo nav items for design system (simplified)
 const demoNavItems = [
-  { key: "find-ux-pro", label: "Find UX Pro", href: "#" },
+  { key: "find-ux-pro", label: "Find Experts", href: "#" },
   {
     key: "get-involved",
     label: "Get Involved",

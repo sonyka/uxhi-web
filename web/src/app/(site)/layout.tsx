@@ -6,7 +6,7 @@ const siteSettings = {
   tagline: "Hawaii's Premier UX Community",
   mainNavigation: [
     { _key: "1", label: "Get Involved", linkType: "internal", internalLink: "/" },
-    { _key: "2", label: "Find UX Pro", linkType: "internal", internalLink: "/find-ux-pro" },
+    { _key: "2", label: "Find Experts", linkType: "internal", internalLink: "/find-ux-pro" },
     { _key: "3", label: "Events", linkType: "internal", internalLink: "/events" },
     { _key: "4", label: "About", linkType: "internal", internalLink: "/about" },
     { _key: "5", label: "Resources", linkType: "internal", internalLink: "/resources" },
@@ -16,7 +16,7 @@ const siteSettings = {
   footerNavigation: [
     { _key: "1", label: "Home", linkType: "internal", internalLink: "/" },
     { _key: "2", label: "Get Involved", linkType: "internal", internalLink: "/" },
-    { _key: "3", label: "Find UX Pro", linkType: "internal", internalLink: "/find-ux-pro" },
+    { _key: "3", label: "Find Experts", linkType: "internal", internalLink: "/find-ux-pro" },
     { _key: "4", label: "Resources", linkType: "internal", internalLink: "/resources" },
     { _key: "5", label: "About", linkType: "internal", internalLink: "/about" },
     { _key: "6", label: "Events", linkType: "internal", internalLink: "/events" },

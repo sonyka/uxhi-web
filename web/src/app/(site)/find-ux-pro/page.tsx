@@ -8,7 +8,7 @@ import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
-  title: "Find UX Pro | UX Hawaii",
+  title: "Find Experts | UX Hawaii",
   description:
     "Connect with UX professionals in Hawaii. Browse our member directory to find designers, researchers, and UX specialists.",
 };
