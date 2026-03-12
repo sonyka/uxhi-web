@@ -2,7 +2,7 @@
 
 A guide for team members taking over content updates for the UXHI website. This site is built with Next.js + Sanity CMS and deployed on Vercel. All tools used are free tier.
 
-**Your role**: Update site content — both CMS-managed content (via Sanity Studio in the browser) and static copy (via code). Design changes (colors, layout, components, spacing, typography) are handled by the project designer and should be routed back to them.
+**Your role**: Update site content — both CMS-managed content (via Sanity Studio in the browser) and static copy (via code). Design changes (colors, layout, components, spacing, typography) are handled by Sony and should be routed back to them.
 
 ---
 
@@ -10,26 +10,26 @@ A guide for team members taking over content updates for the UXHI website. This 
 
 You'll need access to three services:
 
-### GitHub (code repository)
-- The project owner will add you as a **collaborator** on the `uxhi-web` repo
+### GitHub (code repository) ✅
+- Sony has added you as a **collaborator** on the `uxhi-web` repo
 - Accept the invite, then clone the repo (setup instructions below)
 - Free plan — no limits for this project
 
-### Sanity (content management system)
-- The project owner will invite you to the Sanity project
-- You'll get an **Editor** role — full access to create, edit, and publish content
+### Sanity (content management system) ✅
+- Sony has invited you to the Sanity project with an **Editor** role — full access to create, edit, and publish content
 - Free plan (500K API requests/month, 10GB bandwidth)
 - Access the CMS at `uxhi.hisony.com/studio` or `localhost:3000/studio` when running locally
 
-### Vercel (hosting & deployment)
-- Deployment is automatic — every push to `main` on GitHub triggers a deploy
-- The project owner manages the Vercel account
-- You don't need a Vercel account unless you want to monitor builds
-
-### Claude Code (AI assistant)
+### Claude Code (AI assistant) ✅
 - Get your own account at [claude.ai/claude-code](https://claude.com/product/claude-code)
+- Requires a **Pro subscription** ($20/month)
 - Claude understands this entire project via the `CLAUDE.md` file in the repo
 - Use it for making copy changes, creating Sanity content, and troubleshooting
+
+### Vercel (hosting & deployment)
+- Deployment is automatic — every push to `main` on GitHub triggers a deploy
+- Sony manages the Vercel account
+- You don't need a Vercel account unless you want to monitor builds
 
 ---
 
@@ -51,7 +51,7 @@ cd uxhi-web/web
 npm install
 
 # 3. Set up environment variables
-# The project owner will share a .env.local file with you securely.
+# Sony will share a .env.local file with you securely.
 # Place it at: uxhi-web/web/.env.local
 
 # 4. Start the dev server
@@ -66,13 +66,13 @@ npm run dev
 ### Design System
 The site has a living design system page at `/design-system` that documents every reusable component, color, typography style, and UI pattern used across the site. Think of it as the project's visual dictionary — it shows exactly how buttons, cards, forms, navigation, and other elements look and behave.
 
-**This page is maintained by the project designer.** You don't need to edit it, but it's a useful reference if you want to understand what components exist or how the site's visual language works. If you're ever unsure what a section or element is called, check here first.
+**This page is maintained by Sony.** You don't need to edit it, but it's a useful reference if you want to understand what components exist or how the site's visual language works. If you're ever unsure what a section or element is called, check here first.
 
 ---
 
 ## Environment Variables
 
-The project owner will share a `.env.local` file containing:
+Sony will share a `.env.local` file containing:
 
 | Variable | Purpose |
 |----------|---------|
@@ -124,7 +124,7 @@ This is the primary way you'll update content. Go to `/studio` and you'll see th
 - Publish when ready — or leave as draft to come back later
 
 ### Spot Illustration Icons (Design-Managed)
-- The **Icon** field on **Values** and **Committees** is managed by the project designer
+- The **Icon** field on **Values** and **Committees** is managed by Sony
 - **Do not update or replace icons** without consulting the designer first
 - If uploading a new icon: minimum **192×192px**, **PNG only** (SVG is not supported by Sanity's image pipeline)
 
@@ -181,7 +181,7 @@ git push
 ```
 
 ### What NOT to Change
-These are design decisions managed by the project designer. If something in this list needs updating, route it back to them:
+These are design decisions managed by Sony. If something in this list needs updating, route it back to them:
 
 - **CSS classes** — anything with `className=`
 - **Component files** in `web/src/components/ui/` or `web/src/components/sections/`
@@ -289,7 +289,7 @@ Claude will:
 3. Deploy the schema: `npx sanity@latest schema deploy`
 4. Run `npm run build` to verify
 
-**Note:** Adding a field to the schema doesn't automatically display it on the site. If you need the new field to appear somewhere on a page, that's a design/layout change — coordinate with the project designer.
+**Note:** Adding a field to the schema doesn't automatically display it on the site. If you need the new field to appear somewhere on a page, that's a design/layout change — coordinate with Sony.
 
 ---
 
@@ -327,7 +327,7 @@ The homepage pulls from Instagram. The access token expires every **60 days**.
 
 **If the feed goes blank:**
 1. The token likely expired
-2. Contact the project owner to refresh it in the Meta Developer Console
+2. Contact Sony to refresh it in the Meta Developer Console
 3. The updated token goes in `.env.local` and Vercel environment variables
 
 This is not critical — the homepage works fine without it (feed section just won't show).
@@ -359,6 +359,6 @@ This is not critical — the homepage works fine without it (feed section just w
 ## Questions or Design Requests?
 
 - **Copy changes**: Go ahead and make them (Sanity Studio or via Claude)
-- **Design changes** (colors, layout, components, spacing, new sections): Route to the project designer
-- **New features or pages**: Discuss with the project designer first
-- **Something broke**: Ask Claude to diagnose, or reach out to the project designer
+- **Design changes** (colors, layout, components, spacing, new sections): Route to Sony
+- **New features or pages**: Discuss with Sony first
+- **Something broke**: Ask Claude to diagnose, or reach out to Sony
