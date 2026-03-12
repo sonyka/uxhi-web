@@ -19,7 +19,7 @@ You'll need access to three services:
 - The project owner will invite you to the Sanity project
 - You'll get an **Editor** role — full access to create, edit, and publish content
 - Free plan (500K API requests/month, 10GB bandwidth)
-- Access the CMS at `yoursite.com/studio` or `localhost:3000/studio` when running locally
+- Access the CMS at `uxhi.hisony.com/studio` or `localhost:3000/studio` when running locally
 
 ### Vercel (hosting & deployment)
 - Deployment is automatic — every push to `main` on GitHub triggers a deploy
@@ -27,7 +27,7 @@ You'll need access to three services:
 - You don't need a Vercel account unless you want to monitor builds
 
 ### Claude Code (AI assistant)
-- Get your own account at [claude.ai/claude-code](https://claude.ai/claude-code)
+- Get your own account at [claude.ai/claude-code](https://claude.com/product/claude-code)
 - Claude understands this entire project via the `CLAUDE.md` file in the repo
 - Use it for making copy changes, creating Sanity content, and troubleshooting
 
