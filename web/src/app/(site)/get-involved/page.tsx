@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LogoImage } from "@/components/ui/LogoImage";
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { PARTNERS_QUERY, SPONSORS_QUERY, COMMITTEES_QUERY } from "@/sanity/lib/queries";
@@ -8,7 +9,11 @@ import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { BulletPoint } from "@/components/ui/BulletPoint";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
+import { SectionIcon } from "@/components/ui/SectionIcon";
 import { scaleReveal } from "@/lib/animations";
 
 export const metadata: Metadata = {
@@ -159,12 +164,12 @@ export default async function GetInvolvedPage() {
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
-        <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
+        <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
-              <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
+              <SectionHeading as="h1" size="hero" color="black">
                 Get Involved
-              </h1>
+              </SectionHeading>
             </HeroItem>
             <HeroItem>
               <p className="text-black text-lg lg:text-xl leading-relaxed">
@@ -212,7 +217,7 @@ export default async function GetInvolvedPage() {
               </div>
             </HeroItem>
           </HeroEntrance>
-        </div>
+        </HeroContent>
 
         {/* Mobile Bento - Horizontal layout (shown on <sm only) */}
         <div className="sm:hidden px-6 pb-8">
@@ -354,9 +359,9 @@ export default async function GetInvolvedPage() {
       <section id="volunteer" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal>
-            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
+            <SectionHeading className="mb-6">
               Volunteer
-            </h2>
+            </SectionHeading>
           </ScrollReveal>
           <ScrollReveal>
             <p className="text-gray-120 text-lg leading-relaxed mb-6">
@@ -416,9 +421,9 @@ export default async function GetInvolvedPage() {
           <div className="mt-16">
             <ScrollReveal stagger className="text-center mb-10">
               <MotionDiv>
-                <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-3">
+                <SectionEyebrow className="mb-3">
                   Our Committees
-                </h3>
+                </SectionEyebrow>
               </MotionDiv>
               <MotionDiv>
                 <p className="text-gray-110 max-w-[600px] mx-auto">
@@ -461,9 +466,9 @@ export default async function GetInvolvedPage() {
       <section id="speak" className="py-20 px-6 bg-white scroll-mt-24">
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           <MotionDiv>
-            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
+            <SectionHeading className="mb-6">
               Speaking Opportunities
-            </h2>
+            </SectionHeading>
           </MotionDiv>
           <MotionDiv>
             <p className="text-gray-120 text-lg leading-relaxed mb-4">
@@ -541,9 +546,9 @@ export default async function GetInvolvedPage() {
       <section id="partner" className="py-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal>
-            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
+            <SectionHeading className="mb-6">
               Partnerships
-            </h2>
+            </SectionHeading>
           </ScrollReveal>
           <ScrollReveal>
             <p className="text-gray-120 text-lg leading-relaxed mb-4">
@@ -588,9 +593,9 @@ export default async function GetInvolvedPage() {
       <section className="py-16 px-6 bg-gray-10">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 text-center mb-12">
+            <SectionEyebrow className="text-center mb-12">
               Successful Partnerships
-            </h3>
+            </SectionEyebrow>
           </ScrollReveal>
           <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
             {partners.length > 0 ? (
@@ -600,12 +605,12 @@ export default async function GetInvolvedPage() {
                   className="flex items-center justify-center"
                 >
                   {partner.logo?.asset ? (
-                    <Image
+                    <LogoImage
                       src={urlFor(partner.logo).width((partner.displayWidth || 100) * 2).url()}
                       alt={partner.name}
                       width={partner.displayWidth || 100}
                       height={40}
-                      className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${partner.darkGray ? 'opacity-70' : 'opacity-50'}`}
+                      darkGray={!!partner.darkGray}
                       style={{ width: partner.displayWidth || 100, height: 'auto' }}
                     />
                   ) : (
@@ -621,12 +626,11 @@ export default async function GetInvolvedPage() {
                   key={partner.name}
                   className="flex items-center justify-center"
                 >
-                  <Image
+                  <LogoImage
                     src={partner.logo}
                     alt={partner.name}
                     width={partner.width || 100}
                     height={partner.height || 40}
-                    className="object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   />
                 </MotionDiv>
               ))
@@ -639,9 +643,9 @@ export default async function GetInvolvedPage() {
       <section id="sponsor" className="py-20 px-6 bg-white scroll-mt-24">
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           <MotionDiv>
-            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
+            <SectionHeading className="mb-6">
               Sponsorships
-            </h2>
+            </SectionHeading>
           </MotionDiv>
           <MotionDiv>
             <p className="text-gray-120 text-lg leading-relaxed">
@@ -655,9 +659,9 @@ export default async function GetInvolvedPage() {
       <section className="py-16 px-6 bg-gray-10">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
-            <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 text-center mb-12">
+            <SectionEyebrow className="text-center mb-12">
               Past Event Sponsors
-            </h3>
+            </SectionEyebrow>
           </ScrollReveal>
           <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
             {sponsors.length > 0 ? (
@@ -667,12 +671,12 @@ export default async function GetInvolvedPage() {
                   className="flex items-center justify-center"
                 >
                   {sponsor.logo?.asset ? (
-                    <Image
+                    <LogoImage
                       src={urlFor(sponsor.logo).width((sponsor.displayWidth || 100) * 2).url()}
                       alt={sponsor.name}
                       width={sponsor.displayWidth || 100}
                       height={40}
-                      className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${sponsor.darkGray ? 'opacity-70' : 'opacity-50'}`}
+                      darkGray={!!sponsor.darkGray}
                       style={{ width: sponsor.displayWidth || 100, height: 'auto' }}
                     />
                   ) : (
@@ -688,12 +692,12 @@ export default async function GetInvolvedPage() {
                   key={sponsor.name}
                   className="flex items-center justify-center"
                 >
-                  <Image
+                  <LogoImage
                     src={sponsor.logo}
                     alt={sponsor.name}
                     width={sponsor.width || 100}
                     height={sponsor.height || 40}
-                    className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${sponsor.darkGray ? 'opacity-70' : 'opacity-50'}`}
+                    darkGray={!!sponsor.darkGray}
                   />
                 </MotionDiv>
               ))
@@ -706,14 +710,7 @@ export default async function GetInvolvedPage() {
       <section className="py-16 px-6 bg-beige-10">
         <ScrollReveal stagger className="max-w-[600px] mx-auto text-center">
           <MotionDiv>
-            <div className="w-32 h-32 mx-auto mb-6 relative">
-              <Image
-                src="/images/icons/icon-collaborate.svg"
-                alt="Collaborate"
-                fill
-                className="object-contain"
-              />
-            </div>
+            <SectionIcon src="/images/icons/icon-collaborate.svg" alt="Collaborate" />
           </MotionDiv>
           <MotionDiv>
             <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
@@ -738,19 +735,12 @@ export default async function GetInvolvedPage() {
         <ScrollReveal stagger className="max-w-[800px] mx-auto text-center">
           {/* Donate Icon */}
           <MotionDiv>
-            <div className="w-32 h-32 mx-auto mb-6 relative">
-              <Image
-                src="/images/icons/icon-donate.svg"
-                alt="Donate"
-                fill
-                className="object-contain"
-              />
-            </div>
+            <SectionIcon src="/images/icons/icon-donate.svg" alt="Donate" />
           </MotionDiv>
           <MotionDiv>
-            <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
+            <SectionHeading color="white" className="mb-6">
               Donations
-            </h2>
+            </SectionHeading>
           </MotionDiv>
           <MotionDiv>
             <p className="text-white text-xl font-medium mb-4">

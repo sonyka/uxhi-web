@@ -9,6 +9,8 @@ import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, CountUp } from "@/components/ui/motion";
 import { scaleReveal, fadeIn, columnStaggerContainer, columnRise } from "@/lib/animations";
 
@@ -276,8 +278,8 @@ export default async function HomePage() {
       {/* Mission Section */}
       <section className="py-20 px-6">
         <ScrollReveal className="max-w-[900px] mx-auto text-center">
-          <span className="text-purple-140 text-sm font-bold uppercase tracking-wider mb-4 block">What we do</span>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight text-gray-130">
+          <SectionEyebrow className="mb-4 block text-purple-140">What we do</SectionEyebrow>
+          <SectionHeading size="sm" color="gray" className="leading-tight lg:text-4xl">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
             <MobileTooltip
               tooltip="Human-centered design is an approach that prioritizes the unique needs of users."
@@ -295,7 +297,7 @@ export default async function HomePage() {
             </MobileTooltip>{" "}
             in Hawaiʻi through career development, community networking, and industry advocacy{" "}
             <span className="inline-block">🌺</span>
-          </h2>
+          </SectionHeading>
         </ScrollReveal>
       </section>
 
@@ -317,9 +319,9 @@ export default async function HomePage() {
       <section className="py-16 px-6">
         <ScrollReveal stagger className="max-w-[800px] mx-auto text-center">
           <MotionDiv>
-            <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-6">
+            <SectionHeading size="lg" className="mb-6">
               Connect, learn, grow together
-            </h2>
+            </SectionHeading>
           </MotionDiv>
           <MotionDiv>
             <p className="text-gray-110 text-lg mb-8 max-w-[600px] mx-auto">
@@ -337,9 +339,9 @@ export default async function HomePage() {
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal stagger className="text-center mb-16">
             <MotionDiv>
-              <h2 className="font-display text-4xl md:text-5xl text-white mb-4">
+              <SectionHeading size="lg" color="white" className="mb-4">
                 Together, we shape the future of UX
-              </h2>
+              </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-purple-50 text-lg">
@@ -399,9 +401,9 @@ export default async function HomePage() {
         <div className="max-w-[1300px] mx-auto">
           <ScrollReveal stagger className="text-center mb-12">
             <MotionDiv>
-              <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-2">
+              <SectionHeading size="lg" className="mb-2">
                 IRL &gt; Instagram
-              </h2>
+              </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-gray-110 text-lg">Stay connected with our latest events and community updates</p>
@@ -410,6 +412,19 @@ export default async function HomePage() {
 
           <ScrollReveal variants={fadeIn}>
             <InstagramFeed />
+          </ScrollReveal>
+
+          <ScrollReveal stagger className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+            <MotionDiv>
+              <PrimaryCTA href="https://www.instagram.com/uxhicommunity/" external>
+                Follow UXHI on Instagram
+              </PrimaryCTA>
+            </MotionDiv>
+            <MotionDiv>
+              <PrimaryCTA href="https://www.linkedin.com/company/uxhawaii/" external variant="subdued">
+                Follow UXHI on LinkedIn
+              </PrimaryCTA>
+            </MotionDiv>
           </ScrollReveal>
         </div>
       </section>
@@ -433,11 +448,11 @@ export default async function HomePage() {
               />
             </MotionDiv>
             <MotionDiv>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-140 mb-6 leading-tight">
+              <SectionHeading size="xl" className="mb-6 leading-tight">
                 A community<br />
                 for designers,<br />
                 by designers
-              </h2>
+              </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-gray-110 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">

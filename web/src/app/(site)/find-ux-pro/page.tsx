@@ -5,6 +5,9 @@ import { DIRECTORY_MEMBERS_QUERY } from "@/sanity/lib/queries";
 import { MemberDirectory } from "@/components/directory";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
+import { SectionIcon } from "@/components/ui/SectionIcon";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
@@ -21,12 +24,12 @@ export default async function FindUXProPage() {
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
-        <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
+        <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
-              <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
+              <SectionHeading as="h1" size="hero" color="black">
                 Find A UX Professional
-              </h1>
+              </SectionHeading>
             </HeroItem>
             <HeroItem>
               <p className="text-black text-lg lg:text-xl leading-relaxed">
@@ -41,7 +44,7 @@ export default async function FindUXProPage() {
               </div>
             </HeroItem>
           </HeroEntrance>
-        </div>
+        </HeroContent>
 
         {/* Mobile Bento - Horizontal layout (shown on <sm only) */}
         <div className="sm:hidden px-6 pb-8">
@@ -171,9 +174,9 @@ export default async function FindUXProPage() {
         <div className="max-w-[1400px] mx-auto">
           <ScrollReveal stagger className="max-w-[900px] mx-auto text-center mb-10">
             <MotionDiv>
-              <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-4">
+              <SectionHeading className="mb-4">
                 Member Directory
-              </h2>
+              </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-gray-120 text-lg leading-relaxed">
@@ -196,19 +199,12 @@ export default async function FindUXProPage() {
           <ScrollReveal stagger className="text-center">
             {/* Directory Icon */}
             <MotionDiv>
-              <div className="w-32 h-32 mx-auto mb-6 relative">
-                <Image
-                  src="/images/icons/icon-directory.svg"
-                  alt="Directory"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+              <SectionIcon src="/images/icons/icon-directory.svg" alt="Directory" />
             </MotionDiv>
             <MotionDiv>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-white mb-8">
+              <SectionHeading color="white" className="mb-8">
                 Join our member directory!
-              </h2>
+              </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-purple-50 text-lg leading-relaxed mb-4">

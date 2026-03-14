@@ -46,7 +46,7 @@ const variantStyles: Record<SpotIllustrationCardVariant, { card: string; title: 
   beige: {
     card: "bg-beige-30 hover:shadow-lg transition-shadow duration-300",
     title: "font-semibold text-gray-140 group-hover:text-purple-140 transition-colors",
-    description: "text-gray-110 text-sm",
+    description: "text-gray-110 text-base",
   },
   white: {
     card: "bg-white shadow-sm hover:shadow-lg transition-shadow duration-300",

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { scaleReveal } from "@/lib/animations";
 
@@ -53,9 +54,9 @@ export default function VolunteerPage() {
         <div className="lg:w-1/2 bg-gray-10 flex items-center justify-center px-8 py-16 lg:py-0">
           <HeroEntrance className="max-w-md">
             <HeroItem>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-purple-140 mb-6">
+              <SectionHeading as="h1" size="xl" className="mb-6">
                 Volunteer
-              </h1>
+              </SectionHeading>
             </HeroItem>
             <HeroItem>
               <p className="text-gray-120 text-lg leading-relaxed mb-4">
@@ -139,9 +140,9 @@ export default function VolunteerPage() {
       <section className="py-20 px-6 bg-beige-10">
         <div className="max-w-[1100px] mx-auto">
           <ScrollReveal>
-            <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-12 text-center">
+            <SectionHeading size="lg" className="mb-12 text-center">
               Committees
-            </h2>
+            </SectionHeading>
           </ScrollReveal>
 
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -166,9 +167,9 @@ export default function VolunteerPage() {
         <div className="max-w-[800px] mx-auto">
           <ScrollReveal stagger className="text-center mb-10">
             <MotionDiv>
-              <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-6">
+              <SectionHeading size="lg" className="mb-6">
                 Let us know how you want to get involved!
-              </h2>
+              </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-gray-120 text-lg leading-relaxed">

@@ -10,7 +10,12 @@ import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { SpotIllustrationCard } from "@/components/ui/cards";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionIcon } from "@/components/ui/SectionIcon";
+import { HeroContent } from "@/components/ui/HeroContent";
+import { LogoImage } from "@/components/ui/LogoImage";
 import { BulletPoint } from "@/components/ui/BulletPoint";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
 import { Pagination } from "@/components/ui/Pagination";
 import { Container } from "@/components/ui/Container";
@@ -52,6 +57,9 @@ const navigationItems = [
       { id: "typography-body", label: "Body Text" },
       { id: "typography-special", label: "Special Styles" },
       { id: "typography-bulletpoint", label: "Bullet Point" },
+      { id: "typography-eyebrow", label: "Section Eyebrow" },
+      { id: "typography-sectionheading", label: "Section Heading" },
+      { id: "typography-sectionicon", label: "Section Icon" },
     ],
   },
   {
@@ -82,6 +90,7 @@ const navigationItems = [
     category: "Cards & Modules",
     items: [
       { id: "card-spotillustration", label: "Spot Illustration Card" },
+      { id: "card-logoimage", label: "Logo Image" },
       { id: "card-carousel", label: "Carousel Testimonial" },
       { id: "card-link", label: "Link Card" },
       { id: "card-infobox", label: "Info Box" },
@@ -129,6 +138,7 @@ const navigationItems = [
   {
     category: "Layout",
     items: [
+      { id: "layout-herocontent", label: "Hero Content" },
       { id: "layout-container", label: "Container" },
       { id: "layout-sanityimage", label: "Sanity Image" },
       { id: "layout-grids", label: "Image Grids" },
@@ -727,6 +737,90 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
 
+  "typography-eyebrow": (
+    <ContentSection
+      title="Section Eyebrow"
+      description="Uppercase label used above section content. 20px (h4), bold, wide tracking, purple-120. Used for subsection headings like 'Our Committees', 'Successful Partnerships', etc."
+      componentPath="components/ui/SectionEyebrow.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Default</h4>
+          <SectionEyebrow>Our Committees</SectionEyebrow>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Centered</h4>
+          <SectionEyebrow className="text-center">Successful Partnerships</SectionEyebrow>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  "typography-sectionheading": (
+    <ContentSection
+      title="Section Heading"
+      description="Display heading for page sections. Uses Dela Gothic One with responsive sizing. Supports size variants (hero, xl, lg, md, sm), color variants (purple, white, black, gray), and heading tags (h1-h3)."
+      componentPath="components/ui/SectionHeading.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Size Variants</h4>
+          <div className="space-y-4 p-6 bg-beige-30 rounded-xl">
+            <div>
+              <span className="text-xs text-gray-100 font-mono">hero — interior page h1 (4xl → 5xl)</span>
+              <SectionHeading as="h1" size="hero" color="black">Hero Title</SectionHeading>
+            </div>
+            <div>
+              <span className="text-xs text-gray-100 font-mono">xl — large CTA headings (4xl → 5xl → 6xl)</span>
+              <SectionHeading size="xl">Extra Large</SectionHeading>
+            </div>
+            <div>
+              <span className="text-xs text-gray-100 font-mono">lg — primary section headings (4xl → 5xl)</span>
+              <SectionHeading size="lg">Large Heading</SectionHeading>
+            </div>
+            <div>
+              <span className="text-xs text-gray-100 font-mono">md (default) — standard section headings (3xl → 4xl)</span>
+              <SectionHeading>Medium Heading</SectionHeading>
+            </div>
+            <div>
+              <span className="text-xs text-gray-100 font-mono">sm — subsection headings (2xl → 3xl)</span>
+              <SectionHeading size="sm">Small Heading</SectionHeading>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Color Variants</h4>
+          <div className="space-y-4">
+            <div className="p-4 bg-beige-30 rounded-xl">
+              <SectionHeading>Purple (default)</SectionHeading>
+            </div>
+            <div className="p-4 bg-purple-140 rounded-xl">
+              <SectionHeading color="white">White (dark backgrounds)</SectionHeading>
+            </div>
+            <div className="p-4 bg-beige-30 rounded-xl">
+              <SectionHeading color="black">Black (hero sections)</SectionHeading>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  "typography-sectionicon": (
+    <ContentSection
+      title="Section Icon"
+      description="Large centered icon (128x128px) used above section content. Wraps Next.js Image with fill + object-contain."
+      componentPath="components/ui/SectionIcon.tsx"
+    >
+      <div className="flex gap-8 items-end">
+        <div className="text-center">
+          <SectionIcon src="/images/icons/icon-membership.svg" alt="Membership" />
+          <span className="text-xs text-gray-100 font-mono">Default (128px)</span>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
   // Colors
   "colors-teal": (
     <ContentSection title="Primary — Teal" description="Primary brand color palette (15-step scale from Figma). Click any swatch to copy its hex value.">
@@ -1144,7 +1238,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 imageAlt="Challenges"
                 title="Custom Content"
               >
-                <ul className="space-y-2 text-left text-sm">
+                <ul className="space-y-2 text-left text-base">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-yellow-80 rounded-full mt-1.5 flex-shrink-0" />
                     <span>First bullet point item</span>
@@ -1161,6 +1255,25 @@ const contentComponents: Record<string, React.ReactNode> = {
       </div>
     </ContentSection>
   ),
+  "card-logoimage": (
+    <ContentSection
+      title="Logo Image"
+      description="Grayscale logo with hover color reveal. Used for partner/sponsor logo grids. Starts grayscale with reduced opacity, reveals full color on hover."
+      componentPath="components/ui/LogoImage.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Default (light logos)</h4>
+          <div className="flex gap-8 items-center p-6 bg-beige-30 rounded-xl">
+            <LogoImage src="/images/partners/partner-placeholder.svg" alt="Partner" width={100} height={40} />
+            <LogoImage src="/images/partners/partner-placeholder.svg" alt="Partner" width={100} height={40} darkGray />
+          </div>
+          <p className="text-xs text-gray-100 mt-2">Left: default (opacity-50), Right: darkGray (opacity-70). Hover to reveal color.</p>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
   "card-carousel": (
     <ContentSection
       title="Carousel Testimonial Card"
@@ -2352,6 +2465,31 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
 
   // Layout
+  "layout-herocontent": (
+    <ContentSection
+      title="Hero Content"
+      description="Left-side content wrapper for interior page hero sections. Provides responsive padding, max-width constraints, and z-index for the text content area. Used on all interior pages (about, events, join, etc.) — not the homepage."
+      componentPath="components/ui/HeroContent.tsx"
+    >
+      <div className="p-4 bg-beige-30 rounded-xl">
+        <p className="text-gray-100 text-sm mb-4">
+          Wraps hero text content with responsive layout: mobile-first padding, constrained max-widths at each breakpoint, and proper z-indexing above background images.
+        </p>
+        <pre className="text-xs bg-white p-4 rounded-lg overflow-x-auto font-mono text-gray-120">
+{`<HeroContent>
+  <HeroEntrance className="flex flex-col gap-6">
+    <HeroItem>
+      <SectionHeading as="h1" size="hero" color="black">
+        Page Title
+      </SectionHeading>
+    </HeroItem>
+  </HeroEntrance>
+</HeroContent>`}
+        </pre>
+      </div>
+    </ContentSection>
+  ),
+
   "layout-container": (
     <ContentSection
       title="Container"

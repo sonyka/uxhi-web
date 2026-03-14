@@ -4,6 +4,9 @@ import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { sanityFetch } from "@/sanity/lib/live";
 import { PRODUCTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
+import { SectionIcon } from "@/components/ui/SectionIcon";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
@@ -117,12 +120,12 @@ export default async function ShopPage() {
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
-        <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
+        <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
-              <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
+              <SectionHeading as="h1" size="hero" color="black">
                 Shop
-              </h1>
+              </SectionHeading>
             </HeroItem>
             <HeroItem>
               <p className="text-black text-lg lg:text-xl leading-relaxed">
@@ -135,7 +138,7 @@ export default async function ShopPage() {
               </div>
             </HeroItem>
           </HeroEntrance>
-        </div>
+        </HeroContent>
 
         {/* Mobile Bento - Horizontal layout (shown on <sm only) */}
         <div className="sm:hidden px-6 pb-8">
@@ -282,14 +285,7 @@ export default async function ShopPage() {
       <section className="py-16 px-6 bg-beige-10">
         <ScrollReveal stagger className="max-w-[600px] mx-auto text-center">
           <MotionDiv>
-            <div className="w-32 h-32 mx-auto mb-6 relative">
-              <Image
-                src="/images/icons/icon-shopping.svg"
-                alt="Shopping"
-                fill
-                className="object-contain"
-              />
-            </div>
+            <SectionIcon src="/images/icons/icon-shopping.svg" alt="Shopping" />
           </MotionDiv>
           <MotionDiv>
             <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">

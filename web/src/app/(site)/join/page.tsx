@@ -1,10 +1,14 @@
 import Image from "next/image";
+import { LogoImage } from "@/components/ui/LogoImage";
 import { sanityFetch } from "@/sanity/lib/live";
 import { FAQS_QUERY } from "@/sanity/lib/queries";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { MembershipForm } from "@/components/forms/MembershipForm";
+import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
+import { SectionIcon } from "@/components/ui/SectionIcon";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
 
 // Placeholder images for the grid - using existing bento images
@@ -35,12 +39,12 @@ export default async function JoinPage() {
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
-        <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
+        <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
-              <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
+              <SectionHeading as="h1" size="hero" color="black">
                 Become a member!
-              </h1>
+              </SectionHeading>
             </HeroItem>
             <HeroItem>
               <p className="text-black text-lg lg:text-xl leading-relaxed">
@@ -56,7 +60,7 @@ export default async function JoinPage() {
               </div>
             </HeroItem>
           </HeroEntrance>
-        </div>
+        </HeroContent>
 
         {/* Mobile Bento - Horizontal layout (shown on <sm only) */}
         <div className="sm:hidden px-6 pb-8">
@@ -122,9 +126,9 @@ export default async function JoinPage() {
       <section className="pt-12 pb-20 px-6 bg-white">
         <ScrollReveal stagger className="max-w-[900px] mx-auto text-center">
           <MotionDiv>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-4xl text-purple-140 mb-8">
+            <SectionHeading className="mb-8">
               Who are we?
-            </h2>
+            </SectionHeading>
           </MotionDiv>
           <MotionDiv>
             <p className="text-gray-120 text-lg leading-relaxed mb-10">
@@ -155,9 +159,9 @@ export default async function JoinPage() {
       <section className="py-16 px-6 bg-gray-10">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
-            <h2 className="font-display text-2xl md:text-3xl text-purple-140 text-center mb-12">
+            <SectionHeading size="sm" className="text-center mb-12">
               Representing companies in Hawaiʻi and beyond
-            </h2>
+            </SectionHeading>
           </ScrollReveal>
           <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
             {companyLogos.map((company) => (
@@ -165,12 +169,12 @@ export default async function JoinPage() {
                 key={company.name}
               >
                 <div className="flex items-center justify-center">
-                  <Image
+                  <LogoImage
                     src={company.src}
                     alt={company.name}
                     width={company.width}
                     height={company.height}
-                    className={`object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${company.darkGray ? 'opacity-70' : 'opacity-50'}`}
+                    darkGray={!!company.darkGray}
                   />
                 </div>
               </MotionDiv>
@@ -194,9 +198,9 @@ export default async function JoinPage() {
               </div>
             </MotionDiv>
             <MotionDiv>
-              <h2 className="font-display text-4xl md:text-5xl text-white mb-6">
+              <SectionHeading size="lg" color="white" className="mb-6">
                 Join the community
-              </h2>
+              </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-purple-50 text-lg leading-relaxed">
@@ -221,19 +225,12 @@ export default async function JoinPage() {
       <section className="py-20 px-6 bg-beige-10">
         <ScrollReveal stagger className="max-w-[900px] mx-auto text-center">
           <MotionDiv>
-            <div className="w-32 h-32 mx-auto mb-6 relative">
-              <Image
-                src="/images/icons/icon-slack.svg"
-                alt="Slack"
-                fill
-                className="object-contain"
-              />
-            </div>
+            <SectionIcon src="/images/icons/icon-slack.svg" alt="Slack" />
           </MotionDiv>
           <MotionDiv>
-            <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-6">
+            <SectionHeading className="mb-6">
               400+ Slack members and growing
-            </h2>
+            </SectionHeading>
           </MotionDiv>
           <MotionDiv>
             <p className="text-gray-120 text-lg leading-relaxed mb-10">

@@ -11,7 +11,11 @@ import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { InlineLink } from "@/components/ui/InlineLink";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
+import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
+import { SectionIcon } from "@/components/ui/SectionIcon";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
 
 export const metadata: Metadata = {
@@ -122,12 +126,12 @@ export default async function ResourcesPage() {
       {/* Hero Section */}
       <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
         {/* Left Side - Content */}
-        <div className="relative z-10 px-6 pt-32 pb-8 sm:max-w-[411px] md:max-w-[calc(100%-340px)] md:pl-10 lg:pl-24 lg:pr-0 lg:pt-[200px] lg:pb-0 lg:max-w-[583px] xl:max-w-[733px]">
+        <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
-              <h1 className="font-display text-4xl leading-[40px] lg:text-5xl lg:leading-[60px] text-black">
+              <SectionHeading as="h1" size="hero" color="black">
                 Resources
-              </h1>
+              </SectionHeading>
             </HeroItem>
             <HeroItem>
               <p className="text-black text-lg lg:text-xl leading-relaxed">
@@ -159,7 +163,7 @@ export default async function ResourcesPage() {
               </div>
             </HeroItem>
           </HeroEntrance>
-        </div>
+        </HeroContent>
 
         {/* Mobile Bento - Horizontal layout (shown on <sm only) */}
         <div className="sm:hidden px-6 pb-8">
@@ -226,26 +230,19 @@ export default async function ResourcesPage() {
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal stagger className="text-center mb-10">
             <MotionDiv>
-              <div className="w-32 h-32 mx-auto mb-6 relative">
-                <Image
-                  src="/images/icons/icon-student.svg"
-                  alt="UX for Students"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+              <SectionIcon src="/images/icons/icon-student.svg" alt="UX for Students" />
             </MotionDiv>
             <MotionDiv>
-              <h2 className="font-display text-3xl md:text-4xl text-purple-140">
+              <SectionHeading>
                 UX for Students
-              </h2>
+              </SectionHeading>
             </MotionDiv>
           </ScrollReveal>
 
           {/* Online Resources */}
           <div className="mb-12">
             <ScrollReveal>
-              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Online Resources</h3>
+              <SectionEyebrow className="mb-6">Online Resources</SectionEyebrow>
             </ScrollReveal>
             <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {(groupedResources['online-resources-students'] && groupedResources['online-resources-students'].length > 0
@@ -266,7 +263,7 @@ export default async function ResourcesPage() {
           {/* Local Programs */}
           <div className="mb-12">
             <ScrollReveal>
-              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Local Programs & Degrees</h3>
+              <SectionEyebrow className="mb-6">Local Programs & Degrees</SectionEyebrow>
             </ScrollReveal>
             <ScrollReveal>
               <InfoBox className="mb-6">
@@ -353,7 +350,7 @@ export default async function ResourcesPage() {
           {/* Online Programs */}
           <div className="mb-12">
             <ScrollReveal>
-              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Online Programs</h3>
+              <SectionEyebrow className="mb-6">Online Programs</SectionEyebrow>
             </ScrollReveal>
             <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {(groupedResources['online-programs-students'] && groupedResources['online-programs-students'].length > 0
@@ -374,7 +371,7 @@ export default async function ResourcesPage() {
           {/* Communities */}
           <div>
             <ScrollReveal>
-              <h3 className="text-sm uppercase tracking-wider font-bold text-purple-120 mb-6">Communities</h3>
+              <SectionEyebrow className="mb-6">Communities</SectionEyebrow>
             </ScrollReveal>
             <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {(groupedResources['design-communities'] && groupedResources['design-communities'].length > 0
@@ -427,9 +424,9 @@ export default async function ResourcesPage() {
         <div className="max-w-[1100px] mx-auto">
           <ScrollReveal stagger>
             <MotionDiv>
-              <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
+              <SectionHeading color="white" className="mb-6">
                 State of UX in Hawaiʻi Report
-              </h2>
+              </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-purple-30 text-lg leading-relaxed mb-4">
@@ -586,19 +583,12 @@ export default async function ResourcesPage() {
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal stagger className="text-center">
             <MotionDiv>
-              <div className="w-32 h-32 mx-auto mb-6 relative">
-                <Image
-                  src="/images/icons/icon-tech.svg"
-                  alt="Directory of Local Tech Organizations"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+              <SectionIcon src="/images/icons/icon-tech.svg" alt="Directory of Local Tech Organizations" />
             </MotionDiv>
             <MotionDiv>
-              <h2 className="font-display text-3xl md:text-4xl text-purple-140 mb-4">
+              <SectionHeading className="mb-4">
                 Directory of Local Tech Organizations
-              </h2>
+              </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-gray-120 text-lg leading-relaxed mb-10">

@@ -94,6 +94,9 @@ The design system page is the **single source of truth** for all styling decisio
 
 **Always consult the design system page first** when building UI to ensure consistency. Use existing components rather than writing inline patterns.
 
+**CRITICAL: Top-Down UI Changes Rule**
+All UI styling changes (font sizes, colors, spacing, variants, etc.) MUST be made at the shared component level, never inline at the page level. If a change is needed, modify the reusable component's props, variants, or defaults — not the consuming page. This ensures consistency across all instances and keeps the design system as the single source of truth.
+
 **CRITICAL: Design System Sync Rule**
 Whenever a UI component's styling, props, or behavior is changed, the design system page (`src/app/(site)/design-system/page.tsx`) **MUST be updated in the same changeset** to reflect those changes. The design system is the single source of truth — it must never go stale. This includes: color changes, new variants, removed variants, renamed props, and any visual modifications to existing components.
 
@@ -120,6 +123,11 @@ Quick reference (see design system for full details):
 | `ArrowLinkButton` | `components/ui/ArrowLinkButton.tsx` | Text link with arrow for dark backgrounds |
 | `BulletPoint` | `components/ui/BulletPoint.tsx` | Styled bullet dot (teal on light, yellow on dark bg) |
 | `MobileTooltip` | `components/ui/MobileTooltip.tsx` | Tap-to-reveal tooltip (mobile), hover (desktop) |
+| `SectionEyebrow` | `components/ui/SectionEyebrow.tsx` | Uppercase subsection label (20px, bold, purple-120) |
+| `SectionHeading` | `components/ui/SectionHeading.tsx` | Display heading with size/color variants (hero/xl/lg/md/sm) |
+| `SectionIcon` | `components/ui/SectionIcon.tsx` | Large centered icon (128px) for section intros |
+| `HeroContent` | `components/ui/HeroContent.tsx` | Left-side content wrapper for interior page heroes |
+| `LogoImage` | `components/ui/LogoImage.tsx` | Grayscale logo with hover color reveal (partner/sponsor grids) |
 | `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/beige/white variants) |
 | `FormLabel` | `components/ui/form-elements/FormLabel.tsx` | Shared form label; supports `as="legend"` for fieldsets |
 | `FormInput` | `components/ui/form-elements/FormInput.tsx` | Glassmorphic text input for purple form backgrounds |
