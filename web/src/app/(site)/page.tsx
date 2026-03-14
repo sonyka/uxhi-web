@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { InstagramFeed } from "@/components/sections/InstagramFeed";
 import { CommunityPhotosGrid } from "@/components/sections/CommunityPhotosGrid";
 import { sanityFetch } from "@/sanity/lib/live";
-import { INSTAGRAM_POSTS_QUERY, COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
+import { COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
@@ -20,8 +20,7 @@ export const metadata: Metadata = {
 
 export default async function HomePage() {
   // Fetch data from Sanity
-  const [{ data: instagramPosts }, { data: communityPhotos }] = await Promise.all([
-    sanityFetch({ query: INSTAGRAM_POSTS_QUERY }),
+  const [{ data: communityPhotos }] = await Promise.all([
     sanityFetch({ query: COMMUNITY_PHOTOS_QUERY }),
   ]);
 
@@ -410,7 +409,7 @@ export default async function HomePage() {
           </ScrollReveal>
 
           <ScrollReveal variants={fadeIn}>
-            <InstagramFeed posts={instagramPosts || []} />
+            <InstagramFeed />
           </ScrollReveal>
         </div>
       </section>

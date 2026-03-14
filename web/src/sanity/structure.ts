@@ -28,7 +28,6 @@ export const structure = (S: StructureBuilder) =>
           S.list()
             .title("Homepage Content")
             .items([
-              S.documentTypeListItem("instagramPost").title("Instagram Feed").icon(ImageIcon),
               S.documentTypeListItem("communityPhoto").title("Community Photos").icon(ImagesIcon),
             ])
         ),

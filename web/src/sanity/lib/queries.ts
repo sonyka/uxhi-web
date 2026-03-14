@@ -75,16 +75,6 @@ export const ABOUT_FAQS_QUERY = defineQuery(/* groq */ `
   }
 `);
 
-// Instagram Posts (for homepage feed)
-export const INSTAGRAM_POSTS_QUERY = defineQuery(/* groq */ `
-  *[_type == "instagramPost"] | order(order asc)[0...8] {
-    _id,
-    image { ${imageFragment} },
-    permalink,
-    caption
-  }
-`);
-
 // Community Photos (for "A community for designers" section)
 export const COMMUNITY_PHOTOS_QUERY = defineQuery(/* groq */ `
   *[_type == "communityPhoto"] | order(column asc, row asc) {

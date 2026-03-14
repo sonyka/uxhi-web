@@ -4,7 +4,6 @@ import { submission } from "./documents/submission";
 import { member } from "./documents/member";
 import { faq } from "./documents/faq";
 import { aboutFaq } from "./documents/aboutFaq";
-import { instagramPost } from "./documents/instagramPost";
 import { communityPhoto } from "./documents/communityPhoto";
 import { value } from "./documents/value";
 import { resourceCategory } from "./documents/resourceCategory";
@@ -29,7 +28,6 @@ export const schemaTypes = [
   member,
   faq,
   aboutFaq,
-  instagramPost,
   communityPhoto,
   value,
   resourceCategory,
