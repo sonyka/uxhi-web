@@ -136,7 +136,7 @@ export default async function JoinPage() {
             </p>
           </MotionDiv>
           <MotionDiv>
-            <PrimaryCTA href="/find-experts#directory">Membership Directory</PrimaryCTA>
+            <PrimaryCTA href="/find-ux-pro#directory">Membership Directory</PrimaryCTA>
           </MotionDiv>
         </ScrollReveal>
       </section>
