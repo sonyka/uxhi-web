@@ -22,7 +22,7 @@ export function Footer() {
     {
       links: [
         { label: "Home", href: "/" },
-        { label: "Find Experts", href: "/find-experts" },
+        { label: "Find Experts", href: "/find-ux-pro" },
         { label: "Get Involved", href: "/get-involved" },
       ],
     },
@@ -35,7 +35,7 @@ export function Footer() {
     },
     {
       links: [
-        { label: "Shop", href: "/shop" },
+        { label: "Shop", href: "/merch" },
         { label: "About", href: "/about" },
         { label: "Join us", href: "/join" },
       ],

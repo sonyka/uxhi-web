@@ -25,20 +25,6 @@ const nextConfig: NextConfig = {
       fullUrl: true,
     },
   },
-  async redirects() {
-    return [
-      {
-        source: "/find-ux-pro/:path*",
-        destination: "/find-experts/:path*",
-        permanent: true,
-      },
-      {
-        source: "/merch/:path*",
-        destination: "/shop/:path*",
-        permanent: true,
-      },
-    ];
-  },
   async rewrites() {
     return [
       {
