@@ -1,0 +1,12 @@
+[build]
+  base = "web"
+  command = "npm run build"
+  publish = ".next"
+
+# Set NEXT_PUBLIC_IS_PREVIEW per deploy context so Sanity visual editing
+# overlays activate on deploy previews (mirrors NEXT_PUBLIC_VERCEL_ENV=preview).
+[context.deploy-preview.environment]
+  NEXT_PUBLIC_IS_PREVIEW = "true"
+
+[context.production.environment]
+  NEXT_PUBLIC_IS_PREVIEW = "false"

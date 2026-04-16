@@ -7,7 +7,7 @@ export const client = createClient({
   apiVersion,
   useCdn: true,
   stega: {
-    enabled: process.env.NEXT_PUBLIC_VERCEL_ENV === "preview",
+    enabled: process.env.NEXT_PUBLIC_VERCEL_ENV === "preview" || process.env.NEXT_PUBLIC_IS_PREVIEW === "true",
     studioUrl: "/studio",
   },
 });

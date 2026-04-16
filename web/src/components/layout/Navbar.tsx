@@ -320,7 +320,7 @@ export const defaultNavItems: NavItem[] = [
     ],
   },
   { key: "events", label: "Events", href: "/events" },
-  { key: "conference", label: "Conference", href: "/conferences/2025/", external: true },
+  { key: "conference", label: "Conference", href: "/conferences" },
   {
     key: "resources",
     label: "Resources",

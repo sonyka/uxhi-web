@@ -29,7 +29,7 @@ export function Footer() {
     {
       links: [
         { label: "Events", href: "/events" },
-        { label: "Conference", href: "/conferences/2025/", external: true },
+        { label: "Conference", href: "/conferences" },
         { label: "Resources", href: "/resources" },
       ],
     },
