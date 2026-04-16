@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLinkIcon, SendIcon } from "@/components/ui/icons";
+import { SendIcon } from "@/components/ui/icons";
 
 /**
  * Footer Component
@@ -100,28 +100,15 @@ export function Footer() {
         <div className="flex flex-wrap lg:flex-nowrap gap-12 shrink-0 order-2">
           {navColumns.map((column, colIndex) => (
             <div key={colIndex} className="flex flex-col gap-3">
-              {column.links.map((link) =>
-                link.external ? (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-0.5 text-base text-gray-120 hover:text-gray-140 transition-colors"
-                  >
-                    {link.label}
-                    <ExternalLinkIcon className="w-5 h-5 opacity-60" />
-                  </a>
-                ) : (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-base text-gray-120 hover:text-gray-140 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                )
-              )}
+              {column.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-base text-gray-120 hover:text-gray-140 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           ))}
 
