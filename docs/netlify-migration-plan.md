@@ -54,13 +54,22 @@ Phases 1 and 2 are independent of Phase 3. The conference site can go live as so
 - [ ] Verify: `uxhiconference.com` loads the 2026 conference, `uxhiconference.com/agenda` (or relevant subpages) load correctly
 
 ### How the domain masking works
-`uxhiconference.com` is added to the same Netlify project as the main site. Next.js middleware detects the hostname and transparently rewrites all requests to `/conferences/2026/[path]` — the URL bar always shows `uxhiconference.com`.
+`uxhiconference.com` is added to the same Netlify project as the main site. Next.js middleware detects the hostname and transparently rewrites requests — the URL bar always shows `uxhiconference.com`.
+
+| URL | Serves |
+|-----|--------|
+| `uxhiconference.com` | `/conferences/2026/` (current year) |
+| `uxhiconference.com/agenda` | `/conferences/2026/agenda` |
+| `uxhiconference.com/2025` | `/conferences/2025/` (archive) |
+| `uxhiconference.com/2025/agenda` | `/conferences/2025/agenda` |
+
+Year-prefixed paths are automatically routed to the matching archive. Unprefixed paths go to the current year.
 
 ### Each new conference year
-Two lines to update, both in the same commit:
-- `CURRENT_CONFERENCE_YEAR` in `src/middleware.ts`
-- The redirect destination in `next.config.ts` (two entries, both say `"/conferences/2026/"`)
-
+One line to update in `src/middleware.ts`:
+```ts
+const CURRENT_CONFERENCE_YEAR = "2027";
+```
 Then drop the new year's static site into `public/conferences/[year]/`.
 
 ---

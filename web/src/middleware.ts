@@ -12,11 +12,12 @@ export function middleware(request: NextRequest) {
   if (CONFERENCE_HOSTS.includes(hostname)) {
     const { pathname } = request.nextUrl;
 
-    // Rewrite all paths to /conferences/:year/[path], preserving the URL bar.
-    // e.g. uxhiconference.com/agenda → serves /conferences/2026/agenda
-    //      uxhiconference.com/       → serves /conferences/2026/
-    const conferencePath =
-      pathname === "/"
+    // uxhiconference.com/2025/[path] → /conferences/2025/[path]  (year archive)
+    // uxhiconference.com/[path]      → /conferences/2026/[path]  (current year)
+    const yearMatch = pathname.match(/^\/(\d{4})(\/.*)?$/);
+    const conferencePath = yearMatch
+      ? `/conferences/${yearMatch[1]}${yearMatch[2] ?? "/"}`
+      : pathname === "/"
         ? `/conferences/${CURRENT_CONFERENCE_YEAR}/`
         : `/conferences/${CURRENT_CONFERENCE_YEAR}${pathname}`;
 

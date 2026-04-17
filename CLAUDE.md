@@ -51,7 +51,7 @@ Captures viewport-sized screenshots of a page, splitting a full-page capture int
 - **Tailwind CSS v4** using CSS-based `@theme` configuration (not tailwind.config.ts)
 - **Sanity.io** as headless CMS with embedded studio
 - **Framer Motion** for animations
-- **Deployed on Vercel**
+- **Deployed on Netlify**
 
 ### Sanity Configuration
 - Project ID: `evh83z0t`
@@ -79,6 +79,25 @@ web/
 │   │   └── structure.ts     # Studio structure
 │   └── lib/                 # Utilities (cn, animations)
 ```
+
+### Conference Domain Routing (`uxhiconference.com`)
+
+`uxhiconference.com` is added to the same Netlify project as the main site. Middleware in `src/middleware.ts` detects the hostname and rewrites requests transparently — the URL bar always shows `uxhiconference.com`.
+
+| URL | Serves |
+|-----|--------|
+| `uxhiconference.com` | `/conferences/2026/` (current year) |
+| `uxhiconference.com/agenda` | `/conferences/2026/agenda` |
+| `uxhiconference.com/2025` | `/conferences/2025/` (archive) |
+| `uxhiconference.com/2025/agenda` | `/conferences/2025/agenda` |
+
+Year-prefixed paths (`/YYYY/...`) are automatically routed to the matching archive. Unprefixed paths go to the current year.
+
+**Each new conference year:** update one line in `src/middleware.ts`:
+```ts
+const CURRENT_CONFERENCE_YEAR = "2027";
+```
+Then drop the new year's static files into `public/conferences/[year]/`.
 
 ### Page Builder Pattern
 Pages use a block-based content model. The `PageBuilder` component (`src/components/blocks/PageBuilder.tsx`) maps Sanity block types to React section components. Block types: `heroBlock`, `statsBlock`, `featuresBlock`, `testimonialsBlock`, `teamBlock`, `ctaBlock`, `richTextBlock`.
