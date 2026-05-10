@@ -1,0 +1,613 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - link [ref=e6] [cursor=pointer]:
+      - /url: ./
+      - img [ref=e9]
+    - generic [ref=e11]:
+      - navigation [ref=e13] [cursor=pointer]:
+        - link "UXperience 'Āina" [ref=e15]:
+          - /url: ./#theme
+          - paragraph [ref=e19]: UXperience 'Āina
+        - link "Agenda" [ref=e21]:
+          - /url: ./#agenda
+          - paragraph [ref=e25]: Agenda
+        - link "The Lineup" [ref=e27]:
+          - /url: ./lineup
+          - paragraph [ref=e31]: The Lineup
+        - link "FAQ" [ref=e33]:
+          - /url: ./#faq
+          - paragraph [ref=e37]: FAQ
+        - link "Our Sponsors" [ref=e39]:
+          - /url: ./#partners
+          - paragraph [ref=e43]: Our Sponsors
+        - link "About UXHI" [ref=e45]:
+          - /url: ./#about
+          - paragraph [ref=e49]: About UXHI
+        - generic [ref=e50]:
+          - link [ref=e51]:
+            - /url: https://www.instagram.com/uxhicommunity/
+            - img [ref=e54]
+          - link [ref=e57]:
+            - /url: https://www.linkedin.com/company/uxhi/
+            - img [ref=e60]
+      - link "Become a Sponsor" [ref=e65] [cursor=pointer]:
+        - /url: https://givebutter.com/c/uxhicon2025-sponsors
+        - paragraph [ref=e67]: Become a Sponsor
+  - generic [ref=e68]:
+    - generic [ref=e74]:
+      - generic [ref=e76]:
+        - heading "UXHI Conference 2025" [level=1] [ref=e78]:
+          - generic [ref=e79]: UXHI
+          - generic [ref=e80]: Conference
+          - generic [ref=e81]: "2025"
+        - paragraph [ref=e83]: An annual event for Hawaiʻi's design community and an immersive day of knowledge-sharing, inspiration, and networking.
+        - link "About UXHI" [ref=e84] [cursor=pointer]:
+          - /url: ./#about
+          - paragraph [ref=e86]: About UXHI
+          - img [ref=e89]
+      - generic [ref=e92]:
+        - generic [ref=e94]:
+          - paragraph [ref=e96]: When
+          - paragraph [ref=e98]: 00:00:00:00
+          - heading "Sat, Oct 25, 2025" [level=3] [ref=e100]
+        - generic [ref=e102]:
+          - paragraph [ref=e104]: Where
+          - heading "Entrepreneurs Sandbox" [level=3] [ref=e106]:
+            - link "Entrepreneurs Sandbox" [ref=e107] [cursor=pointer]:
+              - /url: ./#sandbox
+              - text: Entrepreneurs
+              - text: Sandbox
+        - heading "Ticket sales have ended, see you there!" [level=3] [ref=e111]
+    - generic [ref=e117]:
+      - paragraph [ref=e121]: Conference Theme
+      - paragraph [ref=e125]: This yearʻs UXHI Conference celebrates aloha ʻāina, love for the land.
+      - generic [ref=e126]:
+        - paragraph [ref=e127]: "More accurately translated, ʻāina means: that which feeds. When we care for the land, the land will care for us. When the land thrives, we thrive. And yet, Hawaiians have long honored a relationship with ʻāina that’s grounded in reciprocity rather than transaction."
+        - paragraph [ref=e128]: This year’s theme calls on us to embrace our kuleana as designers—to care not only for the people we design for, but also for the resources we rely on, creating solutions that are sustainable, thoughtful, and in harmony with the world around us.
+    - generic [ref=e129]:
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - heading "Activity Agenda" [level=2] [ref=e133]
+          - paragraph [ref=e135]: Plenty kind things happening at the conference other than talks and workshops! Throughout the day, join in on extra activities designed to help you connect, create, and capture memories—from getting professional feedback on your portfolio to snapping photos with friends and updating your headshot.
+        - generic [ref=e136]:
+          - generic [ref=e138] [cursor=pointer]:
+            - paragraph [ref=e141]: 11 am - 4 pm
+            - generic [ref=e142]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e144]: Portfolio Reviews
+              - generic:
+                - paragraph
+          - generic [ref=e146] [cursor=pointer]:
+            - paragraph [ref=e149]: All day
+            - generic [ref=e150]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e152]: Photo Booth
+              - paragraph [ref=e154]: Sponsored by Boom Photo Booth
+          - generic [ref=e156] [cursor=pointer]:
+            - paragraph [ref=e159]: All day
+            - generic [ref=e160]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e162]: Professional Headshot
+              - generic:
+                - paragraph
+      - generic [ref=e163]:
+        - heading "Programming Agenda" [level=2] [ref=e165]
+        - generic [ref=e166]:
+          - generic [ref=e168] [cursor=pointer]:
+            - paragraph [ref=e171]: 8 am
+            - generic [ref=e172]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e174]: Doors Open Coffee & Breakfast
+              - generic:
+                - paragraph
+          - generic [ref=e176] [cursor=pointer]:
+            - generic [ref=e177]:
+              - paragraph [ref=e179]: 9 am
+              - paragraph [ref=e182]: Main Room
+            - generic [ref=e183]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e185]: Opening Remarks
+              - paragraph [ref=e187]: Kat Duran-Higa & Jennifer Kumura
+          - generic [ref=e189] [cursor=pointer]:
+            - generic [ref=e190]:
+              - paragraph [ref=e192]: 9:15 am
+              - paragraph [ref=e195]: Main Room
+            - generic [ref=e196]:
+              - paragraph [ref=e198]: Keynote
+              - paragraph [ref=e200]: "Wahi Pana: Storied Places"
+              - paragraph [ref=e202]: Wahi Pana
+          - generic [ref=e204] [cursor=pointer]:
+            - generic [ref=e205]:
+              - paragraph [ref=e207]: 10 am
+              - paragraph [ref=e210]: Main Room
+            - generic [ref=e211]:
+              - paragraph [ref=e213]: panel
+              - paragraph [ref=e215]: Generative AI and the future of UX
+              - paragraph [ref=e217]: Yan Vishnepolsky, David Sharek, Vicky Vo, and Arleen Fernando
+          - generic [ref=e219] [cursor=pointer]:
+            - generic [ref=e220]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e223]: Purple Box
+            - generic [ref=e224]:
+              - paragraph [ref=e226]: talk
+              - paragraph [ref=e228]: "Impossible to Ignore: Expanding Your Luck for Design Opportunities"
+              - paragraph [ref=e230]: Michelle Tran and Gage Minamoto
+          - generic [ref=e232] [cursor=pointer]:
+            - generic [ref=e233]:
+              - paragraph [ref=e235]: 11 am
+              - paragraph [ref=e238]: Main Room
+            - generic [ref=e239]:
+              - paragraph [ref=e241]: Workshop
+              - paragraph [ref=e243]: State of UX in Hawai’i
+              - paragraph [ref=e245]: Michelle Tran
+          - generic [ref=e247] [cursor=pointer]:
+            - paragraph [ref=e250]: 12 pm
+            - generic [ref=e251]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e253]: Lunch
+              - generic:
+                - paragraph
+          - generic [ref=e255] [cursor=pointer]:
+            - generic [ref=e256]:
+              - paragraph [ref=e258]: 1 pm
+              - paragraph [ref=e261]: Main Room
+            - generic [ref=e262]:
+              - paragraph [ref=e264]: panel
+              - paragraph [ref=e266]: "Connecting to Place: Bridging Community, Culture, and Practice in Hawaiʻi"
+              - paragraph [ref=e268]: Dr. Laura Morrison, Dr. Ululani Brigitte Russo Oana, Todd Cullison, Makana Waikiki, Corinne Okada Takara
+          - generic [ref=e270] [cursor=pointer]:
+            - generic [ref=e271]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e274]: Purple Box
+            - generic [ref=e275]:
+              - paragraph [ref=e277]: workshop
+              - paragraph [ref=e279]: "Listening with Aloha: Designing Research That Feeds the People Who Feed Us"
+              - paragraph [ref=e281]: Sean Tangco and Romyn Kim Sabatchi
+          - generic [ref=e283] [cursor=pointer]:
+            - generic [ref=e284]:
+              - paragraph [ref=e286]: 2 pm
+              - paragraph [ref=e289]: Main Room
+            - generic [ref=e290]:
+              - paragraph [ref=e292]: talk
+              - paragraph [ref=e294]: "Built By Us: Why Local Talent Should Design Local Tech- A Zippy’s Case Study"
+              - paragraph [ref=e296]: Taryn Fukuji, Josh Koh, Ana Delostrico and Sage Suzuki
+          - generic [ref=e298] [cursor=pointer]:
+            - generic [ref=e299]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e302]: Purple Box
+            - generic [ref=e303]:
+              - paragraph [ref=e305]: talk
+              - paragraph [ref=e307]: "Innovating Within Boundaries: Designing Change in Regulated Systems"
+              - paragraph [ref=e309]: Melissa Chan, Naomi Bluesummers and Katrina Sison Tan
+          - generic [ref=e311] [cursor=pointer]:
+            - generic [ref=e312]:
+              - paragraph [ref=e314]: 3 pm
+              - paragraph [ref=e317]: Main Room
+            - generic [ref=e318]:
+              - paragraph [ref=e320]: Round Table Discussion
+              - paragraph [ref=e322]: "Let’s Talk Story: Round-table Discussions"
+              - paragraph [ref=e324]: May Sermonia, Lori Lum, Moshe Karabelnik, Ann Choe, and Jennifer Kumura
+          - generic [ref=e326] [cursor=pointer]:
+            - generic [ref=e327]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e330]: Purple Box
+            - generic [ref=e331]:
+              - paragraph [ref=e333]: talk
+              - paragraph [ref=e335]: An Introduction to Tech Criticism
+              - paragraph [ref=e337]: Kim Davidson
+          - generic [ref=e339] [cursor=pointer]:
+            - generic [ref=e340]:
+              - paragraph [ref=e342]: 4 pm
+              - paragraph [ref=e345]: Main Room
+            - generic [ref=e346]:
+              - paragraph [ref=e348]: keynote
+              - paragraph [ref=e350]: "Designing with ʻĀina: Place-Based Design from an ʻŌiwi Perspective"
+              - paragraph [ref=e352]: "Purple Mai'a: Zachary Pilien, Jaden Kapali, Tre Zamora, Pōhaikealoha Panoke, Leimomi Bong"
+          - generic [ref=e354] [cursor=pointer]:
+            - generic [ref=e355]:
+              - paragraph [ref=e357]: 5 pm
+              - paragraph [ref=e360]: Main Room
+            - generic [ref=e361]:
+              - generic:
+                - paragraph
+              - paragraph [ref=e363]: Closing Remarks
+              - paragraph [ref=e365]: Kat Duran-Higa & Jennifer Kumura
+    - generic [ref=e366]:
+      - heading "First Wave of Speakers" [level=2] [ref=e368]
+      - paragraph [ref=e370]: More voices to join the lineup!
+      - paragraph [ref=e372]: The UXHI Conference brings together voices from Hawaiʻi and beyond who are shaping the future of human-centered design. Our speakers share real stories, lessons learned, and fresh perspectives to inspire and empower the next wave of designers.
+      - generic [ref=e374]:
+        - list [ref=e376]:
+          - listitem [ref=e377]:
+            - link "Sage Suzuki Jr. Software Engineer, Pi'iku Co Alum" [ref=e379] [cursor=pointer]:
+              - /url: ./lineup#sage-suzuki
+              - generic [ref=e383]:
+                - paragraph [ref=e385]: Sage Suzuki
+                - paragraph [ref=e387]: Jr. Software Engineer, Pi'iku Co Alum
+          - listitem [ref=e388]:
+            - link "Krizel Tomines UX Researcher, Majesco" [ref=e390] [cursor=pointer]:
+              - /url: ./lineup#krizel-tomines
+              - generic [ref=e394]:
+                - paragraph [ref=e396]: Krizel Tomines
+                - paragraph [ref=e398]: UX Researcher, Majesco
+          - listitem [ref=e399]:
+            - link "David Sharek, PhD UX Research, Google" [ref=e401] [cursor=pointer]:
+              - /url: ./lineup#david-sharek
+              - generic [ref=e405]:
+                - paragraph [ref=e407]: David Sharek, PhD
+                - paragraph [ref=e409]: UX Research, Google
+          - listitem [ref=e410]:
+            - link "Yan Vishnepolsky Human Experience Researcher & Founder, Segment International" [ref=e412] [cursor=pointer]:
+              - /url: ./lineup#yan-vishnepolsky
+              - generic [ref=e416]:
+                - paragraph [ref=e418]: Yan Vishnepolsky
+                - paragraph [ref=e420]: Human Experience Researcher & Founder, Segment International
+          - listitem [ref=e421]:
+            - link "Arleen Fernando Founder and CEO, Haumea Technologies" [ref=e423] [cursor=pointer]:
+              - /url: ./lineup#arleen-fernando
+              - generic [ref=e427]:
+                - paragraph [ref=e429]: Arleen Fernando
+                - paragraph [ref=e431]: Founder and CEO, Haumea Technologies
+          - listitem [ref=e432]:
+            - link [ref=e434] [cursor=pointer]:
+              - /url: ./lineup#kim-davidson
+              - img [ref=e436]
+              - generic [ref=e439]:
+                - paragraph [ref=e441]: Kim Davidson
+                - paragraph [ref=e443]: CPO, New River Strategies
+          - listitem [ref=e444]:
+            - generic [ref=e446]:
+              - img [ref=e448]
+              - generic [ref=e451]:
+                - paragraph [ref=e453]: Sean Tangco
+                - paragraph [ref=e455]: Founder, Small Kine Research & Action
+          - listitem [ref=e456]:
+            - link [ref=e458] [cursor=pointer]:
+              - /url: ./lineup#taryn-fukuji
+              - generic [ref=e462]:
+                - paragraph [ref=e464]: Taryn Fukuji
+                - paragraph [ref=e466]: Product Designer, Piʻikū Alum
+          - listitem [ref=e467]:
+            - link [ref=e469] [cursor=pointer]:
+              - /url: ./lineup#michelle
+              - generic [ref=e473]:
+                - paragraph [ref=e475]: Michelle Tran
+                - paragraph [ref=e477]: UX/UI Designer
+          - listitem [ref=e478]:
+            - link [ref=e480] [cursor=pointer]:
+              - /url: ./lineup#sage-suzuki
+              - generic [ref=e484]:
+                - paragraph [ref=e486]: Sage Suzuki
+                - paragraph [ref=e488]: Jr. Software Engineer, Pi'iku Co Alum
+          - listitem [ref=e489]:
+            - link [ref=e491] [cursor=pointer]:
+              - /url: ./lineup#krizel-tomines
+              - generic [ref=e495]:
+                - paragraph [ref=e497]: Krizel Tomines
+                - paragraph [ref=e499]: UX Researcher, Majesco
+          - listitem [ref=e500]:
+            - link [ref=e502] [cursor=pointer]:
+              - /url: ./lineup#david-sharek
+              - generic [ref=e506]:
+                - paragraph [ref=e508]: David Sharek, PhD
+                - paragraph [ref=e510]: UX Research, Google
+          - listitem [ref=e511]:
+            - link [ref=e513] [cursor=pointer]:
+              - /url: ./lineup#yan-vishnepolsky
+              - generic [ref=e517]:
+                - paragraph [ref=e519]: Yan Vishnepolsky
+                - paragraph [ref=e521]: Human Experience Researcher & Founder, Segment International
+        - group "Slideshow pagination controls":
+          - generic:
+            - button "Previous" [ref=e522] [cursor=pointer]:
+              - img "Back Arrow" [ref=e523]
+            - button "Next" [ref=e524] [cursor=pointer]:
+              - img "Next Arrow" [ref=e525]
+      - link "See the Lineup" [ref=e527] [cursor=pointer]:
+        - /url: ./lineup
+        - paragraph [ref=e529]: See the Lineup
+    - generic [ref=e531]:
+      - generic [ref=e533]:
+        - img [ref=e538]
+        - generic [ref=e541]:
+          - heading "STAY AHEAD" [level=6] [ref=e543]
+          - paragraph [ref=e545]: Learn the latest UX trends, tools, and techniques to elevate your skills.
+      - generic [ref=e547]:
+        - img [ref=e552]
+        - generic [ref=e555]:
+          - heading "BUILD CONNECTIONS" [level=6] [ref=e557]
+          - paragraph [ref=e559]: Network with Hawaii’s vibrant UX community of professionals and aspiring designers.
+      - generic [ref=e561]:
+        - img [ref=e566]
+        - generic [ref=e569]:
+          - heading "REFINE YOUR CRAFT" [level=6] [ref=e571]
+          - paragraph [ref=e573]: Participate in workshops, portfolio reviews, and sessions to enhance your design approach.
+      - generic [ref=e575]:
+        - img [ref=e580]
+        - generic [ref=e583]:
+          - heading "ADVANCE YOUR CAREER" [level=6] [ref=e585]
+          - paragraph [ref=e587]: Gain actionable insights to grow, whether you're a pro, a student, or switching careers.
+    - list [ref=e590]:
+      - listitem [ref=e591]:
+        - paragraph [ref=e594]: "IN ONE WEEK :: OCTOBER 25, 2025 :: BY DESIGNERS, FOR DESIGNERS :: UXHICON 2024 BY THE NUMBERS :: 11 TALKS 20 SPEAKERS 100+ ATTENDEES ::"
+      - listitem [ref=e595]:
+        - paragraph [ref=e598]: "IN ONE WEEK :: OCTOBER 25, 2025 :: BY DESIGNERS, FOR DESIGNERS :: UXHICON 2024 BY THE NUMBERS :: 11 TALKS 20 SPEAKERS 100+ ATTENDEES ::"
+      - listitem [ref=e599]:
+        - paragraph [ref=e602]: "IN ONE WEEK :: OCTOBER 25, 2025 :: BY DESIGNERS, FOR DESIGNERS :: UXHICON 2024 BY THE NUMBERS :: 11 TALKS 20 SPEAKERS 100+ ATTENDEES ::"
+      - listitem [ref=e603]:
+        - paragraph [ref=e606]: "IN ONE WEEK :: OCTOBER 25, 2025 :: BY DESIGNERS, FOR DESIGNERS :: UXHICON 2024 BY THE NUMBERS :: 11 TALKS 20 SPEAKERS 100+ ATTENDEES ::"
+    - generic [ref=e607]:
+      - heading "Everything you need to know" [level=2] [ref=e609]
+      - generic [ref=e610]:
+        - generic [ref=e612] [cursor=pointer]:
+          - generic [ref=e613]:
+            - img [ref=e616]
+            - paragraph [ref=e620]: Who should attend the conference?
+          - paragraph [ref=e623]: This event is ideal for anyone interested in design and innovation, including students, beginners, and senior professionals in UX/UI, graphic, and product design, as well as UX teams, developers, project managers, and creative directors.
+        - generic [ref=e625] [cursor=pointer]:
+          - generic [ref=e626]:
+            - img [ref=e629]
+            - paragraph [ref=e633]: Is the conference in-person, virtual, or hybrid?
+          - paragraph [ref=e636]: The conference will be in person only.
+        - generic [ref=e638] [cursor=pointer]:
+          - generic [ref=e639]:
+            - img [ref=e642]
+            - paragraph [ref=e646]: What does the registration ticket include?
+          - paragraph [ref=e649]: The registration fee includes, entry to all sessions and networking, all-day coffee, breakfast, lunch, snacks and swags.
+        - generic [ref=e651] [cursor=pointer]:
+          - generic [ref=e652]:
+            - img [ref=e655]
+            - paragraph [ref=e659]: Are there group discounts available?
+          - paragraph [ref=e662]: Currently, we don't offer group discounts. We highly encourage your team to take advantage of the Early Bird tickets, which are already available at a reduced rate.
+        - generic [ref=e664] [cursor=pointer]:
+          - generic [ref=e665]:
+            - img [ref=e668]
+            - paragraph [ref=e672]: Will the sessions be recorded?
+          - paragraph [ref=e675]: No, the sessions won't be recorded.
+        - generic [ref=e677] [cursor=pointer]:
+          - generic [ref=e678]:
+            - img [ref=e681]
+            - paragraph [ref=e685]: Can I get a refund if I'm not able to attend?
+          - paragraph [ref=e688]: Yes, cancellations made by Thursday, September 25 will receive a full refund. After that date, no refunds can be made.
+        - generic [ref=e690] [cursor=pointer]:
+          - generic [ref=e691]:
+            - img [ref=e694]
+            - paragraph [ref=e698]: What are the parking options available for attendees?
+          - generic [ref=e700]:
+            - paragraph [ref=e701]:
+              - text: Attendees may park in the white-striped stalls near the entrance of Lot C at the venue (paid parking),
+              - link "see the parking map" [ref=e702]:
+                - /url: https://static1.squarespace.com/static/5ca3ef8fb7c92c682aeed800/t/65e90bd2e1422a442e149486/1709771731484/Sandbox+Directions+to+Parking%2C+C+SECURED+PARKING+-+v9.jpg
+              - text: . Limited metered street parking is also available nearby.
+            - paragraph [ref=e703]: "Please note: parking passes will not be provided this year."
+        - generic [ref=e705] [cursor=pointer]:
+          - generic [ref=e706]:
+            - img [ref=e709]
+            - paragraph [ref=e713]: Who can I contact for more information?
+          - paragraph [ref=e716]:
+            - text: For general inquiries, please email
+            - link "aloha@uxhiconference.com" [ref=e717]:
+              - /url: mailto:For general inquiries, please email aloha@uxhiconference.com
+            - text: or Slack @Karli Young and @Sony Atmadjaja
+    - list [ref=e723]:
+      - listitem [ref=e724]:
+        - img "UXHI Conference" [ref=e727]
+      - listitem [ref=e728]:
+        - img "Scott Naauao at UXHI Conferece" [ref=e731]
+      - listitem [ref=e732]:
+        - img "UXHI Conference Workshop" [ref=e735]
+      - listitem [ref=e736]:
+        - img "UXHI Conference Panelists" [ref=e739]
+      - listitem [ref=e740]:
+        - img "UXHI Conference" [ref=e743]
+      - listitem [ref=e744]:
+        - img "UXHI Conference" [ref=e747]
+      - listitem [ref=e748]:
+        - img "Sig Zane Kuhao at UXHI Conference" [ref=e751]
+      - listitem [ref=e752]:
+        - img "UXHI Conference Merch Table" [ref=e755]
+      - listitem [ref=e756]:
+        - img "UXHI Conference" [ref=e759]
+      - listitem [ref=e760]:
+        - img "UXHI Conference attendees" [ref=e763]
+      - listitem [ref=e764]:
+        - img [ref=e767]
+      - listitem [ref=e768]:
+        - img [ref=e771]
+      - listitem [ref=e772]:
+        - img [ref=e775]
+      - listitem [ref=e776]:
+        - img [ref=e779]
+      - listitem [ref=e780]:
+        - img [ref=e783]
+      - listitem [ref=e784]:
+        - img [ref=e787]
+      - listitem [ref=e788]:
+        - img [ref=e791]
+      - listitem [ref=e792]:
+        - img [ref=e795]
+      - listitem [ref=e796]:
+        - img [ref=e799]
+      - listitem [ref=e800]:
+        - img [ref=e803]
+      - listitem [ref=e804]:
+        - img [ref=e807]
+      - listitem [ref=e808]:
+        - img [ref=e811]
+      - listitem [ref=e812]:
+        - img [ref=e815]
+      - listitem [ref=e816]:
+        - img [ref=e819]
+      - listitem [ref=e820]:
+        - img [ref=e823]
+      - listitem [ref=e824]:
+        - img [ref=e827]
+      - listitem [ref=e828]:
+        - img [ref=e831]
+      - listitem [ref=e832]:
+        - img [ref=e835]
+      - listitem [ref=e836]:
+        - img [ref=e839]
+      - listitem [ref=e840]:
+        - img [ref=e843]
+    - generic [ref=e844]:
+      - heading "Testimonials" [level=4] [ref=e846]
+      - generic [ref=e847]:
+        - generic [ref=e849]:
+          - heading "\"The diversity of perspectives and the opportunity to learn from others was truly invaluable.\"" [level=3] [ref=e851]
+          - generic [ref=e852]:
+            - paragraph [ref=e854]: Claudia R
+            - paragraph [ref=e856]: 2023 conference attendee
+        - generic [ref=e858]:
+          - heading "\"It's so exciting to go to tech events in Hawai'i that really feel like they're about Hawai'i and are actually specific to here.\"" [level=3] [ref=e860]
+          - generic [ref=e861]:
+            - generic:
+              - paragraph
+            - paragraph [ref=e863]: 2024 conference attendee
+    - generic [ref=e864]:
+      - heading "Entrepreneurs Sandbox" [level=2] [ref=e866]
+      - generic [ref=e868]:
+        - generic [ref=e869]:
+          - paragraph [ref=e870]: Located in the heart of Kakaʻako, the Entrepreneurs Sandbox is a modern co-working and event space designed to foster innovation and collaboration. With flexible indoor and outdoor areas, it’s the perfect setting for connecting, learning, and building community.
+          - paragraph [ref=e871]:
+            - text: Metered street parking is available nearby, and paid parking is available at the adjacent lot (entrance on Keawe Street),
+            - link "see the parking map" [ref=e872] [cursor=pointer]:
+              - /url: https://static1.squarespace.com/static/5ca3ef8fb7c92c682aeed800/t/65e90bd2e1422a442e149486/1709771731484/Sandbox+Directions+to+Parking%2C+C+SECURED+PARKING+-+v9.jpg
+            - text: . The venue is fully ADA accessible, with wheelchair access and accessible restrooms on-site.
+          - paragraph [ref=e873]: "Please note: parking passes will not be provided this year."
+        - link "View Location" [ref=e875] [cursor=pointer]:
+          - /url: https://maps.app.goo.gl/zBHS4EXnXWuhysEu5
+          - paragraph [ref=e877]: View Location
+    - generic [ref=e880]:
+      - generic [ref=e881]:
+        - heading "About" [level=1] [ref=e883]
+        - img [ref=e886]
+      - generic [ref=e891]:
+        - generic [ref=e892]:
+          - paragraph [ref=e893]: We are a female-founded, volunteer-led community dedicated to connecting and elevating the field of human-centered design for our local community.
+          - paragraph [ref=e894]: Our mission is to foster collaboration and innovation in design, technology, and community-driven solutions in Hawai'i and empower UX designers with skills and tools they need to succeed.
+        - link "Join Our Community" [ref=e896] [cursor=pointer]:
+          - /url: https://uxhi.community/
+          - paragraph [ref=e898]: Join Our Community
+      - heading "Meet the Co-Chairs behind" [level=3] [ref=e901]
+      - generic [ref=e903]:
+        - link "Jennifer Kumura Co-Founder, UXHI" [ref=e905] [cursor=pointer]:
+          - /url: https://linkedin.com/in/jenniferkumura
+          - generic [ref=e909]:
+            - paragraph [ref=e911]: Jennifer Kumura
+            - paragraph [ref=e913]: Co-Founder, UXHI
+        - link "Karli Young Audience Engagement, Kamehameha Schools" [ref=e915] [cursor=pointer]:
+          - /url: https://linkedin.com/in/karli-young
+          - generic [ref=e919]:
+            - paragraph [ref=e921]: Karli Young
+            - paragraph [ref=e923]: Audience Engagement, Kamehameha Schools
+        - link "Micah Chao Data Specialist @ RCUH" [ref=e925] [cursor=pointer]:
+          - /url: https://linkedin.com/in/sungyanmicahchao
+          - generic [ref=e929]:
+            - paragraph [ref=e931]: Micah Chao
+            - paragraph [ref=e933]: Data Specialist @ RCUH
+        - link "Sony Atmadjaja Product Design Director, Doximity" [ref=e935] [cursor=pointer]:
+          - /url: https://linkedin.com/in/sonyka
+          - generic [ref=e939]:
+            - paragraph [ref=e941]: Sony Atmadjaja
+            - paragraph [ref=e943]: Product Design Director, Doximity
+        - link "Taryn Fukuji Events Manager, UXHI" [ref=e945] [cursor=pointer]:
+          - /url: ./lineup#taryn-fukuji
+          - generic [ref=e949]:
+            - paragraph [ref=e951]: Taryn Fukuji
+            - paragraph [ref=e953]: Events Manager, UXHI
+        - link "Yiting Wang, Ph.D. Researcher, UH Manoa" [ref=e955] [cursor=pointer]:
+          - /url: https://linkedin.com/in/dr-yiting-wang
+          - generic [ref=e959]:
+            - paragraph [ref=e961]: Yiting Wang, Ph.D.
+            - paragraph [ref=e963]: Researcher, UH Manoa
+    - generic [ref=e964]:
+      - heading "2025 Conference Partners" [level=2] [ref=e966]
+      - paragraph [ref=e968]:
+        - text: We couldn't do this alone. Big mahalo to our incredible partners and sponsors
+        - text: for investing into our diverse community. Your support fuels creativity and innovation in the tech community, enabling us to bring together the brightest minds and the most exciting ideas.
+      - generic [ref=e969]:
+        - link [ref=e970] [cursor=pointer]:
+          - /url: https://sandboxhawaii.org/
+        - link [ref=e972] [cursor=pointer]:
+          - /url: https://www.htdc.org/
+      - generic [ref=e974]:
+        - heading "SILVER SPONSORS" [level=5] [ref=e976]
+        - generic [ref=e977]:
+          - link [ref=e978] [cursor=pointer]:
+            - /url: https://purplemaia.org/
+          - link [ref=e980] [cursor=pointer]:
+            - /url: https://www.revitalizeoahu.org/
+      - generic [ref=e982]:
+        - heading "BRONZE SPONSORS" [level=5] [ref=e984]
+        - generic [ref=e985]:
+          - generic [ref=e986]:
+            - link [ref=e987] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/chrisota/
+            - link [ref=e989] [cursor=pointer]:
+              - /url: https://www.adobe.com/
+            - link [ref=e991] [cursor=pointer]:
+              - /url: https://www.anthologygroup.com/
+          - generic [ref=e993]:
+            - link [ref=e994] [cursor=pointer]:
+              - /url: https://www.bluemingfilms.com/
+            - link [ref=e996] [cursor=pointer]:
+              - /url: https://www.boomphotobooth.com/
+      - generic [ref=e998]:
+        - heading "IN KIND SPONSORS" [level=5] [ref=e1000]
+        - generic [ref=e1001]:
+          - link [ref=e1002] [cursor=pointer]:
+            - /url: https://ourspacehawaii.org/
+          - link [ref=e1004] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/gustavoambrozio/
+      - generic [ref=e1006]:
+        - heading "HAWAI'I MAKERS PARTNERS" [level=5] [ref=e1008]
+        - generic [ref=e1009]:
+          - link [ref=e1010] [cursor=pointer]:
+            - /url: https://haaandco.com/
+          - link [ref=e1012] [cursor=pointer]:
+            - /url: https://www.foundher.org/
+          - link [ref=e1014] [cursor=pointer]:
+            - /url: https://www.hawaiiclimb.com/
+          - link [ref=e1016] [cursor=pointer]:
+            - /url: https://iwinails.com/
+        - generic [ref=e1018]:
+          - link [ref=e1019] [cursor=pointer]:
+            - /url: https://kakou-apparel.com/
+          - link [ref=e1021] [cursor=pointer]:
+            - /url: https://kaulanamahina.com/
+          - link [ref=e1023] [cursor=pointer]:
+            - /url: https://wailuagranolaco.com/
+          - link [ref=e1025] [cursor=pointer]:
+            - /url: https://www.waimeaherbco.com/
+    - generic [ref=e1028]:
+      - link [ref=e1030] [cursor=pointer]:
+        - /url: ./
+        - img [ref=e1033]
+      - navigation [ref=e1036]:
+        - link "Become a Sponsor" [ref=e1038] [cursor=pointer]:
+          - /url: https://givebutter.com/c/uxhicon2025-sponsors
+          - paragraph [ref=e1042]: Become a Sponsor
+        - link "The Lineup" [ref=e1044] [cursor=pointer]:
+          - /url: ./lineup
+          - paragraph [ref=e1048]: The Lineup
+        - link "About UXHI" [ref=e1050] [cursor=pointer]:
+          - /url: ./#about
+          - paragraph [ref=e1054]: About UXHI
+        - generic [ref=e1055]:
+          - link [ref=e1056] [cursor=pointer]:
+            - /url: https://www.instagram.com/uxhicommunity/
+            - img [ref=e1059]
+          - link [ref=e1062] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/uxhi/
+            - img [ref=e1065]

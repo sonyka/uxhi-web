@@ -1,0 +1,77 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link "UXHI Conference 2026" [ref=e5] [cursor=pointer]:
+          - /url: /conferences/2026/
+          - generic [ref=e6]: UXHI Conference 2026
+        - button "Open menu" [active] [ref=e7]:
+          - img [ref=e8]
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - generic [ref=e59]: UXHI Conference 2026
+          - button "Close menu" [ref=e60]:
+            - img [ref=e61]
+        - navigation [ref=e64]:
+          - generic [ref=e65]:
+            - generic [ref=e66]: Agenda
+            - generic [ref=e67]: Soon
+          - generic [ref=e68]:
+            - generic [ref=e69]: The Lineup
+            - generic [ref=e70]: Soon
+          - generic [ref=e71]:
+            - generic [ref=e72]: FAQ
+            - generic [ref=e73]: Soon
+          - generic [ref=e74]:
+            - generic [ref=e75]: Partners
+            - generic [ref=e76]: Soon
+          - generic [ref=e77]:
+            - generic [ref=e78]: About
+            - generic [ref=e79]: Soon
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - link "Instagram" [ref=e83] [cursor=pointer]:
+              - /url: https://www.instagram.com/uxhicommunity/
+            - link "LinkedIn" [ref=e84] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/uxhi/
+          - link "Become a Sponsor ↗" [ref=e85] [cursor=pointer]:
+            - /url: mailto:aloha@uxhiconference.com
+      - main [ref=e10]:
+        - generic [ref=e12]:
+          - paragraph [ref=e13]: UXHI Conference 2026
+          - heading "Mo’olelo" [level=1] [ref=e14]
+          - paragraph [ref=e15]: The UXHI Conference returns in 2026. Stay tuned — details are on their way.
+          - generic [ref=e16]:
+            - generic [ref=e17]: Date TBD
+            - generic [ref=e18]: Honolulu, HI
+          - generic [ref=e19]:
+            - paragraph [ref=e20]: Counting Down
+            - generic [ref=e21]:
+              - generic [ref=e22]:
+                - generic [ref=e23]: "163"
+                - generic [ref=e24]: Days
+              - generic [ref=e25]: ":"
+              - generic [ref=e26]:
+                - generic [ref=e27]: "02"
+                - generic [ref=e28]: Hours
+              - generic [ref=e29]: ":"
+              - generic [ref=e30]:
+                - generic [ref=e31]: "00"
+                - generic [ref=e32]: Min
+              - generic [ref=e33]: ":"
+              - generic [ref=e34]:
+                - generic [ref=e35]: "25"
+                - generic [ref=e36]: Sec
+          - generic [ref=e37]:
+            - paragraph [ref=e38]: Stay in the loop
+            - generic [ref=e39]:
+              - textbox "your@email.com" [ref=e40]
+              - button "Notify me" [ref=e41]
+            - paragraph [ref=e42]: More details coming soon.
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: © 2026 UX Hawaii. All rights reserved.
+          - link "aloha@uxhiconference.com" [ref=e46] [cursor=pointer]:
+            - /url: mailto:aloha@uxhiconference.com
+  - button "Open Next.js Dev Tools" [ref=e52] [cursor=pointer]:
+    - img [ref=e53]
+  - alert [ref=e56]

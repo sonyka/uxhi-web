@@ -1,0 +1,203 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e7]:
+        - link [ref=e9] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e10]:
+          - generic [ref=e11]:
+            - link "About" [ref=e12] [cursor=pointer]:
+              - /url: "#About"
+            - link "Events" [ref=e13] [cursor=pointer]:
+              - /url: "#Schedule"
+            - link "Testimonial" [ref=e14] [cursor=pointer]:
+              - /url: "#Testimonial"
+            - link "Contact" [ref=e15] [cursor=pointer]:
+              - /url: "#CTA"
+          - link "Join Next Meetup" [ref=e16] [cursor=pointer]:
+            - /url: "#Schedule"
+            - generic [ref=e17]: Join Next Meetup
+      - link "SEE FULL SCHEDULE" [ref=e26] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e27]: SEE FULL SCHEDULE
+    - generic [ref=e32]:
+      - generic [ref=e34]:
+        - generic [ref=e35]: WELCOME TO NEXTCONF
+        - heading "Unlock Possibility with No Code" [level=1] [ref=e40]:
+          - text: Unlock Possibility
+          - text: with No Code
+        - generic [ref=e41]: a local hub for creators, entrepreneurs, and curious minds to explore, build, and grow without writing a single line of code.
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e46]:
+              - generic [ref=e47]: WHAT YOU GET
+              - generic [ref=e48]:
+                - generic [ref=e51]: Learn practical skill
+                - generic [ref=e54]: Meet like-minded people
+            - generic [ref=e55]:
+              - generic [ref=e56]: WHO CAN JOIN
+              - generic [ref=e57]:
+                - generic [ref=e60]: Creators
+                - generic [ref=e63]: Entrepreneurs
+          - link [ref=e66] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e72]: ABOUT US
+          - generic [ref=e73]:
+            - heading "The No-Code Movement Local & Personal" [level=2] [ref=e74]
+            - generic [ref=e75]: No-code tools have opened doors to creators everywhere. But building is better together.
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e79]:
+              - generic [ref=e80]: Learn by Doing
+              - generic [ref=e81]: This value encourages action, experimentation, and learning from real-world practice rather than relying solely on theory.
+            - generic [ref=e83]:
+              - generic [ref=e84]: Build with Others
+              - generic [ref=e85]: This value encourages action, experimentation, and learning from real-world practice rather than relying solely on theory.
+          - generic [ref=e86]:
+            - generic [ref=e88]:
+              - generic [ref=e89]: Sharing Knowledge
+              - generic [ref=e90]: This value encourages action, experimentation, and learning from real-world practice rather than relying solely on theory.
+            - generic [ref=e92]:
+              - generic [ref=e93]: Celebrate progress
+              - generic [ref=e94]: This value encourages action, experimentation, and learning from real-world practice rather than relying solely on theory.
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - generic [ref=e98]: UPCOMIng schedule
+          - heading "Meetup & Workshop" [level=2] [ref=e99]
+        - list [ref=e101]:
+          - listitem [ref=e102]:
+            - 'link "Jun 27 Building MVPs with Bubble App Development 09.30 - 12.00 place: Jakarta, Indonesia Speakers: John Doe" [ref=e103] [cursor=pointer]':
+              - /url: /meetup/building-mvps-with-bubble
+              - generic [ref=e105]: Jun 27
+              - generic [ref=e106]:
+                - generic [ref=e108]: Building MVPs with Bubble
+                - generic [ref=e113]:
+                  - generic [ref=e114]: App Development
+                  - generic [ref=e115]: 09.30 - 12.00
+                - generic [ref=e117]:
+                  - generic [ref=e118]:
+                    - generic [ref=e119]: "place:"
+                    - generic [ref=e120]: Jakarta, Indonesia
+                  - generic [ref=e121]:
+                    - generic [ref=e122]: "Speakers:"
+                    - generic [ref=e123]: John Doe
+          - listitem [ref=e124]:
+            - 'link "Jun 28 Automating with Zapier & Make Workflow Animation 09.30 - 12.00 place: Toronto, Canada Speakers: Sandy Garfield" [ref=e125] [cursor=pointer]':
+              - /url: /meetup/automating-with-zapier-make
+              - generic [ref=e127]: Jun 28
+              - generic [ref=e128]:
+                - generic [ref=e130]: Automating with Zapier & Make
+                - generic [ref=e135]:
+                  - generic [ref=e136]: Workflow Animation
+                  - generic [ref=e137]: 09.30 - 12.00
+                - generic [ref=e139]:
+                  - generic [ref=e140]:
+                    - generic [ref=e141]: "place:"
+                    - generic [ref=e142]: Toronto, Canada
+                  - generic [ref=e143]:
+                    - generic [ref=e144]: "Speakers:"
+                    - generic [ref=e145]: Sandy Garfield
+          - listitem [ref=e146]:
+            - 'link "Jun 29 No-Code Showcase Member Project Demos 09.30 - 12.00 place: Nairobi, Kenya Speakers: Obba Sade" [ref=e147] [cursor=pointer]':
+              - /url: /meetup/no-code-showcase
+              - generic [ref=e149]: Jun 29
+              - generic [ref=e150]:
+                - generic [ref=e152]: No-Code Showcase
+                - generic [ref=e157]:
+                  - generic [ref=e158]: Member Project Demos
+                  - generic [ref=e159]: 09.30 - 12.00
+                - generic [ref=e161]:
+                  - generic [ref=e162]:
+                    - generic [ref=e163]: "place:"
+                    - generic [ref=e164]: Nairobi, Kenya
+                  - generic [ref=e165]:
+                    - generic [ref=e166]: "Speakers:"
+                    - generic [ref=e167]: Obba Sade
+      - generic [ref=e169]:
+        - generic [ref=e172]:
+          - generic [ref=e173]: TESTIMONIAL
+          - generic [ref=e174]: What Members Love
+          - region "carousel" [ref=e176]:
+            - generic [ref=e177]:
+              - group "1 of 3" [ref=e178]:
+                - generic [ref=e179]:
+                  - generic [ref=e180]: I launched my MVP after one session — the energy here is incredible!
+                  - generic [ref=e181]: "-Youtubers of YoYo! Channel"
+              - group [ref=e182]:
+                - generic [ref=e183]:
+                  - generic [ref=e184]: I launched my MVP after one session — the energy here is incredible!
+                  - generic [ref=e185]: ~Youtubers of YoYo! Channel
+              - group [ref=e186]:
+                - generic [ref=e187]:
+                  - generic [ref=e188]: I launched my MVP after one session — the energy here is incredible!
+                  - generic [ref=e189]: ~Youtubers of YoYo! Channel
+            - text:  
+            - generic [ref=e191]:
+              - button "Show slide 1 of 3" [pressed] [ref=e192] [cursor=pointer]
+              - button "Show slide 2 of 3" [ref=e193] [cursor=pointer]
+              - button "Show slide 3 of 3" [ref=e194] [cursor=pointer]
+        - generic [ref=e195]:
+          - generic [ref=e196]:
+            - generic [ref=e197]:
+              - generic [ref=e198]: 100+
+              - generic [ref=e199]: ACTIVE MEMBERS
+            - generic [ref=e200]:
+              - generic [ref=e201]: Beginner
+              - generic [ref=e202]: Pro
+              - generic [ref=e203]: SKILL LEVELS
+          - generic [ref=e204]:
+            - generic [ref=e206]: REAL-TIME DEMOS & CHALLENGE
+            - generic [ref=e208]:
+              - text: ACCESS TO
+              - text: EXE-RESOURCES
+  - generic [ref=e213]:
+    - generic [ref=e214]: Join the Movement
+    - generic [ref=e215]: It's Free to Start!
+  - generic [ref=e219]:
+    - generic [ref=e220]:
+      - generic [ref=e221]: LEGAL
+      - generic [ref=e222]:
+        - link "License" [ref=e223] [cursor=pointer]:
+          - /url: /license
+        - link "STYLE GUIDE" [ref=e224] [cursor=pointer]:
+          - /url: /style-guide
+        - link "CHANGELOG" [ref=e225] [cursor=pointer]:
+          - /url: /changelog
+        - link "404 Page" [ref=e226] [cursor=pointer]:
+          - /url: /404
+      - generic [ref=e227]: Copyright © 2025 8AM DESIGN
+    - generic [ref=e228]:
+      - generic [ref=e229]:
+        - generic [ref=e230]: GET IN TOUCH
+        - link "hello@8am.design" [ref=e231] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e232]: hello@8am.design
+      - generic [ref=e233]:
+        - generic [ref=e234]: SOCIAL
+        - link "X" [ref=e235] [cursor=pointer]:
+          - /url: /8amdsgn
+        - link "LINKEDIN" [ref=e236] [cursor=pointer]:
+          - /url: /8amdsgn
+        - link "Instagram" [ref=e237] [cursor=pointer]:
+          - /url: https://instagram.com/8amdsgn
+        - link "DISCORD" [ref=e238] [cursor=pointer]:
+          - /url: /8amdsgn
+    - generic [ref=e239]:
+      - generic [ref=e240]: NEXT EVENT
+      - generic [ref=e241]:
+        - link "UX RESEARCH" [ref=e242] [cursor=pointer]:
+          - /url: "#"
+        - link "CONTENT CREATOR" [ref=e243] [cursor=pointer]:
+          - /url: "#"
+        - link "MOTION DESIGNER" [ref=e244] [cursor=pointer]:
+          - /url: "#"
+        - link "UI DESIGNER" [ref=e245] [cursor=pointer]:
+          - /url: "#"
+  - link "MORE TEMPLATE" [ref=e246] [cursor=pointer]:
+    - /url: http://8am.design
+    - generic [ref=e247]: MORE TEMPLATE
+  - link "MORE TEMPLATE" [ref=e249] [cursor=pointer]:
+    - /url: http://8am.design
+    - generic [ref=e250]: MORE TEMPLATE
