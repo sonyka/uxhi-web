@@ -12,6 +12,14 @@ export function middleware(request: NextRequest) {
   if (CONFERENCE_HOSTS.includes(hostname)) {
     const { pathname } = request.nextUrl;
 
+    // Static assets (images, SVGs, etc.) are stored under /conferences/YYYY/assets/.
+    // If the browser already resolved the full path, pass it through unchanged to
+    // avoid the middleware doubling the prefix (e.g. /conferences/2026/assets →
+    // /conferences/2026/conferences/2026/assets).
+    if (pathname.startsWith("/conferences/")) {
+      return NextResponse.next();
+    }
+
     // uxhiconference.com/2025/[path] → /conferences/2025/[path]  (year archive)
     // uxhiconference.com/[path]      → /conferences/2026/[path]  (current year)
     const yearMatch = pathname.match(/^\/(\d{4})(\/.*)?$/);
