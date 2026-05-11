@@ -1,0 +1,401 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: ./
+        - img [ref=e10]
+      - generic [ref=e13] [cursor=pointer]:
+        - paragraph [ref=e15]: Work with us
+        - img [ref=e18]
+    - main [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - generic [ref=e25]:
+              - paragraph [ref=e27]: Timezone
+              - paragraph [ref=e29]: UTC +2
+            - generic [ref=e30]:
+              - paragraph [ref=e32]: Location
+              - paragraph [ref=e34]: Worldwide
+            - generic [ref=e35]:
+              - paragraph [ref=e37]: Experience
+              - paragraph [ref=e39]: 10+ years
+            - generic [ref=e40]:
+              - paragraph [ref=e42]: Languages
+              - paragraph [ref=e44]: English, Spanish, French
+            - generic [ref=e45]:
+              - paragraph [ref=e47]: Skillset
+              - paragraph [ref=e49]: Product, Design and Strategy
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - paragraph [ref=e56]: Booking for June '25
+              - heading "Method is a design studio that helps founders build world-class products, fast." [level=1] [ref=e58]
+              - generic [ref=e61] [cursor=pointer]:
+                - paragraph [ref=e63]: Work with us
+                - img [ref=e66]
+            - generic [ref=e68]:
+              - paragraph [ref=e70]: Trusted by startups and market leaders for over a decade
+              - list [ref=e76]:
+                - listitem [ref=e77]:
+                  - img [ref=e81]
+                - listitem [ref=e83]:
+                  - img [ref=e87]
+                - listitem [ref=e89]:
+                  - img [ref=e93]
+                - listitem [ref=e95]:
+                  - img [ref=e99]
+                - listitem [ref=e101]:
+                  - img [ref=e105]
+                - listitem [ref=e107]:
+                  - img [ref=e111]
+                - listitem [ref=e113]:
+                  - img [ref=e117]
+                - listitem [ref=e119]:
+                  - img [ref=e123]
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - generic [ref=e128]:
+              - paragraph [ref=e130]:
+                - strong [ref=e131]: Select works
+              - generic [ref=e136]: "4"
+            - generic [ref=e137]:
+              - link "Vesta Product Design & Engineering" [ref=e141] [cursor=pointer]:
+                - /url: ./work/vesta
+                - generic [ref=e145]:
+                  - paragraph [ref=e147]: Vesta
+                  - paragraph [ref=e149]: Product Design & Engineering
+              - link "Quanta Cloud Product Design & Strategy" [ref=e153] [cursor=pointer]:
+                - /url: ./work/quanta-cloud
+                - generic [ref=e157]:
+                  - paragraph [ref=e159]: Quanta Cloud
+                  - paragraph [ref=e161]: Product Design & Strategy
+              - link "Grain Analytics Redesign & Product Strategy" [ref=e165] [cursor=pointer]:
+                - /url: ./work/grain-analytics
+                - generic [ref=e169]:
+                  - paragraph [ref=e171]: Grain Analytics
+                  - paragraph [ref=e173]: Redesign & Product Strategy
+              - link "Orbit Product Design & No Code Development" [ref=e177] [cursor=pointer]:
+                - /url: ./work/orbit
+                - generic [ref=e181]:
+                  - paragraph [ref=e183]: Orbit
+                  - paragraph [ref=e185]: Product Design & No Code Development
+            - link "View more" [ref=e188] [cursor=pointer]:
+              - /url: ./work
+              - paragraph [ref=e190]: View more
+              - img [ref=e195]
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - paragraph [ref=e201]:
+                - strong [ref=e202]: Services
+              - paragraph [ref=e204]: We design with intent — sharp, functional, and user-first. No fluff, just digital experiences that feel right and work fast. From startups to market leaders, we’ve done this for over 10 years for companies in a wide range of categories, using the best and latest tools.
+            - generic [ref=e205]:
+              - generic [ref=e206]:
+                - paragraph [ref=e208]: Focus
+                - generic [ref=e209]:
+                  - generic [ref=e210]:
+                    - img [ref=e216] [cursor=pointer]
+                    - paragraph [ref=e219]: Product Design
+                  - generic [ref=e220]:
+                    - img [ref=e226] [cursor=pointer]
+                    - paragraph [ref=e229]: Apps
+                  - generic [ref=e230]:
+                    - img [ref=e236] [cursor=pointer]
+                    - paragraph [ref=e239]: Website & Platforms
+                  - generic [ref=e240]:
+                    - img [ref=e246] [cursor=pointer]
+                    - paragraph [ref=e249]: Landing Pages
+                  - generic [ref=e250]:
+                    - img [ref=e256] [cursor=pointer]
+                    - paragraph [ref=e259]: Product Strategy
+                  - generic [ref=e260]:
+                    - img [ref=e266] [cursor=pointer]
+                    - paragraph [ref=e269]: No Code
+                  - generic [ref=e270]:
+                    - img [ref=e276] [cursor=pointer]
+                    - paragraph [ref=e279]: Redesigns
+                  - generic [ref=e280]:
+                    - img [ref=e286] [cursor=pointer]
+                    - paragraph [ref=e289]: Branding
+                  - generic [ref=e290]:
+                    - img [ref=e296] [cursor=pointer]
+                    - paragraph [ref=e299]: Audits
+              - generic [ref=e300]:
+                - paragraph [ref=e302]: Industries
+                - generic [ref=e303]:
+                  - generic [ref=e304]:
+                    - img [ref=e310] [cursor=pointer]
+                    - paragraph [ref=e313]: AI
+                  - generic [ref=e314]:
+                    - img [ref=e320] [cursor=pointer]
+                    - paragraph [ref=e324]: SaaS
+                  - generic [ref=e325]:
+                    - img [ref=e331] [cursor=pointer]
+                    - paragraph [ref=e334]: Fintech
+                  - generic [ref=e335]:
+                    - img [ref=e341] [cursor=pointer]
+                    - paragraph [ref=e346]: AR/VR
+                  - generic [ref=e347]:
+                    - img [ref=e353] [cursor=pointer]
+                    - paragraph [ref=e356]: Crypto
+                  - generic [ref=e357]:
+                    - img [ref=e363] [cursor=pointer]
+                    - paragraph [ref=e366]: Ecommerce
+                  - generic [ref=e367]:
+                    - img [ref=e373] [cursor=pointer]
+                    - paragraph [ref=e376]: Creators
+                  - generic [ref=e377]:
+                    - img [ref=e383] [cursor=pointer]
+                    - paragraph [ref=e387]: Gaming
+                  - generic [ref=e388]:
+                    - img [ref=e394] [cursor=pointer]
+                    - paragraph [ref=e397]: Real Estate
+              - generic [ref=e398]:
+                - paragraph [ref=e400]: Tools
+                - generic [ref=e401]:
+                  - generic [ref=e402]:
+                    - img [ref=e406]
+                    - paragraph [ref=e409]: AI
+                  - generic [ref=e410]:
+                    - img [ref=e413]
+                    - paragraph [ref=e416]: SaaS
+                  - generic [ref=e417]:
+                    - img [ref=e421]
+                    - paragraph [ref=e424]: Lovable
+                  - generic [ref=e425]:
+                    - img [ref=e428]
+                    - paragraph [ref=e431]: AR/VR
+                  - generic [ref=e432]:
+                    - img "Cursor Logo" [ref=e435]
+                    - paragraph [ref=e437]: Cursor
+                  - generic [ref=e438]:
+                    - generic [ref=e439]:
+                      - img "Logo Container" [ref=e441]
+                      - img "Runway Logo" [ref=e444]
+                    - paragraph [ref=e446]: Runway ML
+                  - generic [ref=e447]:
+                    - img [ref=e450]
+                    - paragraph [ref=e453]: Creators
+                  - generic [ref=e454]:
+                    - img [ref=e457]
+                    - paragraph [ref=e460]: Claude
+                  - generic [ref=e461]:
+                    - img [ref=e464]
+                    - paragraph [ref=e467]: Notion
+          - generic [ref=e468]:
+            - generic [ref=e469]:
+              - paragraph [ref=e471]:
+                - strong [ref=e472]: Testimonials
+              - paragraph [ref=e474]: More than just design — we bring clarity, speed, and strategy to every project. Our reputation is earned, these are the words of founders, product leaders, and teams we’ve worked with.
+            - generic [ref=e477]:
+              - generic [ref=e478]:
+                - generic [ref=e481]:
+                  - generic [ref=e482]:
+                    - img [ref=e485]
+                    - paragraph [ref=e488]:
+                      - strong [ref=e489]: By far, the fastest design team we’ve ever worked with. No back-and-forth, just great work every time.
+                  - generic [ref=e491]:
+                    - paragraph [ref=e493]: Alex Wang
+                    - paragraph [ref=e495]: ","
+                    - paragraph [ref=e497]: Founder at Vesta
+                - generic [ref=e500]:
+                  - generic [ref=e501]:
+                    - img [ref=e504]
+                    - paragraph [ref=e507]:
+                      - strong [ref=e508]: We came to Method with a rough idea and walked away with a product that our users love.
+                  - generic [ref=e510]:
+                    - paragraph [ref=e512]: Jamie Chen
+                    - paragraph [ref=e514]: ","
+                    - paragraph [ref=e516]: CPO at Quanta Cloud
+                - generic [ref=e519]:
+                  - generic [ref=e520]:
+                    - img [ref=e523]
+                    - paragraph [ref=e526]:
+                      - strong [ref=e527]: The branding work Method did for us was spot-on. Exactly what we needed to stand out.
+                  - generic [ref=e529]:
+                    - paragraph [ref=e531]: Carla Pearson
+                    - paragraph [ref=e533]: ","
+                    - paragraph [ref=e535]: Co-Founder at Synthesis
+              - generic [ref=e536]:
+                - img "Man in denim jacket smiling outdoors." [ref=e540] [cursor=pointer]
+                - img "Man in sunglasses with autumn leaves." [ref=e544] [cursor=pointer]
+                - img "Woman in black hat on forest path." [ref=e548] [cursor=pointer]
+          - generic [ref=e549]:
+            - generic [ref=e550]:
+              - paragraph [ref=e552]:
+                - strong [ref=e553]: Blog
+              - paragraph [ref=e555]: Short, useful posts on product, design, and strategy — written for founders who like to move fast and build well.
+            - generic [ref=e556]:
+              - link "Why MVPs Fail (And What Good Ones Have in Common)" [ref=e560] [cursor=pointer]:
+                - /url: ./blog/why-mvps-fail-(and-what-good-ones-have-in-common)
+                - paragraph [ref=e566]: Why MVPs Fail (And What Good Ones Have in Common)
+              - link "Building trust through visual design" [ref=e570] [cursor=pointer]:
+                - /url: ./blog/building-trust-through-visual-design
+                - paragraph [ref=e576]: Building trust through visual design
+              - 'link "Designing for Accessibility: Best Practices to Follow" [ref=e580] [cursor=pointer]':
+                - /url: ./blog/designing-for-accessibility-best-practices-to-follow
+                - paragraph [ref=e586]: "Designing for Accessibility: Best Practices to Follow"
+            - link "View more" [ref=e589] [cursor=pointer]:
+              - /url: ./blog
+              - paragraph [ref=e591]: View more
+              - img [ref=e596]
+          - generic [ref=e599]:
+            - generic [ref=e600]:
+              - paragraph [ref=e602]:
+                - strong [ref=e603]: FAQs
+              - paragraph [ref=e605]: Got questions? We’ve got answers. Here’s everything you need to know about working with us.
+            - generic [ref=e608]:
+              - generic [ref=e610] [cursor=pointer]:
+                - generic [ref=e611]:
+                  - paragraph [ref=e613]: What kind of clients do you work with?
+                  - img [ref=e619]
+                - paragraph [ref=e622]: Mostly startups, founders, and product teams. We’ve also worked with scaleups and VC-backed companies across a range of industries.
+              - generic [ref=e624] [cursor=pointer]:
+                - generic [ref=e625]:
+                  - paragraph [ref=e627]: What if I don’t have a clear product brief yet?
+                  - img [ref=e633]
+                - paragraph [ref=e636]: That’s totally fine. We specialize in turning loose ideas into clear, actionable plans. You don’t need to have everything figured out — that’s what we’re here for.
+              - generic [ref=e638] [cursor=pointer]:
+                - generic [ref=e639]:
+                  - paragraph [ref=e641]: Do you work async or in real-time?
+                  - img [ref=e647]
+                - paragraph [ref=e650]: Async-first, always. You get fast progress without constant meetings. Updates, Looms, and shared boards keep everything transparent and moving.
+              - generic [ref=e652] [cursor=pointer]:
+                - generic [ref=e653]:
+                  - paragraph [ref=e655]: What’s your typical engagement like?
+                  - img [ref=e661]
+                - paragraph [ref=e664]: Focused, fast, and collaborative. Most projects run 4–6 weeks with weekly deliverables, tight feedback loops, and no wasted time.
+              - generic [ref=e666] [cursor=pointer]:
+                - generic [ref=e667]:
+                  - paragraph [ref=e669]: How soon can we start?
+                  - img [ref=e675]
+                - paragraph [ref=e678]: Usually within 1–2 weeks. Once we’re aligned, we move quickly to lock in timelines and get started.
+              - generic [ref=e680] [cursor=pointer]:
+                - generic [ref=e681]:
+                  - paragraph [ref=e683]: What if I need help after launch?
+                  - img [ref=e689]
+                - paragraph [ref=e692]: We don’t disappear. Need iterations, new features, or extra polish? We offer post-launch support tailored to your needs.
+              - generic [ref=e694] [cursor=pointer]:
+                - generic [ref=e695]:
+                  - paragraph [ref=e697]: What if my direction changes midway?
+                  - img [ref=e703]
+                - paragraph [ref=e706]: It happens. We build flexibility into every project and adapt quickly — without slowing down or compromising quality.
+          - generic [ref=e707]:
+            - generic [ref=e708]:
+              - paragraph [ref=e710]:
+                - strong [ref=e711]: Contact
+              - paragraph [ref=e713]: We keep things lean, clear, and responsive. Drop us a note — we’ll reply fast.
+            - generic [ref=e716]:
+              - generic [ref=e717]:
+                - generic [ref=e719] [cursor=pointer]:
+                  - paragraph [ref=e721]:
+                    - strong [ref=e722]: Get quote
+                  - img [ref=e727]
+                - generic [ref=e730] [cursor=pointer]:
+                  - paragraph [ref=e732]:
+                    - strong [ref=e733]: Book call
+                  - img [ref=e738]
+                - generic [ref=e742] [cursor=pointer]:
+                  - paragraph [ref=e744]:
+                    - strong [ref=e745]: Text us
+                  - img [ref=e750]
+              - generic [ref=e755]:
+                - generic [ref=e756]:
+                  - generic [ref=e757]:
+                    - paragraph [ref=e759]: Full name
+                    - textbox "Full name" [ref=e761]:
+                      - /placeholder: John Doe
+                  - generic [ref=e762]:
+                    - paragraph [ref=e764]: Email
+                    - textbox "Email" [ref=e766]:
+                      - /placeholder: jane@framer.com
+                - generic [ref=e767]:
+                  - paragraph [ref=e769]: What do you need help with?
+                  - textbox "What do you need help with?" [ref=e771]:
+                    - /placeholder: Describe your project ...
+                - generic [ref=e772]:
+                  - paragraph [ref=e774]: What's your budget?
+                  - combobox "What's your budget?" [ref=e776]:
+                    - option "Select budget ..." [disabled] [selected]
+                    - option "$5k-$10k"
+                    - option "$10k-$20k"
+                    - option "$20k-$50k"
+                    - option "$50k+"
+                - generic [ref=e777]:
+                  - generic [ref=e778]:
+                    - img [ref=e783] [cursor=pointer]
+                    - paragraph [ref=e787]: Less than 24 hours to respond
+                  - button "Send message" [ref=e789] [cursor=pointer]:
+                    - paragraph [ref=e791]:
+                      - strong [ref=e792]: Send message
+          - generic [ref=e796]:
+            - generic [ref=e797]:
+              - generic [ref=e799]:
+                - text: Designed in New Zealand
+                - img [ref=e805] [cursor=pointer]
+              - generic [ref=e809]:
+                - text: Serving customers worldwide
+                - img [ref=e815] [cursor=pointer]
+              - generic [ref=e818]:
+                - paragraph [ref=e820]: Follow us on
+                - link [ref=e821] [cursor=pointer]:
+                  - /url: https://x.com
+                  - img [ref=e824]
+                - paragraph [ref=e827]: ","
+                - link [ref=e828] [cursor=pointer]:
+                  - /url: https://www.linkedin.com
+                  - img [ref=e831]
+                - paragraph [ref=e834]: or
+                - link [ref=e835] [cursor=pointer]:
+                  - /url: https://www.threads.net/
+                  - img [ref=e838]
+            - generic [ref=e840]:
+              - paragraph [ref=e842]:
+                - text: Built using
+                - link "Framer" [ref=e843] [cursor=pointer]:
+                  - /url: https://framer.link/justinmfarrugia
+              - paragraph [ref=e845]:
+                - link "Buy this template" [ref=e846] [cursor=pointer]:
+                  - /url: https://dub.sh/methodcmd
+              - paragraph [ref=e848]:
+                - link "Become an affiliate" [ref=e849] [cursor=pointer]:
+                  - /url: https://jusfar.lemonsqueezy.com/affiliates
+            - generic [ref=e850]:
+              - paragraph [ref=e852]: © 2026
+              - paragraph [ref=e854]:
+                - text: Method by
+                - link "CMD Supply ⌘" [ref=e855] [cursor=pointer]:
+                  - /url: https://www.cmd.supply/
+    - contentinfo [ref=e856]:
+      - generic [ref=e858]:
+        - link "Home" [ref=e860] [cursor=pointer]:
+          - /url: ./
+          - img [ref=e863]
+          - paragraph [ref=e866]: Home
+        - link "Work" [ref=e869] [cursor=pointer]:
+          - /url: ./work
+          - img [ref=e872]
+          - paragraph [ref=e877]: Work
+        - link "Blog" [ref=e880] [cursor=pointer]:
+          - /url: ./blog
+          - img [ref=e883]
+          - paragraph [ref=e886]: Blog
+        - link "About" [ref=e889] [cursor=pointer]:
+          - /url: ./about
+          - img [ref=e892]
+          - paragraph [ref=e896]: About
+      - generic [ref=e899]:
+        - paragraph [ref=e901]:
+          - link "Terms of Use" [ref=e902] [cursor=pointer]:
+            - /url: ./terms
+        - paragraph [ref=e904]:
+          - link "Privacy Policy" [ref=e905] [cursor=pointer]:
+            - /url: ./privacy-policy
+  - generic:
+    - link "Create a free website with Framer, the website builder loved by startups, designers and agencies.":
+      - /url: https://www.framer.com
+      - paragraph [ref=e906] [cursor=pointer]: Create a free website with Framer, the website builder loved by startups, designers and agencies.
+  - img [ref=e937]
+  - img [ref=e942]
+  - img [ref=e944]
+  - img [ref=e957]
+  - img [ref=e964]
