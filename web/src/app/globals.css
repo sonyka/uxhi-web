@@ -187,3 +187,36 @@ html {
 .card-shadow {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 24px rgba(0, 0, 0, 0.06);
 }
+
+/* ── UXHICONF26 photo ticker utility classes ─────────────────────── */
+.conf-ticker-v {
+  animation: conf-scroll-up-md 15s linear infinite;
+}
+@media (min-width: 1280px) {
+  .conf-ticker-v {
+    animation: conf-scroll-up-xl 25s linear infinite;
+  }
+}
+.conf-ticker-v:hover { animation-play-state: paused; }
+
+/* ── UXHICONF26 photo ticker animations ─────────────────────────── */
+/* Vertical ticker: XL (200×256 items, 16px gap → 1360px per set)  */
+@keyframes conf-scroll-up-xl {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-1360px); }
+}
+/* Vertical ticker: MD/LG (120×154 items, 10px gap → 820px per set) */
+@keyframes conf-scroll-up-md {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-820px); }
+}
+/* Horizontal ticker: SM (120×154 items, 10px gap → 650px per set) */
+@keyframes conf-scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-650px); }
+}
+/* Pulsing dot rings */
+@keyframes conf-pulse-ring {
+  0%   { transform: translate(-50%, -50%) scale(0.5); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0; }
+}

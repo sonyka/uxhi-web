@@ -1,71 +1,315 @@
 import type { Metadata } from "next";
-import { ConferenceNav } from "./_components/ConferenceNav";
-import { CountdownTimer } from "./_components/CountdownTimer";
+import Link from "next/link";
+import { LogoBadge } from "./_components/LogoBadge";
+import { PhotoTickerV, PhotoTickerH } from "./_components/PhotoTicker";
 
 export const metadata: Metadata = {
-  title: "UXHI Conference 2026",
-  description: "The UXHI Conference returns in 2026. Coming to Honolulu, HI on October 17.",
+  title: "UXHICONF26 — Coming Soon",
+  description:
+    "UXHICon 2026 — October 17, 2026. An immersive day of design knowledge-sharing, inspiration, and connection in Hawaiʻi.",
 };
 
+// ── Design tokens ─────────────────────────────────────────────────────
+const BEIGE_30 = "#F4F1EA"; // page background (beige-30 from design system)
+const PURPLE   = "#231769"; // --color-purple-140
+const TEAL     = "#09C0D7"; // --color-teal-90
+
+const EVENT_DATE = new Date("2026-10-17T00:00:00");
+
+function daysUntil() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return Math.max(0, Math.ceil((EVENT_DATE.getTime() - today.getTime()) / 86400000));
+}
+
+// ── Pulsing dot ───────────────────────────────────────────────────────
+function PulseDot() {
+  return (
+    <span className="relative inline-flex w-[10px] h-[10px] flex-shrink-0" aria-hidden="true">
+      <span className="absolute top-1/2 left-1/2 w-[10px] h-[10px] rounded-full"
+        style={{ background: TEAL, animation: "conf-pulse-ring 2s ease-out infinite" }} />
+      <span className="absolute top-1/2 left-1/2 w-[10px] h-[10px] rounded-full"
+        style={{ background: TEAL, animation: "conf-pulse-ring 2s ease-out 0.7s infinite" }} />
+      <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[7px] h-[7px] rounded-full z-10"
+        style={{ background: TEAL }} />
+    </span>
+  );
+}
+
+// ── Stat row ──────────────────────────────────────────────────────────
+function StatRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex justify-between items-center py-[4px] border-b border-black/[0.08] last:border-0">
+      <span className="text-[11px] font-normal text-[#676D73]">{label}</span>
+      <span className="text-[11px] font-semibold" style={{ color: PURPLE }}>{value}</span>
+    </div>
+  );
+}
+
+// ── Sidebar info ──────────────────────────────────────────────────────
+// Matches Figma sidebar typography exactly:
+//   • "X DAYS TO PILINA"      — 11px, uppercase, tracking-wide, semibold
+//   • "BY DESIGNERS…"         — 10px, uppercase, tracking-wider, regular
+//   • "2025 UXHICON BY…"      — 10px, uppercase, tracking-wider, regular
+//   • Stat rows               — 11px label / 11px semibold value
+function SidebarInfo() {
+  return (
+    <>
+      <LogoBadge />
+      <div className="flex flex-col gap-[12px]">
+        <div className="flex flex-col gap-[3px]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] leading-[1.4]"
+            style={{ color: PURPLE }}>
+            <strong className="text-[13px] font-bold">{daysUntil()}</strong>
+            {" "}days to Pilina
+          </p>
+          <p className="text-[10px] font-normal uppercase tracking-[0.08em] leading-[1.5] text-[#676D73]">
+            By designers,&nbsp;&nbsp;for designers
+          </p>
+          <p className="text-[10px] font-normal uppercase tracking-[0.06em] leading-[1.5] text-[#676D73]">
+            2025 UXHICON by the numbers:
+          </p>
+        </div>
+        <div>
+          <StatRow label="Speakers"  value="37"  />
+          <StatRow label="Sessions"  value="12"  />
+          <StatRow label="Attendees" value="127" />
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ── Footer nav icon ───────────────────────────────────────────────────
+function IconClock() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="6.25" stroke="currentColor" strokeWidth="1.4"/>
+      <path d="M8 5v3.5l2 1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+function IconInfo() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="6.25" stroke="currentColor" strokeWidth="1.4"/>
+      <path d="M8 11V8M8 5.5v.25" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────
 export default function Conference2026Page() {
   return (
-    <div className="flex min-h-screen">
-      <ConferenceNav />
+    /**
+     * Full-viewport layout matching Figma exactly:
+     *
+     * • Outer page: beige-30 (#F4F1EA) fills header, side gutters, footer
+     * • White card: 24px side margins, rounded-3xl, clips photo ticker overflow
+     * • Card interior: sidebar (left, white) | right panel (white, scrollable)
+     * • Buttons: 44px height · 15px · Bricolage Grotesque 400
+     * • Right panel: overflow-y:auto — centered now, scrolls when content added
+     *
+     * Mobile (<md): card becomes flex-col
+     *   order-1 = right content (top)
+     *   order-2 = sidebar info + horizontal photo strip (bottom)
+     */
+    <div className="w-screen h-dvh flex flex-col overflow-hidden" style={{ background: BEIGE_30 }}>
 
-      <main className="flex-1 md:ml-56 pt-14 md:pt-0 flex flex-col">
+      {/* ── HEADER ─────────────────────────────────────────────────── */}
+      <header className="h-16 shrink-0 flex items-center justify-between px-6 z-10">
 
-        {/* ── Hero ──────────────────────────────────────────── */}
-        <section className="flex-1 bg-[#faf8f5] flex flex-col justify-center px-8 md:px-14 xl:px-20 py-16 md:py-24">
-          <div className="max-w-3xl flex flex-col gap-8">
+        <Link href="/conferences/2026/" className="no-underline flex items-center" aria-label="UXHICONF26 home">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/conferences/2026/assets/logos/uxhicon_header.svg"
+            alt="UXHICONF26"
+            style={{ height: "22px", width: "auto" }}
+          />
+        </Link>
 
-            {/* Eyebrow */}
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-600">
-              UXHI Conference 2026
-            </p>
+        {/* Header CTA — h=44px, 15px, font-normal, with cursor icon */}
+        {/* TODO: replace href with Givebutter sponsor page URL */}
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener"
+          className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+          style={{ background: PURPLE }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/conferences/2026/assets/icons/icon-cursor-finger-click.svg"
+            alt=""
+            width={20}
+            height={20}
+            style={{ width: 20, height: 20 }}
+          />
+          Become a sponsor
+        </a>
+      </header>
 
-            {/* Tagline */}
-            <h1 className="text-stone-700 text-xl md:text-2xl leading-relaxed max-w-lg">
-              The UXHI Conference returns in 2026. Stay tuned — details are on their way.
-            </h1>
+      {/* ── CARD WRAPPER: 24px side gutters ────────────────────────── */}
+      {/*
+        px-6 creates the 24px margins that reveal the beige-30 background
+        on both sides of the white card — matching the Figma exactly.
+      */}
+      <main className="flex-1 min-h-0 flex flex-col px-6">
 
-            {/* Date / location tags */}
-            <div className="flex flex-wrap gap-2">
-              {["October 17, 2026", "Honolulu, HI"].map((tag) => (
-                <span
-                  key={tag}
-                  className="text-sm text-stone-500 border border-stone-300 rounded-full px-4 py-1.5"
+        {/* White rounded card */}
+        <div className="flex-1 min-h-0 bg-white rounded-3xl overflow-hidden flex flex-col md:flex-row">
+
+          {/* ── SIDEBAR ───────────────────────────────────────────────
+              Figma widths:
+                xl → 508px   lg → 400px   md → 340px
+              At sm: full-width, order-2 (below right panel)
+          ──────────────────────────────────────────────────────────── */}
+          <aside
+            className="relative shrink-0 overflow-hidden order-2 md:order-none md:w-[340px] lg:w-[400px] xl:w-[508px]"
+            aria-label="Conference sidebar"
+          >
+            {/* Vertical photo ticker — desktop only (absolute-positioned) */}
+            <PhotoTickerV />
+
+            {/* Desktop sidebar info — absolute bottom-left per Figma
+                xl → left=24 bottom=24 w=244
+                lg → left=24 bottom=24 w=216
+                md → left=24 bottom=24 w=156
+            */}
+            <div className="hidden md:flex flex-col gap-4 absolute bottom-6 left-6 md:w-[156px] lg:w-[216px] xl:w-[244px]">
+              <SidebarInfo />
+            </div>
+
+            {/* Mobile sidebar: horizontal info row + photo strip */}
+            <div className="md:hidden flex flex-col">
+              <div className="flex items-start gap-4 px-6 pt-6 pb-4">
+                <SidebarInfo />
+              </div>
+              <PhotoTickerH />
+            </div>
+          </aside>
+
+          {/* ── RIGHT PANEL ───────────────────────────────────────────
+              overflow-y:auto: vertically centered now, scrolls when
+              speakers/agenda content is added in a future phase.
+          ──────────────────────────────────────────────────────────── */}
+          <section
+            className="flex-1 min-h-0 overflow-y-auto order-1 md:order-none"
+            aria-label="Coming soon"
+          >
+            {/* min-h-full: centers content when short, grows when tall */}
+            <div className="min-h-full flex flex-col justify-center gap-5 px-6 py-8 md:pl-8 md:pr-6 lg:pr-10 xl:pl-10 xl:pr-16">
+
+              {/* "Coming soon!" badge */}
+              <div
+                className="inline-flex items-center gap-[10px] w-fit h-[32px] px-4 rounded-full text-[13px] font-normal"
+                style={{
+                  background: "#F0FCFD",
+                  border: "1px solid rgba(9,192,215,0.4)",
+                  color: PURPLE,
+                }}
+              >
+                <PulseDot />
+                Coming soon!
+              </div>
+
+              {/* Tagline — Bricolage Grotesque extrabold (display weight)
+                  Figma sizes:
+                    xl → ~42px  lg → ~30px  md → ~22px  sm → ~20px
+              */}
+              <h1
+                className="font-extrabold leading-[1.2] tracking-[-0.02em] text-[20px] sm:text-[22px] md:text-[22px] lg:text-[30px] xl:text-[42px]"
+                style={{ color: PURPLE }}
+              >
+                Hana Hou! UXHICon is an annual event for Hawai&#699;i&#700;s design
+                community to share stories and narratives that shape meaningful
+                design&mdash;through an immersive day of knowledge-sharing,
+                inspiration, and connection.&nbsp;&#127818;
+              </h1>
+
+              {/* CTA buttons — h=44px · 15px · font-normal per Figma */}
+              <div className="flex flex-wrap items-center gap-3">
+
+                {/* TODO: replace href with Givebutter sponsor page URL */}
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                  style={{ background: PURPLE }}
                 >
-                  {tag}
-                </span>
-              ))}
+                  Become a sponsor
+                  <span aria-hidden="true" className="text-[13px] opacity-70">→</span>
+                </a>
+
+                {/* TODO: replace href with speaker application form URL */}
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+                  style={{ border: `1.5px solid ${PURPLE}`, color: PURPLE }}
+                >
+                  Apply to speak
+                  <span aria-hidden="true" className="text-[13px] opacity-70">→</span>
+                </a>
+              </div>
+
             </div>
+          </section>
 
-            {/* Countdown */}
-            <div className="bg-[#0f0d0b] rounded-2xl px-4 py-5 md:px-8 md:py-7 flex flex-col gap-3">
-              <p className="text-[10px] uppercase tracking-[0.25em] font-semibold text-amber-400/80">
-                Counting Down
-              </p>
-              <CountdownTimer />
-            </div>
-
-
-          </div>
-        </section>
-
-        {/* ── Footer ────────────────────────────────────────── */}
-        <footer className="bg-[#0f0d0b] px-8 md:px-14 xl:px-20 py-5">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <p className="text-xs text-stone-600">© 2026 UX Hawaii. All rights reserved.</p>
-            <a
-              href="mailto:aloha@uxhiconference.com"
-              className="text-xs text-stone-600 hover:text-stone-400 transition-colors"
-            >
-              aloha@uxhiconference.com
-            </a>
-          </div>
-        </footer>
-
+        </div>
       </main>
+
+      {/* ── FOOTER ─────────────────────────────────────────────────── */}
+      {/*
+        Figma footer: 64px, full-width on beige-30 background.
+        Left: clock icon + "Past conferences" | info icon + "About UXHI"
+        Right: Instagram | LinkedIn (from supplied icon assets)
+      */}
+      <footer className="h-16 shrink-0 flex items-center justify-between px-6">
+        <nav className="flex items-center gap-5" aria-label="Site links">
+          <Link
+            href="/conferences/2025/"
+            className="inline-flex items-center gap-[6px] text-[12px] font-normal no-underline hover:opacity-100 transition-opacity whitespace-nowrap"
+            style={{ color: "#676D73", opacity: 0.8 }}
+          >
+            <IconClock />
+            Past conferences
+          </Link>
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-[6px] text-[12px] font-normal no-underline hover:opacity-100 transition-opacity whitespace-nowrap"
+            style={{ color: "#676D73", opacity: 0.8 }}
+          >
+            <IconInfo />
+            About UXHI
+          </Link>
+        </nav>
+        <div className="flex items-center gap-[14px]">
+          <a
+            href="https://www.instagram.com/uxhicommunity/"
+            target="_blank"
+            rel="noopener"
+            aria-label="UXHI on Instagram"
+            className="flex items-center opacity-40 hover:opacity-80 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/conferences/2026/assets/icons/icon-instagram.svg" alt="" width={18} height={18} style={{ width: 18, height: 18 }} />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/uxhi/"
+            target="_blank"
+            rel="noopener"
+            aria-label="UXHI on LinkedIn"
+            className="flex items-center opacity-40 hover:opacity-80 transition-opacity"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={18} height={18} style={{ width: 18, height: 18 }} />
+          </a>
+        </div>
+      </footer>
+
     </div>
   );
 }
