@@ -37,39 +37,40 @@ function PulseDot() {
 }
 
 // ── Stat row ──────────────────────────────────────────────────────────
+// Figma: ~12px, label gray-80, value slightly darker gray-100, separator line
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex justify-between items-center py-[4px] border-b border-black/[0.08] last:border-0">
-      <span className="text-[11px] font-normal text-[#676D73]">{label}</span>
-      <span className="text-[11px] font-semibold" style={{ color: PURPLE }}>{value}</span>
+    <div className="flex justify-between items-center py-[5px] border-b border-black/[0.07] last:border-0">
+      <span className="text-[12px] font-normal text-[#969DA4]">{label}</span>
+      <span className="text-[12px] font-semibold text-[#676D73]">{value}</span>
     </div>
   );
 }
 
 // ── Sidebar info ──────────────────────────────────────────────────────
-// Matches Figma sidebar typography exactly:
-//   • "X DAYS TO PILINA"      — 11px, uppercase, tracking-wide, semibold
-//   • "BY DESIGNERS…"         — 10px, uppercase, tracking-wider, regular
-//   • "2025 UXHICON BY…"      — 10px, uppercase, tracking-wider, regular
-//   • Stat rows               — 11px label / 11px semibold value
+// Matches Figma sidebar typography:
+//   • All three copy lines — 13px, bold, uppercase, PURPLE, leading-[2]
+//   • Stat rows            — 12px, gray label / gray-darker value
+// SidebarInfo returns a Fragment so the parent flex context controls
+// desktop (flex-col gap-10) vs mobile (flex-row gap-4) layout.
 function SidebarInfo() {
   return (
     <>
       <LogoBadge />
-      <div className="flex flex-col gap-[12px]">
-        <div className="flex flex-col gap-[3px]">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] leading-[1.4]"
-            style={{ color: PURPLE }}>
-            <strong className="text-[13px] font-bold">{daysUntil()}</strong>
-            {" "}days to Pilina
+      <div className="flex flex-col gap-6">
+        {/* Copy lines — bold uppercase purple, ~8px between each */}
+        <div className="flex flex-col gap-2">
+          <p className="text-[13px] font-bold uppercase leading-[1.9]" style={{ color: PURPLE }}>
+            {daysUntil()} Days to Pilina
           </p>
-          <p className="text-[10px] font-normal uppercase tracking-[0.08em] leading-[1.5] text-[#676D73]">
+          <p className="text-[13px] font-bold uppercase leading-[1.9]" style={{ color: PURPLE }}>
             By designers,&nbsp;&nbsp;for designers
           </p>
-          <p className="text-[10px] font-normal uppercase tracking-[0.06em] leading-[1.5] text-[#676D73]">
-            2025 UXHICON by the numbers:
+          <p className="text-[13px] font-bold uppercase leading-[1.9]" style={{ color: PURPLE }}>
+            By designers,&nbsp;&nbsp;for designers
           </p>
         </div>
+        {/* Stats */}
         <div>
           <StatRow label="Speakers"  value="37"  />
           <StatRow label="Sessions"  value="12"  />
@@ -176,7 +177,8 @@ export default function Conference2026Page() {
                 lg → left=24 bottom=24 w=216
                 md → left=24 bottom=24 w=156
             */}
-            <div className="hidden md:flex flex-col gap-4 absolute bottom-6 left-6 md:w-[156px] lg:w-[216px] xl:w-[244px]">
+            {/* gap-10 = 40px between badge and text block, matching Figma */}
+            <div className="hidden md:flex flex-col gap-10 absolute bottom-6 left-6 md:w-[156px] lg:w-[216px] xl:w-[244px]">
               <SidebarInfo />
             </div>
 
@@ -218,13 +220,13 @@ export default function Conference2026Page() {
                     xl → ~42px  lg → ~30px  md → ~22px  sm → ~20px
               */}
               <h1
-                className="font-extrabold leading-[1.2] tracking-[-0.02em] text-[20px] sm:text-[22px] md:text-[22px] lg:text-[30px] xl:text-[42px]"
+                className="font-extrabold leading-[1.2] tracking-[-0.02em] text-[17px] sm:text-[20px] md:text-[22px] lg:text-[30px] xl:text-[42px]"
                 style={{ color: PURPLE }}
               >
                 Hana Hou! UXHICon is an annual event for Hawai&#699;i&#700;s design
                 community to share stories and narratives that shape meaningful
                 design&mdash;through an immersive day of knowledge-sharing,
-                inspiration, and connection.&nbsp;&#127818;
+                inspiration, and connection.&nbsp;&#127802;
               </h1>
 
               {/* CTA buttons — h=44px · 15px · font-normal per Figma */}
@@ -238,8 +240,10 @@ export default function Conference2026Page() {
                   className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
                   style={{ background: PURPLE }}
                 >
+                  {/* Leading icon — matches header button */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/conferences/2026/assets/icons/icon-cursor-finger-click.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
                   Become a sponsor
-                  <span aria-hidden="true" className="text-[13px] opacity-70">→</span>
                 </a>
 
                 {/* TODO: replace href with speaker application form URL */}
@@ -251,7 +255,9 @@ export default function Conference2026Page() {
                   style={{ border: `1.5px solid ${PURPLE}`, color: PURPLE }}
                 >
                   Apply to speak
-                  <span aria-hidden="true" className="text-[13px] opacity-70">→</span>
+                  {/* Trailing shaka icon — Hawaii-themed flourish */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
                 </a>
               </div>
 
