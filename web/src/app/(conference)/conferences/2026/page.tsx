@@ -58,15 +58,21 @@ function SidebarInfo() {
     <>
       <LogoBadge />
       <div className="flex flex-col gap-6">
-        {/* Copy lines — bold uppercase purple, ~8px between each */}
+        {/* Copy lines — bold uppercase purple
+            Responsive sizes per Figma column widths:
+              base/SM (256px col) → 10px, lh 1.7 → 17px/line ✓
+              MD     (156px col)  → 10px, lh 1.7 → 17px/line ✓
+              LG     (216px col)  → 14px, lh 1.4 → 19.6px/line ✓
+              XL     (244px col)  → 20px, lh 1.45 → 29px/line ✓
+        */}
         <div className="flex flex-col gap-2">
-          <p className="text-[13px] font-bold uppercase leading-[1.9]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[10px] lg:text-[14px] xl:text-[20px]" style={{ color: PURPLE }}>
             {daysUntil()} Days to Pilina
           </p>
-          <p className="text-[13px] font-bold uppercase leading-[1.9]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[10px] lg:text-[14px] xl:text-[20px]" style={{ color: PURPLE }}>
             By designers,&nbsp;&nbsp;for designers
           </p>
-          <p className="text-[13px] font-bold uppercase leading-[1.9]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[10px] lg:text-[14px] xl:text-[20px]" style={{ color: PURPLE }}>
             2025 UXHICON by the numbers:
           </p>
         </div>
