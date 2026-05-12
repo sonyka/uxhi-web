@@ -6,8 +6,8 @@ const GRAY_110 = "#50555A";
 const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
 
 const ITEMS = [
-  { label: "2025 — UXPerience ʻĀina", href: "/conferences/2025/" },
-  { label: "2024 — UXHICON",          href: "/conferences/2024/" },
+  { label: "2025 — UXperience 'Aina", href: "/conferences/2025/" },
+  { label: "2024 — UXperience Aloha", href: "/conferences/2024/" },
 ];
 
 export function PastConferencesMenu() {
