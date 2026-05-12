@@ -173,3 +173,14 @@ Uses `next-sanity` with:
 ## Deployment
 
 Vercel deployment requires `vercel.json` with `"framework": "nextjs"` for proper detection. Environment variables have hardcoded fallbacks in `src/sanity/env.ts` so builds work without env vars set.
+
+### ⚠️ Netlify Build Credit Limit
+
+Netlify's free Starter plan includes **300 credits/month**. Each production build costs **15 credits**, giving only **~20 production deploys per month** before builds are paused.
+
+**Rules to follow — always:**
+- **Batch commits before pushing to `main`.** Accumulate multiple changes locally, then push once. Never push every small fix as its own commit.
+- **Only push when ready to deploy.** `main` is production — every push triggers a Netlify build.
+- **Group a session's work into 1–3 pushes maximum**, regardless of how many changes were made.
+
+If builds are paused: go to the Netlify dashboard → upgrade plan ($20/month for 3,000 credits) or wait for the monthly reset.
