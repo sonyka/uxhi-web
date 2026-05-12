@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LogoBadge } from "./_components/LogoBadge";
 import { PhotoTickerV, PhotoTickerH } from "./_components/PhotoTicker";
+import { PastConferencesMenu } from "./_components/PastConferencesMenu";
 
 export const metadata: Metadata = {
   title: "UXHICONF26 — Coming Soon",
@@ -267,19 +268,7 @@ export default function Conference2026Page() {
       */}
       <footer className="h-16 shrink-0 flex items-center justify-between px-6">
         <nav className="flex items-center gap-5" aria-label="Site links">
-          <Link
-            href="/conferences/2025/"
-            className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
-            style={{ color: "#50555A" }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={16} height={16}
-              style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
-            Past conferences
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/conferences/2026/assets/icons/icon-angle-small-down.svg" alt="" width={12} height={12}
-              style={{ width: 12, height: 12, filter: GRAY_110_FILTER }} />
-          </Link>
+          <PastConferencesMenu />
           <Link
             href="/about"
             className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
