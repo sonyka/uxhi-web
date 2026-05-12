@@ -37,12 +37,12 @@ function PulseDot() {
 }
 
 // ── Stat row ──────────────────────────────────────────────────────────
-// Figma: ~12px, label gray-80, value slightly darker gray-100, separator line
+// Figma: ~11px, both label and value in light gray, very subtle separator
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex justify-between items-center py-[5px] border-b border-black/[0.07] last:border-0">
-      <span className="text-[12px] font-normal text-[#969DA4]">{label}</span>
-      <span className="text-[12px] font-semibold text-[#676D73]">{value}</span>
+    <div className="flex justify-between items-center py-[3px] border-b border-black/[0.06] last:border-0">
+      <span className="text-[11px] font-normal text-[#ADB5BD]">{label}</span>
+      <span className="text-[11px] font-normal text-[#969DA4]">{value}</span>
     </div>
   );
 }
@@ -67,7 +67,7 @@ function SidebarInfo() {
             By designers,&nbsp;&nbsp;for designers
           </p>
           <p className="text-[13px] font-bold uppercase leading-[1.9]" style={{ color: PURPLE }}>
-            By designers,&nbsp;&nbsp;for designers
+            2025 UXHICON by the numbers:
           </p>
         </div>
         {/* Stats */}
@@ -251,13 +251,10 @@ export default function Conference2026Page() {
                   href="#"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
-                  style={{ border: `1.5px solid ${PURPLE}`, color: PURPLE }}
+                  className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                  style={{ background: TEAL, color: PURPLE }}
                 >
-                  Apply to speak
-                  {/* Trailing shaka icon — Hawaii-themed flourish */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
+                  Apply to speak &#8594;
                 </a>
               </div>
 

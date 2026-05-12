@@ -32,7 +32,7 @@ function TickerPhotoH({ n }: { n: number }) {
 
 export function PhotoTickerV() {
   return (
-    <div className="absolute right-0 top-0 bottom-0 hidden md:block md:w-[120px] xl:w-[200px] overflow-hidden">
+    <div className="absolute right-6 top-0 bottom-0 hidden md:block md:w-[120px] xl:w-[200px] overflow-hidden">
       <div className="conf-ticker-v flex flex-col md:gap-[10px] xl:gap-[16px]">
         {[...PHOTOS, ...PHOTOS].map((n, i) => (
           <TickerPhotoV key={i} n={n} />
