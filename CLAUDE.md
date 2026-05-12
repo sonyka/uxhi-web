@@ -172,15 +172,44 @@ Uses `next-sanity` with:
 
 ## Deployment
 
-Vercel deployment requires `vercel.json` with `"framework": "nextjs"` for proper detection. Environment variables have hardcoded fallbacks in `src/sanity/env.ts` so builds work without env vars set.
+### Branch strategy
 
-### ⚠️ Netlify Build Credit Limit
+| Branch | Host | URL | Purpose |
+|---|---|---|---|
+| `staging` | Vercel (free, unlimited builds) | `uxhi-staging.vercel.app` | Active development, stakeholder preview |
+| `main` | Netlify (300 credits/month) | `uxhi.hisony.com` / `uxhiconference.com` | Production only |
 
-Netlify's free Starter plan includes **300 credits/month**. Each production build costs **15 credits**, giving only **~20 production deploys per month** before builds are paused.
+**Daily workflow:**
+```bash
+# All development work goes to staging (free, unlimited)
+git checkout staging
+git add ... && git commit -m "..."
+git push origin staging        # Vercel auto-deploys — no credit cost
 
-**Rules to follow — always:**
-- **Batch commits before pushing to `main`.** Accumulate multiple changes locally, then push once. Never push every small fix as its own commit.
-- **Only push when ready to deploy.** `main` is production — every push triggers a Netlify build.
-- **Group a session's work into 1–3 pushes maximum**, regardless of how many changes were made.
+# Ship to production only when approved/ready
+git checkout main
+git merge staging
+git push origin main           # 1 Netlify build = 15 credits
+git checkout staging           # return to staging for next work
+```
 
-If builds are paused: go to the Netlify dashboard → upgrade plan ($20/month for 3,000 credits) or wait for the monthly reset.
+**Rules — always follow:**
+- Do all development on `staging`. Never develop directly on `main`.
+- `main` is production. Only push when content is approved and ready to ship.
+- Batch work into as few `main` pushes as possible — each costs 15 Netlify credits.
+- Share `uxhi-staging.vercel.app` with stakeholders for review before merging.
+
+### Vercel (staging) setup
+
+- **Repo:** `uxhi-web`, branch: `staging`
+- **Root directory:** `web` ← critical, the Next.js app is not at repo root
+- **Framework:** Next.js (auto-detected via `web/vercel.json`)
+- **Env vars:** `NEXT_PUBLIC_SANITY_PROJECT_ID=evh83z0t`, `NEXT_PUBLIC_SANITY_DATASET=production`
+
+`web/vercel.json` contains `{ "framework": "nextjs" }` for proper detection. Environment variables have hardcoded fallbacks in `src/sanity/env.ts` so builds work even without env vars set.
+
+### ⚠️ Netlify credit limit
+
+Netlify Starter = **300 credits/month**, 15 per production build = **~20 deploys/month max**. Builds are silently paused when exhausted.
+
+If builds are paused: Netlify dashboard → Billing → buy credits or upgrade to Pro ($20/month, 3,000 credits).
