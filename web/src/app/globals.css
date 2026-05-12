@@ -190,30 +190,30 @@ html {
 
 /* ── UXHICONF26 photo ticker utility classes ─────────────────────── */
 .conf-ticker-v {
-  animation: conf-scroll-up-md 15s linear infinite;
+  animation: conf-scroll-up-md 27s linear infinite;
 }
 @media (min-width: 1280px) {
   .conf-ticker-v {
-    animation: conf-scroll-up-xl 25s linear infinite;
+    animation: conf-scroll-up-xl 45s linear infinite;
   }
 }
 .conf-ticker-v:hover { animation-play-state: paused; }
 
 /* ── UXHICONF26 photo ticker animations ─────────────────────────── */
-/* Vertical ticker: XL (200×256 items, 16px gap → 1360px per set)  */
+/* Vertical ticker: XL (200×256 items, 16px gap, 9 items → 9×272=2448px per set) */
 @keyframes conf-scroll-up-xl {
   0%   { transform: translateY(0); }
-  100% { transform: translateY(-1360px); }
+  100% { transform: translateY(-2448px); }
 }
-/* Vertical ticker: MD/LG (120×154 items, 10px gap → 820px per set) */
+/* Vertical ticker: MD/LG (120×154 items, 10px gap, 9 items → 9×164=1476px per set) */
 @keyframes conf-scroll-up-md {
   0%   { transform: translateY(0); }
-  100% { transform: translateY(-820px); }
+  100% { transform: translateY(-1476px); }
 }
-/* Horizontal ticker: SM (120×154 items, 10px gap → 650px per set) */
+/* Horizontal ticker: SM (120×154 items, 10px gap, 9 items → 9×130=1170px per set) */
 @keyframes conf-scroll-left {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-650px); }
+  100% { transform: translateX(-1170px); }
 }
 /* Pulsing dot rings */
 @keyframes conf-pulse-ring {

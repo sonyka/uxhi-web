@@ -2,7 +2,7 @@
 // Vertical: XL → 200×256px / 16px gap. MD/LG → 120×154px / 10px gap.
 // Horizontal (SM): 120×154px / 10px gap.
 
-const PHOTOS = [1, 2, 3, 4, 5] as const;
+const PHOTOS = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const;
 
 function TickerPhotoV({ n }: { n: number }) {
   return (
@@ -47,7 +47,7 @@ export function PhotoTickerH() {
     <div className="overflow-hidden h-[154px]">
       <div
         className="flex gap-[10px]"
-        style={{ animation: "conf-scroll-left 14s linear infinite" }}
+        style={{ animation: "conf-scroll-left 25s linear infinite" }}
       >
         {[...PHOTOS, ...PHOTOS].map((n, i) => (
           <TickerPhotoH key={i} n={n} />
