@@ -190,11 +190,16 @@ html {
 
 /* ── UXHICONF26 photo ticker utility classes ─────────────────────── */
 .conf-ticker-v {
-  animation: conf-scroll-up-md 27s linear infinite;
+  animation: conf-scroll-up-md 27s linear infinite; /* MD: 768-1023 */
+}
+@media (min-width: 1024px) {
+  .conf-ticker-v {
+    animation: conf-scroll-up-lg 36s linear infinite; /* LG: 1024-1279 */
+  }
 }
 @media (min-width: 1280px) {
   .conf-ticker-v {
-    animation: conf-scroll-up-xl 45s linear infinite;
+    animation: conf-scroll-up-xl 45s linear infinite; /* XL: 1280+ */
   }
 }
 .conf-ticker-v:hover { animation-play-state: paused; }
@@ -205,7 +210,12 @@ html {
   0%   { transform: translateY(0); }
   100% { transform: translateY(-2448px); }
 }
-/* Vertical ticker: MD/LG (120×154 items, 10px gap, 9 items → 9×164=1476px per set) */
+/* Vertical ticker: LG (160×205 items, 13px gap, 9 items → 9×218=1962px per set) */
+@keyframes conf-scroll-up-lg {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-1962px); }
+}
+/* Vertical ticker: MD (120×154 items, 10px gap, 9 items → 9×164=1476px per set) */
 @keyframes conf-scroll-up-md {
   0%   { transform: translateY(0); }
   100% { transform: translateY(-1476px); }

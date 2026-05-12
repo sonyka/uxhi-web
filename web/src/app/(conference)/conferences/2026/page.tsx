@@ -157,7 +157,7 @@ export default function Conference2026Page() {
               At sm: full-width, order-2 (below right panel)
           ──────────────────────────────────────────────────────────── */}
           <aside
-            className="relative shrink-0 overflow-hidden order-2 md:order-none md:w-[340px] lg:w-[400px] xl:w-[508px]"
+            className="relative shrink-0 overflow-hidden order-2 md:order-none md:w-[340px] lg:w-[420px] xl:w-[508px]"
             aria-label="Conference sidebar"
           >
             {/* Vertical photo ticker — desktop only (absolute-positioned) */}
@@ -169,7 +169,7 @@ export default function Conference2026Page() {
                 md → left=24 bottom=24 w=156
             */}
             {/* gap-10 = 40px between badge and text block, matching Figma */}
-            <div className="hidden md:flex flex-col gap-10 absolute bottom-6 left-6 md:w-[156px] lg:w-[216px] xl:w-[244px]">
+            <div className="hidden md:flex flex-col gap-10 absolute bottom-6 left-6 md:w-[156px] lg:w-[196px] xl:w-[244px]">
               <SidebarInfo />
             </div>
 
