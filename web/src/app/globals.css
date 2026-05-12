@@ -190,16 +190,16 @@ html {
 
 /* ── UXHICONF26 photo ticker utility classes ─────────────────────── */
 .conf-ticker-v {
-  animation: conf-scroll-up-md 27s linear infinite; /* MD: 768-1023 */
+  animation: conf-scroll-up-md 35s linear infinite; /* MD: 768-1023 */
 }
 @media (min-width: 1024px) {
   .conf-ticker-v {
-    animation: conf-scroll-up-lg 36s linear infinite; /* LG: 1024-1279 */
+    animation: conf-scroll-up-lg 46s linear infinite; /* LG: 1024-1279 */
   }
 }
 @media (min-width: 1280px) {
   .conf-ticker-v {
-    animation: conf-scroll-up-xl 45s linear infinite; /* XL: 1280+ */
+    animation: conf-scroll-up-xl 58s linear infinite; /* XL: 1280+ */
   }
 }
 .conf-ticker-v:hover { animation-play-state: paused; }

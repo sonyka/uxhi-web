@@ -18,7 +18,7 @@ export function LogoBadge() {
     let interval: ReturnType<typeof setInterval>;
 
     function startInterval() {
-      interval = setInterval(spin, 7000);
+      interval = setInterval(spin, 12000);
     }
 
     // Page Visibility API: clear the interval when the tab is hidden so
