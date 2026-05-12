@@ -41,8 +41,8 @@ function PulseDot() {
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-[3px] border-b border-black/[0.06] last:border-0">
-      <span className="text-[11px] font-normal text-[#ADB5BD]">{label}</span>
-      <span className="text-[11px] font-normal text-[#969DA4]">{value}</span>
+      <span className="text-[14px] sm:text-[16px] font-normal text-[#ADB5BD]">{label}</span>
+      <span className="text-[14px] sm:text-[16px] font-normal text-[#969DA4]">{value}</span>
     </div>
   );
 }
@@ -279,6 +279,9 @@ export default function Conference2026Page() {
           >
             <IconClock />
             Past conferences
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </Link>
           <Link
             href="/about"
