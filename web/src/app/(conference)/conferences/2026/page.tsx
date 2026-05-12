@@ -87,20 +87,13 @@ function SidebarInfo() {
   );
 }
 
-// ── Footer nav icon ───────────────────────────────────────────────────
-function IconClock() {
+// ── Footer: target/bullseye icon for "About UXHI" (matches Figma)
+function IconTarget() {
   return (
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <circle cx="8" cy="8" r="6.25" stroke="currentColor" strokeWidth="1.4"/>
-      <path d="M8 5v3.5l2 1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-function IconInfo() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <circle cx="8" cy="8" r="6.25" stroke="currentColor" strokeWidth="1.4"/>
-      <path d="M8 11V8M8 5.5v.25" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3"/>
+      <circle cx="8" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.3"/>
+      <circle cx="8" cy="8" r="1" fill="currentColor"/>
     </svg>
   );
 }
@@ -272,52 +265,54 @@ export default function Conference2026Page() {
 
       {/* ── FOOTER ─────────────────────────────────────────────────── */}
       {/*
-        Figma footer: 64px, full-width on beige-30 background.
-        Left: clock icon + "Past conferences" | info icon + "About UXHI"
-        Right: Instagram | LinkedIn (from supplied icon assets)
+        Figma footer (640×64, 1:1 verified):
+          color  → #969DA4 (gray-80), 13px, font-normal
+          left   → cursor-click icon + "Past conferences" + ˅ caret
+                   target/bullseye icon + "About UXHI"
+          right  → Instagram | LinkedIn (filtered to match gray)
       */}
       <footer className="h-16 shrink-0 flex items-center justify-between px-6">
         <nav className="flex items-center gap-5" aria-label="Site links">
           <Link
             href="/conferences/2025/"
-            className="inline-flex items-center gap-[6px] text-[12px] font-normal no-underline hover:opacity-100 transition-opacity whitespace-nowrap"
-            style={{ color: "#676D73", opacity: 0.8 }}
+            className="inline-flex items-center gap-[7px] text-[13px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+            style={{ color: "#969DA4" }}
           >
-            <IconClock />
+            {/* cursor-finger-click icon, filtered from black → #969DA4 */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/conferences/2026/assets/icons/icon-cursor-finger-click.svg"
+              alt=""
+              width={16}
+              height={16}
+              style={{ width: 16, height: 16, filter: "invert(65%) sepia(8%) saturate(350%) hue-rotate(185deg)" }}
+            />
             Past conferences
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-              <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+              <path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </Link>
           <Link
             href="/about"
-            className="inline-flex items-center gap-[6px] text-[12px] font-normal no-underline hover:opacity-100 transition-opacity whitespace-nowrap"
-            style={{ color: "#676D73", opacity: 0.8 }}
+            className="inline-flex items-center gap-[7px] text-[13px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+            style={{ color: "#969DA4" }}
           >
-            <IconInfo />
+            <IconTarget />
             About UXHI
           </Link>
         </nav>
         <div className="flex items-center gap-[14px]">
-          <a
-            href="https://www.instagram.com/uxhicommunity/"
-            target="_blank"
-            rel="noopener"
-            aria-label="UXHI on Instagram"
-            className="flex items-center opacity-40 hover:opacity-80 transition-opacity"
-          >
+          <a href="https://www.instagram.com/uxhicommunity/" target="_blank" rel="noopener" aria-label="UXHI on Instagram"
+            className="flex items-center hover:opacity-70 transition-opacity">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/conferences/2026/assets/icons/icon-instagram.svg" alt="" width={18} height={18} style={{ width: 18, height: 18 }} />
+            <img src="/conferences/2026/assets/icons/icon-instagram.svg" alt="" width={18} height={18}
+              style={{ width: 18, height: 18, filter: "invert(65%) sepia(8%) saturate(350%) hue-rotate(185deg)" }} />
           </a>
-          <a
-            href="https://www.linkedin.com/company/uxhi/"
-            target="_blank"
-            rel="noopener"
-            aria-label="UXHI on LinkedIn"
-            className="flex items-center opacity-40 hover:opacity-80 transition-opacity"
-          >
+          <a href="https://www.linkedin.com/company/uxhi/" target="_blank" rel="noopener" aria-label="UXHI on LinkedIn"
+            className="flex items-center hover:opacity-70 transition-opacity">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={18} height={18} style={{ width: 18, height: 18 }} />
+            <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={18} height={18}
+              style={{ width: 18, height: 18, filter: "invert(65%) sepia(8%) saturate(350%) hue-rotate(185deg)" }} />
           </a>
         </div>
       </footer>
