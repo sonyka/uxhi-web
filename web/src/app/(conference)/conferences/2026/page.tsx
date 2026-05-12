@@ -87,16 +87,8 @@ function SidebarInfo() {
   );
 }
 
-// ── Footer: target/bullseye icon for "About UXHI" (matches Figma)
-function IconTarget() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3"/>
-      <circle cx="8" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.3"/>
-      <circle cx="8" cy="8" r="1" fill="currentColor"/>
-    </svg>
-  );
-}
+// Shared CSS filter: converts any colored/black icon → gray-110 (#50555A)
+const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
 
 // ─────────────────────────────────────────────────────────────────────
 export default function Conference2026Page() {
@@ -143,7 +135,7 @@ export default function Conference2026Page() {
             alt=""
             width={20}
             height={20}
-            style={{ width: 20, height: 20 }}
+            style={{ width: 20, height: 20, filter: "invert(1)" }}
           />
           Become a sponsor
         </a>
@@ -253,7 +245,9 @@ export default function Conference2026Page() {
                   className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
                   style={{ background: TEAL, color: PURPLE }}
                 >
-                  Apply to speak &#8594;
+                  Apply to speak
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/conferences/2026/assets/icons/icon-arrow-small-right.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
                 </a>
               </div>
 
@@ -275,29 +269,25 @@ export default function Conference2026Page() {
         <nav className="flex items-center gap-5" aria-label="Site links">
           <Link
             href="/conferences/2025/"
-            className="inline-flex items-center gap-[7px] text-[13px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
-            style={{ color: "#969DA4" }}
+            className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+            style={{ color: "#50555A" }}
           >
-            {/* cursor-finger-click icon, filtered from black → #969DA4 */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/conferences/2026/assets/icons/icon-cursor-finger-click.svg"
-              alt=""
-              width={16}
-              height={16}
-              style={{ width: 16, height: 16, filter: "invert(65%) sepia(8%) saturate(350%) hue-rotate(185deg)" }}
-            />
+            <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={16} height={16}
+              style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
             Past conferences
-            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true">
-              <path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/conferences/2026/assets/icons/icon-angle-small-down.svg" alt="" width={12} height={12}
+              style={{ width: 12, height: 12, filter: GRAY_110_FILTER }} />
           </Link>
           <Link
             href="/about"
-            className="inline-flex items-center gap-[7px] text-[13px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
-            style={{ color: "#969DA4" }}
+            className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+            style={{ color: "#50555A" }}
           >
-            <IconTarget />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/conferences/2026/assets/icons/icon-star.svg" alt="" width={16} height={16}
+              style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
             About UXHI
           </Link>
         </nav>
@@ -306,13 +296,13 @@ export default function Conference2026Page() {
             className="flex items-center hover:opacity-70 transition-opacity">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/conferences/2026/assets/icons/icon-instagram.svg" alt="" width={18} height={18}
-              style={{ width: 18, height: 18, filter: "invert(65%) sepia(8%) saturate(350%) hue-rotate(185deg)" }} />
+              style={{ width: 18, height: 18, filter: GRAY_110_FILTER }} />
           </a>
           <a href="https://www.linkedin.com/company/uxhi/" target="_blank" rel="noopener" aria-label="UXHI on LinkedIn"
             className="flex items-center hover:opacity-70 transition-opacity">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={18} height={18}
-              style={{ width: 18, height: 18, filter: "invert(65%) sepia(8%) saturate(350%) hue-rotate(185deg)" }} />
+              style={{ width: 18, height: 18, filter: GRAY_110_FILTER }} />
           </a>
         </div>
       </footer>
