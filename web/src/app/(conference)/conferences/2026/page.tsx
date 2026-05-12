@@ -131,7 +131,7 @@ export default function Conference2026Page() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/conferences/2026/assets/icons/icon-cursor-finger-click.svg"
+            src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg"
             alt=""
             width={20}
             height={20}
@@ -233,7 +233,7 @@ export default function Conference2026Page() {
                 >
                   {/* Leading icon — matches header button */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/conferences/2026/assets/icons/icon-cursor-finger-click.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
+                  <img src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
                   Become a sponsor
                 </a>
 
