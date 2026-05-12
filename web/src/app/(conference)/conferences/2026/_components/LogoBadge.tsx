@@ -16,13 +16,33 @@ export function LogoBadge() {
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
+
+    function startInterval() {
+      interval = setInterval(spin, 7000);
+    }
+
+    // Page Visibility API: clear the interval when the tab is hidden so
+    // callbacks don't queue up. Spin exactly once on return, then restart.
+    function handleVisibilityChange() {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        spin();
+        startInterval();
+      }
+    }
+
     const timeout = setTimeout(() => {
       spin();
-      interval = setInterval(spin, 7000);
+      startInterval();
     }, 1800);
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () => {
       clearTimeout(timeout);
       clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
