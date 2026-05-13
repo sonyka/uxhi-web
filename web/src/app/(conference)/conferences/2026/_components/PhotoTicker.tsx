@@ -7,14 +7,14 @@ import type React from "react";
 //   XL  (1280+)     → 200×256px, 16px gap  → 9×272 = 2448px/set
 // Horizontal (SM): 100×128px, 8px gap → 9×108 = 972px/set
 //
-// Edge blur: backdrop-filter:blur() overlay divs that physically blur the
-// pixel content beneath them — different from mask-image which just fades
-// photos to transparent.
+// Edge blur: backdrop-filter overlays must be OUTSIDE the overflow:hidden
+// container — backdrop-filter doesn't apply to content in the same clip context.
+// Structure: outer div (no overflow) → inner div (overflow:hidden) + blur overlays.
 
 const PHOTOS = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const;
 
 const EDGE_BLUR = "blur(2px)";
-const EDGE_SIZE = "72px"; // how tall/wide the blur overlay extends inward
+const EDGE_SIZE = "72px";
 
 function TickerPhotoV({ n }: { n: number }) {
   return (
@@ -42,29 +42,21 @@ function TickerPhotoH({ n }: { n: number }) {
   );
 }
 
-// Blur overlay shared style builder.
-// mask-image on the overlay itself fades the ENTIRE effect (backdrop blur +
-// background) from fully-on at the device edge to fully-off at the inner edge,
-// eliminating the hard cutoff where the overlay div ends.
 const blurOverlay = (dir: "top" | "bottom" | "left" | "right"): React.CSSProperties => {
-  const along: Record<typeof dir, string> = {
-    top:    "to bottom",
-    bottom: "to top",
-    left:   "to right",
-    right:  "to left",
+  const grad: Record<typeof dir, string> = {
+    top: "to bottom", bottom: "to top",
+    left: "to right", right: "to left",
   };
-  const grad = along[dir];
+  const g = grad[dir];
   return {
     position: "absolute",
     zIndex: 10,
     pointerEvents: "none",
     backdropFilter: EDGE_BLUR,
     WebkitBackdropFilter: EDGE_BLUR,
-    background: `linear-gradient(${grad}, rgba(255,255,255,0.95) 0%, transparent 100%)`,
-    // Mask fades the overlay opacity from solid → transparent inward,
-    // so the blur effect itself dissolves softly rather than cutting off.
-    maskImage: `linear-gradient(${grad}, black 20%, transparent 100%)`,
-    WebkitMaskImage: `linear-gradient(${grad}, black 20%, transparent 100%)`,
+    background: `linear-gradient(${g}, rgba(255,255,255,0.9) 0%, transparent 100%)`,
+    maskImage: `linear-gradient(${g}, black 20%, transparent 100%)`,
+    WebkitMaskImage: `linear-gradient(${g}, black 20%, transparent 100%)`,
     ...(dir === "top"    ? { top: 0, left: 0, right: 0, height: EDGE_SIZE } : {}),
     ...(dir === "bottom" ? { bottom: 0, left: 0, right: 0, height: EDGE_SIZE } : {}),
     ...(dir === "left"   ? { left: 0, top: 0, bottom: 0, width: EDGE_SIZE } : {}),
@@ -74,33 +66,41 @@ const blurOverlay = (dir: "top" | "bottom" | "left" | "right"): React.CSSPropert
 
 export function PhotoTickerV() {
   return (
-    <div className="absolute right-6 top-0 bottom-0 hidden md:block md:w-[120px] lg:w-[160px] xl:w-[200px] overflow-hidden" style={{ position: "absolute" }}>
-      {/* Top + bottom blur edges */}
+    // Outer: no overflow:hidden — blur overlays live here so backdrop-filter works
+    <div className="absolute right-6 top-0 bottom-0 hidden md:block md:w-[120px] lg:w-[160px] xl:w-[200px]">
+      {/* Inner: overflow:hidden clips the scrolling content only */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="conf-ticker-v flex flex-col md:gap-[10px] lg:gap-[13px] xl:gap-[16px]">
+          {[...PHOTOS, ...PHOTOS].map((n, i) => (
+            <TickerPhotoV key={i} n={n} />
+          ))}
+        </div>
+      </div>
+      {/* Blur overlays outside overflow:hidden — backdrop-filter applies correctly */}
       <div style={blurOverlay("top")} />
       <div style={blurOverlay("bottom")} />
-      <div className="conf-ticker-v flex flex-col md:gap-[10px] lg:gap-[13px] xl:gap-[16px]">
-        {[...PHOTOS, ...PHOTOS].map((n, i) => (
-          <TickerPhotoV key={i} n={n} />
-        ))}
-      </div>
     </div>
   );
 }
 
 export function PhotoTickerH() {
   return (
-    <div className="relative overflow-hidden h-[128px]">
-      {/* Left + right blur edges */}
+    // Outer: no overflow:hidden — blur overlays live here
+    <div className="relative h-[128px]">
+      {/* Inner: overflow:hidden clips the horizontal scroll */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="flex gap-[8px]"
+          style={{ animation: "conf-scroll-left 21s linear infinite" }}
+        >
+          {[...PHOTOS, ...PHOTOS].map((n, i) => (
+            <TickerPhotoH key={i} n={n} />
+          ))}
+        </div>
+      </div>
+      {/* Blur overlays outside overflow:hidden */}
       <div style={blurOverlay("left")} />
       <div style={blurOverlay("right")} />
-      <div
-        className="flex gap-[8px]"
-        style={{ animation: "conf-scroll-left 21s linear infinite" }}
-      >
-        {[...PHOTOS, ...PHOTOS].map((n, i) => (
-          <TickerPhotoH key={i} n={n} />
-        ))}
-      </div>
     </div>
   );
 }
