@@ -220,10 +220,10 @@ html {
   0%   { transform: translateY(0); }
   100% { transform: translateY(-1476px); }
 }
-/* Horizontal ticker: SM (120×154 items, 10px gap, 9 items → 9×130=1170px per set) */
+/* Horizontal ticker: SM (100×128 items, 8px gap, 9 items → 9×108=972px per set) */
 @keyframes conf-scroll-left {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-1170px); }
+  100% { transform: translateX(-972px); }
 }
 /* Pulsing dot rings */
 @keyframes conf-pulse-ring {

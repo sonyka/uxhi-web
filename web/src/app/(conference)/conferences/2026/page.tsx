@@ -42,8 +42,8 @@ function PulseDot() {
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-[3px] border-b border-black/[0.06] last:border-0">
-      <span className="text-[14px] sm:text-[16px] font-normal text-[#ADB5BD]">{label}</span>
-      <span className="text-[14px] sm:text-[16px] font-normal text-[#969DA4]">{value}</span>
+      <span className="text-[10px] sm:text-[14px] md:text-[16px] font-normal text-[#ADB5BD]">{label}</span>
+      <span className="text-[10px] sm:text-[14px] md:text-[16px] font-normal text-[#969DA4]">{value}</span>
     </div>
   );
 }
@@ -67,13 +67,13 @@ function SidebarInfo() {
               XL     (244px col)  → 20px, lh 1.45 → 29px/line ✓
         */}
         <div className="flex flex-col gap-2">
-          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[14px] lg:text-[16px] xl:text-[20px]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase text-[10px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             {daysUntil()} Days to Pilina
           </p>
-          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[14px] lg:text-[16px] xl:text-[20px]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase text-[10px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             By designers,&nbsp;&nbsp;for designers
           </p>
-          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[14px] lg:text-[16px] xl:text-[20px]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase text-[10px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             2025 UXHICON by the numbers:
           </p>
         </div>
@@ -174,9 +174,9 @@ export default function Conference2026Page() {
               <SidebarInfo />
             </div>
 
-            {/* Mobile sidebar: horizontal info row + photo strip */}
-            <div className="md:hidden flex flex-col">
-              <div className="flex items-start gap-4 px-6 pt-6 pb-4">
+            {/* Mobile sidebar: 16px padding, info row then photo strip */}
+            <div className="md:hidden flex flex-col gap-4 px-4 pt-4">
+              <div className="flex items-start gap-4">
                 <SidebarInfo />
               </div>
               <PhotoTickerH />
@@ -192,7 +192,7 @@ export default function Conference2026Page() {
             aria-label="Coming soon"
           >
             {/* min-h-full: centers content when short, grows when tall */}
-            <div className="min-h-full flex flex-col justify-center gap-5 px-6 py-8 md:pl-8 md:pr-6 lg:pr-10 xl:pl-10 xl:pr-16">
+            <div className="min-h-full flex flex-col justify-center gap-4 p-4 md:gap-5 md:py-10 md:pl-8 md:pr-6 lg:pr-10 xl:pl-10 xl:pr-16">
 
               {/* "Coming soon!" badge */}
               <div
@@ -229,7 +229,7 @@ export default function Conference2026Page() {
                   href="#"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                  className="hidden md:inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
                   style={{ background: PURPLE }}
                 >
                   {/* Leading icon — matches header button */}
@@ -273,7 +273,7 @@ export default function Conference2026Page() {
             href="https://uxhi.community"
             target="_blank"
             rel="noopener"
-            className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+            className="hidden md:inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
             style={{ color: "#50555A" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}

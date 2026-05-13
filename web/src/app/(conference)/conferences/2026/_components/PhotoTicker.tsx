@@ -22,7 +22,7 @@ function TickerPhotoV({ n }: { n: number }) {
 
 function TickerPhotoH({ n }: { n: number }) {
   return (
-    <div className="flex-shrink-0 w-[120px] h-[154px] rounded-xl overflow-hidden">
+    <div className="flex-shrink-0 w-[100px] h-[128px] rounded-xl overflow-hidden">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/conferences/2026/assets/images/image-ticker-${n}.png`}
@@ -47,10 +47,10 @@ export function PhotoTickerV() {
 
 export function PhotoTickerH() {
   return (
-    <div className="overflow-hidden h-[154px]">
+    <div className="overflow-hidden h-[128px]">
       <div
-        className="flex gap-[10px]"
-        style={{ animation: "conf-scroll-left 32s linear infinite" }}
+        className="flex gap-[8px]"
+        style={{ animation: "conf-scroll-left 21s linear infinite" }}
       >
         {[...PHOTOS, ...PHOTOS].map((n, i) => (
           <TickerPhotoH key={i} n={n} />
