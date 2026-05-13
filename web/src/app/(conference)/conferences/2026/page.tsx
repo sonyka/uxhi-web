@@ -293,14 +293,14 @@ export default function Conference2026Page() {
           <a href="https://www.instagram.com/uxhicommunity/" target="_blank" rel="noopener" aria-label="UXHI on Instagram"
             className="flex items-center hover:opacity-70 transition-opacity">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/conferences/2026/assets/icons/icon-instagram.svg" alt="" width={18} height={18}
-              style={{ width: 18, height: 18, filter: GRAY_110_FILTER }} />
+            <img src="/conferences/2026/assets/icons/icon-instagram.svg" alt="" width={24} height={24}
+              style={{ width: 24, height: 24, filter: GRAY_110_FILTER }} />
           </a>
           <a href="https://www.linkedin.com/company/uxhi/" target="_blank" rel="noopener" aria-label="UXHI on LinkedIn"
             className="flex items-center hover:opacity-70 transition-opacity">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={18} height={18}
-              style={{ width: 18, height: 18, filter: GRAY_110_FILTER }} />
+            <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={24} height={24}
+              style={{ width: 24, height: 24, filter: GRAY_110_FILTER }} />
           </a>
         </div>
       </footer>
