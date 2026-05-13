@@ -42,21 +42,29 @@ function TickerPhotoH({ n }: { n: number }) {
   );
 }
 
-// Blur overlay shared style builder
+// Blur overlay shared style builder.
+// mask-image on the overlay itself fades the ENTIRE effect (backdrop blur +
+// background) from fully-on at the device edge to fully-off at the inner edge,
+// eliminating the hard cutoff where the overlay div ends.
 const blurOverlay = (dir: "top" | "bottom" | "left" | "right"): React.CSSProperties => {
-  const gradient: Record<typeof dir, string> = {
+  const along: Record<typeof dir, string> = {
     top:    "to bottom",
     bottom: "to top",
     left:   "to right",
     right:  "to left",
   };
+  const grad = along[dir];
   return {
     position: "absolute",
     zIndex: 10,
     pointerEvents: "none",
     backdropFilter: EDGE_BLUR,
     WebkitBackdropFilter: EDGE_BLUR,
-    background: `linear-gradient(${gradient[dir]}, white 0%, transparent 100%)`,
+    background: `linear-gradient(${grad}, rgba(255,255,255,0.95) 0%, transparent 100%)`,
+    // Mask fades the overlay opacity from solid → transparent inward,
+    // so the blur effect itself dissolves softly rather than cutting off.
+    maskImage: `linear-gradient(${grad}, black 20%, transparent 100%)`,
+    WebkitMaskImage: `linear-gradient(${grad}, black 20%, transparent 100%)`,
     ...(dir === "top"    ? { top: 0, left: 0, right: 0, height: EDGE_SIZE } : {}),
     ...(dir === "bottom" ? { bottom: 0, left: 0, right: 0, height: EDGE_SIZE } : {}),
     ...(dir === "left"   ? { left: 0, top: 0, bottom: 0, width: EDGE_SIZE } : {}),
