@@ -43,8 +43,8 @@ function PulseDot() {
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-[3px] border-b border-black/[0.06] last:border-0">
-      <span className="text-[12px] sm:text-[14px] md:text-[16px] font-normal text-[#ADB5BD]">{label}</span>
-      <span className="text-[12px] sm:text-[14px] md:text-[16px] font-normal text-[#969DA4]">{value}</span>
+      <span className="text-[14px] md:text-[16px] font-normal text-[#ADB5BD]">{label}</span>
+      <span className="text-[14px] md:text-[16px] font-normal text-[#969DA4]">{value}</span>
     </div>
   );
 }
