@@ -13,7 +13,7 @@ import type React from "react";
 
 const PHOTOS = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const;
 
-const EDGE_BLUR = "blur(8px)";
+const EDGE_BLUR = "blur(5px)";
 const EDGE_SIZE = "72px"; // how tall/wide the blur overlay extends inward
 
 function TickerPhotoV({ n }: { n: number }) {
