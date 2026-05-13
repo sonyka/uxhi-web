@@ -22,13 +22,13 @@ export function LogoBadge() {
     }
 
     // Page Visibility API: clear the interval when the tab is hidden so
-    // callbacks don't queue up. Spin exactly once on return, then restart.
+    // callbacks don't queue up in the background. On return, just restart
+    // the interval silently — no spin — so the badge stays still.
     function handleVisibilityChange() {
       if (document.hidden) {
         clearInterval(interval);
       } else {
-        spin();
-        startInterval();
+        startInterval(); // resume regular cadence, no immediate spin
       }
     }
 
