@@ -3,6 +3,7 @@ import Link from "next/link";
 import { LogoBadge } from "./_components/LogoBadge";
 import { PhotoTickerV, PhotoTickerH } from "./_components/PhotoTicker";
 import { PastConferencesMenu } from "./_components/PastConferencesMenu";
+import { MobileNavMenu } from "./_components/MobileNavMenu";
 
 export const metadata: Metadata = {
   title: "UXHICONF26 — Coming Soon",
@@ -42,8 +43,8 @@ function PulseDot() {
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-[3px] border-b border-black/[0.06] last:border-0">
-      <span className="text-[10px] sm:text-[14px] md:text-[16px] font-normal text-[#ADB5BD]">{label}</span>
-      <span className="text-[10px] sm:text-[14px] md:text-[16px] font-normal text-[#969DA4]">{value}</span>
+      <span className="text-[12px] sm:text-[14px] md:text-[16px] font-normal text-[#ADB5BD]">{label}</span>
+      <span className="text-[12px] sm:text-[14px] md:text-[16px] font-normal text-[#969DA4]">{value}</span>
     </div>
   );
 }
@@ -67,13 +68,13 @@ function SidebarInfo() {
               XL     (244px col)  → 20px, lh 1.45 → 29px/line ✓
         */}
         <div className="flex flex-col gap-2">
-          <p className="font-bold uppercase text-[10px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase text-[12px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             {daysUntil()} Days to Pilina
           </p>
-          <p className="font-bold uppercase text-[10px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase text-[12px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             By designers,&nbsp;&nbsp;for designers
           </p>
-          <p className="font-bold uppercase text-[10px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase text-[12px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             2025 UXHICON by the numbers:
           </p>
         </div>
@@ -268,19 +269,25 @@ export default function Conference2026Page() {
       */}
       <footer className="h-16 shrink-0 flex items-center justify-between px-6">
         <nav className="flex items-center gap-5" aria-label="Site links">
-          <PastConferencesMenu />
-          <a
-            href="https://uxhi.community"
-            target="_blank"
-            rel="noopener"
-            className="hidden md:inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
-            style={{ color: "#50555A" }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/conferences/2026/assets/icons/icon-star.svg" alt="" width={16} height={16}
-              style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
-            About UXHI
-          </a>
+          {/* Mobile: white pill button → flat dropdown (past conferences + about uxhi) */}
+          <MobileNavMenu />
+
+          {/* Desktop: separate nav links */}
+          <div className="hidden md:flex items-center gap-5">
+            <PastConferencesMenu />
+            <a
+              href="https://uxhi.community"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+              style={{ color: "#50555A" }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/conferences/2026/assets/icons/icon-star.svg" alt="" width={16} height={16}
+                style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
+              About UXHI
+            </a>
+          </div>
         </nav>
         <div className="flex items-center gap-[14px]">
           <a href="https://www.instagram.com/uxhicommunity/" target="_blank" rel="noopener" aria-label="UXHI on Instagram"
