@@ -179,21 +179,20 @@ Uses `next-sanity` with:
 | `staging` | Vercel (free, unlimited builds) | `web-henna-five-45.vercel.app` | Active development AND current live conference site |
 | `main` | Netlify (paused — no credits) | `uxhiconference.com` | Frozen at last deploy; do not push until credits restored |
 
-**Current workflow (Netlify credits exhausted):**
+**⛔ NEVER push to `main` unless the user explicitly says so.**
+Netlify credits are exhausted. Every push to `main` violates the agreed workflow.
+
+**All work goes directly on `staging`:**
 ```bash
-# ALL work goes to staging → Vercel only
 git checkout staging
 git add ... && git commit -m "..."
-git push origin staging        # Vercel auto-deploys — unlimited, free
+git push origin staging        # Vercel deploys — done. Never touch main.
 ```
 
-Do NOT push to `main` while Netlify credits are zero — it won't deploy and just wastes time.
-
-**When Netlify credits are restored** (or if domain is moved to Vercel):
+**Only when user explicitly authorises production deploy:**
 ```bash
-# Merge staging → main to ship to production
 git checkout main && git merge staging && git push origin main
-git checkout staging
+git checkout staging           # immediately return to staging
 ```
 
 **Future option:** Point `uxhiconference.com` DNS to Vercel (free custom domains supported). This would make Vercel the permanent platform and eliminate the Netlify credit constraint entirely.
