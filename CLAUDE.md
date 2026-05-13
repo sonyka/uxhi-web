@@ -176,28 +176,32 @@ Uses `next-sanity` with:
 
 | Branch | Host | URL | Purpose |
 |---|---|---|---|
-| `staging` | Vercel (free, unlimited builds) | `uxhi-staging.vercel.app` | Active development, stakeholder preview |
-| `main` | Netlify (300 credits/month) | `uxhi.hisony.com` / `uxhiconference.com` | Production only |
+| `staging` | Vercel (free, unlimited builds) | `web-henna-five-45.vercel.app` | Active development AND current live conference site |
+| `main` | Netlify (paused — no credits) | `uxhiconference.com` | Frozen at last deploy; do not push until credits restored |
 
-**Daily workflow:**
+**Current workflow (Netlify credits exhausted):**
 ```bash
-# All development work goes to staging (free, unlimited)
+# ALL work goes to staging → Vercel only
 git checkout staging
 git add ... && git commit -m "..."
-git push origin staging        # Vercel auto-deploys — no credit cost
-
-# Ship to production only when approved/ready
-git checkout main
-git merge staging
-git push origin main           # 1 Netlify build = 15 credits
-git checkout staging           # return to staging for next work
+git push origin staging        # Vercel auto-deploys — unlimited, free
 ```
 
+Do NOT push to `main` while Netlify credits are zero — it won't deploy and just wastes time.
+
+**When Netlify credits are restored** (or if domain is moved to Vercel):
+```bash
+# Merge staging → main to ship to production
+git checkout main && git merge staging && git push origin main
+git checkout staging
+```
+
+**Future option:** Point `uxhiconference.com` DNS to Vercel (free custom domains supported). This would make Vercel the permanent platform and eliminate the Netlify credit constraint entirely.
+
 **Rules — always follow:**
-- Do all development on `staging`. Never develop directly on `main`.
-- `main` is production. Only push when content is approved and ready to ship.
-- Batch work into as few `main` pushes as possible — each costs 15 Netlify credits.
-- Share `uxhi-staging.vercel.app` with stakeholders for review before merging.
+- `staging` is the active branch. All commits go here.
+- Never develop directly on `main`.
+- Share `web-henna-five-45.vercel.app` with stakeholders for review.
 
 ### Vercel (staging) setup
 
