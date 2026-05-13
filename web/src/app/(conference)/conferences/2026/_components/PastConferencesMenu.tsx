@@ -46,6 +46,8 @@ export function PastConferencesMenu() {
           <a
             key={href}
             href={href}
+            target="_blank"
+            rel="noopener"
             className="block px-4 py-3 text-[14px] font-normal no-underline hover:bg-[#F4F1EA] transition-colors"
             style={{ color: GRAY_110 }}
             onClick={() => { if (ref.current) ref.current.open = false; }}

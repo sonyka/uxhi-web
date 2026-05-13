@@ -244,7 +244,7 @@ export default function Conference2026Page() {
                   target="_blank"
                   rel="noopener"
                   className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
-                  style={{ background: TEAL, color: PURPLE }}
+                  style={{ background: TEAL, color: "#000" }}
                 >
                   Apply to speak
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -269,8 +269,10 @@ export default function Conference2026Page() {
       <footer className="h-16 shrink-0 flex items-center justify-between px-6">
         <nav className="flex items-center gap-5" aria-label="Site links">
           <PastConferencesMenu />
-          <Link
-            href="/about"
+          <a
+            href="https://uxhi.community"
+            target="_blank"
+            rel="noopener"
             className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
             style={{ color: "#50555A" }}
           >
@@ -278,7 +280,7 @@ export default function Conference2026Page() {
             <img src="/conferences/2026/assets/icons/icon-star.svg" alt="" width={16} height={16}
               style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
             About UXHI
-          </Link>
+          </a>
         </nav>
         <div className="flex items-center gap-[14px]">
           <a href="https://www.instagram.com/uxhicommunity/" target="_blank" rel="noopener" aria-label="UXHI on Instagram"
