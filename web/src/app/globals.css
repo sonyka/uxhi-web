@@ -204,6 +204,16 @@ html {
 }
 .conf-ticker-v:hover { animation-play-state: paused; }
 
+/* Fade edges of photo tickers using CSS mask */
+.conf-fade-v {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+}
+.conf-fade-h {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
 /* ── UXHICONF26 photo ticker animations ─────────────────────────── */
 /* Vertical ticker: XL (200×256 items, 16px gap, 9 items → 9×272=2448px per set) */
 @keyframes conf-scroll-up-xl {

@@ -35,7 +35,7 @@ function TickerPhotoH({ n }: { n: number }) {
 
 export function PhotoTickerV() {
   return (
-    <div className="absolute right-6 top-0 bottom-0 hidden md:block md:w-[120px] lg:w-[160px] xl:w-[200px] overflow-hidden">
+    <div className="conf-fade-v absolute right-6 top-0 bottom-0 hidden md:block md:w-[120px] lg:w-[160px] xl:w-[200px] overflow-hidden">
       <div className="conf-ticker-v flex flex-col md:gap-[10px] lg:gap-[13px] xl:gap-[16px]">
         {[...PHOTOS, ...PHOTOS].map((n, i) => (
           <TickerPhotoV key={i} n={n} />
@@ -47,7 +47,7 @@ export function PhotoTickerV() {
 
 export function PhotoTickerH() {
   return (
-    <div className="overflow-hidden h-[128px]">
+    <div className="conf-fade-h overflow-hidden h-[128px]">
       <div
         className="flex gap-[8px]"
         style={{ animation: "conf-scroll-left 21s linear infinite" }}
