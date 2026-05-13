@@ -67,13 +67,13 @@ function SidebarInfo() {
               XL     (244px col)  → 20px, lh 1.45 → 29px/line ✓
         */}
         <div className="flex flex-col gap-2">
-          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[10px] lg:text-[14px] xl:text-[20px]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[14px] lg:text-[16px] xl:text-[20px]" style={{ color: PURPLE }}>
             {daysUntil()} Days to Pilina
           </p>
-          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[10px] lg:text-[14px] xl:text-[20px]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[14px] lg:text-[16px] xl:text-[20px]" style={{ color: PURPLE }}>
             By designers,&nbsp;&nbsp;for designers
           </p>
-          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[10px] lg:text-[14px] xl:text-[20px]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase leading-[1.7] lg:leading-[1.4] xl:leading-[1.45] text-[14px] lg:text-[16px] xl:text-[20px]" style={{ color: PURPLE }}>
             2025 UXHICON by the numbers:
           </p>
         </div>
