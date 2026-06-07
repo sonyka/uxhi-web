@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 // ── Design tokens ─────────────────────────────────────────────────────
 const BEIGE_30 = "#F4F1EA"; // page background (beige-30 from design system)
 const PURPLE   = "#231769"; // --color-purple-140
-const TEAL     = "#09C0D7"; // --color-teal-90
+const TEAL_60  = "#60D7E5"; // lighter teal for apply-to-speak button
 
 const EVENT_DATE = new Date("2026-10-17T00:00:00");
 
@@ -29,11 +29,11 @@ function PulseDot() {
   return (
     <span className="relative inline-flex w-[10px] h-[10px] flex-shrink-0" aria-hidden="true">
       <span className="absolute top-1/2 left-1/2 w-[10px] h-[10px] rounded-full"
-        style={{ background: TEAL, animation: "conf-pulse-ring 2s ease-out infinite" }} />
+        style={{ background: TEAL_60, animation: "conf-pulse-ring 2s ease-out infinite" }} />
       <span className="absolute top-1/2 left-1/2 w-[10px] h-[10px] rounded-full"
-        style={{ background: TEAL, animation: "conf-pulse-ring 2s ease-out 0.7s infinite" }} />
+        style={{ background: TEAL_60, animation: "conf-pulse-ring 2s ease-out 0.7s infinite" }} />
       <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[7px] h-[7px] rounded-full z-10"
-        style={{ background: TEAL }} />
+        style={{ background: TEAL_60 }} />
     </span>
   );
 }
@@ -43,7 +43,7 @@ function PulseDot() {
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-[3px] border-b border-black/[0.06] last:border-0">
-      <span className="text-[14px] md:text-[16px] font-normal text-[#ADB5BD]">{label}</span>
+      <span className="text-[14px] md:text-[16px] font-normal text-[#969DA4]">{label}</span>
       <span className="text-[14px] md:text-[16px] font-normal text-[#969DA4]">{value}</span>
     </div>
   );
@@ -69,7 +69,7 @@ function SidebarInfo() {
         */}
         <div className="flex flex-col gap-2">
           <p className="font-bold uppercase text-[12px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
-            {daysUntil()} Days to Pilina
+            {daysUntil()} Days to Go
           </p>
           <p className="font-bold uppercase text-[12px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             By designers,&nbsp;&nbsp;for designers
@@ -123,9 +123,8 @@ export default function Conference2026Page() {
         </Link>
 
         {/* Header CTA — h=44px, 15px, font-normal, with cursor icon */}
-        {/* TODO: replace href with Givebutter sponsor page URL */}
         <a
-          href="#"
+          href="https://givebutter.com/uxhi-con-2026-sponsor"
           target="_blank"
           rel="noopener"
           className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
@@ -185,72 +184,91 @@ export default function Conference2026Page() {
           </aside>
 
           {/* ── RIGHT PANEL ───────────────────────────────────────────
-              overflow-y:auto: vertically centered now, scrolls when
-              speakers/agenda content is added in a future phase.
+              Sidebar stays sticky (h-dvh + overflow-hidden on card);
+              this section scrolls when content exceeds viewport height.
           ──────────────────────────────────────────────────────────── */}
           <section
             className="flex-1 min-h-0 overflow-y-auto order-1 md:order-none"
-            aria-label="Coming soon"
+            aria-label="Conference content"
           >
-            {/* min-h-full: centers content when short, grows when tall */}
-            <div className="min-h-full flex flex-col justify-center gap-4 p-4 md:gap-5 md:py-10 md:pl-8 md:pr-6 lg:pr-10 xl:pl-10 xl:pr-16">
+            <div className="flex flex-col gap-10 p-4 md:gap-16 md:py-16 md:pl-8 md:pr-6 lg:pr-10 xl:gap-20 xl:py-32 xl:pl-10 xl:pr-16">
 
-              {/* "Coming soon!" badge */}
-              <div
-                className="inline-flex items-center gap-[10px] w-fit h-[32px] px-4 rounded-full text-[13px] font-normal"
-                style={{
-                  background: "#F0FCFD",
-                  border: "1px solid rgba(9,192,215,0.4)",
-                  color: PURPLE,
-                }}
-              >
-                <PulseDot />
-                Coming soon!
+              {/* ── Hero: date badge, tagline, CTAs ───────────────── */}
+              <div className="flex flex-col gap-4 md:gap-5">
+
+                {/* Date badge — gray border, teal pulse */}
+                <div
+                  className="inline-flex items-center gap-[10px] w-fit px-4 py-[9px] rounded-full text-[14px] md:text-[16px] font-normal"
+                  style={{ border: "1px solid #969DA4", color: "#000" }}
+                >
+                  <PulseDot />
+                  October 17, 2026
+                </div>
+
+                {/* Tagline — three parts per Figma:
+                    "Hana Hou!" / main description (semibold) / "Join us…" (regular, lighter)
+                    Figma XL sizes: 36px semibold / 36px semibold / 32px regular
+                */}
+                <div className="flex flex-col gap-2 md:gap-3">
+                  <h1
+                    className="font-semibold leading-[1.2] tracking-[-0.02em] text-[17px] sm:text-[20px] md:text-[22px] lg:text-[30px] xl:text-[36px]"
+                  >
+                    Hana Hou!
+                  </h1>
+                  <p
+                    className="font-semibold leading-[1.2] tracking-[-0.02em] text-[17px] sm:text-[20px] md:text-[22px] lg:text-[30px] xl:text-[36px]"
+                  >
+                    UXHICon is an annual event for Hawai&#699;i&rsquo;s design community to share stories and narratives that shape meaningful design.
+                  </p>
+                  <p
+                    className="font-normal leading-[1.3] tracking-[-0.02em] text-[15px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]"
+                  >
+                    Join us for an immersive day of knowledge-sharing, inspiration, and pilina.&nbsp;&#127802;
+                  </p>
+                </div>
+
+                {/* CTA buttons */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://givebutter.com/uxhi-con-2026-sponsor"
+                    target="_blank"
+                    rel="noopener"
+                    className="hidden md:inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                    style={{ background: PURPLE }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
+                    Become a sponsor
+                  </a>
+                  <a
+                    href="https://forms.gle/gd3qdU8JhWeccJ568"
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                    style={{ background: TEAL_60, color: "#000" }}
+                  >
+                    Apply to speak
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/conferences/2026/assets/icons/icon-arrow-small-right.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
+                  </a>
+                </div>
               </div>
 
-              {/* Tagline — Bricolage Grotesque extrabold (display weight)
-                  Figma sizes:
-                    xl → ~42px  lg → ~30px  md → ~22px  sm → ~20px
-              */}
-              <h1
-                className="font-extrabold leading-[1.2] tracking-[-0.02em] text-[17px] sm:text-[20px] md:text-[22px] lg:text-[30px] xl:text-[42px]"
-                style={{ color: PURPLE }}
-              >
-                Hana Hou! UXHICon is an annual event for Hawai&#699;i&#700;s design
-                community to share stories and narratives that shape meaningful
-                design&mdash;through an immersive day of knowledge-sharing,
-                inspiration, and connection.&nbsp;&#127802;
-              </h1>
-
-              {/* CTA buttons — h=44px · 15px · font-normal per Figma */}
-              <div className="flex flex-wrap items-center gap-3">
-
-                {/* TODO: replace href with Givebutter sponsor page URL */}
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener"
-                  className="hidden md:inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
-                  style={{ background: PURPLE }}
+              {/* ── Moʻolelo and Meaning ──────────────────────────── */}
+              <div className="flex flex-col gap-3 md:gap-4">
+                <h2
+                  className="font-semibold leading-[1.3] tracking-[-0.01em] text-[16px] md:text-[17px] lg:text-[18px] xl:text-[20px]"
                 >
-                  {/* Leading icon — matches header button */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
-                  Become a sponsor
-                </a>
-
-                {/* TODO: replace href with speaker application form URL */}
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
-                  style={{ background: TEAL, color: "#000" }}
+                  UXHI Conference 2026: Mo&#699;olelo and Meaning
+                </h2>
+                <div
+                  className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
+                  style={{ color: "#50555A" }}
                 >
-                  Apply to speak
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/conferences/2026/assets/icons/icon-arrow-small-right.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
-                </a>
+                  <p>In Hawai&#699;i, mo&#699;olelo is a treasured practice. It preserves the culture of a special place and people, by shaping, carrying, and contextualizing what is shared. It is highly intentional.</p>
+                  <p>These ideas resonate deeply with design. Design shapes understanding. Every interaction reflects intentional choices, whether it&rsquo;s interactions created for our various audiences, insights distilled from research, or the communication of value to stakeholders and leaders. As a designer, you guide how people relate to systems, experiences, and even each other.</p>
+                  <p>This year&rsquo;s conference is a nod to stories and their carriers, both of which help us make sense of the world around us. Join us for another year of knowledge sharing, building pilina within Hawai&#699;i&rsquo;s design community, and learning from one another&rsquo;s mo&#699;olelo.</p>
+                </div>
               </div>
 
             </div>
