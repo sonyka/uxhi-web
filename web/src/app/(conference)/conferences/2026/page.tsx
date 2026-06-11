@@ -43,8 +43,8 @@ function PulseDot() {
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-[3px] border-b border-black/[0.06] last:border-0">
-      <span className="text-[14px] md:text-[16px] font-normal text-[#969DA4]">{label}</span>
-      <span className="text-[14px] md:text-[16px] font-normal text-[#969DA4]">{value}</span>
+      <span className="text-[16px] font-normal text-[#969DA4]">{label}</span>
+      <span className="text-[16px] font-normal text-[#969DA4]">{value}</span>
     </div>
   );
 }
@@ -68,13 +68,13 @@ function SidebarInfo() {
               XL     (244px col)  → 20px, lh 1.45 → 29px/line ✓
         */}
         <div className="flex flex-col gap-2">
-          <p className="font-bold uppercase text-[12px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             {daysUntil()} Days to Go
           </p>
-          <p className="font-bold uppercase text-[12px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             By designers,&nbsp;&nbsp;for designers
           </p>
-          <p className="font-bold uppercase text-[12px] leading-[1.4] sm:text-[14px] sm:leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
+          <p className="font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             2025 UXHICON by the numbers:
           </p>
         </div>
@@ -158,7 +158,7 @@ export default function Conference2026Page() {
               At sm: full-width, order-2 (below right panel)
           ──────────────────────────────────────────────────────────── */}
           <aside
-            className="relative shrink-0 overflow-hidden order-2 md:order-none md:w-[340px] lg:w-[420px] xl:w-[508px]"
+            className="hidden md:block relative shrink-0 overflow-hidden md:w-[340px] lg:w-[420px] xl:w-[508px]"
             aria-label="Conference sidebar"
           >
             {/* Vertical photo ticker — desktop only (absolute-positioned) */}
@@ -170,28 +170,32 @@ export default function Conference2026Page() {
                 md → left=24 bottom=24 w=156
             */}
             {/* gap-10 = 40px between badge and text block, matching Figma */}
-            <div className="hidden md:flex flex-col gap-10 absolute bottom-6 left-6 md:w-[156px] lg:w-[196px] xl:w-[244px]">
+            <div className="flex flex-col gap-10 absolute bottom-6 left-6 md:w-[156px] lg:w-[196px] xl:w-[244px]">
               <SidebarInfo />
-            </div>
-
-            {/* Mobile sidebar: 16px padding, info row then photo strip */}
-            <div className="md:hidden flex flex-col gap-4 px-4 pt-4">
-              <div className="flex items-start gap-4">
-                <SidebarInfo />
-              </div>
-              <PhotoTickerH />
             </div>
           </aside>
 
           {/* ── RIGHT PANEL ───────────────────────────────────────────
               Sidebar stays sticky (h-dvh + overflow-hidden on card);
               this section scrolls when content exceeds viewport height.
+              On mobile/sm, this is the single scrollable column —
+              badge/stats + photo strip scroll away at the top, followed
+              by the date/tagline/Moʻolelo content.
           ──────────────────────────────────────────────────────────── */}
           <section
-            className="flex-1 min-h-0 overflow-y-auto order-1 md:order-none"
+            className="flex-1 min-h-0 overflow-y-auto"
             aria-label="Conference content"
           >
             <div className="flex flex-col gap-10 p-4 md:gap-16 md:py-16 md:pl-8 md:pr-6 lg:pr-10 xl:gap-20 xl:py-32 xl:pl-10 xl:pr-16">
+
+              {/* Mobile/sm sidebar info — badge, days-to-go/stats, photo strip.
+                  Scrolls away with the rest of the content (no fixed positioning). */}
+              <div className="md:hidden flex flex-col gap-4">
+                <div className="flex items-start gap-4">
+                  <SidebarInfo />
+                </div>
+                <PhotoTickerH />
+              </div>
 
               {/* ── Hero: date badge, tagline, CTAs ───────────────── */}
               <div className="flex flex-col gap-4 md:gap-5">
@@ -261,11 +265,21 @@ export default function Conference2026Page() {
                 >
                   UXHI Conference 2026: Mo&#699;olelo and Meaning
                 </h2>
+                <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[676/297]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/conferences/2026/assets/logos/moolelo_logo.png"
+                    alt="Mo&#699;olelo"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="font-normal leading-[1.3] tracking-[-0.02em] text-[15px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]">
+                  In Hawai&#699;i, mo&#699;olelo is a treasured practice. It preserves the culture of a special place and people, by shaping, carrying, and contextualizing what is shared. It is highly intentional.
+                </p>
                 <div
                   className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
                   style={{ color: "#50555A" }}
                 >
-                  <p>In Hawai&#699;i, mo&#699;olelo is a treasured practice. It preserves the culture of a special place and people, by shaping, carrying, and contextualizing what is shared. It is highly intentional.</p>
                   <p>These ideas resonate deeply with design. Design shapes understanding. Every interaction reflects intentional choices, whether it&rsquo;s interactions created for our various audiences, insights distilled from research, or the communication of value to stakeholders and leaders. As a designer, you guide how people relate to systems, experiences, and even each other.</p>
                   <p>This year&rsquo;s conference is a nod to stories and their carriers, both of which help us make sense of the world around us. Join us for another year of knowledge sharing, building pilina within Hawai&#699;i&rsquo;s design community, and learning from one another&rsquo;s mo&#699;olelo.</p>
                 </div>
@@ -304,6 +318,16 @@ export default function Conference2026Page() {
               <img src="/conferences/2026/assets/icons/icon-star.svg" alt="" width={16} height={16}
                 style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
               About UXHI
+            </a>
+            <a
+              href="mailto:uxhiconference@gmail.com"
+              className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+              style={{ color: "#50555A" }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/conferences/2026/assets/icons/email-heart.svg" alt="" width={16} height={16}
+                style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
+              Email us
             </a>
           </div>
         </nav>
