@@ -26,7 +26,7 @@ export function MobileNavMenu() {
   }, []);
 
   return (
-    <details ref={ref} className="relative md:hidden">
+    <details ref={ref} className="relative sm:hidden">
       {/* White pill button matching Figma footer design */}
       <summary
         className="inline-flex items-center gap-2 h-[40px] px-4 bg-white rounded-full cursor-pointer select-none"
@@ -61,7 +61,7 @@ export function MobileNavMenu() {
             href={href}
             target={href.startsWith("mailto:") ? undefined : "_blank"}
             rel={href.startsWith("mailto:") ? undefined : "noopener"}
-            className="flex items-center gap-[10px] px-4 py-3 text-[14px] font-normal no-underline transition-colors"
+            className="flex items-center gap-[10px] px-4 py-3 text-[15px] font-normal no-underline transition-colors"
             style={{ color: "#50555A" }}
             onMouseEnter={e => (e.currentTarget.style.background = "#F4F1EA")}
             onMouseLeave={e => (e.currentTarget.style.background = "")}

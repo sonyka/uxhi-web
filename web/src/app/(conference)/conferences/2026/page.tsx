@@ -43,8 +43,8 @@ function PulseDot() {
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-[3px] border-b border-black/[0.06] last:border-0">
-      <span className="text-[16px] font-normal text-[#969DA4]">{label}</span>
-      <span className="text-[16px] font-normal text-[#969DA4]">{value}</span>
+      <span className="text-[16px] font-normal text-[#676D73]">{label}</span>
+      <span className="text-[16px] font-normal text-[#676D73]">{value}</span>
     </div>
   );
 }
@@ -225,7 +225,7 @@ export default function Conference2026Page() {
                     UXHICon is an annual event for Hawai&#699;i&rsquo;s design community to share stories and narratives that shape meaningful design.
                   </p>
                   <p
-                    className="font-normal leading-[1.3] tracking-[-0.02em] text-[15px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]"
+                    className="font-normal leading-[1.3] tracking-[-0.02em] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]"
                   >
                     Join us for an immersive day of knowledge-sharing, inspiration, and pilina.&nbsp;&#127802;
                   </p>
@@ -273,7 +273,7 @@ export default function Conference2026Page() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="font-normal leading-[1.3] tracking-[-0.02em] text-[15px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]">
+                <p className="font-normal leading-[1.3] tracking-[-0.02em] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]">
                   In Hawai&#699;i, mo&#699;olelo is a treasured practice. It preserves the culture of a special place and people, by shaping, carrying, and contextualizing what is shared. It is highly intentional.
                 </p>
                 <div
@@ -305,7 +305,7 @@ export default function Conference2026Page() {
           <MobileNavMenu />
 
           {/* Desktop: separate nav links */}
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden sm:flex items-center gap-5">
             <PastConferencesMenu />
             <a
               href="https://uxhi.community"
