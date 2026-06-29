@@ -45,11 +45,11 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
       <>
         For general inquiries, please email{" "}
         <a
-          href="mailto:aloha@uxhiconference.com"
+          href="mailto:uxhiconference@gmail.com"
           className="underline underline-offset-2 hover:opacity-70 transition-opacity"
           style={{ color: "#231769" }}
         >
-          aloha@uxhiconference.com
+          uxhiconference@gmail.com
         </a>
         .
       </>

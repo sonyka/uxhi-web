@@ -57,7 +57,7 @@ function SocialAndSponsor() {
         </a>
       </div>
       <a
-        href="mailto:aloha@uxhiconference.com"
+        href="mailto:uxhiconference@gmail.com"
         className="text-xs text-amber-400/70 hover:text-amber-400 transition-colors"
       >
         Become a Sponsor ↗
