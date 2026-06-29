@@ -4,6 +4,7 @@ import { LogoBadge } from "./_components/LogoBadge";
 import { PhotoTickerV, PhotoTickerH } from "./_components/PhotoTicker";
 import { PastConferencesMenu } from "./_components/PastConferencesMenu";
 import { MobileNavMenu } from "./_components/MobileNavMenu";
+import { FaqSection } from "./_components/FaqSection";
 
 export const metadata: Metadata = {
   title: "UXHICONF26 — Coming Soon",
@@ -42,10 +43,9 @@ function PulseDot() {
 // Figma: ~11px, both label and value in light gray, very subtle separator
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex justify-between items-center py-[3px] border-b border-black/[0.06] last:border-0">
-      <span className="text-[16px] font-normal text-[#676D73]">{label}</span>
-      <span className="text-[16px] font-normal text-[#676D73]">{value}</span>
-    </div>
+    <p className="text-[16px] font-normal text-[#676D73]">
+      {value} {label}
+    </p>
   );
 }
 
@@ -79,7 +79,7 @@ function SidebarInfo() {
           </p>
         </div>
         {/* Stats */}
-        <div>
+        <div className="flex flex-col gap-1">
           <StatRow label="Speakers"  value="37"  />
           <StatRow label="Sessions"  value="12"  />
           <StatRow label="Attendees" value="127" />
@@ -108,7 +108,7 @@ export default function Conference2026Page() {
      *   order-1 = right content (top)
      *   order-2 = sidebar info + horizontal photo strip (bottom)
      */
-    <div className="w-screen h-dvh flex flex-col overflow-hidden" style={{ background: BEIGE_30 }}>
+    <div className="w-full h-dvh flex flex-col overflow-hidden" style={{ background: BEIGE_30 }}>
 
       {/* ── HEADER ─────────────────────────────────────────────────── */}
       <header className="h-16 shrink-0 flex items-center justify-between px-6 z-10">
@@ -284,6 +284,9 @@ export default function Conference2026Page() {
                   <p>This year&rsquo;s conference is a nod to stories and their carriers, both of which help us make sense of the world around us. Join us for another year of knowledge sharing, building pilina within Hawai&#699;i&rsquo;s design community, and learning from one another&rsquo;s mo&#699;olelo.</p>
                 </div>
               </div>
+
+              {/* ── FAQs ───────────────────────────────────────────── */}
+              <FaqSection />
 
             </div>
           </section>
