@@ -10,7 +10,7 @@
 
 const ICON_GRAY = "#969DA4";
 
-const FAQS: { q: string; a: string }[] = [
+const FAQS: { q: string; a: React.ReactNode }[] = [
   {
     q: "Who should attend the conference?",
     a: "This event is ideal for anyone interested in design and innovation, including students, beginners, and senior professionals in UX/UI, graphic, and product design, as well as UX teams, developers, project managers, and creative directors.",
@@ -41,7 +41,19 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Who can I contact for more information?",
-    a: "For general inquiries, please email aloha@uxhiconference.com.",
+    a: (
+      <>
+        For general inquiries, please email{" "}
+        <a
+          href="mailto:aloha@uxhiconference.com"
+          className="underline underline-offset-2 hover:opacity-70 transition-opacity"
+          style={{ color: "#231769" }}
+        >
+          aloha@uxhiconference.com
+        </a>
+        .
+      </>
+    ),
   },
 ];
 

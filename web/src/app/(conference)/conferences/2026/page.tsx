@@ -285,6 +285,73 @@ export default function Conference2026Page() {
                 </div>
               </div>
 
+              {/* ── Venue ──────────────────────────────────────────── */}
+              {/* Content from the 2025 conference site (Entrepreneurs Sandbox). */}
+              <div className="flex flex-col gap-3 md:gap-4">
+                <h2
+                  className="font-semibold leading-[1.3] tracking-[-0.02em] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]"
+                >
+                  The Venue: Entrepreneurs Sandbox
+                </h2>
+                {/* Building photo + location map, side by side on desktop */}
+                <div className="flex flex-col md:flex-row gap-3 md:gap-4">
+                  <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[325/176] md:w-1/2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/conferences/2026/assets/images/venue-entrepreneurs-sandbox.jpg"
+                      alt="Exterior of the Entrepreneurs Sandbox at sunset"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  {/* Map snapshot — clicking opens the venue in Google Maps.
+                      Map tiles © OpenStreetMap contributors. */}
+                  <a
+                    href="https://maps.app.goo.gl/zBHS4EXnXWuhysEu5"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="View the Entrepreneurs Sandbox on Google Maps"
+                    className="group relative block rounded-2xl md:rounded-3xl overflow-hidden aspect-[325/176] md:w-1/2"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/conferences/2026/assets/images/venue-map.png"
+                      alt="Map showing the Entrepreneurs Sandbox in Kakaʻako, Honolulu"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    {/* Location pin centered on the venue (tip points at center) */}
+                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full" aria-hidden="true">
+                      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style={{ filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.35))" }}>
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill={PURPLE} />
+                        <circle cx="12" cy="9" r="2.5" fill="#fff" />
+                      </svg>
+                    </span>
+                    {/* OSM attribution */}
+                    <span className="absolute bottom-1 right-1.5 text-[9px] leading-none rounded px-1 py-[1px] bg-white/65 text-black/55">
+                      © OpenStreetMap
+                    </span>
+                  </a>
+                </div>
+                <div
+                  className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
+                  style={{ color: "#50555A" }}
+                >
+                  <p>Located in the heart of Kaka&#699;ako, the <a href="https://sandboxhawaii.org/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: PURPLE }}>Entrepreneurs Sandbox</a> is a modern co-working and event space designed to foster innovation and collaboration.</p>
+                  <p>With flexible indoor and outdoor areas, it&rsquo;s the perfect setting for connecting, learning, and building community. The venue is fully ADA accessible, with wheelchair access and accessible restrooms on-site.</p>
+                  <p>Metered street parking is available nearby, and paid parking is available at the adjacent lot (entrance on Keawe Street). Please note: parking passes will not be provided this year.</p>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/zBHS4EXnXWuhysEu5"
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-2 w-fit mt-1 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                  style={{ background: TEAL_60, color: "#000" }}
+                >
+                  View on Map
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/conferences/2026/assets/icons/icon-arrow-small-right.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
+                </a>
+              </div>
+
               {/* ── FAQs ───────────────────────────────────────────── */}
               <FaqSection />
 
