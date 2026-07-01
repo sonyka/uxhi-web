@@ -59,7 +59,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                 layout
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 onClick={() => !isOpen && setExpanded(c._id)}
-                className={`relative rounded-2xl overflow-hidden select-none ${isOpen ? "col-span-2 bg-white" : "cursor-pointer"}`}
+                className={`relative rounded-2xl overflow-hidden select-none ${isOpen ? "bg-white self-start" : "cursor-pointer"}`}
                 style={isOpen ? { boxShadow: "0 10px 30px rgba(0,0,0,0.12)" } : undefined}
               >
                 <AnimatePresence mode="wait" initial={false}>
