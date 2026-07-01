@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Bricolage_Grotesque } from "next/font/google";
 
 const bricolage = Bricolage_Grotesque({
@@ -7,6 +8,10 @@ const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
 });
 
+// GA4 for the conference site. Un-gated (fires on staging too) so it can be
+// verified before launch; the property has no live data to protect.
+const GA_CONFERENCE_ID = "G-CT4QB1KDE2";
+
 export default function ConferenceLayout({ children }: { children: React.ReactNode }) {
   // Apply Bricolage Grotesque independently from the main site's font stack.
   return (
@@ -15,6 +20,7 @@ export default function ConferenceLayout({ children }: { children: React.ReactNo
           overscroll and safe-area insets don't show the main site's beige-10. */}
       <style>{`html, body { background: #F4F1EA; }`}</style>
       {children}
+      <GoogleAnalytics gaId={GA_CONFERENCE_ID} />
     </div>
   );
 }
