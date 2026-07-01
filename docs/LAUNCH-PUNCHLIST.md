@@ -23,6 +23,10 @@ the other docs in this folder (linked per section) plus in-progress work. Starte
       after confirming no custom domain is attached to either. Keep only `web`.
 - [ ] **Decide `web` project's production branch** (`main` vs `staging`) and align it with how
       we want `web-henna-five-45.vercel.app` to behave.
+- [ ] **Re-smoke-test the Netlify staging site** (`uxhi.hisony.com`): site loads, all 3 forms
+      submit (contact, membership, directory), Sanity Studio loads at `/studio`, draft mode
+      works (`/api/draft`). Left unverified during the deployment-model reconciliation —
+      see [netlify-migration-plan.md](netlify-migration-plan.md) Phase 1.
 
 ---
 
