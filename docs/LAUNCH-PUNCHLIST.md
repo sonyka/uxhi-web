@@ -89,11 +89,11 @@ See **[netlify-migration-plan.md](netlify-migration-plan.md) Phase 2.** Mostly d
 
 ## 6. Docs to reconcile (drifted from reality)
 
-- [ ] **CLAUDE.md** deployment section — reflect that `uxhi.hisony.com` is Netlify staging,
-      the `web` Vercel project's real branch, and the duplicate-project cleanup.
-- [ ] **[handoff-guide.md](handoff-guide.md)** — says "deployed on Vercel / push to `main` deploys";
-      update to the current Netlify + `staging`-branch workflow.
-- [ ] **[netlify-migration-plan.md](netlify-migration-plan.md)** — tick off completed Phase 1/2 items.
+- [x] **CLAUDE.md** deployment section — now documents Netlify = production / Vercel = staging,
+      the credit-limited batching, and the duplicate-project cleanup note.
+- [x] **[handoff-guide.md](handoff-guide.md)** — updated to the Netlify + `staging`-branch workflow.
+- [x] **[netlify-migration-plan.md](netlify-migration-plan.md)** — context reframed (Netlify prod /
+      Vercel staging), Phase 1 marked complete, Phase 2 status added.
 
 ---
 

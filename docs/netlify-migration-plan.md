@@ -2,26 +2,30 @@
 
 ## Context
 
-- Current host: **Vercel** (Hobby plan — non-commercial use only; UXHI may eventually have paid features)
-- Target host: **Netlify** (free tier, commercial use allowed)
-- Staging domain: `uxhi.hisony.com`
+**Final hosting model: Netlify = production, Vercel = staging (preview only).**
+
+- **Production → Netlify** (free tier, commercial use allowed). Serves `uxhiconference.com` now and `uxhi.community` at launch. Build credits are limited, so production deploys are batched.
+- **Staging → Vercel** (Hobby) at `web-henna-five-45.vercel.app`, previewing the `staging` branch. Kept for review only — **not** used for production, because Hobby's non-commercial / fair-use clause doesn't fit UXHI (which may add paid features).
+- Staging domain (on Netlify): `uxhi.hisony.com`
 - Production domain: `uxhi.community` (currently on SiteGround, pointing to old site)
-- Conference domain: `uxhiconference.com` (new; will serve `/conferences/2026/` via URL masking)
+- Conference domain: `uxhiconference.com` (serves `/conferences/2026/` via URL masking)
 
 Phases 1 and 2 are independent of Phase 3. The conference site can go live as soon as Netlify is set up, without waiting for the main site content to be finalized.
 
 ---
 
-## Phase 1 — Migrate Vercel → Netlify
+## Phase 1 — Stand up the site on Netlify (staging)
+
+**Status: complete — `uxhi.hisony.com` is live on Netlify.**
 
 ### Code (developer) ✓
 - [x] Create `netlify.toml` — base directory (`web`), build command, per-context env vars for Sanity visual editing
 - [x] Updated `src/sanity/lib/client.ts` — stega overlays now activate on both Vercel previews and Netlify deploy previews
 
 ### Dashboard (you)
-- [ ] Create a Netlify account at netlify.com
-- [ ] Import the GitHub repo; set base directory to `web`
-- [ ] Add environment variables:
+- [x] Create a Netlify account at netlify.com
+- [x] Import the GitHub repo; set base directory to `web`
+- [x] Add environment variables:
   - `NEXT_PUBLIC_SANITY_PROJECT_ID`
   - `NEXT_PUBLIC_SANITY_DATASET`
   - `NEXT_PUBLIC_SANITY_API_VERSION`
@@ -29,9 +33,9 @@ Phases 1 and 2 are independent of Phase 3. The conference site can go live as so
   - `SANITY_REVALIDATE_SECRET`
   - `SLACK_WEBHOOK_URL`
   - Any Google Sheets credentials used by the membership form
-- [ ] Add `uxhi.hisony.com` as a custom domain on the Netlify project
-- [ ] Update `uxhi.hisony.com` DNS at the registrar to point to Netlify (replaces Vercel)
-- [ ] Smoke-test staging once DNS propagates:
+- [x] Add `uxhi.hisony.com` as a custom domain on the Netlify project
+- [x] Update `uxhi.hisony.com` DNS at the registrar to point to Netlify
+- [ ] Re-smoke-test staging (worth reconfirming):
   - Site loads
   - Forms submit (contact, membership, directory)
   - Sanity Studio loads at `/studio`
@@ -40,6 +44,10 @@ Phases 1 and 2 are independent of Phase 3. The conference site can go live as so
 ---
 
 ## Phase 2 — Launch `uxhiconference.com`
+
+**Status: verify** — confirm `uxhiconference.com` loads the 2026 conference in production.
+(Note: the 2026 conference is now a **coded Next.js page** under `(conference)/conferences/2026/`,
+not dropped-in static files — the static-files step below applied to earlier archive years.)
 
 ### Content (you)
 - [ ] Provide 2026 conference static site files → place in `web/public/conferences/2026/`
@@ -91,6 +99,6 @@ Then drop the new year's static site into `public/conferences/[year]/`.
 
 ## Notes
 
-- **Do not set up `uxhiconference.com` on Vercel** — doing so before the Netlify migration would mean two DNS propagation waits. Set it up once, on Netlify.
-- The Vercel project can remain idle after migration (no need to delete it immediately).
-- Netlify's free tier allows commercial use; Vercel's Hobby plan does not.
+- **All production domains live on Netlify** — set them up once there, not on Vercel.
+- **Vercel is retained for staging** (`web-henna-five-45.vercel.app`), previewing the `staging` branch. Legacy/duplicate Vercel projects (`uxhi-web`, `uxhi-website`) should be deleted — see `LAUNCH-PUNCHLIST.md`.
+- Netlify's free tier allows commercial use (Vercel's Hobby plan does not) but is **build-credit-limited**, so production deploys are batched — see CLAUDE.md.

@@ -1,6 +1,6 @@
 # UXHI Website Handoff Guide
 
-A guide for team members taking over content updates for the UXHI website. This site is built with Next.js + Sanity CMS and deployed on Vercel. All tools used are free tier.
+A guide for team members taking over content updates for the UXHI website. This site is built with Next.js + Sanity CMS. The live site is hosted on **Netlify**; a **Vercel** staging preview mirrors the `staging` branch for review. All tools used are free tier.
 
 **Your role**: Update site content — both CMS-managed content (via Sanity Studio in the browser) and static copy (via code). Design changes (colors, layout, components, spacing, typography) are handled by Sony and should be routed back to them.
 
@@ -26,10 +26,11 @@ You'll need access to three services:
 - Claude understands this entire project via the `CLAUDE.md` file in the repo
 - Use it for making copy changes, creating Sanity content, and troubleshooting
 
-### Vercel (hosting & deployment)
-- Deployment is automatic — every push to `main` on GitHub triggers a deploy
-- Sony manages the Vercel account
-- You don't need a Vercel account unless you want to monitor builds
+### Hosting — Netlify (production) + Vercel (staging)
+- **Netlify** hosts the live public site. Production deploys are **credit-limited**, so Sony ships to production in batches (not on every change). Sony manages Netlify.
+- **Vercel** hosts a **staging preview** of the `staging` branch at `web-henna-five-45.vercel.app` — used to review changes before they go live. Sony manages Vercel.
+- You don't need either account unless you want to monitor builds.
+- We stay on Netlify for production because Vercel's free (Hobby) plan carries a non-commercial / fair-use clause.
 
 ---
 
@@ -116,7 +117,7 @@ This is the primary way you'll update content. Go to `/studio` and you'll see th
 2. Find the content type in the left sidebar
 3. Edit fields
 4. Click **Publish**
-5. The live site updates within seconds (Vercel) or refresh locally
+5. Published Sanity content appears on the live site within seconds — **no code deploy needed**
 
 ### Adding New Content
 - Click the **+** button or "Create new" in any content section
@@ -172,12 +173,13 @@ npm run dev    # check it looks right at localhost:3000
 # 4. Build check
 npm run build  # make sure nothing broke
 
-# 5. Commit and push
+# 5. Commit and push to the staging branch
 git add <file>
 git commit -m "Update about page hero description"
-git push
+git push origin staging
 
-# Vercel auto-deploys from the main branch
+# Your change shows on the Vercel staging preview for review.
+# Sony deploys it to the live Netlify site with the next production batch.
 ```
 
 ### What NOT to Change
@@ -262,15 +264,15 @@ Claude reads the `CLAUDE.md` file automatically and knows the project structure,
 **For static copy (headlines, descriptions, nav items):**
 1. Open Claude Code: `cd uxhi-web && claude`
 2. Tell Claude what to change: `"Update the events page headline to 'Upcoming Events'"`
-3. Claude makes the change, runs a build check, commits, and pushes
-4. Vercel auto-deploys
+3. Claude makes the change, runs a build check, commits, and pushes to `staging`
+4. The change appears on the Vercel **staging** preview; Sony deploys to production (Netlify) with the next batch
 
 ### Useful Commands Reference
 
 ```bash
 npm run dev       # Start local dev server
 npm run build     # Check for build errors before pushing
-git push          # Deploy to production (auto via Vercel)
+git push origin staging   # Push to staging → previews on Vercel (Sony ships to Netlify prod)
 ```
 
 ---
@@ -314,10 +316,11 @@ Three forms exist on the site. They work automatically — no maintenance needed
 | Service | Limit | How to Check |
 |---|---|---|
 | **Sanity** | 500K API requests/mo, 10GB bandwidth | [sanity.io/manage](https://sanity.io/manage) > Usage |
-| **Vercel** | 100GB bandwidth, 1000 build mins/mo | Vercel dashboard > Usage |
+| **Netlify** (production) | ~300 build credits/mo (~20 production deploys) | Netlify dashboard > Billing |
+| **Vercel** (staging) | Generous free preview builds | Vercel dashboard > Usage |
 | **GitHub** | Unlimited for this use case | No concerns |
 
-These limits are generous for a site of this size. You're unlikely to hit them unless there's a traffic spike.
+Sanity, Vercel, and GitHub limits are generous. The one to watch is **Netlify production builds** — they're credit-limited, which is why production deploys are batched rather than run on every change.
 
 ---
 
@@ -328,7 +331,7 @@ The homepage pulls from Instagram. The access token expires every **60 days**.
 **If the feed goes blank:**
 1. The token likely expired
 2. Contact Sony to refresh it in the Meta Developer Console
-3. The updated token goes in `.env.local` and Vercel environment variables
+3. The updated token goes in `.env.local` and the hosting environment variables (Netlify for production, Vercel for staging)
 
 This is not critical — the homepage works fine without it (feed section just won't show).
 
@@ -342,9 +345,8 @@ This is not critical — the homepage works fine without it (feed section just w
 - Most common cause: a typo in JSX (missing closing tag, unclosed quote)
 
 ### Changes not showing on the live site
-- Verify you pushed to `main`: `git log --oneline -1` should show your commit
-- Check Vercel dashboard for deployment status
-- For Sanity content: make sure you clicked **Publish** (not just saved as draft)
+- For **Sanity content**: make sure you clicked **Publish** (not just saved as draft) — it appears within seconds, no deploy needed.
+- For **static copy**: verify you pushed to `staging` (`git log --oneline -1`); it shows on the Vercel staging preview. The **live site updates only when Sony deploys to Netlify** (production is batched, not automatic).
 
 ### Sanity Studio won't load locally
 - Make sure `.env.local` exists with valid tokens

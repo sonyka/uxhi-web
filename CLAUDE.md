@@ -172,47 +172,59 @@ Uses `next-sanity` with:
 
 ## Deployment
 
+**Production = Netlify. Staging = Vercel.** These roles are deliberate:
+
+- **Netlify serves the real, public site** — `uxhiconference.com` today, and `uxhi.community`
+  at launch. Netlify's free tier permits commercial use but has a **limited build-credit
+  budget** (see below), so **deploy to production conservatively** — batch changes and deploy
+  only when actually shipping.
+- **Vercel serves staging only** (`web-henna-five-45.vercel.app`), for previewing the `staging`
+  branch. We deliberately do **not** run the live site on Vercel: its Hobby (free) plan carries
+  a **fair-use / non-commercial clause**, and UXHI (a community org that may add paid features)
+  decided not to move production to Vercel.
+
 ### Branch strategy
 
 | Branch | Host | URL | Purpose |
 |---|---|---|---|
-| `staging` | Vercel (free, unlimited builds) | `web-henna-five-45.vercel.app` | Active development AND current live conference site |
-| `main` | Netlify (paused — no credits) | `uxhiconference.com` | Frozen at last deploy; do not push until credits restored |
+| `staging` | Vercel (staging preview) | `web-henna-five-45.vercel.app` | Active development; share with stakeholders for review |
+| `main` | Netlify (production) | `uxhiconference.com` (+ `uxhi.community` at launch) | Live public site; credit-limited — deploy only when shipping |
 
-**⛔ NEVER push to `main` unless the user explicitly says so.**
-Netlify credits are exhausted. Every push to `main` violates the agreed workflow.
+**⛔ NEVER push to `main` unless the user explicitly says to ship / deploy to production.**
+Every push to `main` triggers a Netlify production build and consumes limited credits.
 
 **All work goes directly on `staging`:**
 ```bash
 git checkout staging
 git add ... && git commit -m "..."
-git push origin staging        # Vercel deploys — done. Never touch main.
+git push origin staging        # Vercel deploys the staging preview — done.
 ```
 
-**Only when user explicitly authorises production deploy:**
+**Only when the user explicitly authorises a production deploy:**
 ```bash
-git checkout main && git merge staging && git push origin main
+git checkout main && git merge staging && git push origin main   # Netlify builds production
 git checkout staging           # immediately return to staging
 ```
 
-**Future option:** Point `uxhiconference.com` DNS to Vercel (free custom domains supported). This would make Vercel the permanent platform and eliminate the Netlify credit constraint entirely.
-
 **Rules — always follow:**
-- `staging` is the active branch. All commits go here.
-- Never develop directly on `main`.
+- `staging` is the active branch. All commits go here. Never develop directly on `main`.
 - Share `web-henna-five-45.vercel.app` with stakeholders for review.
+- Treat every `main` deploy as spending credits — bundle changes, don't deploy piecemeal.
 
 ### Vercel (staging) setup
 
-- **Repo:** `uxhi-web`, branch: `staging`
-- **Root directory:** `web` ← critical, the Next.js app is not at repo root
+- **Repo:** `uxhi-web`, branch: `staging` · **Root directory:** `web` ← critical, the Next.js app is not at repo root
 - **Framework:** Next.js (auto-detected via `web/vercel.json`)
 - **Env vars:** `NEXT_PUBLIC_SANITY_PROJECT_ID=evh83z0t`, `NEXT_PUBLIC_SANITY_DATASET=production`
 
 `web/vercel.json` contains `{ "framework": "nextjs" }` for proper detection. Environment variables have hardcoded fallbacks in `src/sanity/env.ts` so builds work even without env vars set.
 
-### ⚠️ Netlify credit limit
+> The `web` project (→ `web-henna-five-45.vercel.app`) is the canonical staging project.
+> Duplicate/legacy Vercel projects (`uxhi-web`, `uxhi-website`) caused confusion and are slated
+> for deletion — see `docs/LAUNCH-PUNCHLIST.md`.
 
-Netlify Starter = **300 credits/month**, 15 per production build = **~20 deploys/month max**. Builds are silently paused when exhausted.
+### ⚠️ Netlify credit limit (production)
+
+Netlify free tier = **300 credits/month**, ~15 per production build = **~20 deploys/month max**. Builds are silently paused when exhausted — this is why production deploys must be conservative.
 
 If builds are paused: Netlify dashboard → Billing → buy credits or upgrade to Pro ($20/month, 3,000 credits).
