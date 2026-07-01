@@ -54,9 +54,9 @@ export const TEAM_MEMBERS_QUERY = defineQuery(/* groq */ `
   }
 `);
 
-// Conference co-chairs for a given year (conference content is year-scoped)
-export const CONFERENCE_COCHAIRS_QUERY = defineQuery(/* groq */ `
-  *[_type == "conferenceCochair" && year == $year] | order(order asc, name asc) {
+// Conference team for a given year (conference content is year-scoped)
+export const CONFERENCE_TEAM_QUERY = defineQuery(/* groq */ `
+  *[_type == "conferenceTeam" && year == $year] | order(order asc, name asc) {
     _id,
     name,
     title,

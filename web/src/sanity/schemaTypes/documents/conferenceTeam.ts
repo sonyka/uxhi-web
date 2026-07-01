@@ -4,9 +4,9 @@ import { UsersIcon } from "@sanity/icons";
 // Conference content is kept entirely separate from the main UXHI site content.
 // Every conference document carries a `year` and is surfaced in Studio under a
 // dedicated "Conference" → <year> section (see src/sanity/structure.ts).
-export const conferenceCochair = defineType({
-  name: "conferenceCochair",
-  title: "Conference Co-Chair",
+export const conferenceTeam = defineType({
+  name: "conferenceTeam",
+  title: "Conference Team Member",
   type: "document",
   icon: UsersIcon,
   fields: [
@@ -14,7 +14,7 @@ export const conferenceCochair = defineType({
       name: "year",
       title: "Conference Year",
       type: "number",
-      description: "Which conference year this co-chair belongs to (e.g., 2026).",
+      description: "Which conference year this team member belongs to (e.g., 2026).",
       initialValue: 2026,
       validation: (rule) => rule.required().min(2024).integer(),
     }),

@@ -16,7 +16,7 @@ import { sponsor } from "./documents/sponsor";
 import { committee } from "./documents/committee";
 
 // Conference (kept separate from the main site content)
-import { conferenceCochair } from "./documents/conferenceCochair";
+import { conferenceTeam } from "./documents/conferenceTeam";
 
 // Member Directory
 import { directoryMember } from "./documents/directoryMember";
@@ -43,7 +43,7 @@ export const schemaTypes = [
   committee,
 
   // Conference (kept separate from the main site content)
-  conferenceCochair,
+  conferenceTeam,
 
   // Member Directory
   directoryMember,

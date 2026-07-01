@@ -156,8 +156,8 @@ export const structure = (S: StructureBuilder) =>
                         .child(
                           S.documentList()
                             .title("Co-Chairs — 2026")
-                            .schemaType("conferenceCochair")
-                            .filter('_type == "conferenceCochair" && year == 2026')
+                            .schemaType("conferenceTeam")
+                            .filter('_type == "conferenceTeam" && year == 2026')
                             .defaultOrdering([{ field: "order", direction: "asc" }])
                         ),
                     ])

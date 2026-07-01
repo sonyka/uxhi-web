@@ -7,7 +7,7 @@ import { MobileNavMenu } from "./_components/MobileNavMenu";
 import { FaqSection } from "./_components/FaqSection";
 import { CochairsSection } from "./_components/CochairsSection";
 import { sanityFetch } from "@/sanity/lib/live";
-import { CONFERENCE_COCHAIRS_QUERY } from "@/sanity/lib/queries";
+import { CONFERENCE_TEAM_QUERY } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "UXHICONF26 — Coming Soon",
@@ -98,7 +98,7 @@ const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
 // ─────────────────────────────────────────────────────────────────────
 export default async function Conference2026Page() {
   const { data: cochairs } = await sanityFetch({
-    query: CONFERENCE_COCHAIRS_QUERY,
+    query: CONFERENCE_TEAM_QUERY,
     params: { year: 2026 },
   });
 
