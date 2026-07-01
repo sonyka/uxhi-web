@@ -5,6 +5,7 @@ import { PhotoTickerV, PhotoTickerH } from "./_components/PhotoTicker";
 import { PastConferencesMenu } from "./_components/PastConferencesMenu";
 import { MobileNavMenu } from "./_components/MobileNavMenu";
 import { FaqSection } from "./_components/FaqSection";
+import { CochairsSection } from "./_components/CochairsSection";
 
 export const metadata: Metadata = {
   title: "UXHICONF26 — Coming Soon",
@@ -354,6 +355,9 @@ export default function Conference2026Page() {
 
               {/* ── FAQs ───────────────────────────────────────────── */}
               <FaqSection />
+
+              {/* ── Co-Chairs / Team ───────────────────────────────── */}
+              <CochairsSection />
 
             </div>
           </section>
