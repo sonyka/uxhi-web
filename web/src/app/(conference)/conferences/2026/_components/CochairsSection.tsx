@@ -59,7 +59,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                 layout
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 onClick={() => !isOpen && setExpanded(c._id)}
-                className={`relative rounded-2xl overflow-hidden select-none ${isOpen ? "bg-white self-start" : "cursor-pointer"}`}
+                className={`relative rounded-2xl overflow-hidden select-none aspect-[4/5] ${isOpen ? "bg-white" : "cursor-pointer"}`}
                 style={isOpen ? { boxShadow: "0 10px 30px rgba(0,0,0,0.12)" } : undefined}
               >
                 <AnimatePresence mode="wait" initial={false}>
@@ -70,7 +70,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.15 }}
-                      className="p-5"
+                      className="absolute inset-0 p-5 flex flex-col"
                     >
                       {/* Close */}
                       <button
@@ -87,7 +87,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                       </button>
 
                       {/* Header: avatar + name/title */}
-                      <div className="flex items-center gap-4 mb-4 pr-8">
+                      <div className="flex items-center gap-4 mb-4 pr-8 shrink-0">
                         <div className="w-14 h-14 rounded-full overflow-hidden shrink-0 flex items-center justify-center text-white font-semibold text-[18px]" style={{ background: PURPLE }}>
                           {c.photo ? (
                             // eslint-disable-next-line @next/next/no-img-element
@@ -102,10 +102,12 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                         </div>
                       </div>
 
-                      {/* Bio */}
-                      <p className="text-[15px] leading-[1.6] mb-4" style={{ color: GRAY }}>
-                        {c.bio || "Full bio coming soon."}
-                      </p>
+                      {/* Bio — fills remaining height, scrolls when long */}
+                      <div className="flex-1 min-h-0 overflow-y-auto pr-1 mb-4">
+                        <p className="text-[15px] leading-[1.6]" style={{ color: GRAY }}>
+                          {c.bio || "Full bio coming soon."}
+                        </p>
+                      </div>
 
                       {/* LinkedIn */}
                       {c.linkedin && (
@@ -115,7 +117,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                           rel="noopener"
                           onClick={(e) => e.stopPropagation()}
                           aria-label={`${c.name} on LinkedIn`}
-                          className="inline-flex hover:opacity-70 transition-opacity"
+                          className="inline-flex shrink-0 hover:opacity-70 transition-opacity"
                         >
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={22} height={22} style={{ width: 22, height: 22, filter: LINKEDIN_GRAY }} />
@@ -129,7 +131,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.15 }}
-                      className="relative aspect-[4/5]"
+                      className="absolute inset-0"
                     >
                       {/* Photo when available, otherwise a purple initials tile */}
                       {c.photo ? (
