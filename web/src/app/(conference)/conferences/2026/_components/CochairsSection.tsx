@@ -3,25 +3,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
-// Content from the 2025 conference site ("Meet the Co-Chairs behind the conference").
-// Names, titles, and LinkedIn URLs are carried over from 2025; bios are placeholders
-// for now and photos aren't available yet (cards fall back to initials).
-type Cochair = {
+// Data comes from Sanity (conferenceCochair, year-scoped) — see queries.ts.
+export type Cochair = {
+  _id: string;
   name: string;
-  title: string;
-  bio: string;
-  linkedin?: string;
-  photo?: string; // /conferences/2026/assets/... when headshots are added
+  title?: string | null;
+  bio?: string | null;
+  linkedin?: string | null;
+  photo?: string | null; // Sanity asset URL
+  photoAlt?: string | null;
 };
-
-const COCHAIRS: Cochair[] = [
-  { name: "Jennifer Kumura", title: "Co-Founder, UXHI", linkedin: "https://www.linkedin.com/in/jenniferkumura", bio: "Full bio coming soon." },
-  { name: "Karli Young", title: "Audience Engagement, Kamehameha Schools", linkedin: "https://www.linkedin.com/in/karli-young", bio: "Full bio coming soon." },
-  { name: "Micah Chao", title: "Data Specialist, RCUH", linkedin: "https://www.linkedin.com/in/sungyanmicahchao", bio: "Full bio coming soon." },
-  { name: "Sony Atmadjaja", title: "Product Design Director, Doximity", linkedin: "https://www.linkedin.com/in/sonyka", bio: "Full bio coming soon." },
-  { name: "Taryn Fukuji", title: "Events Manager, UXHI", linkedin: "https://www.linkedin.com/in/tarynfukuji", bio: "Full bio coming soon." },
-  { name: "Yiting Wang, Ph.D.", title: "Researcher, UH Mānoa", linkedin: "https://www.linkedin.com/in/dr-yiting-wang", bio: "Full bio coming soon." },
-];
 
 const PURPLE = "#231769";
 const GRAY = "#50555A";
@@ -38,8 +29,15 @@ function initials(name: string) {
     .slice(0, 2);
 }
 
-export function CochairsSection() {
+// Size Sanity images on the CDN rather than shipping the full-res asset.
+function sized(url: string, w: number, h: number) {
+  return `${url}?w=${w}&h=${h}&fit=crop&auto=format`;
+}
+
+export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
   const [expanded, setExpanded] = useState<string | null>(null);
+
+  if (!cochairs || cochairs.length === 0) return null;
 
   return (
     <div className="flex flex-col gap-3 md:gap-4">
@@ -53,14 +51,14 @@ export function CochairsSection() {
 
       <LayoutGroup>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mt-1">
-          {COCHAIRS.map((c) => {
-            const isOpen = expanded === c.name;
+          {cochairs.map((c) => {
+            const isOpen = expanded === c._id;
             return (
               <motion.div
-                key={c.name}
+                key={c._id}
                 layout
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                onClick={() => !isOpen && setExpanded(c.name)}
+                onClick={() => !isOpen && setExpanded(c._id)}
                 className={`relative rounded-2xl overflow-hidden select-none ${isOpen ? "col-span-2 bg-white" : "cursor-pointer"}`}
                 style={isOpen ? { boxShadow: "0 10px 30px rgba(0,0,0,0.12)" } : undefined}
               >
@@ -93,19 +91,21 @@ export function CochairsSection() {
                         <div className="w-14 h-14 rounded-full overflow-hidden shrink-0 flex items-center justify-center text-white font-semibold text-[18px]" style={{ background: PURPLE }}>
                           {c.photo ? (
                             // eslint-disable-next-line @next/next/no-img-element
-                            <img src={c.photo} alt={c.name} className="w-full h-full object-cover" />
+                            <img src={sized(c.photo, 160, 160)} alt={c.photoAlt || c.name} className="w-full h-full object-cover" />
                           ) : (
                             initials(c.name)
                           )}
                         </div>
                         <div className="min-w-0">
                           <h3 className="font-semibold text-[17px] leading-tight text-[#1A1A1A]">{c.name}</h3>
-                          <p className="text-[14px]" style={{ color: GRAY }}>{c.title}</p>
+                          {c.title && <p className="text-[14px]" style={{ color: GRAY }}>{c.title}</p>}
                         </div>
                       </div>
 
                       {/* Bio */}
-                      <p className="text-[15px] leading-[1.6] mb-4" style={{ color: GRAY }}>{c.bio}</p>
+                      <p className="text-[15px] leading-[1.6] mb-4" style={{ color: GRAY }}>
+                        {c.bio || "Full bio coming soon."}
+                      </p>
 
                       {/* LinkedIn */}
                       {c.linkedin && (
@@ -134,7 +134,7 @@ export function CochairsSection() {
                       {/* Photo when available, otherwise a purple initials tile */}
                       {c.photo ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={c.photo} alt={c.name} className="w-full h-full object-cover" />
+                        <img src={sized(c.photo, 800, 1000)} alt={c.photoAlt || c.name} className="w-full h-full object-cover" />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center" style={{ background: PURPLE }}>
                           <span className="text-white font-semibold text-[34px]">{initials(c.name)}</span>
@@ -145,7 +145,7 @@ export function CochairsSection() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4">
                         <h3 className="font-semibold text-[15px] leading-tight text-white">{c.name}</h3>
-                        <p className="text-white/85 text-[13px] mt-0.5 line-clamp-1">{c.title}</p>
+                        {c.title && <p className="text-white/85 text-[13px] mt-0.5 line-clamp-1">{c.title}</p>}
                       </div>
                     </motion.div>
                   )}

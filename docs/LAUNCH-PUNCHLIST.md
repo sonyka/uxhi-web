@@ -42,6 +42,9 @@ The venue + FAQ copy was pulled from the 2025 site as placeholder. Confirm/repla
       (attendee profile, ticket inclusions, group discounts, recordings, refunds, parking, contact).
 - [ ] **Venue photo** (`assets/images/venue-entrepreneurs-sandbox.jpg`): sourced from
       `filmoffice.hawaii.gov`. **Confirm usage rights or swap for an official/UXHI photo.**
+- [ ] **Co-Chairs bios + headshots** — now editable in Sanity (Studio → **Conference → 2026 →
+      Co-Chairs**). Currently placeholder bios + initials avatars; a collaborator fills in real
+      bios and uploads photos. Also confirm the 2026 roster is correct (seeded from 2025).
 
 ---
 

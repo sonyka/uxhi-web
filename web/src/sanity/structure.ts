@@ -133,6 +133,40 @@ export const structure = (S: StructureBuilder) =>
 
       S.divider(),
 
+      // ── Conference ──────────────────────────────────────────────
+      // Kept entirely separate from the main UXHI site content and
+      // organized by year, so conference data never muddies the rest.
+      S.listItem()
+        .title("Conference")
+        .icon(CalendarIcon)
+        .child(
+          S.list()
+            .title("Conference")
+            .items([
+              S.listItem()
+                .title("2026")
+                .icon(CalendarIcon)
+                .child(
+                  S.list()
+                    .title("UXHICon 2026")
+                    .items([
+                      S.listItem()
+                        .title("Co-Chairs")
+                        .icon(UsersIcon)
+                        .child(
+                          S.documentList()
+                            .title("Co-Chairs — 2026")
+                            .schemaType("conferenceCochair")
+                            .filter('_type == "conferenceCochair" && year == 2026')
+                            .defaultOrdering([{ field: "order", direction: "asc" }])
+                        ),
+                    ])
+                ),
+            ])
+        ),
+
+      S.divider(),
+
       // Form submissions
       S.listItem()
         .title("Form Submissions")
