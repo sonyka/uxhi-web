@@ -10,7 +10,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { CONFERENCE_TEAM_QUERY } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
-  title: "UXHICONF26 — Coming Soon",
+  title: "UXHI Conference :: October 17, 2026",
   description:
     "UXHICon 2026 — October 17, 2026. An immersive day of design knowledge-sharing, inspiration, and connection in Hawaiʻi.",
 };
