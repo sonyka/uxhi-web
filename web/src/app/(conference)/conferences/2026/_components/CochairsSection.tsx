@@ -86,20 +86,10 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                         </svg>
                       </button>
 
-                      {/* Header: avatar + name/title */}
-                      <div className="flex items-center gap-4 mb-4 pr-8 shrink-0">
-                        <div className="w-14 h-14 rounded-full overflow-hidden shrink-0 flex items-center justify-center text-white font-semibold text-[18px]" style={{ background: PURPLE }}>
-                          {c.photo ? (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img src={sized(c.photo, 160, 160)} alt={c.photoAlt || c.name} className="w-full h-full object-cover" />
-                          ) : (
-                            initials(c.name)
-                          )}
-                        </div>
-                        <div className="min-w-0">
-                          <h3 className="font-semibold text-[17px] leading-tight text-[#1A1A1A]">{c.name}</h3>
-                          {c.title && <p className="text-[14px]" style={{ color: GRAY }}>{c.title}</p>}
-                        </div>
+                      {/* Header: name/title (no avatar — keeps the narrow mobile card readable) */}
+                      <div className="mb-3 pr-8 shrink-0">
+                        <h3 className="font-semibold text-[17px] leading-tight text-[#1A1A1A]">{c.name}</h3>
+                        {c.title && <p className="text-[14px] mt-1" style={{ color: GRAY }}>{c.title}</p>}
                       </div>
 
                       {/* Bio — fills remaining height, scrolls when long */}
