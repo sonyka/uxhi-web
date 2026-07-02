@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   title: "UXHI Conference :: October 17, 2026",
   description:
     "UXHICon 2026 — October 17, 2026. An immersive day of design knowledge-sharing, inspiration, and connection in Hawaiʻi.",
+  // Custom UXHI conference favicon (carried over from the 2025 site), typed as
+  // SVG so it takes precedence over the app's default favicon.ico.
+  icons: {
+    icon: [{ url: "/conferences/2026/assets/favicon.svg", type: "image/svg+xml", sizes: "any" }],
+  },
 };
 
 // ── Design tokens ─────────────────────────────────────────────────────
