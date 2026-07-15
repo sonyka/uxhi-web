@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   },
 };
 
+// ISR: regenerate this page at most once a minute so published Sanity edits
+// (co-chairs, etc.) propagate to the deployed site without a redeploy. Dev mode
+// ignores this and always fetches live.
+export const revalidate = 60;
+
 // ── Design tokens ─────────────────────────────────────────────────────
 const BEIGE_30 = "#F4F1EA"; // page background (beige-30 from design system)
 const PURPLE   = "#231769"; // --color-purple-140
