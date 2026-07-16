@@ -169,6 +169,8 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                 key={c._id}
                 layout
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                // Shared hover with the sponsor cards: subtle lift + shadow (closed cards only).
+                whileHover={!isOpen ? { y: -4, boxShadow: "0 10px 30px rgba(0,0,0,0.12)" } : undefined}
                 onClick={() => setExpanded(expanded === c._id ? null : c._id)}
                 className={`relative rounded-2xl overflow-hidden select-none aspect-[4/5] ${isOpen ? "bg-white" : "cursor-pointer"}`}
                 style={isOpen ? { boxShadow: "0 10px 30px rgba(0,0,0,0.12)" } : undefined}

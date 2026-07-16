@@ -6,9 +6,10 @@ import { PastConferencesMenu } from "./_components/PastConferencesMenu";
 import { MobileNavMenu } from "./_components/MobileNavMenu";
 import { FaqSection } from "./_components/FaqSection";
 import { CochairsSection } from "./_components/CochairsSection";
+import { SponsorsGrid } from "./_components/SponsorsGrid";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
-import { CONFERENCE_TEAM_QUERY } from "@/sanity/lib/queries";
+import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "UXHI Conference :: October 17, 2026",
@@ -105,10 +106,10 @@ const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
 
 // ─────────────────────────────────────────────────────────────────────
 export default async function Conference2026Page() {
-  const { data: cochairs } = await sanityFetchCached({
-    query: CONFERENCE_TEAM_QUERY,
-    params: { year: 2026 },
-  });
+  const [{ data: cochairs }, { data: sponsors }] = await Promise.all([
+    sanityFetchCached({ query: CONFERENCE_TEAM_QUERY, params: { year: 2026 } }),
+    sanityFetchCached({ query: CONFERENCE_SPONSORS_QUERY, params: { year: 2026 } }),
+  ]);
 
   return (
     /**
@@ -368,6 +369,41 @@ export default async function Conference2026Page() {
 
               {/* ── Co-Chairs / Team ───────────────────────────────── */}
               <CochairsSection cochairs={cochairs ?? []} />
+
+              {/* ── About UXHI ─────────────────────────────────────── */}
+              {/* Copy carried over from the 2025 conference site. */}
+              <div className="flex flex-col gap-3 md:gap-4">
+                <SectionHeading>About UXHI</SectionHeading>
+                <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[1000/417]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/conferences/2026/assets/images/about-uxhi-group.png"
+                    alt="The UXHI community gathered at a past event"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div
+                  className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
+                  style={{ color: "#50555A" }}
+                >
+                  <p>We are a female-founded, volunteer-led community dedicated to connecting and elevating the field of human-centered design for our local community.</p>
+                  <p>Our mission is to foster collaboration and innovation in design, technology, and community-driven solutions in Hawai&#699;i and empower UX designers with skills and tools they need to succeed.</p>
+                </div>
+                <a
+                  href="https://uxhi.community"
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-2 w-fit mt-1 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                  style={{ background: TEAL_60, color: "#000" }}
+                >
+                  Join our community
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/conferences/2026/assets/icons/icon-arrow-small-right.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
+                </a>
+              </div>
+
+              {/* ── Sponsors (Sanity: conferenceSponsor, year-scoped) ─── */}
+              <SponsorsGrid sponsors={sponsors ?? []} />
 
             </div>
           </section>

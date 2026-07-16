@@ -67,6 +67,18 @@ export const CONFERENCE_TEAM_QUERY = defineQuery(/* groq */ `
   }
 `);
 
+// Conference sponsors for a given year (year-scoped, like the team)
+export const CONFERENCE_SPONSORS_QUERY = defineQuery(/* groq */ `
+  *[_type == "conferenceSponsor" && year == $year] | order(order asc, name asc) {
+    _id,
+    name,
+    description,
+    url,
+    "logo": logo.asset->url,
+    "logoAlt": logo.alt
+  }
+`);
+
 /** @deprecated Use TEAM_MEMBERS_QUERY instead */
 export const FOUNDERS_QUERY = TEAM_MEMBERS_QUERY;
 

@@ -13,6 +13,7 @@ import {
   CalendarIcon,
   ComponentIcon,
   CreditCardIcon,
+  HeartIcon,
   AddUserIcon,
 } from "@sanity/icons";
 
@@ -158,6 +159,16 @@ export const structure = (S: StructureBuilder) =>
                             .title("Co-Chairs — 2026")
                             .schemaType("conferenceTeam")
                             .filter('_type == "conferenceTeam" && year == 2026')
+                            .defaultOrdering([{ field: "order", direction: "asc" }])
+                        ),
+                      S.listItem()
+                        .title("Sponsors")
+                        .icon(HeartIcon)
+                        .child(
+                          S.documentList()
+                            .title("Sponsors — 2026")
+                            .schemaType("conferenceSponsor")
+                            .filter('_type == "conferenceSponsor" && year == 2026')
                             .defaultOrdering([{ field: "order", direction: "asc" }])
                         ),
                     ])
