@@ -67,7 +67,8 @@ function SidebarInfo() {
   return (
     <>
       <LogoBadge />
-      <div className="flex flex-col gap-6">
+      {/* Tighter copy→stats gap on mobile (gap-3); full gap-6 from md up. */}
+      <div className="flex flex-col gap-3 md:gap-6">
         {/* Copy lines — bold uppercase purple
             Responsive sizes per Figma column widths:
               base/SM (256px col) → 10px, lh 1.7 → 17px/line ✓
@@ -79,7 +80,8 @@ function SidebarInfo() {
           <p className="font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             {daysUntil()} Days to Go
           </p>
-          <p className="font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
+          {/* Hidden on mobile to save vertical space; shown from md up. */}
+          <p className="hidden md:block font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             By designers,&nbsp;&nbsp;for designers
           </p>
           <p className="font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
@@ -283,7 +285,9 @@ export default async function Conference2026Page() {
                   <img
                     src="/conferences/2026/assets/logos/moolelo_logo.png"
                     alt="Mo&#699;olelo"
-                    className="w-full h-full object-cover"
+                    // Zoom in on mobile so the centered logo reads larger; the
+                    // container clips the enlarged background. Full size from md up.
+                    className="w-full h-full object-cover scale-[1.35] md:scale-100"
                   />
                 </div>
                 <p className="font-normal leading-[1.3] tracking-[-0.02em] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]">
@@ -385,7 +389,8 @@ export default async function Conference2026Page() {
                    target/bullseye icon + "About UXHI"
           right  → Instagram | LinkedIn (filtered to match gray)
       */}
-      <footer className="h-16 shrink-0 flex items-center justify-between px-6">
+      {/* Shorter on mobile (less bottom gap) so the scroll card gains a bit of height; full 64px from md up. */}
+      <footer className="h-12 md:h-16 shrink-0 flex items-center justify-between px-6">
         <nav className="flex items-center gap-5" aria-label="Site links">
           {/* Mobile: white pill button → flat dropdown (past conferences + about uxhi) */}
           <MobileNavMenu />
