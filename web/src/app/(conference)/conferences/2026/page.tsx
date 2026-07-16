@@ -439,7 +439,7 @@ export default async function Conference2026Page() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/conferences/2026/assets/icons/icon-star.svg" alt="" width={16} height={16}
                 style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
-              About UXHI
+              UXHI
             </a>
             <a
               href="mailto:uxhiconference@gmail.com"

@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 const ITEMS = [
   { label: "2025 — UXperience 'Aina", href: "/conferences/2025/", icon: "icon-shaka.svg" },
   { label: "2024 — UXperience Aloha",  href: "/conferences/2024/", icon: "icon-shaka.svg" },
-  { label: "About UXHI",               href: "https://uxhi.community", icon: "icon-star.svg" },
+  { label: "UXHI",                     href: "https://uxhi.community", icon: "icon-star.svg" },
   { label: "Email us",                 href: "mailto:uxhiconference@gmail.com", icon: "email-heart.svg" },
 ];
 
