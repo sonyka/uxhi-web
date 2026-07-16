@@ -1,13 +1,16 @@
+"use client";
+
 // FAQ accordion — design adapted from method.framer.media (warm pill rows,
 // "+" toggle that rotates into "×" on open, gray answer text).
 //
-// Uses native <details>/<summary> for toggle behaviour (matches the rest of
-// this page's accordion pattern in MobileNavMenu / PastConferencesMenu), so no
-// client-side JS is required.
+// Uses Framer Motion (not native <details>) so the answer height animates open/
+// closed smoothly instead of snapping. Items open independently.
 //
 // NOTE: copy is pulled from the 2025 conference site as placeholder content.
 // Update dates, parking, and refund details for 2026 when confirmed.
 
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 
 const ICON_GRAY = "#969DA4";
@@ -60,6 +63,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
 ];
 
 export function FaqSection() {
+  const [open, setOpen] = useState<Record<string, boolean>>({});
+
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>FAQs</SectionHeading>
@@ -73,38 +78,58 @@ export function FaqSection() {
 
       {/* Accordion list */}
       <div className="flex flex-col gap-2 md:gap-3 mt-1">
-        {FAQS.map(({ q, a }) => (
-          <details
-            key={q}
-            className="group rounded-2xl bg-[#F4F1EA] open:bg-[#EFEAE0] transition-colors"
-          >
-            <summary
-              className="flex items-center justify-between gap-4 cursor-pointer select-none list-none px-5 py-[18px] [&::-webkit-details-marker]:hidden"
+        {FAQS.map(({ q, a }) => {
+          const isOpen = !!open[q];
+          return (
+            <div
+              key={q}
+              className={`rounded-2xl transition-colors ${isOpen ? "bg-[#EFEAE0]" : "bg-[#F4F1EA]"}`}
             >
-              <span className="font-medium leading-[1.35] tracking-[-0.01em] text-[16px] md:text-[17px] text-[#1A1A1A]">
-                {q}
-              </span>
-              {/* "+" rotates 45° → "×" when open */}
-              <svg
-                className="shrink-0 transition-transform duration-200 group-open:rotate-45"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
+              <button
+                type="button"
+                onClick={() => setOpen((prev) => ({ ...prev, [q]: !prev[q] }))}
+                aria-expanded={isOpen}
+                className="w-full flex items-center justify-between gap-4 cursor-pointer select-none text-left px-5 py-[18px]"
               >
-                <line x1="10" y1="4" x2="10" y2="16" stroke={ICON_GRAY} strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="4" y1="10" x2="16" y2="10" stroke={ICON_GRAY} strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </summary>
-            <p
-              className="px-5 pb-[18px] -mt-1 font-normal leading-[1.5] text-[15px] md:text-[16px]"
-              style={{ color: "#50555A" }}
-            >
-              {a}
-            </p>
-          </details>
-        ))}
+                <span className="font-medium leading-[1.35] tracking-[-0.01em] text-[16px] md:text-[17px] text-[#1A1A1A]">
+                  {q}
+                </span>
+                {/* "+" rotates 45° → "×" when open */}
+                <svg
+                  className={`shrink-0 transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <line x1="10" y1="4" x2="10" y2="16" stroke={ICON_GRAY} strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="4" y1="10" x2="16" y2="10" stroke={ICON_GRAY} strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    key="answer"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <p
+                      className="px-5 pb-[18px] font-normal leading-[1.5] text-[15px] md:text-[16px]"
+                      style={{ color: "#50555A" }}
+                    >
+                      {a}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
