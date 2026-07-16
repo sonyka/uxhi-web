@@ -6,7 +6,7 @@ import { PastConferencesMenu } from "./_components/PastConferencesMenu";
 import { MobileNavMenu } from "./_components/MobileNavMenu";
 import { FaqSection } from "./_components/FaqSection";
 import { CochairsSection } from "./_components/CochairsSection";
-import { sanityFetch } from "@/sanity/lib/live";
+import { client } from "@/sanity/lib/client";
 import { CONFERENCE_TEAM_QUERY } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
@@ -107,10 +107,17 @@ const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
 
 // ─────────────────────────────────────────────────────────────────────
 export default async function Conference2026Page() {
-  const { data: cochairs } = await sanityFetch({
-    query: CONFERENCE_TEAM_QUERY,
-    params: { year: 2026 },
-  });
+  // Fetch published co-chairs with a plain 60s time-based cache. We deliberately
+  // use client.fetch here rather than defineLive's sanityFetch: sanityFetch caches
+  // via Sanity-live tags that are only invalidated by the <SanityLive> component,
+  // which can't run on the deployed site (no browser token in Vercel/Netlify env).
+  // That left the fetch cache frozen until a redeploy, so published bio/photo edits
+  // never appeared. A time-based revalidate keeps the public page self-updating.
+  const cochairs = await client.fetch(
+    CONFERENCE_TEAM_QUERY,
+    { year: 2026 },
+    { next: { revalidate: 60 }, stega: false },
+  );
 
   return (
     /**
