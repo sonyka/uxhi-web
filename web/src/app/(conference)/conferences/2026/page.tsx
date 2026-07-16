@@ -389,8 +389,9 @@ export default async function Conference2026Page() {
                    target/bullseye icon + "About UXHI"
           right  → Instagram | LinkedIn (filtered to match gray)
       */}
-      {/* Shorter on mobile (less bottom gap) so the scroll card gains a bit of height; full 64px from md up. */}
-      <footer className="h-12 md:h-16 shrink-0 flex items-center justify-between px-6">
+      {/* Mobile: keep the original top gap (pt-3) but trim the bottom (pb-1) so the
+          scroll card gains height without crowding the content above. Desktop: full 64px, centered. */}
+      <footer className="shrink-0 flex items-center justify-between px-6 pt-3 pb-1 md:h-16 md:py-0">
         <nav className="flex items-center gap-5" aria-label="Site links">
           {/* Mobile: white pill button → flat dropdown (past conferences + about uxhi) */}
           <MobileNavMenu />
