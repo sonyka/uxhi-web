@@ -14,8 +14,10 @@ export const conferenceTeam = defineType({
       name: "year",
       title: "Conference Year",
       type: "number",
-      description: "Which conference year this team member belongs to (e.g., 2026).",
+      description:
+        "Auto-set from the year folder you create the member under (defaults to 2026). Read-only so it can't be changed by accident — a wrong value would drop the person from both the Studio folder and the live site.",
       initialValue: 2026,
+      readOnly: true,
       validation: (rule) => rule.required().min(2024).integer(),
     }),
     defineField({
@@ -36,6 +38,13 @@ export const conferenceTeam = defineType({
       title: "Title / Affiliation",
       type: "string",
       description: "e.g., Co-Founder, UXHI",
+    }),
+    defineField({
+      name: "role",
+      title: "Role",
+      type: "string",
+      description:
+        'Conference role — free text. E.g. "Programming Cochair", "Marketing & Design Cochair", "Logistics Cochair", "Sponsorship Cochair", "Brand Designer Volunteer", "Social Media Volunteer". Internal — not shown on the public site.',
     }),
     defineField({
       name: "bio",

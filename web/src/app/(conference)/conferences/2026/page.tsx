@@ -6,6 +6,7 @@ import { PastConferencesMenu } from "./_components/PastConferencesMenu";
 import { MobileNavMenu } from "./_components/MobileNavMenu";
 import { FaqSection } from "./_components/FaqSection";
 import { CochairsSection } from "./_components/CochairsSection";
+import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY } from "@/sanity/lib/queries";
 
@@ -275,11 +276,7 @@ export default async function Conference2026Page() {
 
               {/* ── Moʻolelo and Meaning ──────────────────────────── */}
               <div className="flex flex-col gap-3 md:gap-4">
-                <h2
-                  className="font-semibold leading-[1.3] tracking-[-0.01em] text-[16px] md:text-[17px] lg:text-[18px] xl:text-[20px]"
-                >
-                  UXHI Conference 2026: Mo&#699;olelo and Meaning
-                </h2>
+                <SectionHeading>UXHI Conference 2026: Mo&#699;olelo and Meaning</SectionHeading>
                 <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[676/297]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -290,7 +287,9 @@ export default async function Conference2026Page() {
                     className="w-full h-full object-cover scale-[1.35] md:scale-100"
                   />
                 </div>
-                <p className="font-normal leading-[1.3] tracking-[-0.02em] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]">
+                {/* Mobile: match the "Hana Hou!" tagline styling (semibold, 17→20px, leading-1.2).
+                    From md up, revert to the lighter body styling. */}
+                <p className="font-semibold leading-[1.2] tracking-[-0.02em] text-[17px] sm:text-[20px] md:font-normal md:leading-[1.3] md:text-[20px] lg:text-[26px] xl:text-[32px]">
                   In Hawai&#699;i, mo&#699;olelo is a treasured practice. It preserves the culture of a special place and people, by shaping, carrying, and contextualizing what is shared. It is highly intentional.
                 </p>
                 <div
@@ -305,11 +304,7 @@ export default async function Conference2026Page() {
               {/* ── Venue ──────────────────────────────────────────── */}
               {/* Content from the 2025 conference site (Entrepreneurs Sandbox). */}
               <div className="flex flex-col gap-3 md:gap-4">
-                <h2
-                  className="font-semibold leading-[1.3] tracking-[-0.02em] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]"
-                >
-                  The Venue: Entrepreneurs Sandbox
-                </h2>
+                <SectionHeading>The Venue: Entrepreneurs Sandbox</SectionHeading>
                 {/* Building photo + location map, side by side on desktop */}
                 <div className="flex flex-col md:flex-row gap-3 md:gap-4">
                   <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[325/176] md:w-1/2">

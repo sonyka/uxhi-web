@@ -8,6 +8,8 @@
 // NOTE: copy is pulled from the 2025 conference site as placeholder content.
 // Update dates, parking, and refund details for 2026 when confirmed.
 
+import { SectionHeading } from "./SectionHeading";
+
 const ICON_GRAY = "#969DA4";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
@@ -60,10 +62,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
 export function FaqSection() {
   return (
     <div className="flex flex-col gap-3 md:gap-4">
-      {/* Heading — mirrors the Moʻolelo section <h2> sizing for consistency */}
-      <h2 className="font-semibold leading-[1.3] tracking-[-0.01em] text-[16px] md:text-[17px] lg:text-[18px] xl:text-[20px]">
-        FAQs
-      </h2>
+      <SectionHeading>FAQs</SectionHeading>
       <p
         className="font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
         style={{ color: "#50555A" }}
