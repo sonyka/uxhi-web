@@ -71,7 +71,7 @@ export function PhotoTickerH() {
     <div className="relative h-[128px]">
       {/* Inner: overflow:hidden clips horizontal scroll */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="flex gap-[8px]" style={{ animation: "conf-scroll-left 21s linear infinite" }}>
+        <div className="flex gap-[8px]" style={{ animation: "conf-scroll-left 36s linear infinite" }}>
           {[...PHOTOS, ...PHOTOS].map((n, i) => <TickerPhotoH key={i} n={n} />)}
         </div>
       </div>
