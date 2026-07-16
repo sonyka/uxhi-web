@@ -347,8 +347,7 @@ export default async function Conference2026Page() {
                   className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
                   style={{ color: "#50555A" }}
                 >
-                  <p>Located in the heart of Kaka&#699;ako, the <a href="https://sandboxhawaii.org/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: PURPLE }}>Entrepreneurs Sandbox</a> is a modern co-working and event space designed to foster innovation and collaboration.</p>
-                  <p>With flexible indoor and outdoor areas, it&rsquo;s the perfect setting for connecting, learning, and building community. The venue is fully ADA accessible, with wheelchair access and accessible restrooms on-site.</p>
+                  <p>The <a href="https://sandboxhawaii.org/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: PURPLE }}>Entrepreneurs Sandbox</a> is a modern co-working event space in the heart of Kaka&#699;ako, with a collaborative conference space and classroom, and it&rsquo;s fully ADA accessible.</p>
                   <p>Metered street parking is available nearby, and paid parking is available at the adjacent lot (entrance on Keawe Street). Please note: parking passes will not be provided this year.</p>
                 </div>
                 <a
