@@ -43,13 +43,13 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     q: "Who can I contact for more information?",
     a: (
       <>
-        For general inquiries, please email{" "}
+        For general inquiries, please{" "}
         <a
           href="mailto:uxhiconference@gmail.com"
           className="underline underline-offset-2 hover:opacity-70 transition-opacity"
           style={{ color: "#231769" }}
         >
-          uxhiconference@gmail.com
+          send us an email
         </a>
         .
       </>
