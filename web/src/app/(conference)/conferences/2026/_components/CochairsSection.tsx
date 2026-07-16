@@ -50,7 +50,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
       </p>
 
       <LayoutGroup>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mt-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mt-1">
           {cochairs.map((c) => {
             const isOpen = expanded === c._id;
             return (
