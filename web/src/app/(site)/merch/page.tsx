@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { PRODUCTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
 import { SectionIcon } from "@/components/ui/SectionIcon";
@@ -110,7 +110,7 @@ function getCategoryIcon(category: string) {
 }
 
 export default async function ShopPage() {
-  const { data: sanityProducts } = await sanityFetch({ query: PRODUCTS_QUERY });
+  const { data: sanityProducts } = await sanityFetchCached({ query: PRODUCTS_QUERY });
 
   // Use Sanity products if available, otherwise fall back to placeholder data
   const displayProducts = sanityProducts && sanityProducts.length > 0 ? sanityProducts : products;

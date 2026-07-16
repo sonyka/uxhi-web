@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { LogoImage } from "@/components/ui/LogoImage";
 import type { Metadata } from "next";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { PARTNERS_QUERY, SPONSORS_QUERY, COMMITTEES_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
@@ -146,9 +146,9 @@ const fallbackSponsors = [
 
 export default async function GetInvolvedPage() {
   const [partnersResult, sponsorsResult, committeesResult] = await Promise.all([
-    sanityFetch({ query: PARTNERS_QUERY }),
-    sanityFetch({ query: SPONSORS_QUERY }),
-    sanityFetch({ query: COMMITTEES_QUERY }),
+    sanityFetchCached({ query: PARTNERS_QUERY }),
+    sanityFetchCached({ query: SPONSORS_QUERY }),
+    sanityFetchCached({ query: COMMITTEES_QUERY }),
   ]);
 
   type SanityImage = { asset?: { _id?: string; url?: string; metadata?: { lqip?: string; dimensions?: unknown } }; alt?: string; hotspot?: unknown; crop?: unknown };

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { TEAM_MEMBERS_QUERY, ABOUT_FAQS_QUERY, VALUES_QUERY } from "@/sanity/lib/queries";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { TeamSection } from "@/components/sections/team";
@@ -52,9 +52,9 @@ function SendIcon({ className = "w-5 h-5" }: { className?: string }) {
 
 export default async function AboutPage() {
   const [membersResult, faqsResult, valuesResult] = await Promise.all([
-    sanityFetch({ query: TEAM_MEMBERS_QUERY }),
-    sanityFetch({ query: ABOUT_FAQS_QUERY }),
-    sanityFetch({ query: VALUES_QUERY }),
+    sanityFetchCached({ query: TEAM_MEMBERS_QUERY }),
+    sanityFetchCached({ query: ABOUT_FAQS_QUERY }),
+    sanityFetchCached({ query: VALUES_QUERY }),
   ]);
 
   const members = membersResult.data || [];

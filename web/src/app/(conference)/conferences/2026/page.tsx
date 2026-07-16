@@ -6,7 +6,7 @@ import { PastConferencesMenu } from "./_components/PastConferencesMenu";
 import { MobileNavMenu } from "./_components/MobileNavMenu";
 import { FaqSection } from "./_components/FaqSection";
 import { CochairsSection } from "./_components/CochairsSection";
-import { client } from "@/sanity/lib/client";
+import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
@@ -19,11 +19,6 @@ export const metadata: Metadata = {
     icon: [{ url: "/conferences/2026/assets/favicon.svg", type: "image/svg+xml", sizes: "any" }],
   },
 };
-
-// ISR: regenerate this page at most once a minute so published Sanity edits
-// (co-chairs, etc.) propagate to the deployed site without a redeploy. Dev mode
-// ignores this and always fetches live.
-export const revalidate = 60;
 
 // ── Design tokens ─────────────────────────────────────────────────────
 const BEIGE_30 = "#F4F1EA"; // page background (beige-30 from design system)
@@ -107,17 +102,10 @@ const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
 
 // ─────────────────────────────────────────────────────────────────────
 export default async function Conference2026Page() {
-  // Fetch published co-chairs with a plain 60s time-based cache. We deliberately
-  // use client.fetch here rather than defineLive's sanityFetch: sanityFetch caches
-  // via Sanity-live tags that are only invalidated by the <SanityLive> component,
-  // which can't run on the deployed site (no browser token in Vercel/Netlify env).
-  // That left the fetch cache frozen until a redeploy, so published bio/photo edits
-  // never appeared. A time-based revalidate keeps the public page self-updating.
-  const cochairs = await client.fetch(
-    CONFERENCE_TEAM_QUERY,
-    { year: 2026 },
-    { next: { revalidate: 60 }, stega: false },
-  );
+  const { data: cochairs } = await sanityFetchCached({
+    query: CONFERENCE_TEAM_QUERY,
+    params: { year: 2026 },
+  });
 
   return (
     /**

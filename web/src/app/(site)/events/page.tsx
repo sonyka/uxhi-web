@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { EVENTS_QUERY } from "@/sanity/lib/queries";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { PressMention } from "@/components/ui/PressMention";
@@ -33,7 +33,7 @@ function formatEventDate(dateStr: string) {
 }
 
 export default async function EventsPage() {
-  const eventsResult = await sanityFetch({ query: EVENTS_QUERY });
+  const eventsResult = await sanityFetchCached({ query: EVENTS_QUERY });
 
   type Event = { _id: string; title: string; date: string; time: string | null; location: string | null; description: string | null; url: string | null; tentative: boolean | null };
 

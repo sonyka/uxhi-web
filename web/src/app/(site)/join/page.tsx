@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { LogoImage } from "@/components/ui/LogoImage";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { FAQS_QUERY } from "@/sanity/lib/queries";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
@@ -32,7 +32,7 @@ const companyLogos = [
 ];
 
 export default async function JoinPage() {
-  const { data: faqs } = await sanityFetch({ query: FAQS_QUERY });
+  const { data: faqs } = await sanityFetchCached({ query: FAQS_QUERY });
 
   return (
     <main className="min-h-screen bg-beige-10">

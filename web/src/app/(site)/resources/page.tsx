@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { RESOURCE_ITEMS_QUERY, TECH_ORGANIZATIONS_QUERY, STATE_OF_UX_REPORTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
 import { ExternalLinkIcon } from "@/components/ui/icons";
@@ -105,9 +105,9 @@ const techOrgs = [
 
 export default async function ResourcesPage() {
   const [{ data: resourceItems }, { data: techOrganizations }, { data: reports }] = await Promise.all([
-    sanityFetch({ query: RESOURCE_ITEMS_QUERY }),
-    sanityFetch({ query: TECH_ORGANIZATIONS_QUERY }),
-    sanityFetch({ query: STATE_OF_UX_REPORTS_QUERY }),
+    sanityFetchCached({ query: RESOURCE_ITEMS_QUERY }),
+    sanityFetchCached({ query: TECH_ORGANIZATIONS_QUERY }),
+    sanityFetchCached({ query: STATE_OF_UX_REPORTS_QUERY }),
   ]);
 
   // Group resource items by category

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { DIRECTORY_MEMBERS_QUERY } from "@/sanity/lib/queries";
 import { MemberDirectory } from "@/components/directory";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default async function FindUXProPage() {
-  const { data: members } = await sanityFetch({ query: DIRECTORY_MEMBERS_QUERY });
+  const { data: members } = await sanityFetchCached({ query: DIRECTORY_MEMBERS_QUERY });
 
   return (
     <main className="min-h-screen bg-beige-10">

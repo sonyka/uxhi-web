@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { InstagramFeed } from "@/components/sections/InstagramFeed";
 import { CommunityPhotosGrid } from "@/components/sections/CommunityPhotosGrid";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   // Fetch data from Sanity
   const [{ data: communityPhotos }] = await Promise.all([
-    sanityFetch({ query: COMMUNITY_PHOTOS_QUERY }),
+    sanityFetchCached({ query: COMMUNITY_PHOTOS_QUERY }),
   ]);
 
   return (
