@@ -387,7 +387,7 @@ export default async function Conference2026Page() {
                   style={{ color: "#50555A" }}
                 >
                   <p>We are a female-founded, volunteer-led community dedicated to connecting and elevating the field of human-centered design for our local community.</p>
-                  <p>Our mission is to foster collaboration and innovation in design, technology, and community-driven solutions in Hawai&#699;i and empower UX designers with skills and tools they need to succeed.</p>
+                  <p>We want to connect and elevate the field of human-centered design for the people of Hawai&#699;i.</p>
                 </div>
                 <a
                   href="https://uxhi.community"
