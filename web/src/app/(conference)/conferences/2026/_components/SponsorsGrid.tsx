@@ -4,6 +4,7 @@ import { SectionHeading } from "./SectionHeading";
 export type Sponsor = {
   _id: string;
   name: string;
+  tier?: string | null;
   description?: string | null;
   url?: string | null;
   logo?: string | null; // Sanity asset URL
@@ -11,6 +12,17 @@ export type Sponsor = {
 };
 
 const GRAY = "#50555A";
+const PURPLE = "#231769";
+
+// Tiers render in this order, each under its own label; only non-empty tiers show.
+const TIER_ORDER = ["platinum", "gold", "silver", "bronze", "community"] as const;
+const TIER_LABELS: Record<string, string> = {
+  platinum: "Platinum",
+  gold: "Gold",
+  silver: "Silver",
+  bronze: "Bronze",
+  community: "Community",
+};
 
 // Size Sanity images on the CDN rather than shipping the full-res asset.
 function sized(url: string, w: number) {
@@ -61,15 +73,31 @@ function SponsorCard({ s }: { s: Sponsor }) {
 export function SponsorsGrid({ sponsors }: { sponsors: Sponsor[] }) {
   if (!sponsors || sponsors.length === 0) return null;
 
+  // Group into tiers, preserving the query order within each tier.
+  const groups = TIER_ORDER.map((tier) => ({
+    tier,
+    items: sponsors.filter((s) => (s.tier || "platinum") === tier),
+  })).filter((g) => g.items.length > 0);
+
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>UXHI Conference Sponsors</SectionHeading>
       <p className="font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]" style={{ color: GRAY }}>
         We couldn&rsquo;t tell this mo&#699;olelo alone. Big mahalo to our incredible partners and sponsors for investing in our diverse community — your support fuels the creativity and innovation that bring together the brightest minds and the most exciting ideas in tech.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mt-1">
-        {sponsors.map((s) => (
-          <SponsorCard key={s._id} s={s} />
+
+      <div className="flex flex-col gap-6 md:gap-8 mt-1">
+        {groups.map(({ tier, items }) => (
+          <div key={tier} className="flex flex-col gap-3 md:gap-4">
+            <h3 className="font-bold uppercase tracking-[0.06em] text-[13px] md:text-[14px]" style={{ color: PURPLE }}>
+              {TIER_LABELS[tier]}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              {items.map((s) => (
+                <SponsorCard key={s._id} s={s} />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>

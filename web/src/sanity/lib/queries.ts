@@ -72,6 +72,7 @@ export const CONFERENCE_SPONSORS_QUERY = defineQuery(/* groq */ `
   *[_type == "conferenceSponsor" && year == $year] | order(order asc, name asc) {
     _id,
     name,
+    tier,
     description,
     url,
     "logo": logo.asset->url,

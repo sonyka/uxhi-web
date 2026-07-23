@@ -34,6 +34,24 @@ export const conferenceSponsor = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "tier",
+      title: "Sponsorship Tier",
+      type: "string",
+      description: "Groups the sponsor under a tier heading on the page.",
+      options: {
+        list: [
+          { title: "Platinum", value: "platinum" },
+          { title: "Gold", value: "gold" },
+          { title: "Silver", value: "silver" },
+          { title: "Bronze", value: "bronze" },
+          { title: "Community", value: "community" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "platinum",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "logo",
       title: "Logo",
       type: "image",
@@ -58,11 +76,12 @@ export const conferenceSponsor = defineType({
     }),
   ],
   preview: {
-    select: { title: "name", year: "year", subtitle: "description", media: "logo" },
-    prepare({ title, year, subtitle, media }) {
+    select: { title: "name", year: "year", tier: "tier", media: "logo" },
+    prepare({ title, year, tier, media }) {
+      const tierLabel = tier ? tier.charAt(0).toUpperCase() + tier.slice(1) : undefined;
       return {
         title,
-        subtitle: [year, subtitle].filter(Boolean).join(" · "),
+        subtitle: [tierLabel, year].filter(Boolean).join(" · "),
         media,
       };
     },
