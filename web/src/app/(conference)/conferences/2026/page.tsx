@@ -11,14 +11,42 @@ import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY } from "@/sanity/lib/queries";
 
+const OG_TITLE = "UXHI Conference :: October 17, 2026";
+const OG_DESCRIPTION =
+  "UXHICon 2026 — October 17, 2026. An immersive day of design knowledge-sharing, inspiration, and connection in Hawaiʻi.";
+const OG_IMAGE = "/conferences/2026/assets/images/og-image.png";
+
 export const metadata: Metadata = {
-  title: "UXHI Conference :: October 17, 2026",
-  description:
-    "UXHICon 2026 — October 17, 2026. An immersive day of design knowledge-sharing, inspiration, and connection in Hawaiʻi.",
+  // Resolve relative OG/Twitter image URLs against the live conference domain so
+  // link previews load an absolute URL on every platform (iMessage, Slack, etc.).
+  metadataBase: new URL("https://uxhiconference.com"),
+  title: OG_TITLE,
+  description: OG_DESCRIPTION,
   // Custom UXHI conference favicon (carried over from the 2025 site), typed as
   // SVG so it takes precedence over the app's default favicon.ico.
   icons: {
     icon: [{ url: "/conferences/2026/assets/favicon.svg", type: "image/svg+xml", sizes: "any" }],
+  },
+  openGraph: {
+    type: "website",
+    url: "https://uxhiconference.com/",
+    siteName: "UXHI Conference",
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "UXHI Conference — Entrepreneurs Sandbox · October 17, 2026",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
+    images: [OG_IMAGE],
   },
 };
 
