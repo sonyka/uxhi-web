@@ -76,7 +76,8 @@ export const CONFERENCE_SPONSORS_QUERY = defineQuery(/* groq */ `
     description,
     url,
     "logo": logo.asset->url,
-    "logoAlt": logo.alt
+    "logoAlt": logo.alt,
+    "logoAspect": logo.asset->metadata.dimensions.aspectRatio
   }
 `);
 

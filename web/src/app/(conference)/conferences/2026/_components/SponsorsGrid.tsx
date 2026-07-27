@@ -9,6 +9,7 @@ export type Sponsor = {
   url?: string | null;
   logo?: string | null; // Sanity asset URL
   logoAlt?: string | null;
+  logoAspect?: number | null; // width / height of the logo asset
 };
 
 const GRAY = "#50555A";
@@ -30,17 +31,26 @@ function sized(url: string, w: number) {
 }
 
 function SponsorCard({ s }: { s: Sponsor }) {
+  // Logos are normalized by height (h-10 ≈ 40px). That works for wide, single-line
+  // wordmarks, but a stacked/multi-line lockup (e.g. ANTHOLOGY / FINN / PARTNERS)
+  // squeezes several lines into the same band and reads far too small. Give tall
+  // logos (low aspect ratio) a taller box so they carry comparable visual weight;
+  // wide logos are unaffected. Threshold sits in the clean gap between the stacked
+  // logo (~1.7) and every wide wordmark (~3.3+).
+  const isTall = s.logoAspect != null && s.logoAspect < 2.5;
+  const boxClass = isTall ? "h-16" : "h-10";
+  const imgMaxH = isTall ? "max-h-16" : "max-h-10";
+
   const inner = (
     <>
-      {/* Logo (gray-120 tint by default; reveals full colour on hover).
-          h-10 keeps it ~30% smaller than the original h-14. */}
-      <div className="h-10 flex items-center">
+      {/* Logo (gray-120 tint by default; reveals full colour on hover). */}
+      <div className={`${boxClass} flex items-center`}>
         {s.logo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={sized(s.logo, 480)}
             alt={s.logoAlt || s.name}
-            className="max-h-10 w-auto max-w-full object-contain grayscale opacity-90 brightness-75 contrast-75 transition duration-200 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100"
+            className={`${imgMaxH} w-auto max-w-full object-contain grayscale opacity-90 brightness-75 contrast-75 transition duration-200 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100`}
           />
         ) : (
           <span className="font-semibold text-[16px] text-[#1A1A1A]">{s.name}</span>
