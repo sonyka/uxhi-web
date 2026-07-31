@@ -44,8 +44,8 @@ const fade = (dir: "top" | "bottom" | "left" | "right"): React.CSSProperties => 
   }[dir],
   ...(dir === "top"    ? { top: 0,    left: 0, right: 0,  height: "48px" } : {}),
   ...(dir === "bottom" ? { bottom: 0, left: 0, right: 0,  height: "48px" } : {}),
-  ...(dir === "left"   ? { left: 0,   top: 0,  bottom: 0, width:  "80px" } : {}),
-  ...(dir === "right"  ? { right: 0,  top: 0,  bottom: 0, width:  "80px" } : {}),
+  ...(dir === "left"   ? { left: 0,   top: 0,  bottom: 0, width:  "32px" } : {}),
+  ...(dir === "right"  ? { right: 0,  top: 0,  bottom: 0, width:  "32px" } : {}),
 });
 
 export function PhotoTickerV() {
