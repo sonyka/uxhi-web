@@ -38,8 +38,15 @@ function SponsorCard({ s }: { s: Sponsor }) {
   // wide logos are unaffected. Threshold sits in the clean gap between the stacked
   // logo (~1.7) and every wide wordmark (~3.3+).
   const isTall = s.logoAspect != null && s.logoAspect < 2.5;
+  // The opposite outlier: a bare, ultra-wide wordmark (e.g. ~10:1). Height-normalized
+  // like the others it would want to be ~400px wide, get clamped to the card, and run
+  // edge-to-edge — reading as oversized next to the normal ~3–5:1 logos. Cap its width
+  // so it sits at a comparable footprint. Threshold lives in the clean gap between the
+  // widest normal wordmark (~5.1) and the ultra-wide outlier (~10.2).
+  const isUltraWide = s.logoAspect != null && s.logoAspect > 6.5;
   const boxClass = isTall ? "h-16" : "h-10";
   const imgMaxH = isTall ? "max-h-16" : "max-h-10";
+  const imgMaxW = isUltraWide ? "max-w-[200px]" : "max-w-full";
 
   const inner = (
     <>
@@ -50,7 +57,7 @@ function SponsorCard({ s }: { s: Sponsor }) {
           <img
             src={sized(s.logo, 480)}
             alt={s.logoAlt || s.name}
-            className={`${imgMaxH} w-auto max-w-full object-contain grayscale opacity-90 brightness-75 contrast-75 transition duration-200 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100`}
+            className={`${imgMaxH} ${imgMaxW} w-auto object-contain grayscale opacity-90 brightness-75 contrast-75 transition duration-200 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100`}
           />
         ) : (
           <span className="font-semibold text-[16px] text-[#1A1A1A]">{s.name}</span>
