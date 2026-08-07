@@ -7,9 +7,11 @@ import { MobileNavMenu } from "./_components/MobileNavMenu";
 import { FaqSection } from "./_components/FaqSection";
 import { CochairsSection } from "./_components/CochairsSection";
 import { SponsorsGrid } from "./_components/SponsorsGrid";
+import { InstagramGrid } from "./_components/InstagramGrid";
+import { QuoteCard } from "./_components/QuoteCard";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
-import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY } from "@/sanity/lib/queries";
+import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY } from "@/sanity/lib/queries";
 
 const OG_TITLE = "UXHI Conference :: October 17, 2026";
 const OG_DESCRIPTION =
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
 // ── Design tokens ─────────────────────────────────────────────────────
 const BEIGE_30 = "#F4F1EA"; // page background (beige-30 from design system)
 const PURPLE   = "#231769"; // --color-purple-140
-const TEAL_60  = "#60D7E5"; // lighter teal for apply-to-speak button
+const TEAL_60  = "#60D7E5"; // lighter teal (pulse dot, teal CTAs)
 
 const EVENT_DATE = new Date("2026-10-17T00:00:00");
 
@@ -134,9 +136,10 @@ const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
 
 // ─────────────────────────────────────────────────────────────────────
 export default async function Conference2026Page() {
-  const [{ data: cochairs }, { data: sponsors }] = await Promise.all([
+  const [{ data: cochairs }, { data: sponsors }, { data: instagramPosts }] = await Promise.all([
     sanityFetchCached({ query: CONFERENCE_TEAM_QUERY, params: { year: 2026 } }),
     sanityFetchCached({ query: CONFERENCE_SPONSORS_QUERY, params: { year: 2026 } }),
+    sanityFetchCached({ query: CONFERENCE_INSTAGRAM_QUERY, params: { year: 2026 } }),
   ]);
 
   return (
@@ -289,17 +292,6 @@ export default async function Conference2026Page() {
                     <img src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
                     Become a sponsor
                   </a>
-                  <a
-                    href="https://forms.gle/gd3qdU8JhWeccJ568"
-                    target="_blank"
-                    rel="noopener"
-                    className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
-                    style={{ background: TEAL_60, color: "#000" }}
-                  >
-                    Apply to speak
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/conferences/2026/assets/icons/icon-arrow-small-right.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
-                  </a>
                 </div>
               </div>
 
@@ -395,9 +387,6 @@ export default async function Conference2026Page() {
               {/* ── FAQs ───────────────────────────────────────────── */}
               <FaqSection />
 
-              {/* ── Co-Chairs / Team ───────────────────────────────── */}
-              <CochairsSection cochairs={cochairs ?? []} />
-
               {/* ── About UXHI ─────────────────────────────────────── */}
               {/* Copy carried over from the 2025 conference site. */}
               <div className="flex flex-col gap-3 md:gap-4">
@@ -429,6 +418,15 @@ export default async function Conference2026Page() {
                   <img src="/conferences/2026/assets/icons/icon-arrow-small-right.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
                 </a>
               </div>
+
+              {/* ── Co-Chairs / Team ───────────────────────────────── */}
+              <CochairsSection cochairs={cochairs ?? []} />
+
+              {/* ── Refrain (testimonial-style card, shaka glyph) ────── */}
+              <QuoteCard />
+
+              {/* ── Instagram (Sanity: conferenceInstagramPost, curated) ── */}
+              <InstagramGrid posts={instagramPosts ?? []} />
 
               {/* ── Sponsors (Sanity: conferenceSponsor, year-scoped) ─── */}
               <SponsorsGrid sponsors={sponsors ?? []} />

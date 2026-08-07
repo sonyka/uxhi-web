@@ -171,6 +171,16 @@ export const structure = (S: StructureBuilder) =>
                             .filter('_type == "conferenceSponsor" && year == 2026')
                             .defaultOrdering([{ field: "order", direction: "asc" }])
                         ),
+                      S.listItem()
+                        .title("Instagram Posts")
+                        .icon(ImagesIcon)
+                        .child(
+                          S.documentList()
+                            .title("Instagram Posts — 2026")
+                            .schemaType("conferenceInstagramPost")
+                            .filter('_type == "conferenceInstagramPost" && year == 2026')
+                            .defaultOrdering([{ field: "order", direction: "asc" }])
+                        ),
                     ])
                 ),
             ])

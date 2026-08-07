@@ -67,6 +67,18 @@ export const CONFERENCE_TEAM_QUERY = defineQuery(/* groq */ `
   }
 `);
 
+// Conference Instagram posts for a given year (curated, year-scoped)
+export const CONFERENCE_INSTAGRAM_QUERY = defineQuery(/* groq */ `
+  *[_type == "conferenceInstagramPost" && year == $year] | order(order asc, _createdAt desc) {
+    _id,
+    caption,
+    postUrl,
+    "image": image.asset->url,
+    "imageAlt": image.alt,
+    "lqip": image.asset->metadata.lqip
+  }
+`);
+
 // Conference sponsors for a given year (year-scoped, like the team)
 export const CONFERENCE_SPONSORS_QUERY = defineQuery(/* groq */ `
   *[_type == "conferenceSponsor" && year == $year] | order(order asc, name asc) {

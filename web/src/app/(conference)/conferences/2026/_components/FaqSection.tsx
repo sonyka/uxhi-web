@@ -29,6 +29,10 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     a: "The registration fee includes entry to all sessions and networking, all-day coffee, breakfast, lunch, snacks, and swag.",
   },
   {
+    q: "What is the Pre-Conference event on Thursday, October 15?",
+    a: "An optional event for attendees to network and get excited for the conference on Saturday! Location and time to be determined. Tickets can be purchased separately and includes two drink tickets.",
+  },
+  {
     q: "Are there group discounts available?",
     a: "Currently, we don’t offer group discounts. We highly encourage your team to take advantage of the Early Bird tickets, which are already available at a reduced rate.",
   },
