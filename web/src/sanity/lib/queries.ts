@@ -89,7 +89,8 @@ export const CONFERENCE_SPONSORS_QUERY = defineQuery(/* groq */ `
     url,
     "logo": logo.asset->url,
     "logoAlt": logo.alt,
-    "logoAspect": logo.asset->metadata.dimensions.aspectRatio
+    "logoAspect": logo.asset->metadata.dimensions.aspectRatio,
+    logoScale
   }
 `);
 

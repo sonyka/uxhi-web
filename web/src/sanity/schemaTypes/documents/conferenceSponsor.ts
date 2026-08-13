@@ -62,6 +62,14 @@ export const conferenceSponsor = defineType({
       ],
     }),
     defineField({
+      name: "logoScale",
+      title: "Logo Size Adjustment",
+      type: "number",
+      description:
+        "Optional fine-tune for visual balance. Logos are auto-sized by shape, but a bold/heavy wordmark can read larger than its neighbours. 1 = default; use e.g. 0.8 to shrink ~20%, 1.2 to enlarge. Leave blank for default.",
+      validation: (rule) => rule.min(0.4).max(1.6),
+    }),
+    defineField({
       name: "url",
       title: "Website URL",
       type: "url",

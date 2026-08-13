@@ -10,6 +10,7 @@ export type Sponsor = {
   logo?: string | null; // Sanity asset URL
   logoAlt?: string | null;
   logoAspect?: number | null; // width / height of the logo asset
+  logoScale?: number | null; // optional per-logo size multiplier (1 = default)
 };
 
 const GRAY = "#50555A";
@@ -45,8 +46,17 @@ function SponsorCard({ s }: { s: Sponsor }) {
   // widest normal wordmark (~5.1) and the ultra-wide outlier (~10.2).
   const isUltraWide = s.logoAspect != null && s.logoAspect > 6.5;
   const boxClass = isTall ? "h-16" : "h-10";
-  const imgMaxH = isTall ? "max-h-16" : "max-h-10";
-  const imgMaxW = isUltraWide ? "max-w-[200px]" : "max-w-full";
+
+  // Base size in px for the auto bucket, then apply the optional per-logo scale
+  // (Sanity `logoScale`) for manual visual balancing — e.g. a bold wordmark that
+  // reads heavier than its neighbours. The box height is unchanged, so a scaled
+  // logo stays vertically centred and aligned with the others in its row.
+  const scale = s.logoScale && s.logoScale > 0 ? s.logoScale : 1;
+  const baseH = isTall ? 64 : 40;
+  const imgStyle: React.CSSProperties = {
+    maxHeight: baseH * scale,
+    maxWidth: isUltraWide ? 200 * scale : "100%",
+  };
 
   const inner = (
     <>
@@ -57,7 +67,8 @@ function SponsorCard({ s }: { s: Sponsor }) {
           <img
             src={sized(s.logo, 480)}
             alt={s.logoAlt || s.name}
-            className={`${imgMaxH} ${imgMaxW} w-auto object-contain grayscale opacity-90 brightness-75 contrast-75 transition duration-200 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100`}
+            style={imgStyle}
+            className="w-auto object-contain grayscale opacity-90 brightness-75 contrast-75 transition duration-200 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100"
           />
         ) : (
           <span className="font-semibold text-[16px] text-[#1A1A1A]">{s.name}</span>
