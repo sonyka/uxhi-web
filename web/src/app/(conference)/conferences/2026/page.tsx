@@ -248,13 +248,17 @@ export default async function Conference2026Page() {
               {/* ── Hero: date badge, tagline, CTAs ───────────────── */}
               <div className="flex flex-col gap-4 md:gap-5">
 
-                {/* Date badge — gray border, teal pulse */}
+                {/* Date + venue — plain text with a teal live-pulse (no pill, so the
+                    longer date+venue line wraps cleanly on small screens instead of
+                    forming an odd multi-line pill). Dot aligns to the first line. */}
                 <div
-                  className="inline-flex items-center gap-[10px] w-fit px-4 py-[9px] rounded-full text-[14px] md:text-[16px] font-normal"
-                  style={{ border: "1px solid #969DA4", color: "#000" }}
+                  className="flex items-center gap-[10px] text-[14px] md:text-[16px] font-medium"
+                  style={{ color: "#000" }}
                 >
-                  <PulseDot />
-                  October 17, 2026 • Entrepreneurs Sandbox, Honolulu
+                  <span className="shrink-0">
+                    <PulseDot />
+                  </span>
+                  <span>October 17, 2026 • Entrepreneurs Sandbox, Honolulu</span>
                 </div>
 
                 {/* Tagline — three parts per Figma:
@@ -279,21 +283,10 @@ export default async function Conference2026Page() {
                   </p>
                 </div>
 
-                {/* CTA buttons — primary: Get tickets · secondary: Become a sponsor.
-                    Get tickets is desktop-only here (the header CTA covers mobile);
-                    the secondary sponsor button shows on all sizes so mobile keeps it. */}
+                {/* CTA buttons — Become a sponsor (teal secondary) then Get tickets
+                    (purple primary). Both show on all breakpoints, so mobile keeps
+                    Get tickets in the hero alongside the header CTA. */}
                 <div className="flex flex-wrap items-center gap-3">
-                  <a
-                    href="https://givebutter.com/uxhi-con-26-tickets"
-                    target="_blank"
-                    rel="noopener"
-                    className="hidden md:inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
-                    style={{ background: PURPLE }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
-                    Get tickets
-                  </a>
                   <a
                     href="https://givebutter.com/uxhi-con-2026-sponsor"
                     target="_blank"
@@ -304,6 +297,17 @@ export default async function Conference2026Page() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
                     Become a sponsor
+                  </a>
+                  <a
+                    href="https://givebutter.com/uxhi-con-26-tickets"
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                    style={{ background: PURPLE }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
+                    Get tickets
                   </a>
                 </div>
               </div>
