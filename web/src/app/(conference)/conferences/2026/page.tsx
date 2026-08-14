@@ -282,8 +282,16 @@ export default async function Conference2026Page() {
               {/* Mobile/sm sidebar info — badge, days-to-go/stats, photo strip.
                   Scrolls away with the rest of the content (no fixed positioning). */}
               <div className="md:hidden flex flex-col gap-4">
-                <div className="flex items-start gap-4">
-                  <SidebarInfo />
+                {/* Logo + date/venue beside it, bottom-aligned so the date sits just
+                    above the photo strip (mobile only; sidebar stats are hidden here). */}
+                <div className="flex items-end gap-4">
+                  <LogoBadge />
+                  <div className="flex items-start gap-2 max-w-[62%] text-[13px] font-medium" style={{ color: "#000" }}>
+                    <span className="mt-[5px] shrink-0">
+                      <PulseDot />
+                    </span>
+                    <span>October 17, 2026 • Entrepreneurs Sandbox, Honolulu</span>
+                  </div>
                 </div>
                 <PhotoTickerH />
               </div>
@@ -291,11 +299,10 @@ export default async function Conference2026Page() {
               {/* ── Hero: date badge, tagline, CTAs ───────────────── */}
               <div className="flex flex-col gap-4 md:gap-5">
 
-                {/* Date + venue — plain text with a teal live-pulse (no pill, so the
-                    longer date+venue line wraps cleanly on small screens instead of
-                    forming an odd multi-line pill). Dot aligns to the first line. */}
+                {/* Date + venue — desktop only here (on mobile it moves up to the
+                    top-right, above the photo strip). Plain text with a teal pulse. */}
                 <div
-                  className="flex items-center gap-[10px] text-[14px] md:text-[16px] font-medium"
+                  className="hidden md:flex items-center gap-[10px] text-[14px] md:text-[16px] font-medium"
                   style={{ color: "#000" }}
                 >
                   <span className="shrink-0">
