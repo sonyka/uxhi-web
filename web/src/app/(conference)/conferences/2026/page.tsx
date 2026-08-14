@@ -9,6 +9,8 @@ import { CochairsSection } from "./_components/CochairsSection";
 import { SponsorsGrid } from "./_components/SponsorsGrid";
 import { InstagramGrid } from "./_components/InstagramGrid";
 import { QuoteCard } from "./_components/QuoteCard";
+import { ProgramSection } from "./_components/ProgramSection";
+import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY } from "@/sanity/lib/queries";
@@ -170,6 +172,27 @@ export default async function Conference2026Page() {
           />
         </Link>
 
+        {/* Section anchor nav — smooth-scrolls within the scroll panel (desktop only). */}
+        <nav className="hidden lg:flex items-center gap-5 text-[14px] font-medium" aria-label="Section navigation">
+          {([
+            ["Moʻolelo", "#moolelo"],
+            ["UXHICon", "#program"],
+            ["The Sandbox", "#venue"],
+            ["FAQ", "#faq"],
+            ["About Us", "#about"],
+            ["Sponsors", "#sponsors"],
+          ] as const).map(([label, href]) => (
+            <a
+              key={href}
+              href={href}
+              className="no-underline hover:opacity-70 transition-opacity"
+              style={{ color: PURPLE }}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
         {/* Header CTA — primary: Get tickets. h=44px, 15px, font-normal, cursor icon */}
         <a
           href="https://givebutter.com/uxhi-con-26-tickets"
@@ -231,7 +254,7 @@ export default async function Conference2026Page() {
               by the date/tagline/Moʻolelo content.
           ──────────────────────────────────────────────────────────── */}
           <section
-            className="flex-1 min-h-0 overflow-y-auto"
+            className="flex-1 min-h-0 overflow-y-auto scroll-smooth"
             aria-label="Conference content"
           >
             <div className="flex flex-col gap-10 p-4 md:gap-16 md:py-16 md:pl-8 md:pr-6 lg:pr-10 xl:gap-20 xl:py-32 xl:pl-10 xl:pr-16">
@@ -277,7 +300,7 @@ export default async function Conference2026Page() {
                     UXHICon is an annual event for Hawai&#699;i&rsquo;s design community to share stories and narratives that shape meaningful design.
                   </p>
                   <p
-                    className="font-normal leading-[1.3] tracking-[-0.02em] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]"
+                    className="font-normal leading-[1.35] tracking-[-0.02em] text-[16px] sm:text-[17px] md:text-[19px] lg:text-[22px] xl:text-[28px]"
                   >
                     Join us for an immersive day of knowledge-sharing, inspiration, and pilina.&nbsp;&#127802;
                   </p>
@@ -313,7 +336,7 @@ export default async function Conference2026Page() {
               </div>
 
               {/* ── Moʻolelo and Meaning ──────────────────────────── */}
-              <div className="flex flex-col gap-3 md:gap-4">
+              <div id="moolelo" className="scroll-mt-6 flex flex-col gap-3 md:gap-4">
                 <SectionHeading>UXHI Conference 2026: Mo&#699;olelo and Meaning</SectionHeading>
                 <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[676/297]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -327,7 +350,7 @@ export default async function Conference2026Page() {
                 </div>
                 {/* Mobile: match the "Hana Hou!" tagline styling (semibold, 17→20px, leading-1.2).
                     From md up, revert to the lighter body styling. */}
-                <p className="font-semibold leading-[1.2] tracking-[-0.02em] text-[17px] sm:text-[20px] md:font-normal md:leading-[1.3] md:text-[20px] lg:text-[26px] xl:text-[32px]">
+                <p className="font-semibold leading-[1.25] tracking-[-0.02em] text-[16px] sm:text-[17px] md:font-normal md:leading-[1.4] md:text-[19px] lg:text-[22px] xl:text-[28px]">
                   In Hawai&#699;i, mo&#699;olelo is a treasured practice. It preserves the culture of a special place and people, by shaping, carrying, and contextualizing what is shared. It is highly intentional.
                 </p>
                 <div
@@ -339,9 +362,17 @@ export default async function Conference2026Page() {
                 </div>
               </div>
 
+              {/* ── The Program: Share, Learn, & Connect ──────────── */}
+              <div id="program" className="scroll-mt-6">
+                <ProgramSection />
+              </div>
+
+              {/* Benefits headline — sits above the Sandbox/Venue section. */}
+              <BenefitsHeadline />
+
               {/* ── Venue ──────────────────────────────────────────── */}
               {/* Content from the 2025 conference site (Entrepreneurs Sandbox). */}
-              <div className="flex flex-col gap-3 md:gap-4">
+              <div id="venue" className="scroll-mt-6 flex flex-col gap-3 md:gap-4">
                 <SectionHeading>The Venue: Entrepreneurs Sandbox</SectionHeading>
                 {/* Building photo + location map, side by side on desktop */}
                 <div className="flex flex-col md:flex-row gap-3 md:gap-4">
@@ -401,12 +432,9 @@ export default async function Conference2026Page() {
                 </a>
               </div>
 
-              {/* ── FAQs ───────────────────────────────────────────── */}
-              <FaqSection />
-
               {/* ── About UXHI ─────────────────────────────────────── */}
               {/* Copy carried over from the 2025 conference site. */}
-              <div className="flex flex-col gap-3 md:gap-4">
+              <div id="about" className="scroll-mt-6 flex flex-col gap-3 md:gap-4">
                 <SectionHeading>About UXHI</SectionHeading>
                 <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[1000/417]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -445,8 +473,15 @@ export default async function Conference2026Page() {
               {/* ── Instagram (Sanity: conferenceInstagramPost, curated) ── */}
               <InstagramGrid posts={instagramPosts ?? []} />
 
+              {/* ── FAQ ────────────────────────────────────────────── */}
+              <div id="faq" className="scroll-mt-6">
+                <FaqSection />
+              </div>
+
               {/* ── Sponsors (Sanity: conferenceSponsor, year-scoped) ─── */}
-              <SponsorsGrid sponsors={sponsors ?? []} />
+              <div id="sponsors" className="scroll-mt-6">
+                <SponsorsGrid sponsors={sponsors ?? []} />
+              </div>
 
             </div>
           </section>

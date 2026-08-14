@@ -71,7 +71,7 @@ export function FaqSection() {
 
   return (
     <div className="flex flex-col gap-3 md:gap-4">
-      <SectionHeading>FAQs</SectionHeading>
+      <SectionHeading>FAQ</SectionHeading>
       <p
         className="font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
         style={{ color: "#50555A" }}
