@@ -34,17 +34,17 @@ function sized(url: string, w: number) {
 function SponsorCard({ s }: { s: Sponsor }) {
   // Logos are normalized by height (h-10 ≈ 40px). A stacked/multi-line lockup
   // (e.g. ANTHOLOGY / FINN / PARTNERS) reads a touch small at that height, so tall
-  // logos (low aspect ratio) get a slightly taller box (44px).
+  // logos (low aspect ratio) get a taller box (48px).
   const isTall = s.logoAspect != null && s.logoAspect < 2.5;
-  const boxClass = isTall ? "h-11" : "h-10";
+  const boxClass = isTall ? "h-12" : "h-10";
 
   // Height for the auto bucket, plus a uniform MAX WIDTH so wide wordmarks (~5:1
   // and up, and the ~10:1 outlier) don't outsize the more compact logos — every
-  // logo now fits the same 140×44 box. `logoScale` (Sanity) fine-tunes any single
+  // logo now fits the same 140×48 box. `logoScale` (Sanity) fine-tunes any single
   // logo. Box height is unchanged, so scaled logos stay vertically centred and
   // aligned within their row.
   const scale = s.logoScale && s.logoScale > 0 ? s.logoScale : 1;
-  const baseH = isTall ? 44 : 40;
+  const baseH = isTall ? 48 : 40;
   const imgStyle: React.CSSProperties = {
     maxHeight: baseH * scale,
     maxWidth: 140 * scale,
