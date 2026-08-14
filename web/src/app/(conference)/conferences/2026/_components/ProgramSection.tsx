@@ -35,7 +35,7 @@ export function ProgramSection() {
       <div className="flex flex-col gap-3 md:gap-4">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
           <span className="font-bold uppercase tracking-[0.08em] text-[13px] md:text-[14px]" style={{ color: PURPLE }}>
-            Pre-Conference &middot; Thursday, October 15, 2026
+            Pre-Conference &middot; Date TBA
           </span>
           <span
             className="inline-flex items-center rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
@@ -45,7 +45,7 @@ export function ProgramSection() {
           </span>
         </div>
 
-        <SectionHeading>Pre UXHICon Mixer, with Stories Out Loud</SectionHeading>
+        <SectionHeading>Pre UXHICon Mixer</SectionHeading>
 
         <p className="font-normal leading-[1.5] text-[16px] lg:text-[17px] xl:text-[18px]" style={{ color: GRAY }}>
           For the first time, kick off UXHICon with an evening of stories, drinks, and connection, co-hosted by

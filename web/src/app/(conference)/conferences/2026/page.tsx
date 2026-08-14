@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { LogoBadge } from "./_components/LogoBadge";
 import { PhotoTickerV, PhotoTickerH } from "./_components/PhotoTicker";
 import { PastConferencesMenu } from "./_components/PastConferencesMenu";
@@ -64,8 +63,8 @@ const NAV_ITEMS = [
   ["Moʻolelo", "#moolelo"],
   ["UXHICon", "#program"],
   ["The Sandbox", "#venue"],
-  ["FAQ", "#faq"],
   ["About Us", "#about"],
+  ["FAQ", "#faq"],
   ["Sponsors", "#sponsors"],
 ] as const;
 
@@ -173,14 +172,16 @@ export default async function Conference2026Page() {
       {/* ── HEADER ─────────────────────────────────────────────────── */}
       <header className="h-16 shrink-0 flex items-center justify-between px-6 z-10">
 
-        <Link href="/conferences/2026/" className="no-underline flex items-center" aria-label="UXHICONF26 home">
+        {/* Tapping the logo scrolls the content panel back to the top (the window
+            itself doesn't scroll — the panel does — so a hash anchor is used). */}
+        <a href="#top" className="no-underline flex items-center" aria-label="UXHICONF26 — back to top">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/conferences/2026/assets/logos/uxhicon_header.svg"
             alt="UXHICONF26"
             style={{ height: "22px", width: "auto" }}
           />
-        </Link>
+        </a>
 
         {/* Section anchor nav — smooth-scrolls within the scroll panel (desktop only). */}
         <nav className="hidden lg:flex items-center gap-5 text-[14px] font-medium" aria-label="Section navigation">
@@ -277,7 +278,7 @@ export default async function Conference2026Page() {
             className="flex-1 min-h-0 overflow-y-auto scroll-smooth"
             aria-label="Conference content"
           >
-            <div className="flex flex-col gap-10 p-4 md:gap-16 md:py-16 md:pl-8 md:pr-6 lg:pr-10 xl:gap-20 xl:py-32 xl:pl-10 xl:pr-16">
+            <div id="top" className="flex flex-col gap-10 p-4 md:gap-16 md:py-16 md:pl-8 md:pr-6 lg:pr-10 xl:gap-20 xl:py-32 xl:pl-10 xl:pr-16">
 
               {/* Mobile/sm sidebar info — badge, days-to-go/stats, photo strip.
                   Scrolls away with the rest of the content (no fixed positioning). */}
@@ -286,8 +287,10 @@ export default async function Conference2026Page() {
                     above the photo strip (mobile only; sidebar stats are hidden here). */}
                 <div className="flex items-end gap-4">
                   <LogoBadge />
-                  <div className="flex items-start gap-2 max-w-[62%] text-[14px] font-medium" style={{ color: "#000" }}>
-                    <span className="mt-[5px] shrink-0">
+                  <div className="flex items-start gap-2 max-w-[62%] text-[14px] font-medium leading-[1.5]" style={{ color: "#000" }}>
+                    {/* Wrapper is one line tall and centers the dot, so it lines up
+                        with the first text line regardless of wrapping. */}
+                    <span className="flex items-center h-[1.5em] shrink-0">
                       <PulseDot />
                     </span>
                     <span>October 17, 2026 • Entrepreneurs Sandbox, Honolulu</span>
@@ -475,8 +478,8 @@ export default async function Conference2026Page() {
                   className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
                   style={{ color: "#50555A" }}
                 >
-                  <p>We are a female-founded, volunteer-led community dedicated to connecting and elevating the field of human-centered design for our local community.</p>
-                  <p>We want to connect and elevate the field of human-centered design for the people of Hawai&#699;i.</p>
+                  <p>We are a female-founded community organization whose mission is to connect and elevate the field of human-centered design for the people of Hawai&#699;i.</p>
+                  <p>Whether you&rsquo;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends and expand your professional network.</p>
                 </div>
                 <a
                   href="https://uxhi.community"
