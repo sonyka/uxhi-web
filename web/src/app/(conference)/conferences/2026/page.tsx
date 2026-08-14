@@ -170,9 +170,9 @@ export default async function Conference2026Page() {
           />
         </Link>
 
-        {/* Header CTA — h=44px, 15px, font-normal, with cursor icon */}
+        {/* Header CTA — primary: Get tickets. h=44px, 15px, font-normal, cursor icon */}
         <a
-          href="https://givebutter.com/uxhi-con-2026-sponsor"
+          href="https://givebutter.com/uxhi-con-26-tickets"
           target="_blank"
           rel="noopener"
           className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
@@ -180,13 +180,13 @@ export default async function Conference2026Page() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg"
+            src="/conferences/2026/assets/icons/icon-shaka.svg"
             alt=""
             width={20}
             height={20}
             style={{ width: 20, height: 20, filter: "invert(1)" }}
           />
-          Become a sponsor
+          Get tickets
         </a>
       </header>
 
@@ -254,7 +254,7 @@ export default async function Conference2026Page() {
                   style={{ border: "1px solid #969DA4", color: "#000" }}
                 >
                   <PulseDot />
-                  October 17, 2026
+                  October 17, 2026 • Entrepreneurs Sandbox, Honolulu
                 </div>
 
                 {/* Tagline — three parts per Figma:
@@ -279,17 +279,30 @@ export default async function Conference2026Page() {
                   </p>
                 </div>
 
-                {/* CTA buttons */}
+                {/* CTA buttons — primary: Get tickets · secondary: Become a sponsor.
+                    Get tickets is desktop-only here (the header CTA covers mobile);
+                    the secondary sponsor button shows on all sizes so mobile keeps it. */}
                 <div className="flex flex-wrap items-center gap-3">
                   <a
-                    href="https://givebutter.com/uxhi-con-2026-sponsor"
+                    href="https://givebutter.com/uxhi-con-26-tickets"
                     target="_blank"
                     rel="noopener"
                     className="hidden md:inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
                     style={{ background: PURPLE }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
+                    <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
+                    Get tickets
+                  </a>
+                  <a
+                    href="https://givebutter.com/uxhi-con-2026-sponsor"
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                    style={{ background: TEAL_60, color: "#000" }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
                     Become a sponsor
                   </a>
                 </div>
