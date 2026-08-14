@@ -286,7 +286,7 @@ export default async function Conference2026Page() {
                     above the photo strip (mobile only; sidebar stats are hidden here). */}
                 <div className="flex items-end gap-4">
                   <LogoBadge />
-                  <div className="flex items-start gap-2 max-w-[62%] text-[13px] font-medium" style={{ color: "#000" }}>
+                  <div className="flex items-start gap-2 max-w-[62%] text-[14px] font-medium" style={{ color: "#000" }}>
                     <span className="mt-[5px] shrink-0">
                       <PulseDot />
                     </span>
