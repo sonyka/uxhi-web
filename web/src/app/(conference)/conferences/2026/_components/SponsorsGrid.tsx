@@ -32,30 +32,22 @@ function sized(url: string, w: number) {
 }
 
 function SponsorCard({ s }: { s: Sponsor }) {
-  // Logos are normalized by height (h-10 ≈ 40px). That works for wide, single-line
-  // wordmarks, but a stacked/multi-line lockup (e.g. ANTHOLOGY / FINN / PARTNERS)
-  // squeezes several lines into the same band and reads far too small. Give tall
-  // logos (low aspect ratio) a taller box so they carry comparable visual weight;
-  // wide logos are unaffected. Threshold sits in the clean gap between the stacked
-  // logo (~1.7) and every wide wordmark (~3.3+).
+  // Logos are normalized by height (h-10 ≈ 40px). A stacked/multi-line lockup
+  // (e.g. ANTHOLOGY / FINN / PARTNERS) reads a touch small at that height, so tall
+  // logos (low aspect ratio) get a slightly taller box (44px).
   const isTall = s.logoAspect != null && s.logoAspect < 2.5;
-  // The opposite outlier: a bare, ultra-wide wordmark (e.g. ~10:1). Height-normalized
-  // like the others it would want to be ~400px wide, get clamped to the card, and run
-  // edge-to-edge — reading as oversized next to the normal ~3–5:1 logos. Cap its width
-  // so it sits at a comparable footprint. Threshold lives in the clean gap between the
-  // widest normal wordmark (~5.1) and the ultra-wide outlier (~10.2).
-  const isUltraWide = s.logoAspect != null && s.logoAspect > 6.5;
-  const boxClass = isTall ? "h-16" : "h-10";
+  const boxClass = isTall ? "h-11" : "h-10";
 
-  // Base size in px for the auto bucket, then apply the optional per-logo scale
-  // (Sanity `logoScale`) for manual visual balancing — e.g. a bold wordmark that
-  // reads heavier than its neighbours. The box height is unchanged, so a scaled
-  // logo stays vertically centred and aligned with the others in its row.
+  // Height for the auto bucket, plus a uniform MAX WIDTH so wide wordmarks (~5:1
+  // and up, and the ~10:1 outlier) don't outsize the more compact logos — every
+  // logo now fits the same 140×44 box. `logoScale` (Sanity) fine-tunes any single
+  // logo. Box height is unchanged, so scaled logos stay vertically centred and
+  // aligned within their row.
   const scale = s.logoScale && s.logoScale > 0 ? s.logoScale : 1;
-  const baseH = isTall ? 64 : 40;
+  const baseH = isTall ? 44 : 40;
   const imgStyle: React.CSSProperties = {
     maxHeight: baseH * scale,
-    maxWidth: isUltraWide ? 200 * scale : "100%",
+    maxWidth: 140 * scale,
   };
 
   const inner = (

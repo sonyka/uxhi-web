@@ -5,7 +5,7 @@ import type React from "react";
 //   MD  (768-1023)  → 120×154px, 10px gap  → 9×164 = 1476px/set
 //   LG  (1024-1279) → 160×205px, 13px gap  → 9×218 = 1962px/set
 //   XL  (1280+)     → 200×256px, 16px gap  → 9×272 = 2448px/set
-// Horizontal (SM): 100×128px, 8px gap → 9×108 = 972px/set
+// Horizontal (mobile): 125×160px, 10px gap
 //
 // Edge fade: white→transparent gradient overlay divs positioned OUTSIDE the
 // overflow:hidden container. This is the same technique Framer uses on their
@@ -24,7 +24,7 @@ function TickerPhotoV({ n }: { n: number }) {
 
 function TickerPhotoH({ n }: { n: number }) {
   return (
-    <div className="flex-shrink-0 w-[100px] h-[128px] rounded-xl overflow-hidden">
+    <div className="flex-shrink-0 w-[125px] h-[160px] rounded-xl overflow-hidden">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`/conferences/2026/assets/images/image-ticker-${n}.png`} alt="" className="w-full h-full object-cover" />
     </div>
@@ -68,10 +68,10 @@ export function PhotoTickerV() {
 export function PhotoTickerH() {
   return (
     // Outer: no overflow:hidden
-    <div className="relative h-[128px]">
+    <div className="relative h-[160px]">
       {/* Inner: overflow:hidden clips horizontal scroll */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="flex gap-[8px]" style={{ animation: "conf-scroll-left 36s linear infinite" }}>
+        <div className="flex gap-[10px]" style={{ animation: "conf-scroll-left 36s linear infinite" }}>
           {[...PHOTOS, ...PHOTOS].map((n, i) => <TickerPhotoH key={i} n={n} />)}
         </div>
       </div>

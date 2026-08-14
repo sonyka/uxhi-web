@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 // separate from the main site's design-system SectionHeading component.
 export function SectionHeading({ children }: { children: ReactNode }) {
   return (
-    <h2 className="font-semibold leading-[1.3] tracking-[-0.02em] text-[18px] md:text-[20px] lg:text-[26px] xl:text-[32px]">
+    <h2 className="font-semibold leading-[1.3] tracking-[-0.02em] text-[24px] md:text-[20px] lg:text-[26px] xl:text-[32px]">
       {children}
     </h2>
   );

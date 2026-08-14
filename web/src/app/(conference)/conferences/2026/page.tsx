@@ -59,6 +59,16 @@ const BEIGE_30 = "#F4F1EA"; // page background (beige-30 from design system)
 const PURPLE   = "#231769"; // --color-purple-140
 const TEAL_60  = "#60D7E5"; // lighter teal (pulse dot, teal CTAs)
 
+// Section anchor nav items — shared by the desktop header nav and the mobile strip.
+const NAV_ITEMS = [
+  ["Moʻolelo", "#moolelo"],
+  ["UXHICon", "#program"],
+  ["The Sandbox", "#venue"],
+  ["FAQ", "#faq"],
+  ["About Us", "#about"],
+  ["Sponsors", "#sponsors"],
+] as const;
+
 const EVENT_DATE = new Date("2026-10-17T00:00:00");
 
 function daysUntil() {
@@ -111,19 +121,19 @@ function SidebarInfo() {
               XL     (244px col)  → 20px, lh 1.45 → 29px/line ✓
         */}
         <div className="flex flex-col gap-2">
-          <p className="font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
+          <p className="hidden md:block font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             {daysUntil()} Days to Go
           </p>
           {/* Hidden on mobile to save vertical space; shown from md up. */}
           <p className="hidden md:block font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             By designers,&nbsp;&nbsp;for designers
           </p>
-          <p className="font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
+          <p className="hidden md:block font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
             2025 UXHICON by the numbers:
           </p>
         </div>
-        {/* Stats */}
-        <div className="flex flex-col gap-1">
+        {/* Stats — hidden on mobile per request; shown from md up. */}
+        <div className="hidden md:flex flex-col gap-1">
           <StatRow label="Speakers"  value="37"  />
           <StatRow label="Sessions"  value="12"  />
           <StatRow label="Attendees" value="127" />
@@ -174,14 +184,7 @@ export default async function Conference2026Page() {
 
         {/* Section anchor nav — smooth-scrolls within the scroll panel (desktop only). */}
         <nav className="hidden lg:flex items-center gap-5 text-[14px] font-medium" aria-label="Section navigation">
-          {([
-            ["Moʻolelo", "#moolelo"],
-            ["UXHICon", "#program"],
-            ["The Sandbox", "#venue"],
-            ["FAQ", "#faq"],
-            ["About Us", "#about"],
-            ["Sponsors", "#sponsors"],
-          ] as const).map(([label, href]) => (
+          {NAV_ITEMS.map(([label, href]) => (
             <a
               key={href}
               href={href}
@@ -212,6 +215,23 @@ export default async function Conference2026Page() {
           Get tickets
         </a>
       </header>
+
+      {/* Mobile section nav — horizontally scrollable strip (hidden on desktop). */}
+      <nav
+        className="lg:hidden shrink-0 flex items-center gap-4 overflow-x-auto whitespace-nowrap px-6 pb-2 text-[14px] font-medium [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        aria-label="Section navigation"
+      >
+        {NAV_ITEMS.map(([label, href]) => (
+          <a
+            key={href}
+            href={href}
+            className="shrink-0 no-underline hover:opacity-70 transition-opacity"
+            style={{ color: PURPLE }}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
 
       {/* ── CARD WRAPPER: 24px side gutters ────────────────────────── */}
       {/*
@@ -290,12 +310,12 @@ export default async function Conference2026Page() {
                 */}
                 <div className="flex flex-col gap-2 md:gap-3">
                   <h1
-                    className="font-semibold leading-[1.2] tracking-[-0.02em] text-[17px] sm:text-[20px] md:text-[22px] lg:text-[30px] xl:text-[36px]"
+                    className="font-semibold leading-[1.2] tracking-[-0.02em] text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px]"
                   >
                     Hana Hou!
                   </h1>
                   <p
-                    className="font-semibold leading-[1.2] tracking-[-0.02em] text-[17px] sm:text-[20px] md:text-[22px] lg:text-[30px] xl:text-[36px]"
+                    className="font-semibold leading-[1.2] tracking-[-0.02em] text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px]"
                   >
                     UXHICon is an annual event for Hawai&#699;i&rsquo;s design community to share stories and narratives that shape meaningful design.
                   </p>
@@ -306,9 +326,9 @@ export default async function Conference2026Page() {
                   </p>
                 </div>
 
-                {/* CTA buttons — Become a sponsor (teal secondary) then Get tickets
-                    (purple primary). Both show on all breakpoints, so mobile keeps
-                    Get tickets in the hero alongside the header CTA. */}
+                {/* CTA buttons — desktop row: Become a sponsor (teal) then Get tickets
+                    (purple). On mobile they stack, and Get tickets is ordered on top
+                    (order-first) as the primary action. */}
                 <div className="flex flex-wrap items-center gap-3">
                   <a
                     href="https://givebutter.com/uxhi-con-2026-sponsor"
@@ -325,7 +345,7 @@ export default async function Conference2026Page() {
                     href="https://givebutter.com/uxhi-con-26-tickets"
                     target="_blank"
                     rel="noopener"
-                    className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                    className="order-first md:order-none inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
                     style={{ background: PURPLE }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
