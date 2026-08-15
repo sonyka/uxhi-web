@@ -228,15 +228,29 @@ stopping after any phase leaves the codebase better than it started.
 - [x] Write `docs/CONFERENCE-DESIGN-SYSTEM.md`
 - [x] Add a pointer to it from `CLAUDE.md` and `docs/LAUNCH-PUNCHLIST.md`
 
-### Phase 1 — Color tokens *(zero visual change, fully mechanical)*
-The safest, highest-signal phase. Nothing should move by a single pixel.
+### Phase 1 — Color tokens ✅ *(done 2026-08-15 — `c295ead`, `3e1d085`)*
+- [x] Add `--color-conf-ink` and `--color-conf-chrome` to `@theme` in `globals.css`
+- [x] Replace the 34 parent-matching literals with token classes / `var()` references
+- [x] Collapse `#EFEAE0` → `beige-40` (open state verified: `rgb(237,232,221)` vs closed
+      `rgb(244,241,234)` — distinction preserved)
+- [x] Delete the hand-rolled `BEIGE_30` / `PURPLE` / `TEAL_60` consts from `page.tsx`
+- [x] Replace `const ICON_GRAY = "#969DA4"` in `FaqSection.tsx` with `gray-80`
+- [x] **Verified:** computed-color tally over every element on the page is identical
+      before/after — 67 distinct entries at identical counts
 
-- [ ] Add `--color-conf-ink` and `--color-conf-chrome` to `@theme` in `globals.css`
-- [ ] Replace the 34 parent-matching literals with token classes / `var()` references
-- [ ] Collapse `#EFEAE0` → `beige-40` (verify the FAQ open state still reads correctly)
-- [ ] Delete the hand-rolled `BEIGE_30` / `PURPLE` / `TEAL_60` consts from `page.tsx`
-- [ ] Replace `const ICON_GRAY = "#969DA4"` in `FaqSection.tsx` with `gray-80`
-- [ ] **Verify:** screenshot-diff before/after. Any visible change is a bug in this phase.
+**Added along the way:** `app/(conference)/_theme.ts`, the single inheritance point.
+Eight components each declared their own `const PURPLE = "#231769"`-style block; they now
+import `var()` references from one module, so the conference tracks the parent palette
+automatically. **New conference code should import from `_theme.ts`, never re-type a hex.**
+
+**One gotcha worth remembering:** CSS `var()` does **not** resolve in SVG presentation
+attributes (`stroke="var(--x)"`, `fill="var(--x)"`) — it silently falls back to black. Four
+call sites had to move to inline `style={{ stroke: … }}`. Watch for this in Phase 2/3.
+
+**Verification method** (reusable for later phases): load the page under Playwright and
+tally `getComputedStyle` color/background/border across every element, before and after.
+A pure token swap must produce an identical tally. Note that `<script>`/`<link>` counts
+drift with dev-server chunks, so compare the color buckets, not the raw element count.
 
 ### Phase 2 — Type scale *(real visual deltas — go section by section)*
 - [ ] Add the 9 `--font-size-conf-*` tokens to `@theme`
@@ -288,7 +302,8 @@ The safest, highest-signal phase. Nothing should move by a single pixel.
 
 1. **`conf-display`** — are 40/48/56 three deliberate hero sizes, or drift? Needs a look at
    the live page, not a decision in a table.
-2. **Is `#1A1A1A` deliberate over `gray-130` (`#212529`)?** If it's drift, Phase 1 gets
-   simpler by one token. If it's intentional (warmer, higher contrast), it stays.
+2. **Is `#1A1A1A` deliberate over `gray-130` (`#212529`)?** Shipped in Phase 1 as
+   `--color-conf-ink`, preserving the exact value. If it turns out to be drift, collapsing it
+   into `gray-130` is now a one-line change in `globals.css`.
 3. **Does the 2027 site reuse the 2026 layout?** The answer determines how much of Phase 4
    is worth doing up front versus deferring until the design exists.
