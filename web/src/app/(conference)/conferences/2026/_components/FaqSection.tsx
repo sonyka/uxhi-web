@@ -86,7 +86,7 @@ export function FaqSection() {
           return (
             <div
               key={q}
-              className={`rounded-2xl transition-colors ${isOpen ? "bg-[#EFEAE0]" : "bg-beige-30"}`}
+              className={`rounded-2xl transition-colors ${isOpen ? "bg-beige-40" : "bg-beige-30"}`}
             >
               <button
                 type="button"
