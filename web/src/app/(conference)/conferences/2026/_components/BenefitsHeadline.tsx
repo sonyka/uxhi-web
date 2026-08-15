@@ -1,4 +1,4 @@
-const TEAL_90 = "#09C0D7"; // primary teal (on light surfaces)
+import { TEAL_90 } from "../../../_theme";
 
 // Oversized flowing headline of conference benefits (conf-hero style), closing
 // on the event name. Wraps within ~75% of the column.

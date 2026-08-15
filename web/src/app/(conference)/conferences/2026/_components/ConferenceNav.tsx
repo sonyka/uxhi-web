@@ -72,7 +72,7 @@ export function ConferenceNav() {
   return (
     <>
       {/* ── Desktop sidebar ──────────────────────────────── */}
-      <aside className="hidden md:flex w-56 fixed inset-y-0 left-0 flex-col bg-[#0f0d0b] border-r border-white/5 z-40">
+      <aside className="hidden md:flex w-56 fixed inset-y-0 left-0 flex-col bg-conf-chrome border-r border-white/5 z-40">
         <div className="px-5 py-8">
           <Link href="/conferences/2026/" className="block">
             <p className="text-[10px] uppercase tracking-[0.22em] font-semibold text-amber-400">
@@ -92,7 +92,7 @@ export function ConferenceNav() {
       </aside>
 
       {/* ── Mobile top bar ───────────────────────────────── */}
-      <header className="md:hidden fixed top-0 left-0 right-0 h-14 bg-[#0f0d0b] border-b border-white/5 z-40 flex items-center justify-between px-5">
+      <header className="md:hidden fixed top-0 left-0 right-0 h-14 bg-conf-chrome border-b border-white/5 z-40 flex items-center justify-between px-5">
         <Link href="/conferences/2026/" className="flex items-center gap-2">
           <span className="text-[10px] uppercase tracking-[0.22em] font-semibold text-amber-400">
             UXHI Conference 2026
@@ -111,7 +111,7 @@ export function ConferenceNav() {
 
       {/* ── Mobile full-screen drawer ─────────────────────── */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-50 bg-[#0f0d0b] flex flex-col">
+        <div className="md:hidden fixed inset-0 z-50 bg-conf-chrome flex flex-col">
           <div className="flex items-center justify-between px-5 h-14 border-b border-white/5">
             <span className="text-[10px] uppercase tracking-[0.22em] font-semibold text-amber-400">
               UXHI Conference 2026

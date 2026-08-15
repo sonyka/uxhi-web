@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { GRAY_110 } from "../../../_theme";
 
-const GRAY_110 = "#50555A";
 const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
 
 const ITEMS = [
@@ -48,7 +48,7 @@ export function PastConferencesMenu() {
             href={href}
             target="_blank"
             rel="noopener"
-            className="block px-4 py-3 text-[15px] font-normal no-underline hover:bg-[#F4F1EA] transition-colors"
+            className="block px-4 py-3 text-[15px] font-normal no-underline hover:bg-beige-30 transition-colors"
             style={{ color: GRAY_110 }}
             onClick={() => { if (ref.current) ref.current.open = false; }}
           >

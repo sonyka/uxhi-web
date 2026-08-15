@@ -12,8 +12,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-
-const ICON_GRAY = "#969DA4";
+import { GRAY_80 as ICON_GRAY, GRAY_110, PURPLE } from "../../../_theme";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
@@ -56,7 +55,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         <a
           href="mailto:uxhiconference@gmail.com"
           className="underline underline-offset-2 hover:opacity-70 transition-opacity"
-          style={{ color: "#231769" }}
+          style={{ color: PURPLE }}
         >
           send us an email
         </a>
@@ -74,7 +73,7 @@ export function FaqSection() {
       <SectionHeading>FAQ</SectionHeading>
       <p
         className="font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
-        style={{ color: "#50555A" }}
+        style={{ color: GRAY_110 }}
       >
         Got questions? We&rsquo;ve got answers — here&rsquo;s everything you need to know
         about UXHICon.
@@ -87,7 +86,7 @@ export function FaqSection() {
           return (
             <div
               key={q}
-              className={`rounded-2xl transition-colors ${isOpen ? "bg-[#EFEAE0]" : "bg-[#F4F1EA]"}`}
+              className={`rounded-2xl transition-colors ${isOpen ? "bg-[#EFEAE0]" : "bg-beige-30"}`}
             >
               <button
                 type="button"
@@ -95,7 +94,7 @@ export function FaqSection() {
                 aria-expanded={isOpen}
                 className="w-full flex items-center justify-between gap-4 cursor-pointer select-none text-left px-5 py-[18px]"
               >
-                <span className="font-medium leading-[1.35] tracking-[-0.01em] text-[16px] md:text-[17px] text-[#1A1A1A]">
+                <span className="font-medium leading-[1.35] tracking-[-0.01em] text-[16px] md:text-[17px] text-conf-ink">
                   {q}
                 </span>
                 {/* "+" rotates 45° → "×" when open */}
@@ -107,8 +106,10 @@ export function FaqSection() {
                   fill="none"
                   aria-hidden="true"
                 >
-                  <line x1="10" y1="4" x2="10" y2="16" stroke={ICON_GRAY} strokeWidth="1.5" strokeLinecap="round" />
-                  <line x1="4" y1="10" x2="16" y2="10" stroke={ICON_GRAY} strokeWidth="1.5" strokeLinecap="round" />
+                  {/* stroke set via style, not the presentation attribute — CSS
+                      var() does not resolve in SVG attributes. */}
+                  <line x1="10" y1="4" x2="10" y2="16" style={{ stroke: ICON_GRAY }} strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="4" y1="10" x2="16" y2="10" style={{ stroke: ICON_GRAY }} strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </button>
 
@@ -124,7 +125,7 @@ export function FaqSection() {
                   >
                     <p
                       className="px-5 pb-[18px] font-normal leading-[1.5] text-[15px] md:text-[16px]"
-                      style={{ color: "#50555A" }}
+                      style={{ color: GRAY_110 }}
                     >
                       {a}
                     </p>

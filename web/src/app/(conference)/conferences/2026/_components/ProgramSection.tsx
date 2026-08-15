@@ -1,11 +1,9 @@
 import { SectionHeading } from "./SectionHeading";
+import { PURPLE, YELLOW_80 as GOLD, GRAY_110 as GRAY } from "../../../_theme";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with
 // the conference brand palette (purple / teal / gold).
-const PURPLE = "#231769"; // --color-purple-140
-const GOLD = "#FFCC40"; // shaka yellow
-const GRAY = "#50555A";
 
 const TICKETS_URL = "https://givebutter.com/uxhi-con-26-tickets";
 

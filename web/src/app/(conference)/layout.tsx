@@ -18,7 +18,7 @@ export default function ConferenceLayout({ children }: { children: React.ReactNo
     <div className={bricolage.variable} style={{ fontFamily: "var(--font-bricolage), sans-serif" }}>
       {/* Match body/safe-area background to the conference page's beige-30, so iOS
           overscroll and safe-area insets don't show the main site's beige-10. */}
-      <style>{`html, body { background: #F4F1EA; }`}</style>
+      <style>{`html, body { background: var(--color-beige-30); }`}</style>
       {children}
       <GoogleAnalytics gaId={GA_CONFERENCE_ID} />
     </div>

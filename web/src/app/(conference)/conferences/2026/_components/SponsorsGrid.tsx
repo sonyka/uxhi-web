@@ -1,4 +1,5 @@
 import { SectionHeading } from "./SectionHeading";
+import { GRAY_110 as GRAY, PURPLE } from "../../../_theme";
 
 // Data comes from Sanity (conferenceSponsor, year-scoped) — see queries.ts.
 export type Sponsor = {
@@ -12,9 +13,6 @@ export type Sponsor = {
   logoAspect?: number | null; // width / height of the logo asset
   logoScale?: number | null; // optional per-logo size multiplier (1 = default)
 };
-
-const GRAY = "#50555A";
-const PURPLE = "#231769";
 
 // Tiers render in this order, each under its own label; only non-empty tiers show.
 const TIER_ORDER = ["platinum", "gold", "silver", "bronze", "community"] as const;
@@ -63,11 +61,11 @@ function SponsorCard({ s }: { s: Sponsor }) {
             className="w-auto object-contain grayscale opacity-90 brightness-75 contrast-75 transition duration-200 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100"
           />
         ) : (
-          <span className="font-semibold text-[16px] text-[#1A1A1A]">{s.name}</span>
+          <span className="font-semibold text-[16px] text-conf-ink">{s.name}</span>
         )}
       </div>
       <div className="flex flex-col gap-1">
-        {s.logo && <h3 className="font-semibold text-[16px] leading-tight text-[#1A1A1A]">{s.name}</h3>}
+        {s.logo && <h3 className="font-semibold text-[16px] leading-tight text-conf-ink">{s.name}</h3>}
         {s.description && (
           <p className="text-[14px] leading-[1.5]" style={{ color: GRAY }}>
             {s.description}

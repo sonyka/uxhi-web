@@ -1,4 +1,5 @@
 import { SectionHeading } from "./SectionHeading";
+import { GRAY_110 as GRAY, PURPLE } from "../../../_theme";
 
 // Curated Instagram posts (Sanity: conferenceInstagramPost, year-scoped).
 // Editors hand-pick which conference posts appear — see the schema for why we
@@ -12,8 +13,6 @@ export type InstagramPost = {
   lqip?: string | null;
 };
 
-const GRAY = "#50555A";
-const PURPLE = "#231769";
 const IG_PROFILE = "https://www.instagram.com/uxhicommunity/";
 const LINKEDIN_PROFILE = "https://www.linkedin.com/company/uxhi/";
 

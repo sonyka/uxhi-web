@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
+import { GRAY_110 as GRAY, PURPLE } from "../../../_theme";
 
 // Data comes from Sanity (conferenceCochair, year-scoped) — see queries.ts.
 export type Cochair = {
@@ -15,8 +16,6 @@ export type Cochair = {
   photoAlt?: string | null;
 };
 
-const PURPLE = "#231769";
-const GRAY = "#50555A";
 const LINKEDIN_GRAY = "grayscale(1) brightness(0.4)";
 
 function initials(name: string) {
@@ -97,7 +96,7 @@ function MobileBioSheet({ c, onClose }: { c: Cochair; onClose: () => void }) {
           aria-label="Close"
           className="absolute top-3 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GRAY} strokeWidth="2" strokeLinecap="round">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ stroke: GRAY }} strokeWidth="2" strokeLinecap="round">
             <path d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
@@ -114,7 +113,7 @@ function MobileBioSheet({ c, onClose }: { c: Cochair; onClose: () => void }) {
               </div>
             )}
             <div className="min-w-0">
-              <h3 className="font-semibold text-[19px] leading-tight text-[#1A1A1A]">{c.name}</h3>
+              <h3 className="font-semibold text-[19px] leading-tight text-conf-ink">{c.name}</h3>
               {c.title && <p className="text-[14px] mt-1" style={{ color: GRAY }}>{c.title}</p>}
             </div>
           </div>
@@ -194,14 +193,14 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                         aria-label="Close"
                         className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors"
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GRAY} strokeWidth="2" strokeLinecap="round">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ stroke: GRAY }} strokeWidth="2" strokeLinecap="round">
                           <path d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </button>
 
                       {/* Header: name/title (no avatar — keeps the narrow mobile card readable) */}
                       <div className="mb-3 pr-8 shrink-0">
-                        <h3 className="font-semibold text-[17px] leading-tight text-[#1A1A1A]">{c.name}</h3>
+                        <h3 className="font-semibold text-[17px] leading-tight text-conf-ink">{c.name}</h3>
                         {c.title && <p className="text-[14px] mt-1" style={{ color: GRAY }}>{c.title}</p>}
                       </div>
 

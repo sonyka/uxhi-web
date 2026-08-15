@@ -13,6 +13,7 @@ import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY } from "@/sanity/lib/queries";
+import { BEIGE_30, PURPLE, TEAL_60, GRAY_110 } from "../../_theme";
 
 const OG_TITLE = "UXHI Conference :: October 17, 2026";
 const OG_DESCRIPTION =
@@ -54,9 +55,8 @@ export const metadata: Metadata = {
 };
 
 // ── Design tokens ─────────────────────────────────────────────────────
-const BEIGE_30 = "#F4F1EA"; // page background (beige-30 from design system)
-const PURPLE   = "#231769"; // --color-purple-140
-const TEAL_60  = "#60D7E5"; // lighter teal (pulse dot, teal CTAs)
+// Imported from the conference theme, which references the parent design
+// system rather than restating it. See docs/CONFERENCE-DESIGN-SYSTEM.md.
 
 // Section anchor nav items — shared by the desktop header nav and the mobile strip.
 const NAV_ITEMS = [
@@ -94,7 +94,7 @@ function PulseDot() {
 // Figma: ~11px, both label and value in light gray, very subtle separator
 function StatRow({ label, value }: { label: string; value: string }) {
   return (
-    <p className="text-[16px] font-normal text-[#676D73]">
+    <p className="text-[16px] font-normal text-gray-100">
       {value} {label}
     </p>
   );
@@ -385,7 +385,7 @@ export default async function Conference2026Page() {
                 </p>
                 <div
                   className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
-                  style={{ color: "#50555A" }}
+                  style={{ color: GRAY_110 }}
                 >
                   <p>These ideas resonate deeply with design. Design shapes understanding. Every interaction reflects intentional choices, whether it&rsquo;s interactions created for our various audiences, insights distilled from research, or the communication of value to stakeholders and leaders. As a designer, you guide how people relate to systems, experiences, and even each other.</p>
                   <p>This year&rsquo;s conference is a nod to stories and their carriers, both of which help us make sense of the world around us. Join us for another year of knowledge sharing, building pilina within Hawai&#699;i&rsquo;s design community, and learning from one another&rsquo;s mo&#699;olelo.</p>
@@ -432,7 +432,7 @@ export default async function Conference2026Page() {
                     {/* Location pin centered on the venue (tip points at center) */}
                     <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full" aria-hidden="true">
                       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style={{ filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.35))" }}>
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill={PURPLE} />
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" style={{ fill: PURPLE }} />
                         <circle cx="12" cy="9" r="2.5" fill="#fff" />
                       </svg>
                     </span>
@@ -444,7 +444,7 @@ export default async function Conference2026Page() {
                 </div>
                 <div
                   className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
-                  style={{ color: "#50555A" }}
+                  style={{ color: GRAY_110 }}
                 >
                   <p>The <a href="https://sandboxhawaii.org/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: PURPLE }}>Entrepreneurs Sandbox</a> is a modern co-working event space in the heart of Kaka&#699;ako, with a collaborative conference space and classroom, and it&rsquo;s fully ADA accessible.</p>
                   <p>Metered street parking is available nearby, and paid parking is available at the adjacent lot (entrance on Keawe Street). Please note: parking passes will not be provided this year.</p>
@@ -476,7 +476,7 @@ export default async function Conference2026Page() {
                 </div>
                 <div
                   className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
-                  style={{ color: "#50555A" }}
+                  style={{ color: GRAY_110 }}
                 >
                   <p>We are a female-founded community organization whose mission is to connect and elevate the field of human-centered design for the people of Hawai&#699;i.</p>
                   <p>Whether you&rsquo;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends and expand your professional network.</p>
@@ -542,7 +542,7 @@ export default async function Conference2026Page() {
               target="_blank"
               rel="noopener"
               className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
-              style={{ color: "#50555A" }}
+              style={{ color: GRAY_110 }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/conferences/2026/assets/icons/icon-star.svg" alt="" width={16} height={16}
@@ -552,7 +552,7 @@ export default async function Conference2026Page() {
             <a
               href="mailto:uxhiconference@gmail.com"
               className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
-              style={{ color: "#50555A" }}
+              style={{ color: GRAY_110 }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/conferences/2026/assets/icons/email-heart.svg" alt="" width={16} height={16}
