@@ -92,6 +92,11 @@ See **[netlify-migration-plan.md](netlify-migration-plan.md) Phase 2.** Mostly d
       See **[mailchimp-integration.md](mailchimp-integration.md)**.
 - [ ] **Instagram token** — expires every 60 days; refresh when the homepage feed goes blank
       (see [handoff-guide.md](handoff-guide.md)).
+- [ ] **Conference design system** — formalise `app/(conference)/` as a theme layer inheriting
+      the parent palette (79% of its hardcoded hexes are already parent tokens; 125 ad-hoc type
+      sizes need a real scale). Phased plan, non-blocking for launch, but Phase 4 should land
+      **before** 2027 work starts so the next year is a skin and not a fork.
+      See **[CONFERENCE-DESIGN-SYSTEM.md](CONFERENCE-DESIGN-SYSTEM.md)**.
 
 ---
 

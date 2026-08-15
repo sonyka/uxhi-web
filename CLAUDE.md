@@ -125,6 +125,13 @@ Quick reference (see design system for full details):
 - Background: beige (`--color-beige-10: #FDF9F6`)
 - Fonts: Dela Gothic One (display), Nunito (body)
 
+**Conference site design:** `app/(conference)/` uses a different font (Bricolage Grotesque)
+and its own components, but **inherits the parent color palette** — it is a theme layer, not
+a separate design system. See [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONFERENCE-DESIGN-SYSTEM.md)
+for the audit, the guiding principles, and the migration plan. Core rule: conference code may
+alias a parent token or add a genuinely new value, but must never restate a parent value as a
+raw hex literal.
+
 **Available Components:**
 
 | Component | Path | Use Case |
