@@ -28,7 +28,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     a: "The registration fee includes entry to all sessions and networking, all-day coffee, breakfast, lunch, snacks, and swag.",
   },
   {
-    q: "What is the Pre-Conference event?",
+    q: "What is the pre-conference event?",
     a: "New this year, we’re hosting a pre-conference night to kick things off. Tickets are sold separately and include entry to the mixer plus drinks — no conference ticket required. More details to be announced.",
   },
   {

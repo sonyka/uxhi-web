@@ -107,6 +107,17 @@ export function SponsorsGrid({ sponsors }: { sponsors: Sponsor[] }) {
         We couldn&rsquo;t tell this mo&#699;olelo alone. Big mahalo to our incredible partners and sponsors for investing in our diverse community — your support fuels the creativity and innovation that bring together the brightest minds and the most exciting ideas in tech.
       </p>
 
+      {/* Repeat of the hero CTA. Sits directly under the intro copy so it's
+          visible without scrolling the full tier list. */}
+      <ConferenceButton
+        href={SPONSOR_URL}
+        variant="secondary"
+        icon={HandHoldingHeartIcon}
+        className="w-fit mt-1"
+      >
+        Become a sponsor
+      </ConferenceButton>
+
       <div className="flex flex-col gap-6 md:gap-8 mt-1">
         {groups.map(({ tier, items }) => (
           <div key={tier} className="flex flex-col gap-3 md:gap-4">
@@ -121,17 +132,6 @@ export function SponsorsGrid({ sponsors }: { sponsors: Sponsor[] }) {
           </div>
         ))}
       </div>
-
-      {/* Repeat of the hero CTA — this section is the natural place to convert a
-          prospective sponsor, and it sits far below the fold from the hero. */}
-      <ConferenceButton
-        href={SPONSOR_URL}
-        variant="secondary"
-        icon={HandHoldingHeartIcon}
-        className="w-fit mt-2"
-      >
-        Become a sponsor
-      </ConferenceButton>
     </div>
   );
 }
