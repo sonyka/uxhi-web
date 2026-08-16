@@ -2,6 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Bricolage_Grotesque } from "next/font/google";
+// The conference section documents live code rather than transcribing it, so
+// these can't drift. Each conference year owns its own theme — this imports
+// 2026's; a future year gets its own section.
+import { TYPE as CONF_2026_TYPE } from "@/app/(conference)/conferences/2026/theme";
+import { ConferenceButton } from "@/app/(conference)/conferences/2026/_components/ConferenceButton";
+import { ShakaIcon, ArrowRightIcon } from "@/app/(conference)/conferences/2026/_components/icons";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { ArrowIcon, ExternalLinkIcon, PlusIcon, MinusIcon, ChevronDownIcon, SendIcon } from "@/components/ui/icons";
 import { InfoBox } from "@/components/ui/InfoBox";
@@ -40,6 +47,31 @@ import {
 } from "@/components/ui/form-elements";
 
 // Navigation structure
+// Loaded so the conference type samples below render in the face they were
+// designed for. Docs-only — the main site does not use Bricolage.
+//
+// Weights must match conferences/2026/layout.tsx exactly. next/font keys its
+// cache on the full request, so a different weight list fetches a different
+// subset instead of reusing the one the conference already ships.
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-bricolage-docs",
+});
+
+// Wraps a demo in the conference typeface.
+function ConfType({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div
+      className={`${bricolage.variable} ${className ?? ""}`}
+      style={{ fontFamily: "var(--font-bricolage-docs), sans-serif" }}
+    >
+      {children}
+    </div>
+  );
+}
+
 const navigationItems = [
   {
     category: "Navigation",
@@ -150,6 +182,15 @@ const navigationItems = [
     category: "Icons",
     items: [
       { id: "icons-all", label: "Icon Library" },
+    ],
+  },
+  {
+    category: "Conference",
+    items: [
+      { id: "conference-model", label: "How Years Work" },
+      { id: "conference-tokens", label: "2026 Theme Tokens" },
+      { id: "conference-type", label: "2026 Type Roles" },
+      { id: "conference-button", label: "2026 Button" },
     ],
   },
 ];
@@ -2684,6 +2725,265 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
           <span className="text-xs text-gray-100">SendIcon</span>
         </div>
+      </div>
+    </ContentSection>
+  ),
+
+  // ── Conference ──────────────────────────────────────────────────────
+  "conference-model": (
+    <ContentSection
+      title="How Conference Years Work"
+      description="The conference site follows a different model from the rest of this design system. Read this before touching anything under app/(conference)/."
+      componentPath="docs/CONFERENCE-DESIGN-SYSTEM.md"
+    >
+      <div className="space-y-8">
+        <div className="rounded-xl border-2 border-purple-140 bg-purple-10 p-6">
+          <p className="text-purple-140 font-semibold mb-2">Every year is a full redesign.</p>
+          <p className="text-gray-120 leading-relaxed">
+            2024, 2025 and 2026 share no layout, type or mood, and future years will keep
+            diverging. <strong>The parent token system is the only thing that carries
+            across.</strong> That is exactly why hardcoded values matter here — they are the
+            one kind of drift a redesign cannot wash away.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">The Three Rules</h4>
+          <div className="space-y-3">
+            {[
+              {
+                n: "1",
+                t: "The palette is inherited; the design is not.",
+                d: "Invent layout, type and mood freely each year. Draw color from the parent ramps above. A year-specific color is allowed only when no parent ramp covers it — and it gets a named token, never an inline hex.",
+              },
+              {
+                n: "2",
+                t: "Each year owns its theme.",
+                d: "conferences/<year>/theme.ts holds that year's font, type roles and any year-specific tokens. 2027 does not import or extend 2026's theme.",
+              },
+              {
+                n: "3",
+                t: "Don't share components across years.",
+                d: "When next year's design is unknown, copying beats the wrong abstraction. The cross-year (conference)/ level holds only design-free things — currently just analytics and routing.",
+              },
+            ].map((r) => (
+              <div key={r.n} className="flex gap-4 rounded-xl bg-gray-10 p-5">
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-purple-140 text-white text-sm font-bold flex items-center justify-center">
+                  {r.n}
+                </span>
+                <div>
+                  <p className="font-semibold text-gray-140 mb-1">{r.t}</p>
+                  <p className="text-sm text-gray-110 leading-relaxed">{r.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Starting a New Year</h4>
+          <div className="rounded-xl bg-gray-10 p-5 font-mono text-sm text-gray-120 space-y-1">
+            <p>1. conferences/&lt;year&gt;/ — page.tsx, layout.tsx (font + background),</p>
+            <p className="pl-6">theme.ts (tokens + type roles), _components/</p>
+            <p>2. public/conferences/&lt;year&gt;/ — that year&rsquo;s assets</p>
+            <p>3. src/middleware.ts — CURRENT_CONFERENCE_YEAR = &quot;&lt;year&gt;&quot;</p>
+          </div>
+          <p className="text-sm text-gray-110 mt-3">
+            Copy from the previous year as a starting point if useful, then redesign freely.
+            Do not factor the shared parts back out — two years looking alike is a coincidence
+            of that moment, not a contract.
+          </p>
+        </div>
+
+        <InfoBox>
+          <p className="text-gray-120">
+            <strong>Enforced by ESLint:</strong> raw hex colors are an error under{" "}
+            <code className="font-mono text-sm bg-white px-1 rounded">app/(conference)/**</code>.
+            Alias the token instead, so the year keeps tracking the parent palette.
+          </p>
+        </InfoBox>
+      </div>
+    </ContentSection>
+  ),
+
+  "conference-tokens": (
+    <ContentSection
+      title="2026 Theme Tokens"
+      description="What the 2026 conference draws from the parent palette, plus the one color it genuinely needed to add. These are var() references — the year never restates a parent value."
+      componentPath="src/app/(conference)/conferences/2026/theme.ts"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">
+            Inherited from the parent palette
+          </h4>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <ColorSwatch name="PURPLE → purple-140" value="#231769" textColor="text-white" />
+            <ColorSwatch name="TEAL_90 → teal-90" value="#09C0D7" />
+            <ColorSwatch name="TEAL_60 → teal-60" value="#60D7E5" />
+            <ColorSwatch name="YELLOW_80 → yellow-80" value="#FFCC40" />
+            <ColorSwatch name="GRAY_110 → gray-110" value="#50555A" textColor="text-white" />
+            <ColorSwatch name="GRAY_100 → gray-100" value="#676D73" textColor="text-white" />
+            <ColorSwatch name="GRAY_80 → gray-80" value="#969DA4" />
+            <ColorSwatch name="BEIGE_30 → beige-30" value="#F4F1EA" />
+            <ColorSwatch name="BEIGE_40 → beige-40" value="#EDE8DD" />
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">
+            2026-specific — no parent equivalent
+          </h4>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <ColorSwatch name="CONF_INK → conf-ink" value="#1A1A1A" textColor="text-white" badge="2026 only" />
+          </div>
+          <p className="text-sm text-gray-110 mt-3">
+            Headings on light surfaces. The nearest parent tokens are{" "}
+            <code className="font-mono text-xs bg-gray-10 px-1 rounded">gray-130 (#212529)</code> and{" "}
+            <code className="font-mono text-xs bg-gray-10 px-1 rounded">gray-140 (#16191B)</code>,
+            neither of which matches.
+          </p>
+        </div>
+
+        <InfoBox>
+          <p className="text-gray-120">
+            <strong>Why var() and not hex:</strong> eight components once declared their own{" "}
+            <code className="font-mono text-sm bg-white px-1 rounded">const PURPLE = &quot;#231769&quot;</code>.
+            That is inheritance by copy-paste — it desynchronises the moment the parent palette
+            changes. Every value here is a{" "}
+            <code className="font-mono text-sm bg-white px-1 rounded">var(--color-*)</code> reference,
+            so the year tracks the parent automatically.
+          </p>
+        </InfoBox>
+      </div>
+    </ContentSection>
+  ),
+
+  "conference-type": (
+    <ContentSection
+      title="2026 Type Roles"
+      description="Bricolage Grotesque. A role is one design decision expressed across breakpoints — resize the window to see each ramp move."
+      componentPath="src/app/(conference)/conferences/2026/theme.ts"
+    >
+      <div className="space-y-8">
+        <div className="rounded-xl border border-orange-90 bg-orange-10 p-5">
+          <p className="text-gray-140 font-semibold mb-1">Roles own ramps, not single values.</p>
+          <p className="text-sm text-gray-120 leading-relaxed">
+            Never flatten a role to one number. <code className="font-mono text-xs bg-white px-1 rounded">hero</code>{" "}
+            deliberately <em>drops</em> from 26px to 22px at <code className="font-mono text-xs bg-white px-1 rounded">md</code>{" "}
+            before climbing again, because the column narrows there. Reversals like that are
+            design, not drift.
+          </p>
+        </div>
+
+        <div className="space-y-6">
+          {([
+            ["display", "Oversized flowing headline", "Stay ahead. Build connections."],
+            ["hero", "Page hero headlines — dips at md", "UXHICon is an annual event for Hawai‘i’s design community."],
+            ["lead", "Lead paragraph under a hero or title", "An immersive day of knowledge-sharing, inspiration, and pilina."],
+            ["body", "Section intro / body copy — the most-used role", "Got questions? We’ve got answers — everything you need to know about UXHICon."],
+            ["eyebrow", "Uppercase eyebrow label", "UXHICON · SATURDAY, OCTOBER 17, 2026"],
+            ["ui", "Pill buttons and nav/menu links", "Get tickets"],
+          ] as const).map(([role, note, sample]) => (
+            <div key={role} className="rounded-xl border border-gray-30 overflow-hidden">
+              <div className="flex flex-wrap items-baseline justify-between gap-2 bg-gray-10 px-5 py-3">
+                <code className="font-mono text-sm font-semibold text-purple-140">TYPE.{role}</code>
+                <span className="text-xs text-gray-100">{note}</span>
+              </div>
+              <div className="px-5 py-5">
+                <ConfType>
+                  <p className={`${CONF_2026_TYPE[role]} text-gray-140 leading-tight`}>{sample}</p>
+                </ConfType>
+              </div>
+              <p className="px-5 pb-4 font-mono text-[11px] text-gray-80 break-all">
+                {CONF_2026_TYPE[role]}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <InfoBox>
+          <p className="text-gray-120">
+            <strong>Not every size is a role.</strong> Add one when a ramp is used more than
+            once; naming a single use is false abstraction. Genuinely one-off sizes stay
+            inline. There is deliberately no generic 14px &ldquo;meta&rdquo; role — those sites
+            looked uniform in a frequency count but split three ways on inspection.
+          </p>
+        </InfoBox>
+      </div>
+    </ContentSection>
+  ),
+
+  "conference-button": (
+    <ContentSection
+      title="2026 Conference Button"
+      description="The pill CTA for the 2026 site. Two variants; icons inherit the label color via currentColor."
+      componentPath="src/app/(conference)/conferences/2026/_components/ConferenceButton.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Component</h4>
+          <ConfType className="flex flex-wrap items-center gap-4 rounded-xl bg-beige-30 p-6">
+            <ConferenceButton href="#" icon={ShakaIcon}>
+              Get tickets
+            </ConferenceButton>
+            <ConferenceButton href="#" variant="secondary" icon={ArrowRightIcon} iconPosition="trailing">
+              View on Map
+            </ConferenceButton>
+            <ConferenceButton href="#" variant="secondary">
+              No icon
+            </ConferenceButton>
+          </ConfType>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Props</h4>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-30 text-left">
+                  <th className="py-2 pr-4 font-semibold text-gray-140">Prop</th>
+                  <th className="py-2 pr-4 font-semibold text-gray-140">Values</th>
+                  <th className="py-2 font-semibold text-gray-140">Notes</th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-110">
+                <tr className="border-b border-gray-20">
+                  <td className="py-2 pr-4 font-mono text-xs">variant</td>
+                  <td className="py-2 pr-4 font-mono text-xs">primary | secondary</td>
+                  <td className="py-2">primary = purple/white, secondary = teal/black</td>
+                </tr>
+                <tr className="border-b border-gray-20">
+                  <td className="py-2 pr-4 font-mono text-xs">icon</td>
+                  <td className="py-2 pr-4 font-mono text-xs">icon component</td>
+                  <td className="py-2">From the year&rsquo;s <code className="font-mono">_components/icons</code></td>
+                </tr>
+                <tr className="border-b border-gray-20">
+                  <td className="py-2 pr-4 font-mono text-xs">iconPosition</td>
+                  <td className="py-2 pr-4 font-mono text-xs">leading | trailing</td>
+                  <td className="py-2">Leading reads &ldquo;do this&rdquo;; trailing &ldquo;go here&rdquo;</td>
+                </tr>
+                <tr>
+                  <td className="py-2 pr-4 font-mono text-xs">href</td>
+                  <td className="py-2 pr-4 font-mono text-xs">string</td>
+                  <td className="py-2">Always external — target/rel are baked in</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <InfoBox>
+          <p className="text-gray-120">
+            <strong>Icons are inline SVGs that paint with currentColor</strong>, so they inherit
+            the button&rsquo;s label color — no per-variant icon handling. The previous{" "}
+            <code className="font-mono text-sm bg-white px-1 rounded">&lt;img&gt;</code> approach
+            needed a CSS filter to tint, and the filter used across the site
+            (<code className="font-mono text-sm bg-white px-1 rounded">grayscale(1) brightness(0.4)</code>)
+            was a no-op on black artwork — icons rendered pure black while their labels were
+            gray-110.
+          </p>
+        </InfoBox>
       </div>
     </ContentSection>
   ),
