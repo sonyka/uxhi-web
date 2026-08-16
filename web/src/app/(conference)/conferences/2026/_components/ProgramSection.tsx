@@ -1,11 +1,12 @@
 import { SectionHeading } from "./SectionHeading";
 import { PURPLE, YELLOW_80 as GOLD, GRAY_110 as GRAY, TYPE } from "../../../_theme";
+import { ConferenceButton } from "../../../_components/ConferenceButton";
+import { ICON, TICKETS_URL } from "../constants";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with
 // the conference brand palette (purple / teal / gold).
 
-const TICKETS_URL = "https://givebutter.com/uxhi-con-26-tickets";
 
 export function ProgramSection() {
   return (
@@ -51,17 +52,9 @@ export function ProgramSection() {
           and meaningful conversation. Come gather, mingle, and get inspired by the stories that connect us.
         </p>
 
-        <a
-          href={TICKETS_URL}
-          target="_blank"
-          rel="noopener"
-          className={`inline-flex w-fit items-center gap-2 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap mt-1`}
-          style={{ background: PURPLE }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
+        <ConferenceButton href={TICKETS_URL} icon={ICON.shaka} className="w-fit mt-1">
           Get tickets
-        </a>
+        </ConferenceButton>
       </div>
     </div>
   );

@@ -14,6 +14,8 @@ import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY } from "@/sanity/lib/queries";
 import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE } from "../../_theme";
+import { ConferenceButton } from "../../_components/ConferenceButton";
+import { ICON, TICKETS_URL, SPONSOR_URL } from "./constants";
 
 const OG_TITLE = "UXHI Conference :: October 17, 2026";
 const OG_DESCRIPTION =
@@ -197,24 +199,10 @@ export default async function Conference2026Page() {
           ))}
         </nav>
 
-        {/* Header CTA — primary: Get tickets. h=44px, 15px, font-normal, cursor icon */}
-        <a
-          href="https://givebutter.com/uxhi-con-26-tickets"
-          target="_blank"
-          rel="noopener"
-          className={`inline-flex items-center gap-2 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
-          style={{ background: PURPLE }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/conferences/2026/assets/icons/icon-shaka.svg"
-            alt=""
-            width={20}
-            height={20}
-            style={{ width: 20, height: 20, filter: "invert(1)" }}
-          />
+        {/* Header CTA — primary: Get tickets. */}
+        <ConferenceButton href={TICKETS_URL} icon={ICON.shaka}>
           Get tickets
-        </a>
+        </ConferenceButton>
       </header>
 
       {/* Mobile section nav — horizontally scrollable strip (hidden on desktop). */}
@@ -340,28 +328,12 @@ export default async function Conference2026Page() {
                     (purple). On mobile they stack, and Get tickets is ordered on top
                     (order-first) as the primary action. */}
                 <div className="flex flex-wrap items-center gap-3">
-                  <a
-                    href="https://givebutter.com/uxhi-con-2026-sponsor"
-                    target="_blank"
-                    rel="noopener"
-                    className={`inline-flex items-center gap-2 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
-                    style={{ background: TEAL_60, color: "#000" }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/conferences/2026/assets/icons/icon-hand-holding-heart.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
+                  <ConferenceButton href={SPONSOR_URL} variant="secondary" icon={ICON.heart}>
                     Become a sponsor
-                  </a>
-                  <a
-                    href="https://givebutter.com/uxhi-con-26-tickets"
-                    target="_blank"
-                    rel="noopener"
-                    className={`order-first md:order-none inline-flex items-center gap-2 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
-                    style={{ background: PURPLE }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={20} height={20} style={{ width: 20, height: 20, filter: "invert(1)" }} />
+                  </ConferenceButton>
+                  <ConferenceButton href={TICKETS_URL} icon={ICON.shaka} className="order-first md:order-none">
                     Get tickets
-                  </a>
+                  </ConferenceButton>
                 </div>
               </div>
 
@@ -449,17 +421,15 @@ export default async function Conference2026Page() {
                   <p>The <a href="https://sandboxhawaii.org/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: PURPLE }}>Entrepreneurs Sandbox</a> is a modern co-working event space in the heart of Kaka&#699;ako, with a collaborative conference space and classroom, and it&rsquo;s fully ADA accessible.</p>
                   <p>Metered street parking is available nearby, and paid parking is available at the adjacent lot (entrance on Keawe Street). Please note: parking passes will not be provided this year.</p>
                 </div>
-                <a
+                <ConferenceButton
                   href="https://maps.app.goo.gl/zBHS4EXnXWuhysEu5"
-                  target="_blank"
-                  rel="noopener"
-                  className={`inline-flex items-center gap-2 w-fit mt-1 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
-                  style={{ background: TEAL_60, color: "#000" }}
+                  variant="secondary"
+                  icon={ICON.arrowRight}
+                  iconPosition="trailing"
+                  className="w-fit mt-1"
                 >
                   View on Map
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/conferences/2026/assets/icons/icon-arrow-small-right.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
-                </a>
+                </ConferenceButton>
               </div>
 
               {/* ── About UXHI ─────────────────────────────────────── */}
@@ -481,17 +451,15 @@ export default async function Conference2026Page() {
                   <p>We are a female-founded community organization whose mission is to connect and elevate the field of human-centered design for the people of Hawai&#699;i.</p>
                   <p>Whether you&rsquo;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends and expand your professional network.</p>
                 </div>
-                <a
+                <ConferenceButton
                   href="https://uxhi.community"
-                  target="_blank"
-                  rel="noopener"
-                  className={`inline-flex items-center gap-2 w-fit mt-1 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
-                  style={{ background: TEAL_60, color: "#000" }}
+                  variant="secondary"
+                  icon={ICON.arrowRight}
+                  iconPosition="trailing"
+                  className="w-fit mt-1"
                 >
                   Join our community
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/conferences/2026/assets/icons/icon-arrow-small-right.svg" alt="" width={20} height={20} style={{ width: 20, height: 20 }} />
-                </a>
+                </ConferenceButton>
               </div>
 
               {/* ── Co-Chairs / Team ───────────────────────────────── */}

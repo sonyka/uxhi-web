@@ -27,9 +27,11 @@ export const YELLOW_80 = "var(--color-yellow-80)"; // #FFCC40 — shaka gold
 export const BEIGE_30 = "var(--color-beige-30)"; // #F4F1EA — page background
 export const BEIGE_40 = "var(--color-beige-40)"; // #EDE8DD — raised/active surface
 
-/** Conference-specific additions — no parent equivalent exists. */
+/** Conference-specific addition — no parent equivalent exists. */
 export const CONF_INK = "var(--color-conf-ink)"; // #1A1A1A — headings on light
-export const CONF_CHROME = "var(--color-conf-chrome)"; // #0F0D0B — nav chrome
+// (A `conf-chrome` #0F0D0B token existed briefly for a dark nav rail. The only
+//  component using it was never mounted, so both were removed — if a dark nav
+//  returns, re-add the token then rather than carrying an unused one.)
 
 // ── Type roles ────────────────────────────────────────────────────────
 //
