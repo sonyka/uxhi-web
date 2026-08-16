@@ -167,28 +167,36 @@ What the theme actually needs to add:
 --font-size-conf-display: 48px;
 ```
 
-### How the 22 sizes collapse onto 9
+### ⚠️ Correction — the flat-scale table below was wrong
 
-| Token | px | Absorbs | Uses | Visual delta |
-|---|---|---|---|---|
-| `conf-2xs` | 10 | 9, 10 | 5 | 1 element grows 1px |
-| `conf-xs` | 13 | 12, 13 | 7 | 2 elements grow 1px |
-| `conf-sm` | 15 | 14, 15 | 29 | **14 elements grow 1px** |
-| `conf-base` | 17 | 16, 17 | 38 | **22 elements grow 1px** |
-| `conf-lg` | 19 | 18, 19 | 14 | **10 elements grow 1px** |
-| `conf-xl` | 22 | 20, 22 | 12 | **6 elements grow 2px** |
-| `conf-2xl` | 28 | 24, 26, 28, 30 | 10 | mixed ±2px |
-| `conf-3xl` | 34 | 32, 34, 36 | 7 | mixed ±2px |
-| `conf-display` | 48 | 40, 48, 56 | 3 | **mixed ±8px — review individually** |
-| | | | **125** | |
+> The original version of this section proposed collapsing the 22 sizes onto 9 fixed steps
+> (10/13/15/17/19/22/28/34/48). **That was based on a flat frequency count, which treated
+> responsive ramps as if they were duplicate values.** They aren't.
+>
+> `BenefitsHeadline` is a *single element*:
+> `text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] xl:text-[56px]`.
+> Those are the 40/48/56 the table wanted to merge into one `conf-display: 48px` — doing so
+> would have flattened a deliberate responsive ladder, not removed drift.
+>
+> **81 of the 125 occurrences are ramp members.** The real duplication was one *ramp*
+> copy-pasted across files, not one *size* used at random.
 
-⚠️ **This is not a zero-risk refactor, unlike the color sweep.** Roughly 60 elements shift
-by 1px and a handful by more. That is the point — the drift is what we're removing — but
-it must be done section-by-section with visual checks, not in one commit.
+### The actual structure: semantic roles, each owning a ramp
 
-The `conf-display` row in particular (40/48/56 → 48) is too aggressive to apply blindly;
-those three are almost certainly deliberate hero sizes and may each deserve their own step.
-Decide that one at the browser, not in this table.
+| Role | Ramp | Elements |
+|---|---|---|
+| `body` | `16 → lg:17 → xl:18` | **10, across 6 files** |
+| `ui` | `15` (pill buttons + nav/menu links) | 11 |
+| `eyebrow` | `13 → md:14` | 3 |
+| `lead` | `16 → sm:17 → md:19 → lg:22 → xl:28` | 2 |
+| `hero` | `26 → md:22 → lg:30 → xl:36` | 2 |
+| `display` | `32 → sm:36 → md:40 → lg:48 → xl:56` | 1 |
+
+Note `hero` *drops* from 26px to 22px at `md` before climbing again — the column narrows
+there. Reversals like that are design decisions, and a flat scale erases them.
+
+Because each role reproduces its ramp exactly, this is a **zero visual change** refactor —
+the same as the Phase 1 color swap, not the risky rewrite the old table described.
 
 ---
 
@@ -252,14 +260,24 @@ tally `getComputedStyle` color/background/border across every element, before an
 A pure token swap must produce an identical tally. Note that `<script>`/`<link>` counts
 drift with dev-server chunks, so compare the color buckets, not the raw element count.
 
-### Phase 2 — Type scale *(real visual deltas — go section by section)*
-- [ ] Add the 9 `--font-size-conf-*` tokens to `@theme`
-- [ ] Decide the `conf-display` question (one step or three?) in the browser first
-- [ ] Migrate one section per commit, in ascending risk order:
-      `ConferenceNav` → `FaqSection` → `SponsorsGrid` → `CochairsSection` →
-      `ProgramSection` → `page.tsx`
-- [ ] Review each section at mobile + desktop before moving to the next
-      (per `feedback_mobile_preview_playwright` — use Playwright MCP for mobile widths)
+### Phase 2 — Type roles ✅ *(done 2026-08-15 — `ad2859a`)*
+- [x] Investigate the `conf-display` question first — **this is what surfaced that the flat
+      scale was the wrong model entirely** (see the correction above)
+- [x] Add six semantic roles to `TYPE` in `_theme.ts`, each owning a full responsive ramp
+- [x] Apply across 8 files — inline `text-[Npx]` in components: **125 → 55**
+- [x] **Verified:** computed font-size tally scoped to `<main>` identical before/after at
+      390px and 1440px. (Scope to `<main>` — the Next dev overlay adds elements outside it
+      and produces phantom deltas.)
+
+**Not extracted, on purpose:** a generic 14px `meta` role. Those sites look uniform in a
+frequency count but split three ways on inspection — ramp bases with interleaved utilities
+(`text-[14px] leading-[1.7] lg:text-[16px] … xl:text-[20px]`), card subtitles, and nav.
+`CochairsSection`'s bio copy likewise keeps its own 15px: it shares a *size* with the pill
+buttons but not an *intent*. Both decisions are documented in `_theme.ts`.
+
+The remaining 55 inline sizes are genuine one-offs (the nav rail's 10px labels, the
+QuoteCard refrain, `SectionHeading`'s own ramp — already centralised in its component).
+**Add a role when a ramp is used more than once; naming a single use is false abstraction.**
 
 ### Phase 3 — Component consolidation
 - [ ] Give the conference `SectionHeading` size variants off the new scale, mirroring the
@@ -300,8 +318,10 @@ drift with dev-server chunks, so compare the color buckets, not the raw element 
 
 ## 7. Open questions
 
-1. **`conf-display`** — are 40/48/56 three deliberate hero sizes, or drift? Needs a look at
-   the live page, not a decision in a table.
+1. ~~**`conf-display`** — are 40/48/56 three deliberate hero sizes, or drift?~~ **Answered:**
+   neither. They are three breakpoints of one element's ramp. Investigating this is what
+   caught the flat-scale error — worth remembering that the question was only visible from
+   the code, not from the frequency table.
 2. **Is `#1A1A1A` deliberate over `gray-130` (`#212529`)?** Shipped in Phase 1 as
    `--color-conf-ink`, preserving the exact value. If it turns out to be drift, collapsing it
    into `gray-130` is now a one-line change in `globals.css`.
