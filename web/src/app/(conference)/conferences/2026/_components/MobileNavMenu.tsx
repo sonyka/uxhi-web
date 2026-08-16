@@ -2,16 +2,15 @@
 
 import { useEffect, useRef } from "react";
 import { GRAY_110, BEIGE_30, TYPE } from "../../../_theme";
+import { ShakaIcon, StarIcon, EmailHeartIcon, AngleDownIcon, CursorClickIcon } from "../../../_components/icons";
 
 // Flat menu — past conferences + about uxhi on the same tier
 const ITEMS = [
-  { label: "2025 — UXperience 'Aina", href: "/conferences/2025/", icon: "icon-shaka.svg" },
-  { label: "2024 — UXperience Aloha",  href: "/conferences/2024/", icon: "icon-shaka.svg" },
-  { label: "UXHI",                     href: "https://uxhi.community", icon: "icon-star.svg" },
-  { label: "Email us",                 href: "mailto:uxhiconference@gmail.com", icon: "email-heart.svg" },
+  { label: "2025 — UXperience 'Aina", href: "/conferences/2025/", Icon: ShakaIcon },
+  { label: "2024 — UXperience Aloha",  href: "/conferences/2024/", Icon: ShakaIcon },
+  { label: "UXHI",                     href: "https://uxhi.community", Icon: StarIcon },
+  { label: "Email us",                 href: "mailto:uxhiconference@gmail.com", Icon: EmailHeartIcon },
 ];
-
-const ICON_FILTER = "grayscale(1) brightness(0.4)";
 
 export function MobileNavMenu() {
   const ref = useRef<HTMLDetailsElement>(null);
@@ -33,22 +32,8 @@ export function MobileNavMenu() {
         className="inline-flex items-center gap-2 h-[40px] px-4 bg-white rounded-full cursor-pointer select-none"
         style={{ listStyle: "none" }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/conferences/2026/assets/icons/icon-cursor-finger-click.svg"
-          alt=""
-          width={20}
-          height={20}
-          style={{ width: 20, height: 20, filter: ICON_FILTER }}
-        />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/conferences/2026/assets/icons/icon-angle-small-down.svg"
-          alt=""
-          width={12}
-          height={12}
-          style={{ width: 12, height: 12, filter: ICON_FILTER }}
-        />
+        <CursorClickIcon size={20} />
+        <AngleDownIcon size={12} />
       </summary>
 
       {/* Dropdown pops upward — all items on same tier */}
@@ -56,7 +41,7 @@ export function MobileNavMenu() {
         className="absolute bottom-full left-0 mb-3 bg-white rounded-2xl overflow-hidden z-50"
         style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.12)", minWidth: "220px" }}
       >
-        {ITEMS.map(({ label, href, icon }) => (
+        {ITEMS.map(({ label, href, Icon }) => (
           <a
             key={href}
             href={href}
@@ -68,14 +53,7 @@ export function MobileNavMenu() {
             onMouseLeave={e => (e.currentTarget.style.background = "")}
             onClick={() => { if (ref.current) ref.current.open = false; }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`/conferences/2026/assets/icons/${icon}`}
-              alt=""
-              width={16}
-              height={16}
-              style={{ width: 16, height: 16, filter: ICON_FILTER }}
-            />
+            <Icon size={16} />
             {label}
           </a>
         ))}

@@ -15,7 +15,8 @@ import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY } from "@/sanity/lib/queries";
 import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE } from "../../_theme";
 import { ConferenceButton } from "../../_components/ConferenceButton";
-import { ICON, TICKETS_URL, SPONSOR_URL } from "./constants";
+import { TICKETS_URL, SPONSOR_URL } from "./constants";
+import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, LinkedInIcon, InstagramIcon, StarIcon, EmailHeartIcon } from "../../_components/icons";
 
 const OG_TITLE = "UXHI Conference :: October 17, 2026";
 const OG_DESCRIPTION =
@@ -144,9 +145,6 @@ function SidebarInfo() {
   );
 }
 
-// Shared CSS filter: converts any colored/black icon → gray-110 (#50555A)
-const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
-
 // ─────────────────────────────────────────────────────────────────────
 export default async function Conference2026Page() {
   const [{ data: cochairs }, { data: sponsors }, { data: instagramPosts }] = await Promise.all([
@@ -200,7 +198,7 @@ export default async function Conference2026Page() {
         </nav>
 
         {/* Header CTA — primary: Get tickets. */}
-        <ConferenceButton href={TICKETS_URL} icon={ICON.shaka}>
+        <ConferenceButton href={TICKETS_URL} icon={ShakaIcon}>
           Get tickets
         </ConferenceButton>
       </header>
@@ -328,10 +326,10 @@ export default async function Conference2026Page() {
                     (purple). On mobile they stack, and Get tickets is ordered on top
                     (order-first) as the primary action. */}
                 <div className="flex flex-wrap items-center gap-3">
-                  <ConferenceButton href={SPONSOR_URL} variant="secondary" icon={ICON.heart}>
+                  <ConferenceButton href={SPONSOR_URL} variant="secondary" icon={HandHoldingHeartIcon}>
                     Become a sponsor
                   </ConferenceButton>
-                  <ConferenceButton href={TICKETS_URL} icon={ICON.shaka} className="order-first md:order-none">
+                  <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="order-first md:order-none">
                     Get tickets
                   </ConferenceButton>
                 </div>
@@ -424,7 +422,7 @@ export default async function Conference2026Page() {
                 <ConferenceButton
                   href="https://maps.app.goo.gl/zBHS4EXnXWuhysEu5"
                   variant="secondary"
-                  icon={ICON.arrowRight}
+                  icon={ArrowRightIcon}
                   iconPosition="trailing"
                   className="w-fit mt-1"
                 >
@@ -454,7 +452,7 @@ export default async function Conference2026Page() {
                 <ConferenceButton
                   href="https://uxhi.community"
                   variant="secondary"
-                  icon={ICON.arrowRight}
+                  icon={ArrowRightIcon}
                   iconPosition="trailing"
                   className="w-fit mt-1"
                 >
@@ -512,9 +510,7 @@ export default async function Conference2026Page() {
               className={`inline-flex items-center gap-[7px] ${TYPE.ui} font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap`}
               style={{ color: GRAY_110 }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/conferences/2026/assets/icons/icon-star.svg" alt="" width={16} height={16}
-                style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
+              <StarIcon size={16} />
               UXHI
             </a>
             <a
@@ -522,25 +518,21 @@ export default async function Conference2026Page() {
               className={`inline-flex items-center gap-[7px] ${TYPE.ui} font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap`}
               style={{ color: GRAY_110 }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/conferences/2026/assets/icons/email-heart.svg" alt="" width={16} height={16}
-                style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
+              <EmailHeartIcon size={16} />
               Email us
             </a>
           </div>
         </nav>
         <div className="flex items-center gap-[14px]">
+          {/* These two carry no text, so they set the icon color themselves —
+              the footer links above inherit it from their own label color. */}
           <a href="https://www.instagram.com/uxhicommunity/" target="_blank" rel="noopener" aria-label="UXHI on Instagram"
-            className="flex items-center hover:opacity-70 transition-opacity">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/conferences/2026/assets/icons/icon-instagram.svg" alt="" width={24} height={24}
-              style={{ width: 24, height: 24, filter: GRAY_110_FILTER }} />
+            className="flex items-center hover:opacity-70 transition-opacity" style={{ color: GRAY_110 }}>
+            <InstagramIcon size={24} />
           </a>
           <a href="https://www.linkedin.com/company/uxhi/" target="_blank" rel="noopener" aria-label="UXHI on LinkedIn"
-            className="flex items-center hover:opacity-70 transition-opacity">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={24} height={24}
-              style={{ width: 24, height: 24, filter: GRAY_110_FILTER }} />
+            className="flex items-center hover:opacity-70 transition-opacity" style={{ color: GRAY_110 }}>
+            <LinkedInIcon size={24} />
           </a>
         </div>
       </footer>

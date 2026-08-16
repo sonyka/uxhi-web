@@ -2,8 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { GRAY_110, TYPE } from "../../../_theme";
-
-const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
+import { ShakaIcon, AngleDownIcon } from "../../../_components/icons";
 
 const ITEMS = [
   { label: "2025 — UXperience 'Aina", href: "/conferences/2025/" },
@@ -30,13 +29,9 @@ export function PastConferencesMenu() {
         className={`inline-flex items-center gap-[7px] ${TYPE.ui} font-normal cursor-pointer select-none hover:opacity-70 transition-opacity`}
         style={{ color: GRAY_110, listStyle: "none" }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/conferences/2026/assets/icons/icon-shaka.svg" alt="" width={16} height={16}
-          style={{ width: 16, height: 16, filter: GRAY_110_FILTER }} />
+        <ShakaIcon size={16} />
         Past conferences
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/conferences/2026/assets/icons/icon-angle-small-down.svg" alt="" width={12} height={12}
-          style={{ width: 12, height: 12, filter: GRAY_110_FILTER }} />
+        <AngleDownIcon size={12} />
       </summary>
 
       {/* Dropdown — pops upward from footer */}

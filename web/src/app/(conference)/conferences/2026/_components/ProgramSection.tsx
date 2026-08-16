@@ -1,7 +1,8 @@
 import { SectionHeading } from "./SectionHeading";
 import { PURPLE, YELLOW_80 as GOLD, GRAY_110 as GRAY, TYPE } from "../../../_theme";
 import { ConferenceButton } from "../../../_components/ConferenceButton";
-import { ICON, TICKETS_URL } from "../constants";
+import { TICKETS_URL } from "../constants";
+import { ShakaIcon } from "../../../_components/icons";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with
@@ -52,7 +53,7 @@ export function ProgramSection() {
           and meaningful conversation. Come gather, mingle, and get inspired by the stories that connect us.
         </p>
 
-        <ConferenceButton href={TICKETS_URL} icon={ICON.shaka} className="w-fit mt-1">
+        <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit mt-1">
           Get tickets
         </ConferenceButton>
       </div>

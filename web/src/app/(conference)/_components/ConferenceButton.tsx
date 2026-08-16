@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { cn } from "@/lib/utils";
 import { PURPLE, TEAL_60, TYPE } from "../_theme";
 
@@ -19,8 +20,8 @@ interface ConferenceButtonProps {
    * secondary — teal fill, black label (Become a sponsor, View on Map)
    */
   variant?: Variant;
-  /** Full path to the icon SVG, e.g. "/conferences/2026/assets/icons/icon-shaka.svg" */
-  icon?: string;
+  /** An icon component from ./icons — it paints with the button's own color. */
+  icon?: ComponentType<{ size?: number }>;
   /** Leading (default) reads as "do this"; trailing as "go here". */
   iconPosition?: "leading" | "trailing";
   className?: string;
@@ -29,10 +30,12 @@ interface ConferenceButtonProps {
 const BASE =
   "inline-flex items-center gap-2 h-[44px] px-5 rounded-full font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap";
 
-const VARIANTS: Record<Variant, { className: string; background: string; invertIcon: boolean }> = {
-  // The icon assets are dark, so the purple variant inverts them to read white.
-  primary: { className: "text-white", background: PURPLE, invertIcon: true },
-  secondary: { className: "text-black", background: TEAL_60, invertIcon: false },
+// Icons inherit the label color via currentColor, so the variant only has to
+// set text color — no per-variant icon handling (the primary variant used to
+// need filter: invert(1) to turn a black asset white).
+const VARIANTS: Record<Variant, { className: string; background: string }> = {
+  primary: { className: "text-white", background: PURPLE },
+  secondary: { className: "text-black", background: TEAL_60 },
 };
 
 /**
@@ -45,22 +48,12 @@ export function ConferenceButton({
   href,
   children,
   variant = "primary",
-  icon,
+  icon: Icon,
   iconPosition = "leading",
   className,
 }: ConferenceButtonProps) {
   const v = VARIANTS[variant];
-
-  const iconEl = icon ? (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={icon}
-      alt=""
-      width={20}
-      height={20}
-      style={{ width: 20, height: 20, filter: v.invertIcon ? "invert(1)" : undefined }}
-    />
-  ) : null;
+  const iconEl = Icon ? <Icon size={20} /> : null;
 
   return (
     <a

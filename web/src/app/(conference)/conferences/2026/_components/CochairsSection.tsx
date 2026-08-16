@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_110 as GRAY, PURPLE, TYPE } from "../../../_theme";
+import { LinkedInIcon } from "../../../_components/icons";
 
 // Data comes from Sanity (conferenceCochair, year-scoped) — see queries.ts.
 export type Cochair = {
@@ -16,7 +17,6 @@ export type Cochair = {
   photoAlt?: string | null;
 };
 
-const LINKEDIN_GRAY = "grayscale(1) brightness(0.4)";
 
 function initials(name: string) {
   return name
@@ -131,9 +131,11 @@ function MobileBioSheet({ c, onClose }: { c: Cochair; onClose: () => void }) {
               rel="noopener"
               aria-label={`${c.name} on LinkedIn`}
               className="inline-flex mt-5 hover:opacity-70 transition-opacity"
+              // No label text here, so the icon color is set explicitly rather
+              // than inherited — matches the bio copy beside it.
+              style={{ color: GRAY }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={22} height={22} style={{ width: 22, height: 22, filter: LINKEDIN_GRAY }} />
+              <LinkedInIcon size={22} />
             </a>
           )}
         </div>
@@ -220,9 +222,9 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                           onClick={(e) => e.stopPropagation()}
                           aria-label={`${c.name} on LinkedIn`}
                           className="inline-flex shrink-0 hover:opacity-70 transition-opacity"
+                          style={{ color: GRAY }}
                         >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="/conferences/2026/assets/icons/icon-linkedin.svg" alt="" width={22} height={22} style={{ width: 22, height: 22, filter: LINKEDIN_GRAY }} />
+                          <LinkedInIcon size={22} />
                         </a>
                       )}
                     </motion.div>
