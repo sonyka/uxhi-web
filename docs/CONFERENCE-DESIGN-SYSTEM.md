@@ -8,6 +8,13 @@ drifted, and the plan to formalise it. Written 2026-08-15 against `staging` @ `c
 > re-typed as raw hex. The genuine divergence is typography — a different font and 22
 > ad-hoc sizes where the main site uses 6. Fix it with a **theme layer that inherits**,
 > not a parallel system.
+>
+> **Every conference year is a full redesign.** 2024, 2025 and 2026 share no layout, type
+> or mood, and future years will keep diverging. The parent token system is the *only*
+> thing that carries across — which is exactly why hardcoded values matter: they're the one
+> kind of drift a redesign can't wash away. Each year gets its own
+> `conferences/<year>/theme.ts` over the same parent tokens, and shares no code with any
+> other year.
 
 ---
 
@@ -203,28 +210,43 @@ the same as the Phase 1 color swap, not the risky rewrite the old table describe
 
 ## 4. Guiding principles
 
-These are the five that would have prevented the current drift.
+> **Revised 2026-08-15.** The original set assumed conference years would share structure,
+> and principle 3 said so outright ("every year is a skin, not a fork"). That is wrong:
+> **every year is a full redesign.** 2024, 2025 and 2026 share no layout, type or mood. What
+> survives a redesign is the parent token system and nothing else — which makes token
+> discipline more important, not less, and shared components actively harmful.
 
-**1. The conference inherits; it never redefines.**
-A conference token may *alias* a parent token or add a genuinely new value. It may never
-restate a parent value as a new literal. That single rule is what keeps one system from
-becoming two.
+**1. The palette is inherited; the design is not.**
+Invent the layout, type and mood freely each year. Draw color from the parent ramps in
+`globals.css`. A year-specific color is allowed only when no parent ramp covers it — and it
+gets a named token, never an inline hex.
 
-**2. Divergence is typographic, not chromatic.**
-Each year's identity lives in type, layout and imagery. The palette stays shared, so a
-parent palette change propagates to every conference year for free.
+**2. Each year owns its theme.**
+`conferences/<year>/theme.ts` declares that year's font, type roles and any year-specific
+tokens. **2027 does not import or extend 2026's theme.** Nothing is shared between years
+except the parent tokens.
 
-**3. Every year is a skin, not a fork.**
-2027 should be a token override plus new content — not a copied `_components/` directory.
-Today's structure makes copying the path of least resistance. See Phase 4.
+**3. Don't share components across years.**
+When next year's design is unknown, copying is cheaper than the wrong abstraction. The
+cross-year `(conference)/` level should hold only what is genuinely design-free — currently
+just analytics and routing. Anything visual that lands there becomes an accidental
+constraint on every future year.
 
-**4. An ad-hoc value is a bug report.**
-A new `text-[Npx]` or raw `#hex` means either the scale is missing a step, or the design
-drifted. Both deserve a moment's thought. Neither should be silent.
+**4. No raw hex, no ad-hoc type sizes.**
+Every color is a token reference; every size belongs to a named role. A new literal means
+either the theme is missing something or the design drifted — both deserve a moment's
+thought, neither should be silent. **Raw hex is enforced by ESLint** for
+`app/(conference)/**` (see `eslint.config.mjs`); type sizes are convention only, because
+legitimate one-offs remain.
 
-**5. The two `CLAUDE.md` rules apply to `(conference)` too.**
-Top-Down UI Changes and Design System Sync currently stop at the route boundary. Extending
-them is Phase 5, and it's what makes the rest of this durable.
+**5. Roles own responsive ramps, not single values.**
+A type role is one design decision expressed across breakpoints. Flattening a ramp to one
+number destroys intent — see the Phase 2 correction, where a frequency count made a
+responsive ladder look like duplicate values.
+
+**6. Shared appearance is not shared purpose.**
+Two things that render alike may encode different intent, and merging them couples designs
+that should move independently. See the `LogoImage` and 14px-`meta` decisions in Phases 2–3.
 
 ---
 
@@ -324,18 +346,46 @@ QuoteCard refrain, `SectionHeading`'s own ramp — already centralised in its co
 Both are the same trap as the 14px `meta` role in Phase 2: **shared appearance is not shared
 purpose.** Worth re-reading before consolidating anything else.
 
-### Phase 4 — Make 2027 a skin *(do before 2027 work starts, not during)*
-- [ ] Move year-agnostic components from `2026/_components/` to `(conference)/_components/`
-- [ ] Leave only genuinely 2026-specific content and layout in the year folder
-- [ ] Document what a new year requires: token override + content + the
-      `CURRENT_CONFERENCE_YEAR` bump in `src/middleware.ts`
+### ~~Phase 4 — Make 2027 a skin~~ ❌ *cancelled 2026-08-15 — the premise was wrong*
 
-### Phase 5 — Close the governance gap
-- [ ] Add a **Conference** section to `/design-system` documenting the theme tokens, the
-      type scale and the conference components
+> This phase would have promoted 2026's components to `(conference)/_components/` so 2027
+> could reuse them. **Every year is a full redesign**, so that abstraction would have been
+> built against a design that doesn't exist and won't match. Speculative reuse is worse than
+> duplication here. Principle 3 now says the opposite of what this phase proposed.
+
+**Done instead — the inverse move** *(`aad1ad4`)*: four things had already drifted up to the
+cross-year level on the old assumption, and came back down under the year.
+
+| Was | Now |
+|---|---|
+| `(conference)/_theme.ts` | `conferences/2026/theme.ts` |
+| `(conference)/_components/ConferenceButton.tsx` | `conferences/2026/_components/` |
+| `(conference)/_components/icons.tsx` | `conferences/2026/_components/` |
+| `(conference)/layout.tsx` — font + background | `conferences/2026/layout.tsx` |
+
+The layout was the sharpest: the cross-year shell hardcoded Bricolage Grotesque and a
+`beige-30` background — 2026's design wearing a year-agnostic name. It now holds only GA.
+
+**What a new conference year actually needs:**
+1. `conferences/<year>/` — its own `page.tsx`, `layout.tsx` (font + background),
+   `theme.ts` (tokens + type roles), and `_components/`
+2. Its own assets under `public/conferences/<year>/`
+3. One line in `src/middleware.ts`: `CURRENT_CONFERENCE_YEAR = "<year>"`
+
+Copy from the previous year as a *starting point* if useful, then redesign freely. Do not
+factor the shared parts back out — see principle 3.
+
+### Phase 5 — Close the governance gap *(partly done — `9655c2f`)*
+- [x] **ESLint guard on raw hex** under `app/(conference)/**` — principle 4, mechanically
+      enforced. Starts clean (Phase 1 removed all of them) so it only fires on regressions.
+      Chosen over CI deliberately: editor feedback catches the real failure mode (forgetting
+      months later), and a build-blocking check could burn a limited Netlify credit.
+      Type sizes are *not* guarded — 55 legitimate one-offs would make it constant noise.
+- [x] **Fixed `npm run lint`**, which had been OOM-ing on vendored bundles before linting
+      anything. A guard is worthless if the linter never runs.
+- [ ] Add a **Conference** section to `/design-system` documenting the 2026 theme tokens,
+      the type roles, and — most usefully — the per-year pattern itself
 - [ ] Extend the two `CLAUDE.md` rules to cover `app/(conference)/` explicitly
-- [ ] Optional: an ESLint rule or CI grep failing on new raw hex / `text-[Npx]` under
-      `app/(conference)/` — principle 4, mechanically enforced
 
 ---
 
@@ -349,6 +399,12 @@ purpose.** Worth re-reading before consolidating anything else.
   drift; giving it a name makes it permanent.
 - **Don't unify the fonts.** Bricolage vs. Dela Gothic is a real, deliberate brand
   distinction — it is the thing that *should* differ.
+- **Don't factor shared components out of two conference years.** Two years looking alike is
+  a coincidence of that moment, not a contract; the third year will break it. Cross-year code
+  is limited to what has no design in it at all.
+- **Don't mine the 2024/2025 archives for patterns.** They are frozen static exports. They
+  are useful only as evidence that years diverge — not as a source of components, tokens or
+  conventions for the current year.
 - **Don't batch this with a production deploy.** Netlify credits are limited (~20 builds
   /month); Phases 1–2 should accumulate on `staging` and ship together.
 

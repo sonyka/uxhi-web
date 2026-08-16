@@ -125,12 +125,20 @@ Quick reference (see design system for full details):
 - Background: beige (`--color-beige-10: #FDF9F6`)
 - Fonts: Dela Gothic One (display), Nunito (body)
 
-**Conference site design:** `app/(conference)/` uses a different font (Bricolage Grotesque)
-and its own components, but **inherits the parent color palette** — it is a theme layer, not
-a separate design system. See [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONFERENCE-DESIGN-SYSTEM.md)
-for the audit, the guiding principles, and the migration plan. Core rule: conference code may
-alias a parent token or add a genuinely new value, but must never restate a parent value as a
-raw hex literal.
+**Conference site design — every year is a full redesign.** 2024, 2025 and 2026 share no
+layout, type or mood, and future years will keep diverging. The parent token system is the
+only thing that carries across. So:
+
+- Each year owns `conferences/<year>/theme.ts` (font, type roles, year-specific tokens),
+  its own `layout.tsx` and its own `_components/`. **Years share no code with each other.**
+- The cross-year `(conference)/` level holds only design-free things (analytics, routing).
+  Anything visual placed there becomes a constraint on every future year.
+- **Never restate a parent value as a raw hex literal** — alias the token instead, so the
+  year keeps tracking the parent palette. This is enforced by ESLint for `app/(conference)/**`.
+- Type sizes belong to named roles in the year's `theme.ts`, and a role owns a full
+  *responsive ramp* — never flatten one to a single value.
+
+Full audit, principles and history: [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONFERENCE-DESIGN-SYSTEM.md).
 
 **Available Components:**
 
