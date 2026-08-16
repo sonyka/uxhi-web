@@ -2835,10 +2835,9 @@ const contentComponents: Record<string, React.ReactNode> = {
             2026-specific tokens
           </h4>
           <div className="rounded-xl border border-gray-30 bg-gray-10 p-5">
-            <p className="text-gray-120 text-sm leading-relaxed">
-              <strong className="text-gray-140">None.</strong> 2026 draws entirely from the
-              parent ramps. Add a year token only when no parent ramp is close — and decide
-              &ldquo;close&rdquo; by comparing numbers, not swatches.
+            <p className="text-gray-120 text-sm">
+              <strong className="text-gray-140">None</strong> — 2026 draws entirely from the
+              parent ramps.
             </p>
           </div>
         </div>
@@ -2853,20 +2852,6 @@ const contentComponents: Record<string, React.ReactNode> = {
       componentPath="src/app/(conference)/conferences/2026/theme.ts"
     >
       <div className="space-y-8">
-        <div className="rounded-xl border border-gray-30 bg-gray-10 p-5">
-          <p className="text-sm text-gray-110 leading-relaxed">
-            A role carries its size ramp, weight, leading, tracking and case, so applying one is
-            a single class. <strong className="text-gray-140">Only color stays at the call
-            site.</strong> Samples render exactly as they appear on the live 2026 site.
-          </p>
-          <p className="text-sm text-gray-110 leading-relaxed mt-2">
-            Ramps sometimes reverse —{" "}
-            <code className="font-mono text-xs bg-white px-1 rounded">hero</code> drops from 26px
-            to 22px at <code className="font-mono text-xs bg-white px-1 rounded">md</code> because
-            the column narrows there. That&rsquo;s deliberate; don&rsquo;t flatten it.
-          </p>
-        </div>
-
         <div className="space-y-6">
           {([
             {
@@ -2934,9 +2919,6 @@ const contentComponents: Record<string, React.ReactNode> = {
           ))}
         </div>
 
-        <p className="text-sm text-gray-110">
-          Add a role when a ramp is used more than once; one-off sizes stay inline.
-        </p>
       </div>
     </ContentSection>
   ),
