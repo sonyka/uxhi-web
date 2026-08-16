@@ -33,11 +33,17 @@ export const YELLOW_80 = "var(--color-yellow-80)"; // #FFCC40 — shaka gold
 export const BEIGE_30 = "var(--color-beige-30)"; // #F4F1EA — page background
 export const BEIGE_40 = "var(--color-beige-40)"; // #EDE8DD — raised/active surface
 
-/** Conference-specific addition — no parent equivalent exists. */
-export const CONF_INK = "var(--color-conf-ink)"; // #1A1A1A — headings on light
-// (A `conf-chrome` #0F0D0B token existed briefly for a dark nav rail. The only
-//  component using it was never mounted, so both were removed — if a dark nav
-//  returns, re-add the token then rather than carrying an unused one.)
+// No year-specific color tokens. 2026 draws entirely from the parent ramps —
+// use `text-gray-140` for headings on light surfaces.
+//
+// Two candidates didn't survive scrutiny:
+//   • conf-ink #1A1A1A — 6/765 RGB from gray-140 (#16191B); contrast on white
+//     17.40 vs 17.66, i.e. imperceptible and marginally better. Collapsed.
+//   • conf-chrome #0F0D0B — a dark nav rail colour whose only consumer turned
+//     out to be a component that was never mounted. Removed with it.
+//
+// Add a year token only when no parent ramp is close. "Close" means compare
+// the numbers, not the swatches.
 
 // ── Type roles ────────────────────────────────────────────────────────
 //

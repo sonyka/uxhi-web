@@ -94,7 +94,7 @@ export function FaqSection() {
                 aria-expanded={isOpen}
                 className="w-full flex items-center justify-between gap-4 cursor-pointer select-none text-left px-5 py-[18px]"
               >
-                <span className="font-medium leading-[1.35] tracking-[-0.01em] text-[16px] md:text-[17px] text-conf-ink">
+                <span className="font-medium leading-[1.35] tracking-[-0.01em] text-[16px] md:text-[17px] text-gray-140">
                   {q}
                 </span>
                 {/* "+" rotates 45° → "×" when open */}

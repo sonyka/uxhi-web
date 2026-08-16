@@ -121,12 +121,9 @@
   --color-yellow-140: #735400;
   --color-yellow-150: #2E2200;
 
-  /* Colors - Conference theme addition
-     The conference site (app/(conference)/) inherits every ramp above unchanged.
-     This is the only color with no parent equivalent — see
-     docs/CONFERENCE-DESIGN-SYSTEM.md. Do not add a conference token that merely
-     restates a parent value. */
-  --color-conf-ink: #1A1A1A;      /* headings on light surfaces (parent gray-130 is #212529) */
+  /* The conference site (app/(conference)/) adds NO color tokens of its own —
+     every year draws entirely from the ramps above. See
+     docs/CONFERENCE-DESIGN-SYSTEM.md before adding one. */
 
   /* Fonts */
   --font-display: var(--font-dela-gothic), ui-sans-serif, system-ui, sans-serif;

@@ -9,6 +9,9 @@ drifted, and the plan to formalise it. Written 2026-08-15 against `staging` @ `c
 > ad-hoc sizes where the main site uses 6. Fix it with a **theme layer that inherits**,
 > not a parallel system.
 >
+> **2026 ends up with zero year-specific color tokens** — all three candidates collapsed
+> once measured against the parent ramps rather than eyeballed.
+>
 > **Every conference year is a full redesign.** 2024, 2025 and 2026 share no layout, type
 > or mood, and future years will keep diverging. The parent token system is the *only*
 > thing that carries across — which is exactly why hardcoded values matter: they're the one
@@ -66,15 +69,18 @@ Every `#RRGGBB` in `app/(conference)/`, mapped against `globals.css`:
 | `#FFCC40` | 1 | `yellow-80` | ✅ exact match |
 | `#60D7E5` | 1 | `teal-60` | ✅ exact match |
 | `#09C0D7` | 1 | `teal-90` | ✅ exact match |
-| `#1A1A1A` | 5 | — | ❌ genuinely new |
+| `#1A1A1A` | 5 | — | ⚠️ looked new; later collapsed into `gray-140` |
 | `#0F0D0B` | 3 | — | ❌ genuinely new |
 | `#EFEAE0` | 1 | — | ❌ near-duplicate of `beige-40` |
 
 **34 of 43 occurrences (79%) are exact parent tokens written as literals.** The palettes
 have not diverged. Only 9 occurrences across 3 values are new:
 
-- **`#1A1A1A`** — near-black for headings on light backgrounds. No parent equivalent
-  (`gray-130` is `#212529`, `gray-140` is `#16191B`). Legitimately conference-specific.
+- **`#1A1A1A`** — near-black for headings on light backgrounds. Shipped as `conf-ink` in
+  Phase 1, then **collapsed into `gray-140` (`#16191B`)**: only 6/765 RGB apart, contrast on
+  white 17.40 vs 17.66 — imperceptible, and marginally better. The original note here called
+  it "legitimately conference-specific" on the strength of a swatch comparison; running the
+  numbers said otherwise.
 - **`#0F0D0B`** — warm near-black for the nav rail chrome. Legitimately new.
 - **`#EFEAE0`** — FAQ open-state background. Differs from `beige-40` (`#EDE8DD`) by ~1%
   lightness. Almost certainly drift, not intent. **Recommend collapsing into `beige-40`
@@ -157,11 +163,12 @@ What the theme actually needs to add:
 /* 1. Font */
 --font-conf: var(--font-bricolage), ui-sans-serif, sans-serif;
 
-/* 2. The genuinely new colors */
---color-conf-ink:    #1A1A1A;  /* headings on light backgrounds */
-/* (#EFEAE0 intentionally omitted — collapsed into beige-40 in Phase 1) */
-/* (conf-chrome #0F0D0B was added in Phase 1 and removed in Phase 3 — its only
-    consumer, ConferenceNav, turned out to be dead code) */
+/* 2. Year-specific colors — NONE, as it turned out.
+   All three candidates collapsed once measured:
+     #EFEAE0  -> beige-40  (~1% lightness apart)
+     #1A1A1A  -> gray-140  (6/765 RGB; contrast 17.40 vs 17.66)
+     #0F0D0B  -> deleted   (its only consumer was never mounted)
+   2026 draws entirely from the parent ramps. */
 
 /* 3. A real type scale — replaces 22 ad-hoc sizes with 9 steps */
 --font-size-conf-2xs:     10px;
@@ -260,7 +267,9 @@ stopping after any phase leaves the codebase better than it started.
 - [x] Add a pointer to it from `CLAUDE.md` and `docs/LAUNCH-PUNCHLIST.md`
 
 ### Phase 1 — Color tokens ✅ *(done 2026-08-15 — `c295ead`, `3e1d085`)*
-- [x] Add `--color-conf-ink` and `--color-conf-chrome` to `@theme` in `globals.css`
+- [x] ~~Add `--color-conf-ink` and `--color-conf-chrome` to `@theme`~~ — both later removed.
+      `conf-chrome`'s only consumer was dead code (Phase 3); `conf-ink` collapsed into
+      `gray-140`. **2026 ships zero year-specific color tokens.**
 - [x] Replace the 34 parent-matching literals with token classes / `var()` references
 - [x] Collapse `#EFEAE0` → `beige-40` (open state verified: `rgb(237,232,221)` vs closed
       `rgb(244,241,234)` — distinction preserved)
@@ -419,8 +428,11 @@ factor the shared parts back out — see principle 3.
    neither. They are three breakpoints of one element's ramp. Investigating this is what
    caught the flat-scale error — worth remembering that the question was only visible from
    the code, not from the frequency table.
-2. **Is `#1A1A1A` deliberate over `gray-130` (`#212529`)?** Shipped in Phase 1 as
-   `--color-conf-ink`, preserving the exact value. If it turns out to be drift, collapsing it
-   into `gray-130` is now a one-line change in `globals.css`.
-3. **Does the 2027 site reuse the 2026 layout?** The answer determines how much of Phase 4
-   is worth doing up front versus deferring until the design exists.
+2. ~~**Is `#1A1A1A` deliberate over `gray-130` (`#212529`)?**~~ **Answered:** it was drift,
+   but the comparison was against the wrong token. `gray-140` (`#16191B`) sits 6/765 RGB
+   away — contrast on white 17.40 vs 17.66 — so `conf-ink` collapsed into it and **2026 now
+   has zero year-specific color tokens.** Lesson: when judging whether a colour is
+   "genuinely new", compare it against *every* step of the ramp numerically. Two swatches
+   can look distinct at a glance and be one rounding apart.
+3. ~~**Does the 2027 site reuse the 2026 layout?**~~ **Answered:** no — every year is a full
+   redesign, which is why Phase 4 was cancelled.

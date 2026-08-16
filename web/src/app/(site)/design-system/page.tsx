@@ -2832,17 +2832,23 @@ const contentComponents: Record<string, React.ReactNode> = {
 
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">
-            2026-specific — no parent equivalent
+            2026-specific tokens
           </h4>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <ColorSwatch name="CONF_INK → conf-ink" value="#1A1A1A" textColor="text-white" badge="2026 only" />
+          <div className="rounded-xl border-2 border-teal-90 bg-teal-10 p-6">
+            <p className="text-gray-140 font-semibold mb-2">None — and that&rsquo;s the goal.</p>
+            <p className="text-gray-120 leading-relaxed text-sm">
+              2026 draws entirely from the parent ramps. Two candidate year-tokens didn&rsquo;t
+              survive scrutiny: <code className="font-mono text-xs bg-white px-1 rounded">conf-ink #1A1A1A</code>{" "}
+              sat 6/765 RGB from <code className="font-mono text-xs bg-white px-1 rounded">gray-140 (#16191B)</code> —
+              contrast on white 17.40 vs 17.66, imperceptible and marginally better — so it
+              collapsed. <code className="font-mono text-xs bg-white px-1 rounded">conf-chrome #0F0D0B</code>{" "}
+              turned out to be used only by a component that was never mounted.
+            </p>
+            <p className="text-gray-120 leading-relaxed text-sm mt-3">
+              Add a year token only when no parent ramp is close — and decide &ldquo;close&rdquo;
+              by comparing numbers, not swatches.
+            </p>
           </div>
-          <p className="text-sm text-gray-110 mt-3">
-            Headings on light surfaces. The nearest parent tokens are{" "}
-            <code className="font-mono text-xs bg-gray-10 px-1 rounded">gray-130 (#212529)</code> and{" "}
-            <code className="font-mono text-xs bg-gray-10 px-1 rounded">gray-140 (#16191B)</code>,
-            neither of which matches.
-          </p>
         </div>
 
         <InfoBox>

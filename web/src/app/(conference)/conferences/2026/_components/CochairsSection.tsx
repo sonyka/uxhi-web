@@ -113,7 +113,7 @@ function MobileBioSheet({ c, onClose }: { c: Cochair; onClose: () => void }) {
               </div>
             )}
             <div className="min-w-0">
-              <h3 className="font-semibold text-[19px] leading-tight text-conf-ink">{c.name}</h3>
+              <h3 className="font-semibold text-[19px] leading-tight text-gray-140">{c.name}</h3>
               {c.title && <p className="text-[14px] mt-1" style={{ color: GRAY }}>{c.title}</p>}
             </div>
           </div>
@@ -202,7 +202,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
 
                       {/* Header: name/title (no avatar — keeps the narrow mobile card readable) */}
                       <div className="mb-3 pr-8 shrink-0">
-                        <h3 className="font-semibold text-[17px] leading-tight text-conf-ink">{c.name}</h3>
+                        <h3 className="font-semibold text-[17px] leading-tight text-gray-140">{c.name}</h3>
                         {c.title && <p className="text-[14px] mt-1" style={{ color: GRAY }}>{c.title}</p>}
                       </div>
 

@@ -61,11 +61,11 @@ function SponsorCard({ s }: { s: Sponsor }) {
             className="w-auto object-contain grayscale opacity-90 brightness-75 contrast-75 transition duration-200 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100"
           />
         ) : (
-          <span className="font-semibold text-[16px] text-conf-ink">{s.name}</span>
+          <span className="font-semibold text-[16px] text-gray-140">{s.name}</span>
         )}
       </div>
       <div className="flex flex-col gap-1">
-        {s.logo && <h3 className="font-semibold text-[16px] leading-tight text-conf-ink">{s.name}</h3>}
+        {s.logo && <h3 className="font-semibold text-[16px] leading-tight text-gray-140">{s.name}</h3>}
         {s.description && (
           <p className="text-[14px] leading-[1.5]" style={{ color: GRAY }}>
             {s.description}
