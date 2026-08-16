@@ -290,10 +290,25 @@ QuoteCard refrain, `SectionHeading`'s own ramp — already centralised in its co
       `(conference)/_components/` since nothing about it is year-specific, so Phase 4 won't
       need to move it. Verified identical on every property including rendered width to 0.01px.
 - [x] **Add `2026/constants.ts`** — the ticket URL had been written out at three call sites.
-- [ ] Icon consolidation — 16 inline `<img>` across 9 SVGs vs. `components/ui/icons/`.
-      Real payoff: the `grayscale(1) brightness(0.4)` tint hack exists in three places
-      *because* they're `<img>`; React SVG icons using `currentColor` would remove it and let
-      icons inherit the Phase 1 tokens.
+- [x] **Icon consolidation** *(done — `7aac44a`)* — 13 `<img>` tags → `_components/icons.tsx`,
+      9 components generated from the source SVGs, painting with `currentColor`.
+
+      **This one found a real bug.** The tint hack `grayscale(1) brightness(0.4)` — living
+      under three separate names (`GRAY_110_FILTER`, `LINKEDIN_GRAY`, `ICON_FILTER`) and
+      commented *"converts any colored/black icon → gray-110 (#50555A)"* — is a **no-op on a
+      black source**. `brightness()` scales RGB, and black × 0.4 is still black. Sampling the
+      rendered pixels confirmed it: glyphs were `(0,0,0)` while the labels beside them
+      genuinely were `#50555A`. The icons had never been gray.
+
+      Icons now inherit their label's color, so those 11 sites finally render gray-110.
+      **This is the one intentional visual change** — approved deliberately over preserving
+      the black. Three sites have no label text (two footer social links, two cochair
+      LinkedIn links) and set the color explicitly.
+
+      Two mechanical notes for anyone regenerating: each SVG's inline `style="fill:black"`
+      overrides `fill="currentColor"` and must be stripped — *that inline style is why the
+      filter hack existed in the first place*. And every `<clipPath>` was a full-viewBox rect
+      (a no-op) that would otherwise produce duplicate DOM ids for repeated icons.
 - [ ] Conference `SectionHeading` size variants mirroring the parent's variant API
 
 **Examined and deliberately declined:**
