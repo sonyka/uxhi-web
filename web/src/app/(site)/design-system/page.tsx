@@ -2834,33 +2834,14 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">
             2026-specific tokens
           </h4>
-          <div className="rounded-xl border-2 border-teal-90 bg-teal-10 p-6">
-            <p className="text-gray-140 font-semibold mb-2">None — and that&rsquo;s the goal.</p>
-            <p className="text-gray-120 leading-relaxed text-sm">
-              2026 draws entirely from the parent ramps. Two candidate year-tokens didn&rsquo;t
-              survive scrutiny: <code className="font-mono text-xs bg-white px-1 rounded">conf-ink #1A1A1A</code>{" "}
-              sat 6/765 RGB from <code className="font-mono text-xs bg-white px-1 rounded">gray-140 (#16191B)</code> —
-              contrast on white 17.40 vs 17.66, imperceptible and marginally better — so it
-              collapsed. <code className="font-mono text-xs bg-white px-1 rounded">conf-chrome #0F0D0B</code>{" "}
-              turned out to be used only by a component that was never mounted.
-            </p>
-            <p className="text-gray-120 leading-relaxed text-sm mt-3">
-              Add a year token only when no parent ramp is close — and decide &ldquo;close&rdquo;
-              by comparing numbers, not swatches.
+          <div className="rounded-xl border border-gray-30 bg-gray-10 p-5">
+            <p className="text-gray-120 text-sm leading-relaxed">
+              <strong className="text-gray-140">None.</strong> 2026 draws entirely from the
+              parent ramps. Add a year token only when no parent ramp is close — and decide
+              &ldquo;close&rdquo; by comparing numbers, not swatches.
             </p>
           </div>
         </div>
-
-        <InfoBox>
-          <p className="text-gray-120">
-            <strong>Why var() and not hex:</strong> eight components once declared their own{" "}
-            <code className="font-mono text-sm bg-white px-1 rounded">const PURPLE = &quot;#231769&quot;</code>.
-            That is inheritance by copy-paste — it desynchronises the moment the parent palette
-            changes. Every value here is a{" "}
-            <code className="font-mono text-sm bg-white px-1 rounded">var(--color-*)</code> reference,
-            so the year tracks the parent automatically.
-          </p>
-        </InfoBox>
       </div>
     </ContentSection>
   ),
@@ -2872,25 +2853,17 @@ const contentComponents: Record<string, React.ReactNode> = {
       componentPath="src/app/(conference)/conferences/2026/theme.ts"
     >
       <div className="space-y-8">
-        <div className="rounded-xl border border-orange-90 bg-orange-10 p-5">
-          <p className="text-gray-140 font-semibold mb-1">Roles own ramps, not single values.</p>
-          <p className="text-sm text-gray-120 leading-relaxed">
-            Never flatten a role to one number. <code className="font-mono text-xs bg-white px-1 rounded">hero</code>{" "}
-            deliberately <em>drops</em> from 26px to 22px at <code className="font-mono text-xs bg-white px-1 rounded">md</code>{" "}
-            before climbing again, because the column narrows there. Reversals like that are
-            design, not drift.
-          </p>
-        </div>
-
         <div className="rounded-xl border border-gray-30 bg-gray-10 p-5">
-          <p className="text-gray-140 font-semibold mb-1 text-sm">
-            A role is a complete typographic decision.
-          </p>
           <p className="text-sm text-gray-110 leading-relaxed">
-            Size ramp, weight, leading, tracking and case all live in the role, so applying it
-            is a single class. <strong>Only color stays at the call site</strong> — it varies by
-            context and belongs to the token axis, not the type axis. Each sample below renders
-            exactly as it appears on the live 2026 site.
+            A role carries its size ramp, weight, leading, tracking and case, so applying one is
+            a single class. <strong className="text-gray-140">Only color stays at the call
+            site.</strong> Samples render exactly as they appear on the live 2026 site.
+          </p>
+          <p className="text-sm text-gray-110 leading-relaxed mt-2">
+            Ramps sometimes reverse —{" "}
+            <code className="font-mono text-xs bg-white px-1 rounded">hero</code> drops from 26px
+            to 22px at <code className="font-mono text-xs bg-white px-1 rounded">md</code> because
+            the column narrows there. That&rsquo;s deliberate; don&rsquo;t flatten it.
           </p>
         </div>
 
@@ -2961,31 +2934,9 @@ const contentComponents: Record<string, React.ReactNode> = {
           ))}
         </div>
 
-        <div className="rounded-xl border-2 border-teal-90 bg-teal-10 p-5">
-          <p className="text-gray-140 font-semibold mb-2">Why the role owns all of it</p>
-          <p className="text-sm text-gray-120 leading-relaxed">
-            These companion classes were once re-typed at every call site, and three had
-            already diverged: eyebrow tracking ran{" "}
-            <code className="font-mono text-xs bg-white px-1 rounded">0.08em</code> in two places
-            and <code className="font-mono text-xs bg-white px-1 rounded">0.06em</code> in a
-            third; body leading ran{" "}
-            <code className="font-mono text-xs bg-white px-1 rounded">1.4</code> and{" "}
-            <code className="font-mono text-xs bg-white px-1 rounded">1.5</code>; lead leading
-            ran <code className="font-mono text-xs bg-white px-1 rounded">1.35</code> and{" "}
-            <code className="font-mono text-xs bg-white px-1 rounded">1.4</code>. Folding them
-            into the roles converged 7 elements onto 0.08em and 1.4 and makes future drift
-            impossible — there is only one place left to change.
-          </p>
-        </div>
-
-        <InfoBox>
-          <p className="text-gray-120">
-            <strong>Not every size is a role.</strong> Add one when a ramp is used more than
-            once; naming a single use is false abstraction. Genuinely one-off sizes stay
-            inline. There is deliberately no generic 14px &ldquo;meta&rdquo; role — those sites
-            looked uniform in a frequency count but split three ways on inspection.
-          </p>
-        </InfoBox>
+        <p className="text-sm text-gray-110">
+          Add a role when a ramp is used more than once; one-off sizes stay inline.
+        </p>
       </div>
     </ContentSection>
   ),
@@ -3049,17 +3000,10 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
         </div>
 
-        <InfoBox>
-          <p className="text-gray-120">
-            <strong>Icons are inline SVGs that paint with currentColor</strong>, so they inherit
-            the button&rsquo;s label color — no per-variant icon handling. The previous{" "}
-            <code className="font-mono text-sm bg-white px-1 rounded">&lt;img&gt;</code> approach
-            needed a CSS filter to tint, and the filter used across the site
-            (<code className="font-mono text-sm bg-white px-1 rounded">grayscale(1) brightness(0.4)</code>)
-            was a no-op on black artwork — icons rendered pure black while their labels were
-            gray-110.
-          </p>
-        </InfoBox>
+        <p className="text-sm text-gray-110">
+          Icons paint with <code className="font-mono text-xs bg-gray-10 px-1 rounded">currentColor</code>,
+          so they inherit the button&rsquo;s label color automatically — no per-variant handling.
+        </p>
       </div>
     </ContentSection>
   ),
