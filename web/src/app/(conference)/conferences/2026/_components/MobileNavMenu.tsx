@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { GRAY_110, BEIGE_30 } from "../../../_theme";
+import { GRAY_110, BEIGE_30, TYPE } from "../../../_theme";
 
 // Flat menu — past conferences + about uxhi on the same tier
 const ITEMS = [
@@ -62,7 +62,7 @@ export function MobileNavMenu() {
             href={href}
             target={href.startsWith("mailto:") ? undefined : "_blank"}
             rel={href.startsWith("mailto:") ? undefined : "noopener"}
-            className="flex items-center gap-[10px] px-4 py-3 text-[15px] font-normal no-underline transition-colors"
+            className={`flex items-center gap-[10px] px-4 py-3 ${TYPE.ui} font-normal no-underline transition-colors`}
             style={{ color: GRAY_110 }}
             onMouseEnter={e => (e.currentTarget.style.background = BEIGE_30)}
             onMouseLeave={e => (e.currentTarget.style.background = "")}

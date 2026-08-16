@@ -13,7 +13,7 @@ import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY } from "@/sanity/lib/queries";
-import { BEIGE_30, PURPLE, TEAL_60, GRAY_110 } from "../../_theme";
+import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE } from "../../_theme";
 
 const OG_TITLE = "UXHI Conference :: October 17, 2026";
 const OG_DESCRIPTION =
@@ -202,7 +202,7 @@ export default async function Conference2026Page() {
           href="https://givebutter.com/uxhi-con-26-tickets"
           target="_blank"
           rel="noopener"
-          className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+          className={`inline-flex items-center gap-2 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
           style={{ background: PURPLE }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -320,17 +320,17 @@ export default async function Conference2026Page() {
                 */}
                 <div className="flex flex-col gap-2 md:gap-3">
                   <h1
-                    className="font-semibold leading-[1.2] tracking-[-0.02em] text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px]"
+                    className={`font-semibold leading-[1.2] tracking-[-0.02em] ${TYPE.hero}`}
                   >
                     Hana Hou!
                   </h1>
                   <p
-                    className="font-semibold leading-[1.2] tracking-[-0.02em] text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px]"
+                    className={`font-semibold leading-[1.2] tracking-[-0.02em] ${TYPE.hero}`}
                   >
                     UXHICon is an annual event for Hawai&#699;i&rsquo;s design community to share stories and narratives that shape meaningful design.
                   </p>
                   <p
-                    className="font-normal leading-[1.35] tracking-[-0.02em] text-[16px] sm:text-[17px] md:text-[19px] lg:text-[22px] xl:text-[28px]"
+                    className={`font-normal leading-[1.35] tracking-[-0.02em] ${TYPE.lead}`}
                   >
                     Join us for an immersive day of knowledge-sharing, inspiration, and pilina.&nbsp;&#127802;
                   </p>
@@ -344,7 +344,7 @@ export default async function Conference2026Page() {
                     href="https://givebutter.com/uxhi-con-2026-sponsor"
                     target="_blank"
                     rel="noopener"
-                    className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                    className={`inline-flex items-center gap-2 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
                     style={{ background: TEAL_60, color: "#000" }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -355,7 +355,7 @@ export default async function Conference2026Page() {
                     href="https://givebutter.com/uxhi-con-26-tickets"
                     target="_blank"
                     rel="noopener"
-                    className="order-first md:order-none inline-flex items-center gap-2 h-[44px] px-5 rounded-full text-[15px] font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                    className={`order-first md:order-none inline-flex items-center gap-2 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal text-white no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
                     style={{ background: PURPLE }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -384,7 +384,7 @@ export default async function Conference2026Page() {
                   In Hawai&#699;i, mo&#699;olelo is a treasured practice. It preserves the culture of a special place and people, by shaping, carrying, and contextualizing what is shared. It is highly intentional.
                 </p>
                 <div
-                  className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
+                  className={`flex flex-col gap-[1.3em] font-normal leading-[1.4] ${TYPE.body}`}
                   style={{ color: GRAY_110 }}
                 >
                   <p>These ideas resonate deeply with design. Design shapes understanding. Every interaction reflects intentional choices, whether it&rsquo;s interactions created for our various audiences, insights distilled from research, or the communication of value to stakeholders and leaders. As a designer, you guide how people relate to systems, experiences, and even each other.</p>
@@ -443,7 +443,7 @@ export default async function Conference2026Page() {
                   </a>
                 </div>
                 <div
-                  className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
+                  className={`flex flex-col gap-[1.3em] font-normal leading-[1.4] ${TYPE.body}`}
                   style={{ color: GRAY_110 }}
                 >
                   <p>The <a href="https://sandboxhawaii.org/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: PURPLE }}>Entrepreneurs Sandbox</a> is a modern co-working event space in the heart of Kaka&#699;ako, with a collaborative conference space and classroom, and it&rsquo;s fully ADA accessible.</p>
@@ -453,7 +453,7 @@ export default async function Conference2026Page() {
                   href="https://maps.app.goo.gl/zBHS4EXnXWuhysEu5"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-2 w-fit mt-1 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                  className={`inline-flex items-center gap-2 w-fit mt-1 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
                   style={{ background: TEAL_60, color: "#000" }}
                 >
                   View on Map
@@ -475,7 +475,7 @@ export default async function Conference2026Page() {
                   />
                 </div>
                 <div
-                  className="flex flex-col gap-[1.3em] font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]"
+                  className={`flex flex-col gap-[1.3em] font-normal leading-[1.4] ${TYPE.body}`}
                   style={{ color: GRAY_110 }}
                 >
                   <p>We are a female-founded community organization whose mission is to connect and elevate the field of human-centered design for the people of Hawai&#699;i.</p>
@@ -485,7 +485,7 @@ export default async function Conference2026Page() {
                   href="https://uxhi.community"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-2 w-fit mt-1 h-[44px] px-5 rounded-full text-[15px] font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap"
+                  className={`inline-flex items-center gap-2 w-fit mt-1 h-[44px] px-5 rounded-full ${TYPE.ui} font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap`}
                   style={{ background: TEAL_60, color: "#000" }}
                 >
                   Join our community
@@ -541,7 +541,7 @@ export default async function Conference2026Page() {
               href="https://uxhi.community"
               target="_blank"
               rel="noopener"
-              className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+              className={`inline-flex items-center gap-[7px] ${TYPE.ui} font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap`}
               style={{ color: GRAY_110 }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -551,7 +551,7 @@ export default async function Conference2026Page() {
             </a>
             <a
               href="mailto:uxhiconference@gmail.com"
-              className="inline-flex items-center gap-[7px] text-[15px] font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap"
+              className={`inline-flex items-center gap-[7px] ${TYPE.ui} font-normal no-underline hover:opacity-70 transition-opacity whitespace-nowrap`}
               style={{ color: GRAY_110 }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { GRAY_110 } from "../../../_theme";
+import { GRAY_110, TYPE } from "../../../_theme";
 
 const GRAY_110_FILTER = "grayscale(1) brightness(0.4)";
 
@@ -27,7 +27,7 @@ export function PastConferencesMenu() {
   return (
     <details ref={ref} className="relative">
       <summary
-        className="inline-flex items-center gap-[7px] text-[15px] font-normal cursor-pointer select-none hover:opacity-70 transition-opacity"
+        className={`inline-flex items-center gap-[7px] ${TYPE.ui} font-normal cursor-pointer select-none hover:opacity-70 transition-opacity`}
         style={{ color: GRAY_110, listStyle: "none" }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -48,7 +48,7 @@ export function PastConferencesMenu() {
             href={href}
             target="_blank"
             rel="noopener"
-            className="block px-4 py-3 text-[15px] font-normal no-underline hover:bg-beige-30 transition-colors"
+            className={`block px-4 py-3 ${TYPE.ui} font-normal no-underline hover:bg-beige-30 transition-colors`}
             style={{ color: GRAY_110 }}
             onClick={() => { if (ref.current) ref.current.open = false; }}
           >

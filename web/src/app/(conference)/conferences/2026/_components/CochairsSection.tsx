@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_110 as GRAY, PURPLE } from "../../../_theme";
+import { GRAY_110 as GRAY, PURPLE, TYPE } from "../../../_theme";
 
 // Data comes from Sanity (conferenceCochair, year-scoped) — see queries.ts.
 export type Cochair = {
@@ -153,7 +153,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>Meet the Organizers</SectionHeading>
-      <p className="font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]" style={{ color: GRAY }}>
+      <p className={`font-normal leading-[1.4] ${TYPE.body}`} style={{ color: GRAY }}>
         The co-chairs and volunteers bringing UXHICon 2026 to life. Tap a card to learn more.
       </p>
 

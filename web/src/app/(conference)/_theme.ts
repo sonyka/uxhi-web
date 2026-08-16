@@ -30,3 +30,40 @@ export const BEIGE_40 = "var(--color-beige-40)"; // #EDE8DD — raised/active su
 /** Conference-specific additions — no parent equivalent exists. */
 export const CONF_INK = "var(--color-conf-ink)"; // #1A1A1A — headings on light
 export const CONF_CHROME = "var(--color-conf-chrome)"; // #0F0D0B — nav chrome
+
+// ── Type roles ────────────────────────────────────────────────────────
+//
+// Each role owns a full RESPONSIVE RAMP, not a single size. That is the
+// unit the design actually works in: `body` is one decision expressed
+// across three breakpoints, and it was copy-pasted into six files before
+// this existed.
+//
+// ⚠️ Do not "simplify" a ramp by flattening it to one value. `hero` drops
+//    from 26px to 22px at md on purpose — the column narrows there. Those
+//    reversals are design, not drift.
+//
+// Add a role when a size ramp is used more than once. Genuinely one-off
+// sizes (the QuoteCard refrain, the nav rail's 10px labels) stay inline —
+// naming a single use is false abstraction.
+export const TYPE = {
+  /** Oversized flowing headline — BenefitsHeadline only. */
+  display: "text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] xl:text-[56px]",
+  /** Page hero headlines. Intentionally dips at md (narrower column). */
+  hero: "text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px]",
+  /** Lead paragraph under a hero or section title. */
+  lead: "text-[16px] sm:text-[17px] md:text-[19px] lg:text-[22px] xl:text-[28px]",
+  /** Standard section intro / body copy. The most-used role. */
+  body: "text-[16px] lg:text-[17px] xl:text-[18px]",
+  /** Uppercase eyebrow label above a section title. */
+  eyebrow: "text-[13px] md:text-[14px]",
+  /** Interactive chrome — pill buttons (44px tall) and nav/menu links. */
+  ui: "text-[15px]",
+} as const;
+
+// Deliberately NOT a role: a generic 14px "meta". The 14px sites look uniform
+// in a frequency count but split three ways on inspection — some are ramp bases
+// with interleaved utilities (the sidebar's
+// `text-[14px] leading-[1.7] lg:text-[16px] … xl:text-[20px]`), some are card
+// subtitles, some are nav. Collapsing them would flatten real ramps. Same
+// reason CochairsSection's bio copy keeps its own 15px rather than using
+// `ui` — it shares a size with the buttons, not an intent.

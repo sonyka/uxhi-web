@@ -1,5 +1,5 @@
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_110 as GRAY, PURPLE } from "../../../_theme";
+import { GRAY_110 as GRAY, PURPLE, TYPE } from "../../../_theme";
 
 // Curated Instagram posts (Sanity: conferenceInstagramPost, year-scoped).
 // Editors hand-pick which conference posts appear — see the schema for why we
@@ -67,7 +67,7 @@ export function InstagramGrid({ posts }: { posts: InstagramPost[] }) {
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>Stay in the loop</SectionHeading>
-      <p className="font-normal leading-[1.4] text-[16px] lg:text-[17px] xl:text-[18px]" style={{ color: GRAY }}>
+      <p className={`font-normal leading-[1.4] ${TYPE.body}`} style={{ color: GRAY }}>
         Catch the latest news on ticket sales, speaker lineup, and behind-the-scenes stories on Instagram{" "}
         <a href={IG_PROFILE} target="_blank" rel="noopener" className="font-semibold underline" style={{ color: PURPLE }}>
           @uxhicommunity
