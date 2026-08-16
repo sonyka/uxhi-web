@@ -187,7 +187,6 @@ const navigationItems = [
   {
     category: "Conference",
     items: [
-      { id: "conference-model", label: "How Years Work" },
       { id: "conference-tokens", label: "2026 Theme Tokens" },
       { id: "conference-type", label: "2026 Type Roles" },
       { id: "conference-button", label: "2026 Button" },
@@ -2730,93 +2729,14 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
 
   // ── Conference ──────────────────────────────────────────────────────
-  "conference-model": (
-    <ContentSection
-      title="How Conference Years Work"
-      description="The conference site follows a different model from the rest of this design system. Read this before touching anything under app/(conference)/."
-      componentPath="docs/CONFERENCE-DESIGN-SYSTEM.md"
-    >
-      <div className="space-y-8">
-        <div className="rounded-xl border-2 border-purple-140 bg-purple-10 p-6">
-          <p className="text-purple-140 font-semibold mb-2">Every year is a full redesign.</p>
-          <p className="text-gray-120 leading-relaxed">
-            2024, 2025 and 2026 share no layout, type or mood, and future years will keep
-            diverging. <strong>The parent token system is the only thing that carries
-            across.</strong> That is exactly why hardcoded values matter here — they are the
-            one kind of drift a redesign cannot wash away.
-          </p>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">The Three Rules</h4>
-          <div className="space-y-3">
-            {[
-              {
-                n: "1",
-                t: "The palette is inherited; the design is not.",
-                d: "Invent layout, type and mood freely each year. Draw color from the parent ramps above. A year-specific color is allowed only when no parent ramp covers it — and it gets a named token, never an inline hex.",
-              },
-              {
-                n: "2",
-                t: "Each year owns its theme.",
-                d: "conferences/<year>/theme.ts holds that year's font, type roles and any year-specific tokens. 2027 does not import or extend 2026's theme.",
-              },
-              {
-                n: "3",
-                t: "Don't share components across years.",
-                d: "When next year's design is unknown, copying beats the wrong abstraction. The cross-year (conference)/ level holds only design-free things — currently just analytics and routing.",
-              },
-            ].map((r) => (
-              <div key={r.n} className="flex gap-4 rounded-xl bg-gray-10 p-5">
-                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-purple-140 text-white text-sm font-bold flex items-center justify-center">
-                  {r.n}
-                </span>
-                <div>
-                  <p className="font-semibold text-gray-140 mb-1">{r.t}</p>
-                  <p className="text-sm text-gray-110 leading-relaxed">{r.d}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Starting a New Year</h4>
-          <div className="rounded-xl bg-gray-10 p-5 font-mono text-sm text-gray-120 space-y-1">
-            <p>1. conferences/&lt;year&gt;/ — page.tsx, layout.tsx (font + background),</p>
-            <p className="pl-6">theme.ts (tokens + type roles), _components/</p>
-            <p>2. public/conferences/&lt;year&gt;/ — that year&rsquo;s assets</p>
-            <p>3. src/middleware.ts — CURRENT_CONFERENCE_YEAR = &quot;&lt;year&gt;&quot;</p>
-          </div>
-          <p className="text-sm text-gray-110 mt-3">
-            Copy from the previous year as a starting point if useful, then redesign freely.
-            Do not factor the shared parts back out — two years looking alike is a coincidence
-            of that moment, not a contract.
-          </p>
-        </div>
-
-        <InfoBox>
-          <p className="text-gray-120">
-            <strong>Enforced by ESLint:</strong> raw hex colors are an error under{" "}
-            <code className="font-mono text-sm bg-white px-1 rounded">app/(conference)/**</code>.
-            Alias the token instead, so the year keeps tracking the parent palette.
-          </p>
-        </InfoBox>
-      </div>
-    </ContentSection>
-  ),
-
   "conference-tokens": (
     <ContentSection
       title="2026 Theme Tokens"
-      description="What the 2026 conference draws from the parent palette, plus the one color it genuinely needed to add. These are var() references — the year never restates a parent value."
+      description="Each conference year has its own theme; this is 2026's. Every value is a var() reference to the parent palette above — the year adds no colors of its own."
       componentPath="src/app/(conference)/conferences/2026/theme.ts"
     >
       <div className="space-y-8">
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">
-            Inherited from the parent palette
-          </h4>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <ColorSwatch name="PURPLE → purple-140" value="#231769" textColor="text-white" />
             <ColorSwatch name="TEAL_90 → teal-90" value="#09C0D7" />
@@ -2830,17 +2750,6 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
         </div>
 
-        <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">
-            2026-specific tokens
-          </h4>
-          <div className="rounded-xl border border-gray-30 bg-gray-10 p-5">
-            <p className="text-gray-120 text-sm">
-              <strong className="text-gray-140">None</strong> — 2026 draws entirely from the
-              parent ramps.
-            </p>
-          </div>
-        </div>
       </div>
     </ContentSection>
   ),
