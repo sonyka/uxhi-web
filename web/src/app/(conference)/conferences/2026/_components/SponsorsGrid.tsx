@@ -1,5 +1,8 @@
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_110 as GRAY, PURPLE, TYPE } from "../theme";
+import { ConferenceButton } from "./ConferenceButton";
+import { HandHoldingHeartIcon } from "./icons";
+import { SPONSOR_URL } from "../constants";
 
 // Data comes from Sanity (conferenceSponsor, year-scoped) — see queries.ts.
 export type Sponsor = {
@@ -118,6 +121,17 @@ export function SponsorsGrid({ sponsors }: { sponsors: Sponsor[] }) {
           </div>
         ))}
       </div>
+
+      {/* Repeat of the hero CTA — this section is the natural place to convert a
+          prospective sponsor, and it sits far below the fold from the hero. */}
+      <ConferenceButton
+        href={SPONSOR_URL}
+        variant="secondary"
+        icon={HandHoldingHeartIcon}
+        className="w-fit mt-2"
+      >
+        Become a sponsor
+      </ConferenceButton>
     </div>
   );
 }
