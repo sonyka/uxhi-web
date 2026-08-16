@@ -26,7 +26,7 @@ export function PastConferencesMenu() {
   return (
     <details ref={ref} className="relative">
       <summary
-        className={`inline-flex items-center gap-[7px] ${TYPE.ui} font-normal cursor-pointer select-none hover:opacity-70 transition-opacity`}
+        className={`inline-flex items-center gap-[7px] ${TYPE.ui} cursor-pointer select-none hover:opacity-70 transition-opacity`}
         style={{ color: GRAY_110, listStyle: "none" }}
       >
         <ShakaIcon size={16} />
@@ -43,7 +43,7 @@ export function PastConferencesMenu() {
             href={href}
             target="_blank"
             rel="noopener"
-            className={`block px-4 py-3 ${TYPE.ui} font-normal no-underline hover:bg-beige-30 transition-colors`}
+            className={`block px-4 py-3 ${TYPE.ui} no-underline hover:bg-beige-30 transition-colors`}
             style={{ color: GRAY_110 }}
             onClick={() => { if (ref.current) ref.current.open = false; }}
           >

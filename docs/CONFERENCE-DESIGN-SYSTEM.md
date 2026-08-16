@@ -301,6 +301,33 @@ drift with dev-server chunks, so compare the color buckets, not the raw element 
       390px and 1440px. (Scope to `<main>` — the Next dev overlay adds elements outside it
       and produces phantom deltas.)
 
+### Phase 2b — Roles own the whole treatment ✅ *(done 2026-08-15)*
+
+Phase 2 put the *size ramp* in the role and left weight/leading/tracking at the call site.
+Spotted from the design-system page, where `TYPE.eyebrow` rendered as plain regular-weight
+grey while the real thing is bold, uppercase, purple and letter-spaced — the role was only
+half the decision.
+
+Predictably, the un-owned half had already drifted:
+
+| Property | Was | Now |
+|---|---|---|
+| `eyebrow` tracking | `0.08em` ×2, `0.06em` ×1 | **`0.08em`** |
+| `body` leading | `1.4` ×6, `1.5` ×3 | **`1.4`** |
+| `lead` leading | `1.4` ×1, `1.35` ×1 | **`1.4`** |
+
+Roles now carry size + weight + leading + tracking + case. **Only color stays at the call
+site** — it varies by context and belongs to the token axis, not the type axis. Applying a
+role is a single class, and most call sites collapsed to `className={TYPE.body}`.
+
+**Verified:** 7 elements converged (3 eyebrows — `SponsorsGrid` renders one per tier — plus
+3 body paragraphs and 1 lead). Every other bucket in a full weight/leading/tracking tally
+over `<main>` was unchanged.
+
+**The general lesson:** a half-owned abstraction drifts in exactly the half it doesn't own.
+Phase 2 proved it for sizes; Phase 2b proved it again one level up. If a role doesn't fully
+describe the decision, the remainder will diverge.
+
 **Not extracted, on purpose:** a generic 14px `meta` role. Those sites look uniform in a
 frequency count but split three ways on inspection — ramp bases with interleaved utilities
 (`text-[14px] leading-[1.7] lg:text-[16px] … xl:text-[20px]`), card subtitles, and nav.

@@ -100,14 +100,14 @@ export function SponsorsGrid({ sponsors }: { sponsors: Sponsor[] }) {
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>UXHI Conference Sponsors</SectionHeading>
-      <p className={`font-normal leading-[1.4] ${TYPE.body}`} style={{ color: GRAY }}>
+      <p className={TYPE.body} style={{ color: GRAY }}>
         We couldn&rsquo;t tell this mo&#699;olelo alone. Big mahalo to our incredible partners and sponsors for investing in our diverse community — your support fuels the creativity and innovation that bring together the brightest minds and the most exciting ideas in tech.
       </p>
 
       <div className="flex flex-col gap-6 md:gap-8 mt-1">
         {groups.map(({ tier, items }) => (
           <div key={tier} className="flex flex-col gap-3 md:gap-4">
-            <h3 className={`font-bold uppercase tracking-[0.06em] ${TYPE.eyebrow}`} style={{ color: PURPLE }}>
+            <h3 className={TYPE.eyebrow} style={{ color: PURPLE }}>
               {TIER_LABELS[tier]}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">

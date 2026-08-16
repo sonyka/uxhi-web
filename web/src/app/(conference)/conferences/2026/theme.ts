@@ -61,17 +61,20 @@ export const BEIGE_40 = "var(--color-beige-40)"; // #EDE8DD — raised/active su
 // naming a single use is false abstraction.
 export const TYPE = {
   /** Oversized flowing headline — BenefitsHeadline only. */
-  display: "text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] xl:text-[56px]",
+  display:
+    "text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] xl:text-[56px] font-normal leading-[1.1] tracking-[-0.02em]",
   /** Page hero headlines. Intentionally dips at md (narrower column). */
-  hero: "text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px]",
+  hero:
+    "text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px] font-semibold leading-[1.2] tracking-[-0.02em]",
   /** Lead paragraph under a hero or section title. */
-  lead: "text-[16px] sm:text-[17px] md:text-[19px] lg:text-[22px] xl:text-[28px]",
+  lead:
+    "text-[16px] sm:text-[17px] md:text-[19px] lg:text-[22px] xl:text-[28px] font-normal leading-[1.4] tracking-[-0.02em]",
   /** Standard section intro / body copy. The most-used role. */
-  body: "text-[16px] lg:text-[17px] xl:text-[18px]",
+  body: "text-[16px] lg:text-[17px] xl:text-[18px] font-normal leading-[1.4]",
   /** Uppercase eyebrow label above a section title. */
-  eyebrow: "text-[13px] md:text-[14px]",
+  eyebrow: "text-[13px] md:text-[14px] font-bold uppercase tracking-[0.08em]",
   /** Interactive chrome — pill buttons (44px tall) and nav/menu links. */
-  ui: "text-[15px]",
+  ui: "text-[15px] font-normal",
 } as const;
 
 // Deliberately NOT a role: a generic 14px "meta". The 14px sites look uniform

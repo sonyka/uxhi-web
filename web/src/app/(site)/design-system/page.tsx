@@ -2883,11 +2883,14 @@ const contentComponents: Record<string, React.ReactNode> = {
         </div>
 
         <div className="rounded-xl border border-gray-30 bg-gray-10 p-5">
-          <p className="text-gray-140 font-semibold mb-1 text-sm">A role is a size ramp — nothing else.</p>
+          <p className="text-gray-140 font-semibold mb-1 text-sm">
+            A role is a complete typographic decision.
+          </p>
           <p className="text-sm text-gray-110 leading-relaxed">
-            Weight, leading, tracking, case and color are applied at the call site. Each
-            sample below renders exactly as it appears on the live 2026 site, so the
-            &ldquo;+ at call site&rdquo; line is the part you have to type yourself.
+            Size ramp, weight, leading, tracking and case all live in the role, so applying it
+            is a single class. <strong>Only color stays at the call site</strong> — it varies by
+            context and belongs to the token axis, not the type axis. Each sample below renders
+            exactly as it appears on the live 2026 site.
           </p>
         </div>
 
@@ -2897,7 +2900,6 @@ const contentComponents: Record<string, React.ReactNode> = {
               role: "display",
               note: "Oversized flowing headline",
               sample: "Stay ahead. Build connections.",
-              companion: "font-normal leading-[1.1] tracking-[-0.02em]",
               color: "text-teal-90",
               colorNote: "TEAL_90",
             },
@@ -2905,7 +2907,6 @@ const contentComponents: Record<string, React.ReactNode> = {
               role: "hero",
               note: "Page hero headlines — dips at md",
               sample: "UXHICon is an annual event for Hawai‘i’s design community.",
-              companion: "font-semibold leading-[1.2] tracking-[-0.02em]",
               color: "text-[color:var(--foreground)]",
               colorNote: "inherits — no color set",
             },
@@ -2913,7 +2914,6 @@ const contentComponents: Record<string, React.ReactNode> = {
               role: "lead",
               note: "Lead paragraph under a hero or title",
               sample: "An immersive day of knowledge-sharing, inspiration, and pilina.",
-              companion: "font-normal leading-[1.4] tracking-[-0.02em]",
               color: "text-gray-110",
               colorNote: "GRAY_110, or inherits in the hero",
             },
@@ -2921,7 +2921,6 @@ const contentComponents: Record<string, React.ReactNode> = {
               role: "body",
               note: "Section intro / body copy — the most-used role",
               sample: "Got questions? We’ve got answers — everything you need to know about UXHICon.",
-              companion: "font-normal leading-[1.4]",
               color: "text-gray-110",
               colorNote: "GRAY_110",
             },
@@ -2929,7 +2928,6 @@ const contentComponents: Record<string, React.ReactNode> = {
               role: "eyebrow",
               note: "Uppercase eyebrow label",
               sample: "UXHICon · Saturday, October 17, 2026",
-              companion: "font-bold uppercase tracking-[0.08em]",
               color: "text-purple-140",
               colorNote: "PURPLE",
             },
@@ -2937,11 +2935,10 @@ const contentComponents: Record<string, React.ReactNode> = {
               role: "ui",
               note: "Pill buttons and nav/menu links",
               sample: "Past conferences",
-              companion: "font-normal",
               color: "text-gray-110",
               colorNote: "GRAY_110",
             },
-          ] as const).map(({ role, note, sample, companion, color, colorNote }) => (
+          ] as const).map(({ role, note, sample, color, colorNote }) => (
             <div key={role} className="rounded-xl border border-gray-30 overflow-hidden">
               <div className="flex flex-wrap items-baseline justify-between gap-2 bg-gray-10 px-5 py-3">
                 <code className="font-mono text-sm font-semibold text-purple-140">TYPE.{role}</code>
@@ -2949,44 +2946,35 @@ const contentComponents: Record<string, React.ReactNode> = {
               </div>
               <div className="px-5 py-5">
                 <ConfType>
-                  <p className={`${CONF_2026_TYPE[role]} ${companion} ${color}`}>{sample}</p>
+                  <p className={`${CONF_2026_TYPE[role]} ${color}`}>{sample}</p>
                 </ConfType>
               </div>
               <div className="px-5 pb-4 space-y-1">
                 <p className="font-mono text-[11px] text-gray-100 break-all">
                   <span className="text-gray-80">role:</span> {CONF_2026_TYPE[role]}
                 </p>
-                <p className="font-mono text-[11px] text-gray-100 break-all">
-                  <span className="text-gray-80">+ at call site:</span> {companion}
-                  <span className="text-gray-80"> · {colorNote}</span>
+                <p className="font-mono text-[11px] text-gray-100">
+                  <span className="text-gray-80">+ color at call site:</span> {colorNote}
                 </p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="rounded-xl border-2 border-orange-110 bg-orange-10 p-5">
-          <p className="text-gray-140 font-semibold mb-2">Known drift in the call-site half</p>
-          <p className="text-sm text-gray-120 leading-relaxed mb-3">
-            Because these companion classes are re-typed at each site rather than owned by the
-            role, two have already diverged:
-          </p>
-          <ul className="text-sm text-gray-120 space-y-1.5 list-disc pl-5">
-            <li>
-              <code className="font-mono text-xs bg-white px-1 rounded">eyebrow</code> tracking is{" "}
-              <code className="font-mono text-xs bg-white px-1 rounded">0.08em</code> in ProgramSection (×2)
-              but <code className="font-mono text-xs bg-white px-1 rounded">0.06em</code> in SponsorsGrid (×1).
-            </li>
-            <li>
-              <code className="font-mono text-xs bg-white px-1 rounded">body</code> leading is{" "}
-              <code className="font-mono text-xs bg-white px-1 rounded">1.4</code> (×6) and{" "}
-              <code className="font-mono text-xs bg-white px-1 rounded">1.5</code> (×3).
-            </li>
-          </ul>
-          <p className="text-sm text-gray-120 leading-relaxed mt-3">
-            This is the same class of problem Phase 2 fixed for sizes, one level up. Folding
-            weight/leading/tracking into the roles would close it — at the cost of changing
-            pixels at the drifted sites.
+        <div className="rounded-xl border-2 border-teal-90 bg-teal-10 p-5">
+          <p className="text-gray-140 font-semibold mb-2">Why the role owns all of it</p>
+          <p className="text-sm text-gray-120 leading-relaxed">
+            These companion classes were once re-typed at every call site, and three had
+            already diverged: eyebrow tracking ran{" "}
+            <code className="font-mono text-xs bg-white px-1 rounded">0.08em</code> in two places
+            and <code className="font-mono text-xs bg-white px-1 rounded">0.06em</code> in a
+            third; body leading ran{" "}
+            <code className="font-mono text-xs bg-white px-1 rounded">1.4</code> and{" "}
+            <code className="font-mono text-xs bg-white px-1 rounded">1.5</code>; lead leading
+            ran <code className="font-mono text-xs bg-white px-1 rounded">1.35</code> and{" "}
+            <code className="font-mono text-xs bg-white px-1 rounded">1.4</code>. Folding them
+            into the roles converged 7 elements onto 0.08em and 1.4 and makes future drift
+            impossible — there is only one place left to change.
           </p>
         </div>
 

@@ -47,7 +47,7 @@ export function MobileNavMenu() {
             href={href}
             target={href.startsWith("mailto:") ? undefined : "_blank"}
             rel={href.startsWith("mailto:") ? undefined : "noopener"}
-            className={`flex items-center gap-[10px] px-4 py-3 ${TYPE.ui} font-normal no-underline transition-colors`}
+            className={`flex items-center gap-[10px] px-4 py-3 ${TYPE.ui} no-underline transition-colors`}
             style={{ color: GRAY_110 }}
             onMouseEnter={e => (e.currentTarget.style.background = BEIGE_30)}
             onMouseLeave={e => (e.currentTarget.style.background = "")}

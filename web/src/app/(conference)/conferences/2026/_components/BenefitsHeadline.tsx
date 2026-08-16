@@ -13,7 +13,7 @@ const HEADLINES = [
 export function BenefitsHeadline() {
   return (
     <p
-      className={`max-w-full md:max-w-[75%] font-normal leading-[1.1] tracking-[-0.02em] ${TYPE.display}`}
+      className={`max-w-full md:max-w-[75%] ${TYPE.display}`}
       style={{ color: TEAL_90 }}
     >
       {HEADLINES.join(" ")}

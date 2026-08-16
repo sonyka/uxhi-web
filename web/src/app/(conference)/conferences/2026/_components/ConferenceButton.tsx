@@ -28,7 +28,7 @@ interface ConferenceButtonProps {
 }
 
 const BASE =
-  "inline-flex items-center gap-2 h-[44px] px-5 rounded-full font-normal no-underline hover:opacity-80 transition-opacity whitespace-nowrap";
+  "inline-flex items-center gap-2 h-[44px] px-5 rounded-full no-underline hover:opacity-80 transition-opacity whitespace-nowrap";
 
 // Icons inherit the label color via currentColor, so the variant only has to
 // set text color — no per-variant icon handling (the primary variant used to
