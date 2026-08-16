@@ -61,6 +61,31 @@ export const metadata: Metadata = {
 // Imported from the conference theme, which references the parent design
 // system rather than restating it. See docs/CONFERENCE-DESIGN-SYSTEM.md.
 
+// ── Wide-viewport cap ─────────────────────────────────────────────────
+// Above 1280 the layout used to give every extra pixel to the content
+// column: the left rail held its 508px while its SHARE of the card fell
+// from 41% (at 1280, the size this was drawn for) to 26% at 2000px, and
+// body copy stretched to 87 characters a line at 1920 and 127 at 2560.
+//
+// 1440 is the design's native scale — the 508/244/200 rail values are
+// Figma-derived for it. Analytics: every desktop visitor is at 1470+, so
+// the cap engages for all of them, and the smallest (1470) sees only a
+// 15px gutter. Raising this number is safe — the rail holds a constant
+// 41% share (see the aside below), so proportions don't drift with it.
+//
+// Applied to the header, the card and the footer so all three align.
+// Their full-bleed parents keep the cream background edge to edge.
+const CAP = "xl:max-w-[1440px] xl:mx-auto xl:w-full";
+
+// Running prose carries `max-w-[62ch]` so line length stays ~75 characters
+// however wide the column gets. Images, section art and the sponsor/cochair/
+// Instagram grids deliberately keep the full column width.
+//
+// ⚠️ 62, not 72. One `ch` is the width of the "0" glyph, and in Bricolage that
+//    is ~1.22x the average lowercase glyph — so `72ch` renders ~88 characters,
+//    and at this cap it resolves wider than the column and does nothing at all.
+//    Re-measure before changing it; the number is font-specific.
+
 // Section anchor nav items — shared by the desktop header nav and the mobile strip.
 const NAV_ITEMS = [
   ["Moʻolelo", "#moolelo"],
@@ -170,7 +195,10 @@ export default async function Conference2026Page() {
     <div className="w-full h-dvh flex flex-col overflow-hidden" style={{ background: BEIGE_30 }}>
 
       {/* ── HEADER ─────────────────────────────────────────────────── */}
-      <header className="h-16 shrink-0 flex items-center justify-between px-6 z-10">
+      {/* The <header> stays full-bleed so the cream background runs edge to edge;
+          the inner wrapper carries CAP so the logo/nav/CTA align to the card. */}
+      <header className="h-16 shrink-0 px-6 z-10">
+      <div className={`h-full flex items-center justify-between ${CAP}`}>
 
         {/* Tapping the logo scrolls the content panel back to the top (the window
             itself doesn't scroll — the panel does — so a hash anchor is used). */}
@@ -184,7 +212,7 @@ export default async function Conference2026Page() {
         </a>
 
         {/* Section anchor nav — smooth-scrolls within the scroll panel (desktop only). */}
-        <nav className="hidden lg:flex items-center gap-5 text-[14px] font-medium" aria-label="Section navigation">
+        <nav className={`hidden lg:flex items-center gap-5 ${TYPE.nav}`} aria-label="Section navigation">
           {NAV_ITEMS.map(([label, href]) => (
             <a
               key={href}
@@ -201,11 +229,12 @@ export default async function Conference2026Page() {
         <ConferenceButton href={TICKETS_URL} icon={ShakaIcon}>
           Get tickets
         </ConferenceButton>
+      </div>
       </header>
 
       {/* Mobile section nav — horizontally scrollable strip (hidden on desktop). */}
       <nav
-        className="lg:hidden shrink-0 flex items-center gap-4 overflow-x-auto whitespace-nowrap px-6 pb-2 text-[14px] font-medium [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className={`lg:hidden shrink-0 flex items-center gap-4 overflow-x-auto whitespace-nowrap px-6 pb-2 ${TYPE.nav} [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`}
         aria-label="Section navigation"
       >
         {NAV_ITEMS.map(([label, href]) => (
@@ -228,15 +257,19 @@ export default async function Conference2026Page() {
       <main className="flex-1 min-h-0 flex flex-col px-6">
 
         {/* White rounded card */}
-        <div className="flex-1 min-h-0 bg-white rounded-3xl overflow-hidden flex flex-col md:flex-row">
+        <div className={`flex-1 min-h-0 bg-white rounded-3xl overflow-hidden flex flex-col md:flex-row ${CAP}`}>
 
           {/* ── SIDEBAR ───────────────────────────────────────────────
               Figma widths:
                 xl → 508px   lg → 400px   md → 340px
               At sm: full-width, order-2 (below right panel)
           ──────────────────────────────────────────────────────────── */}
+          {/* At xl the rail holds a constant SHARE of the card (41% — its ratio at
+              1280) instead of a fixed 508px, so it doesn't shrink relative to the
+              content as the card grows toward the cap. min-width pins 1280 to the
+              exact previous value; max-width is 41% of the capped card. */}
           <aside
-            className="hidden md:block relative shrink-0 overflow-hidden md:w-[340px] lg:w-[420px] xl:w-[508px]"
+            className="hidden md:block relative shrink-0 overflow-hidden md:w-[340px] lg:w-[420px] xl:w-[41%] xl:min-w-[508px] xl:max-w-[576px]"
             aria-label="Conference sidebar"
           >
             {/* Vertical photo ticker — desktop only (absolute-positioned) */}
@@ -248,7 +281,12 @@ export default async function Conference2026Page() {
                 md → left=24 bottom=24 w=156
             */}
             {/* gap-10 = 40px between badge and text block, matching Figma */}
-            <div className="flex flex-col gap-10 absolute bottom-6 left-6 md:w-[156px] lg:w-[196px] xl:w-[244px]">
+            {/* At xl this absorbs all of the rail's growth — the photo ticker stays
+                fixed at 200px because its infinite scroll uses a hardcoded keyframe
+                distance (9 x 272px) tied to item height, and re-cropping the photos
+                to widen it buys nothing. 264px = left gutter 24 + gap 16 + ticker 200
+                + right gutter 24, so this is exactly 244px when the rail is 508. */}
+            <div className="flex flex-col gap-10 absolute bottom-6 left-6 md:w-[156px] lg:w-[196px] xl:w-[clamp(244px,calc(100%-264px),310px)]">
               <SidebarInfo />
             </div>
           </aside>
@@ -316,7 +354,7 @@ export default async function Conference2026Page() {
                     UXHICon is an annual event for Hawai&#699;i&rsquo;s design community to share stories and narratives that shape meaningful design.
                   </p>
                   <p
-                    className={TYPE.lead}
+                    className={`${TYPE.lead} max-w-[62ch]`}
                   >
                     Join us for an immersive day of knowledge-sharing, inspiration, and pilina.&nbsp;&#127802;
                   </p>
@@ -354,7 +392,7 @@ export default async function Conference2026Page() {
                   In Hawai&#699;i, mo&#699;olelo is a treasured practice. It preserves the culture of a special place and people, by shaping, carrying, and contextualizing what is shared. It is highly intentional.
                 </p>
                 <div
-                  className={`flex flex-col gap-[1.3em] ${TYPE.body}`}
+                  className={`flex flex-col gap-[1.3em] ${TYPE.body} max-w-[62ch]`}
                   style={{ color: GRAY_110 }}
                 >
                   <p>These ideas resonate deeply with design. Design shapes understanding. Every interaction reflects intentional choices, whether it&rsquo;s interactions created for our various audiences, insights distilled from research, or the communication of value to stakeholders and leaders. As a designer, you guide how people relate to systems, experiences, and even each other.</p>
@@ -413,7 +451,7 @@ export default async function Conference2026Page() {
                   </a>
                 </div>
                 <div
-                  className={`flex flex-col gap-[1.3em] ${TYPE.body}`}
+                  className={`flex flex-col gap-[1.3em] ${TYPE.body} max-w-[62ch]`}
                   style={{ color: GRAY_110 }}
                 >
                   <p>The <a href="https://sandboxhawaii.org/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: PURPLE }}>Entrepreneurs Sandbox</a> is a modern co-working event space in the heart of Kaka&#699;ako, with a collaborative conference space and classroom, and it&rsquo;s fully ADA accessible.</p>
@@ -443,7 +481,7 @@ export default async function Conference2026Page() {
                   />
                 </div>
                 <div
-                  className={`flex flex-col gap-[1.3em] ${TYPE.body}`}
+                  className={`flex flex-col gap-[1.3em] ${TYPE.body} max-w-[62ch]`}
                   style={{ color: GRAY_110 }}
                 >
                   <p>We are a female-founded community organization whose mission is to connect and elevate the field of human-centered design for the people of Hawai&#699;i.</p>
@@ -495,7 +533,10 @@ export default async function Conference2026Page() {
       */}
       {/* Mobile: keep the original top gap (pt-3) but trim the bottom (pb-1) so the
           scroll card gains height without crowding the content above. Desktop: full 64px, centered. */}
-      <footer className="shrink-0 flex items-center justify-between px-6 pt-3 pb-1 md:h-16 md:py-0">
+      {/* Bar itself is full-bleed (cream runs edge to edge); its contents carry
+          CAP so they stay aligned with the header and card above. */}
+      <footer className="shrink-0 px-6 pt-3 pb-1 md:h-16 md:py-0">
+      <div className={`h-full flex items-center justify-between ${CAP}`}>
         <nav className="flex items-center gap-5" aria-label="Site links">
           {/* Mobile: white pill button → flat dropdown (past conferences + about uxhi) */}
           <MobileNavMenu />
@@ -535,6 +576,7 @@ export default async function Conference2026Page() {
             <LinkedInIcon size={24} />
           </a>
         </div>
+      </div>
       </footer>
 
     </div>

@@ -72,7 +72,7 @@ export function FaqSection() {
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>FAQ</SectionHeading>
       <p
-        className={TYPE.body}
+        className={`${TYPE.body} max-w-[62ch]`}
         style={{ color: GRAY_110 }}
       >
         Got questions? We&rsquo;ve got answers — here&rsquo;s everything you need to know

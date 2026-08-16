@@ -18,15 +18,15 @@ export function ProgramSection() {
           UXHICon &bull; Saturday, October 17, 2026
         </p>
         <SectionHeading>Share, Learn, &amp; Connect</SectionHeading>
-        <p className={TYPE.lead} style={{ color: GRAY }}>
+        <p className={`${TYPE.lead} max-w-[62ch]`} style={{ color: GRAY }}>
           UXHICon is where Hawai&#699;i&rsquo;s design community gathers to exchange the knowledge, craft, and
           mo&#699;olelo we each carry.
         </p>
-        <p className={TYPE.body} style={{ color: GRAY }}>
+        <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
           Spend the day in culturally grounded keynotes, panels, and hands-on workshops &mdash; led by industry
           experts and local voices &mdash; and leave with new pilina.
         </p>
-        <p className={TYPE.body} style={{ color: GRAY }}>
+        <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
           The speaker lineup and full agenda will be announced soon.
         </p>
       </div>
@@ -47,7 +47,7 @@ export function ProgramSection() {
 
         <SectionHeading>Pre UXHICon Mixer</SectionHeading>
 
-        <p className={TYPE.body} style={{ color: GRAY }}>
+        <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
           For the first time, kick off UXHICon with an evening of stories, drinks, and connection, co-hosted by
           Stories Out Loud. Experience the art of storytelling through shared mo&#699;olelo, creative perspectives,
           and meaningful conversation. Come gather, mingle, and get inspired by the stories that connect us.

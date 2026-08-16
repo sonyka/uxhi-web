@@ -67,7 +67,7 @@ export function InstagramGrid({ posts }: { posts: InstagramPost[] }) {
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>Stay in the loop</SectionHeading>
-      <p className={TYPE.body} style={{ color: GRAY }}>
+      <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
         Catch the latest news on ticket sales, speaker lineup, and behind-the-scenes stories on Instagram{" "}
         <a href={IG_PROFILE} target="_blank" rel="noopener" className="font-semibold underline" style={{ color: PURPLE }}>
           @uxhicommunity

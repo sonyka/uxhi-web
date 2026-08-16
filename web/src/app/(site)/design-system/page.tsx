@@ -2890,8 +2890,15 @@ const contentComponents: Record<string, React.ReactNode> = {
               colorNote: "PURPLE",
             },
             {
+              role: "nav",
+              note: "Header section-anchor nav",
+              sample: "Moʻolelo · UXHICon · The Sandbox",
+              color: "text-purple-140",
+              colorNote: "PURPLE",
+            },
+            {
               role: "ui",
-              note: "Pill buttons and nav/menu links",
+              note: "Pill buttons, footer links, menu items",
               sample: "Past conferences",
               color: "text-gray-110",
               colorNote: "GRAY_110",

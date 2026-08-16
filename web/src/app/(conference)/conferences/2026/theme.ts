@@ -73,8 +73,10 @@ export const TYPE = {
   body: "text-[16px] lg:text-[17px] xl:text-[18px] font-normal leading-[1.4]",
   /** Uppercase eyebrow label above a section title. */
   eyebrow: "text-[13px] md:text-[14px] font-bold uppercase tracking-[0.08em]",
-  /** Interactive chrome — pill buttons (44px tall) and nav/menu links. */
-  ui: "text-[15px] font-normal",
+  /** Header section-anchor nav — desktop row and the mobile scroll strip. */
+  nav: "text-[15px] font-medium",
+  /** Interactive chrome — pill buttons, footer links, menu items. */
+  ui: "text-[16px] font-medium",
 } as const;
 
 // Deliberately NOT a role: a generic 14px "meta". The 14px sites look uniform

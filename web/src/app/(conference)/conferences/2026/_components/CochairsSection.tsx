@@ -155,7 +155,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>Meet the Organizers</SectionHeading>
-      <p className={TYPE.body} style={{ color: GRAY }}>
+      <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
         The co-chairs and volunteers bringing UXHICon 2026 to life. Tap a card to learn more.
       </p>
 
