@@ -383,9 +383,12 @@ factor the shared parts back out — see principle 3.
       Type sizes are *not* guarded — 55 legitimate one-offs would make it constant noise.
 - [x] **Fixed `npm run lint`**, which had been OOM-ing on vendored bundles before linting
       anything. A guard is worthless if the linter never runs.
-- [ ] Add a **Conference** section to `/design-system` documenting the 2026 theme tokens,
-      the type roles, and — most usefully — the per-year pattern itself
-- [ ] Extend the two `CLAUDE.md` rules to cover `app/(conference)/` explicitly
+- [x] **Conference section on `/design-system`** *(`d14c1cc`)* — four entries: How Years Work
+      (the per-year model + three rules), 2026 Theme Tokens, 2026 Type Roles, 2026 Button.
+      The type samples and button demo **import from the 2026 theme**, so the docs cannot
+      drift from the code. Titles are year-scoped: a future year gets its own section rather
+      than an edit to this one.
+- [x] **Extended the `CLAUDE.md` design rules** to cover `app/(conference)/` explicitly
 
 ---
 
