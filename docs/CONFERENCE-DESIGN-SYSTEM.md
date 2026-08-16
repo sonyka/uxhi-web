@@ -122,12 +122,12 @@ Good news, no action needed:
 | `_components/QuoteCard.tsx` | 2 | 7 |
 | `_components/BenefitsHeadline.tsx` | 1 | 5 |
 | `_components/SectionHeading.tsx` | 0 | 4 |
-| `_components/ConferenceNav.tsx` | 3 | 4 |
+| `_components/ConferenceNav.tsx` (deleted Phase 3 — dead code) | 3 | 4 |
 | `_components/InstagramGrid.tsx` | 2 | 4 |
 | `_components/PastConferencesMenu.tsx` | 2 | 2 |
 | `_components/MobileNavMenu.tsx` | 2 | 1 |
 | `layout.tsx` | 1 | 0 |
-| `CountdownTimer.tsx`, `LogoBadge.tsx`, `PhotoTicker.tsx` | 0 | 0 |
+| `LogoBadge.tsx`, `PhotoTicker.tsx` (+ `CountdownTimer.tsx`, deleted Phase 3) | 0 | 0 |
 
 `page.tsx` alone is 46% of the total. It is the single highest-leverage file.
 
@@ -150,10 +150,11 @@ What the theme actually needs to add:
 /* 1. Font */
 --font-conf: var(--font-bricolage), ui-sans-serif, sans-serif;
 
-/* 2. The two genuinely new colors */
+/* 2. The genuinely new colors */
 --color-conf-ink:    #1A1A1A;  /* headings on light backgrounds */
---color-conf-chrome: #0F0D0B;  /* nav rail / mobile menu */
-/* (#EFEAE0 intentionally omitted — collapse into beige-40) */
+/* (#EFEAE0 intentionally omitted — collapsed into beige-40 in Phase 1) */
+/* (conf-chrome #0F0D0B was added in Phase 1 and removed in Phase 3 — its only
+    consumer, ConferenceNav, turned out to be dead code) */
 
 /* 3. A real type scale — replaces 22 ad-hoc sizes with 9 steps */
 --font-size-conf-2xs:     10px;
@@ -279,12 +280,34 @@ The remaining 55 inline sizes are genuine one-offs (the nav rail's 10px labels, 
 QuoteCard refrain, `SectionHeading`'s own ramp — already centralised in its component).
 **Add a role when a ramp is used more than once; naming a single use is false abstraction.**
 
-### Phase 3 — Component consolidation
-- [ ] Give the conference `SectionHeading` size variants off the new scale, mirroring the
-      shared component's variant API so the two feel like siblings
-- [ ] Audit the 14 `_components/` for anything that duplicates `components/ui/`
-      (`LogoImage`, `ArrowLinkButton` and the icon set are the likely overlaps)
-- [ ] Promote genuinely shared pieces up to `components/ui/`; leave year-specific ones put
+### Phase 3 — Component consolidation *(partly done 2026-08-15 — `0d7dfde`)*
+- [x] **Delete dead components** — `ConferenceNav`, `CountdownTimer`. Both from `363eeb4`
+      (the original coming-soon page), neither imported: 189 lines that never rendered.
+      Dropped `--color-conf-chrome` with them — `ConferenceNav` was its only consumer.
+- [x] **Extract `ConferenceButton`** from six call sites sharing one class string, a
+      hand-written `<img>`, and an eslint-disable each. Two variants (primary purple/white
+      with inverted icon, secondary teal/black) + `iconPosition`. Lives at
+      `(conference)/_components/` since nothing about it is year-specific, so Phase 4 won't
+      need to move it. Verified identical on every property including rendered width to 0.01px.
+- [x] **Add `2026/constants.ts`** — the ticket URL had been written out at three call sites.
+- [ ] Icon consolidation — 16 inline `<img>` across 9 SVGs vs. `components/ui/icons/`.
+      Real payoff: the `grayscale(1) brightness(0.4)` tint hack exists in three places
+      *because* they're `<img>`; React SVG icons using `currentColor` would remove it and let
+      icons inherit the Phase 1 tokens.
+- [ ] Conference `SectionHeading` size variants mirroring the parent's variant API
+
+**Examined and deliberately declined:**
+
+- **`LogoImage`** — looks like a duplicate of the sponsor logo treatment, isn't. The shared
+  component uses `next/image` with `opacity-50/70` and self-hover; the sponsor grid uses
+  `<img>` with `group-hover` (the *card* is the hover target), Sanity CDN sizing, and
+  brightness/contrast tuning. Merging means bolting a group-hover variant onto the shared
+  component and dropping `next/image` — regression risk to a live grid for little gain.
+- **`SectionEyebrow`** — shared is `text-xl`/`purple-120`; conference is 13–14px/`purple-140`
+  with wider tracking. That's a variant at best, and low value.
+
+Both are the same trap as the 14px `meta` role in Phase 2: **shared appearance is not shared
+purpose.** Worth re-reading before consolidating anything else.
 
 ### Phase 4 — Make 2027 a skin *(do before 2027 work starts, not during)*
 - [ ] Move year-agnostic components from `2026/_components/` to `(conference)/_components/`
