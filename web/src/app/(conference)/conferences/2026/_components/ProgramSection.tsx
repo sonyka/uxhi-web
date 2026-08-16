@@ -1,8 +1,8 @@
 import { SectionHeading } from "./SectionHeading";
-import { PURPLE, YELLOW_80 as GOLD, GRAY_110 as GRAY, TYPE } from "../../../_theme";
-import { ConferenceButton } from "../../../_components/ConferenceButton";
+import { PURPLE, YELLOW_80 as GOLD, GRAY_110 as GRAY, TYPE } from "../theme";
+import { ConferenceButton } from "./ConferenceButton";
 import { TICKETS_URL } from "../constants";
-import { ShakaIcon } from "../../../_components/icons";
+import { ShakaIcon } from "./icons";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with

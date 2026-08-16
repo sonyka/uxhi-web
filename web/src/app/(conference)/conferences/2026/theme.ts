@@ -1,8 +1,14 @@
-// ── Conference theme ──────────────────────────────────────────────────
+// ── 2026 conference theme ─────────────────────────────────────────────
 //
-// The conference site is a THEME LAYER over the parent UXHI design system,
-// not a separate design system. Every value below either references a parent
-// token or is a genuinely conference-specific addition.
+// THIS FILE BELONGS TO 2026 ONLY. Each conference year is a new design over
+// the same parent UXHI design system — 2024, 2025 and 2026 share no layout,
+// type or mood. 2027 gets its own conferences/2027/theme.ts; it does not
+// extend or import this one. Nothing is shared between years except the
+// parent tokens in app/globals.css.
+//
+// So this is a THEME LAYER over the parent design system, not a design system
+// of its own. Every value below either references a parent token or is a
+// genuinely 2026-specific addition.
 //
 // ⛔ Never restate a parent value as a raw hex literal here or in components.
 //    Before this module existed, eight separate files each declared their own

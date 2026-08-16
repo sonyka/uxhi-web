@@ -1,4 +1,4 @@
-import { TEAL_90, TYPE } from "../../../_theme";
+import { TEAL_90, TYPE } from "../theme";
 
 // Oversized flowing headline of conference benefits (conf-hero style), closing
 // on the event name. Wraps within ~75% of the column.

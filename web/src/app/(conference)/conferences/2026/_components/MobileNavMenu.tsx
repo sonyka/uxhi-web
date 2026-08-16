@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { GRAY_110, BEIGE_30, TYPE } from "../../../_theme";
-import { ShakaIcon, StarIcon, EmailHeartIcon, AngleDownIcon, CursorClickIcon } from "../../../_components/icons";
+import { GRAY_110, BEIGE_30, TYPE } from "../theme";
+import { ShakaIcon, StarIcon, EmailHeartIcon, AngleDownIcon, CursorClickIcon } from "./icons";
 
 // Flat menu — past conferences + about uxhi on the same tier
 const ITEMS = [

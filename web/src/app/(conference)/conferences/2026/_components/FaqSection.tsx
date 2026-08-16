@@ -12,7 +12,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_80 as ICON_GRAY, GRAY_110, PURPLE, TYPE } from "../../../_theme";
+import { GRAY_80 as ICON_GRAY, GRAY_110, PURPLE, TYPE } from "../theme";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {

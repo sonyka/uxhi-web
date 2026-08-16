@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_110 as GRAY, PURPLE, TYPE } from "../../../_theme";
-import { LinkedInIcon } from "../../../_components/icons";
+import { GRAY_110 as GRAY, PURPLE, TYPE } from "../theme";
+import { LinkedInIcon } from "./icons";
 
 // Data comes from Sanity (conferenceCochair, year-scoped) — see queries.ts.
 export type Cochair = {

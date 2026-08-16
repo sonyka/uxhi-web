@@ -1,6 +1,6 @@
 import type { ComponentType } from "react";
 import { cn } from "@/lib/utils";
-import { PURPLE, TEAL_60, TYPE } from "../_theme";
+import { PURPLE, TEAL_60, TYPE } from "../theme";
 
 // The conference pill CTA. Six call sites shared this exact class string plus a
 // hand-written <img> and eslint-disable each; the spec ("44px height · 15px ·

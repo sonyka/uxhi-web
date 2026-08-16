@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { GRAY_110, TYPE } from "../../../_theme";
-import { ShakaIcon, AngleDownIcon } from "../../../_components/icons";
+import { GRAY_110, TYPE } from "../theme";
+import { ShakaIcon, AngleDownIcon } from "./icons";
 
 const ITEMS = [
   { label: "2025 — UXperience 'Aina", href: "/conferences/2025/" },

@@ -1,5 +1,5 @@
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_110 as GRAY, PURPLE, TYPE } from "../../../_theme";
+import { GRAY_110 as GRAY, PURPLE, TYPE } from "../theme";
 
 // Curated Instagram posts (Sanity: conferenceInstagramPost, year-scoped).
 // Editors hand-pick which conference posts appear — see the schema for why we

@@ -1,4 +1,4 @@
-import { PURPLE, GRAY_100 as GRAY } from "../../../_theme";
+import { PURPLE, GRAY_100 as GRAY } from "../theme";
 
 // UXHI's shaka brand logo, sits atop the refrain card in place of a quotation
 // mark. Two-color brand artwork (purple + yellow), so rendered as-is, untinted.

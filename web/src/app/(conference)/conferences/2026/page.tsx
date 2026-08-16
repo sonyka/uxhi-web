@@ -13,10 +13,10 @@ import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY } from "@/sanity/lib/queries";
-import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE } from "../../_theme";
-import { ConferenceButton } from "../../_components/ConferenceButton";
+import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE } from "./theme";
+import { ConferenceButton } from "./_components/ConferenceButton";
 import { TICKETS_URL, SPONSOR_URL } from "./constants";
-import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, LinkedInIcon, InstagramIcon, StarIcon, EmailHeartIcon } from "../../_components/icons";
+import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, LinkedInIcon, InstagramIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
 
 const OG_TITLE = "UXHI Conference :: October 17, 2026";
 const OG_DESCRIPTION =

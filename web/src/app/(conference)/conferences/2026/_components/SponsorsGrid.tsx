@@ -1,5 +1,5 @@
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_110 as GRAY, PURPLE, TYPE } from "../../../_theme";
+import { GRAY_110 as GRAY, PURPLE, TYPE } from "../theme";
 
 // Data comes from Sanity (conferenceSponsor, year-scoped) — see queries.ts.
 export type Sponsor = {
