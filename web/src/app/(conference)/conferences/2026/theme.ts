@@ -61,6 +61,18 @@ export const BEIGE_40 = "var(--color-beige-40)"; // #EDE8DD — raised/active su
 // Add a role when a size ramp is used more than once. Genuinely one-off
 // sizes (the QuoteCard refrain, the nav rail's 10px labels) stay inline —
 // naming a single use is false abstraction.
+/**
+ * Inline hyperlink treatment. A dotted rule in a lighter grey rather than a
+ * solid underline in the link colour — the line marks the link without
+ * competing with the label, which matters on the teal and beige panels where
+ * a solid purple rule reads as heavy.
+ *
+ * Pair with `style={{ color: PURPLE }}`; the decoration colour is set here so
+ * it stays lighter than whatever colour the label takes.
+ */
+export const LINK =
+  "underline decoration-dotted decoration-gray-80 underline-offset-2 hover:opacity-70 transition-opacity";
+
 export const TYPE = {
   /** Oversized flowing headline — BenefitsHeadline only. */
   display:

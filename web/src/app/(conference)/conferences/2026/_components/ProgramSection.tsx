@@ -10,6 +10,7 @@ import {
   GRAY_110 as GRAY,
   GRAY_100,
   GRAY_80,
+  LINK,
   TYPE,
 } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
@@ -79,7 +80,7 @@ export function ProgramSection() {
               href="https://ourspacehawaii.org"
               target="_blank"
               rel="noopener"
-              className="underline underline-offset-2 hover:opacity-70 transition-opacity"
+              className={LINK}
               style={{ color: PURPLE }}
             >
               OurSpace
@@ -121,7 +122,7 @@ export function ProgramSection() {
                   href="https://www.google.com/maps/search/?api=1&query=1052+Waimanu+St%2C+Honolulu%2C+HI+96814"
                   target="_blank"
                   rel="noopener"
-                  className="font-bold underline underline-offset-2 hover:opacity-70 transition-opacity"
+                  className={cn(LINK, "font-bold")}
                   style={{ color: PURPLE }}
                 >
                   OurSpace

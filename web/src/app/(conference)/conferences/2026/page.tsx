@@ -13,7 +13,7 @@ import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY } from "@/sanity/lib/queries";
-import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE } from "./theme";
+import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
 import { TICKETS_URL, SPONSOR_URL } from "./constants";
 import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, LinkedInIcon, InstagramIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
@@ -454,7 +454,7 @@ export default async function Conference2026Page() {
                   className={`flex flex-col gap-[1.3em] ${TYPE.body} max-w-[62ch]`}
                   style={{ color: GRAY_110 }}
                 >
-                  <p>The <a href="https://sandboxhawaii.org/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: PURPLE }}>Entrepreneurs Sandbox</a> is a modern co-working event space in the heart of Kaka&#699;ako, with a collaborative conference space and classroom, and it&rsquo;s fully ADA accessible.</p>
+                  <p>The <a href="https://sandboxhawaii.org/" target="_blank" rel="noopener" className={LINK} style={{ color: PURPLE }}>Entrepreneurs Sandbox</a> is a modern co-working event space in the heart of Kaka&#699;ako, with a collaborative conference space and classroom, and it&rsquo;s fully ADA accessible.</p>
                   <p>Metered street parking is available nearby, and paid parking is available at the adjacent lot (entrance on Keawe Street). Please note: parking passes will not be provided this year.</p>
                 </div>
                 <ConferenceButton

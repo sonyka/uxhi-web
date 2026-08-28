@@ -191,6 +191,7 @@ const navigationItems = [
     items: [
       { id: "conference-tokens", label: "2026 Theme Tokens" },
       { id: "conference-type", label: "2026 Type Roles" },
+      { id: "conference-link", label: "2026 Inline Link" },
       { id: "conference-button", label: "2026 Button" },
     ],
   },
@@ -2925,6 +2926,40 @@ const contentComponents: Record<string, React.ReactNode> = {
           ))}
         </div>
 
+      </div>
+    </ContentSection>
+  ),
+
+  "conference-link": (
+    <ContentSection
+      title="2026 Inline Link"
+      description="Hyperlink treatment for the 2026 site. A dotted rule in gray-80 rather than a solid underline in the link colour — the line marks the link without competing with the label, which matters on the teal and beige panels where a solid purple rule reads as heavy."
+      componentPath="src/app/(conference)/conferences/2026/theme.ts"
+    >
+      <div className="space-y-4">
+        <div className="rounded-xl bg-beige-30 p-6 text-gray-110">
+          For the first time, kick off UXHICon with an evening of stories, drinks, and connection
+          at{" "}
+          <a
+            href="#"
+            className="underline decoration-dotted decoration-gray-80 underline-offset-2 hover:opacity-70 transition-opacity"
+            style={{ color: "var(--color-purple-140)" }}
+          >
+            OurSpace
+          </a>
+          .
+        </div>
+        <p className="text-sm text-gray-110">
+          Exported as <span className="font-mono text-xs bg-gray-20 px-1 rounded">LINK</span> from
+          the year&rsquo;s theme. Pair with{" "}
+          <span className="font-mono text-xs bg-gray-20 px-1 rounded">
+            style=&#123;&#123; color: PURPLE &#125;&#125;
+          </span>{" "}
+          — the decoration colour is set in the token so it stays lighter than whatever colour the
+          label takes. Compose with{" "}
+          <span className="font-mono text-xs bg-gray-20 px-1 rounded">cn(LINK, &quot;font-bold&quot;)</span>{" "}
+          when a link needs extra weight.
+        </p>
       </div>
     </ContentSection>
   ),

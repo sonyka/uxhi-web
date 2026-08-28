@@ -12,7 +12,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_80 as ICON_GRAY, GRAY_110, PURPLE, TYPE } from "../theme";
+import { GRAY_80 as ICON_GRAY, GRAY_110, PURPLE, LINK, TYPE } from "../theme";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
@@ -54,7 +54,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         For general inquiries, please{" "}
         <a
           href="mailto:uxhiconference@gmail.com"
-          className="underline underline-offset-2 hover:opacity-70 transition-opacity"
+          className={LINK}
           style={{ color: PURPLE }}
         >
           send us an email

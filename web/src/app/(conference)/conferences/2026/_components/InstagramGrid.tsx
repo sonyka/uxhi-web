@@ -1,5 +1,6 @@
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_110 as GRAY, PURPLE, TYPE } from "../theme";
+import { cn } from "@/lib/utils";
+import { GRAY_110 as GRAY, PURPLE, LINK, TYPE } from "../theme";
 
 // Curated Instagram posts (Sanity: conferenceInstagramPost, year-scoped).
 // Editors hand-pick which conference posts appear — see the schema for why we
@@ -69,11 +70,11 @@ export function InstagramGrid({ posts }: { posts: InstagramPost[] }) {
       <SectionHeading>Stay in the loop</SectionHeading>
       <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
         Catch the latest news on ticket sales, speaker lineup, and behind-the-scenes stories on Instagram{" "}
-        <a href={IG_PROFILE} target="_blank" rel="noopener" className="font-semibold underline" style={{ color: PURPLE }}>
+        <a href={IG_PROFILE} target="_blank" rel="noopener" className={cn(LINK, "font-semibold")} style={{ color: PURPLE }}>
           @uxhicommunity
         </a>{" "}
         and LinkedIn{" "}
-        <a href={LINKEDIN_PROFILE} target="_blank" rel="noopener" className="font-semibold underline" style={{ color: PURPLE }}>
+        <a href={LINKEDIN_PROFILE} target="_blank" rel="noopener" className={cn(LINK, "font-semibold")} style={{ color: PURPLE }}>
           @uxhi
         </a>
         .
