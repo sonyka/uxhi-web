@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { SectionHeading } from "./SectionHeading";
 import {
   PURPLE,
@@ -161,26 +162,23 @@ export function ProgramSection() {
             </span>
           </div>
 
-          <div className="flex-1 flex flex-col gap-1">
-            <p className={`${TYPE.ui} font-bold`} style={{ color: PURPLE }}>
-              The speaker lineup and full agenda will be announced soon.
-            </p>
-            <p className={TYPE.fine} style={{ color: GRAY_100 }}>
-              Last year: 37 speakers across 12 sessions.
-            </p>
-          </div>
+          {/* `body` rather than `lead`: lead tops out at 28px, which wrapped
+              this to three lines in the ~360px the avatars leave it. */}
+          <p className={cn(TYPE.body, "flex-1 font-bold")} style={{ color: PURPLE }}>
+            The speaker lineup and full agenda will be announced soon.
+          </p>
         </div>
 
         {/* Sits below rather than beside: the conference content column is
             only ~620px, and a third column squeezed the headline to 85px. */}
         <ConferenceButton
-          href="https://www.instagram.com/uxhicommunity/"
+          href="https://www.linkedin.com/company/uxhi/"
           variant="outline"
           icon={ArrowRightIcon}
           iconPosition="trailing"
           className="w-fit"
         >
-          Follow @uxhicommunity
+          Follow @uxhi on LinkedIn
         </ConferenceButton>
       </div>
     </div>
