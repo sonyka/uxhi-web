@@ -19,8 +19,9 @@ Nothing below is blocked. Ordered by what happens next.
 |---|---|---|
 | ~~1.1~~ | ~~Write `web/scripts/migrate-notion-directory.mjs`~~ ✅ done | Guards verified by test: unknown values halt, drift from `constants.ts` halts, dry run writes nothing |
 | ~~1.2~~ | ~~Run the dry run~~ ✅ **63/63 map cleanly, zero unknowns** | Findings below |
-| 1.3 | **Import as drafts → review in Studio → publish** ← next | `--commit`, then `--publish` |
-| 1.4 | **Delete the 6 old records — only after the 63 have landed** | Order matters, so the directory is never empty. `--include-placeholders` |
+| ~~1.3a~~ | ~~Import as drafts~~ ✅ **63/63, zero failures** (2026-08-28) | Verified: 60 photos, 63 islands, 62 focus, 37 open-to-work — all match the Notion analysis |
+| 1.3b | **Review the 63 drafts in Studio, then publish** ← next | Drafts are invisible on the site until published |
+| 1.4 | **Delete the 6 old records — only after the 63 are published** | Order matters, so the directory is never empty. `node scripts/purge-directory-tests.mjs --commit --include-placeholders` |
 | 1.5 | Verify `/find-ux-pro` on staging | Filters, island facets, search, pagination, drawer |
 
 ## 2. Your calls — none blocking
