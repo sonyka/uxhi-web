@@ -214,7 +214,7 @@ export default async function EventsPage() {
             <SectionIcon src="/images/icons/icon-uxhicon.svg" alt="" />
           </MotionDiv>
           <MotionDiv>
-            <SectionHeading size="lg" color="white" className="mb-8 text-center">
+            <SectionHeading size="lg" color="white" className="mb-6 text-center">
               Conference
             </SectionHeading>
           </MotionDiv>

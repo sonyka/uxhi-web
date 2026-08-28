@@ -202,7 +202,7 @@ export default async function FindUXProPage() {
               <SectionIcon src="/images/icons/icon-directory.svg" alt="Directory" />
             </MotionDiv>
             <MotionDiv>
-              <SectionHeading color="white" className="mb-8">
+              <SectionHeading color="white" className="mb-6">
                 Join our member directory!
               </SectionHeading>
             </MotionDiv>

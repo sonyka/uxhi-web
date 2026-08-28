@@ -126,7 +126,7 @@ export default async function JoinPage() {
       <section className="pt-12 pb-20 px-6 bg-white">
         <ScrollReveal stagger className="max-w-[900px] mx-auto text-center">
           <MotionDiv>
-            <SectionHeading className="mb-8">
+            <SectionHeading className="mb-6">
               Who are we?
             </SectionHeading>
           </MotionDiv>

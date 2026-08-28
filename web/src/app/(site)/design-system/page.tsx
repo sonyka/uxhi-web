@@ -835,6 +835,34 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
         </div>
         <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Spacing Convention</h4>
+          <div className="p-6 bg-beige-30 rounded-xl text-sm text-gray-110 space-y-3">
+            <p>
+              <strong className="text-gray-130">24px sits between a heading and the content beneath it</strong>{" "}
+              — site-wide, in every instance.
+            </p>
+            <p>
+              It is applied one of two ways depending on the layout:{" "}
+              <span className="font-mono text-xs bg-gray-20 px-1 rounded">mb-6</span> on the heading
+              in normal flow, or{" "}
+              <span className="font-mono text-xs bg-gray-20 px-1 rounded">gap-6</span> on a flex
+              parent (which is how every page hero is built). Both resolve to the same 24px.
+            </p>
+            <p>
+              <strong className="text-gray-130">Do not add a default margin to the component.</strong>{" "}
+              The seven page heroes space via their parent&rsquo;s{" "}
+              <span className="font-mono text-xs bg-gray-20 px-1 rounded">gap-6</span>, so a built-in{" "}
+              <span className="font-mono text-xs bg-gray-20 px-1 rounded">mb-6</span> would stack on
+              top of it and double their spacing to 48px.
+            </p>
+            <p>
+              Larger gaps (<span className="font-mono text-xs bg-gray-20 px-1 rounded">mb-12</span>)
+              are reserved for headings that sit above a grid or card row, where more air is
+              deliberate. A heading that ends its block takes no margin at all.
+            </p>
+          </div>
+        </div>
+        <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Color Variants</h4>
           <div className="space-y-4">
             <div className="p-4 bg-beige-30 rounded-xl">
