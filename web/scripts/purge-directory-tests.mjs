@@ -43,11 +43,18 @@ const client = createClient({
   useCdn: false,
 });
 
-// Real member profiles — NEVER deleted. Listed for documentation only.
-const KEEP = [
-  { _id: "1ae609c1-2d31-4599-98fe-a10b9a7585b2", name: "Sony Atmadjaja" },
-  { _id: "6d76b8bb-dc6c-49b8-94f2-d70db34a8518", name: "Gustavo Ambrozio" },
+// Pre-migration profiles, superseded by the Notion import (2026-08-28).
+// Notion is the source of truth: Sony's profile now comes from Notion under a
+// `directory-notion-*` id, and Gustavo was confirmed not to be a member.
+// Deleted together with the placeholders, behind the same flag and guard.
+const PRE_MIGRATION = [
+  { _id: "1ae609c1-2d31-4599-98fe-a10b9a7585b2", name: "Sony Atmadjaja", why: "superseded by the Notion-imported record" },
+  { _id: "6d76b8bb-dc6c-49b8-94f2-d70db34a8518", name: "Gustavo Ambrozio", why: "not in Notion; confirmed not a member" },
 ];
+
+// Nothing is protected unconditionally any more — the guard below (imported
+// records must already be live) is what prevents emptying the directory.
+const KEEP = [];
 
 // Unambiguous test junk — fake names, keyboard mashes, form-test submissions.
 const DELETE = [
@@ -75,7 +82,13 @@ const PLACEHOLDERS = [
 
 const commit = process.argv.includes("--commit");
 const includePlaceholders = process.argv.includes("--include-placeholders");
-const targets = includePlaceholders ? [...DELETE, ...PLACEHOLDERS] : DELETE;
+const targets = includePlaceholders
+  ? [...DELETE, ...PLACEHOLDERS, ...PRE_MIGRATION]
+  : DELETE;
+
+// Removing the placeholders and pre-migration records is only safe once the
+// Notion import is live — otherwise the directory would be left empty.
+const MIN_IMPORTED = 60;
 
 async function main() {
   console.log(`\n${commit ? "🗑  PURGE" : "🔍 DRY RUN"} — directoryMember cleanup\n`);
@@ -92,9 +105,28 @@ async function main() {
     process.exit(1);
   }
 
-  console.log("── Keeping (real members) ──");
-  for (const k of KEEP) {
-    console.log(`  ✓ ${k.name}${liveIds.has(k._id) ? "" : "   ⚠️  NOT FOUND IN DATASET"}`);
+  // Guard: never strip the directory back to empty.
+  if (includePlaceholders) {
+    const imported = await client.fetch(
+      'count(*[_type == "directoryMember" && _id match "directory-notion-*" && !(_id in path("drafts.**"))])'
+    );
+    console.log(`Published Notion-imported members: ${imported}`);
+    if (imported < MIN_IMPORTED) {
+      console.error(
+        `\n❌ Abort: only ${imported} imported members are published (need ≥ ${MIN_IMPORTED}).\n` +
+          `   Removing the placeholders now would leave the directory near-empty.\n` +
+          `   Run the import first:  node scripts/migrate-notion-directory.mjs --commit && … --promote\n`
+      );
+      process.exit(1);
+    }
+    console.log("  ✓ Import is live — safe to remove the pre-migration records\n");
+  }
+
+  if (KEEP.length) {
+    console.log("── Keeping ──");
+    for (const k of KEEP) {
+      console.log(`  ✓ ${k.name}${liveIds.has(k._id) ? "" : "   ⚠️  NOT FOUND IN DATASET"}`);
+    }
   }
 
   console.log(`\n── Deleting (${targets.length}) ──`);
@@ -109,8 +141,9 @@ async function main() {
   }
 
   if (!includePlaceholders) {
-    console.log(`\n── Left in place (${PLACEHOLDERS.length}) ──`);
-    for (const p of PLACEHOLDERS) console.log(`  · ${p.name} — ${p.why}`);
+    const held = [...PLACEHOLDERS, ...PRE_MIGRATION];
+    console.log(`\n── Left in place (${held.length}) ──`);
+    for (const p of held) console.log(`  · ${p.name} — ${p.why}`);
     console.log("  Re-run with --include-placeholders to remove these too.");
   }
 

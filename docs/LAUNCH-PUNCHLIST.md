@@ -120,27 +120,28 @@ Done:
       against all 63 records: **zero unmapped values**. Notion's full wholesale lists
       (43 industries / 26 focuses, including unused ones) archived for later.
 
+- [x] **Imported + published** — 2026-08-28. All 63 Notion members live on staging
+      (`Showing 63 of 63 members`); island filter verified. The 6 pre-migration records
+      (4 placeholders + 2 legacy profiles) are deleted. Dataset holds exactly the 63 Notion rows.
+
 Open — **all work stays on `staging`; `uxhi.community` is not ready for this yet**:
 
-- [ ] **Write + dry-run** `web/scripts/migrate-notion-directory.mjs`, then import as drafts.
-      Treat it as a re-runnable sync, not a one-shot: unknown Notion values must halt the run.
-- [ ] **Delete the 6 remaining old records** — the 4 `Placeholder Member` rows plus the 2
-      pre-existing profiles — *after* the 63 have landed, so the directory is never empty:
-      `node scripts/purge-directory-tests.mjs --commit --include-placeholders`
-- [ ] **Trevor Husseini's focus** — his only Notion focus is `Software Development`, so he
-      imports untagged. Leave it and nudge him, or add a `software-development` option?
-- [ ] **Consent check** — 63 real people's names, photos and LinkedIn profiles move to a new
-      public home on a new domain. Confirm the original Notion submission covers that.
+- [ ] **Member data questions** — per-person issues to fix *in Notion*, then re-sync. 3 members
+      have no headshot, Trevor Husseini has no focus tags, 26 of 63 have no job title, and
+      Peggy Seymour's island looks wrong (Big Island vs Kāʻanapali/Maui). Full list in
+      [notion-directory-migration.md](notion-directory-migration.md) §4.
+- [ ] **Consent check** — 63 real people's names, photos and LinkedIn profiles are now on a new
+      public home. Confirm the original Notion submission covers that.
 - [ ] **Decide: retire Notion, or keep it as the editing surface** with periodic re-syncs?
-- [ ] *(housekeeping)* ~10 orphaned image assets from the purge; 3 members have no headshot
-      (Shayla Cabalo-Cable, Vincent Brathwaite, Sharif Matar).
+      The importer is idempotent, so recurring sync is supported either way.
+- [ ] *(housekeeping)* Orphaned image assets from the purge + pre-migration deletions.
 
-🚨 **Launch gate (parked until the domain is ready):** no `Placeholder Member` rows may reach
-production. Before pointing `uxhi.community`, confirm
-`*[_type=="directoryMember" && name match "Placeholder*"]` returns zero.
+🚨 **Launch gate (parked until the domain is ready):** re-check before pointing
+`uxhi.community` that `*[_type=="directoryMember" && name match "Placeholder*"]` returns zero.
+It does today — the gate exists in case placeholders are ever re-seeded for staging.
 
-Full detail and next steps: **[notion-directory-migration.md](notion-directory-migration.md)**
-— open items are listed at the top of that doc.
+Full detail: **[notion-directory-migration.md](notion-directory-migration.md)** — open items
+are at the top of that doc.
 
 ---
 

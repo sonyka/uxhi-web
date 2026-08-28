@@ -19,16 +19,20 @@ Nothing below is blocked. Ordered by what happens next.
 |---|---|---|
 | ~~1.1~~ | ~~Write `web/scripts/migrate-notion-directory.mjs`~~ ✅ done | Guards verified by test: unknown values halt, drift from `constants.ts` halts, dry run writes nothing |
 | ~~1.2~~ | ~~Run the dry run~~ ✅ **63/63 map cleanly, zero unknowns** | Findings below |
-| ~~1.3a~~ | ~~Import as drafts~~ ✅ **63/63, zero failures** (2026-08-28) | Verified: 60 photos, 63 islands, 62 focus, 37 open-to-work — all match the Notion analysis |
-| 1.3b | **Review the 63 drafts in Studio, then publish** ← next | Drafts are invisible on the site until published |
-| 1.4 | **Delete the 6 old records — only after the 63 are published** | Order matters, so the directory is never empty. `node scripts/purge-directory-tests.mjs --commit --include-placeholders` |
-| 1.5 | Verify `/find-ux-pro` on staging | Filters, island facets, search, pagination, drawer |
+| ~~1.3a~~ | ~~Import as drafts~~ ✅ **63/63, zero failures** | Verified against the Notion analysis |
+| ~~1.3b~~ | ~~Publish~~ ✅ **63 published, 0 drafts left** | Via `--promote`, which reuses the uploaded photos |
+| ~~1.4~~ | ~~Delete the 6 pre-migration records~~ ✅ **done** | Guarded: aborts unless ≥60 imported members are already live |
+| ~~1.5~~ | ~~Verify on staging~~ ✅ **"Showing 63 of 63 members"** | Island filter works (Maui → 2, deselect → 63); no placeholders |
+
+**The migration is complete.** `/find-ux-pro` on staging now serves the 63 real members from
+Notion. Remaining work is the member-data questions below and the launch gate.
 
 ## 2. Your calls — none blocking
 
+Per-member data questions are in section 4.
+
 | Item | Detail |
 |---|---|
-| **Trevor Husseini's focus** | His only Notion focus is `Software Development`, which isn't a UX discipline, so he imports untagged. Leave it and nudge him, or add a `software-development` option? |
 | **Consent** | 63 real people's names, photos and LinkedIn profiles move to a new public home on a new domain. Confirm the original Notion submission covers that — **before** it goes live, not after. |
 | **Retire Notion, or keep syncing?** | Source-of-truth rule implies Notion stays the editing surface and the script becomes a recurring sync. If instead it's retired, redirect it at `uxhi.community/find-ux-pro`. Affects nothing until launch. |
 
@@ -39,14 +43,46 @@ Nothing below is blocked. Ordered by what happens next.
 | 🚨 **Launch gate: no placeholders in production** | `Placeholder Member 1–4` must be gone before the domain is pointed. Check `*[_type=="directoryMember" && name match "Placeholder*"]` returns zero. Covered by 1.4 — this is the backstop if 1.4 slips. |
 | **Production deploy** | Nothing here goes to Netlify/`main` until you say so. All work and review happen on `staging` → `web-henna-five-45.vercel.app`. |
 
-## 4. Housekeeping — low priority
+## 4. 🙋 Member data — questions for you to revisit (not urgent)
+
+Everything below imported fine and the site renders correctly. These are **data quality
+questions about specific people**, all to be fixed **in Notion** and then re-synced with
+`node scripts/migrate-notion-directory.mjs --commit && … --promote`.
+
+### Needs a person contacted
+
+| Member | Issue |
+|---|---|
+| **Shayla Cabalo-Cable** | No headshot — shows an initials tile |
+| **Vincent Brathwaite** | No headshot — shows an initials tile |
+| **Sharif Matar** | No headshot — shows an initials tile |
+| **Trevor Husseini** | Only focus is `Software Development`, which isn't a UX discipline, so he has **no focus tags at all**. Ask him to pick real ones, or add a `software-development` option. |
+| **Jamaal Pascall** | No LinkedIn — the only member without one |
+
+### Likely data errors in Notion
+
+| Member | Issue |
+|---|---|
+| **Margaret ‘Peggy’ Seymour** | Island column says **Big Island**, but Location says **Kāʻanapali**, which is on **Maui**. Imported as Big Island (the column wins), so she does *not* appear under the Maui filter. Almost certainly wrong. |
+| **Kadi Lee** | Location reads "Los **Angles**, California" — typo, imported as-is into `city` |
+| **Kamalei Logan** | Location is just "Utah" — a state, so `city` now reads "Utah" |
+| **Rebecca Mungall** | Location "Kauaʻi, Hawaii" names the island, not a city — so she has an island but no city |
+| **Vincent Brathwaite** | Same shape: Location "Oahu, Hawaii" → island only, no city |
+
+### Sparse but probably fine
+
+| Issue | Count | Note |
+|---|---|---|
+| **No job title** | **26 of 63** | Renders as a blank line under the name. The single biggest gap — worth a nudge campaign if the directory is meant to help recruiters. Includes Sony Atmadjaja, Ryan Kawailani Ozawa, Lani Teshima, Mike Strauss, David Sharek, Philip Mok and 20 others. |
+| **No portfolio/website** | 25 of 63 | Optional field, fine to leave |
+| **Mainland members** | 5 | Chris Ota (San Francisco), Kadi Lee (Los Angeles), Kamalei Logan (Utah), Lani Teshima (San Francisco), Melissa Wong (Seattle) — confirm they should appear in a Hawaiʻi directory. They're tagged `Mainland / International`, which is a deliberate option, so presumably yes. |
+
+### Housekeeping
 
 | Item | Detail |
 |---|---|
-| **~10 orphaned image assets** | Left behind by the 2026-08-27 test purge. Harmless against the 10GB tier; cleanable in Studio. Two of them are shared with records still live, so delete deliberately, not by sweep. |
-| **3 members have no headshot** | Shayla Cabalo-Cable, Vincent Brathwaite, Sharif Matar. They import fine (initials tile) and will show as failing `required()` in Studio — a ready-made worklist for chasing photos. |
-| **Same 3 have no island** | Inferable from their Location strings; the import handles it. Worth fixing at the Notion end so the source is clean. |
-| **Notion data errors to fix at source** | `Margaret ‘Peggy’ Seymour` — Island says "Big Island" but Location says "Ka’anapali", which is on **Maui**. Imported as-is (the column wins) and flagged by the script. Also `Kadi Lee` — "Los Angles" typo, and `Kamalei Logan` — Location is "Utah", a state not a city. |
+| **Orphaned image assets** | The test purge and the pre-migration deletions left unreferenced assets. Harmless against the 10GB tier; cleanable in Studio if you want the space. |
+| **Sony Atmadjaja appears once** | The old hand-made record was deleted; the profile now comes from Notion like everyone else. Job title is blank there — worth filling in. |
 
 ---
 
@@ -64,6 +100,8 @@ drawer, self-serve submit form. This is a **data migration only**.
 - ✅ **Schema widened and shipped** — `directoryMember.ts`, `constants.ts` and the
   design-system page moved together. Build passes; all four option lists verified in lockstep.
 - ✅ **Gustavo Ambrozio resolved** — not a member; deleted with the rest, not re-imported.
+- ✅ **Imported, published and verified (2026-08-28)** — 63 members live on staging. The 6
+  pre-migration records are gone; the dataset holds exactly the 63 Notion rows.
 
 ---
 

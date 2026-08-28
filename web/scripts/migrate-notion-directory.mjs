@@ -25,6 +25,12 @@
  *   node scripts/migrate-notion-directory.mjs --commit         # write as DRAFTS
  *   node scripts/migrate-notion-directory.mjs --publish        # write as PUBLISHED
  *   node scripts/migrate-notion-directory.mjs --limit 3 --commit   # try a few first
+ *   node scripts/migrate-notion-directory.mjs --promote        # publish existing drafts
+ *
+ * --promote is the normal way to publish after a --commit run. It moves the
+ * drafts that are already in the dataset to their published ids and does NOT
+ * touch Notion — so photos are not re-downloaded and re-uploaded, which would
+ * orphan the assets already attached. Use --publish only for a fresh sync.
  */
 
 import { createClient } from "@sanity/client";
@@ -194,6 +200,7 @@ const deApostrophe = (s) => (s || "").toLowerCase().replace(/[ʻʼ‘’']/g, ""
 const argv = process.argv.slice(2);
 const has = (f) => argv.includes(f);
 const publish = has("--publish");
+const promote = has("--promote");
 const commit = has("--commit") || publish;
 const verbose = has("--verbose");
 const limitArg = argv.indexOf("--limit");
@@ -418,8 +425,63 @@ async function downloadHeadshot(s3Url, rowId) {
   return { buf, contentType, filename };
 }
 
+function sanityClient() {
+  const envPath = resolve(process.cwd(), ".env.local");
+  for (const line of readFileSync(envPath, "utf-8").split("\n")) {
+    const m = line.match(/^\s*([^#=]+?)\s*=\s*(.*?)\s*$/);
+    if (m) process.env[m[1]] = process.env[m[1]] || m[2];
+  }
+  if (!process.env.SANITY_API_WRITE_TOKEN) fail("Missing SANITY_API_WRITE_TOKEN in .env.local");
+  return createClient({
+    projectId: "evh83z0t",
+    dataset: "production",
+    apiVersion: "2024-01-01",
+    token: process.env.SANITY_API_WRITE_TOKEN,
+    useCdn: false,
+  });
+}
+
+/**
+ * Publish the drafts a previous --commit run created, by copying each to its
+ * published id and deleting the draft. Reuses the already-uploaded photo
+ * assets, so this is cheap and leaves nothing orphaned.
+ */
+async function promoteDrafts() {
+  const client = sanityClient();
+  const drafts = await client.fetch(
+    '*[_type == "directoryMember" && _id match "drafts.directory-notion-*"] | order(name asc)'
+  );
+  if (!drafts.length) fail("No imported drafts found — run --commit first.");
+
+  console.log(`Found ${drafts.length} imported drafts.\n`);
+  const tx = client.transaction();
+  for (const d of drafts) {
+    const { _id, _rev, _createdAt, _updatedAt, ...doc } = d;
+    tx.createOrReplace({ ...doc, _id: _id.replace(/^drafts\./, "") });
+    tx.delete(_id);
+  }
+  await tx.commit();
+
+  const published = await client.fetch(
+    'count(*[_type == "directoryMember" && _id match "directory-notion-*" && !(_id in path("drafts.**"))])'
+  );
+  const leftover = await client.fetch(
+    'count(*[_type == "directoryMember" && _id match "drafts.directory-notion-*"])'
+  );
+  console.log(`✅ Published ${published} member records. ${leftover} drafts remaining.`);
+  console.log(
+    "\nNext: remove the old pre-migration records with\n" +
+      "  node scripts/purge-directory-tests.mjs --commit --include-placeholders\n"
+  );
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 async function main() {
+  if (promote) {
+    console.log("\n📤 Publishing imported drafts\n");
+    return promoteDrafts();
+  }
+
   const mode = publish ? "PUBLISH" : commit ? "COMMIT (drafts)" : "DRY RUN";
   console.log(`\n${publish || commit ? "📥" : "🔍"} Notion → Sanity directory import — ${mode}\n`);
 
@@ -430,23 +492,7 @@ async function main() {
       `(${ui.focus.size} focus, ${ui.industries.size} industry options)`
   );
 
-  let client = null;
-  if (commit) {
-    const envPath = resolve(process.cwd(), ".env.local");
-    const envContent = readFileSync(envPath, "utf-8");
-    for (const line of envContent.split("\n")) {
-      const m = line.match(/^\s*([^#=]+?)\s*=\s*(.*?)\s*$/);
-      if (m) process.env[m[1]] = process.env[m[1]] || m[2];
-    }
-    if (!process.env.SANITY_API_WRITE_TOKEN) fail("Missing SANITY_API_WRITE_TOKEN in .env.local");
-    client = createClient({
-      projectId: "evh83z0t",
-      dataset: "production",
-      apiVersion: "2024-01-01",
-      token: process.env.SANITY_API_WRITE_TOKEN,
-      useCdn: false,
-    });
-  }
+  const client = commit ? sanityClient() : null;
 
   console.log("… fetching from Notion");
   const rows = await fetchNotionRows();
