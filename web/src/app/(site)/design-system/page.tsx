@@ -2090,12 +2090,18 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Job Title (optional)</p>
                 <p>Photo — file upload with preview (required)</p>
                 <p>Open to Work — checkbox (optional)</p>
-                <p>Focus — multi-select, 15 options (optional)</p>
+                <p>Focus — multi-select, 18 options (optional)</p>
                 <p>Experience Level — dropdown, 7 options (optional)</p>
-                <p>Industries — multi-select, 16 options (optional)</p>
+                <p>Industries — multi-select, 26 options (optional)</p>
                 <p>Location, Education/Bootcamp (optional)</p>
                 <p>LinkedIn URL, Portfolio URL (optional)</p>
               </div>
+              <p className="text-xs text-gray-100 pt-1">
+                Focus, Industry, Island and Experience options mirror the Notion member
+                directory, which is the source of truth for this taxonomy. Change them in{" "}
+                <span className="font-mono text-xs bg-gray-20 px-1 rounded">components/directory/constants.ts</span>{" "}
+                and the Sanity schema together.
+              </p>
             </div>
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Integrations</p>

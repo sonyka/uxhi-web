@@ -1,3 +1,6 @@
+// Mirrors the Focus multi-select in the Notion member directory, which is the
+// source of truth for this taxonomy. See docs/notion-directory-taxonomy.md for
+// the full mapping and the Notion options deliberately left out.
 export const FOCUS_OPTIONS = [
   { title: "Accessibility Design", value: "accessibility-design" },
   { title: "AR/VR Design", value: "ar-vr-design" },
@@ -14,6 +17,9 @@ export const FOCUS_OPTIONS = [
   { title: "Usability Evaluation", value: "usability-evaluation" },
   { title: "User Research", value: "user-research" },
   { title: "UX Leadership", value: "ux-leadership" },
+  { title: "UX Strategy", value: "ux-strategy" },
+  { title: "UX Writing", value: "ux-writing" },
+  { title: "Visual Design", value: "visual-design" },
 ] as const;
 
 export const ISLAND_OPTIONS = [
@@ -90,21 +96,35 @@ export const EXPERIENCE_LEVEL_OPTIONS = [
   { title: "20+ years", value: "20-plus-years" },
 ] as const;
 
+// Mirrors the Industry multi-select in the Notion member directory, which is the
+// source of truth for this taxonomy. Notion defines 43 options; the ones omitted
+// here have zero members and are archived in docs/notion-directory-taxonomy.md
+// along with where each would map if it is ever needed.
 export const INDUSTRY_OPTIONS = [
-  { title: "Technology", value: "technology" },
-  { title: "Healthcare", value: "healthcare" },
-  { title: "Finance", value: "finance" },
+  { title: "Aerospace", value: "aerospace" },
+  { title: "Architecture", value: "architecture" },
+  { title: "Arts & Culture", value: "arts-culture" },
+  { title: "Automotive", value: "automotive" },
+  { title: "Consulting", value: "consulting" },
+  { title: "Customer Relationship Management", value: "crm" },
+  { title: "Cybersecurity", value: "cybersecurity" },
   { title: "E-commerce", value: "ecommerce" },
   { title: "Education", value: "education" },
-  { title: "Government", value: "government" },
-  { title: "Non-profit", value: "nonprofit" },
+  { title: "Energy & Sustainability", value: "energy-sustainability" },
   { title: "Entertainment", value: "entertainment" },
-  { title: "Travel & Hospitality", value: "travel-hospitality" },
-  { title: "Real Estate", value: "real-estate" },
+  { title: "Finance", value: "finance" },
   { title: "Food & Beverage", value: "food-beverage" },
+  { title: "Government", value: "government" },
+  { title: "Healthcare", value: "healthcare" },
+  { title: "Human Resources", value: "human-resources" },
+  { title: "Indigenous Tech", value: "indigenous-tech" },
+  { title: "Marketing & Branding", value: "marketing-branding" },
+  { title: "Non-profit", value: "nonprofit" },
+  { title: "Real Estate", value: "real-estate" },
   { title: "Retail", value: "retail" },
-  { title: "Automotive", value: "automotive" },
-  { title: "Energy", value: "energy" },
-  { title: "Agriculture", value: "agriculture" },
+  { title: "Technology", value: "technology" },
+  { title: "Transportation & Logistics", value: "transportation-logistics" },
+  { title: "Travel & Tourism", value: "travel-tourism" },
+  { title: "Web Design", value: "web-design" },
   { title: "Other", value: "other" },
 ] as const;

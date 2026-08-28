@@ -122,10 +122,10 @@ Done:
 
 Open:
 
-- [ ] **Decide on Gustavo Ambrozio** — he's in Sanity but *not* in Notion, so the
-      source-of-truth rule deletes him. Add him to Notion first, or let him go. *Blocking.*
-- [ ] **Widen the schema** — `directoryMember.ts` + `components/directory/constants.ts` +
-      design-system page, all in one changeset (sync rule).
+- [x] **Gustavo Ambrozio** — confirmed not a member; deleted with the rest, not re-imported.
+- [x] **Widen the schema** — 2026-08-27. Focus 15→18, Industry 16→26 across
+      `directoryMember.ts`, `components/directory/constants.ts` and the design-system page.
+      Build passes; all four option lists verified in lockstep.
 - [ ] **Write + dry-run** `web/scripts/migrate-notion-directory.mjs`, then import as drafts.
       Treat it as a re-runnable sync, not a one-shot: unknown Notion values must halt the run.
 - [ ] **🚨 LAUNCH GATE: delete all 6 remaining old records** — the 4 `Placeholder Member` rows

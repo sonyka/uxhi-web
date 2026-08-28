@@ -19,8 +19,10 @@ drawer, self-serve submit form. This is a **data migration only**.
 - ✅ **Taxonomy decided** — widen Focus 15→18 and Industry 16→26 to match Notion. Verified
   against all 63 records: **zero unmapped values**. Full mapping + the archived wholesale
   Notion lists: [notion-directory-taxonomy.md](notion-directory-taxonomy.md).
-- ⚠️ **One flag:** Gustavo Ambrozio exists in Sanity but **not in Notion** — under
-  Notion-as-source-of-truth he disappears. See Step 5.
+- ✅ **Schema widened** — Focus 15→18, Industry 16→26, in `directoryMember.ts`,
+  `constants.ts` and the design-system page. Build passes; all four option lists verified in
+  lockstep.
+- ▶️ **Next:** write `migrate-notion-directory.mjs` (Step 4). Nothing is blocking.
 
 ## Governing principle: Notion is the source of truth
 
@@ -224,8 +226,8 @@ Ambrozio) + 4 seeded `Placeholder Member` rows.
 - The script deletes by **explicit ID allowlist**, never by name pattern, so re-running it later
   against a dataset full of real members can't widen its blast radius. Dry run is the default.
 
-Note: **Gustavo Ambrozio** and **Sony Atmadjaja** already exist in Sanity *and* may appear in the
-Notion set — the import must dedupe against existing docs by name, or we'll get twins.
+No dedupe is needed against these — under the source-of-truth rule all 6 are deleted and the 63
+Notion rows come in fresh.
 
 ### 🚨 Launch gate — remove all 6 current records
 
@@ -236,7 +238,7 @@ succeeds — not just the 4 placeholders:
 |---|---|
 | Placeholder Member 1–4 | Seeded demo rows. Kept only so the grid, island filter and pagination look alive on staging while the real data is still in Notion. |
 | Sony Atmadjaja | **Present in Notion** (row `8017bc73…`) — the Notion version replaces this one. |
-| Gustavo Ambrozio | **Not in Notion** — see the flag below. |
+| Gustavo Ambrozio | **Not in Notion**, and confirmed not a member — see below. |
 
 Sequence matters: import first, verify 63 records landed, *then* delete the old 6. That way the
 directory is never empty.
@@ -244,19 +246,11 @@ directory is never empty.
 Do not point `uxhi.community` at the site until
 `*[_type=="directoryMember" && name match "Placeholder*"]` returns zero.
 
-### ⚠️ Gustavo Ambrozio is not in Notion
+### Gustavo Ambrozio — resolved: let him go
 
-He has a complete Sanity profile — iOS Developer, 10-19 years, content strategy + UI design,
-tech/healthcare, Honolulu — but **no matching Notion row**. Under the source-of-truth rule he is
-deleted and not re-imported, so he disappears from the directory.
-
-Two ways to go, and it's your call:
-
-1. **Add him to Notion first**, then re-extract and import. Keeps the rule intact and keeps him.
-   *Recommended if he's a genuine member.*
-2. **Let him go** — accept that the directory is exactly what Notion holds.
-
-He is in the pre-purge backup either way, so this is reversible.
+He had a complete Sanity profile but no matching Notion row. Confirmed 2026-08-27 that **he is
+not a member**, so he is deleted with the other 5 and not re-imported. No action needed; he
+remains in the pre-purge backup if that ever changes.
 
 ---
 
@@ -267,8 +261,8 @@ He is in the pre-purge backup either way, so this is reversible.
 | ~~1~~ | ~~Export from Notion~~ — not needed, extraction is scripted | — | — |
 | ~~2~~ | ~~Purge test records~~ ✅ done, 11 deleted | — | — |
 | ~~3~~ | ~~Decide the taxonomy~~ ✅ done — widen to 18 focus / 26 industry | — | — |
-| 4 | **Decide on Gustavo** — add to Notion, or let him go | **You** | 2 min |
-| 5 | Widen schema + `constants.ts` + design-system page (one changeset) | Me | ~1 hr |
+| ~~4~~ | ~~Decide on Gustavo~~ ✅ not a member — let him go | — | — |
+| ~~5~~ | ~~Widen schema + `constants.ts` + design-system page~~ ✅ done, build passes | — | — |
 | 6 | Write `migrate-notion-directory.mjs`, dry-run report | Me | ~2 hrs |
 | 7 | You review the dry-run diff | You | ~30 min |
 | 8 | Import as drafts → review in Studio → publish | Both | ~1 hr |
@@ -281,13 +275,12 @@ Roughly **half a day of my time**. Only step 4 is blocking, and it's a 2-minute 
 
 ## Open questions
 
-1. **Gustavo** — add to Notion, or let him go? (Step 5)
-2. **Trevor Husseini's focus** — leave empty, or add a `software-development` option? (Step 2)
-3. **Retire Notion?** Once this lands, is Notion redirected at `uxhi.community/find-ux-pro`, or
+1. **Trevor Husseini's focus** — leave empty, or add a `software-development` option? (Step 2)
+2. **Retire Notion?** Once this lands, is Notion redirected at `uxhi.community/find-ux-pro`, or
    kept as the editing surface with periodic re-imports? Source-of-truth rule implies the latter
    — in which case the import script becomes a recurring sync, and re-running it must stay safe
    (it is: deterministic IDs, full replace).
-4. **Consent** — 63 real people's names, photos and LinkedIn profiles move to a new public home
+3. **Consent** — 63 real people's names, photos and LinkedIn profiles move to a new public home
    on a new domain. Does the original Notion submission cover that, or do members need a
    heads-up? Worth checking before this goes live.
 
