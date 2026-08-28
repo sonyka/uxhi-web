@@ -428,7 +428,7 @@ export default async function HomePage() {
         <div className="max-w-[1300px] mx-auto">
           <ScrollReveal stagger className="text-center mb-12">
             <MotionDiv>
-              <SectionHeading size="lg" className="mb-2">
+              <SectionHeading size="lg" className="mb-6">
                 Stay connected
               </SectionHeading>
             </MotionDiv>
