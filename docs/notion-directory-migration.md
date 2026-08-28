@@ -17,9 +17,9 @@ Nothing below is blocked. Ordered by what happens next.
 
 | # | Item | Notes |
 |---|---|---|
-| 1.1 | Write `web/scripts/migrate-notion-directory.mjs` | Re-pull the 63 rows → normalize → download headshots via proxy → upload assets → create docs. Dry run by default. |
-| 1.2 | Run the dry run, hand you the per-row diff | Any unrecognized Notion value **halts** the run rather than guessing |
-| 1.3 | Import as drafts → review in Studio → publish | 63 records |
+| ~~1.1~~ | ~~Write `web/scripts/migrate-notion-directory.mjs`~~ ✅ done | Guards verified by test: unknown values halt, drift from `constants.ts` halts, dry run writes nothing |
+| ~~1.2~~ | ~~Run the dry run~~ ✅ **63/63 map cleanly, zero unknowns** | Findings below |
+| 1.3 | **Import as drafts → review in Studio → publish** ← next | `--commit`, then `--publish` |
 | 1.4 | **Delete the 6 old records — only after the 63 have landed** | Order matters, so the directory is never empty. `--include-placeholders` |
 | 1.5 | Verify `/find-ux-pro` on staging | Filters, island facets, search, pagination, drawer |
 
@@ -45,6 +45,7 @@ Nothing below is blocked. Ordered by what happens next.
 | **~10 orphaned image assets** | Left behind by the 2026-08-27 test purge. Harmless against the 10GB tier; cleanable in Studio. Two of them are shared with records still live, so delete deliberately, not by sweep. |
 | **3 members have no headshot** | Shayla Cabalo-Cable, Vincent Brathwaite, Sharif Matar. They import fine (initials tile) and will show as failing `required()` in Studio — a ready-made worklist for chasing photos. |
 | **Same 3 have no island** | Inferable from their Location strings; the import handles it. Worth fixing at the Notion end so the source is clean. |
+| **Notion data errors to fix at source** | `Margaret ‘Peggy’ Seymour` — Island says "Big Island" but Location says "Ka’anapali", which is on **Maui**. Imported as-is (the column wins) and flagged by the script. Also `Kadi Lee` — "Los Angles" typo, and `Kamalei Logan` — Location is "Utah", a state not a city. |
 
 ---
 
