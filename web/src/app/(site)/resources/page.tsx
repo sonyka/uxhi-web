@@ -586,7 +586,7 @@ export default async function ResourcesPage() {
               <SectionIcon src="/images/icons/icon-tech.svg" alt="Directory of Local Tech Organizations" />
             </MotionDiv>
             <MotionDiv>
-              <SectionHeading className="mb-4">
+              <SectionHeading className="mb-6">
                 Directory of Local Tech Organizations
               </SectionHeading>
             </MotionDiv>

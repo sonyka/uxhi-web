@@ -366,7 +366,7 @@ export default async function HomePage() {
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal stagger className="text-center mb-16">
             <MotionDiv>
-              <SectionHeading size="lg" color="white" className="mb-4">
+              <SectionHeading size="lg" color="white" className="mb-6">
                 Together, we shape the future of UX
               </SectionHeading>
             </MotionDiv>

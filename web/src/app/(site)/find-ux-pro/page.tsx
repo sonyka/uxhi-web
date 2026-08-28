@@ -174,7 +174,7 @@ export default async function FindUXProPage() {
         <div className="max-w-[1400px] mx-auto">
           <ScrollReveal stagger className="max-w-[900px] mx-auto text-center mb-10">
             <MotionDiv>
-              <SectionHeading className="mb-4">
+              <SectionHeading className="mb-6">
                 Member Directory
               </SectionHeading>
             </MotionDiv>
