@@ -3,7 +3,6 @@ import { SectionHeading } from "./SectionHeading";
 import {
   PURPLE,
   PURPLE_100,
-  TEAL_60,
   TEAL_40,
   YELLOW_80,
   BEIGE_40,
@@ -47,7 +46,7 @@ export function ProgramSection() {
 
         Everything here resolves to an existing parent token or an existing
         2026 type role. The stub shape (border, radius, dashed split) is
-        layout, not new palette. Three things in the source mock were
+        layout, not new palette. Two things in the source mock were
         deliberately NOT carried over because they would have introduced new
         design values — see the note above each.
       */}
@@ -103,7 +102,7 @@ export function ProgramSection() {
             Dela Gothic One and Nunito, so it uses the existing `ui` role. */}
         <div
           className="lg:w-[216px] shrink-0 p-5 lg:p-6 flex flex-col justify-center gap-4"
-          style={{ background: TEAL_60 }}
+          style={{ background: TEAL_40 }}
         >
           {/* Each line is its own span rather than a hard <br>: inline while the
               card is stacked, so the text wraps to the available width, and
