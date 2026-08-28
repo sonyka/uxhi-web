@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     "Join 470+ UX professionals, students, and curious individuals in Hawaiʻi. Connect, learn, and grow together with UXHI.",
 };
 
+// Shown on both the hero headline and the mission statement — defined once so
+// the two definitions of the term can't drift apart.
+const ALOHA_CENTERED_TOOLTIP =
+  "Aloha-centered design applies Hawaiʻi's values — care, reciprocity, and respect for place — to how we design for people.";
+
 export default async function HomePage() {
   // Fetch data from Sanity
   const [{ data: communityPhotos }] = await Promise.all([
@@ -51,7 +56,7 @@ export default async function HomePage() {
             <SectionHeading as="h1" size="display" color="black" className="mb-6">
               Community for<br className="hidden md:block" />{" "}
               <MobileTooltip
-                tooltip="Aloha-centered design applies Hawaiʻi's values — care, reciprocity, and respect for place — to how we design for people."
+                tooltip={ALOHA_CENTERED_TOOLTIP}
                 decorationElement={
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -60,7 +65,7 @@ export default async function HomePage() {
                     // Underlines "aloha-centered" only, not the trailing " design".
                     // 69% is that word pair's share of the phrase width — a ratio, so
                     // it holds as the type scales across breakpoints.
-                    className="absolute left-0 -bottom-2 md:-bottom-3 lg:-bottom-5 w-[69%] h-[7px] md:h-[9px] lg:h-[12px] pointer-events-none hidden md:block"
+                    className="absolute left-0 bottom-0 md:-bottom-1 lg:-bottom-2 w-[69%] h-[7px] md:h-[9px] lg:h-[12px] pointer-events-none hidden md:block"
                   />
                 }
               >
@@ -291,9 +296,9 @@ export default async function HomePage() {
         <ScrollReveal className="max-w-[900px] mx-auto text-center">
           <SectionEyebrow className="mb-4 block text-purple-140">What we do</SectionEyebrow>
           <SectionHeading size="sm" color="gray" className="leading-tight lg:text-4xl">
-            UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
+            UXHI&apos;s mission is to champion and elevate{" "}
             <MobileTooltip
-              tooltip="Human-centered design is an approach that prioritizes the unique needs of users."
+              tooltip={ALOHA_CENTERED_TOOLTIP}
               className="whitespace-nowrap"
               decorationElement={
                 // eslint-disable-next-line @next/next/no-img-element
@@ -304,9 +309,10 @@ export default async function HomePage() {
                 />
               }
             >
-              Human-Centered Design
+              aloha-centered design
             </MobileTooltip>{" "}
-            in Hawaiʻi through career development, community networking, and industry advocacy{" "}
+            in Hawaiʻi by developing practitioners, building community, and connecting
+            organizations with human-centered design.{" "}
             <span className="inline-block">🌺</span>
           </SectionHeading>
         </ScrollReveal>
