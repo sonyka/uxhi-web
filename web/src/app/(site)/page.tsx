@@ -483,7 +483,7 @@ export default async function HomePage() {
             </MotionDiv>
             <MotionDiv>
               <p className="text-gray-110 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">
-                UXHI is built and run entirely by volunteers who share a passion for human-centered design. We create the spaces we wish existed—to learn together, support each other, and elevate UX across Hawaiʻi.
+                UXHI is built and run entirely by volunteers who share a passion for aloha-centered design. We create the spaces we wish existed—to learn together, support each other, and elevate UX across Hawaiʻi.
               </p>
             </MotionDiv>
             <MotionDiv>

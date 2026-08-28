@@ -81,7 +81,8 @@ export function Footer() {
         {/* Headline — on desktop sits above logo in left column via lg:flex wrapper */}
         <div className="flex flex-col gap-14 shrink-0 order-1">
           <p className="font-semibold text-xl text-gray-120 max-w-[604px]">
-            UXHI is a design community for people in Hawaiʻi.
+            UXHI is a community for<br />
+            aloha-centered design.
           </p>
           {/* Logo/Copyright — visible only on desktop (inline with headline column) */}
           <div className="hidden lg:flex items-end gap-2">
