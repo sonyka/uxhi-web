@@ -5,7 +5,7 @@ import {
   PURPLE_100,
   TEAL_60,
   TEAL_40,
-  YELLOW_80 as GOLD,
+  YELLOW_80,
   BEIGE_40,
   GRAY_110 as GRAY,
   GRAY_100,
@@ -19,7 +19,7 @@ import { ShakaIcon, LinkedInIcon } from "./icons";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with
-// the conference brand palette (purple / teal / gold).
+// the conference brand palette (purple / teal / yellow).
 
 
 export function ProgramSection() {
@@ -56,12 +56,12 @@ export function ProgramSection() {
           the tear-off panel to the rounded corners, which would also clip a
           badge placed inside it. */}
       <div className="relative">
-        {/* Mock used a coral pill; kept the established gold so the 2026
-            palette gains no new colour. Opaque fill, so the card's stroke
-            passes behind it cleanly. */}
+        {/* Mock used a coral pill; kept YELLOW_80 so the 2026 palette gains
+            no new colour. Opaque fill, so the card's stroke passes behind it
+            cleanly. */}
         <span
           className="absolute -top-3 left-6 lg:left-8 z-10 inline-flex items-center rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
-          style={{ background: GOLD, color: PURPLE }}
+          style={{ background: YELLOW_80, color: PURPLE }}
         >
           New this year
         </span>
@@ -150,7 +150,7 @@ export function ProgramSection() {
       <div className="flex flex-col gap-5">
         <div className="flex items-center gap-5">
           <div className="flex items-center shrink-0" aria-hidden="true">
-            {[GOLD, TEAL_40, PURPLE_100].map((fill) => (
+            {[YELLOW_80, TEAL_40, PURPLE_100].map((fill) => (
               <span
                 key={fill}
                 className="w-12 h-12 lg:w-14 lg:h-14 rounded-full -mr-3 lg:-mr-4"
