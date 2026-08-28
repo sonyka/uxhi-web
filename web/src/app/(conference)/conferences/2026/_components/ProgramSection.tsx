@@ -1,5 +1,5 @@
 import { SectionHeading } from "./SectionHeading";
-import { PURPLE, TEAL_60, YELLOW_80 as GOLD, GRAY_110 as GRAY, GRAY_100, TYPE } from "../theme";
+import { PURPLE, TEAL_60, YELLOW_80 as GOLD, GRAY_110 as GRAY, GRAY_100, GRAY_80, TYPE } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
 import { TICKETS_URL } from "../constants";
 import { ShakaIcon } from "./icons";
@@ -42,8 +42,8 @@ export function ProgramSection() {
         design values — see the note above each.
       */}
       <div
-        className="flex flex-col md:flex-row rounded-[20px] overflow-hidden border-2"
-        style={{ borderColor: PURPLE }}
+        className="flex flex-col md:flex-row rounded-[20px] overflow-hidden border"
+        style={{ borderColor: GRAY_80 }}
       >
         {/* Stub body */}
         <div className="flex-1 bg-white p-6 md:p-8 flex flex-col gap-3 md:gap-4">
@@ -78,8 +78,8 @@ export function ProgramSection() {
 
         {/* Perforation — horizontal when the stub stacks, vertical when it splits */}
         <div
-          className="border-t-2 md:border-t-0 md:border-l-2 border-dashed"
-          style={{ borderColor: PURPLE }}
+          className="border-t md:border-t-0 md:border-l border-dashed"
+          style={{ borderColor: GRAY_80 }}
         />
 
         {/* Tear-off: when, where, and the CTA.
@@ -89,16 +89,21 @@ export function ProgramSection() {
           className="md:w-[196px] lg:w-[216px] shrink-0 p-5 md:p-6 flex flex-col justify-center gap-4"
           style={{ background: TEAL_60 }}
         >
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <p className={`${TYPE.ui} font-semibold leading-tight`} style={{ color: PURPLE }}>
               Thursday
               <br />
               October 15, 2026
             </p>
-            <p className={TYPE.ui} style={{ color: PURPLE }}>
-              6&ndash;8:30 PM
+            <p className={`${TYPE.fine} leading-snug`} style={{ color: PURPLE }}>
+              OurSpace
               <br />
-              OurSpace &middot; 21+
+              1052 Waimanu St
+              <br />
+              Honolulu, HI 96814
+            </p>
+            <p className={TYPE.fine} style={{ color: PURPLE }}>
+              21+
             </p>
           </div>
 
