@@ -4,178 +4,212 @@ Plan for moving the member profiles from the Notion Member Directory
 ([public page](https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6))
 into the Sanity-backed directory that already ships at `/find-ux-pro`.
 
-Written 2026-08-27. Nothing here has been executed yet.
+Written 2026-08-27. Data extracted 2026-08-27; import not yet run.
 
 ---
 
 ## TL;DR
 
-The destination is **already built and working** — schema, page, filters, search, sort,
-pagination, profile drawer, self-serve submit form. This is a **data migration only**;
-no new features are needed.
+The destination is **already built** — schema, page, filters, search, sort, pagination, profile
+drawer, self-serve submit form. This is a **data migration only**.
 
-Two things stand between here and done:
-
-1. **A test-data purge.** The live dataset holds 16 published + 1 draft `directoryMember`
-   docs and effectively all of them are junk ("Test User", "dlfkj asdfa", "sanity test",
-   "island test"…). These would be public on `uxhi.community` at launch. **This is a launch
-   blocker and is independent of the Notion port** — it should be done regardless.
-2. **An export from Notion that only a workspace admin can produce.** See the blocker below.
-
-Once I have the export, the import itself is a small, well-understood script — the same shape
-as the existing `scripts/migrate-partner-sponsor.mjs`.
+- ✅ **Test-data purge done** — 11 junk records deleted (Step 5).
+- ✅ **All 63 member records extracted** from Notion, no export or credentials needed (Step 1).
+- ✅ **Headshots confirmed downloadable** — 60 of 63 (Step 3).
+- ⛔ **Blocked on you:** the Notion option lists are much wider than our Sanity enums.
+  36 distinct values have nowhere to land. That's the one open decision (Step 2).
 
 ---
 
-## ⚠️ Blocker: the Notion database is not publicly readable
+## Step 1 — Extraction ✅ done
 
-I loaded the public Notion page in a real browser. The page chrome renders (title, intro copy,
-Quick Links, FAQs, and the three view tabs **All / By Island / Open to Work**) but the gallery
-itself renders **"No results"**, and the console shows the collection query failing:
+**Correction to an earlier version of this doc:** it claimed the Notion database was not
+publicly readable, based on a `Received HTTP 401` in the browser console and a gallery reading
+"No results". That was wrong on both counts. The 401 came from `exp.notion.com`, Notion's
+analytics endpoint — unrelated noise. The empty gallery was lazy-loading: the rows render on
+scroll, which an automated first paint never triggers.
 
-```
-Error: Received HTTP 401
-Error: Failed to fetch (exp.notion.com)
-```
+The data is fully public. Notion's own `api/v3` endpoints answer anonymously from the page
+origin, which beats scrolling the DOM — it returns every row in one call plus the real schema:
 
-Two consequences:
-
-- **I cannot scrape it.** There is no anonymous path to the row data. Any plan that starts with
-  "read the public page" is dead.
-- **Worth checking on your side:** if this 401 is a sharing-permission regression rather than an
-  empty database, then the public Notion directory is *currently showing nothing to visitors* —
-  i.e. the thing we're migrating may already be broken in production. Open the page in a private
-  window and confirm before anything else.
-
-So step one is yours, not mine: **produce an export from inside the Notion workspace.**
-
----
-
-## Step 1 — Export from Notion (you)
-
-Two routes. I recommend A for a one-time move.
-
-### Route A — Zip export (recommended)
-
-Open the Member Directory database as a full page → **•••** (top right) → **Export** →
-
-| Setting | Value |
+| Call | Purpose |
 |---|---|
-| Export format | **Markdown & CSV** |
-| Include content | **Everything** |
-| Include databases | **All views** (or Current view if "All" is the complete set) |
-| Create folders for subpages | **On** |
+| `POST /api/v3/loadPageChunk` | page → `collection_id`, `view_ids`, and the property schema |
+| `POST /api/v3/queryCollection` | all 63 rows with `limit: 500`, no pagination needed |
 
-You get a `.zip` containing a `Member Directory <hash>.csv` plus a folder per row holding that
-row's uploaded files — **headshots land as real local files**. Send me the zip (or drop it
-somewhere I can read; do not commit it to the repo — it contains member PII).
+Identifiers (stable, public):
 
-**Why this beats the API for a one-time run:** Notion's file URLs are signed S3 links that
-expire in about an hour. The zip sidesteps the expiry race entirely.
+```
+page        4ee43831-f57d-4909-801d-c3528de957b6
+space       fd0c316e-4782-4c7d-85f0-7dee2c3a93c6
+collection  c22969fd-21e9-4f28-9e41-3e63d3b3696e
+views       f1d2868d… (All) · 5ff4f17f… (By Island) · 8b1b918a… (Open to Work)
+```
 
-### Route B — Notion API (only if we need to re-run this)
+**Raw extract:** `~/Documents/FREELANCE/UXHI/notion-directory-raw-2026-08-27.json`
+— 63 rows, kept **outside the repo** (member PII: names, headshots, LinkedIn URLs).
 
-Create an internal integration, share the database with it, then query
-`POST /v1/databases/{id}/query` and download each file URL immediately within the same run.
-Structured JSON, no CSV quoting pitfalls, repeatable. Costs an integration setup and ~1 extra
-hour of scripting. Worth it only if the plan is to keep Notion as the source of truth for a
-while and sync repeatedly — which I'd advise against; pick one system.
+Because this is repeatable on demand, there's no need to freeze the data now — we can re-pull
+immediately before the import so nothing goes stale.
 
-### What I need alongside the export
+### What's actually in there — 63 members
 
-- Confirmation of **which view is authoritative** (All vs. some filtered subset) — I don't want
-  to import archived or draft rows.
-- Whether any rows should be **excluded** (people who've left, duplicates, opted out).
+| Field | Coverage |
+|---|---|
+| Name, Location, Experience, Focus, Industry | **63/63 (100%)** |
+| LinkedIn | 62/63 (98%) |
+| Head Shot | 60/63 (95%) |
+| Island | 60/63 (95%) |
+| Website | 38/63 (60%) |
+| Job Title | 37/63 (59%) |
+| Education Institution Attended | 23/63 (37%) |
+| Bootcamp Attended | 15/63 (24%) |
+| Open to work = true | 37/63 (59%) |
+
+Island spread: Oʻahu 47 · Mainland 5 · Big Island 5 · Maui 2 · Kauaʻi 1.
+
+The same three people — **Shayla Cabalo-Cable, Vincent Brathwaite, Sharif Matar** — are missing
+both headshot and island. All three have a Location string that resolves the island
+("Honolulu, HI", "Oahu, Hawaii", "Honolulu"), so island is inferable; only the photos are truly
+absent, and those degrade to an initials tile.
 
 ---
 
-## Step 2 — Field mapping
+## Step 2 — Field mapping ⛔ needs your decisions
 
-Target schema: `web/src/sanity/schemaTypes/documents/directoryMember.ts`.
+Notion's real column names (from the live schema), mapped to
+`web/src/sanity/schemaTypes/documents/directoryMember.ts`:
 
-| Sanity field | Type | Source in Notion | Notes |
+| Notion column | Type | → Sanity field | Status |
 |---|---|---|---|
-| `name` | string, **required** | Title property | Notion likely stores one full-name title; the site's form splits first/last and rejoins, so a single string is fine |
-| `title` | string | Job title column | |
-| `photo` | image + `alt`, **required** | Files & media column | See photo pipeline below |
-| `openToWork` | boolean | "Open to Work" checkbox | A view is already named this, so the property exists |
-| `focus` | array of enum | Multi-select | **15 allowed values** — must normalize |
-| `experienceLevel` | enum | Select | **7 allowed values** — must normalize |
-| `industries` | array of enum | Multi-select | **16 allowed values** — must normalize |
-| `island` | enum | Island column | **7 allowed values**; a "By Island" view exists so the property is there |
-| `city` | string | City column | Free text, display-only — not a filter, so no normalization needed |
-| `educationBootcamp` | string | Education/bootcamp column | |
-| `linkedIn` | url | LinkedIn column | Must be a valid absolute URL or Studio flags it |
-| `portfolio` | url | Portfolio/website column | Same |
-| `order` | number | — | Set `0` for all; ordering is `openToWork desc, order asc, name asc` |
-| `location` | string | — | **Legacy/hidden. Do not populate.** Superseded by island + city |
+| `Name` | title | `name` | ✅ direct |
+| `Job Title` | text | `title` | ✅ direct |
+| `Head Shot` | file | `photo` | ✅ via proxy download |
+| `Open to work` | checkbox | `openToWork` | ✅ direct |
+| `Experience` | select | `experienceLevel` | ✅ **0 decisions** — all 7 map case-insensitively |
+| `Island` | select | `island` | ⚠️ 2 aliases needed |
+| `Location` | text | `city` | ⚠️ needs parsing — it's `"Honolulu, Hawaii"`, not a bare city |
+| `Focus` | multi-select | `focus` | ⛔ **10 values unmapped** |
+| `Industry` | multi-select | `industries` | ⛔ **26 values unmapped** |
+| `LinkedIn` | url | `linkedIn` | ✅ direct |
+| `Website` | url | `portfolio` | ✅ direct |
+| `Education Institution Attended` | text | `educationBootcamp` | ⚠️ two Notion columns, one Sanity field |
+| `Bootcamp Attended` | text | `educationBootcamp` | ⚠️ same — merge or add a field |
+| — | | `order` | set `0` for all |
+| — | | `location` | **legacy/hidden — do not populate** |
 
-The exact Notion column names are unknown until I see the CSV — I'll confirm the mapping against
-the real headers before writing a single row.
+### Island — trivial, just aliases
 
-### Normalization is where the actual work is
+`Big Island` → `hawaii`, `Mainland` → `mainland-international`. The other three match already.
 
-Notion multi-selects export as human-readable labels; Sanity stores slugs. `"User Research"` →
-`"user-research"`, `"AR/VR Design"` → `"ar-vr-design"`, `"Non-profit"` → `"nonprofit"`. The
-canonical lists live in `web/src/components/directory/constants.ts` and I'd import the mapping
-from there rather than retyping it, so the script can't drift from the UI.
+### Focus — 10 unmapped, and two of them are heavily used
 
-Two rules I'd hold to:
+Our schema has 15 options; Notion's has 26. All 15 of ours are in use, plus these:
 
-- **Nothing is silently dropped.** Any Notion value that doesn't map to a known slug goes into a
-  `unmapped-values.csv` report for you to adjudicate — either we add the option to the schema
-  (and the design system page, per the sync rule) or we pick an existing equivalent.
-- **A real CSV parser**, not `split(",")`. Multi-select cells are comma-joined inside a single
-  quoted field, and several option names contain commas or ampersands. Hand-splitting silently
-  corrupts data.
+| Notion value | Used by | My recommendation |
+|---|---|---|
+| **UX Strategy** | **27** | **Add to schema** — 2nd most-used focus in the whole directory |
+| **Visual Design** | **20** | **Add to schema** — distinct from UI Design in practice |
+| **UX Writing** | **4** | **Add to schema** — a real, distinct discipline |
+| Marketing / Branding | 1 | → `brand-identity` |
+| Print Design | 1 | → `brand-identity` |
+| Artificial Intelligence | 1 | drop (an industry, not a UX focus) |
+| Software Development | 1 | drop (not a UX focus) |
+| Business Development | 1 | drop (not a UX focus) |
+| User Assistance | 1 | → `content-strategy` |
+| AI Consciousness | 1 | drop — almost certainly a joke entry |
 
-### Island is a quality gate
+Adding three options means updating the schema, `components/directory/constants.ts`, **and the
+design system page** (per the sync rule in CLAUDE.md) in the same changeset.
 
-`MemberCard` and `MemberDrawer` only render a location when `island` is set — with island null,
-the city is never shown, and the island filter can't see the member at all. Every one of the 17
-existing records has `island: null`, which is part of why they look broken. If the Notion data
-has island coverage gaps, we should fill them from city before import rather than after.
+### Industry — our list is the wrong shape for this data
+
+This is the real decision. Notion has 43 industry options against our 16, and **26 distinct
+values in active use have nowhere to go** — including the four most common ones:
+
+| Notion value | Used by | Notes |
+|---|---|---|
+| **Web Design** | **34** | most-used industry in the directory; no equivalent |
+| **Internet / Technology** | **26** | → `technology` (safe rename) |
+| **Marketing / Branding** | **20** | no equivalent |
+| **Consulting** | **18** | no equivalent |
+| Travel & Tourism | 13 | → `travel-hospitality` |
+| Customer Relationship Management | 7 | no equivalent |
+| Restaurants · Bars & Food · Restaurants Bars & Food | 5+5+1 | → `food-beverage` (also: Notion has these as **both** split and combined options — dedupe) |
+| Indigenous Tech | 5 | no equivalent; arguably important to keep for a Hawaiʻi org |
+| Transportation & Logistics | 5 | no equivalent |
+| Cybersecurity | 4 | no equivalent |
+| Video Games | 3 | → `entertainment` |
+| Aerospace, Architecture, Sustainability & Infrastructure | 2 each | no equivalent |
+| Civic Tech, Museums + Institutions, Community Management, Hospitality, Photography, Human Resources, Fine Art, Social Impact, Artificial Intelligence, Software Development | 1 each | mostly → `other` |
+| Non-profit *(hyphen variant)* | 1 | → `nonprofit` — same thing, spelled twice in Notion |
+
+Three ways to go, pick one:
+
+1. **Widen our list to match reality** — add ~8 options (Web Design, Marketing/Branding,
+   Consulting, Cybersecurity, Indigenous Tech, Transportation & Logistics, CRM, Aerospace),
+   fold the long tail into `other`. Highest fidelity, and the filter stays meaningful.
+   *My recommendation.*
+2. **Keep 16 and squash** — everything unmapped becomes `other`. Cheap, but `other` would then
+   be the single largest industry facet, which makes the filter useless.
+3. **Adopt Notion's list wholesale** — 43 options is too many for a filter UI with 63 people.
+
+Whichever we pick, Notion's list clearly grew by free-text accretion (`Restaurants` *and*
+`Bars & Food` *and* `Restaurants Bars & Food`; `Nonprofit` *and* `Non-profit`). The migration is
+a good moment to clean that up rather than import the mess.
+
+### Location → city
+
+`Location` is 100% populated but formatted as `"Honolulu, Hawaii"` / `"Honolulu, HI"` / `"Oahu, Hawaii"`.
+I'd take the segment before the comma as `city`, drop it when it's an island name rather than a
+city, and cross-check island against the `Island` column. This is display-only — city isn't a
+filter — so imperfect parses are cosmetic, not structural.
+
+### Education + Bootcamp → one field
+
+Notion has two columns; Sanity has one `educationBootcamp`. 23 people have an institution,
+15 a bootcamp, some likely both. Either join them (`"UW · General Assembly"`) or add a second
+Sanity field. Your call — joining is fine and needs no schema change.
 
 ---
 
-## Step 3 — Photo pipeline
+## Step 3 — Photo pipeline ✅ verified
 
-For each row:
+Raw S3 URLs in the extract **403** — they're unsigned. Notion's image proxy works anonymously:
 
-1. Read the local headshot from the export folder (Route A) or download the signed URL
-   immediately (Route B).
-2. Reject anything that isn't JPG/PNG/WebP — Sanity's image pipeline doesn't handle SVG, and the
-   site's own upload path enforces the same three types.
-3. Upload via `client.assets.upload("image", stream, { filename, contentType })`.
-4. Attach as `{ _type: "image", asset: { _type: "reference", _ref: asset._id }, alt: "Headshot of <name>" }`
-   — matching exactly what `lib/actions/directory-submit.ts` already produces, so imported and
-   form-submitted profiles are indistinguishable downstream.
+```
+https://uxhi.notion.site/image/<urlencoded-s3-url>?table=block&id=<row-id>&cache=v2
+```
 
-**Missing headshots degrade gracefully** — `MemberCard` falls back to the member's initial on a
-grey tile — so a photo-less row is importable and won't break the page. It will show as failing
-`required()` in Studio, which is actually a useful worklist: it flags exactly who to chase for a
-photo. (Sanity's `required()` is Studio-side validation, not API-enforced, so the import won't
-be blocked by it.)
+Verified end to end: `302 → 200`, `image/jpeg`, 41KB, 500×500. So the whole set is downloadable
+without credentials, and there's no signed-URL expiry race to design around — which removes the
+main reason the earlier draft of this plan preferred a zip export.
+
+Per row: download via proxy → verify it's JPG/PNG/WebP → `client.assets.upload("image", …)` →
+attach as `{ _type: "image", asset: { _ref }, alt: "Headshot of <name>" }`, exactly matching what
+`lib/actions/directory-submit.ts` produces, so imported and form-submitted profiles are
+indistinguishable downstream.
+
+The 3 people without a headshot import fine — `MemberCard` falls back to an initials tile. They
+show as failing `required()` in Studio, which is a useful worklist of who to chase.
 
 ---
 
 ## Step 4 — The import script
 
-I'd add `web/scripts/migrate-notion-directory.mjs`, following the house pattern already set by
-`migrate-partner-sponsor.mjs` (parses `.env.local`, uses `SANITY_API_WRITE_TOKEN` — confirmed
-present locally, `@sanity/client` write client, `useCdn: false`).
-
-Behaviour:
+`web/scripts/migrate-notion-directory.mjs`, following the house pattern
+(`migrate-partner-sponsor.mjs`): parses `.env.local`, uses `SANITY_API_WRITE_TOKEN` (present),
+`useCdn: false`.
 
 | Flag | Effect |
 |---|---|
-| *(default)* | **Dry run.** Parses, normalizes, resolves photos, prints a per-row diff and the unmapped-value report. Writes nothing. |
-| `--commit` | Creates the documents as **drafts**, mirroring the submit form. Nothing goes public until reviewed. |
-| `--publish` | Creates them published. Only after a drafts pass has been eyeballed in Studio. |
-| `--purge-tests` | Separate, explicit mode for the test-record cleanup (below). Never bundled with import. |
+| *(default)* | **Dry run** — re-pulls from Notion, normalizes, prints a per-row diff + unmapped-value report. Writes nothing. |
+| `--commit` | Creates documents as **drafts**, mirroring the submit form. |
+| `--publish` | Creates them published. Only after a drafts pass is reviewed. |
 
-Deterministic IDs (`directory-notion-<notion-row-id>`) so a re-run updates rather than duplicates
-— re-running the script must be safe.
+Deterministic IDs (`directory-notion-<notion-row-id>`) so re-runs update rather than duplicate.
+Nothing is silently dropped — any value that fails to map halts with a report rather than
+guessing.
 
 ---
 
@@ -189,12 +223,14 @@ Ran `web/scripts/purge-directory-tests.mjs --commit`. **11 test records deleted*
 Dataset now holds **6** `directoryMember` docs: 2 real members (Sony Atmadjaja, Gustavo
 Ambrozio) + 4 seeded `Placeholder Member` rows.
 
-- Full pre-purge backup of all 17 docs:
-  `/Users/sonyka/Documents/FREELANCE/UXHI/directory-backup-2026-08-27.json`
-  (kept **outside the repo** — member PII). Image assets were not deleted, so any record in
-  that file can be recreated intact.
+- Pre-purge backup of all 17 docs:
+  `~/Documents/FREELANCE/UXHI/directory-backup-2026-08-27.json` (outside the repo — PII).
+  Image assets were not deleted, so any record there can be recreated intact.
 - The script deletes by **explicit ID allowlist**, never by name pattern, so re-running it later
   against a dataset full of real members can't widen its blast radius. Dry run is the default.
+
+Note: **Gustavo Ambrozio** and **Sony Atmadjaja** already exist in Sanity *and* may appear in the
+Notion set — the import must dedupe against existing docs by name, or we'll get twins.
 
 ### 🚨 Launch gate — the 4 placeholders
 
@@ -203,15 +239,14 @@ Hawaiʻi so the island filter has something to bite on) were **deliberately kept
 only thing making the grid, island filter and pagination look alive on staging while the real
 data is still in Notion.
 
-**They must not reach production.** Deleting them is the last step of the import, once real
-members are in:
+**They must not reach production.** Deleting them is the last step of the import:
 
 ```bash
 node scripts/purge-directory-tests.mjs --commit --include-placeholders
 ```
 
-Do not point `uxhi.community` at the site until `*[_type=="directoryMember" && name match "Placeholder*"]`
-returns zero.
+Do not point `uxhi.community` at the site until
+`*[_type=="directoryMember" && name match "Placeholder*"]` returns zero.
 
 ---
 
@@ -219,33 +254,31 @@ returns zero.
 
 | # | Step | Who | Effort |
 |---|---|---|---|
-| 1 | Confirm the public-page 401 — is the Notion directory currently broken for visitors? | You | 2 min |
-| 2 | Export the database (Route A zip) + confirm authoritative view & exclusions | You | ~15 min |
-| 3 | I inspect the CSV, confirm real column names, finalize mapping | Me | ~30 min |
-| 4 | Write `migrate-notion-directory.mjs` + dry-run report | Me | ~2 hrs |
-| 5 | You review the dry-run diff + unmapped-value report | You | ~30 min |
-| 6 | Import as drafts, review in Studio, publish | Both | ~1 hr |
-| ~~7~~ | ~~Purge test records~~ ✅ **done 2026-08-27** — 11 deleted | — | — |
-| 7 | **Delete the 4 placeholders** (`--include-placeholders`) once real members are live | Me | 2 min |
-| 8 | Verify `/find-ux-pro` on staging: filters, island facets, search, pagination, drawer | Me | ~30 min |
+| ~~1~~ | ~~Export from Notion~~ — **not needed**, extraction is scripted | — | — |
+| ~~2~~ | ~~Purge test records~~ ✅ done, 11 deleted | — | — |
+| 3 | **Decide the Focus + Industry option lists** (Step 2) | **You** | ~30 min |
+| 4 | Schema + `constants.ts` + design-system page updated together | Me | ~1 hr |
+| 5 | Write `migrate-notion-directory.mjs`, dry-run report | Me | ~2 hrs |
+| 6 | You review the dry-run diff | You | ~30 min |
+| 7 | Import as drafts → review in Studio → publish | Both | ~1 hr |
+| 8 | **Delete the 4 placeholders** (`--include-placeholders`) | Me | 2 min |
+| 9 | Verify `/find-ux-pro` on staging: filters, island facets, search, pagination, drawer | Me | ~30 min |
 
-Roughly **half a day of my time**, gated on the export. Steps 4–8 all happen on `staging` and are
-visible at `web-henna-five-45.vercel.app` before anything touches production.
+Roughly **half a day of my time**, gated only on the Step 3 decision.
 
 ---
 
 ## Decisions I need from you
 
-1. **One system or two?** Once this lands, does Notion get retired (redirect the Notion page at
-   `uxhi.community/find-ux-pro`), or does it stay live in parallel? Parallel means dual data
-   entry and drift — I'd retire it.
-2. **Drafts or published on import?** Drafts is safer but means clicking Publish N times in
-   Studio. Published is one step but skips review.
-3. **Consent.** These are real people's names, photos, and LinkedIn profiles moving to a new
-   public home on a new domain. Do members need to be notified, or does the original Notion
-   submission already cover it? Worth a look at what they agreed to.
-4. **Members who never filled in the newer fields** (island, industries, experience level) —
-   import them partial, or hold them back until we collect the gaps?
+1. **Industry list** — widen to ~24 (recommended), squash to `other`, or adopt Notion's 43?
+2. **Focus list** — add UX Strategy / Visual Design / UX Writing? They cover 51 uses between them.
+3. **One system or two?** Once this lands, is Notion retired (redirect it at
+   `uxhi.community/find-ux-pro`) or kept in parallel? Parallel means dual entry and drift —
+   I'd retire it.
+4. **Consent** — 63 real people's names, photos and LinkedIn profiles are moving to a new public
+   home on a new domain. Does the original Notion submission cover that, or do members need a
+   heads-up? Worth checking what they agreed to before this goes live.
+5. **Education + Bootcamp** — join into one field, or add a second Sanity field?
 
 ---
 
@@ -255,5 +288,6 @@ visible at `web-henna-five-45.vercel.app` before anything touches production.
 - Schema: `web/src/sanity/schemaTypes/documents/directoryMember.ts`
 - Option lists: `web/src/components/directory/constants.ts`
 - Existing intake path: `web/src/lib/actions/directory-submit.ts`
+- Purge script: `web/scripts/purge-directory-tests.mjs`
 - Script precedent: `web/scripts/migrate-partner-sponsor.mjs`
-- [LAUNCH-PUNCHLIST.md](LAUNCH-PUNCHLIST.md) §7
+- [LAUNCH-PUNCHLIST.md](LAUNCH-PUNCHLIST.md) §6

@@ -112,11 +112,17 @@ directory is fully built, but **no real member data has ever been moved off Noti
       `uxhi.community` at the site. Kept deliberately so the grid/island filter look alive on
       staging; they must go once real members are imported:
       `node scripts/purge-directory-tests.mjs --commit --include-placeholders`
-- [ ] **Confirm the Notion directory isn't already broken** — its collection query returns
-      HTTP 401 to anonymous visitors and the gallery renders "No results". Check in a private window.
-- [ ] **Export the Notion database** (Markdown & CSV zip, include content) — only a workspace
-      admin can do this; the public page cannot be scraped.
+- [x] **Extract the Notion data** — done 2026-08-27 via Notion's public `api/v3` endpoints.
+      All **63 members** pulled, no export or credentials needed; repeatable on demand. Raw at
+      `~/Documents/FREELANCE/UXHI/notion-directory-raw-2026-08-27.json` (outside the repo, PII).
+      Headshots confirmed downloadable via Notion's image proxy (60/63 have one).
+- [ ] **⛔ DECISION NEEDED: Focus + Industry option lists.** Notion's lists are far wider than
+      our Sanity enums — 26 industry values and 10 focus values in active use have nowhere to
+      land, including the 4 most common industries (Web Design 34×, Internet/Technology 26×,
+      Marketing/Branding 20×, Consulting 18×) and 2 common focuses (UX Strategy 27×,
+      Visual Design 20×). Everything else is blocked on this.
 - [ ] Write + dry-run `web/scripts/migrate-notion-directory.mjs`, then import as drafts.
+      Must dedupe — Sony and Gustavo already exist in Sanity and may also be in the Notion set.
 - [ ] Decide whether Notion is retired (redirect) or kept in parallel after the port.
 
 ---
