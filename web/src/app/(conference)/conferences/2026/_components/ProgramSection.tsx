@@ -41,21 +41,27 @@ export function ProgramSection() {
         deliberately NOT carried over because they would have introduced new
         design values — see the note above each.
       */}
-      <div
-        className="flex flex-col md:flex-row rounded-[20px] overflow-hidden border"
-        style={{ borderColor: GRAY_80 }}
-      >
-        {/* Stub body */}
-        <div className="flex-1 bg-white p-6 md:p-8 flex flex-col gap-3 md:gap-4">
-          {/* Mock used a coral pill; kept the established gold so the 2026
-              palette gains no new colour. */}
-          <span
-            className="inline-flex w-fit items-center rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
-            style={{ background: GOLD, color: PURPLE }}
-          >
-            New this year
-          </span>
+      {/* The badge straddles the card's top edge, so it is a sibling of the
+          card rather than a child — the card keeps `overflow-hidden` to clip
+          the tear-off panel to the rounded corners, which would also clip a
+          badge placed inside it. */}
+      <div className="relative">
+        {/* Mock used a coral pill; kept the established gold so the 2026
+            palette gains no new colour. Opaque fill, so the card's stroke
+            passes behind it cleanly. */}
+        <span
+          className="absolute -top-3 left-6 lg:left-8 z-10 inline-flex items-center rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
+          style={{ background: GOLD, color: PURPLE }}
+        >
+          New this year
+        </span>
 
+        <div
+          className="flex flex-col lg:flex-row rounded-[20px] overflow-hidden border"
+          style={{ borderColor: GRAY_80 }}
+        >
+        {/* Stub body */}
+        <div className="flex-1 bg-white p-6 lg:p-8 flex flex-col gap-3 lg:gap-4">
           <SectionHeading>Pre UXHICon Pau Hana</SectionHeading>
 
           <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
@@ -78,7 +84,7 @@ export function ProgramSection() {
 
         {/* Perforation — horizontal when the stub stacks, vertical when it splits */}
         <div
-          className="border-t md:border-t-0 md:border-l border-dashed"
+          className="border-t lg:border-t-0 lg:border-l border-dashed"
           style={{ borderColor: GRAY_80 }}
         />
 
@@ -86,7 +92,7 @@ export function ProgramSection() {
             Mock set this block in a monospace face; the conference has only
             Dela Gothic One and Nunito, so it uses the existing `ui` role. */}
         <div
-          className="md:w-[196px] lg:w-[216px] shrink-0 p-5 md:p-6 flex flex-col justify-center gap-4"
+          className="lg:w-[216px] shrink-0 p-5 lg:p-6 flex flex-col justify-center gap-4"
           style={{ background: TEAL_60 }}
         >
           <div className="flex flex-col gap-3">
@@ -110,6 +116,7 @@ export function ProgramSection() {
           <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit">
             Get tickets
           </ConferenceButton>
+        </div>
         </div>
       </div>
     </div>
