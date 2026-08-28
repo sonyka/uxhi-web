@@ -4,25 +4,66 @@ Plan for moving the member profiles from the Notion Member Directory
 ([public page](https://uxhi.notion.site/Member-Directory-4ee43831f57d4909801dc3528de957b6))
 into the Sanity-backed directory that already ships at `/find-ux-pro`.
 
-Written 2026-08-27. Data extracted 2026-08-27; import not yet run.
+Written 2026-08-27. Last updated 2026-08-27.
+**Everything stays on `staging` — `uxhi.community` is not ready for this yet.**
 
 ---
 
-## TL;DR
+# ⚠️ OPEN ITEMS — read this first
 
-The destination is **already built** — schema, page, filters, search, sort, pagination, profile
+Nothing below is blocked. Ordered by what happens next.
+
+## 1. Build the import — mine
+
+| # | Item | Notes |
+|---|---|---|
+| 1.1 | Write `web/scripts/migrate-notion-directory.mjs` | Re-pull the 63 rows → normalize → download headshots via proxy → upload assets → create docs. Dry run by default. |
+| 1.2 | Run the dry run, hand you the per-row diff | Any unrecognized Notion value **halts** the run rather than guessing |
+| 1.3 | Import as drafts → review in Studio → publish | 63 records |
+| 1.4 | **Delete the 6 old records — only after the 63 have landed** | Order matters, so the directory is never empty. `--include-placeholders` |
+| 1.5 | Verify `/find-ux-pro` on staging | Filters, island facets, search, pagination, drawer |
+
+## 2. Your calls — none blocking
+
+| Item | Detail |
+|---|---|
+| **Trevor Husseini's focus** | His only Notion focus is `Software Development`, which isn't a UX discipline, so he imports untagged. Leave it and nudge him, or add a `software-development` option? |
+| **Consent** | 63 real people's names, photos and LinkedIn profiles move to a new public home on a new domain. Confirm the original Notion submission covers that — **before** it goes live, not after. |
+| **Retire Notion, or keep syncing?** | Source-of-truth rule implies Notion stays the editing surface and the script becomes a recurring sync. If instead it's retired, redirect it at `uxhi.community/find-ux-pro`. Affects nothing until launch. |
+
+## 3. Parked until `uxhi.community` is ready
+
+| Item | Detail |
+|---|---|
+| 🚨 **Launch gate: no placeholders in production** | `Placeholder Member 1–4` must be gone before the domain is pointed. Check `*[_type=="directoryMember" && name match "Placeholder*"]` returns zero. Covered by 1.4 — this is the backstop if 1.4 slips. |
+| **Production deploy** | Nothing here goes to Netlify/`main` until you say so. All work and review happen on `staging` → `web-henna-five-45.vercel.app`. |
+
+## 4. Housekeeping — low priority
+
+| Item | Detail |
+|---|---|
+| **~10 orphaned image assets** | Left behind by the 2026-08-27 test purge. Harmless against the 10GB tier; cleanable in Studio. Two of them are shared with records still live, so delete deliberately, not by sweep. |
+| **3 members have no headshot** | Shayla Cabalo-Cable, Vincent Brathwaite, Sharif Matar. They import fine (initials tile) and will show as failing `required()` in Studio — a ready-made worklist for chasing photos. |
+| **Same 3 have no island** | Inferable from their Location strings; the import handles it. Worth fixing at the Notion end so the source is clean. |
+
+---
+
+## Status — what's already done
+
+The destination was already built — schema, page, filters, search, sort, pagination, profile
 drawer, self-serve submit form. This is a **data migration only**.
 
-- ✅ **Test-data purge done** — 11 junk records deleted (Step 5).
-- ✅ **All 63 member records extracted** from Notion, no export or credentials needed (Step 1).
+- ✅ **Test-data purge** — 11 junk records deleted (Step 5).
+- ✅ **All 63 member records extracted** from Notion; no export or credentials needed (Step 1).
 - ✅ **Headshots confirmed downloadable** — 60 of 63 (Step 3).
-- ✅ **Taxonomy decided** — widen Focus 15→18 and Industry 16→26 to match Notion. Verified
-  against all 63 records: **zero unmapped values**. Full mapping + the archived wholesale
-  Notion lists: [notion-directory-taxonomy.md](notion-directory-taxonomy.md).
-- ✅ **Schema widened** — Focus 15→18, Industry 16→26, in `directoryMember.ts`,
-  `constants.ts` and the design-system page. Build passes; all four option lists verified in
-  lockstep.
-- ▶️ **Next:** write `migrate-notion-directory.mjs` (Step 4). Nothing is blocking.
+- ✅ **Taxonomy decided** — Focus 15→18, Industry 16→26 to match Notion. Verified against all
+  63 records: **zero unmapped values**. Full mapping + the archived wholesale Notion lists:
+  [notion-directory-taxonomy.md](notion-directory-taxonomy.md).
+- ✅ **Schema widened and shipped** — `directoryMember.ts`, `constants.ts` and the
+  design-system page moved together. Build passes; all four option lists verified in lockstep.
+- ✅ **Gustavo Ambrozio resolved** — not a member; deleted with the rest, not re-imported.
+
+---
 
 ## Governing principle: Notion is the source of truth
 
@@ -259,30 +300,18 @@ remains in the pre-purge backup if that ever changes.
 | # | Step | Who | Effort |
 |---|---|---|---|
 | ~~1~~ | ~~Export from Notion~~ — not needed, extraction is scripted | — | — |
-| ~~2~~ | ~~Purge test records~~ ✅ done, 11 deleted | — | — |
-| ~~3~~ | ~~Decide the taxonomy~~ ✅ done — widen to 18 focus / 26 industry | — | — |
-| ~~4~~ | ~~Decide on Gustavo~~ ✅ not a member — let him go | — | — |
-| ~~5~~ | ~~Widen schema + `constants.ts` + design-system page~~ ✅ done, build passes | — | — |
+| ~~2~~ | ~~Purge test records~~ ✅ 11 deleted | — | — |
+| ~~3~~ | ~~Decide the taxonomy~~ ✅ 18 focus / 26 industry | — | — |
+| ~~4~~ | ~~Decide on Gustavo~~ ✅ not a member | — | — |
+| ~~5~~ | ~~Widen schema + constants + design-system page~~ ✅ build passes | — | — |
 | 6 | Write `migrate-notion-directory.mjs`, dry-run report | Me | ~2 hrs |
-| 7 | You review the dry-run diff | You | ~30 min |
+| 7 | Review the dry-run diff | You | ~30 min |
 | 8 | Import as drafts → review in Studio → publish | Both | ~1 hr |
-| 9 | **Delete all 6 old records** once 63 have landed | Me | 2 min |
-| 10 | Verify `/find-ux-pro` on staging: filters, island facets, search, pagination, drawer | Me | ~30 min |
+| 9 | Delete the 6 old records, once 63 have landed | Me | 2 min |
+| 10 | Verify `/find-ux-pro` on staging | Me | ~30 min |
 
-Roughly **half a day of my time**. Only step 4 is blocking, and it's a 2-minute call.
-
----
-
-## Open questions
-
-1. **Trevor Husseini's focus** — leave empty, or add a `software-development` option? (Step 2)
-2. **Retire Notion?** Once this lands, is Notion redirected at `uxhi.community/find-ux-pro`, or
-   kept as the editing surface with periodic re-imports? Source-of-truth rule implies the latter
-   — in which case the import script becomes a recurring sync, and re-running it must stay safe
-   (it is: deterministic IDs, full replace).
-3. **Consent** — 63 real people's names, photos and LinkedIn profiles move to a new public home
-   on a new domain. Does the original Notion submission cover that, or do members need a
-   heads-up? Worth checking before this goes live.
+About **half a day** of remaining work, all of it on `staging`. Open decisions and parked items
+are listed at the top of this doc.
 
 ---
 

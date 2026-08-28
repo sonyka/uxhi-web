@@ -120,21 +120,27 @@ Done:
       against all 63 records: **zero unmapped values**. Notion's full wholesale lists
       (43 industries / 26 focuses, including unused ones) archived for later.
 
-Open:
+Open — **all work stays on `staging`; `uxhi.community` is not ready for this yet**:
 
-- [x] **Gustavo Ambrozio** — confirmed not a member; deleted with the rest, not re-imported.
-- [x] **Widen the schema** — 2026-08-27. Focus 15→18, Industry 16→26 across
-      `directoryMember.ts`, `components/directory/constants.ts` and the design-system page.
-      Build passes; all four option lists verified in lockstep.
 - [ ] **Write + dry-run** `web/scripts/migrate-notion-directory.mjs`, then import as drafts.
       Treat it as a re-runnable sync, not a one-shot: unknown Notion values must halt the run.
-- [ ] **🚨 LAUNCH GATE: delete all 6 remaining old records** — the 4 `Placeholder Member` rows
-      plus the 2 pre-existing profiles — *after* the 63 have landed, so the directory is never
-      empty. Do not point `uxhi.community` at the site until
-      `*[_type=="directoryMember" && name match "Placeholder*"]` returns zero:
+- [ ] **Delete the 6 remaining old records** — the 4 `Placeholder Member` rows plus the 2
+      pre-existing profiles — *after* the 63 have landed, so the directory is never empty:
       `node scripts/purge-directory-tests.mjs --commit --include-placeholders`
+- [ ] **Trevor Husseini's focus** — his only Notion focus is `Software Development`, so he
+      imports untagged. Leave it and nudge him, or add a `software-development` option?
 - [ ] **Consent check** — 63 real people's names, photos and LinkedIn profiles move to a new
       public home on a new domain. Confirm the original Notion submission covers that.
+- [ ] **Decide: retire Notion, or keep it as the editing surface** with periodic re-syncs?
+- [ ] *(housekeeping)* ~10 orphaned image assets from the purge; 3 members have no headshot
+      (Shayla Cabalo-Cable, Vincent Brathwaite, Sharif Matar).
+
+🚨 **Launch gate (parked until the domain is ready):** no `Placeholder Member` rows may reach
+production. Before pointing `uxhi.community`, confirm
+`*[_type=="directoryMember" && name match "Placeholder*"]` returns zero.
+
+Full detail and next steps: **[notion-directory-migration.md](notion-directory-migration.md)**
+— open items are listed at the top of that doc.
 
 ---
 
