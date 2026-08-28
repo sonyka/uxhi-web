@@ -34,10 +34,19 @@ the other docs in this folder (linked per section) plus in-progress work. Starte
 - [x] ~~Re-smoke-test the Netlify staging site (`uxhi.hisony.com`)~~ — **obsolete**, that domain
       is retired. Staging smoke-testing happens on the Vercel URL.
 
-> Note: the `web` project's Framework Preset shows **"Other"** rather than Next.js, and Vercel
-> flags that the current Production deployment's config differs from Project Settings. Builds
-> work (root directory `web` is correct, and `web/vercel.json` declares the framework), so this
-> is cosmetic — but worth a look if build behaviour ever gets strange.
+> **Framework Preset "Other" — checked 2026-08-28, no action needed.** The dashboard preset
+> reads "Other" and Vercel flags a config drift, but `web/vercel.json` declares
+> `{"framework": "nextjs"}`, which overrides the project-level preset at deploy time. Verified
+> the Next.js runtime is genuinely active on Vercel:
+>
+> - `x-nextjs-prerender: 1`, `x-nextjs-stale-time: 300`, `x-vercel-cache: STALE` — ISR working
+> - `/_next/image` with a Sanity-hosted source → `200 image/jpeg` — image optimizer working
+>   (an SVG through the same endpoint correctly returns 400, since `dangerouslyAllowSVG` is off)
+> - Team usage shows non-zero ISR reads/writes and image transformations
+>
+> The drift warning is just Vercel comparing the deployment's effective config against the
+> dashboard default. Setting the preset to Next.js would silence it but change nothing
+> functional — `vercel.json` wins either way.
 
 ---
 
