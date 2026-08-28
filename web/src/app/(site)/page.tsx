@@ -16,9 +16,9 @@ import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, CountUp } from "@/comp
 import { scaleReveal, fadeIn, columnStaggerContainer, columnRise } from "@/lib/animations";
 
 export const metadata: Metadata = {
-  title: "UXHI - A UX design community for people in Hawaiʻi",
+  title: "UXHI - Community for aloha-centered design",
   description:
-    "Join 500+ UX professionals, students, and curious individuals in Hawaiʻi. Connect, learn, and grow together with UXHI.",
+    "Join 470+ UX professionals, students, and curious individuals in Hawaiʻi. Connect, learn, and grow together with UXHI.",
 };
 
 export default async function HomePage() {
@@ -57,7 +57,10 @@ export default async function HomePage() {
                   <img
                     src="/images/home/hcd-underline.svg"
                     alt=""
-                    className="absolute left-0 right-0 -bottom-2 md:-bottom-3 lg:-bottom-5 w-full h-[7px] md:h-[9px] lg:h-[12px] pointer-events-none hidden md:block"
+                    // Underlines "aloha-centered" only, not the trailing " design".
+                    // 69% is that word pair's share of the phrase width — a ratio, so
+                    // it holds as the type scales across breakpoints.
+                    className="absolute left-0 -bottom-2 md:-bottom-3 lg:-bottom-5 w-[69%] h-[7px] md:h-[9px] lg:h-[12px] pointer-events-none hidden md:block"
                   />
                 }
               >
@@ -117,7 +120,7 @@ export default async function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-6 left-0 right-0 text-center">
-                  <CountUp to={500} suffix="+" className="font-display text-4xl text-white" />
+                  <CountUp to={470} suffix="+" className="font-display text-4xl text-white" />
                   <span className="block text-white/90 text-sm mt-1">Members and counting</span>
                 </div>
               </div>
