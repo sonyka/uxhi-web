@@ -35,7 +35,7 @@ export function ProgramSection() {
       <div className="flex flex-col gap-3 md:gap-4">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
           <span className={TYPE.eyebrow} style={{ color: PURPLE }}>
-            Pre-Conference &middot; Date TBA
+            Pre-Conference &middot; Thursday, October 15, 2026 &middot; 6&ndash;8:30PM
           </span>
           <span
             className="inline-flex items-center rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
@@ -48,9 +48,21 @@ export function ProgramSection() {
         <SectionHeading>Pre UXHICon Pau Hana</SectionHeading>
 
         <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
-          For the first time, kick off UXHICon with an evening of stories, drinks, and connection, co-hosted by
-          Stories Out Loud. Experience the art of storytelling through shared mo&#699;olelo, creative perspectives,
+          For the first time, kick off UXHICon with an evening of stories, drinks, and connection at{" "}
+          <a
+            href="https://ourspacehawaii.org"
+            target="_blank"
+            rel="noopener"
+            className="underline underline-offset-2 hover:opacity-70 transition-opacity"
+            style={{ color: PURPLE }}
+          >
+            OurSpace
+          </a>. Experience the art of storytelling through shared mo&#699;olelo, creative perspectives,
           and meaningful conversation. Come gather, mingle, and get inspired by the stories that connect us.
+        </p>
+
+        <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
+          This event is 21+. Your ticket includes one drink, and a cash bar is available.
         </p>
 
         <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit mt-1">
