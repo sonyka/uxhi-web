@@ -95,21 +95,25 @@ export function ProgramSection() {
           className="lg:w-[216px] shrink-0 p-5 lg:p-6 flex flex-col justify-center gap-4"
           style={{ background: TEAL_60 }}
         >
+          {/* Each line is its own span rather than a hard <br>: inline while the
+              card is stacked, so the text wraps to the available width, and
+              block from lg where the 216px tear-off wants fixed lines. The
+              punctuation that only makes sense running-on is lg:hidden. */}
           <div className="flex flex-col gap-3">
             <p className={`${TYPE.ui} font-semibold leading-tight`} style={{ color: PURPLE }}>
-              Thursday
-              <br />
-              October 15, 2026
+              <span className="lg:block">
+                Thursday<span className="lg:hidden">,</span>
+              </span>{" "}
+              <span className="lg:block">October 15, 2026</span>
             </p>
             <p className={`${TYPE.fine} leading-snug`} style={{ color: PURPLE }}>
-              OurSpace
-              <br />
-              1052 Waimanu St
-              <br />
-              Honolulu, HI 96814
-            </p>
-            <p className={TYPE.fine} style={{ color: PURPLE }}>
-              21+
+              <span className="lg:block">
+                OurSpace<span className="lg:hidden"> &middot;</span>
+              </span>{" "}
+              <span className="lg:block">
+                1052 Waimanu St<span className="lg:hidden">,</span>
+              </span>{" "}
+              <span className="lg:block">Honolulu, HI 96814</span>
             </p>
           </div>
 
