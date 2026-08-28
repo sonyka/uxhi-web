@@ -100,7 +100,25 @@ See **[netlify-migration-plan.md](netlify-migration-plan.md) Phase 2.** Mostly d
 
 ---
 
-## 6. Docs to reconcile (drifted from reality)
+## 6. Member directory — Notion port + test-data purge
+
+See **[notion-directory-migration.md](notion-directory-migration.md)**. The `/find-ux-pro`
+directory is fully built, but **no real member data has ever been moved off Notion**.
+
+- [ ] **🚨 Purge test records before launch.** The live dataset has 16 published + 1 draft
+      `directoryMember` docs and nearly all are test junk ("Test User", "dlfkj asdfa",
+      "sanity test", "island test"). These would be **publicly visible** at `uxhi.community`.
+      Blocker regardless of the Notion port.
+- [ ] **Confirm the Notion directory isn't already broken** — its collection query returns
+      HTTP 401 to anonymous visitors and the gallery renders "No results". Check in a private window.
+- [ ] **Export the Notion database** (Markdown & CSV zip, include content) — only a workspace
+      admin can do this; the public page cannot be scraped.
+- [ ] Write + dry-run `web/scripts/migrate-notion-directory.mjs`, then import as drafts.
+- [ ] Decide whether Notion is retired (redirect) or kept in parallel after the port.
+
+---
+
+## 7. Docs to reconcile (drifted from reality)
 
 - [x] **CLAUDE.md** deployment section — now documents Netlify = production / Vercel = staging,
       the credit-limited batching, and the duplicate-project cleanup note.
