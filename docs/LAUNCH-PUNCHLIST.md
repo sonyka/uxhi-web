@@ -12,40 +12,39 @@ the other docs in this folder (linked per section) plus in-progress work. Starte
 
 ## 0. Deployment reality (so nobody gets confused again)
 
-| Thing | Where it actually lives | Notes |
+**Domain plan (confirmed 2026-08-28):**
+
+| Thing | Where it lives | Notes |
 |---|---|---|
-| Main-site **staging** | `uxhi.hisony.com` → **Netlify** | Re-pointed to `uxhi.community` at launch |
-| Main-site **staging (mirror)** | `web-henna-five-45.vercel.app` → **Vercel** project `web` | Currently tracks `main`; see infra cleanup |
-| **Conference** production | `uxhiconference.com` → **Netlify** (`main`) | Frozen — Netlify credits exhausted |
+| **Staging — everything** | `web-henna-five-45.vercel.app` → **Vercel** (`staging` branch) | The only staging URL. Share this for review. |
+| **Conference production** | `uxhiconference.com` → **Netlify** (`main`) | Conference only, permanently. Serves the current year at `/`, archives at `/YYYY`. |
+| **Main site production** | `uxhi.community` → **Netlify** (`main`) | Everything non-conference. **Not yet live** — pointed at launch. |
 | Active dev branch | `staging` | All commits go here (never push `main` w/o say-so) |
+
+> ⚠️ **`uxhi.hisony.com` is retired.** It no longer resolves (DNS failure). It used to be the
+> Netlify staging domain; staging is now Vercel only. Do not re-add it.
 
 - [ ] **Delete duplicate Vercel projects** `uxhi-web` (broken 404) and `uxhi-website` (legacy),
       after confirming no custom domain is attached to either. Keep only `web`.
-- [ ] **Decide `web` project's production branch** (`main` vs `staging`) and align it with how
-      we want `web-henna-five-45.vercel.app` to behave.
-- [ ] **Re-smoke-test the Netlify staging site** (`uxhi.hisony.com`): site loads, all 3 forms
-      submit (contact, membership, directory), Sanity Studio loads at `/studio`, draft mode
-      works (`/api/draft`). Left unverified during the deployment-model reconciliation —
-      see [netlify-migration-plan.md](netlify-migration-plan.md) Phase 1.
+      **Blocked on Vercel CLI auth** — run `npx vercel login` first (see §0 notes below).
+- [ ] **Set the `web` project's production branch to `staging`** so
+      `web-henna-five-45.vercel.app` tracks the branch we actually develop on.
+- [x] ~~Re-smoke-test the Netlify staging site (`uxhi.hisony.com`)~~ — **obsolete**, that domain
+      is retired. Staging smoke-testing happens on the Vercel URL.
 
 ---
 
-## 1. Conference content — replace 2025 placeholders (2026)
+## 1. Conference content (2026) — ✅ signed off
 
-The venue + FAQ copy was pulled from the 2025 site as placeholder. Confirm/replace for 2026:
+**Confirmed good as-is on 2026-08-28. No further changes.** The venue copy, FAQ items, venue
+photo and Co-Chair bios were reviewed and accepted in their current state. Kept here as a record
+of what was deliberately *not* changed, in case it comes up again:
 
-- [ ] **Venue section** (`web/src/app/(conference)/conferences/2026/page.tsx`):
-  - [ ] Refund policy date — currently "Thursday, September 25" (2025 date) in the FAQ
-  - [ ] Parking details — "Lot C … entrance on Keawe Street", "no parking passes this year"
-  - [ ] Confirm the Google Maps link still points to the correct 2026 venue
-- [ ] **FAQ items** (`_components/FaqSection.tsx`): review all 8 for 2026 accuracy
-      (attendee profile, ticket inclusions, group discounts, recordings, refunds, parking, contact).
-- [ ] **Venue photo** (`assets/images/venue-entrepreneurs-sandbox.jpg`): sourced from
-      `filmoffice.hawaii.gov`. **Confirm usage rights or swap for an official/UXHI photo.**
-- [ ] **Co-Chairs bios** — editable in Sanity (Studio → **Conference → 2026 → Co-Chairs**).
-      Names, titles, LinkedIn, and **2025 headshots** are seeded; only bios are still
-      placeholder ("Full bio coming soon."). Confirm the 2026 roster + that each seeded photo
-      matches the right person (photos were mapped by position from the 2025 site).
+- Venue section refund date, parking details and Google Maps link — accepted as-is.
+- All 8 FAQ items — accepted as-is.
+- Venue photo (`assets/images/venue-entrepreneurs-sandbox.jpg`, sourced from
+  `filmoffice.hawaii.gov`) — accepted; usage rights not formally confirmed.
+- Co-Chairs bios in Sanity — placeholder bios accepted for now.
 
 ---
 
@@ -88,7 +87,8 @@ See **[netlify-migration-plan.md](netlify-migration-plan.md) Phase 2.** Mostly d
 
 - [ ] **Merch payments (`/merch`)** — currently "Coming soon". Choose an approach and build.
       See **[stripe-payment-options.md](stripe-payment-options.md)** (Payment Links vs Checkout).
-- [ ] **Mailchimp email sync** — wire Membership + Inquiry forms to Mailchimp.
+- [ ] ⏸️ **Mailchimp email sync — ON HOLD** (2026-08-28). Plan is written and ready to build
+      whenever it is picked back up; forms currently write to Sanity + Slack only.
       See **[mailchimp-integration.md](mailchimp-integration.md)**.
 - [ ] **Instagram token** — expires every 60 days; refresh when the homepage feed goes blank
       (see [handoff-guide.md](handoff-guide.md)).

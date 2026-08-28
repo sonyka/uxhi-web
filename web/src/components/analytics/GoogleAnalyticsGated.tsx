@@ -8,10 +8,10 @@ import { useEffect, useState } from "react";
  * production hostname (or its www. variant).
  *
  * Why: the community property (G-DMCWLCQD08) is already collecting live
- * uxhi.community traffic. Gating keeps staging/preview hits (uxhi.hisony.com,
- * *.vercel.app, localhost) out of the live reports. When the Netlify site is
- * re-pointed to uxhi.community at launch, tracking activates automatically —
- * same property, no loss of historical continuity.
+ * uxhi.community traffic. Gating keeps staging/preview hits (*.vercel.app,
+ * localhost) out of the live reports. When the Netlify site is pointed at
+ * uxhi.community at launch, tracking activates automatically — same property,
+ * no loss of historical continuity.
  *
  * Omit `productionHost` to always load (for tags with no live data to protect
  * that should be verifiable on staging).

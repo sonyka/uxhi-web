@@ -45,7 +45,7 @@ export function ProgramSection() {
           </span>
         </div>
 
-        <SectionHeading>Pre UXHICon Mixer</SectionHeading>
+        <SectionHeading>Pre UXHICon Pau Hana</SectionHeading>
 
         <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
           For the first time, kick off UXHICon with an evening of stories, drinks, and connection, co-hosted by

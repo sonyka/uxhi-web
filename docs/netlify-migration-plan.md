@@ -6,9 +6,14 @@
 
 - **Production → Netlify** (free tier, commercial use allowed). Serves `uxhiconference.com` now and `uxhi.community` at launch. Build credits are limited, so production deploys are batched.
 - **Staging → Vercel** (Hobby) at `web-henna-five-45.vercel.app`, previewing the `staging` branch. Kept for review only — **not** used for production, because Hobby's non-commercial / fair-use clause doesn't fit UXHI (which may add paid features).
-- Staging domain (on Netlify): `uxhi.hisony.com`
+- Staging: `web-henna-five-45.vercel.app` (Vercel) — the only staging URL
 - Production domain: `uxhi.community` (currently on SiteGround, pointing to old site)
 - Conference domain: `uxhiconference.com` (serves `/conferences/2026/` via URL masking)
+
+> ⚠️ **Historical note (2026-08-28):** `uxhi.hisony.com` appears below as the Phase 1 staging
+> domain. **It has since been retired and no longer resolves.** Those Phase 1 entries are a
+> record of what was done at the time — do not treat them as current instructions. Staging is
+> Vercel only; `uxhiconference.com` is conference-only; `uxhi.community` will serve the rest.
 
 Phases 1 and 2 are independent of Phase 3. The conference site can go live as soon as Netlify is set up, without waiting for the main site content to be finalized.
 
@@ -16,7 +21,7 @@ Phases 1 and 2 are independent of Phase 3. The conference site can go live as so
 
 ## Phase 1 — Stand up the site on Netlify (staging)
 
-**Status: complete — `uxhi.hisony.com` is live on Netlify.**
+**Status: complete** — was live at `uxhi.hisony.com` (since retired, see note above).
 
 ### Code (developer) ✓
 - [x] Create `netlify.toml` — base directory (`web`), build command, per-context env vars for Sanity visual editing

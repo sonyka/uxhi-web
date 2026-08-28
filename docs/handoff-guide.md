@@ -18,7 +18,8 @@ You'll need access to three services:
 ### Sanity (content management system) ✅
 - Sony has invited you to the Sanity project with an **Editor** role — full access to create, edit, and publish content
 - Free plan (500K API requests/month, 10GB bandwidth)
-- Access the CMS at `uxhi.hisony.com/studio` or `localhost:3000/studio` when running locally
+- Access the CMS at `web-henna-five-45.vercel.app/studio` (staging) or `localhost:3000/studio`
+  when running locally
 
 ### Claude Code (AI assistant) ✅
 - Get your own account at [claude.ai/claude-code](https://claude.com/product/claude-code)

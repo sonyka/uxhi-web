@@ -18,7 +18,7 @@ site. If it fired on our staging environments, test/review visits would pollute 
 reports. So the community tag only loads when `window.location.hostname` is `uxhi.community`
 (or `www.uxhi.community`).
 
-This fits the launch plan: the **Netlify staging site (`uxhi.hisony.com`) will be re-pointed
+This fits the launch plan: the **Netlify production site will be pointed
 to `uxhi.community`** at release. Until then the community tag stays silent; the moment the
 domain becomes `uxhi.community`, it activates automatically — **same property, no loss of
 historical continuity.**
