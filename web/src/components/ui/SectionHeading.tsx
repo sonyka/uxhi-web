@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
 
-type HeadingSize = "sm" | "md" | "lg" | "xl" | "hero";
+type HeadingSize = "sm" | "md" | "lg" | "xl" | "hero" | "display";
 type HeadingColor = "purple" | "white" | "black" | "gray";
 type HeadingTag = "h1" | "h2" | "h3";
 
 interface SectionHeadingProps {
   children: React.ReactNode;
   /** Size variant:
+   * - display: 40 → 60 → 80px (homepage hero only — the largest type on the site)
    * - hero: 4xl → 5xl (interior page hero h1)
    * - xl: 4xl → 5xl → 6xl (large CTA headings)
    * - lg: 4xl → 5xl (section headings)
@@ -22,6 +23,7 @@ interface SectionHeadingProps {
 }
 
 const sizeStyles: Record<HeadingSize, string> = {
+  display: "text-[40px] md:text-[60px] lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight",
   hero: "text-4xl leading-[40px] lg:text-5xl lg:leading-[60px]",
   xl: "text-4xl md:text-5xl lg:text-6xl",
   lg: "text-4xl md:text-5xl",

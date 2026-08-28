@@ -10,6 +10,7 @@ import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard
 import { InlineLink } from "@/components/ui/InlineLink";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionLead } from "@/components/ui/SectionLead";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, CountUp } from "@/components/ui/motion";
 import { scaleReveal, fadeIn, columnStaggerContainer, columnRise } from "@/lib/animations";
@@ -41,29 +42,36 @@ export default async function HomePage() {
                 height={36}
                 className="h-9 w-auto"
               />
-              <span className="text-nav text-gray-120 font-medium">500 members and growing</span>
+              <span className="text-nav text-gray-120 font-medium">470 members and counting</span>
             </div>
           </HeroItem>
 
           {/* Main Headline */}
           <HeroItem>
-            <h1 className="font-display text-[40px] md:text-[60px] lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight text-black mb-12">
-              A{" "}
+            <SectionHeading as="h1" size="display" color="black" className="mb-6">
+              Community for<br className="hidden md:block" />{" "}
               <MobileTooltip
-                tooltip="UX is the overall experience a user has when interacting with a product or service."
+                tooltip="Aloha-centered design applies Hawaiʻi's values — care, reciprocity, and respect for place — to how we design for people."
                 decorationElement={
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    src="/images/home/ux-circle.svg"
+                    src="/images/home/hcd-underline.svg"
                     alt=""
-                    className="absolute pointer-events-none max-w-none w-[100px] h-[45px] -left-[20px] -top-[3px] sm:w-[110px] sm:h-[48px] sm:-left-[22px] sm:-top-[4px] md:w-[160px] md:h-[70px] md:-left-[40px] md:-top-[7px] lg:w-[270px] lg:h-[110px] lg:-left-[70px] lg:-top-[10px]"
+                    className="absolute left-0 right-0 -bottom-2 md:-bottom-3 lg:-bottom-5 w-full h-[7px] md:h-[9px] lg:h-[12px] pointer-events-none hidden md:block"
                   />
                 }
               >
-                UX
-              </MobileTooltip>{" "}
-              design<br className="hidden md:block" /> community for<br className="hidden md:block" /> people in Hawaiʻi
-            </h1>
+                aloha-centered design
+              </MobileTooltip>
+            </SectionHeading>
+          </HeroItem>
+
+          {/* Subheadline */}
+          <HeroItem>
+            <SectionLead className="max-w-[46ch] mx-auto mb-12">
+              A Hawaiʻi-rooted approach to human-centered design, grounded in care for people,
+              culture, community, and place.
+            </SectionLead>
           </HeroItem>
 
           {/* CTA Button */}
@@ -289,7 +297,7 @@ export default async function HomePage() {
                 <img
                   src="/images/home/hcd-underline.svg"
                   alt=""
-                  className="absolute left-0 right-0 -bottom-2 w-full h-auto pointer-events-none hidden md:block"
+                  className="absolute left-0 right-0 -bottom-2 w-full h-[9px] lg:h-[10px] pointer-events-none hidden md:block"
                 />
               }
             >

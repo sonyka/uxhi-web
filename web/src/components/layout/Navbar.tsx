@@ -306,7 +306,7 @@ export function HamburgerButton({ isOpen, onClick }: HamburgerButtonProps) {
 
 // Default navigation items used across the site
 export const defaultNavItems: NavItem[] = [
-  { key: "find-ux-pro", label: "Find Experts", href: "/find-ux-pro" },
+  { key: "find-ux-pro", label: "Find a Pro", href: "/find-ux-pro" },
   {
     key: "get-involved",
     label: "Get Involved",
@@ -331,7 +331,10 @@ export const defaultNavItems: NavItem[] = [
       { label: "Directory of Local Tech Orgs", href: "/resources#directory", description: "Local tech community" },
     ],
   },
-  { key: "shop", label: "Shop", href: "/merch" },
+  // Shop is hidden until further notice (2026-08-28). The /merch page still
+  // exists and is reachable by URL — this only removes it from the nav.
+  // Restore by uncommenting.
+  // { key: "shop", label: "Shop", href: "/merch" },
   {
     key: "about",
     label: "About",

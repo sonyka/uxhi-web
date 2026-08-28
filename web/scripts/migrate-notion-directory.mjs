@@ -456,9 +456,11 @@ async function promoteDrafts() {
   console.log(`Found ${drafts.length} imported drafts.\n`);
   const tx = client.transaction();
   for (const d of drafts) {
-    const { _id, _rev, _createdAt, _updatedAt, ...doc } = d;
-    tx.createOrReplace({ ...doc, _id: _id.replace(/^drafts\./, "") });
-    tx.delete(_id);
+    const doc = { ...d };
+    for (const k of ["_rev", "_createdAt", "_updatedAt"]) delete doc[k];
+    doc._id = d._id.replace(/^drafts\./, "");
+    tx.createOrReplace(doc);
+    tx.delete(d._id);
   }
   await tx.commit();
 

@@ -22,7 +22,7 @@ export function Footer() {
     {
       links: [
         { label: "Home", href: "/" },
-        { label: "Find Experts", href: "/find-ux-pro" },
+        { label: "Find a Pro", href: "/find-ux-pro" },
         { label: "Get Involved", href: "/get-involved" },
       ],
     },
@@ -35,7 +35,8 @@ export function Footer() {
     },
     {
       links: [
-        { label: "Shop", href: "/merch" },
+        // Shop hidden until further notice (2026-08-28) — matches the nav.
+        // { label: "Shop", href: "/merch" },
         { label: "About", href: "/about" },
         { label: "Join us", href: "/join" },
       ],

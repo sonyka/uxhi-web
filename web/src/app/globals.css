@@ -148,7 +148,9 @@
 
 /* Base styles */
 :root {
-  --background: #FDF9F6;
+  /* Page background. Alias the palette token rather than restating its hex,
+     so it keeps tracking the design system. */
+  --background: var(--color-beige-30);
   --foreground: #171717;
 }
 

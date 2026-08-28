@@ -18,6 +18,7 @@ import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { SpotIllustrationCard } from "@/components/ui/cards";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionLead } from "@/components/ui/SectionLead";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { LogoImage } from "@/components/ui/LogoImage";
@@ -91,6 +92,7 @@ const navigationItems = [
       { id: "typography-bulletpoint", label: "Bullet Point" },
       { id: "typography-eyebrow", label: "Section Eyebrow" },
       { id: "typography-sectionheading", label: "Section Heading" },
+      { id: "typography-sectionlead", label: "Section Lead" },
       { id: "typography-sectionicon", label: "Section Icon" },
     ],
   },
@@ -799,13 +801,17 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionheading": (
     <ContentSection
       title="Section Heading"
-      description="Display heading for page sections. Uses Dela Gothic One with responsive sizing. Supports size variants (hero, xl, lg, md, sm), color variants (purple, white, black, gray), and heading tags (h1-h3)."
+      description="Display heading for page sections. Uses Dela Gothic One with responsive sizing. Supports size variants (display, hero, xl, lg, md, sm), color variants (purple, white, black, gray), and heading tags (h1-h3)."
       componentPath="components/ui/SectionHeading.tsx"
     >
       <div className="space-y-6">
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Size Variants</h4>
           <div className="space-y-4 p-6 bg-beige-30 rounded-xl">
+            <div>
+              <span className="text-xs text-gray-100 font-mono">display — homepage hero only (40 → 60 → 80px)</span>
+              <SectionHeading as="h1" size="display" color="black">Display Title</SectionHeading>
+            </div>
             <div>
               <span className="text-xs text-gray-100 font-mono">hero — interior page h1 (4xl → 5xl)</span>
               <SectionHeading as="h1" size="hero" color="black">Hero Title</SectionHeading>
@@ -839,6 +845,49 @@ const contentComponents: Record<string, React.ReactNode> = {
             </div>
             <div className="p-4 bg-beige-30 rounded-xl">
               <SectionHeading color="black">Black (hero sections)</SectionHeading>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  "typography-sectionlead": (
+    <ContentSection
+      title="Section Lead"
+      description="Supporting paragraph that sits directly beneath a heading. Pairs with SectionHeading — use size=&quot;hero&quot; under a display/hero heading, size=&quot;md&quot; under smaller section headings. Keeps subheadline type out of page files."
+      componentPath="components/ui/SectionLead.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Size Variants</h4>
+          <div className="space-y-5 p-6 bg-beige-30 rounded-xl">
+            <div>
+              <span className="text-xs text-gray-100 font-mono">hero — under a display/hero heading (lg → xl → 2xl)</span>
+              <SectionLead>
+                A Hawai&#699;i-rooted approach to human-centered design, grounded in care for
+                people, culture, community, and place.
+              </SectionLead>
+            </div>
+            <div>
+              <span className="text-xs text-gray-100 font-mono">md — under a section heading (base → lg)</span>
+              <SectionLead size="md">
+                Supporting copy that introduces a section without competing with its heading.
+              </SectionLead>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Color Variants</h4>
+          <div className="space-y-4">
+            <div className="p-4 bg-beige-30 rounded-xl">
+              <SectionLead size="md">Gray (default)</SectionLead>
+            </div>
+            <div className="p-4 bg-beige-30 rounded-xl">
+              <SectionLead size="md" color="black">Black</SectionLead>
+            </div>
+            <div className="p-4 bg-purple-140 rounded-xl">
+              <SectionLead size="md" color="white">White (dark backgrounds)</SectionLead>
             </div>
           </div>
         </div>
