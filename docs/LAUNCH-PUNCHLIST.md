@@ -105,10 +105,13 @@ See **[netlify-migration-plan.md](netlify-migration-plan.md) Phase 2.** Mostly d
 See **[notion-directory-migration.md](notion-directory-migration.md)**. The `/find-ux-pro`
 directory is fully built, but **no real member data has ever been moved off Notion**.
 
-- [ ] **🚨 Purge test records before launch.** The live dataset has 16 published + 1 draft
-      `directoryMember` docs and nearly all are test junk ("Test User", "dlfkj asdfa",
-      "sanity test", "island test"). These would be **publicly visible** at `uxhi.community`.
-      Blocker regardless of the Notion port.
+- [x] **Purge test records** — done 2026-08-27, 11 deleted via
+      `web/scripts/purge-directory-tests.mjs --commit`. Backup of all 17 pre-purge docs at
+      `~/Documents/FREELANCE/UXHI/directory-backup-2026-08-27.json` (outside the repo, PII).
+- [ ] **🚨 LAUNCH GATE: delete the 4 `Placeholder Member` rows** before pointing
+      `uxhi.community` at the site. Kept deliberately so the grid/island filter look alive on
+      staging; they must go once real members are imported:
+      `node scripts/purge-directory-tests.mjs --commit --include-placeholders`
 - [ ] **Confirm the Notion directory isn't already broken** — its collection query returns
       HTTP 401 to anonymous visitors and the gallery renders "No results". Check in a private window.
 - [ ] **Export the Notion database** (Markdown & CSV zip, include content) — only a workspace

@@ -179,12 +179,39 @@ Deterministic IDs (`directory-notion-<notion-row-id>`) so a re-run updates rathe
 
 ---
 
-## Step 5 — Test-data purge
+## Step 5 — Test-data purge ✅ done 2026-08-27
 
-Independent of the Notion port and, in my view, more urgent. 16 published + 1 draft records, of
-which only two look real (you, and Gustavo Ambrozio). I'd want you to eyeball the full list and
-confirm the keep/delete calls before anything is deleted — I'll produce the list, you approve it,
-then the script runs. **I won't delete anything on my own judgment.**
+Ran `web/scripts/purge-directory-tests.mjs --commit`. **11 test records deleted** — both
+"Test User" duplicates, "sanity test", "finduxpro test", "memberdirectory atmadjaja",
+"island test", "dlfkj asdfa", "Bobby Joe", "Lani banani", "Lani Atmadjaja sdfdsf", and the
+"test member directory" draft.
+
+Dataset now holds **6** `directoryMember` docs: 2 real members (Sony Atmadjaja, Gustavo
+Ambrozio) + 4 seeded `Placeholder Member` rows.
+
+- Full pre-purge backup of all 17 docs:
+  `/Users/sonyka/Documents/FREELANCE/UXHI/directory-backup-2026-08-27.json`
+  (kept **outside the repo** — member PII). Image assets were not deleted, so any record in
+  that file can be recreated intact.
+- The script deletes by **explicit ID allowlist**, never by name pattern, so re-running it later
+  against a dataset full of real members can't widen its blast radius. Dry run is the default.
+
+### 🚨 Launch gate — the 4 placeholders
+
+`Placeholder Member 1–4` (order 900–903, shared placeholder photo, spread across Oʻahu / Maui /
+Hawaiʻi so the island filter has something to bite on) were **deliberately kept** — they're the
+only thing making the grid, island filter and pagination look alive on staging while the real
+data is still in Notion.
+
+**They must not reach production.** Deleting them is the last step of the import, once real
+members are in:
+
+```bash
+node scripts/purge-directory-tests.mjs --commit --include-placeholders
+```
+
+Do not point `uxhi.community` at the site until `*[_type=="directoryMember" && name match "Placeholder*"]`
+returns zero.
 
 ---
 
@@ -198,7 +225,8 @@ then the script runs. **I won't delete anything on my own judgment.**
 | 4 | Write `migrate-notion-directory.mjs` + dry-run report | Me | ~2 hrs |
 | 5 | You review the dry-run diff + unmapped-value report | You | ~30 min |
 | 6 | Import as drafts, review in Studio, publish | Both | ~1 hr |
-| 7 | Purge test records (list → your approval → delete) | Both | ~20 min |
+| ~~7~~ | ~~Purge test records~~ ✅ **done 2026-08-27** — 11 deleted | — | — |
+| 7 | **Delete the 4 placeholders** (`--include-placeholders`) once real members are live | Me | 2 min |
 | 8 | Verify `/find-ux-pro` on staging: filters, island facets, search, pagination, drawer | Me | ~30 min |
 
 Roughly **half a day of my time**, gated on the export. Steps 4–8 all happen on `staging` and are
