@@ -1,6 +1,8 @@
 # Spot Illustration Icon Audit
 
-Last updated: 2026-03-09
+**Point-in-time audit, 2026-03-09.** Re-verified 2026-08-28: all 23 icons listed below still
+exist in `web/public/images/icons/`. This is a snapshot rather than a maintained index — if it
+disagrees with the code, the code wins.
 
 ## SpotIllustrationCard Icons (80px mobile / 96px desktop)
 
@@ -32,14 +34,14 @@ Last updated: 2026-03-09
 | `icon-shopping.svg` | Shopping | Merch — "Coming soon" section | hardcoded |
 | `icon-collaborate.svg` | Collaborate | Get Involved — "Ready to collaborate?" | hardcoded |
 | `icon-donate.svg` | Donate | Get Involved — Donations section | hardcoded |
-| `icon-directory.svg` | Directory | Find a UX Pro — "Join our directory" | hardcoded |
+| `icon-directory.svg` | Directory | Find a Pro (`/find-ux-pro`) — "Join our directory" | hardcoded |
 | `icon-contact.svg` | Contact | About — "Get in touch" / Contact | hardcoded |
 
 ## Other Icons
 
 | Icon | Title | Display Size | Page / Section | Source |
 |------|-------|-------------|----------------|--------|
-| `icon-empty.svg` | Empty state | 96px | Find a UX Pro — no results | hardcoded |
+| `icon-empty.svg` | Empty state | 96px | Find a Pro (`/find-ux-pro`) — no results | hardcoded |
 
 ## Sanity-Managed Icons
 

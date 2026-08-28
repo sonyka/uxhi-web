@@ -1,5 +1,10 @@
 # Mailchimp Integration for Form Submissions
 
+> ⏸️ **ON HOLD as of 2026-08-28.** Nothing here is built — the Membership and Inquiry
+> forms still write to Sanity and Slack only. This document is the plan for when the work is
+> picked back up, not a description of what exists. See
+> [LAUNCH-PUNCHLIST.md](LAUNCH-PUNCHLIST.md) §5.
+
 ## Current State
 
 All 3 forms currently save to:
