@@ -29,7 +29,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What is the pre-conference event?",
-    a: "New this year, we’re hosting a pre-conference pau hana at OurSpace on Thursday, October 15, 2026, 6–8:30PM. Tickets are sold separately — no conference ticket required. The event is 21+, your ticket includes one drink, and a cash bar is available.",
+    a: "New this year, we’re hosting a pre-conference pau hana at OurSpace on Thursday, October 15, 2026. Tickets are sold separately — no conference ticket required. The event is 21+, your ticket includes one drink, and a cash bar is available. Timing will be confirmed once programming is set.",
   },
   {
     q: "Are there group discounts available?",

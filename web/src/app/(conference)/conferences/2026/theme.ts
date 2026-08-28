@@ -26,6 +26,8 @@
 export const PURPLE = "var(--color-purple-140)"; // #231769
 export const TEAL_90 = "var(--color-teal-90)"; // #09C0D7 — primary teal on light
 export const TEAL_60 = "var(--color-teal-60)"; // #60D7E5 — pulse dot, teal CTAs
+export const TEAL_40 = "var(--color-teal-40)"; // #9AE6EE — pale teal, avatar stack
+export const PURPLE_100 = "var(--color-purple-100)"; // #412BC2 — bright purple, avatar stack
 export const GRAY_110 = "var(--color-gray-110)"; // #50555A — body copy
 export const GRAY_100 = "var(--color-gray-100)"; // #676D73 — secondary copy
 export const GRAY_80 = "var(--color-gray-80)"; // #969DA4 — icons, muted labels

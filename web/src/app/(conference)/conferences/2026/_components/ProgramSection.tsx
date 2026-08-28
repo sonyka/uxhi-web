@@ -1,8 +1,20 @@
 import { SectionHeading } from "./SectionHeading";
-import { PURPLE, TEAL_60, YELLOW_80 as GOLD, GRAY_110 as GRAY, GRAY_100, GRAY_80, TYPE } from "../theme";
+import {
+  PURPLE,
+  PURPLE_100,
+  TEAL_60,
+  TEAL_40,
+  YELLOW_80 as GOLD,
+  BEIGE_30,
+  BEIGE_40,
+  GRAY_110 as GRAY,
+  GRAY_100,
+  GRAY_80,
+  TYPE,
+} from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
 import { TICKETS_URL } from "../constants";
-import { ShakaIcon } from "./icons";
+import { ShakaIcon, ArrowRightIcon } from "./icons";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with
@@ -25,9 +37,6 @@ export function ProgramSection() {
         <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
           Spend the day in culturally grounded keynotes, panels, and hands-on workshops &mdash; led by industry
           experts and local voices &mdash; and leave with new pilina.
-        </p>
-        <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
-          The speaker lineup and full agenda will be announced soon.
         </p>
       </div>
 
@@ -122,6 +131,57 @@ export function ProgramSection() {
           </ConferenceButton>
         </div>
         </div>
+      </div>
+
+      {/* Lineup teaser. The avatar stack stands in for speakers not yet
+          announced — three brand circles and an unknown, so the row reads as
+          "more to come" rather than as real people. Decorative, hence
+          aria-hidden. */}
+      {/* Beige fill, not the mock's white: this section sits on the page's
+          white content panel, so a white strip would be invisible. BEIGE_30
+          gives the same raised-strip contrast, inverted for the surface. */}
+      <div
+        className="rounded-[20px] p-6 lg:p-8 flex flex-col gap-5"
+        style={{ background: BEIGE_30 }}
+      >
+        <div className="flex items-center gap-5">
+          <div className="flex items-center shrink-0" aria-hidden="true">
+            {[GOLD, TEAL_40, PURPLE_100].map((fill) => (
+              <span
+                key={fill}
+                className="w-12 h-12 lg:w-14 lg:h-14 rounded-full -mr-3 lg:-mr-4"
+                style={{ background: fill }}
+              />
+            ))}
+            <span
+              className={`w-12 h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center ${TYPE.fine} font-bold`}
+              style={{ background: BEIGE_40, color: GRAY_100 }}
+            >
+              +?
+            </span>
+          </div>
+
+          <div className="flex-1 flex flex-col gap-1">
+            <p className={`${TYPE.ui} font-bold`} style={{ color: PURPLE }}>
+              The speaker lineup and full agenda will be announced soon.
+            </p>
+            <p className={TYPE.fine} style={{ color: GRAY_100 }}>
+              Last year: 37 speakers across 12 sessions.
+            </p>
+          </div>
+        </div>
+
+        {/* Sits below rather than beside: the conference content column is
+            only ~620px, and a third column squeezed the headline to 85px. */}
+        <ConferenceButton
+          href="https://www.instagram.com/uxhicommunity/"
+          variant="outline"
+          icon={ArrowRightIcon}
+          iconPosition="trailing"
+          className="w-fit"
+        >
+          Follow @uxhicommunity
+        </ConferenceButton>
       </div>
     </div>
   );

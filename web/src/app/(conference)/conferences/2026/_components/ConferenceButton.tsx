@@ -10,7 +10,7 @@ import { PURPLE, TEAL_60, TYPE } from "../theme";
 // here is 2026-specific — `icon` takes a full path so each year passes its own
 // assets. See docs/CONFERENCE-DESIGN-SYSTEM.md Phase 3.
 
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "secondary" | "outline";
 
 interface ConferenceButtonProps {
   href: string;
@@ -18,6 +18,9 @@ interface ConferenceButtonProps {
   /**
    * primary   — purple fill, white label (Get tickets)
    * secondary — teal fill, black label (Become a sponsor, View on Map)
+   * outline   — no fill, purple hairline + purple label, for a secondary
+   *             action sitting on a white surface where a filled pill
+   *             would out-shout the copy next to it
    */
   variant?: Variant;
   /** An icon component from ./icons — it paints with the button's own color. */
@@ -33,9 +36,13 @@ const BASE =
 // Icons inherit the label color via currentColor, so the variant only has to
 // set text color — no per-variant icon handling (the primary variant used to
 // need filter: invert(1) to turn a black asset white).
-const VARIANTS: Record<Variant, { className: string; background: string }> = {
+const VARIANTS: Record<
+  Variant,
+  { className: string; background: string; borderColor?: string }
+> = {
   primary: { className: "text-white", background: PURPLE },
   secondary: { className: "text-black", background: TEAL_60 },
+  outline: { className: "border", background: "transparent", borderColor: PURPLE },
 };
 
 /**
@@ -61,7 +68,10 @@ export function ConferenceButton({
       target="_blank"
       rel="noopener"
       className={cn(BASE, TYPE.ui, v.className, className)}
-      style={{ background: v.background }}
+      style={{
+        background: v.background,
+        ...(v.borderColor ? { borderColor: v.borderColor, color: v.borderColor } : {}),
+      }}
     >
       {iconPosition === "leading" && iconEl}
       {children}

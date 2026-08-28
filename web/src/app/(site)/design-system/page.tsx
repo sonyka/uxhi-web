@@ -2932,7 +2932,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "conference-button": (
     <ContentSection
       title="2026 Conference Button"
-      description="The pill CTA for the 2026 site. Two variants; icons inherit the label color via currentColor."
+      description="The pill CTA for the 2026 site. Three variants; icons inherit the label color via currentColor."
       componentPath="src/app/(conference)/conferences/2026/_components/ConferenceButton.tsx"
     >
       <div className="space-y-8">
@@ -2948,7 +2948,15 @@ const contentComponents: Record<string, React.ReactNode> = {
             <ConferenceButton href="#" variant="secondary">
               No icon
             </ConferenceButton>
+            <ConferenceButton href="#" variant="outline" icon={ArrowRightIcon} iconPosition="trailing">
+              Follow @uxhicommunity
+            </ConferenceButton>
           </ConfType>
+          <p className="text-sm text-gray-110 mt-3">
+            <span className="font-mono text-xs bg-gray-20 px-1 rounded">outline</span> is for a
+            secondary action sitting on a light surface where a filled pill would out-shout the copy
+            beside it — purple hairline and label, no fill.
+          </p>
         </div>
 
         <div>
