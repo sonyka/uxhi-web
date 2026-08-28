@@ -109,7 +109,7 @@ export function ProgramSection() {
               block from lg where the 216px tear-off wants fixed lines. The
               punctuation that only makes sense running-on is lg:hidden. */}
           <div className="flex flex-col gap-3">
-            <p className={`${TYPE.ui} font-semibold leading-tight`} style={{ color: PURPLE }}>
+            <p className={`${TYPE.eyebrow} leading-tight`} style={{ color: PURPLE }}>
               <span className="lg:block">
                 Thursday<span className="lg:hidden">,</span>
               </span>{" "}
@@ -117,7 +117,16 @@ export function ProgramSection() {
             </p>
             <p className={`${TYPE.fine} leading-snug`} style={{ color: PURPLE }}>
               <span className="lg:block">
-                OurSpace<span className="lg:hidden"> &middot;</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=1052+Waimanu+St%2C+Honolulu%2C+HI+96814"
+                  target="_blank"
+                  rel="noopener"
+                  className="font-bold underline underline-offset-2 hover:opacity-70 transition-opacity"
+                  style={{ color: PURPLE }}
+                >
+                  OurSpace
+                </a>
+                <span className="lg:hidden"> &middot;</span>
               </span>{" "}
               <span className="lg:block">
                 1052 Waimanu St<span className="lg:hidden">,</span>
