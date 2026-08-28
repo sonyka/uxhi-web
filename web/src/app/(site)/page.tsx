@@ -429,7 +429,7 @@ export default async function HomePage() {
           <ScrollReveal stagger className="text-center mb-12">
             <MotionDiv>
               <SectionHeading size="lg" className="mb-2">
-                IRL &gt; Instagram
+                Aloha in action
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
