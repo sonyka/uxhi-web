@@ -6,7 +6,6 @@ import {
   TEAL_60,
   TEAL_40,
   YELLOW_80 as GOLD,
-  BEIGE_30,
   BEIGE_40,
   GRAY_110 as GRAY,
   GRAY_100,
@@ -15,7 +14,7 @@ import {
 } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
 import { TICKETS_URL } from "../constants";
-import { ShakaIcon, ArrowRightIcon } from "./icons";
+import { ShakaIcon, LinkedInIcon } from "./icons";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with
@@ -28,9 +27,9 @@ export function ProgramSection() {
       {/* Intro */}
       <div className="flex flex-col gap-3 md:gap-4">
         <p className={TYPE.eyebrow} style={{ color: PURPLE }}>
-          UXHICon &bull; Saturday, October 17, 2026
+          Share, Learn, &amp; Connect
         </p>
-        <SectionHeading>Share, Learn, &amp; Connect</SectionHeading>
+        <SectionHeading>UXHICon &bull; Saturday, October 17, 2026</SectionHeading>
         <p className={`${TYPE.lead} max-w-[62ch]`} style={{ color: GRAY }}>
           UXHICon is where Hawai&#699;i&rsquo;s design community gathers to exchange the knowledge, craft, and
           mo&#699;olelo we each carry.
@@ -138,13 +137,7 @@ export function ProgramSection() {
           announced — three brand circles and an unknown, so the row reads as
           "more to come" rather than as real people. Decorative, hence
           aria-hidden. */}
-      {/* Beige fill, not the mock's white: this section sits on the page's
-          white content panel, so a white strip would be invisible. BEIGE_30
-          gives the same raised-strip contrast, inverted for the surface. */}
-      <div
-        className="rounded-[20px] p-6 lg:p-8 flex flex-col gap-5"
-        style={{ background: BEIGE_30 }}
-      >
+      <div className="flex flex-col gap-5">
         <div className="flex items-center gap-5">
           <div className="flex items-center shrink-0" aria-hidden="true">
             {[GOLD, TEAL_40, PURPLE_100].map((fill) => (
@@ -169,16 +162,16 @@ export function ProgramSection() {
           </p>
         </div>
 
-        {/* Sits below rather than beside: the conference content column is
-            only ~620px, and a third column squeezed the headline to 85px. */}
+        {/* Sits below rather than beside. The conference content column is only
+            ~620px; putting the CTA in a third column alongside the avatars left
+            the headline 85px wide across seven lines. */}
         <ConferenceButton
           href="https://www.linkedin.com/company/uxhi/"
           variant="outline"
-          icon={ArrowRightIcon}
-          iconPosition="trailing"
+          icon={LinkedInIcon}
           className="w-fit"
         >
-          Follow @uxhi on LinkedIn
+          Follow @uxhi
         </ConferenceButton>
       </div>
     </div>
