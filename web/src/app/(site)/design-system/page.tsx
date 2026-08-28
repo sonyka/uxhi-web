@@ -2875,6 +2875,13 @@ const contentComponents: Record<string, React.ReactNode> = {
               colorNote: "GRAY_110",
             },
             {
+              role: "fine",
+              note: "Fine print under body copy — terms, caveats",
+              sample: "This event is 21+. Your ticket includes one drink, and a cash bar is available.",
+              color: "text-gray-100",
+              colorNote: "GRAY_100",
+            },
+            {
               role: "eyebrow",
               note: "Uppercase eyebrow label",
               sample: "UXHICon · Saturday, October 17, 2026",

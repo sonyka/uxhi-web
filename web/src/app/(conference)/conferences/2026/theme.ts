@@ -71,6 +71,9 @@ export const TYPE = {
     "text-[16px] sm:text-[17px] md:text-[19px] lg:text-[22px] xl:text-[28px] font-normal leading-[1.4] tracking-[-0.02em]",
   /** Standard section intro / body copy. The most-used role. */
   body: "text-[16px] lg:text-[17px] xl:text-[18px] font-normal leading-[1.4]",
+  /** Fine print sitting under body copy — terms, conditions, caveats.
+   *  A step below `body` at every breakpoint, so the ramps stay parallel. */
+  fine: "text-[13px] lg:text-[14px] xl:text-[15px] font-normal leading-[1.5]",
   /** Uppercase eyebrow label above a section title. */
   eyebrow: "text-[13px] md:text-[14px] font-bold uppercase tracking-[0.08em]",
   /** Header section-anchor nav — desktop row and the mobile scroll strip. */

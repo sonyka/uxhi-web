@@ -71,7 +71,7 @@ export function ProgramSection() {
             </a>. Come gather, mingle, and get inspired by the stories that connect us.
           </p>
 
-          <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY_100 }}>
+          <p className={`${TYPE.fine} max-w-[62ch]`} style={{ color: GRAY_100 }}>
             This event is 21+. Your ticket includes one drink, and a cash bar is available.
           </p>
         </div>
@@ -86,7 +86,7 @@ export function ProgramSection() {
             Mock set this block in a monospace face; the conference has only
             Dela Gothic One and Nunito, so it uses the existing `ui` role. */}
         <div
-          className="md:w-[280px] lg:w-[320px] shrink-0 p-6 md:p-8 flex flex-col justify-center gap-4"
+          className="md:w-[196px] lg:w-[216px] shrink-0 p-5 md:p-6 flex flex-col justify-center gap-4"
           style={{ background: TEAL_60 }}
         >
           <div className="flex flex-col gap-2">
