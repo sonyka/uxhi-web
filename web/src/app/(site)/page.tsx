@@ -429,11 +429,11 @@ export default async function HomePage() {
           <ScrollReveal stagger className="text-center mb-12">
             <MotionDiv>
               <SectionHeading size="lg" className="mb-2">
-                Aloha in action
+                Stay connected
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-gray-110 text-lg">Stay connected with our latest events and community updates</p>
+              <p className="text-gray-110 text-lg">A look at our latest events, workshops, and community gatherings</p>
             </MotionDiv>
           </ScrollReveal>
 
