@@ -24,13 +24,20 @@ the other docs in this folder (linked per section) plus in-progress work. Starte
 > ⚠️ **`uxhi.hisony.com` is retired.** It no longer resolves (DNS failure). It used to be the
 > Netlify staging domain; staging is now Vercel only. Do not re-add it.
 
-- [ ] **Delete duplicate Vercel projects** `uxhi-web` (broken 404) and `uxhi-website` (legacy),
-      after confirming no custom domain is attached to either. Keep only `web`.
-      **Blocked on Vercel CLI auth** — run `npx vercel login` first (see §0 notes below).
-- [ ] **Set the `web` project's production branch to `staging`** so
-      `web-henna-five-45.vercel.app` tracks the branch we actually develop on.
+- [x] **Vercel cleanup done** (2026-08-28). `uxhi-web` deleted — it had no custom domain, only
+      its default `.vercel.app`. `uxhi-website` was already gone. Team-wide, the only custom
+      domain on Vercel is `hisony.com` (unrelated `my-gym` / `808list` projects), so nothing was
+      at risk. **Remaining Vercel projects: `web`, `my-gym`, `808list`.**
+- [x] **Production branch already correct** — the `web` project already tracks `staging`
+      ("every commit pushed to `staging` creates a Production Deployment"), serving
+      `web-henna-five-45.vercel.app`. The earlier note that it tracked `main` was stale.
 - [x] ~~Re-smoke-test the Netlify staging site (`uxhi.hisony.com`)~~ — **obsolete**, that domain
       is retired. Staging smoke-testing happens on the Vercel URL.
+
+> Note: the `web` project's Framework Preset shows **"Other"** rather than Next.js, and Vercel
+> flags that the current Production deployment's config differs from Project Settings. Builds
+> work (root directory `web` is correct, and `web/vercel.json` declares the framework), so this
+> is cosmetic — but worth a look if build behaviour ever gets strange.
 
 ---
 
