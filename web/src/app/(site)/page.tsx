@@ -313,17 +313,11 @@ export default async function HomePage() {
             </MobileTooltip>{" "}
             in Hawaiʻi by developing practitioners, building community, and connecting
             organizations with{" "}
+            {/* No yellow underline here — one per sentence is enough, and the
+                aloha-centered phrase above carries it. */}
             <MobileTooltip
               tooltip="Human-centered design is an approach that prioritizes the unique needs of users."
               className="whitespace-nowrap"
-              decorationElement={
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src="/images/home/hcd-underline.svg"
-                  alt=""
-                  className="absolute left-0 right-0 -bottom-2 w-full h-[9px] lg:h-[10px] pointer-events-none hidden md:block"
-                />
-              }
             >
               human-centered design
             </MobileTooltip>.{" "}
@@ -356,7 +350,9 @@ export default async function HomePage() {
           </MotionDiv>
           <MotionDiv>
             <p className="text-gray-110 text-lg mb-8 max-w-[600px] mx-auto">
-              Whether you&apos;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
+              Whether you&apos;re curious about UX, exploring a career switch, or already working in
+              the field, join our free UXHI community to grow as a practitioner, build pilina with
+              fellow designers, and help bring aloha-centered design to organizations across Hawai&#699;i.
             </p>
           </MotionDiv>
           <MotionDiv>
