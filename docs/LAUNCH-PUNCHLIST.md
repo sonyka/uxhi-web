@@ -100,30 +100,41 @@ See **[netlify-migration-plan.md](netlify-migration-plan.md) Phase 2.** Mostly d
 
 ---
 
-## 6. Member directory — Notion port + test-data purge
+## 6. Member directory — Notion → Sanity migration
 
-See **[notion-directory-migration.md](notion-directory-migration.md)**. The `/find-ux-pro`
-directory is fully built, but **no real member data has ever been moved off Notion**.
+See **[notion-directory-migration.md](notion-directory-migration.md)** and
+**[notion-directory-taxonomy.md](notion-directory-taxonomy.md)**.
+**Notion is the source of truth** — Sanity mirrors it, member data included, so the import is a
+full replace rather than a merge.
 
-- [x] **Purge test records** — done 2026-08-27, 11 deleted via
+Done:
+
+- [x] **Purge test records** — 2026-08-27, 11 deleted via
       `web/scripts/purge-directory-tests.mjs --commit`. Backup of all 17 pre-purge docs at
       `~/Documents/FREELANCE/UXHI/directory-backup-2026-08-27.json` (outside the repo, PII).
-- [ ] **🚨 LAUNCH GATE: delete the 4 `Placeholder Member` rows** before pointing
-      `uxhi.community` at the site. Kept deliberately so the grid/island filter look alive on
-      staging; they must go once real members are imported:
-      `node scripts/purge-directory-tests.mjs --commit --include-placeholders`
-- [x] **Extract the Notion data** — done 2026-08-27 via Notion's public `api/v3` endpoints.
-      All **63 members** pulled, no export or credentials needed; repeatable on demand. Raw at
+- [x] **Extract the Notion data** — 2026-08-27 via Notion's public `api/v3` endpoints. All
+      **63 members** pulled; no export or credentials needed, repeatable on demand. Raw at
       `~/Documents/FREELANCE/UXHI/notion-directory-raw-2026-08-27.json` (outside the repo, PII).
       Headshots confirmed downloadable via Notion's image proxy (60/63 have one).
-- [ ] **⛔ DECISION NEEDED: Focus + Industry option lists.** Notion's lists are far wider than
-      our Sanity enums — 26 industry values and 10 focus values in active use have nowhere to
-      land, including the 4 most common industries (Web Design 34×, Internet/Technology 26×,
-      Marketing/Branding 20×, Consulting 18×) and 2 common focuses (UX Strategy 27×,
-      Visual Design 20×). Everything else is blocked on this.
-- [ ] Write + dry-run `web/scripts/migrate-notion-directory.mjs`, then import as drafts.
-      Must dedupe — Sony and Gustavo already exist in Sanity and may also be in the Notion set.
-- [ ] Decide whether Notion is retired (redirect) or kept in parallel after the port.
+- [x] **Taxonomy decided** — widen Focus 15→18 and Industry 16→26 to match Notion. Verified
+      against all 63 records: **zero unmapped values**. Notion's full wholesale lists
+      (43 industries / 26 focuses, including unused ones) archived for later.
+
+Open:
+
+- [ ] **Decide on Gustavo Ambrozio** — he's in Sanity but *not* in Notion, so the
+      source-of-truth rule deletes him. Add him to Notion first, or let him go. *Blocking.*
+- [ ] **Widen the schema** — `directoryMember.ts` + `components/directory/constants.ts` +
+      design-system page, all in one changeset (sync rule).
+- [ ] **Write + dry-run** `web/scripts/migrate-notion-directory.mjs`, then import as drafts.
+      Treat it as a re-runnable sync, not a one-shot: unknown Notion values must halt the run.
+- [ ] **🚨 LAUNCH GATE: delete all 6 remaining old records** — the 4 `Placeholder Member` rows
+      plus the 2 pre-existing profiles — *after* the 63 have landed, so the directory is never
+      empty. Do not point `uxhi.community` at the site until
+      `*[_type=="directoryMember" && name match "Placeholder*"]` returns zero:
+      `node scripts/purge-directory-tests.mjs --commit --include-placeholders`
+- [ ] **Consent check** — 63 real people's names, photos and LinkedIn profiles move to a new
+      public home on a new domain. Confirm the original Notion submission covers that.
 
 ---
 

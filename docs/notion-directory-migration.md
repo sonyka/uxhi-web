@@ -16,8 +16,21 @@ drawer, self-serve submit form. This is a **data migration only**.
 - ✅ **Test-data purge done** — 11 junk records deleted (Step 5).
 - ✅ **All 63 member records extracted** from Notion, no export or credentials needed (Step 1).
 - ✅ **Headshots confirmed downloadable** — 60 of 63 (Step 3).
-- ⛔ **Blocked on you:** the Notion option lists are much wider than our Sanity enums.
-  36 distinct values have nowhere to land. That's the one open decision (Step 2).
+- ✅ **Taxonomy decided** — widen Focus 15→18 and Industry 16→26 to match Notion. Verified
+  against all 63 records: **zero unmapped values**. Full mapping + the archived wholesale
+  Notion lists: [notion-directory-taxonomy.md](notion-directory-taxonomy.md).
+- ⚠️ **One flag:** Gustavo Ambrozio exists in Sanity but **not in Notion** — under
+  Notion-as-source-of-truth he disappears. See Step 5.
+
+## Governing principle: Notion is the source of truth
+
+Decided 2026-08-27. Everything in Sanity mirrors what Notion has, member data included.
+Consequences that shape the whole plan:
+
+- The import is a **full replace, not a merge**. All 6 current `directoryMember` docs (2 real +
+  4 placeholders) are deleted; the 63 Notion rows come in fresh. No dedupe logic needed.
+- **Sanity's option lists follow Notion's**, not the other way round — hence the widening.
+- Anyone not in Notion is not in the directory. Fixes go into Notion first, then re-import.
 
 ---
 
@@ -75,7 +88,7 @@ absent, and those degrade to an initials tile.
 
 ---
 
-## Step 2 — Field mapping ⛔ needs your decisions
+## Step 2 — Field mapping ✅ decided
 
 Notion's real column names (from the live schema), mapped to
 `web/src/sanity/schemaTypes/documents/directoryMember.ts`:
@@ -86,90 +99,65 @@ Notion's real column names (from the live schema), mapped to
 | `Job Title` | text | `title` | ✅ direct |
 | `Head Shot` | file | `photo` | ✅ via proxy download |
 | `Open to work` | checkbox | `openToWork` | ✅ direct |
-| `Experience` | select | `experienceLevel` | ✅ **0 decisions** — all 7 map case-insensitively |
-| `Island` | select | `island` | ⚠️ 2 aliases needed |
-| `Location` | text | `city` | ⚠️ needs parsing — it's `"Honolulu, Hawaii"`, not a bare city |
-| `Focus` | multi-select | `focus` | ⛔ **10 values unmapped** |
-| `Industry` | multi-select | `industries` | ⛔ **26 values unmapped** |
+| `Experience` | select | `experienceLevel` | ✅ no change — all 7 map |
+| `Island` | select | `island` | ✅ 2 aliases, no schema change |
+| `Location` | text | `city` | ⚠️ needs parsing — see below |
+| `Focus` | multi-select | `focus` | ✅ **widen 15 → 18** |
+| `Industry` | multi-select | `industries` | ✅ **widen 16 → 26** |
 | `LinkedIn` | url | `linkedIn` | ✅ direct |
 | `Website` | url | `portfolio` | ✅ direct |
-| `Education Institution Attended` | text | `educationBootcamp` | ⚠️ two Notion columns, one Sanity field |
-| `Bootcamp Attended` | text | `educationBootcamp` | ⚠️ same — merge or add a field |
+| `Education Institution Attended` + `Bootcamp Attended` | text ×2 | `educationBootcamp` | ✅ joined with ` · ` |
 | — | | `order` | set `0` for all |
 | — | | `location` | **legacy/hidden — do not populate** |
 
-### Island — trivial, just aliases
+### The widening plan
 
-`Big Island` → `hawaii`, `Mainland` → `mainland-international`. The other three match already.
+Full option-by-option mapping, the resulting member counts, and the archived **wholesale Notion
+lists** (all 43 industries, all 26 focuses — including unused ones, kept for later) live in
+**[notion-directory-taxonomy.md](notion-directory-taxonomy.md)**.
 
-### Focus — 10 unmapped, and two of them are heavily used
+Summary:
 
-Our schema has 15 options; Notion's has 26. All 15 of ours are in use, plus these:
+| | Before | After | Change |
+|---|---|---|---|
+| Focus | 15 | **18** | + UX Strategy (27 members), Visual Design (20), UX Writing (4) |
+| Industry | 16 | **26** | + 10 new; `agriculture` removed (unused, not a Notion option) |
+| Island | 7 | 7 | aliases only — `Big Island` → `hawaii`, `Mainland` → `mainland-international` |
+| Experience | 7 | 7 | no change |
 
-| Notion value | Used by | My recommendation |
-|---|---|---|
-| **UX Strategy** | **27** | **Add to schema** — 2nd most-used focus in the whole directory |
-| **Visual Design** | **20** | **Add to schema** — distinct from UI Design in practice |
-| **UX Writing** | **4** | **Add to schema** — a real, distinct discipline |
-| Marketing / Branding | 1 | → `brand-identity` |
-| Print Design | 1 | → `brand-identity` |
-| Artificial Intelligence | 1 | drop (an industry, not a UX focus) |
-| Software Development | 1 | drop (not a UX focus) |
-| Business Development | 1 | drop (not a UX focus) |
-| User Assistance | 1 | → `content-strategy` |
-| AI Consciousness | 1 | drop — almost certainly a joke entry |
+Verified against all 63 records: **zero unmapped values**, and every option in both target lists
+has at least one member. Two merges clean up Notion's free-text accretion — `Restaurants` +
+`Bars & Food` + `Restaurants Bars & Food` → `food-beverage`, and `Nonprofit` + `Non-profit` +
+`Social Impact` → `nonprofit`.
 
-Adding three options means updating the schema, `components/directory/constants.ts`, **and the
-design system page** (per the sync rule in CLAUDE.md) in the same changeset.
+**Blast radius is small.** Industry is *not* a filter — it appears only in the submit form and
+the profile drawer — so 26 options cost nothing in the filter UI. The Focus dropdown is already
+`max-h-64 overflow-y-auto`, so 18 scrolls fine. The one real UI change is the submit form's
+industry checkbox grid growing 16 → 26.
 
-### Industry — our list is the wrong shape for this data
+Files that must change **together** (CLAUDE.md design-system sync rule):
+`schemaTypes/documents/directoryMember.ts` · `components/directory/constants.ts` ·
+`app/(site)/design-system/page.tsx`
 
-This is the real decision. Notion has 43 industry options against our 16, and **26 distinct
-values in active use have nowhere to go** — including the four most common ones:
-
-| Notion value | Used by | Notes |
-|---|---|---|
-| **Web Design** | **34** | most-used industry in the directory; no equivalent |
-| **Internet / Technology** | **26** | → `technology` (safe rename) |
-| **Marketing / Branding** | **20** | no equivalent |
-| **Consulting** | **18** | no equivalent |
-| Travel & Tourism | 13 | → `travel-hospitality` |
-| Customer Relationship Management | 7 | no equivalent |
-| Restaurants · Bars & Food · Restaurants Bars & Food | 5+5+1 | → `food-beverage` (also: Notion has these as **both** split and combined options — dedupe) |
-| Indigenous Tech | 5 | no equivalent; arguably important to keep for a Hawaiʻi org |
-| Transportation & Logistics | 5 | no equivalent |
-| Cybersecurity | 4 | no equivalent |
-| Video Games | 3 | → `entertainment` |
-| Aerospace, Architecture, Sustainability & Infrastructure | 2 each | no equivalent |
-| Civic Tech, Museums + Institutions, Community Management, Hospitality, Photography, Human Resources, Fine Art, Social Impact, Artificial Intelligence, Software Development | 1 each | mostly → `other` |
-| Non-profit *(hyphen variant)* | 1 | → `nonprofit` — same thing, spelled twice in Notion |
-
-Three ways to go, pick one:
-
-1. **Widen our list to match reality** — add ~8 options (Web Design, Marketing/Branding,
-   Consulting, Cybersecurity, Indigenous Tech, Transportation & Logistics, CRM, Aerospace),
-   fold the long tail into `other`. Highest fidelity, and the filter stays meaningful.
-   *My recommendation.*
-2. **Keep 16 and squash** — everything unmapped becomes `other`. Cheap, but `other` would then
-   be the single largest industry facet, which makes the filter useless.
-3. **Adopt Notion's list wholesale** — 43 options is too many for a filter UI with 63 people.
-
-Whichever we pick, Notion's list clearly grew by free-text accretion (`Restaurants` *and*
-`Bars & Food` *and* `Restaurants Bars & Food`; `Nonprofit` *and* `Non-profit`). The migration is
-a good moment to clean that up rather than import the mess.
+> ⚠️ **One member loses all focus tags.** Trevor Husseini lists `Software Development` as his
+> only focus, which isn't a UX discipline. He imports with an empty focus array — cosmetic, since
+> `focus` is optional — but either ask him to update his Notion row or add a
+> `software-development` option.
 
 ### Location → city
 
-`Location` is 100% populated but formatted as `"Honolulu, Hawaii"` / `"Honolulu, HI"` / `"Oahu, Hawaii"`.
-I'd take the segment before the comma as `city`, drop it when it's an island name rather than a
-city, and cross-check island against the `Island` column. This is display-only — city isn't a
+`Location` is 100% populated but formatted as `"Honolulu, Hawaii"` / `"Honolulu, HI"` /
+`"Oahu, Hawaii"`. Take the segment before the comma as `city`, drop it when it's an island name
+rather than a city, and cross-check against the `Island` column. Display-only — city isn't a
 filter — so imperfect parses are cosmetic, not structural.
+
+This is also how the 3 island-less members get their island: all three have a Location string
+that resolves it.
 
 ### Education + Bootcamp → one field
 
-Notion has two columns; Sanity has one `educationBootcamp`. 23 people have an institution,
-15 a bootcamp, some likely both. Either join them (`"UW · General Assembly"`) or add a second
-Sanity field. Your call — joining is fine and needs no schema change.
+Notion has two columns, Sanity has one `educationBootcamp`. 23 people have an institution, 15 a
+bootcamp. Join with ` · ` — no schema change needed.
 
 ---
 
@@ -208,8 +196,15 @@ show as failing `required()` in Studio, which is a useful worklist of who to cha
 | `--publish` | Creates them published. Only after a drafts pass is reviewed. |
 
 Deterministic IDs (`directory-notion-<notion-row-id>`) so re-runs update rather than duplicate.
-Nothing is silently dropped — any value that fails to map halts with a report rather than
-guessing.
+**No dedupe logic needed** — full replace means there's nothing to merge against.
+
+The mapping tables from [notion-directory-taxonomy.md](notion-directory-taxonomy.md) are the
+script's single source of truth, imported from `components/directory/constants.ts` where
+possible so the script can't drift from the UI. Nothing is silently dropped: any Notion value
+not in the mapping **halts the run** with a report rather than guessing — which is what makes
+this safe to re-run later, when Notion has inevitably grown new options.
+
+Because Notion stays authoritative, treat this as a **re-runnable sync**, not a one-shot.
 
 ---
 
@@ -232,21 +227,36 @@ Ambrozio) + 4 seeded `Placeholder Member` rows.
 Note: **Gustavo Ambrozio** and **Sony Atmadjaja** already exist in Sanity *and* may appear in the
 Notion set — the import must dedupe against existing docs by name, or we'll get twins.
 
-### 🚨 Launch gate — the 4 placeholders
+### 🚨 Launch gate — remove all 6 current records
 
-`Placeholder Member 1–4` (order 900–903, shared placeholder photo, spread across Oʻahu / Maui /
-Hawaiʻi so the island filter has something to bite on) were **deliberately kept** — they're the
-only thing making the grid, island filter and pagination look alive on staging while the real
-data is still in Notion.
+Under Notion-as-source-of-truth, **every one of the 6 remaining docs goes** once the import
+succeeds — not just the 4 placeholders:
 
-**They must not reach production.** Deleting them is the last step of the import:
+| Record | Why it goes |
+|---|---|
+| Placeholder Member 1–4 | Seeded demo rows. Kept only so the grid, island filter and pagination look alive on staging while the real data is still in Notion. |
+| Sony Atmadjaja | **Present in Notion** (row `8017bc73…`) — the Notion version replaces this one. |
+| Gustavo Ambrozio | **Not in Notion** — see the flag below. |
 
-```bash
-node scripts/purge-directory-tests.mjs --commit --include-placeholders
-```
+Sequence matters: import first, verify 63 records landed, *then* delete the old 6. That way the
+directory is never empty.
 
 Do not point `uxhi.community` at the site until
 `*[_type=="directoryMember" && name match "Placeholder*"]` returns zero.
+
+### ⚠️ Gustavo Ambrozio is not in Notion
+
+He has a complete Sanity profile — iOS Developer, 10-19 years, content strategy + UI design,
+tech/healthcare, Honolulu — but **no matching Notion row**. Under the source-of-truth rule he is
+deleted and not re-imported, so he disappears from the directory.
+
+Two ways to go, and it's your call:
+
+1. **Add him to Notion first**, then re-extract and import. Keeps the rule intact and keeps him.
+   *Recommended if he's a genuine member.*
+2. **Let him go** — accept that the directory is exactly what Notion holds.
+
+He is in the pre-purge backup either way, so this is reversible.
 
 ---
 
@@ -254,36 +264,38 @@ Do not point `uxhi.community` at the site until
 
 | # | Step | Who | Effort |
 |---|---|---|---|
-| ~~1~~ | ~~Export from Notion~~ — **not needed**, extraction is scripted | — | — |
+| ~~1~~ | ~~Export from Notion~~ — not needed, extraction is scripted | — | — |
 | ~~2~~ | ~~Purge test records~~ ✅ done, 11 deleted | — | — |
-| 3 | **Decide the Focus + Industry option lists** (Step 2) | **You** | ~30 min |
-| 4 | Schema + `constants.ts` + design-system page updated together | Me | ~1 hr |
-| 5 | Write `migrate-notion-directory.mjs`, dry-run report | Me | ~2 hrs |
-| 6 | You review the dry-run diff | You | ~30 min |
-| 7 | Import as drafts → review in Studio → publish | Both | ~1 hr |
-| 8 | **Delete the 4 placeholders** (`--include-placeholders`) | Me | 2 min |
-| 9 | Verify `/find-ux-pro` on staging: filters, island facets, search, pagination, drawer | Me | ~30 min |
+| ~~3~~ | ~~Decide the taxonomy~~ ✅ done — widen to 18 focus / 26 industry | — | — |
+| 4 | **Decide on Gustavo** — add to Notion, or let him go | **You** | 2 min |
+| 5 | Widen schema + `constants.ts` + design-system page (one changeset) | Me | ~1 hr |
+| 6 | Write `migrate-notion-directory.mjs`, dry-run report | Me | ~2 hrs |
+| 7 | You review the dry-run diff | You | ~30 min |
+| 8 | Import as drafts → review in Studio → publish | Both | ~1 hr |
+| 9 | **Delete all 6 old records** once 63 have landed | Me | 2 min |
+| 10 | Verify `/find-ux-pro` on staging: filters, island facets, search, pagination, drawer | Me | ~30 min |
 
-Roughly **half a day of my time**, gated only on the Step 3 decision.
+Roughly **half a day of my time**. Only step 4 is blocking, and it's a 2-minute call.
 
 ---
 
-## Decisions I need from you
+## Open questions
 
-1. **Industry list** — widen to ~24 (recommended), squash to `other`, or adopt Notion's 43?
-2. **Focus list** — add UX Strategy / Visual Design / UX Writing? They cover 51 uses between them.
-3. **One system or two?** Once this lands, is Notion retired (redirect it at
-   `uxhi.community/find-ux-pro`) or kept in parallel? Parallel means dual entry and drift —
-   I'd retire it.
-4. **Consent** — 63 real people's names, photos and LinkedIn profiles are moving to a new public
-   home on a new domain. Does the original Notion submission cover that, or do members need a
-   heads-up? Worth checking what they agreed to before this goes live.
-5. **Education + Bootcamp** — join into one field, or add a second Sanity field?
+1. **Gustavo** — add to Notion, or let him go? (Step 5)
+2. **Trevor Husseini's focus** — leave empty, or add a `software-development` option? (Step 2)
+3. **Retire Notion?** Once this lands, is Notion redirected at `uxhi.community/find-ux-pro`, or
+   kept as the editing surface with periodic re-imports? Source-of-truth rule implies the latter
+   — in which case the import script becomes a recurring sync, and re-running it must stay safe
+   (it is: deterministic IDs, full replace).
+4. **Consent** — 63 real people's names, photos and LinkedIn profiles move to a new public home
+   on a new domain. Does the original Notion submission cover that, or do members need a
+   heads-up? Worth checking before this goes live.
 
 ---
 
 ## Related
 
+- **Taxonomy + archived wholesale Notion lists: [notion-directory-taxonomy.md](notion-directory-taxonomy.md)**
 - Destination page: `web/src/app/(site)/find-ux-pro/page.tsx`
 - Schema: `web/src/sanity/schemaTypes/documents/directoryMember.ts`
 - Option lists: `web/src/components/directory/constants.ts`
