@@ -68,14 +68,16 @@ of what was deliberately *not* changed, in case it comes up again:
 
 See **[GOOGLE_ANALYTICS.md](GOOGLE_ANALYTICS.md)**. Tags are shipped; remaining items:
 
-- [ ] **Conference tag only reports from staging until `main` is deployed to Netlify.** To
-      capture real `uxhiconference.com` traffic, deploy `main` on Netlify (costs credits).
+- [x] ~~Conference tag only reports from staging until `main` is deployed to Netlify.~~
+      **Done** — `main` is deployed and `G-CT4QB1KDE2` is live on `uxhiconference.com`
+      (verified 2026-08-28 by fetching the production page).
 - [ ] **Community tag activates automatically** when the Netlify site is pointed to
       `uxhi.community`. If the launch domain differs, update `productionHost` in `(site)/layout.tsx`.
 - [ ] **(Optional) Gate the conference tag** to `uxhiconference.com` once verified, to keep
       staging traffic out of that property too.
 - [ ] **(Optional) Cookie/consent banner** — not added. Decide if needed (would use GA consent mode).
-- [ ] Verify `G-CT4QB1KDE2` (conference) shows in GA Realtime from the staging deploy.
+- [ ] Verify `G-CT4QB1KDE2` (conference) shows in GA Realtime — the tag is live on
+      production now, so check against real `uxhiconference.com` traffic rather than staging.
 
 ---
 
@@ -108,11 +110,11 @@ See **[netlify-migration-plan.md](netlify-migration-plan.md) Phase 2.** Mostly d
       See **[mailchimp-integration.md](mailchimp-integration.md)**.
 - [ ] **Instagram token** — expires every 60 days; refresh when the homepage feed goes blank
       (see [handoff-guide.md](handoff-guide.md)).
-- [ ] **Conference design system** — formalise `app/(conference)/` as a theme layer inheriting
-      the parent palette (79% of its hardcoded hexes are already parent tokens; 125 ad-hoc type
-      sizes need a real scale). Phased plan, non-blocking for launch, but Phase 4 should land
-      **before** 2027 work starts so the next year is a skin and not a fork.
-      See **[CONFERENCE-DESIGN-SYSTEM.md](CONFERENCE-DESIGN-SYSTEM.md)**.
+- [x] ~~**Conference design system** — Phase 4 before 2027 work starts.~~ **Superseded.**
+      Phases 1, 2 and 2b landed 2026-08-15; Phase 3 is partly done; **Phase 4 was cancelled**
+      because its premise was wrong — every conference year is a full redesign, so 2027 is not
+      a "skin" of 2026. The hex/type-size counts quoted here described the pre-Phase-1 state.
+      See **[CONFERENCE-DESIGN-SYSTEM.md](CONFERENCE-DESIGN-SYSTEM.md)** §5 and §7.
 
 ---
 

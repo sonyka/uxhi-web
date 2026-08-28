@@ -158,8 +158,9 @@ Full audit, principles and history: [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONF
 | `BulletPoint` | `components/ui/BulletPoint.tsx` | Styled bullet dot (teal on light, yellow on dark bg) |
 | `MobileTooltip` | `components/ui/MobileTooltip.tsx` | Tap-to-reveal tooltip (mobile), hover (desktop) |
 | `SectionEyebrow` | `components/ui/SectionEyebrow.tsx` | Uppercase subsection label (20px, bold, purple-120) |
-| `SectionHeading` | `components/ui/SectionHeading.tsx` | Display heading with size/color variants (hero/xl/lg/md/sm) |
+| `SectionHeading` | `components/ui/SectionHeading.tsx` | Display heading with size/color variants (display/hero/xl/lg/md/sm) |
 | `SectionIcon` | `components/ui/SectionIcon.tsx` | Large centered icon (128px) for section intros |
+| `SectionLead` | `components/ui/SectionLead.tsx` | Supporting paragraph beneath a heading (hero/md sizes) |
 | `HeroContent` | `components/ui/HeroContent.tsx` | Left-side content wrapper for interior page heroes |
 | `LogoImage` | `components/ui/LogoImage.tsx` | Grayscale logo with hover color reveal (partner/sponsor grids) |
 | `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/beige/white variants) |

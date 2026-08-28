@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UXHI Web
 
-## Getting Started
+The UX Hawaiʻi website and the UXHICon conference microsite, served from one Next.js app.
 
-First, run the development server:
+The app lives in this `/web` subfolder — **not** the repo root. Run every command from here.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What's in here
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Route group | Serves |
+|---|---|
+| `src/app/(site)/` | The main UXHI site — homepage, directory, events, resources, about |
+| `src/app/(conference)/conferences/[year]/` | The conference microsite, one full redesign per year |
+| `src/app/studio/` | Sanity Studio, embedded at `/studio` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Content comes from Sanity (project `evh83z0t`, dataset `production`). Localhost renders
+drafts; deployed environments render published content only.
 
-## Learn More
+## Two sites, two design systems
 
-To learn more about Next.js, take a look at the following resources:
+The main site and the conference do **not** share styling. `/design-system` is the live
+reference for the main site, and each conference year owns its own theme under
+`conferences/<year>/theme.ts`. Years share nothing with each other except the parent
+palette. Read [CLAUDE.md](../CLAUDE.md) before changing UI — it carries the rules that
+matter, including the two that are easy to violate by accident:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Styling changes go in the shared component, never inline on a page.
+- Changing a component means updating `/design-system` in the same changeset.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+**Netlify is production. Vercel is staging.** That split is deliberate and documented in
+[CLAUDE.md](../CLAUDE.md#deployment).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Branch | Host | URL |
+|---|---|---|
+| `staging` | Vercel | `web-henna-five-45.vercel.app` |
+| `main` | Netlify | `uxhiconference.com`, and `uxhi.community` at launch |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+⛔ **Never push `main` without being asked.** Netlify's free tier is build-credit-limited
+(~20 production deploys/month) and every push spends from it. Day-to-day work goes to
+`staging`.
+
+## Docs
+
+Everything non-obvious lives in [`../docs/`](../docs/):
+
+- **[LAUNCH-PUNCHLIST.md](../docs/LAUNCH-PUNCHLIST.md)** — the single index of what's left
+- **[handoff-guide.md](../docs/handoff-guide.md)** — for whoever edits content, not code
+- **[CONFERENCE-DESIGN-SYSTEM.md](../docs/CONFERENCE-DESIGN-SYSTEM.md)** — why the
+  conference is a theme layer rather than a fork
+- **[notion-directory-migration.md](../docs/notion-directory-migration.md)** — how the
+  member directory got here and how to re-sync it
