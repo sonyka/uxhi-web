@@ -312,7 +312,21 @@ export default async function HomePage() {
               aloha-centered design
             </MobileTooltip>{" "}
             in Hawaiʻi by developing practitioners, building community, and connecting
-            organizations with human-centered design.{" "}
+            organizations with{" "}
+            <MobileTooltip
+              tooltip="Human-centered design is an approach that prioritizes the unique needs of users."
+              className="whitespace-nowrap"
+              decorationElement={
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src="/images/home/hcd-underline.svg"
+                  alt=""
+                  className="absolute left-0 right-0 -bottom-2 w-full h-[9px] lg:h-[10px] pointer-events-none hidden md:block"
+                />
+              }
+            >
+              human-centered design
+            </MobileTooltip>.{" "}
             <span className="inline-block">🌺</span>
           </SectionHeading>
         </ScrollReveal>
