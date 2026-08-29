@@ -1355,11 +1355,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         primaryValue={110203}
         comparisonLabel="National average"
         comparisonValue={121196}
-        gapNote={
-          <>
-            A gap of <strong className="font-black text-purple-140">$10,993</strong> — Hawaiʻi averages roughly 9% below the national figure.
-          </>
-        }
+        gapNote={"Optional supporting sentence. Use it only for context the source actually states."}
       />
     </ContentSection>
   ),
