@@ -8,3 +8,7 @@ logs/
 # macOS
 .DS_Store
 **/.DS_Store
+
+# Playwright MCP writes screenshots to the repo root
+*.png.tmp
+salary-*.png

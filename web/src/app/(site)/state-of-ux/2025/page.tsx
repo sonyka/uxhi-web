@@ -46,7 +46,7 @@ export default function StateOfUx2025Page() {
   return (
     <main>
       {/* Report page 40 */}
-      <section className="bg-teal-10 py-20 px-6">
+      <section className="bg-teal-10 pt-32 md:pt-40 pb-20 px-6">
         <Container size="narrow">
           <ScrollReveal stagger>
             <MotionDiv>
