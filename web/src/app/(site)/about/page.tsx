@@ -15,10 +15,16 @@ import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
 
+// The FAQ section is hidden on /about for now (2026-08-29). The FAQs still
+// come from Sanity and the markup is intact, so restoring is flipping this
+// back to true — but also uncomment the FAQs entry in the About dropdown in
+// components/layout/Navbar.tsx, which points at #faqs.
+const SHOW_FAQS = false;
+
 export const metadata: Metadata = {
   title: "About | UX Hawaii",
   description:
-    "Learn about UXHI, Hawaiʻi's home for aloha-centered design. Meet the team, read our FAQs, and get in touch.",
+    "Learn about UXHI, Hawaiʻi's home for aloha-centered design. Meet the team and get in touch.",
 };
 
 // Lucide Icons with 1.5px stroke
@@ -89,12 +95,14 @@ export default async function AboutPage() {
                   label="Team"
                   subtitle="Meet our team"
                 />
-                <QuickLinkPill
-                  href="#faqs"
-                  icon={<CircleHelpIcon className="w-7 h-7" />}
-                  label="FAQs"
-                  subtitle="Common questions"
-                />
+                {SHOW_FAQS && (
+                  <QuickLinkPill
+                    href="#faqs"
+                    icon={<CircleHelpIcon className="w-7 h-7" />}
+                    label="FAQs"
+                    subtitle="Common questions"
+                  />
+                )}
                 <QuickLinkPill
                   href="#contact"
                   icon={<SendIcon className="w-7 h-7" />}
@@ -183,7 +191,7 @@ export default async function AboutPage() {
       </section>
 
       <TeamSection members={members} id="team" />
-      <FAQSection faqs={faqs} id="faqs" />
+      {SHOW_FAQS && <FAQSection faqs={faqs} id="faqs" />}
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6 bg-purple-140 scroll-mt-24">

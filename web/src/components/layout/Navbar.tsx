@@ -341,7 +341,9 @@ export const defaultNavItems: NavItem[] = [
     href: "/about",
     dropdown: [
       { label: "Team", href: "/about#team", description: "Meet our volunteers" },
-      { label: "FAQs", href: "/about#faqs", description: "Common questions" },
+      // FAQs hidden for now (2026-08-29) — the section it points at is gated
+      // behind SHOW_FAQS in app/(site)/about/page.tsx. Restore both together.
+      // { label: "FAQs", href: "/about#faqs", description: "Common questions" },
       { label: "Contact", href: "/about#contact", description: "Get in touch" },
     ],
   },
