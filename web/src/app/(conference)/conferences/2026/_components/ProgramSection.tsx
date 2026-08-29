@@ -46,18 +46,21 @@ export function ProgramSection() {
 
         Everything here resolves to an existing parent token or an existing
         2026 type role. The stub shape (border, radius, dashed split) is
-        layout, not new palette. Two things in the source mock were
-        deliberately NOT carried over because they would have introduced new
-        design values — see the note above each.
+        layout, not new palette. Two things in the source mock were not
+        carried over because they would have introduced new design values —
+        see the note above each. Both are settled, not pending.
       */}
       {/* The badge straddles the card's top edge, so it is a sibling of the
           card rather than a child — the card keeps `overflow-hidden` to clip
           the tear-off panel to the rounded corners, which would also clip a
           badge placed inside it. */}
       <div className="relative">
-        {/* Mock used a coral pill; kept YELLOW_80 so the 2026 palette gains
-            no new colour. Opaque fill, so the card's stroke passes behind it
-            cleanly. */}
+        {/* The source mock had this pill in coral. Gold was confirmed as the
+            final choice (2026-08-29): coral appears nowhere in the 2026
+            palette, and YELLOW_80 ties the badge to the shaka mark. Not an
+            open question — don't "restore" the coral.
+
+            Opaque fill, so the card's stroke passes behind it cleanly. */}
         <span
           className="absolute -top-3 left-6 lg:left-8 z-10 inline-flex items-center rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
           style={{ background: YELLOW_80, color: PURPLE }}
