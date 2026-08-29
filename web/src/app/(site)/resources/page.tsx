@@ -542,7 +542,7 @@ export default async function ResourcesPage() {
               <PrimaryCTA href="/reports/2025-state-of-ux-in-hawaii.pdf" external>
                 2025 State of UXHI Report
               </PrimaryCTA>
-              <PrimaryCTA href="/reports/2022-state-of-ux-in-hawaii.pdf" external variant="dark">
+              <PrimaryCTA href="/reports/2023-state-of-ux-in-hawaii.pdf" external variant="dark">
                 2023 State of UXHI Report
               </PrimaryCTA>
             </div>
