@@ -29,7 +29,7 @@ export function HeroSection({ children, className }: HeroSectionProps) {
     <div
       className={cn(
         "relative mx-auto w-full max-w-[1400px]",
-        "min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]",
+        "min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[790px]",
         className
       )}
     >
