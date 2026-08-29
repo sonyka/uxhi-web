@@ -1346,16 +1346,21 @@ const contentComponents: Record<string, React.ReactNode> = {
   "data-statcomparison": (
     <ContentSection
       title="Stat Comparison"
-      description="Two headline figures set against each other. The primary figure carries the teal emphasis at the larger size; the comparison sits back in grey. Built for State of UX report findings, which are almost always a Hawaiʻi figure measured against a national one. Figures animate up on scroll and use tabular numerals so digits stay aligned."
+      description="Two headline figures set against each other at equal weight with a separator between them, each carrying its own provenance note — the shape the State of UX report uses for nearly every finding. Both sit on the orange ramp the report uses for data; the comparison takes the darker step so the pair still has a reading order. Figures animate up on scroll and use tabular numerals."
       componentPath="components/report/StatComparison.tsx"
     >
       <StatComparison
         prefix="$"
-        primaryLabel="Average in Hawaiʻi"
-        primaryValue={110203}
-        comparisonLabel="National average"
-        comparisonValue={121196}
-        gapNote={"Optional supporting sentence. Use it only for context the source actually states."}
+        primary={{
+          value: 110203,
+          label: "Average in Hawaiʻi",
+          source: "Based on 3 salaries taken from job postings on Indeed within a 36-month period (updated November 19, 2025).",
+        }}
+        comparison={{
+          value: 121196,
+          label: "National Average",
+          source: "Based on 968 salaries taken from job postings on Indeed within a 36-month period (updated December 8, 2025).",
+        }}
       />
     </ContentSection>
   ),
@@ -1363,7 +1368,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "data-distributionbars": (
     <ContentSection
       title="Distribution Bars"
-      description="Horizontal percentage distribution, used in place of the pie and column charts that do not survive a phone viewport. Bars share one baseline and are scaled to the largest band so proportions stay honest. Set emphasis on the band that carries the finding to pull it forward in teal."
+      description="An ordered percentage distribution. Renders as a 100% stacked bar on desktop, matching how the State of UX report encodes ordered bands, and reflows to labelled rows below md where six segments cannot share a line. Colour runs a sequential orange ramp aliased from the orange-* tokens. The data is exposed once to assistive tech as a table, so the reflow costs nothing in meaning."
       componentPath="components/report/DistributionBars.tsx"
     >
       <DistributionBars
@@ -1374,7 +1379,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           { label: "$50,000–$74,999", value: 15 },
           { label: "$75,000–$99,999", value: 15 },
           { label: "$100,000–$124,999", value: 10 },
-          { label: "$125,000+", value: 40, emphasis: true },
+          { label: "$125,000+", value: 40 },
         ]}
       />
     </ContentSection>

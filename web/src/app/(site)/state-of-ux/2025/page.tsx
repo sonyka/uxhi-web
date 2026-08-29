@@ -30,11 +30,8 @@ const REPORT_PDF = "/reports/2025-state-of-ux-in-hawaii.pdf";
 
 /**
  * Salary bands reported by survey respondents working in UX.
- *
- * NOTE: extracted from the report PDF's text layer, where the bands and their
- * percentages are interleaved. The six values sum to 100%, but the
- * band-to-percentage mapping has NOT been checked against the rendered slide.
- * Verify against page 40 before this page goes to production.
+ * Verified against the rendered page 40, which shows these six bands as a
+ * single 100% stacked bar running low to high.
  */
 const SALARY_BANDS = [
   { label: "Under $25,000", value: 10 },
@@ -49,7 +46,7 @@ export default function StateOfUx2025Page() {
   return (
     <main>
       {/* Report page 40 */}
-      <section className="bg-beige-10 py-20 px-6">
+      <section className="bg-teal-10 py-20 px-6">
         <Container size="narrow">
           <ScrollReveal stagger>
             <MotionDiv>
@@ -64,32 +61,31 @@ export default function StateOfUx2025Page() {
 
             <MotionDiv>
               <StatComparison
-                className="mt-12"
+                className="mt-16"
                 prefix="$"
-                primaryLabel="Average in Hawaiʻi"
-                primaryValue={110203}
-                comparisonLabel="National average"
-                comparisonValue={121196}
+                primary={{
+                  value: 110203,
+                  label: "Average in Hawaiʻi",
+                  source:
+                    "Based on 3 salaries taken from job postings on Indeed within a 36-month period (updated November 19, 2025).",
+                }}
+                comparison={{
+                  value: 121196,
+                  label: "National Average",
+                  source:
+                    "Based on 968 salaries taken from job postings on Indeed within a 36-month period (updated December 8, 2025).",
+                }}
               />
-            </MotionDiv>
-
-            <MotionDiv>
-              <p className="mt-8 text-sm text-gray-100 leading-relaxed max-w-2xl">
-                Hawaiʻi figure based on 3 salaries taken from job postings on
-                Indeed within a 36-month period, updated November 19, 2025.
-                National figure based on 968 salaries taken from job postings on
-                Indeed within a 36-month period, updated December 8, 2025.
-              </p>
             </MotionDiv>
           </ScrollReveal>
         </Container>
       </section>
 
-      <section className="bg-white py-16 px-6">
+      <section className="bg-teal-10 pb-20 px-6">
         <Container size="narrow">
           <ScrollReveal stagger>
             <MotionDiv>
-              <SectionHeading size="sm">
+              <SectionHeading size="sm" className="text-center">
                 Salary range of survey respondents working in UX
               </SectionHeading>
             </MotionDiv>
