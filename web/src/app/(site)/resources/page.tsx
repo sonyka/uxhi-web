@@ -81,12 +81,6 @@ const onlinePrograms = [
 ];
 
 // Communities
-const communities = [
-  { name: "UXHI", url: "https://uxhi.community/" },
-  { name: "Design Buddies", url: "https://www.designbuddies.community/" },
-  { name: "Designer Slack", url: "https://www.designerslack.community/" },
-];
-
 // Tech Organizations
 const techOrgs = [
   { name: "Hawai'i Tech Development Corporation (HTDC)", url: "https://htdc.org" },
@@ -369,25 +363,16 @@ export default async function ResourcesPage() {
             </ScrollReveal>
           </div>
 
-          {/* Communities */}
+          {/* The "Communities" block was removed 2026-08-29 — it held a single
+              entry ("Designer Slack") in Sanity plus a stale hardcoded
+              fallback. To restore: re-add a grid here reading
+              groupedResources['design-communities'], re-publish the
+              "Design communities" resourceCategory and its items, and put the
+              listItem back in sanity/structure.ts.
+
+              The closing CTA below belongs to the whole Resources page, not to
+              that block, so it stays. */}
           <div>
-            <ScrollReveal>
-              <SectionEyebrow className="mb-6">Communities</SectionEyebrow>
-            </ScrollReveal>
-            <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              {(groupedResources['design-communities'] && groupedResources['design-communities'].length > 0
-                ? groupedResources['design-communities']
-                : communities
-              ).map((community: { _id?: string; name?: string; title?: string; url?: string; description?: string }) => (
-                <MotionDiv key={community._id || community.name || community.title}>
-                  <LinkCard
-                    href={community.url || "#"}
-                    title={community.title || community.name || ""}
-                    description={community.description}
-                  />
-                </MotionDiv>
-              ))}
-            </ScrollReveal>
             <ScrollReveal>
               <InfoBox className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p className="text-base text-gray-120 font-medium">Do you have more resources to suggest or corrections we should make?</p>
