@@ -24,6 +24,11 @@ import { scaleReveal } from "@/lib/animations";
 // components/layout/Navbar.tsx, which points at #faqs.
 const SHOW_FAQS = false;
 
+// The featured press callout is hidden on /about for now (2026-08-29). The
+// Bytemarks Cafe episode it pointed at is already surfaced on /events, so the
+// two were carrying the same mention.
+const SHOW_PRESS = false;
+
 const ALOHA_PRINCIPLES = [
   {
     term: "People",
@@ -272,19 +277,21 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Featured Press Section */}
-      <section className="pb-16 px-6 bg-beige-10">
-        <div className="max-w-[1100px] mx-auto">
-          <ScrollReveal>
-            <PressMention
-              source="Hawaiʻi Public Radio"
-              title="Bytemarks Cafe: UXHI Conference"
-              href="https://www.hawaiipublicradio.org/show/bytemarks-cafe/2024-10-09/bytemarks-cafe-uxhi-conference"
-              ctaLabel="Listen Now"
-            />
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* Featured Press — hidden for now, see SHOW_PRESS above */}
+      {SHOW_PRESS && (
+        <section className="pb-16 px-6 bg-beige-10">
+          <div className="max-w-[1100px] mx-auto">
+            <ScrollReveal>
+              <PressMention
+                source="Hawaiʻi Public Radio"
+                title="Bytemarks Cafe: UXHI Conference"
+                href="https://www.hawaiipublicradio.org/show/bytemarks-cafe/2024-10-09/bytemarks-cafe-uxhi-conference"
+                ctaLabel="Listen Now"
+              />
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       <TeamSection members={members} id="team" />
       {SHOW_FAQS && <FAQSection faqs={faqs} id="faqs" />}
