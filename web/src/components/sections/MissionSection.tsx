@@ -20,6 +20,11 @@ interface MissionSectionProps {
   values?: Value[];
 }
 
+// The "Our Values" grid is hidden on /about for now (2026-08-29). The values
+// themselves still come from Sanity and the markup below is intact, so
+// restoring the section is flipping this one flag back to true.
+const SHOW_VALUES = false;
+
 // Fallback values if none from Sanity
 const defaultValues = [
   {
@@ -84,7 +89,8 @@ export function MissionSection({ values }: MissionSectionProps) {
             </p>
           </motion.div>
 
-          {/* Values */}
+          {/* Values — hidden for now, see SHOW_VALUES above */}
+          {SHOW_VALUES && (
           <motion.div variants={fadeInUp}>
             <h3 className="font-display text-2xl md:text-3xl text-purple-140 mb-8 text-center">
               Our Values
@@ -104,6 +110,7 @@ export function MissionSection({ values }: MissionSectionProps) {
               ))}
             </div>
           </motion.div>
+          )}
         </motion.div>
       </Container>
     </section>

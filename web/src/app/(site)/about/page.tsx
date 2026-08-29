@@ -173,9 +173,10 @@ export default async function AboutPage() {
         <div className="max-w-[1100px] mx-auto">
           <ScrollReveal>
             <PressMention
-              source="Hawai'i Bulletin"
-              title="Local group explores user experience and interface design"
-              href="https://www.hawaiibulletin.com/p/local-group-explores-user-experience"
+              source="Hawaiʻi Public Radio"
+              title="Bytemarks Cafe: UXHI Conference"
+              href="https://www.hawaiipublicradio.org/show/bytemarks-cafe/2024-10-09/bytemarks-cafe-uxhi-conference"
+              ctaLabel="Listen Now"
             />
           </ScrollReveal>
         </div>
