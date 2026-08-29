@@ -38,8 +38,12 @@ export const member = defineType({
           { title: "Community & Events", value: "community-events" },
           { title: "Annual Conference", value: "annual-conference" },
           { title: "Professional Development", value: "professional-development" },
-          { title: "Communication & Outreach", value: "communication-outreach" },
-          { title: "Standards & Credentialing", value: "standards-credentialing" },
+          // Hidden from /about#team since 2026-08-29 — both held only a "TBD"
+          // placeholder. Disabled here too so nobody assigns a member to a
+          // category that will not render. Restore alongside HIDDEN_CATEGORIES
+          // in components/sections/team/TeamSection.tsx.
+          // { title: "Communication & Outreach", value: "communication-outreach" },
+          // { title: "Standards & Credentialing", value: "standards-credentialing" },
           { title: "Research & Industry Partnerships", value: "research-partnerships" },
         ],
         layout: "dropdown",

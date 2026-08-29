@@ -12,18 +12,23 @@ const CATEGORY_ORDER = [
   "community-events",
   "annual-conference",
   "professional-development",
-  "communication-outreach",
-  "standards-credentialing",
   "research-partnerships",
 ] as const;
+
+// Categories hidden from /about#team for now (2026-08-29) — both held only a
+// "TBD" placeholder member. Listing them here rather than just dropping them
+// from CATEGORY_ORDER matters: anything with an unrecognised category falls
+// into the generic "Team" group below, so removing them from the order alone
+// would have relabelled those placeholders rather than hiding them.
+// To restore: delete from this set and add back to CATEGORY_ORDER + LABELS,
+// and re-enable the options in sanity/schemaTypes/documents/member.ts.
+const HIDDEN_CATEGORIES = new Set(["communication-outreach", "standards-credentialing"]);
 
 const CATEGORY_LABELS: Record<string, string> = {
   founder: "Founders",
   "community-events": "Community & Events",
   "annual-conference": "Annual Conference",
   "professional-development": "Professional Development",
-  "communication-outreach": "Communication & Outreach",
-  "standards-credentialing": "Standards & Credentialing",
   "research-partnerships": "Research & Industry Partnerships",
 };
 
@@ -35,7 +40,9 @@ interface TeamSectionProps {
 export function TeamSection({ members, id }: TeamSectionProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  if (!members || members.length === 0) return null;
+  const visible = members.filter((m) => !m.category || !HIDDEN_CATEGORIES.has(m.category));
+
+  if (!visible || visible.length === 0) return null;
 
   const handleToggle = (memberId: string) => {
     setExpandedId((prev) => (prev === memberId ? null : memberId));
@@ -45,7 +52,7 @@ export function TeamSection({ members, id }: TeamSectionProps) {
   const grouped = CATEGORY_ORDER.reduce<
     { key: string; label: string; members: TeamMember[] }[]
   >((acc, cat) => {
-    const catMembers = members.filter((m) => m.category === cat);
+    const catMembers = visible.filter((m) => m.category === cat);
     if (catMembers.length > 0) {
       acc.push({ key: cat, label: CATEGORY_LABELS[cat], members: catMembers });
     }
@@ -53,7 +60,7 @@ export function TeamSection({ members, id }: TeamSectionProps) {
   }, []);
 
   // Members without a category go at the end
-  const uncategorized = members.filter(
+  const uncategorized = visible.filter(
     (m) => !m.category || !CATEGORY_ORDER.includes(m.category as (typeof CATEGORY_ORDER)[number])
   );
   if (uncategorized.length > 0) {
