@@ -1448,7 +1448,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-link": (
     <ContentSection
       title="Link Card"
-      description="Beige card with title, purple description, and external link icon. The background lightens on hover; the title deliberately holds its colour — it used to turn teal-100, which measured 2.63:1 against the hover background and failed AA. Used on /resources."
+      description="Beige card with title, optional purple description, optional leading media slot, and an external link icon. The background lightens on hover; the title deliberately holds its colour — it used to turn teal-100, which measured 2.63:1 against the hover background and failed AA. Used for every card on /resources, including the tech-organisation list."
       componentPath="components/ui/LinkCard.tsx"
     >
       <div className="space-y-6">
@@ -1474,6 +1474,12 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Grid Layout (2 columns)</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+            <LinkCard
+              href="#"
+              title="With a leading logo"
+              description="media slot — used by the tech-organisation list"
+              media={<span className="w-8 h-8 rounded bg-teal-60 flex-shrink-0" />}
+            />
             <LinkCard href="#" title="Visual Design" description="shiftnudge.com" />
             <LinkCard href="#" title="Interaction Design" description="interaction-design.org" />
             <LinkCard href="#" title="UX Design" description="nngroup.com" />

@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { RESOURCE_ITEMS_QUERY, TECH_ORGANIZATIONS_QUERY, STATE_OF_UX_REPORTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
-import { ExternalLinkIcon } from "@/components/ui/icons";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { LinkCard } from "@/components/ui/LinkCard";
 import { InfoBox } from "@/components/ui/InfoBox";
@@ -586,25 +585,20 @@ export default async function ResourcesPage() {
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
             {displayTechOrgs.map((org: { _id?: string; name: string; website?: string; url?: string; logo?: { asset?: { _id?: string; url?: string } } }) => (
               <MotionDiv key={org._id || org.name}>
-                <a
+                <LinkCard
                   href={org.website || org.url || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-beige-10 rounded-[16px] p-5 hover:bg-beige-30 transition-colors group"
-                >
-                  <div className="flex items-center gap-3">
-                    {org.logo?.asset && (
+                  title={org.name}
+                  media={
+                    org.logo?.asset ? (
                       <SanityImage
                         value={org.logo}
                         width={32}
                         height={32}
                         className="w-8 h-8 object-contain"
                       />
-                    )}
-                    <p className="font-medium text-gray-140 group-hover:text-teal-100 transition-colors">{org.name}</p>
-                  </div>
-                  <ExternalLinkIcon className="w-5 h-5 text-gray-80 group-hover:text-teal-90 transition-colors flex-shrink-0" />
-                </a>
+                    ) : undefined
+                  }
+                />
               </MotionDiv>
             ))}
           </ScrollReveal>
