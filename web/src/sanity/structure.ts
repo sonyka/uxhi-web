@@ -106,20 +106,12 @@ export const structure = (S: StructureBuilder) =>
                     .filter('_type == "resourceItem" && category._ref == "ac47fa97-d00a-4803-a6d6-cbfa34a43044"')
                     .defaultOrdering([{ field: "order", direction: "asc" }])
                 ),
-              // "Design communities" was removed from the Resources page
-              // 2026-08-29 (one entry, plus a stale hardcoded fallback), so it
-              // is not surfaced here either. Its category and item are
-              // unpublished rather than deleted — re-publish them and restore
-              // this listItem to bring the section back.
-              // S.listItem()
-              //   .title("Design communities")
-              //   .icon(FolderIcon)
-              //   .child(
-              //     S.documentList()
-              //       .title("Design communities")
-              //       .filter('_type == "resourceItem" && category._ref == "7cf0efba-e594-45d4-b43c-76da89f310ca"')
-              //       .defaultOrdering([{ field: "order", direction: "asc" }])
-              //   ),
+              // A "Design communities" category used to sit here. Removed
+              // 2026-08-29 along with its single entry — the category document
+              // and its item were deleted from Sanity, not just hidden, so
+              // there is no id to point at any more. Bringing it back means
+              // creating a fresh resourceCategory and adding a listItem for it
+              // in the same shape as the ones above.
               S.divider(),
               S.documentTypeListItem("stateOfUxReport").title("State of UX Report").icon(DocumentIcon),
               S.documentTypeListItem("techOrganization").title("Local Tech Organizations").icon(UsersIcon),

@@ -363,12 +363,12 @@ export default async function ResourcesPage() {
             </ScrollReveal>
           </div>
 
-          {/* The "Communities" block was removed 2026-08-29 — it held a single
-              entry ("Designer Slack") in Sanity plus a stale hardcoded
-              fallback. To restore: re-add a grid here reading
-              groupedResources['design-communities'], re-publish the
-              "Design communities" resourceCategory and its items, and put the
-              listItem back in sanity/structure.ts.
+          {/* A "Communities" block used to sit here. Removed 2026-08-29: it
+              held one entry ("Designer Slack") behind a stale hardcoded
+              fallback, and the Sanity category and item have since been
+              deleted outright rather than hidden. Rebuilding it means a new
+              resourceCategory plus a grid here — there is no dormant content
+              to switch back on.
 
               The closing CTA below belongs to the whole Resources page, not to
               that block, so it stays. */}
