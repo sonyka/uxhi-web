@@ -7,6 +7,9 @@ import { TeamSection } from "@/components/sections/team";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { PressMention } from "@/components/ui/PressMention";
+import { PrincipleList } from "@/components/ui/PrincipleList";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
+import { SectionLead } from "@/components/ui/SectionLead";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
@@ -20,6 +23,29 @@ import { scaleReveal } from "@/lib/animations";
 // back to true — but also uncomment the FAQs entry in the About dropdown in
 // components/layout/Navbar.tsx, which points at #faqs.
 const SHOW_FAQS = false;
+
+const ALOHA_PRINCIPLES = [
+  {
+    term: "People",
+    description:
+      "Every design decision starts with genuine care for the humans affected by it — not just their needs, but their dignity.",
+  },
+  {
+    term: "Culture",
+    description:
+      "Honoring the values, language, and ways of knowing that make Hawaiʻi's communities distinct, rather than importing frameworks wholesale.",
+  },
+  {
+    term: "Community",
+    description:
+      "Designing in relationship, not isolation — building pilina with the people and communities our work touches.",
+  },
+  {
+    term: "Place",
+    description:
+      "Recognizing that context matters. What works elsewhere doesn't always translate here, and Hawaiʻi's environment, history, and communities shape what good design looks like.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "About | UX Hawaii",
@@ -44,6 +70,14 @@ function CircleHelpIcon({ className = "w-5 h-5" }: { className?: string }) {
       <circle cx="12" cy="12" r="10" />
       <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
       <path d="M12 17h.01" />
+    </svg>
+  );
+}
+
+function HeartIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
     </svg>
   );
 }
@@ -103,6 +137,12 @@ export default async function AboutPage() {
                     subtitle="Common questions"
                   />
                 )}
+                <QuickLinkPill
+                  href="#aloha-centered-design"
+                  icon={<HeartIcon className="w-7 h-7" />}
+                  label="Our Approach"
+                  subtitle="Aloha-centered design"
+                />
                 <QuickLinkPill
                   href="#contact"
                   icon={<SendIcon className="w-7 h-7" />}
@@ -175,6 +215,62 @@ export default async function AboutPage() {
       </HeroSection>
 
       <MissionSection values={values} />
+
+      {/* Aloha-Centered Design */}
+      <section
+        id="aloha-centered-design"
+        className="scroll-mt-24 bg-white px-6 py-20"
+      >
+        <div className="mx-auto max-w-[900px]">
+          <ScrollReveal stagger>
+            <MotionDiv>
+              <SectionEyebrow className="mb-3">Our approach</SectionEyebrow>
+            </MotionDiv>
+
+            <MotionDiv>
+              <SectionHeading size="md" className="mb-6">
+                What is aloha-centered design?
+              </SectionHeading>
+            </MotionDiv>
+
+            <MotionDiv>
+              <SectionLead size="md" className="mb-5">
+                Aloha-centered design is our Hawaiʻi-rooted approach to
+                human-centered design — built on the same foundation as UX, but
+                grounded in something more specific to where we practice it.
+              </SectionLead>
+            </MotionDiv>
+
+            <MotionDiv>
+              <SectionLead size="md">
+                Where human-centered design generally asks you to design{" "}
+                <em className="italic">for</em> the user, aloha-centered design
+                asks you to design <em className="italic">with</em> aloha: for
+                the people who&apos;ll use what you build, the culture and place
+                they come from, and the communities they&apos;re part of.
+              </SectionLead>
+            </MotionDiv>
+
+            <MotionDiv>
+              <p className="mt-10 mb-8 text-base font-bold text-purple-140 md:text-lg">
+                In practice, that means grounding our work in four things:
+              </p>
+            </MotionDiv>
+
+            <MotionDiv>
+              <PrincipleList principles={ALOHA_PRINCIPLES} />
+            </MotionDiv>
+
+            <MotionDiv>
+              <SectionLead size="md" className="mt-12">
+                UX remains our professional foundation — the skills, methods,
+                and rigor don&apos;t change. Aloha-centered design is our
+                distinctive point of view on how and why we practice it here.
+              </SectionLead>
+            </MotionDiv>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* Featured Press Section */}
       <section className="pb-16 px-6 bg-beige-10">

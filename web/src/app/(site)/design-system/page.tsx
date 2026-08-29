@@ -28,6 +28,7 @@ import { BulletPoint } from "@/components/ui/BulletPoint";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
 import { MissionStatement } from "@/components/ui/MissionStatement";
+import { PrincipleList } from "@/components/ui/PrincipleList";
 import { Pagination } from "@/components/ui/Pagination";
 import { Container } from "@/components/ui/Container";
 import { MemberCard } from "@/components/directory";
@@ -131,6 +132,7 @@ const navigationItems = [
       { id: "card-logoimage", label: "Logo Image" },
       { id: "card-carousel", label: "Carousel Testimonial" },
       { id: "card-link", label: "Link Card" },
+      { id: "card-principles", label: "Principle List" },
       { id: "card-infobox", label: "Info Box" },
       { id: "card-pressmention", label: "Press Mention" },
       { id: "card-upcomingevent", label: "Upcoming Event" },
@@ -1345,6 +1347,23 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
 
   // Data & Reporting
+  "card-principles": (
+    <ContentSection
+      title="Principle List"
+      description="A set of named ideas, each with a short definition, rendered as a description list — the term is the thing being defined and the sentence defines it. Deliberately has no icons: these are concepts rather than features, and a decorative icon per term reads as filler next to words doing real work. Each term takes a teal rule above it so the set reads at a glance without boxing each one in a card."
+      componentPath="components/ui/PrincipleList.tsx"
+    >
+      <PrincipleList
+        principles={[
+          { term: "People", description: "Every design decision starts with genuine care for the humans affected by it — not just their needs, but their dignity." },
+          { term: "Culture", description: "Honoring the values, language, and ways of knowing that make Hawaiʻi's communities distinct, rather than importing frameworks wholesale." },
+          { term: "Community", description: "Designing in relationship, not isolation — building pilina with the people and communities our work touches." },
+          { term: "Place", description: "Recognizing that context matters. What works elsewhere doesn't always translate here." },
+        ]}
+      />
+    </ContentSection>
+  ),
+
   "data-statcomparison": (
     <ContentSection
       title="Stat Comparison"
