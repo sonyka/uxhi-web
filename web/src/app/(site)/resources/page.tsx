@@ -13,6 +13,7 @@ import { BulletPoint } from "@/components/ui/BulletPoint";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { HeroContent } from "@/components/ui/HeroContent";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -124,7 +125,7 @@ export default async function ResourcesPage() {
   return (
     <main className="min-h-screen bg-beige-10">
       {/* Hero Section */}
-      <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
+      <HeroSection>
         {/* Left Side - Content */}
         <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
@@ -223,7 +224,7 @@ export default async function ResourcesPage() {
             </FadeInOnMount>
           </div>
         </div>
-      </div>
+      </HeroSection>
 
       {/* UX for Students Section */}
       <section id="students" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">

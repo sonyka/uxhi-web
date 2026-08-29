@@ -162,6 +162,7 @@ Full audit, principles and history: [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONF
 | `SectionIcon` | `components/ui/SectionIcon.tsx` | Large centered icon (128px) for section intros |
 | `SectionLead` | `components/ui/SectionLead.tsx` | Supporting paragraph beneath a heading (hero/md sizes) |
 | `HeroContent` | `components/ui/HeroContent.tsx` | Left-side content wrapper for interior page heroes |
+| `HeroSection` | `components/ui/HeroSection.tsx` | Interior hero wrapper; caps at 1400px so text and art stay together above that |
 | `LogoImage` | `components/ui/LogoImage.tsx` | Grayscale logo with hover color reveal (partner/sponsor grids) |
 | `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/beige/white variants) |
 | `FormLabel` | `components/ui/form-elements/FormLabel.tsx` | Shared form label; supports `as="legend"` for fieldsets |

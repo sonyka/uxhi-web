@@ -92,6 +92,7 @@ const navigationItems = [
       { id: "typography-bulletpoint", label: "Bullet Point" },
       { id: "typography-eyebrow", label: "Section Eyebrow" },
       { id: "typography-sectionheading", label: "Section Heading" },
+      { id: "layout-herosection", label: "Hero Section" },
       { id: "typography-sectionlead", label: "Section Lead" },
       { id: "typography-sectionicon", label: "Section Icon" },
     ],
@@ -876,6 +877,36 @@ const contentComponents: Record<string, React.ReactNode> = {
               <SectionHeading color="black">Black (hero sections)</SectionHeading>
             </div>
           </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  "layout-herosection": (
+    <ContentSection
+      title="Hero Section"
+      description="Outer wrapper for interior page heroes. Caps at 1400px and centres. It is the positioned ancestor the hero art anchors to, so capping it brings both halves in together — text and art — rather than leaving them pinned to opposite screen edges."
+      componentPath="components/ui/HeroSection.tsx"
+    >
+      <div className="space-y-4 text-sm text-gray-110">
+        <div className="p-6 bg-beige-30 rounded-xl space-y-3">
+          <p>
+            <strong className="text-gray-130">Why it exists.</strong> Before this component,
+            the same wrapper markup was inline on all seven interior pages, the hero text sat
+            96px from the viewport edge, and the body content below sat in a centred
+            1280&ndash;1400px column. The two agreed at roughly 1592px wide and diverged past
+            it — 164px apart at 1920, 544px at 2560, with over half the screen empty between
+            the heading and the art.
+          </p>
+          <p>
+            <strong className="text-gray-130">Below 1400px nothing changes.</strong> The cap
+            only engages once the viewport exceeds it, so laptop and mobile layouts are
+            untouched.
+          </p>
+          <p>
+            Pairs with <span className="font-mono text-xs bg-gray-20 px-1 rounded">HeroContent</span>{" "}
+            for the left column. The homepage does not use either — it has its own centred hero.
+          </p>
         </div>
       </div>
     </ContentSection>

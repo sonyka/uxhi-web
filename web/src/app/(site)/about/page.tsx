@@ -9,6 +9,7 @@ import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { PressMention } from "@/components/ui/PressMention";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { HeroContent } from "@/components/ui/HeroContent";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -64,7 +65,7 @@ export default async function AboutPage() {
   return (
     <main className="min-h-screen bg-beige-10">
       {/* Hero Section */}
-      <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
+      <HeroSection>
         {/* Left Side - Content */}
         <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
@@ -163,7 +164,7 @@ export default async function AboutPage() {
             </FadeInOnMount>
           </div>
         </div>
-      </div>
+      </HeroSection>
 
       <MissionSection values={values} />
 

@@ -8,6 +8,7 @@ import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HeroContent } from "@/components/ui/HeroContent";
+import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default async function FindUXProPage() {
   return (
     <main className="min-h-screen bg-beige-10">
       {/* Hero Section */}
-      <div className="relative min-h-[564px] sm:min-h-[746px] md:min-h-[747px] lg:min-h-[700px]">
+      <HeroSection>
         {/* Left Side - Content */}
         <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
@@ -167,7 +168,7 @@ export default async function FindUXProPage() {
             </FadeInOnMount>
           </div>
         </div>
-      </div>
+      </HeroSection>
 
       {/* Member Directory Section */}
       <section id="directory" className="py-12 px-6 bg-white scroll-mt-24">
