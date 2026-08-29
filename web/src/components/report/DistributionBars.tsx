@@ -68,7 +68,7 @@ export function DistributionBars({
         </div>
 
         <div className="flex w-full">
-          {bands.map((band, i) => (
+          {bands.map((band) => (
             <div
               key={band.label}
               className="flex flex-col items-center gap-1 px-1 pt-4 text-center"
