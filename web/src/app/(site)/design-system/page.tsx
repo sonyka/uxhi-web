@@ -17,6 +17,8 @@ import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { SpotIllustrationCard } from "@/components/ui/cards";
+import { StatComparison } from "@/components/report/StatComparison";
+import { DistributionBars } from "@/components/report/DistributionBars";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { SectionIcon } from "@/components/ui/SectionIcon";
@@ -133,6 +135,13 @@ const navigationItems = [
       { id: "card-upcomingevent", label: "Upcoming Event" },
       { id: "card-member", label: "Member Card" },
       { id: "card-team", label: "Team Card" },
+    ],
+  },
+  {
+    category: "Data & Reporting",
+    items: [
+      { id: "data-statcomparison", label: "Stat Comparison" },
+      { id: "data-distributionbars", label: "Distribution Bars" },
     ],
   },
   {
@@ -1330,6 +1339,48 @@ const contentComponents: Record<string, React.ReactNode> = {
           </span>
         </button>
       </div>
+    </ContentSection>
+  ),
+
+  // Data & Reporting
+  "data-statcomparison": (
+    <ContentSection
+      title="Stat Comparison"
+      description="Two headline figures set against each other. The primary figure carries the teal emphasis at the larger size; the comparison sits back in grey. Built for State of UX report findings, which are almost always a Hawaiʻi figure measured against a national one. Figures animate up on scroll and use tabular numerals so digits stay aligned."
+      componentPath="components/report/StatComparison.tsx"
+    >
+      <StatComparison
+        prefix="$"
+        primaryLabel="Average in Hawaiʻi"
+        primaryValue={110203}
+        comparisonLabel="National average"
+        comparisonValue={121196}
+        gapNote={
+          <>
+            A gap of <strong className="font-black text-purple-140">$10,993</strong> — Hawaiʻi averages roughly 9% below the national figure.
+          </>
+        }
+      />
+    </ContentSection>
+  ),
+
+  "data-distributionbars": (
+    <ContentSection
+      title="Distribution Bars"
+      description="Horizontal percentage distribution, used in place of the pie and column charts that do not survive a phone viewport. Bars share one baseline and are scaled to the largest band so proportions stay honest. Set emphasis on the band that carries the finding to pull it forward in teal."
+      componentPath="components/report/DistributionBars.tsx"
+    >
+      <DistributionBars
+        caption="Salary range of survey respondents working in UX, by percentage of respondents"
+        bands={[
+          { label: "Under $25,000", value: 10 },
+          { label: "$25,000–$49,999", value: 10 },
+          { label: "$50,000–$74,999", value: 15 },
+          { label: "$75,000–$99,999", value: 15 },
+          { label: "$100,000–$124,999", value: 10 },
+          { label: "$125,000+", value: 40, emphasis: true },
+        ]}
+      />
     </ContentSection>
   ),
 

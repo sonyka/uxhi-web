@@ -7,7 +7,10 @@ type CountUpProps = {
   to: number;
   from?: number;
   duration?: number;
+  prefix?: string;
   suffix?: string;
+  /** Group digits with locale separators, e.g. 110203 -> 110,203 */
+  grouped?: boolean;
   className?: string;
 };
 
@@ -15,7 +18,9 @@ export function CountUp({
   to,
   from = 0,
   duration = 1.5,
+  prefix,
   suffix,
+  grouped = false,
   className,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -36,14 +41,17 @@ export function CountUp({
     const el = ref.current;
     if (!el) return;
     const unsubscribe = rounded.on("change", (v) => {
-      el.textContent = suffix ? `${v}${suffix}` : `${v}`;
+      const digits = grouped ? v.toLocaleString("en-US") : `${v}`;
+      el.textContent = `${prefix ?? ""}${digits}${suffix ?? ""}`;
     });
     return unsubscribe;
-  }, [rounded, suffix]);
+  }, [rounded, prefix, suffix, grouped]);
+
+  const initial = grouped ? from.toLocaleString("en-US") : `${from}`;
 
   return (
     <motion.span ref={ref} className={className}>
-      {from}{suffix}
+      {prefix}{initial}{suffix}
     </motion.span>
   );
 }

@@ -473,7 +473,7 @@ export default async function ResourcesPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <BulletPoint variant="yellow" />
-                    <span>Are earning an average of <span className="font-black text-white">$75,000</span> versus <span className="font-black text-white">$109,776</span> as the national average</span>
+                    <span>Are earning an average of <span className="font-black text-white">$110,203</span> versus <span className="font-black text-white">$121,196</span> as the national average</span>
                   </li>
                 </ul>
               </SpotIllustrationCard>
