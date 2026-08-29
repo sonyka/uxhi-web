@@ -18,7 +18,7 @@ import { scaleReveal } from "@/lib/animations";
 export const metadata: Metadata = {
   title: "About | UX Hawaii",
   description:
-    "Learn about UX Hawaii, Hawaii's premier UX community dedicated to connecting, educating, and empowering UX professionals.",
+    "Learn about UXHI, Hawaiʻi's home for aloha-centered design. Meet the team, read our FAQs, and get in touch.",
 };
 
 // Lucide Icons with 1.5px stroke
@@ -76,7 +76,7 @@ export default async function AboutPage() {
             </HeroItem>
             <HeroItem>
               <p className="text-black text-lg lg:text-xl leading-relaxed">
-                Learn about UX Hawaiʻi, Hawaiʻi&apos;s premier UX community dedicated to connecting, educating, and empowering UX professionals.
+                Learn about UXHI, Hawaiʻi&apos;s home for aloha-centered design.
               </p>
             </HeroItem>
 

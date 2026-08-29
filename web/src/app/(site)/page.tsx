@@ -9,6 +9,7 @@ import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
+import { MissionStatement, ALOHA_CENTERED_TOOLTIP } from "@/components/ui/MissionStatement";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
@@ -21,10 +22,6 @@ export const metadata: Metadata = {
     "Join 470+ UX professionals, students, and curious individuals in Hawaiʻi. Connect, learn, and grow together with UXHI.",
 };
 
-// Shown on both the hero headline and the mission statement — defined once so
-// the two definitions of the term can't drift apart.
-const ALOHA_CENTERED_TOOLTIP =
-  "Aloha-centered design applies Hawaiʻi's values — care, reciprocity, and respect for place — to how we design for people.";
 
 export default async function HomePage() {
   // Fetch data from Sanity
@@ -296,32 +293,7 @@ export default async function HomePage() {
         <ScrollReveal className="max-w-[900px] mx-auto text-center">
           <SectionEyebrow className="mb-4 block text-purple-140">What we do</SectionEyebrow>
           <SectionHeading size="sm" color="gray" className="leading-tight lg:text-4xl">
-            UXHI&apos;s mission is to champion and elevate{" "}
-            <MobileTooltip
-              tooltip={ALOHA_CENTERED_TOOLTIP}
-              className="whitespace-nowrap"
-              decorationElement={
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src="/images/home/hcd-underline.svg"
-                  alt=""
-                  className="absolute left-0 right-0 -bottom-2 w-full h-[9px] lg:h-[10px] pointer-events-none hidden md:block"
-                />
-              }
-            >
-              aloha-centered design
-            </MobileTooltip>{" "}
-            in Hawaiʻi by developing practitioners, building community, and connecting
-            organizations with{" "}
-            {/* No yellow underline here — one per sentence is enough, and the
-                aloha-centered phrase above carries it. */}
-            <MobileTooltip
-              tooltip="Human-centered design is an approach that prioritizes the unique needs of users."
-              className="whitespace-nowrap"
-            >
-              human-centered design
-            </MobileTooltip>.{" "}
-            <span className="inline-block">🌺</span>
+            <MissionStatement />
           </SectionHeading>
         </ScrollReveal>
       </section>

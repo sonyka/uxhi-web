@@ -27,6 +27,7 @@ import { LogoImage } from "@/components/ui/LogoImage";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
+import { MissionStatement } from "@/components/ui/MissionStatement";
 import { Pagination } from "@/components/ui/Pagination";
 import { Container } from "@/components/ui/Container";
 import { MemberCard } from "@/components/directory";
@@ -176,6 +177,7 @@ const navigationItems = [
       { id: "interactive-filter-dropdown", label: "Filter Dropdown" },
       { id: "interactive-toggle", label: "Toggle Button" },
       { id: "interactive-tooltip", label: "Mobile Tooltip" },
+      { id: "interactive-mission", label: "Mission Statement" },
       { id: "interactive-pagination", label: "Pagination" },
     ],
   },
@@ -2613,6 +2615,18 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
         </div>
       </div>
+    </ContentSection>
+  ),
+
+  "interactive-mission": (
+    <ContentSection
+      title="Mission Statement"
+      description="UXHI's mission sentence with both terms explained on hover or tap. Renders the sentence only — no heading — so each page keeps its own type treatment: the homepage sets it centred in a SectionHeading, /about sets it left-aligned in the mission section. The wording lives in one file so the two can never drift apart. 'aloha-centered design' carries the yellow underline; 'human-centered design' deliberately does not, because one underline per sentence is enough."
+      componentPath="components/ui/MissionStatement.tsx"
+    >
+      <p className="font-display text-2xl md:text-3xl text-purple-120 leading-tight max-w-4xl">
+        <MissionStatement />
+      </p>
     </ContentSection>
   ),
 

@@ -157,6 +157,7 @@ Full audit, principles and history: [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONF
 | `ArrowLinkButton` | `components/ui/ArrowLinkButton.tsx` | Text link with arrow for dark backgrounds |
 | `BulletPoint` | `components/ui/BulletPoint.tsx` | Styled bullet dot (teal on light, yellow on dark bg) |
 | `MobileTooltip` | `components/ui/MobileTooltip.tsx` | Tap-to-reveal tooltip (mobile), hover (desktop) |
+| `MissionStatement` | `components/ui/MissionStatement.tsx` | UXHI's mission sentence with tooltips; shared by home and /about |
 | `SectionEyebrow` | `components/ui/SectionEyebrow.tsx` | Uppercase subsection label (20px, bold, purple-120) |
 | `SectionHeading` | `components/ui/SectionHeading.tsx` | Display heading with size/color variants (display/hero/xl/lg/md/sm) |
 | `SectionIcon` | `components/ui/SectionIcon.tsx` | Large centered icon (128px) for section intros |

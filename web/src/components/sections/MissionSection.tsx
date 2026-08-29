@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
+import { MissionStatement } from "@/components/ui/MissionStatement";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 interface Value {
@@ -68,24 +69,7 @@ export function MissionSection({ values }: MissionSectionProps) {
             variants={fadeInUp}
             className="font-display text-2xl md:text-3xl lg:text-4xl text-purple-120 leading-tight mb-8 max-w-4xl"
           >
-            UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
-            <span className="text-purple-120 hover:text-purple-150 transition-colors relative inline-block cursor-pointer group/hcd whitespace-nowrap">
-              Human-Centered Design
-              {/* Underline image */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/home/hcd-underline.svg"
-                alt=""
-                className="absolute left-0 right-0 -bottom-1 w-full h-[9px] lg:h-[10px] pointer-events-none"
-              />
-              {/* Tooltip */}
-              <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 px-4 py-3 bg-white text-gray-120 text-sm font-body font-normal leading-relaxed tracking-normal rounded-xl shadow-lg border border-gray-20 w-80 text-left opacity-0 invisible group-hover/hcd:opacity-100 group-hover/hcd:visible transition-all duration-200 delay-300 z-50 whitespace-normal" style={{ wordSpacing: '0.1em' }}>
-                Human-centered design is an approach that prioritizes the unique needs of users.
-                {/* Tail */}
-                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
-              </span>
-            </span>{" "}
-            in Hawaiʻi through career development, community networking, and industry advocacy.
+            <MissionStatement />
           </motion.h2>
 
           {/* Description */}

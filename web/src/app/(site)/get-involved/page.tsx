@@ -459,6 +459,12 @@ export default async function GetInvolvedPage() {
                 ))
               )}
             </ScrollReveal>
+
+            <ScrollReveal className="mt-12 text-center">
+              <PrimaryCTA href="/about?interest=Becoming+a+volunteer#contact">
+                Sign up to volunteer
+              </PrimaryCTA>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -744,18 +750,8 @@ export default async function GetInvolvedPage() {
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>
-            <p className="text-white text-xl font-medium mb-4">
-              Your support is important to us.
-            </p>
-          </MotionDiv>
-          <MotionDiv>
-            <p className="text-purple-50 text-lg leading-relaxed mb-4 max-w-[650px] mx-auto">
-              UXHI is a volunteer-run UX design community that connects people in Hawai&#x02BB;i and those with Hawai&#x02BB;i ties to learn together and make new UX friends.
-            </p>
-          </MotionDiv>
-          <MotionDiv>
             <p className="text-purple-50 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
-              Your donations help offset the out-of-pocket costs the team spends on website hosting and expenses for in-person events. Thanks in advance for supporting our community!
+              UXHI is a volunteer-run design community that connects people in Hawai&#x02BB;i and those with Hawai&#x02BB;i ties.
             </p>
           </MotionDiv>
           <MotionDiv>
