@@ -18,7 +18,7 @@ interface LinkCardProps {
  * - Background: beige-30 (#f4f1ea), hover: beige-30
  * - Border radius: 16px (rounded-[16px])
  * - Padding: 20px (p-5)
- * - Title: text-base, font-medium, gray-140, hover: teal-100
+ * - Title: text-base, font-medium, gray-140 — unchanged on hover
  * - Description: text-sm, purple-140
  * - Icon: gray-80, hover: teal-90
  *
@@ -33,7 +33,11 @@ export function LinkCard({ href, title, description, className = "" }: LinkCardP
       className={`flex items-center justify-between bg-beige-10 rounded-[16px] p-5 hover:bg-beige-30 transition-colors group ${className}`}
     >
       <div>
-        <p className="text-base font-medium text-gray-140 group-hover:text-teal-100 transition-colors">
+        {/* Title colour is deliberately NOT changed on hover. It used to go
+            teal-100, which measured 2.63:1 against the beige-30 hover
+            background — under the 4.5:1 AA threshold, and a drop from 17.09:1
+            at rest. The background shift already signals hover. */}
+        <p className="text-base font-medium text-gray-140">
           {title}
         </p>
         {description && (

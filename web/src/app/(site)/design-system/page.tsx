@@ -1448,7 +1448,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-link": (
     <ContentSection
       title="Link Card"
-      description="Beige card with title, teal description, and external link icon. Title turns teal on hover. Used on /resources."
+      description="Beige card with title, purple description, and external link icon. The background lightens on hover; the title deliberately holds its colour — it used to turn teal-100, which measured 2.63:1 against the hover background and failed AA. Used on /resources."
       componentPath="components/ui/LinkCard.tsx"
     >
       <div className="space-y-6">
