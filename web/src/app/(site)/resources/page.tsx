@@ -539,10 +539,10 @@ export default async function ResourcesPage() {
           {/* View Report CTA */}
           <ScrollReveal>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <PrimaryCTA href="https://drive.google.com/file/d/1pfHDt2yB-maAs2gOhywdJJv7HzY4wG7s/" external>
+              <PrimaryCTA href="/reports/2025-state-of-ux-in-hawaii.pdf" external>
                 2025 State of UXHI Report
               </PrimaryCTA>
-              <PrimaryCTA href="https://drive.google.com/file/d/1YPUpg6C3x_eOlskTLexD_x3wgxN5E16L/view?usp=sharing" external variant="dark">
+              <PrimaryCTA href="/reports/2022-state-of-ux-in-hawaii.pdf" external variant="dark">
                 2023 State of UXHI Report
               </PrimaryCTA>
             </div>
