@@ -19,7 +19,7 @@ const siteSettings = {
     { _key: "5", label: "Resources", linkType: "internal", internalLink: "/resources" },
     { _key: "6", label: "Merch", linkType: "internal", internalLink: "/merch" },
   ],
-  ctaButton: { label: "Join Us", url: "/join" },
+  ctaButton: { label: "Join us", url: "/join" },
   footerNavigation: [
     { _key: "1", label: "Home", linkType: "internal", internalLink: "/" },
     { _key: "2", label: "Get Involved", linkType: "internal", internalLink: "/" },

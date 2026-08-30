@@ -117,7 +117,7 @@ export default async function AboutPage() {
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
               <SectionHeading as="h1" size="hero" color="black">
-                About Us
+                About us
               </SectionHeading>
             </HeroItem>
             <HeroItem>
@@ -132,13 +132,13 @@ export default async function AboutPage() {
                 <QuickLinkPill
                   href="#aloha-centered-design"
                   icon={<HeartIcon className="w-7 h-7" />}
-                  label="Our Approach"
+                  label="Our approach"
                   subtitle="Aloha-centered design"
                 />
                 <QuickLinkPill
                   href="#team"
                   icon={<SquareUserRoundIcon className="w-7 h-7" />}
-                  label="Who We Are"
+                  label="Who we are"
                   subtitle="Meet our team"
                 />
                 {SHOW_FAQS && (
@@ -235,7 +235,7 @@ export default async function AboutPage() {
 
             <MotionDiv>
               <SectionHeading size="md" className="mb-6">
-                What Is Aloha-Centered Design?
+                What is aloha-centered design?
               </SectionHeading>
             </MotionDiv>
 
@@ -306,7 +306,7 @@ export default async function AboutPage() {
             </MotionDiv>
             <MotionDiv>
               <SectionHeading color="white" className="mb-6">
-                Get in Touch
+                Get in touch
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>

@@ -86,7 +86,7 @@ export function FAQSection({ faqs, id }: FAQSectionProps) {
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="mb-12">
             <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-4">
-              Frequently Asked Questions
+              Frequently asked questions
             </h2>
             <p className="text-gray-110 text-lg">
               Questions about what we offer, and how to be a part of it? If the

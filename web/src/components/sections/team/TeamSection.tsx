@@ -88,7 +88,7 @@ export function TeamSection({ members, id }: TeamSectionProps) {
             variants={fadeInUp}
             className="font-display text-4xl md:text-5xl text-purple-140 mb-4"
           >
-            Who We Are
+            Who we are
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-gray-110 text-lg max-w-5xl">
             UXHI is a female-founded community organization whose mission is to

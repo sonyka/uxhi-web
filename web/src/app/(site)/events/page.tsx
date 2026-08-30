@@ -125,17 +125,17 @@ export default async function EventsPage() {
         </div>
       </HeroSection>
 
-      {/* Upcoming Events Section - Luma Embed */}
+      {/* Upcoming events Section - Luma Embed */}
       <section className="pt-12 pb-20 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto text-center">
           <ScrollReveal stagger className="text-center">
-            {/* Upcoming Events Icon */}
+            {/* Upcoming events Icon */}
             <MotionDiv>
-              <SectionIcon src="/images/icons/icon-upcoming-events.svg" alt="Upcoming Events" />
+              <SectionIcon src="/images/icons/icon-upcoming-events.svg" alt="Upcoming events" />
             </MotionDiv>
             <MotionDiv>
               <SectionHeading className="mb-12">
-                Upcoming Events
+                Upcoming events
               </SectionHeading>
             </MotionDiv>
           </ScrollReveal>
@@ -145,7 +145,7 @@ export default async function EventsPage() {
               src="https://luma.com/embed/calendar/cal-eVKNyHwNb84u0D4/events?lt=light"
               width="100%"
               className="border-0 rounded-lg min-h-[400px] h-[60vh] bg-white"
-              title="UXHI Upcoming Events on Luma"
+              title="UXHI Upcoming events on Luma"
               allowFullScreen
             />
 

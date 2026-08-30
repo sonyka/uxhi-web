@@ -20,7 +20,7 @@ interface MissionSectionProps {
   values?: Value[];
 }
 
-// The "Our Values" grid is hidden on /about for now (2026-08-29). The values
+// The "Our values" grid is hidden on /about for now (2026-08-29). The values
 // themselves still come from Sanity and the markup below is intact, so
 // restoring the section is flipping this one flag back to true.
 const SHOW_VALUES = false;

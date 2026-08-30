@@ -306,17 +306,17 @@ export function HamburgerButton({ isOpen, onClick }: HamburgerButtonProps) {
 
 // Default navigation items used across the site
 export const defaultNavItems: NavItem[] = [
-  { key: "find-ux-pro", label: "Find a Pro", href: "/find-ux-pro" },
+  { key: "find-ux-pro", label: "Find a pro", href: "/find-ux-pro" },
   {
     key: "get-involved",
-    label: "Get Involved",
+    label: "Get involved",
     href: "/get-involved",
     // Order follows the page's own section order — keep in sync with the hero pills.
     dropdown: [
       { label: "Volunteer", href: "/get-involved#volunteer", description: "Help grow our community" },
-      { label: "Become a Speaker", href: "/get-involved#speak", description: "Share your expertise" },
+      { label: "Become a speaker", href: "/get-involved#speak", description: "Share your expertise" },
       { label: "Partner", href: "/get-involved#partner", description: "Collaborate with us" },
-      { label: "Sponsor Us", href: "/get-involved#sponsor", description: "Support UXHI events" },
+      { label: "Sponsor us", href: "/get-involved#sponsor", description: "Support UXHI events" },
       { label: "Donate", href: "/get-involved#donate", description: "Support our mission" },
     ],
   },
@@ -328,9 +328,9 @@ export const defaultNavItems: NavItem[] = [
     href: "/resources",
     // Order follows the page's own section order — keep in sync with the hero pills.
     dropdown: [
-      { label: "UX for Students", href: "/resources#students", description: "Start your UX journey" },
+      { label: "UX for students", href: "/resources#students", description: "Start your UX journey" },
       { label: "State of UX in Hawaiʻi Report", href: "/resources#report", description: "Industry insights" },
-      { label: "Directory of Local Tech Orgs", href: "/resources#directory", description: "Local tech community" },
+      { label: "Directory of local tech orgs", href: "/resources#directory", description: "Local tech community" },
     ],
   },
   // Shop is hidden until further notice (2026-08-28). The /merch page still
@@ -343,8 +343,8 @@ export const defaultNavItems: NavItem[] = [
     href: "/about",
     dropdown: [
       // Order matches the quick-link pills in the /about hero — keep them in sync.
-      { label: "Our Approach", href: "/about#aloha-centered-design", description: "Aloha-centered design" },
-      { label: "Who We Are", href: "/about#team", description: "Meet our volunteers" },
+      { label: "Our approach", href: "/about#aloha-centered-design", description: "Aloha-centered design" },
+      { label: "Who we are", href: "/about#team", description: "Meet our volunteers" },
       // FAQs hidden for now (2026-08-29) — the section it points at is gated
       // behind SHOW_FAQS in app/(site)/about/page.tsx. Restore both together.
       // { label: "FAQs", href: "/about#faqs", description: "Common questions" },

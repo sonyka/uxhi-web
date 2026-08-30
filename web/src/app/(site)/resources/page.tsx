@@ -139,7 +139,7 @@ export default async function ResourcesPage() {
                 <QuickLinkPill
                   href="#students"
                   icon={<GraduationCapIcon className="w-7 h-7" />}
-                  label="UX for Students"
+                  label="UX for students"
                   subtitle="Learning resources"
                 />
                 <QuickLinkPill
@@ -151,7 +151,7 @@ export default async function ResourcesPage() {
                 <QuickLinkPill
                   href="#directory"
                   icon={<NotebookTabsIcon className="w-7 h-7" />}
-                  label="Directory of Local Tech Orgs"
+                  label="Directory of local tech orgs"
                   subtitle="Local connections"
                 />
               </div>
@@ -219,16 +219,16 @@ export default async function ResourcesPage() {
         </div>
       </HeroSection>
 
-      {/* UX for Students Section */}
+      {/* UX for students Section */}
       <section id="students" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal stagger className="text-center mb-10">
             <MotionDiv>
-              <SectionIcon src="/images/icons/icon-student.svg" alt="UX for Students" />
+              <SectionIcon src="/images/icons/icon-student.svg" alt="UX for students" />
             </MotionDiv>
             <MotionDiv>
               <SectionHeading>
-                UX for Students
+                UX for students
               </SectionHeading>
             </MotionDiv>
           </ScrollReveal>
@@ -573,11 +573,11 @@ export default async function ResourcesPage() {
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal stagger className="text-center">
             <MotionDiv>
-              <SectionIcon src="/images/icons/icon-tech.svg" alt="Directory of Local Tech Orgs" />
+              <SectionIcon src="/images/icons/icon-tech.svg" alt="Directory of local tech orgs" />
             </MotionDiv>
             <MotionDiv>
               <SectionHeading className="mb-6">
-                Directory of Local Tech Orgs
+                Directory of local tech orgs
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>

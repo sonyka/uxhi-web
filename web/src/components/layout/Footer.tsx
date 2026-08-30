@@ -22,8 +22,8 @@ export function Footer() {
     {
       links: [
         { label: "Home", href: "/" },
-        { label: "Find a Pro", href: "/find-ux-pro" },
-        { label: "Get Involved", href: "/get-involved" },
+        { label: "Find a pro", href: "/find-ux-pro" },
+        { label: "Get involved", href: "/get-involved" },
       ],
     },
     {
@@ -38,7 +38,7 @@ export function Footer() {
         // Shop hidden until further notice (2026-08-28) — matches the nav.
         // { label: "Shop", href: "/merch" },
         { label: "About", href: "/about" },
-        { label: "Join Us", href: "/join" },
+        { label: "Join us", href: "/join" },
       ],
     },
   ];
@@ -69,7 +69,7 @@ export function Footer() {
       ),
     },
     {
-      label: "Get in Touch",
+      label: "Get in touch",
       href: "/about#contact",
       icon: <SendIcon className="w-4 h-4 text-gray-120" />,
     },

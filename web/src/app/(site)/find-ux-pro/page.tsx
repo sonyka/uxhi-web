@@ -29,7 +29,7 @@ export default async function FindUXProPage() {
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
               <SectionHeading as="h1" size="hero" color="black">
-                Find a UX Professional
+                Find a UX professional
               </SectionHeading>
             </HeroItem>
             <HeroItem>
@@ -170,18 +170,18 @@ export default async function FindUXProPage() {
         </div>
       </HeroSection>
 
-      {/* Member Directory Section */}
+      {/* Member directory section */}
       <section id="directory" className="py-12 px-6 bg-white scroll-mt-24">
         <div className="max-w-[1400px] mx-auto">
           <ScrollReveal stagger className="max-w-[900px] mx-auto text-center mb-10">
             <MotionDiv>
               <SectionHeading className="mb-6">
-                Member Directory
+                Member directory
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
               <p className="text-gray-120 text-lg leading-relaxed">
-                Welcome to the UXHI Member Directory, your hub for connecting with
+                Welcome to the UXHI member directory, your hub for connecting with
                 UX design professionals in Hawaiʻi and those with Hawaiʻi ties,
                 across all experience levels. Not only does this serve as a go-to
                 resource for companies and recruiters seeking talented local UX
@@ -204,7 +204,7 @@ export default async function FindUXProPage() {
             </MotionDiv>
             <MotionDiv>
               <SectionHeading color="white" className="mb-6">
-                Join Our Member Directory!
+                Join our member directory!
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>

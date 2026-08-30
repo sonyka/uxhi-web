@@ -169,7 +169,7 @@ export default async function GetInvolvedPage() {
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
               <SectionHeading as="h1" size="hero" color="black">
-                Get Involved
+                Get involved
               </SectionHeading>
             </HeroItem>
             <HeroItem>
@@ -194,7 +194,7 @@ export default async function GetInvolvedPage() {
                 <QuickLinkPill
                   href="#speak"
                   icon={<MicVocalIcon className="w-7 h-7" />}
-                  label="Become a Speaker"
+                  label="Become a speaker"
                   subtitle="Share your expertise"
                 />
                 <QuickLinkPill
@@ -206,7 +206,7 @@ export default async function GetInvolvedPage() {
                 <QuickLinkPill
                   href="#sponsor"
                   icon={<MessageSquareHeartIcon className="w-7 h-7" />}
-                  label="Sponsor Us"
+                  label="Sponsor us"
                   subtitle="Support UXHI events"
                 />
                 <QuickLinkPill
@@ -423,7 +423,7 @@ export default async function GetInvolvedPage() {
             <ScrollReveal stagger className="text-center mb-10">
               <MotionDiv>
                 <SectionEyebrow className="mb-3">
-                  Our Committees
+                  Our committees
                 </SectionEyebrow>
               </MotionDiv>
               <MotionDiv>
@@ -474,7 +474,7 @@ export default async function GetInvolvedPage() {
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           <MotionDiv>
             <SectionHeading className="mb-6">
-              Become a Speaker
+              Become a speaker
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>
@@ -596,12 +596,12 @@ export default async function GetInvolvedPage() {
         </div>
       </section>
 
-      {/* Successful Partnerships Section */}
+      {/* Successful partnerships Section */}
       <section className="py-16 px-6 bg-gray-10">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
             <SectionEyebrow className="text-center mb-12">
-              Successful Partnerships
+              Successful partnerships
             </SectionEyebrow>
           </ScrollReveal>
           <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
@@ -651,7 +651,7 @@ export default async function GetInvolvedPage() {
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           <MotionDiv>
             <SectionHeading className="mb-6">
-              Sponsor Us
+              Sponsor us
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>
@@ -662,12 +662,12 @@ export default async function GetInvolvedPage() {
         </ScrollReveal>
       </section>
 
-      {/* Past Event Sponsors Section */}
+      {/* Past event sponsors Section */}
       <section className="py-16 px-6 bg-gray-10">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
             <SectionEyebrow className="text-center mb-12">
-              Past Event Sponsors
+              Past event sponsors
             </SectionEyebrow>
           </ScrollReveal>
           <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
@@ -721,7 +721,7 @@ export default async function GetInvolvedPage() {
           </MotionDiv>
           <MotionDiv>
             <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
-              Ready to Collaborate?
+              Ready to collaborate?
             </h3>
           </MotionDiv>
           <MotionDiv>

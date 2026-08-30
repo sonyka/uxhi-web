@@ -34,7 +34,7 @@ export function FoundersSection({ founders, id }: FoundersSectionProps) {
         {/* Section Header */}
         <div className="mb-16">
           <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-4">
-            Who We Are
+            Who we are
           </h2>
           <p className="text-gray-110 text-lg max-w-5xl">
             UXHI is a female-founded community organization whose mission is to
