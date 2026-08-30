@@ -29,6 +29,10 @@ Base directory is `web` — the Next.js app is not at the repo root.
 
 ### DNS runbook — pointing `uxhi.community` at Netlify
 
+The full ordered procedure. Steps 1–9 are meant to be worked top to bottom; nothing here
+needs a deploy, because the code is already on production. Whoever runs it needs login
+access to both the SiteGround DNS editor and the Netlify dashboard.
+
 > ⛔ **Do not copy how `uxhiconference.com` was set up.** That domain delegates its
 > nameservers to Netlify DNS (`nsone.net`), which was safe because it carries **no MX
 > records**. `uxhi.community` does:
@@ -42,17 +46,34 @@ Base directory is `web` — the Next.js app is not at the repo root.
 >
 > **Email is live on this domain.** Delegating the nameservers moves all DNS authority to
 > Netlify and those records do not come with it — mail bounces until each one is recreated
-> there. Use external DNS instead: SiteGround stays the DNS host, and only the web records
-> change.
+> there. Use external DNS instead: SiteGround stays the DNS host, and only the two web
+> records change. When Netlify offers to manage DNS or set nameservers, decline it.
 
-**1 — The day before: lower the TTL.** The apex `A` record sits on a ~4 hour TTL. Drop it to
-**300 seconds** at SiteGround first. This is what makes a rollback fast.
+#### Decide first — apex or `www` as canonical?
 
-**2 — In Netlify.** Domain management → Add a domain → `uxhi.community`. Netlify adds `www`
-automatically and then shows the exact records it wants. **Prefer what the dashboard shows
-over the values below** if they ever differ.
+Netlify notes an apex domain on external DNS cannot use their direct CDN routing, so
+`www.uxhi.community` would be marginally faster. But `uxhiconference.com` uses the bare apex,
+so the apex is more consistent. The difference is small; **recommendation is to keep the apex**.
 
-**3 — In SiteGround's DNS editor, change two records:**
+**If `www` becomes canonical instead**, add `https://www.uxhi.community` to the Sanity CORS
+allowlist — it currently holds only the apex, so live content updates would break on `www`.
+The robots rules (`src/app/robots.ts`) and the GA gating already handle both forms.
+
+#### 1 — The day before: lower the TTL
+
+At SiteGround, change the apex `A` record's TTL from **14400** (4 hours) to **300**.
+
+A TTL change only takes effect once the *old* TTL has expired, so this must be done at least
+four hours — realistically the day before — ahead of the switch. This is what makes the
+rollback in step 9 fast.
+
+#### 2 — In Netlify: add the domain
+
+Domain management → **Add a domain** → `uxhi.community`. Netlify adds `www` automatically and
+then shows the exact records it wants. **Prefer what the dashboard shows over the values
+below** if they ever differ. Choose the external-DNS path.
+
+#### 3 — In SiteGround's DNS editor, change exactly two records
 
 | Record | Currently | Change to |
 |---|---|---|
@@ -61,26 +82,52 @@ over the values below** if they ever differ.
 
 **Leave the three `MX` records and the SPF `TXT` record untouched.** They are email, not web.
 
-**4 — Wait.** Typically 15–60 minutes with a low TTL; up to 24 hours worst case. Check with
-`dig +short uxhi.community` — the new value appearing means it has flipped.
+#### 4 — Wait, then verify propagation
 
-**5 — SSL provisions itself.** Netlify issues a Let's Encrypt certificate once DNS resolves to
-them. It may briefly show an error first; that is normal, not a failure.
+Typically 15–60 minutes with the low TTL; up to 24 hours worst case.
 
-**Rollback:** set the apex `A` record back to `34.174.88.19`. Pointing DNS away does not delete
-the SiteGround site — it stays at that IP, which is the fallback this phase already calls for.
+```bash
+dig +short uxhi.community
+dig +short www.uxhi.community
+```
 
-#### Two decisions to make first
+The new value appearing means it has flipped. Anything still answering `34.174.88.19` has not.
 
-- **Apex or `www` as canonical?** Netlify notes an apex domain on external DNS cannot use their
-  direct CDN routing, so `www.uxhi.community` would be marginally faster. But
-  `uxhiconference.com` uses the bare apex, so the apex is more consistent. The difference is
-  small; recommendation is to keep the apex.
-- **If `www` becomes canonical**, add `https://www.uxhi.community` to the Sanity CORS allowlist —
-  it currently holds only the apex, so live content updates would break on `www`. The robots
-  rules (`src/app/robots.ts`) and the GA gating already handle both forms.
+#### 5 — SSL provisions itself
 
-*Values above verified against live DNS and Netlify's external-DNS documentation on 2026-08-30.*
+Netlify issues a Let's Encrypt certificate once DNS resolves to them. If it has not within a
+few minutes: Domain management → HTTPS → **Verify DNS configuration**, then **Provision
+certificate**. A brief error state first is normal, not a failure.
+
+#### 6 — Verify the site
+
+Load `https://uxhi.community` and walk: homepage, `/about`, `/find-ux-pro` (all 63 members,
+filters working), `/resources` (both PDFs download), `/join` and the contact form. Confirm
+`www` redirects to the canonical form chosen above.
+
+Then smoke-test `uxhiconference.com` and its `/2025` archive — it shares this Netlify project
+and `src/middleware.ts` routes by hostname. `uxhi.community` is not in `CONFERENCE_HOSTS`, so
+it falls through to the main site correctly, but the pair is worth one look together.
+
+#### 7 — Analytics needs no configuration
+
+GA4 (`G-DMCWLCQD08`) is gated to exactly this hostname and its `www` variant, so it arms
+itself the moment the domain resolves. Confirm a hit lands in the property's realtime view.
+
+#### 8 — Keep the SiteGround site as the fallback
+
+Do not cancel SiteGround hosting. Pointing DNS away does not delete that site — it stays at
+`34.174.88.19` and remains the rollback target. Keep it for a few weeks.
+
+#### 9 — Afterwards
+
+Once it has been stable a week or so, raise the apex TTL back from 300 to 14400.
+
+**Rollback at any point:** set the apex `A` back to `34.174.88.19` and `www` back to
+`CNAME → uxhi.community`. At TTL 300 that takes effect in about five minutes.
+
+*Record values above verified against live DNS and Netlify's external-DNS documentation on
+2026-08-30.*
 
 ---
 
