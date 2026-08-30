@@ -86,6 +86,33 @@ file is the source of truth for what, and the open work with its exact commands.
 
 ---
 
+## Pre-launch checks — the exact mechanics
+
+The worklog states these in plain language for the team. Here is what they actually mean.
+
+**Placeholder gate.** Before pointing the domain, confirm no placeholder directory rows exist:
+
+```groq
+*[_type == "directoryMember" && name match "Placeholder*"]
+```
+
+Must return zero. It does today; the gate exists in case placeholders are ever re-seeded for
+staging. Run it in the Studio's Vision tool.
+
+**Analytics host.** The community GA tag only loads on its production hostname. If the launch
+domain is anything other than `uxhi.community`, update `COMMUNITY_HOST` in
+`web/src/app/(site)/layout.tsx` before launch, or analytics silently records nothing. The
+gating component checks both the bare host and its `www.` form, so `www` needs no change.
+
+**Instagram feed.** The homepage feed is a Behold widget; its token expires every 60 days. The
+widget's layout — including the number of columns per breakpoint — is configured in the Behold
+dashboard, not in this codebase. `InstagramFeed.tsx` accepts only a `feedId`.
+
+**Publishing to production.** `git checkout main && git merge staging && git push origin main`,
+then return to `staging` immediately. Only ever on explicit instruction — see the rule above.
+
+---
+
 ## Known issues
 
 - Two ESLint warnings remain in `TeamCard.tsx` and elsewhere (unused imports). Zero errors.
