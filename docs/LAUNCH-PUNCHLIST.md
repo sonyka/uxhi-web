@@ -144,10 +144,12 @@ Done:
 
 Open — **all work stays on `staging`; `uxhi.community` is not ready for this yet**:
 
-- [ ] **Member data questions** — per-person issues to fix *in Notion*, then re-sync. 3 members
-      have no headshot, Trevor Husseini has no focus tags, 26 of 63 have no job title, and
-      Peggy Seymour's island looks wrong (Big Island vs Kāʻanapali/Maui). Full list in
-      [notion-directory-migration.md](notion-directory-migration.md) §4.
+- [x] ~~**Member data questions**~~ — **closed 2026-08-30.** Trevor's focus tags restored (a
+      `software-development` option was added) and Peggy Seymour's island corrected to Maui.
+      Job titles and LinkedIn URLs turned out to be complete across all 63 — that count was
+      stale. The remaining items — 3 members without a headshot, three with thin location
+      values — are **accepted as-is**: they predate this work and are not defects. Do not
+      re-raise them.
 - [ ] **Consent check** — 63 real people's names, photos and LinkedIn profiles are now on a new
       public home. Confirm the original Notion submission covers that.
 - [x] ~~**Decide: retire Notion, or keep it as the editing surface**~~ — **decided 2026-08-30:

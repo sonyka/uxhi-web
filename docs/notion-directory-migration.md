@@ -53,9 +53,9 @@ questions about specific people**, all to be fixed **in Notion** and then re-syn
 
 | Member | Issue |
 |---|---|
-| **Shayla Cabalo-Cable** | No headshot — shows an initials tile |
-| **Vincent Brathwaite** | No headshot — shows an initials tile |
-| **Sharif Matar** | No headshot — shows an initials tile |
+| ~~**Shayla Cabalo-Cable**~~ | ~~No headshot~~ — **accepted as-is 2026-08-30.** Shows an initials tile; not treated as a defect. |
+| ~~**Vincent Brathwaite**~~ | ~~No headshot~~ — **accepted as-is 2026-08-30.** |
+| ~~**Sharif Matar**~~ | ~~No headshot~~ — **accepted as-is 2026-08-30.** |
 | ~~**Trevor Husseini**~~ | ~~Only focus is `Software Development`~~ — **resolved 2026-08-30.** A `software-development` option was added and his tag restored. |
 | **Jamaal Pascall** | No LinkedIn — the only member without one |
 
@@ -65,9 +65,9 @@ questions about specific people**, all to be fixed **in Notion** and then re-syn
 |---|---|
 | ~~**Margaret ‘Peggy’ Seymour**~~ | ~~Island says Big Island, Location says Kāʻanapali~~ — **fixed 2026-08-30**, island set to Maui. She now appears under the Maui filter. |
 | ~~**Kadi Lee**~~ | ~~Location reads "Los **Angles**, California"~~ — **fixed in Sanity 2026-08-30** (`city` now "Los Angeles"). Permanent now that Notion is retired and the importer will not re-run. |
-| **Kamalei Logan** | Location is just "Utah" — a state, so `city` now reads "Utah" |
-| **Rebecca Mungall** | Location "Kauaʻi, Hawaii" names the island, not a city — so she has an island but no city |
-| **Vincent Brathwaite** | Same shape: Location "Oahu, Hawaii" → island only, no city |
+| ~~**Kamalei Logan**~~ | ~~Location is just "Utah"~~ — **accepted as-is 2026-08-30.** |
+| ~~**Rebecca Mungall**~~ | ~~Island but no city~~ — **accepted as-is 2026-08-30.** |
+| ~~**Vincent Brathwaite**~~ | ~~Island only, no city~~ — **accepted as-is 2026-08-30.** |
 
 ### Sparse but probably fine
 
