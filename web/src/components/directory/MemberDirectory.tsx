@@ -38,8 +38,18 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Stable seed per mount so shuffle doesn't change on every re-render
-  const shuffleSeed = useRef(Date.now());
+  // Date.now() during render differs between the server pass and hydration, so
+  // the two produced different shuffle orders — a hydration mismatch. Seeded
+  // after mount instead: the server and the first client render both show the
+  // alphabetical fallback below, then the shuffle applies.
+  const [shuffleSeed, setShuffleSeed] = useState<number | null>(null);
+  useEffect(() => {
+    // Reading a client-only, non-deterministic value after mount is exactly what
+    // an effect is for; it runs once and only ever sets the seed. Same pattern
+    // and same justification as GoogleAnalyticsGated.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setShuffleSeed(Date.now());
+  }, []);
   const directoryRef = useRef<HTMLDivElement>(null);
 
   const handleMemberClick = (member: DirectoryMember) => {
@@ -100,14 +110,32 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
         );
       case "shuffle":
       default:
-        return shuffleArray(filtered, shuffleSeed.current);
+        return shuffleSeed === null
+          ? [...filtered].sort((a, b) => a.name.localeCompare(b.name))
+          : shuffleArray(filtered, shuffleSeed);
     }
-  }, [members, searchQuery, selectedFocus, selectedIsland, selectedExperience, openToWorkOnly, sortBy]);
+  }, [members, searchQuery, selectedFocus, selectedIsland, selectedExperience, openToWorkOnly, sortBy, shuffleSeed]);
 
-  // Reset to page 1 whenever filters or sort change
-  useEffect(() => {
+  // Reset to page 1 whenever filters or sort change.
+  //
+  // Adjusted during render rather than in an effect: an effect would let the
+  // stale page render first and then correct it, so a user on page 4 who
+  // narrows the filters briefly sees an empty grid. React supports this
+  // pattern explicitly — compare against the previous value and set state
+  // while rendering, which re-runs the component before anything is painted.
+  const filterKey = [
+    searchQuery,
+    selectedFocus.join(","),
+    selectedIsland,
+    selectedExperience,
+    openToWorkOnly,
+    sortBy,
+  ].join("|");
+  const [lastFilterKey, setLastFilterKey] = useState(filterKey);
+  if (filterKey !== lastFilterKey) {
+    setLastFilterKey(filterKey);
     setCurrentPage(1);
-  }, [searchQuery, selectedFocus, selectedIsland, selectedExperience, openToWorkOnly, sortBy]);
+  }
 
   const totalPages = Math.ceil(filteredAndSortedMembers.length / ITEMS_PER_PAGE);
   const paginatedMembers = filteredAndSortedMembers.slice(
