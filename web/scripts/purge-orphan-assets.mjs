@@ -11,8 +11,10 @@
  *   - community photo tiles, superseded by the 13 currently in use
  *   - sponsor + partner logos, superseded by the assets those docs now point at
  *
- * NOT included: seven member/conference headshots. Each belongs to a real
- * person, so they are left for a human to confirm.
+ * Also includes seven member/conference headshots, added 2026-08-29 after
+ * confirming each is a superseded upload and every person still has a current
+ * photo on their document — the four with no owner left are remnants of the
+ * directory purge.
  *
  * Usage:
  *   node scripts/purge-orphan-assets.mjs            # dry run (default)
@@ -82,6 +84,13 @@ const DELETE = [
   ["image-5f358fa4e45688f48367de9002fa51e44f84915f-540x675-png", "tile06.png"], // tile, 154 KB
   ["image-576163e4a1427092d166e18f9cf00939c071496b-540x675-png", "tile07.png"], // tile, 165 KB
   ["image-8c10112c0c466517048d8cc0dd6d7d1a3c7d315d-540x675-png", "tile08.png"], // tile, 130 KB
+  ["image-f1b5a29a233ef601c1b01417b4ca5c11a2eab7f8-2904x2904-png", "LinkedIn PFP.png"], // headshot, 7111 KB
+  ["image-042c9441b5b51e2f2adfd183f58ea7622e11c865-2000x2000-png", "Pua Pakele - Headshot.png"], // headshot, 4177 KB
+  ["image-e7a753c75c9db82936c0cfca0fb78f49b2478e62-600x840-png", "jennifer-kumura.png"], // headshot, 200 KB
+  ["image-97e3c350e7f9bde271bd21efd5780725c96aa033-512x512-jpg", "yiting-wang-ph-d.jpg"], // headshot, 42 KB
+  ["image-51cdc12caac5406a6b23095e6e0656ff55782520-656x297-png", "chris ota.png"], // headshot, 14 KB
+  ["image-dd886ad843a7ee4ead42d9d81714ca78ad5239d6-256x256-png", "15094832.png"], // headshot, 12 KB
+  ["image-a37a223a963e2095774bcc93bec2813c39bb25c3-200x200-png", "placeholder-member.png"], // headshot, 1 KB
 ];
 
 const commit = process.argv.includes("--commit");
@@ -90,34 +99,49 @@ const run = async () => {
   console.log("\n" + DELETE.length + " orphaned assets targeted.\n");
 
   const ids = DELETE.map(([id]) => id);
-  const stillOrphaned = await client.fetch(
-    "*[_id in $ids && count(*[references(^._id)]) == 0]._id",
+
+  // An id can be absent for two very different reasons: it was already deleted
+  // on an earlier run (fine, skip it), or it is still here but something now
+  // references it (not fine, stop). Distinguish them rather than treating a
+  // missing id as danger — otherwise a second run always refuses.
+  const present = await client.fetch("*[_id in $ids]._id", { ids });
+  const referenced = await client.fetch(
+    "*[_id in $ids && count(*[references(^._id)]) > 0]._id",
     { ids }
   );
-  const nowReferenced = ids.filter((id) => !stillOrphaned.includes(id));
-  if (nowReferenced.length) {
-    console.error("Refusing to run — these are referenced now:", nowReferenced);
+  if (referenced.length) {
+    console.error("Refusing to run — these are referenced now:", referenced);
     process.exit(1);
   }
-  console.log("Re-verified: all " + ids.length + " still unreferenced.\n");
+  const gone = ids.length - present.length;
+  const todo = DELETE.filter(([id]) => present.includes(id));
+  console.log(
+    "Re-verified: " + todo.length + " present and unreferenced" +
+    (gone ? ", " + gone + " already deleted" : "") + ".\n"
+  );
+  if (!todo.length) {
+    console.log("Nothing to do.\n");
+    return;
+  }
 
   if (!commit) {
-    for (const [, name] of DELETE) console.log("  would delete  " + name);
+    for (const [, name] of todo) console.log("  would delete  " + name);
     console.log("\nDry run. Re-run with --commit to delete.\n");
     return;
   }
 
-  const backup = await client.fetch("*[_id in $ids]", { ids });
+  const backup = await client.fetch("*[_id in $ids]", { ids: todo.map(([id]) => id) });
   const backupPath = resolve(
     homedir(),
-    "Documents/FREELANCE/UXHI/orphan-assets-backup-2026-08-29.json"
+    "Documents/FREELANCE/UXHI/orphan-assets-backup-" +
+      new Date().toISOString().slice(0, 10) + ".json"
   );
   writeFileSync(backupPath, JSON.stringify(backup, null, 2));
   console.log("Backed up " + backup.length + " asset records to " + backupPath + "\n");
 
   let ok = 0;
   const failed = [];
-  for (const [id, name] of DELETE) {
+  for (const [id, name] of todo) {
     try {
       await client.delete(id);
       ok++;
@@ -127,7 +151,7 @@ const run = async () => {
       console.log("  FAILED   " + name + " — " + e.message);
     }
   }
-  console.log("\nDeleted " + ok + "/" + DELETE.length + ".");
+  console.log("\nDeleted " + ok + "/" + todo.length + ".");
   if (failed.length) console.log("Failed:", failed);
 };
 
