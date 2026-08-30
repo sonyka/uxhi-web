@@ -6,7 +6,7 @@
 // them. Dropping the options would silently strip real data. Retire them only after
 // those members are re-tagged.
 //
-// See docs/notion-directory-taxonomy.md for the full mapping.
+// See docs/archive/notion-directory-taxonomy.md for the full mapping.
 export const FOCUS_OPTIONS = [
   { title: "Accessibility Design", value: "accessibility-design" },
   { title: "AR/VR Design", value: "ar-vr-design" },

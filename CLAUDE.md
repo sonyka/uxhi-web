@@ -252,7 +252,7 @@ git checkout staging           # immediately return to staging
 
 > The `web` project (→ `web-henna-five-45.vercel.app`) is the canonical staging project.
 > Duplicate/legacy Vercel projects (`uxhi-web`, `uxhi-website`) caused confusion and are slated
-> for deletion — see `docs/LAUNCH-PUNCHLIST.md`.
+> for deletion — see `docs/PROJECT-STATE.md`.
 
 ### ⚠️ Netlify credit limit (production)
 

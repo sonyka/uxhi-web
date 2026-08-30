@@ -1,3 +1,8 @@
+> **Archived 2026-08-30.** Notion has been retired; Sanity is the source of truth and
+> members are edited in the Studio. `migrate-notion-directory.mjs` must **not** be re-run —
+> it is a full replace and would overwrite Studio edits. Kept for the record of how the
+> 63 members got here and which taxonomy decisions were made.
+
 # Notion → Sanity: Member Directory Migration Plan
 
 Plan for moving the member profiles from the Notion Member Directory
@@ -363,4 +368,4 @@ are listed at the top of this doc.
 - Existing intake path: `web/src/lib/actions/directory-submit.ts`
 - Purge script: `web/scripts/purge-directory-tests.mjs`
 - Script precedent: `web/scripts/migrate-partner-sponsor.mjs`
-- [LAUNCH-PUNCHLIST.md](LAUNCH-PUNCHLIST.md) §6
+- [PROJECT-STATE.md](../PROJECT-STATE.md)

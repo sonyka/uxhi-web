@@ -162,5 +162,5 @@ the SiteGround site — it stays at that IP, which is the fallback this phase al
 ## Notes
 
 - **All production domains live on Netlify** — set them up once there, not on Vercel.
-- **Vercel is retained for staging** (`web-henna-five-45.vercel.app`), previewing the `staging` branch. Legacy/duplicate Vercel projects (`uxhi-web`, `uxhi-website`) should be deleted — see `LAUNCH-PUNCHLIST.md`.
+- **Vercel is retained for staging** (`web-henna-five-45.vercel.app`), previewing the `staging` branch. Legacy/duplicate Vercel projects (`uxhi-web`, `uxhi-website`) should be deleted — see `PROJECT-STATE.md`.
 - Netlify's free tier allows commercial use (Vercel's Hobby plan does not) but is **build-credit-limited**, so production deploys are batched — see CLAUDE.md.

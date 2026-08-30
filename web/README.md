@@ -51,9 +51,9 @@ matter, including the two that are easy to violate by accident:
 
 Everything non-obvious lives in [`../docs/`](../docs/):
 
-- **[LAUNCH-PUNCHLIST.md](../docs/LAUNCH-PUNCHLIST.md)** — the single index of what's left
+- **[PROJECT-STATE.md](../docs/PROJECT-STATE.md)** — deployment reality, source-of-truth map and agent gotchas
 - **[handoff-guide.md](../docs/handoff-guide.md)** — for whoever edits content, not code
 - **[CONFERENCE-DESIGN-SYSTEM.md](../docs/CONFERENCE-DESIGN-SYSTEM.md)** — why the
   conference is a theme layer rather than a fork
-- **[notion-directory-migration.md](../docs/notion-directory-migration.md)** — how the
+- **[notion-directory-migration.md](../docs/archive/notion-directory-migration.md)** — how the
   member directory got here and how to re-sync it

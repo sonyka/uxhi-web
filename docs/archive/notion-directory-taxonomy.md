@@ -1,3 +1,8 @@
+> **Archived 2026-08-30.** Notion has been retired; Sanity is the source of truth and
+> members are edited in the Studio. `migrate-notion-directory.mjs` must **not** be re-run —
+> it is a full replace and would overwrite Studio edits. Kept for the record of how the
+> 63 members got here and which taxonomy decisions were made.
+
 # Member Directory Taxonomy — Notion source lists + Sanity mapping
 
 Companion to [notion-directory-migration.md](notion-directory-migration.md).

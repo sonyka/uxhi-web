@@ -264,7 +264,7 @@ stopping after any phase leaves the codebase better than it started.
 
 ### Phase 0 — Land this document ✅
 - [x] Write `docs/CONFERENCE-DESIGN-SYSTEM.md`
-- [x] Add a pointer to it from `CLAUDE.md` and `docs/LAUNCH-PUNCHLIST.md`
+- [x] Add a pointer to it from `CLAUDE.md` and `docs/PROJECT-STATE.md`
 
 ### Phase 1 — Color tokens ✅ *(done 2026-08-15 — `c295ead`, `3e1d085`)*
 - [x] ~~Add `--color-conf-ink` and `--color-conf-chrome` to `@theme`~~ — both later removed.

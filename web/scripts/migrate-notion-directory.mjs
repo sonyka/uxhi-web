@@ -16,8 +16,8 @@
  *     63 landed, then run purge-directory-tests.mjs --include-placeholders.
  *
  * Field mapping, option lists and the archived wholesale Notion taxonomy:
- *   docs/notion-directory-taxonomy.md
- *   docs/notion-directory-migration.md
+ *   docs/archive/notion-directory-taxonomy.md
+ *   docs/archive/notion-directory-migration.md
  *
  * Usage (from the /web directory):
  *   node scripts/migrate-notion-directory.mjs                  # dry run
@@ -521,7 +521,7 @@ async function main() {
     console.error(
       "\n   Unknown values mean Notion gained an option since the mapping was written.\n" +
         "   Add it to the map in this script AND to constants.ts + the Sanity schema,\n" +
-        "   then re-run. See docs/notion-directory-taxonomy.md.\n"
+        "   then re-run. See docs/archive/notion-directory-taxonomy.md.\n"
     );
     process.exit(1);
   }
