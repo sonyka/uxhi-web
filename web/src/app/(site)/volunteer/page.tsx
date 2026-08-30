@@ -168,7 +168,7 @@ export default function VolunteerPage() {
           <ScrollReveal stagger className="text-center mb-10">
             <MotionDiv>
               <SectionHeading size="lg" className="mb-6">
-                Let us know how you want to get involved!
+                Let Us Know How You Want to Get Involved!
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>

@@ -17,7 +17,7 @@ export default function JoinPage() {
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
               <SectionHeading as="h1" size="hero" color="black">
-                Become a member!
+                Become a Member!
               </SectionHeading>
             </HeroItem>
             <HeroItem>
@@ -112,7 +112,7 @@ export default function JoinPage() {
             </MotionDiv>
             <MotionDiv>
               <SectionHeading size="lg" color="white" className="mb-6">
-                Join the community
+                Join the Community
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>

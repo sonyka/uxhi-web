@@ -38,7 +38,7 @@ export function Footer() {
         // Shop hidden until further notice (2026-08-28) — matches the nav.
         // { label: "Shop", href: "/merch" },
         { label: "About", href: "/about" },
-        { label: "Join us", href: "/join" },
+        { label: "Join Us", href: "/join" },
       ],
     },
   ];
@@ -69,7 +69,7 @@ export function Footer() {
       ),
     },
     {
-      label: "Get in touch",
+      label: "Get in Touch",
       href: "/about#contact",
       icon: <SendIcon className="w-4 h-4 text-gray-120" />,
     },

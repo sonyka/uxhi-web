@@ -317,7 +317,7 @@ export default async function HomePage() {
         <ScrollReveal stagger className="max-w-[800px] mx-auto text-center">
           <MotionDiv>
             <SectionHeading size="lg" className="mb-6">
-              Connect, learn, grow together
+              Connect, Learn, Grow Together
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>
@@ -339,7 +339,7 @@ export default async function HomePage() {
           <ScrollReveal stagger className="text-center mb-16">
             <MotionDiv>
               <SectionHeading size="lg" color="white" className="mb-6">
-                Together, we shape the future of UX
+                Together, We Shape the Future of UX
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
@@ -401,7 +401,7 @@ export default async function HomePage() {
           <ScrollReveal stagger className="text-center mb-12">
             <MotionDiv>
               <SectionHeading size="lg" className="mb-6">
-                Stay connected
+                Stay Connected
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>

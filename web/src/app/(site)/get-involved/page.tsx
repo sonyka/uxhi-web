@@ -554,7 +554,7 @@ export default async function GetInvolvedPage() {
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal>
             <SectionHeading className="mb-6">
-              Partnerships
+              Partner
             </SectionHeading>
           </ScrollReveal>
           <ScrollReveal>
@@ -721,7 +721,7 @@ export default async function GetInvolvedPage() {
           </MotionDiv>
           <MotionDiv>
             <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
-              Ready to collaborate?
+              Ready to Collaborate?
             </h3>
           </MotionDiv>
           <MotionDiv>
@@ -746,7 +746,7 @@ export default async function GetInvolvedPage() {
           </MotionDiv>
           <MotionDiv>
             <SectionHeading color="white" className="mb-6">
-              Donations
+              Donate
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>

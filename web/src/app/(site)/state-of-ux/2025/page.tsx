@@ -107,7 +107,7 @@ export default function StateOfUx2025Page() {
           <ScrollReveal stagger>
             <MotionDiv>
               <SectionHeading size="sm" color="white">
-                This is one page of the report
+                This Is One Page of the Report
               </SectionHeading>
             </MotionDiv>
 

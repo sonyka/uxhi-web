@@ -138,7 +138,7 @@ export default async function AboutPage() {
                 <QuickLinkPill
                   href="#team"
                   icon={<SquareUserRoundIcon className="w-7 h-7" />}
-                  label="Who we are"
+                  label="Who We Are"
                   subtitle="Meet our team"
                 />
                 {SHOW_FAQS && (
@@ -235,7 +235,7 @@ export default async function AboutPage() {
 
             <MotionDiv>
               <SectionHeading size="md" className="mb-6">
-                What is aloha-centered design?
+                What Is Aloha-Centered Design?
               </SectionHeading>
             </MotionDiv>
 
@@ -306,7 +306,7 @@ export default async function AboutPage() {
             </MotionDiv>
             <MotionDiv>
               <SectionHeading color="white" className="mb-6">
-                Get in touch
+                Get in Touch
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>

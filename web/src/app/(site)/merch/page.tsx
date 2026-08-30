@@ -290,7 +290,7 @@ export default async function ShopPage() {
           </MotionDiv>
           <MotionDiv>
             <h3 className="font-display text-xl md:text-2xl text-purple-140 mb-4">
-              More products coming soon!
+              More Products Coming Soon!
             </h3>
           </MotionDiv>
           <MotionDiv>

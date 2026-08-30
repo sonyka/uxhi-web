@@ -29,7 +29,7 @@ export default async function FindUXProPage() {
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
               <SectionHeading as="h1" size="hero" color="black">
-                Find A UX Professional
+                Find a UX Professional
               </SectionHeading>
             </HeroItem>
             <HeroItem>
@@ -204,7 +204,7 @@ export default async function FindUXProPage() {
             </MotionDiv>
             <MotionDiv>
               <SectionHeading color="white" className="mb-6">
-                Join our member directory!
+                Join Our Member Directory!
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
