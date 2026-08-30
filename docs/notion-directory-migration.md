@@ -64,7 +64,7 @@ questions about specific people**, all to be fixed **in Notion** and then re-syn
 | Member | Issue |
 |---|---|
 | **Margaret ‘Peggy’ Seymour** | Island column says **Big Island**, but Location says **Kāʻanapali**, which is on **Maui**. Imported as Big Island (the column wins), so she does *not* appear under the Maui filter. Almost certainly wrong. |
-| **Kadi Lee** | Location reads "Los **Angles**, California" — typo, imported as-is into `city` |
+| ~~**Kadi Lee**~~ | ~~Location reads "Los **Angles**, California"~~ — **fixed in Sanity 2026-08-30** (`city` now "Los Angeles"). ⚠️ Still wrong in Notion, so a re-sync will reintroduce it — fix the Notion row too. |
 | **Kamalei Logan** | Location is just "Utah" — a state, so `city` now reads "Utah" |
 | **Rebecca Mungall** | Location "Kauaʻi, Hawaii" names the island, not a city — so she has an island but no city |
 | **Vincent Brathwaite** | Same shape: Location "Oahu, Hawaii" → island only, no city |
