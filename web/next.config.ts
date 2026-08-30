@@ -39,6 +39,17 @@ const nextConfig: NextConfig = {
         destination: "/conferences/2026/",
         permanent: false,
       },
+      // /volunteer was an earlier, unlinked version of the volunteer section on
+      // /get-involved. The page is gone; this keeps any bookmarked or shared
+      // link working instead of 404ing. Permanent, because it is not coming back.
+      {
+        source: "/volunteer",
+        // Trailing slash matches the site's canonical form, so this lands in one
+        // hop — otherwise the slash redirect fires again and drops the fragment
+        // from the Location header.
+        destination: "/get-involved/#volunteer",
+        permanent: true,
+      },
     ];
   },
 
