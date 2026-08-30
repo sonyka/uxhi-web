@@ -1480,7 +1480,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-logoimage": (
     <ContentSection
       title="Logo Image"
-      description="Grayscale logo with hover color reveal. Used for partner/sponsor logo grids. Starts grayscale with reduced opacity, reveals full color on hover."
+      description="Grayscale logo with hover color reveal. Used for partner/sponsor logo grids. Sits as a dark neutral tint at rest, reveals full color on hover."
       componentPath="components/ui/LogoImage.tsx"
     >
       <div className="space-y-6">
@@ -1490,7 +1490,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <LogoImage src="/images/partners/partner-placeholder.svg" alt="Partner" width={100} height={40} />
             <LogoImage src="/images/partners/partner-placeholder.svg" alt="Partner" width={100} height={40} darkGray />
           </div>
-          <p className="text-xs text-gray-100 mt-2">Left: default (opacity-50), Right: darkGray (opacity-70). Hover to reveal color.</p>
+          <p className="text-xs text-gray-100 mt-2">Left: default (grayscale, brightness-75 contrast-75, opacity-90), Right: darkGray (same, opacity-100) for marks that still read too light. Hover to reveal color. Matches the resting weight of the conference sponsor grid.</p>
         </div>
       </div>
     </ContentSection>

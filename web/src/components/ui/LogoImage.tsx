@@ -14,8 +14,18 @@ interface LogoImageProps {
 /**
  * LogoImage - Grayscale logo with hover color reveal
  *
- * Used for partner/sponsor logo grids. Starts grayscale with
- * reduced opacity, reveals full color on hover.
+ * Used for partner/sponsor logo grids. Sits as a dark neutral tint at rest
+ * and reveals full colour on hover.
+ *
+ * The resting treatment is grayscale + brightness/contrast rather than plain
+ * opacity. Opacity alone fades a logo toward the page background, which read
+ * as washed-out grey; dropping brightness and contrast instead keeps the mark
+ * solid while draining the colour. Matches the conference sponsor grid, which
+ * arrived at the same values independently — kept in step deliberately, though
+ * the two are not shared code (see CLAUDE.md on conference isolation).
+ *
+ * `darkGray` is a per-logo CMS flag for marks that still read too light at the
+ * default, and simply removes the remaining opacity step.
  *
  * @see /design-system for usage examples
  */
@@ -27,8 +37,9 @@ export function LogoImage({ src, alt, width, height, darkGray = false, className
       width={width}
       height={height}
       className={cn(
-        "object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300",
-        darkGray ? "opacity-70" : "opacity-50",
+        "object-contain grayscale brightness-75 contrast-75 transition duration-300",
+        "hover:grayscale-0 hover:opacity-100 hover:brightness-100 hover:contrast-100",
+        darkGray ? "opacity-100" : "opacity-90",
         className
       )}
       style={style}
