@@ -59,13 +59,28 @@ so the apex is more consistent. The difference is small; **recommendation is to 
 allowlist — it currently holds only the apex, so live content updates would break on `www`.
 The robots rules (`src/app/robots.ts`) and the GA gating already handle both forms.
 
-#### 1 — The day before: lower the TTL
+#### 1 — Ideally the day before: lower the TTL
 
 At SiteGround, change the apex `A` record's TTL from **14400** (4 hours) to **300**.
 
-A TTL change only takes effect once the *old* TTL has expired, so this must be done at least
-four hours — realistically the day before — ahead of the switch. This is what makes the
-rollback in step 9 fast.
+A TTL change is not retroactive. Resolvers already holding the current record keep it for the
+remainder of the old four hours no matter what the record says now, so lowering it in advance is
+what lets every resolver flip together in step 4.
+
+**This step can be folded into step 3** — set the value and the TTL in the same edit. What that
+costs is a *uniform* cutover, not a safe one: for up to four hours some visitors resolve to
+Netlify and some still to SiteGround, which makes step 6 ambiguous, because "does it work" then
+has two answers depending on whose network is asking. Nobody sees an error, because step 8 keeps
+the old site serving. The usual reason this discipline is strict — the old host being switched
+off, turning the split into an outage for half the traffic — does not apply here.
+
+It does **not** affect rollback speed, despite how this step read until 2026-08-30. Rollback
+depends on the TTL stamped on the *new* record, and that is 300 either way once the edit is made.
+A partial lead helps proportionally: resolvers that happen to refresh during the gap pick up the
+300, so even a few hours is worth having.
+
+If SiteGround's editor does not expose a TTL field at all, this step is unavailable and 1 and 3
+merge by default.
 
 #### 2 — In Netlify: add the domain
 
@@ -92,6 +107,14 @@ dig +short www.uxhi.community
 ```
 
 The new value appearing means it has flipped. Anything still answering `34.174.88.19` has not.
+
+Your own resolver may hold the old answer longer than everyone else's, which is misleading if
+step 1 was skipped and the cutover is staggered. Query the authoritative nameserver to see the
+truth regardless of any cache:
+
+```bash
+dig @ns1.siteground.net uxhi.community +short
+```
 
 #### 5 — SSL provisions itself
 
