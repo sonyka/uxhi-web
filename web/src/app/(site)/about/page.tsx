@@ -130,9 +130,15 @@ export default async function AboutPage() {
             <HeroItem>
               <div className="hidden sm:flex flex-wrap gap-4">
                 <QuickLinkPill
+                  href="#aloha-centered-design"
+                  icon={<HeartIcon className="w-7 h-7" />}
+                  label="Our Approach"
+                  subtitle="Aloha-centered design"
+                />
+                <QuickLinkPill
                   href="#team"
                   icon={<SquareUserRoundIcon className="w-7 h-7" />}
-                  label="Team"
+                  label="Who we are"
                   subtitle="Meet our team"
                 />
                 {SHOW_FAQS && (
@@ -143,12 +149,6 @@ export default async function AboutPage() {
                     subtitle="Common questions"
                   />
                 )}
-                <QuickLinkPill
-                  href="#aloha-centered-design"
-                  icon={<HeartIcon className="w-7 h-7" />}
-                  label="Our Approach"
-                  subtitle="Aloha-centered design"
-                />
                 <QuickLinkPill
                   href="#contact"
                   icon={<SendIcon className="w-7 h-7" />}
