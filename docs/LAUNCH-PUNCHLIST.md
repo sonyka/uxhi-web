@@ -75,7 +75,11 @@ See **[GOOGLE_ANALYTICS.md](GOOGLE_ANALYTICS.md)**. Tags are shipped; remaining 
       `uxhi.community`. If the launch domain differs, update `productionHost` in `(site)/layout.tsx`.
 - [ ] **(Optional) Gate the conference tag** to `uxhiconference.com` once verified, to keep
       staging traffic out of that property too.
-- [ ] **(Optional) Cookie/consent banner** — not added. Decide if needed (would use GA consent mode).
+- [x] ~~**(Optional) Cookie/consent banner**~~ — **decided 2026-08-30: not needed, not tracked.**
+      No US law that plausibly applies requires one — there is no federal cookie-consent law, and
+      CCPA's thresholds sit far above a volunteer community org. GDPR would cover EU visitors and
+      GA4 loads without a consent gate, but the exposure is negligible at this size. Revisit only
+      if paid features arrive or EU traffic becomes meaningful. Not legal advice.
 - [ ] Verify `G-CT4QB1KDE2` (conference) shows in GA Realtime — the tag is live on
       production now, so check against real `uxhiconference.com` traffic rather than staging.
 
