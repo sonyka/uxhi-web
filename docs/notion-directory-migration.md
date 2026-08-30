@@ -34,7 +34,7 @@ Per-member data questions are in section 4.
 | Item | Detail |
 |---|---|
 | **Consent** | 63 real people's names, photos and LinkedIn profiles move to a new public home on a new domain. Confirm the original Notion submission covers that — **before** it goes live, not after. |
-| **Retire Notion, or keep syncing?** | Source-of-truth rule implies Notion stays the editing surface and the script becomes a recurring sync. If instead it's retired, redirect it at `uxhi.community/find-ux-pro`. Affects nothing until launch. |
+| ~~**Retire Notion, or keep syncing?**~~ | **Decided 2026-08-30: Notion is retired.** Sanity is the source of truth; edit members in the Studio. `migrate-notion-directory.mjs` is historical — do not re-run it, it is a full replace and would overwrite Studio edits. Redirect the Notion page at `uxhi.community/find-ux-pro` at launch. |
 
 ## 3. Parked until `uxhi.community` is ready
 
@@ -64,7 +64,7 @@ questions about specific people**, all to be fixed **in Notion** and then re-syn
 | Member | Issue |
 |---|---|
 | **Margaret ‘Peggy’ Seymour** | Island column says **Big Island**, but Location says **Kāʻanapali**, which is on **Maui**. Imported as Big Island (the column wins), so she does *not* appear under the Maui filter. Almost certainly wrong. |
-| ~~**Kadi Lee**~~ | ~~Location reads "Los **Angles**, California"~~ — **fixed in Sanity 2026-08-30** (`city` now "Los Angeles"). ⚠️ Still wrong in Notion, so a re-sync will reintroduce it — fix the Notion row too. |
+| ~~**Kadi Lee**~~ | ~~Location reads "Los **Angles**, California"~~ — **fixed in Sanity 2026-08-30** (`city` now "Los Angeles"). Permanent now that Notion is retired and the importer will not re-run. |
 | **Kamalei Logan** | Location is just "Utah" — a state, so `city` now reads "Utah" |
 | **Rebecca Mungall** | Location "Kauaʻi, Hawaii" names the island, not a city — so she has an island but no city |
 | **Vincent Brathwaite** | Same shape: Location "Oahu, Hawaii" → island only, no city |

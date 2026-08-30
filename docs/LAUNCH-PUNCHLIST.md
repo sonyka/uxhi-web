@@ -150,8 +150,10 @@ Open — **all work stays on `staging`; `uxhi.community` is not ready for this y
       [notion-directory-migration.md](notion-directory-migration.md) §4.
 - [ ] **Consent check** — 63 real people's names, photos and LinkedIn profiles are now on a new
       public home. Confirm the original Notion submission covers that.
-- [ ] **Decide: retire Notion, or keep it as the editing surface** with periodic re-syncs?
-      The importer is idempotent, so recurring sync is supported either way.
+- [x] ~~**Decide: retire Notion, or keep it as the editing surface**~~ — **decided 2026-08-30:
+      Notion is being retired.** Sanity is now the source of truth; member data is edited in the
+      Studio directly. The importer is historical, and the Notion page should redirect to
+      `uxhi.community/find-ux-pro` at launch.
 - [ ] *(housekeeping)* Orphaned image assets from the purge + pre-migration deletions.
 
 🚨 **Launch gate (parked until the domain is ready):** re-check before pointing
