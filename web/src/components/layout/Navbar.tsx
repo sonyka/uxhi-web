@@ -311,11 +311,12 @@ export const defaultNavItems: NavItem[] = [
     key: "get-involved",
     label: "Get Involved",
     href: "/get-involved",
+    // Order follows the page's own section order — keep in sync with the hero pills.
     dropdown: [
       { label: "Volunteer", href: "/get-involved#volunteer", description: "Help grow our community" },
       { label: "Become a Speaker", href: "/get-involved#speak", description: "Share your expertise" },
-      { label: "Sponsor Us", href: "/get-involved#sponsor", description: "Support UXHI events" },
       { label: "Partner", href: "/get-involved#partner", description: "Collaborate with us" },
+      { label: "Sponsor Us", href: "/get-involved#sponsor", description: "Support UXHI events" },
       { label: "Donate", href: "/get-involved#donate", description: "Support our mission" },
     ],
   },
@@ -325,6 +326,7 @@ export const defaultNavItems: NavItem[] = [
     key: "resources",
     label: "Resources",
     href: "/resources",
+    // Order follows the page's own section order — keep in sync with the hero pills.
     dropdown: [
       { label: "UX for Students", href: "/resources#students", description: "Start your UX journey" },
       { label: "State of UX in Hawaiʻi Report", href: "/resources#report", description: "Industry insights" },

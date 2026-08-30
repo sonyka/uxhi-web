@@ -198,16 +198,16 @@ export default async function GetInvolvedPage() {
                   subtitle="Share your expertise"
                 />
                 <QuickLinkPill
-                  href="#sponsor"
-                  icon={<MessageSquareHeartIcon className="w-7 h-7" />}
-                  label="Sponsor Us"
-                  subtitle="Support UXHI events"
-                />
-                <QuickLinkPill
                   href="#partner"
                   icon={<HeartHandshakeIcon className="w-7 h-7" />}
                   label="Partner"
                   subtitle="Collaborate with us"
+                />
+                <QuickLinkPill
+                  href="#sponsor"
+                  icon={<MessageSquareHeartIcon className="w-7 h-7" />}
+                  label="Sponsor Us"
+                  subtitle="Support UXHI events"
                 />
                 <QuickLinkPill
                   href="#donate"
