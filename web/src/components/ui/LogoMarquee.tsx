@@ -10,6 +10,12 @@ export interface MarqueeLogo {
   width?: number;
   height?: number;
   href?: string;
+  /**
+   * Optical multiplier on the rendered height, evening out visual mass across
+   * marks of different density. 1 = plain height normalisation.
+   * @see lib/logoWeights.ts
+   */
+  weight?: number;
 }
 
 interface LogoMarqueeProps {
@@ -37,9 +43,12 @@ const FADE_MASK =
  * greyed-out marks reads as a wall of grey, and a scrolling strip already
  * gives the section its rhythm without needing a uniform tint.
  *
- * Sizing normalises on HEIGHT, not width, so marks of different aspect
- * ratios sit at the same optical weight — the thing a mixed logo wall
- * usually gets wrong.
+ * Sizing normalises on optical VOLUME, not height. Equal height makes a wide
+ * wordmark carry several times the visual mass of a compact badge, which is
+ * what makes a mixed wall look uneven. Each logo's `weight` scales its height
+ * so the amount of ink on the page evens out instead; see lib/logoWeights.ts
+ * for how those are measured. Widths follow each mark's own ratio and are not
+ * capped, because a wide mark at equal volume is legitimately wide.
  *
  * The loop works by rendering the list several times and translating the
  * track by exactly one set, which lands the next copy where the last began.
@@ -100,8 +109,8 @@ export function LogoMarquee({
               alt={duplicate ? "" : logo.name}
               width={logo.width ?? 200}
               height={logo.height ?? 80}
-              className="w-auto max-w-[220px] object-contain"
-              style={{ height }}
+              className="w-auto object-contain"
+              style={{ height: Math.round(height * (logo.weight ?? 1)) }}
             />
           ) : (
             <span className="text-gray-120 font-medium text-lg whitespace-nowrap">

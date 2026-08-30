@@ -453,15 +453,16 @@ function MobileNavbarDemo() {
 }
 
 // All content components mapped by ID
-// Real marks, so the marquee demo shows the mixed aspect ratios it exists to handle.
+// Real marks with their measured optical weights, so the demo shows the
+// evening-out the component exists to do rather than a tidy fake.
 const demoLogos = [
-  { name: "Hub Coworking Hawaii", src: "/images/company_logos/hub-logo.png", width: 360, height: 144 },
-  { name: "Purple Mai'a", src: "/images/company_logos/purple-maia.png", width: 288, height: 128 },
-  { name: "Entrepreneurs Sandbox", src: "/images/company_logos/sandbox-logo.svg", width: 400, height: 128 },
-  { name: "HTDC", src: "/images/company_logos/htdc-logo.svg", width: 320, height: 128 },
-  { name: "Adobe", src: "/images/company_logos/adobe-logo.svg", width: 360, height: 144 },
-  { name: "Servco", src: "/images/company_logos/servco.svg", width: 320, height: 96 },
-  { name: "Mantle", src: "/images/company_logos/mantle-logo.svg", width: 360, height: 128 },
+  { weight: 1.35, name: "Hub Coworking Hawaii", src: "/images/company_logos/hub-logo.png", width: 360, height: 144 },
+  { weight: 1.28, name: "Purple Mai'a", src: "/images/company_logos/purple-maia.png", width: 288, height: 128 },
+  { weight: 0.97, name: "Entrepreneurs Sandbox", src: "/images/company_logos/sandbox-logo.svg", width: 400, height: 128 },
+  { weight: 0.98, name: "HTDC", src: "/images/company_logos/htdc-logo.svg", width: 320, height: 128 },
+  { weight: 0.81, name: "Adobe", src: "/images/company_logos/adobe-logo.svg", width: 360, height: 144 },
+  { weight: 0.72, name: "Servco", src: "/images/company_logos/servco.svg", width: 320, height: 96 },
+  { weight: 0.74, name: "Mantle", src: "/images/company_logos/mantle-logo.svg", width: 360, height: 128 },
 ];
 
 const contentComponents: Record<string, React.ReactNode> = {
@@ -1491,7 +1492,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-logomarquee": (
     <ContentSection
       title="Logo Marquee"
-      description="Full-colour logo strip that scrolls horizontally, forever. Used for partner and sponsor walls. Sizes on height so marks of different aspect ratios sit at the same optical weight. Pauses on hover; holds still under reduced-motion."
+      description="Full-colour logo strip that scrolls horizontally, forever. Used for partner and sponsor walls. Sizes by optical volume, not height, so a wide wordmark and a compact badge carry the same visual mass. Pauses on hover; holds still under reduced-motion."
       componentPath="components/ui/LogoMarquee.tsx"
     >
       <div className="space-y-8">
@@ -1508,10 +1509,12 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
         </div>
         <p className="text-xs text-gray-100">
-          Sizes: <code>md</code> 56px tall, <code>lg</code> 72px. Speeds: <code>slow</code> 70s,{" "}
-          <code>normal</code> 50s, <code>fast</code> 32s per pass. Place it full-bleed — outside any
-          max-width container — so logos run to the edge of the viewport. Logos without an image fall
-          back to their name as text.
+          Base heights: <code>md</code> 56px, <code>lg</code> 72px — each logo&apos;s{" "}
+          <code>weight</code> scales that so marks even out by ink volume rather than by height
+          (see <code>lib/logoWeights.ts</code>). Speeds: <code>slow</code> 70s, <code>normal</code>{" "}
+          50s, <code>fast</code> 32s per pass. Place it full-bleed — outside any max-width container
+          — so logos run to the edge of the viewport. Logos without an image fall back to their name
+          as text.
         </p>
       </div>
     </ContentSection>

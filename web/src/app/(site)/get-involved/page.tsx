@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { LogoMarquee, type MarqueeLogo } from "@/components/ui/LogoMarquee";
+import { logoWeight } from "@/lib/logoWeights";
 import type { Metadata } from "next";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { PARTNERS_QUERY, SPONSORS_QUERY, COMMITTEES_QUERY } from "@/sanity/lib/queries";
@@ -152,7 +153,13 @@ export default async function GetInvolvedPage() {
     sanityFetchCached({ query: COMMITTEES_QUERY }),
   ]);
 
-  type SanityImage = { asset?: { _id?: string; url?: string; metadata?: { lqip?: string; dimensions?: unknown } }; alt?: string; hotspot?: unknown; crop?: unknown };
+  type ImageCrop = { top?: number; bottom?: number; left?: number; right?: number };
+  type SanityImage = {
+    asset?: { _id?: string; url?: string; metadata?: { lqip?: string; dimensions?: { width?: number; height?: number } } };
+    alt?: string;
+    hotspot?: unknown;
+    crop?: ImageCrop | null;
+  };
   type PartnerSponsor = { _id: string; name: string; logo: SanityImage | null; website: string | null; displayWidth: number | null; darkGray: boolean | null };
   type Committee = { _id: string; name: string; description: string; icon: SanityImage | null };
 
@@ -162,23 +169,41 @@ export default async function GetInvolvedPage() {
 
   // CMS rows where present, the hardcoded list otherwise. The marquee sizes on
   // height, so `displayWidth` only informs how wide to request the asset.
+  // The rendered aspect ratio has to be the CROPPED asset's, not the original's.
+  // Pass the raw dimensions and object-contain letterboxes every cropped logo
+  // inside phantom whitespace, which is exactly the unevenness being fixed.
+  const croppedSize = (img: SanityImage) => {
+    const d = img.asset?.metadata?.dimensions;
+    if (!d?.width || !d?.height) return { width: 400, height: 200 };
+    const c = img.crop ?? {};
+    return {
+      width: Math.round(d.width * (1 - (c.left ?? 0) - (c.right ?? 0))),
+      height: Math.round(d.height * (1 - (c.top ?? 0) - (c.bottom ?? 0))),
+    };
+  };
+
   const toLogos = (
     rows: PartnerSponsor[],
     fallback: { name: string; logo: string; width?: number; height?: number }[]
   ): MarqueeLogo[] =>
     rows.length > 0
-      ? rows.map((row) => ({
-          name: row.name,
-          src: row.logo?.asset ? urlFor(row.logo).width((row.displayWidth || 160) * 3).url() : undefined,
-          width: (row.displayWidth || 160) * 3,
-          height: 240,
-          href: row.website || undefined,
-        }))
+      ? rows.map((row) => {
+          const size = row.logo?.asset ? croppedSize(row.logo) : { width: 400, height: 200 };
+          return {
+            name: row.name,
+            src: row.logo?.asset ? urlFor(row.logo).height(240).url() : undefined,
+            width: size.width,
+            height: size.height,
+            href: row.website || undefined,
+            weight: logoWeight(row.name),
+          };
+        })
       : fallback.map((row) => ({
           name: row.name,
           src: row.logo,
           width: row.width,
           height: row.height,
+          weight: logoWeight(row.name),
         }));
 
   const partnerLogos = toLogos(partners, fallbackPartners);
@@ -621,7 +646,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Successful partnerships Section */}
-      <section className="py-16 bg-gray-10">
+      <section className="py-16">
           <ScrollReveal>
             <SectionEyebrow className="text-center mb-12 px-6">
               Successful partnerships
@@ -647,7 +672,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Past event sponsors Section */}
-      <section className="py-16 bg-gray-10">
+      <section className="py-16">
           <ScrollReveal>
             <SectionEyebrow className="text-center mb-12 px-6">
               Past event sponsors
