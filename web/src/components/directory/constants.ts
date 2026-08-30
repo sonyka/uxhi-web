@@ -105,31 +105,44 @@ export const EXPERIENCE_LEVEL_OPTIONS = [
 ] as const;
 
 // Mirrors the "industries you work within" multi-select on the live submission form.
-// No member currently carries an industry value, so this list can track the form
-// exactly without risking existing data.
+//
+// Seven options are kept that the form no longer offers — Arts & Culture, Automotive,
+// E-commerce, Human Resources, Non-profit, Other, and the original `food-beverage`
+// slug behind the form's "Restaurants, Bars & Food" label. Sixteen imported members
+// are tagged with them; dropping the options would silently strip real data. Retire
+// them only after those members are re-tagged.
+//
+// Note the field is `industries` (plural) on directoryMember — querying `industry`
+// returns null for every document and makes the data look empty when it is not.
 export const INDUSTRY_OPTIONS = [
   { title: "Aerospace", value: "aerospace" },
   { title: "Architecture", value: "architecture" },
+  { title: "Arts & Culture", value: "arts-culture" },
+  { title: "Automotive", value: "automotive" },
   { title: "Biomedical", value: "biomedical" },
   { title: "Consulting", value: "consulting" },
   { title: "Customer Relationship Management", value: "crm" },
   { title: "Cybersecurity", value: "cybersecurity" },
+  { title: "E-commerce", value: "ecommerce" },
   { title: "Education", value: "education" },
   { title: "Energy, Sustainability & Infrastructure", value: "energy-sustainability" },
   { title: "Entertainment", value: "entertainment" },
   { title: "Finance", value: "finance" },
   { title: "Government", value: "government" },
   { title: "Healthcare", value: "healthcare" },
+  { title: "Human Resources", value: "human-resources" },
   { title: "Indigenous Tech", value: "indigenous-tech" },
   { title: "Insurance", value: "insurance" },
   { title: "Internet / Technology", value: "technology" },
   { title: "Marketing / Branding", value: "marketing-branding" },
+  { title: "Non-profit", value: "nonprofit" },
   { title: "Real Estate", value: "real-estate" },
-  { title: "Restaurants, Bars & Food", value: "restaurants-bars-food" },
+  { title: "Restaurants, Bars & Food", value: "food-beverage" },
   { title: "Retail", value: "retail" },
   { title: "Telecommunication", value: "telecommunication" },
   { title: "Transportation & Logistics", value: "transportation-logistics" },
   { title: "Travel & Tourism", value: "travel-tourism" },
   { title: "Video Games", value: "video-games" },
   { title: "Web Design", value: "web-design" },
+  { title: "Other", value: "other" },
 ] as const;
