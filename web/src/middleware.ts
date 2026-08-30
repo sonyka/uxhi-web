@@ -20,6 +20,14 @@ export function middleware(request: NextRequest) {
       return NextResponse.next();
     }
 
+    // Crawler files answer for the hostname itself and must not be rewritten
+    // into the conference tree — /robots.txt would otherwise resolve to
+    // /conferences/YYYY/robots.txt, which does not exist, and the host would
+    // silently have no robots rules at all.
+    if (pathname === "/robots.txt" || pathname === "/sitemap.xml") {
+      return NextResponse.next();
+    }
+
     // uxhiconference.com/2025/[path] → /conferences/2025/[path]  (year archive)
     // uxhiconference.com/[path]      → /conferences/2026/[path]  (current year)
     const yearMatch = pathname.match(/^\/(\d{4})(\/.*)?$/);
