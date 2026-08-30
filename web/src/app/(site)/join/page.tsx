@@ -1,40 +1,13 @@
 import Image from "next/image";
-import { LogoImage } from "@/components/ui/LogoImage";
-import { sanityFetchCached } from "@/sanity/lib/fetchCached";
-import { FAQS_QUERY } from "@/sanity/lib/queries";
-import { FAQSection } from "@/components/sections/FAQSection";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { MembershipForm } from "@/components/forms/MembershipForm";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
-import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
 
-// Placeholder images for the grid - using existing bento images
-const gridImages = [
-  { id: "1", src: "/images/join/bento-join-01.png", alt: "UXHI members" },
-  { id: "2", src: "/images/join/bento-join-02.png", alt: "UXHICon" },
-  { id: "3", src: "/images/join/bento-join-03.png", alt: "UXHI conference" },
-  { id: "4", src: "/images/join/bento-join-04.png", alt: "UXHI community members with leis" },
-  { id: "5", src: "/images/join/bento-join-05.png", alt: "UXHI photobooth" },
-  { id: "6", src: "/images/join/bento-join-01.png", alt: "UXHI members" },
-];
-
-
-// Company logos
-const companyLogos = [
-  { name: "Codecademy", src: "/images/company_logos/Codecademy Logo.svg", width: 140, height: 28 },
-  { name: "LinkedIn", src: "/images/company_logos/LinkedIn 2021.svg", width: 100, height: 26 },
-  { name: "Servco", src: "/images/company_logos/servco.svg", width: 100, height: 32 },
-  { name: "Zippy's", src: "/images/company_logos/Zippy Logo RGB.svg", width: 96, height: 48, darkGray: true },
-  { name: "Google", src: "/images/company_logos/Google Logo.svg", width: 110, height: 48 },
-];
-
-export default async function JoinPage() {
-  const { data: faqs } = await sanityFetchCached({ query: FAQS_QUERY });
-
+export default function JoinPage() {
   return (
     <main className="min-h-screen bg-beige-10">
       {/* Hero Section */}
@@ -123,67 +96,6 @@ export default async function JoinPage() {
         </div>
       </HeroSection>
 
-      {/* Who are we? Section */}
-      <section className="pt-12 pb-20 px-6 bg-white">
-        <ScrollReveal stagger className="max-w-[900px] mx-auto text-center">
-          <MotionDiv>
-            <SectionHeading className="mb-6">
-              Who are we?
-            </SectionHeading>
-          </MotionDiv>
-          <MotionDiv>
-            <p className="text-gray-120 text-lg leading-relaxed mb-10">
-              Our membership includes UX professionals and those transitioning into the field, with ties to Hawai&apos;i. Members work across a mix of local and national companies, as well as freelance, and come from a variety of backgrounds and skill levels. Whether you&apos;re just starting out or an experienced practitioner, UXHI is a community where you can connect, learn, and grow.
-            </p>
-          </MotionDiv>
-          <MotionDiv>
-            <PrimaryCTA href="/find-ux-pro#directory">Membership Directory</PrimaryCTA>
-          </MotionDiv>
-        </ScrollReveal>
-      </section>
-
-      {/* Large Team Photo */}
-      <section className="px-6 pb-16 bg-white">
-        <ScrollReveal variants={scaleReveal} className="max-w-[1300px] mx-auto">
-          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
-            <Image
-              src="/images/join/image-conferece.jpg"
-              alt="UXHI community group photo"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </ScrollReveal>
-      </section>
-
-      {/* Company Logos Section */}
-      <section className="py-16 px-6 bg-gray-10">
-        <div className="max-w-[1200px] mx-auto">
-          <ScrollReveal>
-            <SectionHeading size="sm" className="text-center mb-12">
-              Representing companies in Hawaiʻi and beyond
-            </SectionHeading>
-          </ScrollReveal>
-          <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
-            {companyLogos.map((company) => (
-              <MotionDiv
-                key={company.name}
-              >
-                <div className="flex items-center justify-center">
-                  <LogoImage
-                    src={company.src}
-                    alt={company.name}
-                    width={company.width}
-                    height={company.height}
-                    darkGray={!!company.darkGray}
-                  />
-                </div>
-              </MotionDiv>
-            ))}
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* How to Join Section */}
       <section id="join-form" className="py-20 px-6 bg-purple-140">
         <div className="max-w-[800px] mx-auto">
@@ -222,30 +134,20 @@ export default async function JoinPage() {
         </div>
       </section>
 
-      {/* Slack Community Section */}
-      <section className="py-20 px-6 bg-beige-10">
-        <ScrollReveal stagger className="max-w-[900px] mx-auto text-center">
-          <MotionDiv>
-            <SectionIcon src="/images/icons/icon-slack.svg" alt="Slack" />
-          </MotionDiv>
-          <MotionDiv>
-            <SectionHeading className="mb-6">
-              400+ Slack members and growing
-            </SectionHeading>
-          </MotionDiv>
-          <MotionDiv>
-            <p className="text-gray-120 text-lg leading-relaxed mb-10">
-              A primary benefit of membership at UXHI (which is free!) is access to our Slack community of over 400+ designers connected to Hawai&apos;i and beyond. Become a member today and receive your invite to join!
-            </p>
-          </MotionDiv>
-          <MotionDiv>
-            <PrimaryCTA href="#join-form">Become a member</PrimaryCTA>
-          </MotionDiv>
+      {/* Large Team Photo */}
+      <section className="px-6 pb-16 bg-white">
+        <ScrollReveal variants={scaleReveal} className="max-w-[1300px] mx-auto">
+          <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
+            <Image
+              src="/images/join/image-conferece.jpg"
+              alt="UXHI community group photo"
+              fill
+              className="object-cover"
+            />
+          </div>
         </ScrollReveal>
       </section>
 
-      {/* FAQs Section */}
-      <FAQSection faqs={faqs || []} />
     </main>
   );
 }

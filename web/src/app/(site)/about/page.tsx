@@ -8,6 +8,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { PressMention } from "@/components/ui/PressMention";
 import { PrincipleList } from "@/components/ui/PrincipleList";
+import { InlineLink } from "@/components/ui/InlineLink";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { InquiryForm } from "@/components/forms/InquiryForm";
@@ -309,8 +310,16 @@ export default async function AboutPage() {
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
+              <p className="text-purple-50 text-lg leading-relaxed mb-6 max-w-[600px] mx-auto">
+                Whether you have a question, an idea, or something you want to
+                build with us, we read every message and we&apos;ll get back to you.
+              </p>
+            </MotionDiv>
+            <MotionDiv>
               <p className="text-purple-50 text-lg leading-relaxed mb-10 max-w-[600px] mx-auto">
-                Have questions, ideas, or want to collaborate? We&apos;d love to hear from you. Reach out to our team and we&apos;ll get back to you as soon as possible.
+                Looking to join the community instead?{" "}
+                <InlineLink href="/join" variant="teal">Becoming a member is free</InlineLink>
+                {" "}and gets you into our Slack, our member directory, and our monthly events email.
               </p>
             </MotionDiv>
           </ScrollReveal>
