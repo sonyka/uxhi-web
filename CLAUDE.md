@@ -212,6 +212,18 @@ Uses `next-sanity` with:
 **⛔ NEVER push to `main` unless the user explicitly says to ship / deploy to production.**
 Every push to `main` triggers a Netlify production build and consumes limited credits.
 
+**⛔ Do not raise it either.** Until `uxhi.community` is pointed at Netlify, the only
+reason to push `main` is a conference change. Do not ask, suggest, hint, or report
+"production is N commits behind" as though it needs action — being behind is the
+intended state, not a backlog. Sony will say when. Treat an unprompted nudge toward a
+production deploy as a rule violation, not a helpful reminder.
+
+> Note on what "production" means here: `main` is already publicly served on Netlify's
+> default domain (`splendid-entremet-f6cb1d.netlify.app`), so the whole main site is
+> live there — `uxhiconference.com` only 404s on non-conference paths because the
+> middleware rewrites by hostname. Pointing `uxhi.community` gives the main site a
+> findable address; it does not make it public for the first time.
+
 **All work goes directly on `staging`:**
 ```bash
 git checkout staging
