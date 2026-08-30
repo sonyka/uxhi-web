@@ -12,3 +12,6 @@ logs/
 # Playwright MCP writes screenshots to the repo root
 *.png.tmp
 salary-*.png
+
+# local audit output, not part of the site
+orphaned-assets.html
