@@ -33,7 +33,7 @@ file is the source of truth for what, and the open work with its exact commands.
 |---|---|---|
 | **Staging — everything** | `web-henna-five-45.vercel.app` → **Vercel** (`staging` branch) | The only staging URL. Share this for review. |
 | **Conference production** | `uxhiconference.com` → **Netlify** (`main`) | Conference only. Current year at `/`, archives at `/YYYY`. |
-| **Main site production** | `uxhi.community` → **Netlify** (`main`) | **Domain not yet pointed.** See the runbook in [netlify-migration-plan.md](netlify-migration-plan.md). |
+| **Main site production** | `uxhi.community` → **Netlify** (`main`) | **Domain not yet pointed.** See the runbook in [HOSTING-AND-DNS.md](HOSTING-AND-DNS.md). |
 | Active dev branch | `staging` | All commits go here. |
 
 > ⛔ **Never push `main`, and never suggest it.** Until `uxhi.community` is pointed, the only
@@ -123,7 +123,7 @@ then return to `staging` immediately. Only ever on explicit instruction — see 
 
 ## Runbooks in this folder
 
-- **[netlify-migration-plan.md](netlify-migration-plan.md)** — phases, and the DNS runbook for
+- **[HOSTING-AND-DNS.md](HOSTING-AND-DNS.md)** — phases, and the DNS runbook for
   pointing `uxhi.community` (including the MX-record warning).
 - **[GOOGLE_ANALYTICS.md](GOOGLE_ANALYTICS.md)** — both GA properties and their gating.
 - **[mailchimp-integration.md](mailchimp-integration.md)** — written, on hold, ready to build.

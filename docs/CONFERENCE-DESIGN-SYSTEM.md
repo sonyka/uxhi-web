@@ -368,6 +368,7 @@ QuoteCard refrain, `SectionHeading`'s own ramp — already centralised in its co
       filter hack existed in the first place*. And every `<clipPath>` was a full-viewBox rect
       (a no-op) that would otherwise produce duplicate DOM ids for repeated icons.
 - [ ] Conference `SectionHeading` size variants mirroring the parent's variant API
+      *(tracked in the worklog under Conference — see PROJECT-STATE.md for the link)*
 
 **Examined and deliberately declined:**
 

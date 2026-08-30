@@ -7,7 +7,7 @@ ship in page HTML anyway) — so there's **nothing to configure in Netlify or Ve
 | Site | Live domain | Route group | GA4 property | Measurement ID | Gated? |
 |---|---|---|---|---|---|
 | Community | `uxhi.community` | `src/app/(site)/` | UXHI Community | `G-DMCWLCQD08` | ✅ yes → only fires on `uxhi.community` |
-| Conference | `uxhiconference.com` | `src/app/(conference)/` | UXHI Conference | `G-CT4QB1KDE2` | ❌ no → fires everywhere (incl. staging) |
+| Conference | `uxhiconference.com` | `src/app/(conference)/` | UXHI Conference | `G-CT4QB1KDE2` | ✅ yes → only fires on `uxhiconference.com` |
 
 ---
 
@@ -23,8 +23,13 @@ to `uxhi.community`** at release. Until then the community tag stays silent; the
 domain becomes `uxhi.community`, it activates automatically — **same property, no loss of
 historical continuity.**
 
-The conference tag is **not** gated: its property has no live data to protect, so leaving it
-on everywhere lets us verify it works on staging before launch.
+**Both tags are now gated (2026-08-30).** The conference tag was deliberately left un-gated
+so it could be verified before launch. That verification happened on 2026-08-28 against live
+`uxhiconference.com` traffic, which meant the property then held real data and staging visits
+were inflating it. It now uses the same `GoogleAnalyticsGated` wrapper as the community tag.
+
+A consequence worth knowing: neither tag reports from staging any more, so a change to
+analytics cannot be verified there. Check it on the live domain after a production deploy.
 
 ---
 
