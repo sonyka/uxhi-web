@@ -145,13 +145,13 @@ export default async function ResourcesPage() {
                 <QuickLinkPill
                   href="#report"
                   icon={<BookOpenTextIcon className="w-7 h-7" />}
-                  label="State of UX Report"
+                  label="State of UX in Hawaiʻi Report"
                   subtitle="Industry insights"
                 />
                 <QuickLinkPill
                   href="#directory"
                   icon={<NotebookTabsIcon className="w-7 h-7" />}
-                  label="Directory of Tech Orgs"
+                  label="Directory of Local Tech Orgs"
                   subtitle="Local connections"
                 />
               </div>
@@ -573,11 +573,11 @@ export default async function ResourcesPage() {
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal stagger className="text-center">
             <MotionDiv>
-              <SectionIcon src="/images/icons/icon-tech.svg" alt="Directory of Local Tech Organizations" />
+              <SectionIcon src="/images/icons/icon-tech.svg" alt="Directory of Local Tech Orgs" />
             </MotionDiv>
             <MotionDiv>
               <SectionHeading className="mb-6">
-                Directory of Local Tech Organizations
+                Directory of Local Tech Orgs
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>

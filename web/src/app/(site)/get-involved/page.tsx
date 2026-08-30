@@ -474,7 +474,7 @@ export default async function GetInvolvedPage() {
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           <MotionDiv>
             <SectionHeading className="mb-6">
-              Speaking Opportunities
+              Become a Speaker
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>
@@ -651,7 +651,7 @@ export default async function GetInvolvedPage() {
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           <MotionDiv>
             <SectionHeading className="mb-6">
-              Sponsorships
+              Sponsor Us
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>
