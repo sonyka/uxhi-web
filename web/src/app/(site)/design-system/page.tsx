@@ -2652,7 +2652,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "interactive-tooltip": (
     <ContentSection
       title="Mobile Tooltip"
-      description="Tap-to-reveal tooltip on mobile, hover on desktop. Shows dotted underline on mobile to indicate interactivity. Used for inline definitions."
+      description="Tap-to-reveal tooltip on mobile, hover on desktop. Shows a dotted underline on mobile to indicate interactivity. Used for inline definitions. Pass href to add a “Learn more” link into the panel — without one a tooltip is a dead end, defining a term with nowhere to go. The panel sits inside the trigger's hover group, so the link stays reachable when the pointer moves into it."
       componentPath="components/ui/MobileTooltip.tsx"
     >
       <div className="space-y-6">
@@ -2660,7 +2660,14 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Example</h4>
           <p className="text-gray-120 text-lg">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
-            <MobileTooltip tooltip="Human-centered design is an approach that prioritizes the unique needs of users.">
+            <MobileTooltip
+            tooltip="Aloha-centered design applies Hawaiʻi's values — care, reciprocity, and respect for place — to how we design for people."
+            href="/about#aloha-centered-design"
+          >
+            aloha-centered design
+          </MobileTooltip>{" "}
+          and{" "}
+          <MobileTooltip tooltip="Human-centered design is an approach that prioritizes the unique needs of users.">
               human-centered design
             </MobileTooltip>{" "}
             in Hawai&apos;i.

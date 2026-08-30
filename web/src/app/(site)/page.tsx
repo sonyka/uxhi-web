@@ -54,6 +54,7 @@ export default async function HomePage() {
               Community for<br className="hidden md:block" />{" "}
               <MobileTooltip
                 tooltip={ALOHA_CENTERED_TOOLTIP}
+                href="/about#aloha-centered-design"
                 decorationElement={
                   // eslint-disable-next-line @next/next/no-img-element
                   <img

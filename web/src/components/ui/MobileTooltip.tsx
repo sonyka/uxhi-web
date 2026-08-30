@@ -1,15 +1,31 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 
 interface MobileTooltipProps {
   children: React.ReactNode;
   tooltip: string;
   className?: string;
   decorationElement?: React.ReactNode;
+  /**
+   * Where to read more. Without it a tooltip is a dead end: it defines a term
+   * and offers nowhere to go. The panel sits inside the trigger's hover group,
+   * so the link stays reachable when the pointer moves into it.
+   */
+  href?: string;
+  /** Link wording (default: "Learn more") */
+  linkLabel?: string;
 }
 
-export function MobileTooltip({ children, tooltip, className = "", decorationElement }: MobileTooltipProps) {
+export function MobileTooltip({
+  children,
+  tooltip,
+  className = "",
+  decorationElement,
+  href,
+  linkLabel = "Learn more",
+}: MobileTooltipProps) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -54,6 +70,17 @@ export function MobileTooltip({ children, tooltip, className = "", decorationEle
         style={{ wordSpacing: '0.1em' }}
       >
         {tooltip}
+        {href && (
+          <Link
+            href={href}
+            // The trigger toggles the panel on click; without this the tap that
+            // follows the link would also close it mid-navigation.
+            onClick={(e) => e.stopPropagation()}
+            className="mt-2 block font-semibold text-teal-100 hover:text-teal-120 underline underline-offset-2"
+          >
+            {linkLabel} &rarr;
+          </Link>
+        )}
         {/* Tail */}
         <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white drop-shadow-sm" />
       </span>

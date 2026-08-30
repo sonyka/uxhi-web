@@ -27,6 +27,7 @@ export function MissionStatement() {
       UXHI&apos;s mission is to champion and elevate{" "}
       <MobileTooltip
         tooltip={ALOHA_CENTERED_TOOLTIP}
+        href="/about#aloha-centered-design"
         className="whitespace-nowrap"
         decorationElement={
           // eslint-disable-next-line @next/next/no-img-element
