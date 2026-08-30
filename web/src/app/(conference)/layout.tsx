@@ -1,4 +1,4 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalyticsGated } from "@/components/analytics/GoogleAnalyticsGated";
 
 // Year-agnostic conference shell.
 //
@@ -10,16 +10,20 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 //
 // See docs/CONFERENCE-DESIGN-SYSTEM.md.
 
-// GA4 for the conference domain, shared across years. Un-gated (fires on
-// staging too) so it can be verified before launch; the property has no live
-// data to protect.
+// GA4 for the conference domain, shared across years.
+//
+// Was deliberately un-gated so the tag could be verified before launch. That
+// verification happened on 2026-08-28 against live uxhiconference.com traffic,
+// so the property now holds real data and staging hits would pollute it. Gated
+// from 2026-08-30 — same pattern as the community tag.
 const GA_CONFERENCE_ID = "G-CT4QB1KDE2";
+const CONFERENCE_HOST = "uxhiconference.com";
 
 export default function ConferenceLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
-      <GoogleAnalytics gaId={GA_CONFERENCE_ID} />
+      <GoogleAnalyticsGated gaId={GA_CONFERENCE_ID} productionHost={CONFERENCE_HOST} />
     </>
   );
 }
