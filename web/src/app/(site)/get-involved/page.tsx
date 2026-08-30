@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LogoImage } from "@/components/ui/LogoImage";
+import { LogoMarquee, type MarqueeLogo } from "@/components/ui/LogoMarquee";
 import type { Metadata } from "next";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { PARTNERS_QUERY, SPONSORS_QUERY, COMMITTEES_QUERY } from "@/sanity/lib/queries";
@@ -159,6 +159,30 @@ export default async function GetInvolvedPage() {
   const partners: PartnerSponsor[] = partnersResult.data || [];
   const sponsors: PartnerSponsor[] = sponsorsResult.data || [];
   const committees: Committee[] = committeesResult.data || [];
+
+  // CMS rows where present, the hardcoded list otherwise. The marquee sizes on
+  // height, so `displayWidth` only informs how wide to request the asset.
+  const toLogos = (
+    rows: PartnerSponsor[],
+    fallback: { name: string; logo: string; width?: number; height?: number }[]
+  ): MarqueeLogo[] =>
+    rows.length > 0
+      ? rows.map((row) => ({
+          name: row.name,
+          src: row.logo?.asset ? urlFor(row.logo).width((row.displayWidth || 160) * 3).url() : undefined,
+          width: (row.displayWidth || 160) * 3,
+          height: 240,
+          href: row.website || undefined,
+        }))
+      : fallback.map((row) => ({
+          name: row.name,
+          src: row.logo,
+          width: row.width,
+          height: row.height,
+        }));
+
+  const partnerLogos = toLogos(partners, fallbackPartners);
+  const sponsorLogos = toLogos(sponsors, fallbackSponsors);
 
   return (
     <main className="min-h-screen bg-beige-10">
@@ -597,53 +621,13 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Successful partnerships Section */}
-      <section className="py-16 px-6 bg-gray-10">
-        <div className="max-w-[1200px] mx-auto">
+      <section className="py-16 bg-gray-10">
           <ScrollReveal>
-            <SectionEyebrow className="text-center mb-12">
+            <SectionEyebrow className="text-center mb-12 px-6">
               Successful partnerships
             </SectionEyebrow>
           </ScrollReveal>
-          <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
-            {partners.length > 0 ? (
-              partners.map((partner) => (
-                <MotionDiv
-                  key={partner._id}
-                  className="flex items-center justify-center"
-                >
-                  {partner.logo?.asset ? (
-                    <LogoImage
-                      src={urlFor(partner.logo).width((partner.displayWidth || 100) * 2).url()}
-                      alt={partner.name}
-                      width={partner.displayWidth || 100}
-                      height={40}
-                      darkGray={!!partner.darkGray}
-                      style={{ width: partner.displayWidth || 100, height: 'auto' }}
-                    />
-                  ) : (
-                    <span className="text-gray-100 font-medium text-lg hover:text-gray-120 transition-colors">
-                      {partner.name}
-                    </span>
-                  )}
-                </MotionDiv>
-              ))
-            ) : (
-              fallbackPartners.map((partner) => (
-                <MotionDiv
-                  key={partner.name}
-                  className="flex items-center justify-center"
-                >
-                  <LogoImage
-                    src={partner.logo}
-                    alt={partner.name}
-                    width={partner.width || 100}
-                    height={partner.height || 40}
-                  />
-                </MotionDiv>
-              ))
-            )}
-          </ScrollReveal>
-        </div>
+          <LogoMarquee logos={partnerLogos} size="lg" speed="normal" direction="left" />
       </section>
 
       {/* Sponsorships Section */}
@@ -663,54 +647,13 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Past event sponsors Section */}
-      <section className="py-16 px-6 bg-gray-10">
-        <div className="max-w-[1200px] mx-auto">
+      <section className="py-16 bg-gray-10">
           <ScrollReveal>
-            <SectionEyebrow className="text-center mb-12">
+            <SectionEyebrow className="text-center mb-12 px-6">
               Past event sponsors
             </SectionEyebrow>
           </ScrollReveal>
-          <ScrollReveal stagger className="flex flex-wrap justify-center items-center gap-10 md:gap-14">
-            {sponsors.length > 0 ? (
-              sponsors.map((sponsor) => (
-                <MotionDiv
-                  key={sponsor._id}
-                  className="flex items-center justify-center"
-                >
-                  {sponsor.logo?.asset ? (
-                    <LogoImage
-                      src={urlFor(sponsor.logo).width((sponsor.displayWidth || 100) * 2).url()}
-                      alt={sponsor.name}
-                      width={sponsor.displayWidth || 100}
-                      height={40}
-                      darkGray={!!sponsor.darkGray}
-                      style={{ width: sponsor.displayWidth || 100, height: 'auto' }}
-                    />
-                  ) : (
-                    <span className="text-gray-100 font-medium text-lg hover:text-gray-120 transition-colors">
-                      {sponsor.name}
-                    </span>
-                  )}
-                </MotionDiv>
-              ))
-            ) : (
-              fallbackSponsors.map((sponsor) => (
-                <MotionDiv
-                  key={sponsor.name}
-                  className="flex items-center justify-center"
-                >
-                  <LogoImage
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    width={sponsor.width || 100}
-                    height={sponsor.height || 40}
-                    darkGray={!!sponsor.darkGray}
-                  />
-                </MotionDiv>
-              ))
-            )}
-          </ScrollReveal>
-        </div>
+          <LogoMarquee logos={sponsorLogos} size="lg" speed="slow" direction="right" />
       </section>
 
       {/* Ready to Collaborate Section */}

@@ -23,7 +23,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { HeroContent } from "@/components/ui/HeroContent";
-import { LogoImage } from "@/components/ui/LogoImage";
+import { LogoMarquee } from "@/components/ui/LogoMarquee";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
@@ -129,7 +129,7 @@ const navigationItems = [
     category: "Cards & Modules",
     items: [
       { id: "card-spotillustration", label: "Spot Illustration Card" },
-      { id: "card-logoimage", label: "Logo Image" },
+      { id: "card-logomarquee", label: "Logo Marquee" },
       { id: "card-carousel", label: "Carousel Testimonial" },
       { id: "card-link", label: "Link Card" },
       { id: "card-principles", label: "Principle List" },
@@ -453,6 +453,17 @@ function MobileNavbarDemo() {
 }
 
 // All content components mapped by ID
+// Real marks, so the marquee demo shows the mixed aspect ratios it exists to handle.
+const demoLogos = [
+  { name: "Hub Coworking Hawaii", src: "/images/company_logos/hub-logo.png", width: 360, height: 144 },
+  { name: "Purple Mai'a", src: "/images/company_logos/purple-maia.png", width: 288, height: 128 },
+  { name: "Entrepreneurs Sandbox", src: "/images/company_logos/sandbox-logo.svg", width: 400, height: 128 },
+  { name: "HTDC", src: "/images/company_logos/htdc-logo.svg", width: 320, height: 128 },
+  { name: "Adobe", src: "/images/company_logos/adobe-logo.svg", width: 360, height: 144 },
+  { name: "Servco", src: "/images/company_logos/servco.svg", width: 320, height: 96 },
+  { name: "Mantle", src: "/images/company_logos/mantle-logo.svg", width: 360, height: 128 },
+];
+
 const contentComponents: Record<string, React.ReactNode> = {
   // Navigation
   "nav-desktop": (
@@ -1477,21 +1488,31 @@ const contentComponents: Record<string, React.ReactNode> = {
       </div>
     </ContentSection>
   ),
-  "card-logoimage": (
+  "card-logomarquee": (
     <ContentSection
-      title="Logo Image"
-      description="Grayscale logo with hover color reveal. Used for partner/sponsor logo grids. Sits as a dark neutral tint at rest, reveals full color on hover."
-      componentPath="components/ui/LogoImage.tsx"
+      title="Logo Marquee"
+      description="Full-colour logo strip that scrolls horizontally, forever. Used for partner and sponsor walls. Sizes on height so marks of different aspect ratios sit at the same optical weight. Pauses on hover; holds still under reduced-motion."
+      componentPath="components/ui/LogoMarquee.tsx"
     >
-      <div className="space-y-6">
+      <div className="space-y-8">
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Default (light logos)</h4>
-          <div className="flex gap-8 items-center p-6 bg-beige-30 rounded-xl">
-            <LogoImage src="/images/partners/partner-placeholder.svg" alt="Partner" width={100} height={40} />
-            <LogoImage src="/images/partners/partner-placeholder.svg" alt="Partner" width={100} height={40} darkGray />
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Large, scrolling left (default speed)</h4>
+          <div className="py-8 bg-gray-10 rounded-xl overflow-hidden">
+            <LogoMarquee logos={demoLogos} size="lg" />
           </div>
-          <p className="text-xs text-gray-100 mt-2">Left: default (grayscale, brightness-75 contrast-75, opacity-90), Right: darkGray (same, opacity-100) for marks that still read too light. Hover to reveal color. Matches the resting weight of the conference sponsor grid.</p>
         </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Medium, scrolling right, slow</h4>
+          <div className="py-8 bg-beige-30 rounded-xl overflow-hidden">
+            <LogoMarquee logos={demoLogos} size="md" speed="slow" direction="right" />
+          </div>
+        </div>
+        <p className="text-xs text-gray-100">
+          Sizes: <code>md</code> 56px tall, <code>lg</code> 72px. Speeds: <code>slow</code> 70s,{" "}
+          <code>normal</code> 50s, <code>fast</code> 32s per pass. Place it full-bleed — outside any
+          max-width container — so logos run to the edge of the viewport. Logos without an image fall
+          back to their name as text.
+        </p>
       </div>
     </ContentSection>
   ),
