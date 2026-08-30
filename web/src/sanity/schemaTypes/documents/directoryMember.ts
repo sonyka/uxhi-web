@@ -1,5 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { UsersIcon } from "@sanity/icons";
+import { FOCUS_OPTIONS, INDUSTRY_OPTIONS } from "@/components/directory/constants";
 
 export const directoryMember = defineType({
   name: "directoryMember",
@@ -48,29 +49,11 @@ export const directoryMember = defineType({
       type: "array",
       of: [{ type: "string" }],
       description: "Select one or more areas of focus",
-      // Keep in sync with FOCUS_OPTIONS in components/directory/constants.ts.
-      // Both mirror the Notion directory — see docs/notion-directory-taxonomy.md.
+      // Single source: FOCUS_OPTIONS in components/directory/constants.ts, which
+      // mirrors the live submission form. Imported rather than duplicated so the
+      // Studio, the directory UI and the submit form cannot drift apart.
       options: {
-        list: [
-          { title: "Accessibility Design", value: "accessibility-design" },
-          { title: "AR/VR Design", value: "ar-vr-design" },
-          { title: "Brand Identity", value: "brand-identity" },
-          { title: "Content Strategy", value: "content-strategy" },
-          { title: "Design Ops", value: "design-ops" },
-          { title: "Information Architecture", value: "information-architecture" },
-          { title: "Interaction Design", value: "interaction-design" },
-          { title: "Product Design", value: "product-design" },
-          { title: "Product Strategy", value: "product-strategy" },
-          { title: "Product Management", value: "product-management" },
-          { title: "Service Design", value: "service-design" },
-          { title: "UI Design", value: "ui-design" },
-          { title: "Usability Evaluation", value: "usability-evaluation" },
-          { title: "User Research", value: "user-research" },
-          { title: "UX Leadership", value: "ux-leadership" },
-          { title: "UX Strategy", value: "ux-strategy" },
-          { title: "UX Writing", value: "ux-writing" },
-          { title: "Visual Design", value: "visual-design" },
-        ],
+        list: [...FOCUS_OPTIONS],
       },
     }),
     defineField({
@@ -95,37 +78,9 @@ export const directoryMember = defineType({
       title: "Industries",
       type: "array",
       of: [{ type: "string" }],
-      // Keep in sync with INDUSTRY_OPTIONS in components/directory/constants.ts.
-      // Both mirror the Notion directory — see docs/notion-directory-taxonomy.md.
+      // Single source: INDUSTRY_OPTIONS in components/directory/constants.ts.
       options: {
-        list: [
-          { title: "Aerospace", value: "aerospace" },
-          { title: "Architecture", value: "architecture" },
-          { title: "Arts & Culture", value: "arts-culture" },
-          { title: "Automotive", value: "automotive" },
-          { title: "Consulting", value: "consulting" },
-          { title: "Customer Relationship Management", value: "crm" },
-          { title: "Cybersecurity", value: "cybersecurity" },
-          { title: "E-commerce", value: "ecommerce" },
-          { title: "Education", value: "education" },
-          { title: "Energy & Sustainability", value: "energy-sustainability" },
-          { title: "Entertainment", value: "entertainment" },
-          { title: "Finance", value: "finance" },
-          { title: "Food & Beverage", value: "food-beverage" },
-          { title: "Government", value: "government" },
-          { title: "Healthcare", value: "healthcare" },
-          { title: "Human Resources", value: "human-resources" },
-          { title: "Indigenous Tech", value: "indigenous-tech" },
-          { title: "Marketing & Branding", value: "marketing-branding" },
-          { title: "Non-profit", value: "nonprofit" },
-          { title: "Real Estate", value: "real-estate" },
-          { title: "Retail", value: "retail" },
-          { title: "Technology", value: "technology" },
-          { title: "Transportation & Logistics", value: "transportation-logistics" },
-          { title: "Travel & Tourism", value: "travel-tourism" },
-          { title: "Web Design", value: "web-design" },
-          { title: "Other", value: "other" },
-        ],
+        list: [...INDUSTRY_OPTIONS],
       },
     }),
     defineField({

@@ -1,18 +1,25 @@
-// Mirrors the Focus multi-select in the Notion member directory, which is the
-// source of truth for this taxonomy. See docs/notion-directory-taxonomy.md for
-// the full mapping and the Notion options deliberately left out.
+// Mirrors the "field of work" multi-select on the live directory submission form,
+// which is the source of truth for this taxonomy.
+//
+// Three options are kept that the form no longer offers — Brand Identity, Product
+// Management and Product Strategy — because six imported members are tagged with
+// them. Dropping the options would silently strip real data. Retire them only after
+// those members are re-tagged.
+//
+// See docs/notion-directory-taxonomy.md for the full mapping.
 export const FOCUS_OPTIONS = [
   { title: "Accessibility Design", value: "accessibility-design" },
   { title: "AR/VR Design", value: "ar-vr-design" },
   { title: "Brand Identity", value: "brand-identity" },
   { title: "Content Strategy", value: "content-strategy" },
-  { title: "Design Ops", value: "design-ops" },
+  { title: "DesignOps", value: "design-ops" },
   { title: "Information Architecture", value: "information-architecture" },
   { title: "Interaction Design", value: "interaction-design" },
   { title: "Product Design", value: "product-design" },
-  { title: "Product Strategy", value: "product-strategy" },
   { title: "Product Management", value: "product-management" },
+  { title: "Product Strategy", value: "product-strategy" },
   { title: "Service Design", value: "service-design" },
+  { title: "Software Development", value: "software-development" },
   { title: "UI Design", value: "ui-design" },
   { title: "Usability Evaluation", value: "usability-evaluation" },
   { title: "User Research", value: "user-research" },
@@ -20,6 +27,7 @@ export const FOCUS_OPTIONS = [
   { title: "UX Strategy", value: "ux-strategy" },
   { title: "UX Writing", value: "ux-writing" },
   { title: "Visual Design", value: "visual-design" },
+  { title: "Voice User Interface Design", value: "voice-user-interface-design" },
 ] as const;
 
 export const ISLAND_OPTIONS = [
@@ -96,35 +104,32 @@ export const EXPERIENCE_LEVEL_OPTIONS = [
   { title: "20+ years", value: "20-plus-years" },
 ] as const;
 
-// Mirrors the Industry multi-select in the Notion member directory, which is the
-// source of truth for this taxonomy. Notion defines 43 options; the ones omitted
-// here have zero members and are archived in docs/notion-directory-taxonomy.md
-// along with where each would map if it is ever needed.
+// Mirrors the "industries you work within" multi-select on the live submission form.
+// No member currently carries an industry value, so this list can track the form
+// exactly without risking existing data.
 export const INDUSTRY_OPTIONS = [
   { title: "Aerospace", value: "aerospace" },
   { title: "Architecture", value: "architecture" },
-  { title: "Arts & Culture", value: "arts-culture" },
-  { title: "Automotive", value: "automotive" },
+  { title: "Biomedical", value: "biomedical" },
   { title: "Consulting", value: "consulting" },
   { title: "Customer Relationship Management", value: "crm" },
   { title: "Cybersecurity", value: "cybersecurity" },
-  { title: "E-commerce", value: "ecommerce" },
   { title: "Education", value: "education" },
-  { title: "Energy & Sustainability", value: "energy-sustainability" },
+  { title: "Energy, Sustainability & Infrastructure", value: "energy-sustainability" },
   { title: "Entertainment", value: "entertainment" },
   { title: "Finance", value: "finance" },
-  { title: "Food & Beverage", value: "food-beverage" },
   { title: "Government", value: "government" },
   { title: "Healthcare", value: "healthcare" },
-  { title: "Human Resources", value: "human-resources" },
   { title: "Indigenous Tech", value: "indigenous-tech" },
-  { title: "Marketing & Branding", value: "marketing-branding" },
-  { title: "Non-profit", value: "nonprofit" },
+  { title: "Insurance", value: "insurance" },
+  { title: "Internet / Technology", value: "technology" },
+  { title: "Marketing / Branding", value: "marketing-branding" },
   { title: "Real Estate", value: "real-estate" },
+  { title: "Restaurants, Bars & Food", value: "restaurants-bars-food" },
   { title: "Retail", value: "retail" },
-  { title: "Technology", value: "technology" },
+  { title: "Telecommunication", value: "telecommunication" },
   { title: "Transportation & Logistics", value: "transportation-logistics" },
   { title: "Travel & Tourism", value: "travel-tourism" },
+  { title: "Video Games", value: "video-games" },
   { title: "Web Design", value: "web-design" },
-  { title: "Other", value: "other" },
 ] as const;

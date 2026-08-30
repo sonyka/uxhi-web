@@ -56,7 +56,7 @@ questions about specific people**, all to be fixed **in Notion** and then re-syn
 | **Shayla Cabalo-Cable** | No headshot — shows an initials tile |
 | **Vincent Brathwaite** | No headshot — shows an initials tile |
 | **Sharif Matar** | No headshot — shows an initials tile |
-| **Trevor Husseini** | Only focus is `Software Development`, which isn't a UX discipline, so he has **no focus tags at all**. Ask him to pick real ones, or add a `software-development` option. |
+| ~~**Trevor Husseini**~~ | ~~Only focus is `Software Development`~~ — **resolved 2026-08-30.** A `software-development` option was added and his tag restored. |
 | **Jamaal Pascall** | No LinkedIn — the only member without one |
 
 ### Likely data errors in Notion
@@ -222,10 +222,9 @@ Files that must change **together** (CLAUDE.md design-system sync rule):
 `schemaTypes/documents/directoryMember.ts` · `components/directory/constants.ts` ·
 `app/(site)/design-system/page.tsx`
 
-> ⚠️ **One member loses all focus tags.** Trevor Husseini lists `Software Development` as his
-> only focus, which isn't a UX discipline. He imports with an empty focus array — cosmetic, since
-> `focus` is optional — but either ask him to update his Notion row or add a
-> `software-development` option.
+> ✅ **Resolved 2026-08-30.** Trevor Husseini listed `Software Development` as his only focus,
+> which had no matching option, so he imported with an empty focus array. `software-development`
+> is now an option and his tag is restored.
 
 ### Location → city
 
