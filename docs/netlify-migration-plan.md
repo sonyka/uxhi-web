@@ -95,10 +95,67 @@ Then drop the new year's static site into `public/conferences/[year]/`.
 
 ### Dashboard (you)
 - [ ] Add `uxhi.community` as a custom domain on the Netlify project
-- [ ] At SiteGround (or wherever the domain DNS is managed): point `uxhi.community` to Netlify
+- [ ] At SiteGround: change the two web records only — see the runbook below
 - [ ] Wait for DNS propagation
 - [ ] Verify the new Next.js site is live at `uxhi.community`
 - [ ] Keep the old SiteGround site intact for a few weeks as a fallback before decommissioning
+
+---
+
+### DNS runbook — pointing `uxhi.community` at Netlify
+
+> ⛔ **Do not copy how `uxhiconference.com` was set up.** That domain delegates its
+> nameservers to Netlify DNS (`nsone.net`), which was safe because it carries **no MX
+> records**. `uxhi.community` does:
+>
+> ```
+> MX  10  mx10.antispam.mailspamprotection.com
+> MX  20  mx20.antispam.mailspamprotection.com
+> MX  30  mx30.antispam.mailspamprotection.com
+> TXT     v=spf1 +a +mx +a:us200.siteground.us … ~all
+> ```
+>
+> **Email is live on this domain.** Delegating the nameservers moves all DNS authority to
+> Netlify and those records do not come with it — mail bounces until each one is recreated
+> there. Use external DNS instead: SiteGround stays the DNS host, and only the web records
+> change.
+
+**1 — The day before: lower the TTL.** The apex `A` record sits on a ~4 hour TTL. Drop it to
+**300 seconds** at SiteGround first. This is what makes a rollback fast.
+
+**2 — In Netlify.** Domain management → Add a domain → `uxhi.community`. Netlify adds `www`
+automatically and then shows the exact records it wants. **Prefer what the dashboard shows
+over the values below** if they ever differ.
+
+**3 — In SiteGround's DNS editor, change two records:**
+
+| Record | Currently | Change to |
+|---|---|---|
+| `@` (apex) | `A → 34.174.88.19` | `ALIAS`/`ANAME` → `apex-loadbalancer.netlify.com` if SiteGround supports it, otherwise `A → 75.2.60.5` |
+| `www` | `CNAME → uxhi.community` | `CNAME → splendid-entremet-f6cb1d.netlify.app` |
+
+**Leave the three `MX` records and the SPF `TXT` record untouched.** They are email, not web.
+
+**4 — Wait.** Typically 15–60 minutes with a low TTL; up to 24 hours worst case. Check with
+`dig +short uxhi.community` — the new value appearing means it has flipped.
+
+**5 — SSL provisions itself.** Netlify issues a Let's Encrypt certificate once DNS resolves to
+them. It may briefly show an error first; that is normal, not a failure.
+
+**Rollback:** set the apex `A` record back to `34.174.88.19`. Pointing DNS away does not delete
+the SiteGround site — it stays at that IP, which is the fallback this phase already calls for.
+
+#### Two decisions to make first
+
+- **Apex or `www` as canonical?** Netlify notes an apex domain on external DNS cannot use their
+  direct CDN routing, so `www.uxhi.community` would be marginally faster. But
+  `uxhiconference.com` uses the bare apex, so the apex is more consistent. The difference is
+  small; recommendation is to keep the apex.
+- **If `www` becomes canonical**, add `https://www.uxhi.community` to the Sanity CORS allowlist —
+  it currently holds only the apex, so live content updates would break on `www`. The robots
+  rules (`src/app/robots.ts`) and the GA gating already handle both forms.
+
+*Values above verified against live DNS and Netlify's external-DNS documentation on 2026-08-30.*
 
 ---
 
