@@ -115,16 +115,16 @@ const fallbackCommittees = [
 // Hardcoded fallback partners
 const fallbackPartners = [
   { name: "Pi'iku Co.", logo: "/images/company_logos/piiku-logo.png", width: 80, height: 32 },
-  { name: "Hawaii Coworking", logo: "/images/company_logos/hawaii-coworking-logo.jpg", width: 128, height: 44 },
+  { name: "Hawaii Coworking", logo: "/images/company_logos/hawaii-coworking-logo.png", width: 128, height: 44 },
   { name: "Hub Coworking Hawaii", logo: "/images/company_logos/hub-logo.png", width: 90, height: 36 },
   { name: "Entrepreneurs Sandbox", logo: "/images/company_logos/sandbox-logo.svg", width: 100, height: 32 },
   { name: "Vanta", logo: "/images/company_logos/vanta-logo.png", width: 128, height: 48 },
   { name: "Holoholo App", logo: "/images/company_logos/holoholo-logo.png", width: 128, height: 128 },
   { name: "Purple Mai'a", logo: "/images/company_logos/purple-maia.png", width: 72, height: 32 },
   { name: "University of Hawaii", logo: "/images/company_logos/uh-logo.png", width: 80, height: 32 },
-  { name: "AI Hawaii", logo: "/images/company_logos/HiAI-logo.jpg", width: 80, height: 32 },
-  { name: "Honolulu Tech Network", logo: "/images/company_logos/htn-logo.jpeg", width: 80, height: 28 },
-  { name: "Honolulu BitDevs", logo: "/images/company_logos/hnl-bitdevs-logo.jpg", width: 80, height: 28 },
+  { name: "AI Hawaii", logo: "/images/company_logos/HiAI-logo.png", width: 80, height: 32 },
+  { name: "Honolulu Tech Network", logo: "/images/company_logos/htn-logo.png", width: 80, height: 28 },
+  { name: "Honolulu BitDevs", logo: "/images/company_logos/hnl-bitdevs-logo.png", width: 80, height: 28 },
   { name: "HTW", logo: "/images/company_logos/htw-logo.webp", width: 80, height: 32 },
 ];
 
