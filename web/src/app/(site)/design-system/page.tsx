@@ -456,13 +456,13 @@ function MobileNavbarDemo() {
 // Real marks with their measured optical weights, so the demo shows the
 // evening-out the component exists to do rather than a tidy fake.
 const demoLogos = [
-  { weight: 1.35, name: "Hub Coworking Hawaii", src: "/images/company_logos/hub-logo.png", width: 360, height: 144 },
-  { weight: 1.28, name: "Purple Mai'a", src: "/images/company_logos/purple-maia.png", width: 288, height: 128 },
-  { weight: 0.97, name: "Entrepreneurs Sandbox", src: "/images/company_logos/sandbox-logo.svg", width: 400, height: 128 },
-  { weight: 0.98, name: "HTDC", src: "/images/company_logos/htdc-logo.svg", width: 320, height: 128 },
-  { weight: 0.81, name: "Adobe", src: "/images/company_logos/adobe-logo.svg", width: 360, height: 144 },
-  { weight: 0.72, name: "Servco", src: "/images/company_logos/servco.svg", width: 320, height: 96 },
-  { weight: 0.74, name: "Mantle", src: "/images/company_logos/mantle-logo.svg", width: 360, height: 128 },
+  { weight: 1.39, name: "Hub Coworking Hawaii", src: "/images/company_logos/hub-logo.png", width: 360, height: 144 },
+  { weight: 1.30, name: "Purple Mai'a", src: "/images/company_logos/purple-maia.png", width: 288, height: 128 },
+  { weight: 1.01, name: "Entrepreneurs Sandbox", src: "/images/company_logos/sandbox-logo.svg", width: 400, height: 128 },
+  { weight: 1.00, name: "HTDC", src: "/images/company_logos/htdc-logo.svg", width: 320, height: 128 },
+  { weight: 0.87, name: "Adobe", src: "/images/company_logos/adobe-logo.svg", width: 360, height: 144 },
+  { weight: 0.65, name: "Servco", src: "/images/company_logos/servco.svg", width: 320, height: 96 },
+  { weight: 0.61, name: "Mantle", src: "/images/company_logos/mantle-logo.svg", width: 360, height: 128 },
 ];
 
 const contentComponents: Record<string, React.ReactNode> = {
