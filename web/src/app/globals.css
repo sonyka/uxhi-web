@@ -194,37 +194,6 @@ html {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
-/* ── Logo marquee (components/ui/LogoMarquee.tsx) ─────────────────── */
-/* The track holds the logo list N times and shifts by exactly one set
-   (100/N%), which lands the next copy where the last began — seamless, and
-   with no pixel distance to keep in step when logos are added or removed.
-   N comes from the component; see LogoMarquee.tsx for why it is never 2. */
-.logo-marquee-track {
-  animation: logo-marquee-left var(--marquee-duration, 50s) linear infinite;
-}
-.logo-marquee-track[data-direction="right"] {
-  animation-name: logo-marquee-right;
-}
-.logo-marquee:hover .logo-marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes logo-marquee-left {
-  from { transform: translateX(0); }
-  to   { transform: translateX(calc(-1 * var(--marquee-shift, 50%))); }
-}
-@keyframes logo-marquee-right {
-  from { transform: translateX(calc(-1 * var(--marquee-shift, 50%))); }
-  to   { transform: translateX(0); }
-}
-
-/* Motion off: hold still and become an ordinary horizontal scroller, so the
-   logos past the fold are still reachable rather than simply unreachable. */
-@media (prefers-reduced-motion: reduce) {
-  .logo-marquee-track { animation: none; }
-  .logo-marquee { overflow-x: auto; }
-}
-
 /* ── UXHICONF26 photo ticker utility classes ─────────────────────── */
 .conf-ticker-v {
   animation: conf-scroll-up-md 60s linear infinite; /* MD: 768-1023 */

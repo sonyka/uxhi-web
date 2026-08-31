@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LogoMarquee, type MarqueeLogo } from "@/components/ui/LogoMarquee";
+import { LogoGrid, type GridLogo } from "@/components/ui/LogoGrid";
 import { logoWeight } from "@/lib/logoWeights";
 import type { Metadata } from "next";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
@@ -185,7 +185,7 @@ export default async function GetInvolvedPage() {
   const toLogos = (
     rows: PartnerSponsor[],
     fallback: { name: string; logo: string; width?: number; height?: number }[]
-  ): MarqueeLogo[] =>
+  ): GridLogo[] =>
     rows.length > 0
       ? rows.map((row) => {
           const size = row.logo?.asset ? croppedSize(row.logo) : { width: 400, height: 200 };
@@ -646,13 +646,15 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Successful partnerships Section */}
-      <section className="py-16">
+      <section className="py-16 px-6">
+        <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
-            <SectionEyebrow className="text-center mb-12 px-6">
+            <SectionEyebrow className="text-center mb-12">
               Successful partnerships
             </SectionEyebrow>
           </ScrollReveal>
-          <LogoMarquee logos={partnerLogos} size="lg" speed="normal" direction="left" />
+          <LogoGrid logos={partnerLogos} />
+        </div>
       </section>
 
       {/* Sponsorships Section */}
@@ -672,13 +674,15 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Past event sponsors Section */}
-      <section className="py-16">
+      <section className="py-16 px-6">
+        <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
-            <SectionEyebrow className="text-center mb-12 px-6">
+            <SectionEyebrow className="text-center mb-12">
               Past event sponsors
             </SectionEyebrow>
           </ScrollReveal>
-          <LogoMarquee logos={sponsorLogos} size="lg" speed="slow" direction="right" />
+          <LogoGrid logos={sponsorLogos} />
+        </div>
       </section>
 
       {/* Ready to Collaborate Section */}

@@ -23,7 +23,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { HeroContent } from "@/components/ui/HeroContent";
-import { LogoMarquee } from "@/components/ui/LogoMarquee";
+import { LogoGrid } from "@/components/ui/LogoGrid";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
@@ -129,7 +129,7 @@ const navigationItems = [
     category: "Cards & Modules",
     items: [
       { id: "card-spotillustration", label: "Spot Illustration Card" },
-      { id: "card-logomarquee", label: "Logo Marquee" },
+      { id: "card-logogrid", label: "Logo Grid" },
       { id: "card-carousel", label: "Carousel Testimonial" },
       { id: "card-link", label: "Link Card" },
       { id: "card-principles", label: "Principle List" },
@@ -1489,32 +1489,30 @@ const contentComponents: Record<string, React.ReactNode> = {
       </div>
     </ContentSection>
   ),
-  "card-logomarquee": (
+  "card-logogrid": (
     <ContentSection
-      title="Logo Marquee"
-      description="Full-colour logo strip that scrolls horizontally, forever. Used for partner and sponsor walls. Sizes by optical volume, not height, so a wide wordmark and a compact badge carry the same visual mass. Pauses on hover; holds still under reduced-motion."
-      componentPath="components/ui/LogoMarquee.tsx"
+      title="Logo Grid"
+      description="Partner/sponsor logos in a bordered tile grid. Muted by default, full colour on hover. Cells are transparent, so the grid sits on the page ground rather than introducing a panel. Sizes by optical volume, not height."
+      componentPath="components/ui/LogoGrid.tsx"
     >
       <div className="space-y-8">
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Large, scrolling left (default speed)</h4>
-          <div className="py-8 bg-gray-10 rounded-xl overflow-hidden">
-            <LogoMarquee logos={demoLogos} size="lg" />
-          </div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Default (md)</h4>
+          <LogoGrid logos={demoLogos} />
+          <p className="text-xs text-gray-100 mt-3">Hover a tile to bring its logo up in full colour.</p>
         </div>
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Medium, scrolling right, slow</h4>
-          <div className="py-8 bg-beige-30 rounded-xl overflow-hidden">
-            <LogoMarquee logos={demoLogos} size="md" speed="slow" direction="right" />
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Small, on a beige ground</h4>
+          <div className="bg-beige-30 p-6 rounded-xl">
+            <LogoGrid logos={demoLogos} size="sm" />
           </div>
         </div>
         <p className="text-xs text-gray-100">
-          Base heights: <code>md</code> 56px, <code>lg</code> 72px — each logo&apos;s{" "}
-          <code>weight</code> scales that so marks even out by ink volume rather than by height
-          (see <code>lib/logoWeights.ts</code>). Speeds: <code>slow</code> 70s, <code>normal</code>{" "}
-          50s, <code>fast</code> 32s per pass. Place it full-bleed — outside any max-width container
-          — so logos run to the edge of the viewport. Logos without an image fall back to their name
-          as text.
+          Base logo heights: <code>sm</code> 28px, <code>md</code> 36px, <code>lg</code> 44px — each
+          logo&apos;s <code>weight</code> scales that so marks even out by ink volume rather than by
+          height (see <code>lib/logoWeights.ts</code>). Grid is 2 columns, 3 from{" "}
+          <code>sm</code>, 5 from <code>lg</code>. Logos without an image fall back to their name as
+          text.
         </p>
       </div>
     </ContentSection>
