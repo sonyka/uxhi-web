@@ -50,10 +50,26 @@ const HEIGHTS = { sm: 28, md: 36, lg: 44 } as const;
  * is what makes a mixed wall look arbitrary; see lib/logoWeights.ts for how the
  * multipliers are measured.
  *
- * The resting tint matches the conference sponsor grid: grayscale plus reduced
- * brightness and contrast, not opacity. Opacity fades a mark toward the page
- * behind it and leaves it looking washed out; dropping brightness keeps it
- * solid while draining the colour.
+ * The resting tint is grayscale plus a contrast reduction that LIFTS rather
+ * than darkens. Read the filter as a transfer function and it has a fixed
+ * point — the luminance it leaves alone — with everything below getting
+ * lighter and everything above getting darker. Muting on a light ground wants
+ * that point high, so nearly all of a mark fades toward the page.
+ *
+ * It used to sit at L=0.29 (`brightness-75 contrast-75`), which was tuned on
+ * line art: dark ink does fall below 0.29 and so did fade. But every mid-tone
+ * above it was pushed the wrong way, and a filled mark — an app icon, a
+ * colour badge, a seal — is mostly mid-tones. Those went to a flat 0.35-0.49
+ * mass, i.e. the "mute" made the densest logos the LOUDEST things in the grid.
+ * Holoholo, Honolulu Tech Network, Honolulu BitDevs and OER were all bricks.
+ *
+ * `brightness-[1.18] contrast-[.55]` puts the fixed point at L=0.64, above
+ * essentially everything, so filled marks lighten into the page while line art
+ * still lands dark enough to read. Not opacity: opacity fades the whole mark
+ * uniformly toward the ground and leaves thin strokes too weak to see.
+ *
+ * The conference sponsor grids deliberately do NOT track this — each year owns
+ * its own design, so 2026 keeps the tint it shipped with.
  *
  * @see /design-system for usage examples
  */
@@ -103,7 +119,7 @@ export function LogoGrid({ logos, size = "md", className }: LogoGridProps) {
             height={logo.height ?? 200}
             className={cn(
               "w-auto max-w-full object-contain",
-              "grayscale brightness-75 contrast-75 transition duration-300",
+              "grayscale brightness-[1.18] contrast-[.55] transition duration-300",
               "group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100"
             )}
             style={{ height: Math.round(height * (logo.weight ?? 1)) }}

@@ -1514,6 +1514,13 @@ const contentComponents: Record<string, React.ReactNode> = {
           <code>sm</code>, 5 from <code>lg</code>. Logos without an image fall back to their name as
           text.
         </p>
+        <p className="text-xs text-gray-100">
+          Resting tint is <code>grayscale brightness-[1.18] contrast-[.55]</code> — a contrast
+          reduction that lifts rather than darkens. Its fixed point sits at luminance 0.64, above
+          almost everything in a logo, so filled marks (app icons, colour badges, seals) fade into
+          the page instead of collapsing into a dark brick. Reach for this pairing rather than
+          <code>opacity</code>, which fades a mark uniformly and leaves thin strokes too weak to read.
+        </p>
       </div>
     </ContentSection>
   ),
