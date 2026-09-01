@@ -646,7 +646,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Successful partnerships Section */}
-      <section className="py-16 px-6">
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
             <SectionEyebrow className="text-center mb-12">
@@ -674,7 +674,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Past event sponsors Section */}
-      <section className="py-16 px-6">
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
             <SectionEyebrow className="text-center mb-12">
