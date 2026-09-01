@@ -22,10 +22,84 @@ interface LogoGridProps {
   logos: GridLogo[];
   /** Base logo height in px before each logo's optical weight is applied. */
   size?: "sm" | "md" | "lg";
+  /**
+   * Render in the given order instead of balancing rows by weight. Set this
+   * when the sequence carries meaning — sponsor tiers, a headline partner
+   * first. See `balanceRows` for what is otherwise done, and why.
+   */
+  preserveOrder?: boolean;
   className?: string;
 }
 
 const HEIGHTS = { sm: 28, md: 36, lg: 44 } as const;
+
+/**
+ * Reorders logos so no row ends up carrying all the heavy marks.
+ *
+ * Optical weights even out any single pair of logos, but they say nothing
+ * about who a logo sits NEXT to, and a wall can be perfectly even per-cell
+ * and still look wrong. The partner grid was the case in point: source order
+ * happened to put every compact badge in row 2, giving row means of
+ * 34 / 55 / 37px. Each mark was the right size and the grid still read as a
+ * big row wedged between two small ones. The sponsor grid, with the same 2.7x
+ * size spread, looked fine purely because its badges were scattered.
+ *
+ * Lowering the size spread barely touches this — it only takes that 21px row
+ * gap to 11px, and pays for it by undoing the evening-out. Reordering takes it
+ * to 3px and costs nothing.
+ *
+ * Heaviest-first into whichever row is currently lightest, then alternate big
+ * and small within each row so the balance holds horizontally too.
+ *
+ * Rows are computed for the 5-column desktop layout, the widest and the one
+ * this is most visible in. The sequence it produces alternates heavy and light
+ * throughout, so 2- and 3-column breakpoints inherit a decent arrangement
+ * rather than an optimal one — a real limit, but the alternative is measuring
+ * in the browser to lay out a static grid.
+ *
+ * This overrides the CMS "Display Order" field, which is why `preserveOrder`
+ * exists. Both current grids leave that field at plain insertion order, so
+ * nothing meaningful is being discarded today.
+ */
+function balanceRows(logos: GridLogo[], cols = 5): GridLogo[] {
+  if (logos.length <= cols) return logos;
+
+  const w = (l: GridLogo) => l.weight ?? 1;
+  const rowCount = Math.ceil(logos.length / cols);
+  const capacity = Array.from({ length: rowCount }, (_, i) =>
+    Math.min(cols, logos.length - i * cols)
+  );
+  const rows: GridLogo[][] = capacity.map(() => []);
+
+  for (const logo of [...logos].sort((a, b) => w(b) - w(a))) {
+    // Lightest row by MEAN, not sum: a short final row must not soak up the
+    // heavy marks just because it has fewer of them.
+    let best = -1;
+    let bestMean = Infinity;
+    for (let i = 0; i < rows.length; i++) {
+      if (rows[i].length >= capacity[i]) continue;
+      const mean = rows[i].reduce((s, l) => s + w(l), 0) / capacity[i];
+      if (mean < bestMean) {
+        bestMean = mean;
+        best = i;
+      }
+    }
+    rows[best].push(logo);
+  }
+
+  return rows.flatMap((row) => {
+    const desc = [...row].sort((a, b) => w(b) - w(a));
+    const half = Math.ceil(desc.length / 2);
+    const heavy = desc.slice(0, half);
+    const light = desc.slice(half).reverse();
+    const out: GridLogo[] = [];
+    for (let i = 0; i < half; i++) {
+      out.push(heavy[i]);
+      if (i < light.length) out.push(light[i]);
+    }
+    return out;
+  });
+}
 
 /**
  * LogoGrid - Partner/sponsor logos in a bordered tile grid.
@@ -73,9 +147,15 @@ const HEIGHTS = { sm: 28, md: 36, lg: 44 } as const;
  *
  * @see /design-system for usage examples
  */
-export function LogoGrid({ logos, size = "md", className }: LogoGridProps) {
-  if (!logos.length) return null;
+export function LogoGrid({
+  logos: sourceLogos,
+  size = "md",
+  preserveOrder = false,
+  className,
+}: LogoGridProps) {
+  if (!sourceLogos.length) return null;
 
+  const logos = preserveOrder ? sourceLogos : balanceRows(sourceLogos);
   const height = HEIGHTS[size];
 
   // Cells needed to complete the last row, per breakpoint's column count.

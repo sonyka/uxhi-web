@@ -1515,6 +1515,15 @@ const contentComponents: Record<string, React.ReactNode> = {
           text.
         </p>
         <p className="text-xs text-gray-100">
+          Rows are <strong>balanced by weight</strong>, not rendered in source order: the heaviest
+          mark goes to whichever row is lightest, then big and small alternate within each row.
+          Per-cell sizing alone can still look wrong if the source order happens to group every
+          compact badge into one row — that was the partner wall, even at 34 / 55 / 37px row means,
+          and balancing brings it to within 3px. Pass <code>preserveOrder</code> when the sequence
+          carries meaning (sponsor tiers, a headline partner first); it otherwise overrides the
+          CMS &ldquo;Display Order&rdquo; field.
+        </p>
+        <p className="text-xs text-gray-100">
           Resting tint is <code>grayscale brightness-[1.18] contrast-[.55]</code> — a contrast
           reduction that lifts rather than darkens. Its fixed point sits at luminance 0.64, above
           almost everything in a logo, so filled marks (app icons, colour badges, seals) fade into
