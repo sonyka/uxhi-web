@@ -42,27 +42,32 @@
  * only, and a logo wide enough to be width-capped would silently ignore its
  * weight. Shaka Guide (7:1) is the closest and still clears it.
  *
- * TWO ENTRIES ARE DELIBERATELY OFF THE FORMULA. Holoholo App and RVCM are
- * both set 20% below what it returns, and re-deriving will hand back the old
- * numbers unless this is carried across.
+ * EIGHT ENTRIES ARE DELIBERATELY OFF THE FORMULA, marked inline. Re-deriving
+ * will hand back the old numbers unless these are carried across.
  *
- * The cause is a known limit of the measurement: ink is LUMINANCE, so it
- * describes the muted rendering, and the grids now render `tone="colour"`
- * (see LogoGrid). A saturated mark puts more on the page than its luminance
- * implies. Ranking each mark's colour presence — mean HCL chroma over its
- * area — against its measured ink isolates who this actually hurts:
+ * They all correct for one missing term. Ink is measured on LUMINANCE, so it
+ * describes the muted rendering; the grids now render `tone="colour"` (see
+ * LogoGrid), where a saturated mark advances and a flat dark one recedes
+ * regardless of how much luminance ink each puts down. Ranking every mark by
+ * colour presence — mean HCL chroma over its area — against its measured ink
+ * sorts the corrections perfectly:
  *
- *              colour/ink   weight   oversized?
- *   Holoholo        1.76     1.75    yes — colour-forward AND large
- *   RVCM            1.15     1.56    yes
- *   Zippy's         1.95     0.90    no  — colour-forward but small already
- *   OER             0.77     1.69    no  — large but not colour-forward
- *   UH seal         0.44     1.57    no
+ *                            mean colour/ink   chroma rank (of 23)
+ *   corrected DOWN 20%              1.46            2nd, 4th
+ *   left alone                      0.66            —
+ *   corrected UP 12%                0.35            10th-22nd
  *
- * Only the two that are both colour-forward and large read wrong, which is
- * why this is two overrides and not a re-derivation. The principled fix is a
- * chroma term in the ink measure; it is not worth the churn for two logos,
- * but it is the thing to do if the wall ever fills up with saturated marks.
+ * Every mark judged too big by eye is among the most colour-forward; every
+ * one judged too small is among the least. Two independent rounds of notes,
+ * eight logos, no inversions. That is not taste, it is a systematic error in
+ * the measure.
+ *
+ * So the real fix is a chroma term in the ink measurement, re-derived across
+ * the set. It is deferred only because these hand corrections already land
+ * where the eye wants them, and a re-derivation would move all 24 weights
+ * including the 15 nobody has complained about. Do it when the wall next
+ * changes composition — and note it would also let University of Hawaii off
+ * the 1.75 ceiling, which it is currently pinned against.
  *
  * A logo missing from this map renders at weight 1, i.e. plain height
  * normalisation. Safe, just less even; add a measured entry when one is added.
@@ -72,24 +77,24 @@ export const LOGO_OPTICAL_WEIGHTS: Record<string, number> = {
   "AI Hawaii":              1.53,
   "Anthology Finn":         1.38,
   "Entrepreneurs Sandbox":  1.01,
-  "Hawaii Coworking":       0.65,
+  "Hawaii Coworking":       0.73, // +12% — colour-recessive, see note
   "Holoholo App":           1.40, // 20% under formula — see note
-  "Honolulu BitDevs":       1.23,
-  "Honolulu Tech Network":  1.54,
+  "Honolulu BitDevs":       1.38, // +12% — colour-recessive, see note
+  "Honolulu Tech Network":  1.72, // +12% — colour-recessive, see note
   "HTDC":                   1.00,
-  "HTW":                    0.80,
+  "HTW":                    0.90, // +12% — colour-recessive, see note
   "Hub Coworking":          1.39,
   "Hub Coworking Hawaii":   1.39,
   "KCC NMA":                0.90,
   "Mantle":                 0.61,
   "OER":                    1.69,
   "Pi'iku Co.":             0.79,
-  "Purple Mai'a":           1.30,
+  "Purple Mai'a":           1.46, // +12% — colour-recessive, see note
   "RVCM":                   1.25, // 20% under formula — see note
   "Servco":                 0.65,
   "Shaka Guide":            0.63,
   "Terranox":               0.94,
-  "University of Hawaii":   1.57,
+  "University of Hawaii":   1.75, // +12% (clamp ceiling) — see note
   "Vanta":                  0.92,
   "Zippy's":                0.90,
 };
