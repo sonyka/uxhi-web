@@ -686,7 +686,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Ready to Collaborate Section */}
-      <section className="py-16 px-6 bg-beige-10">
+      <section className="py-16 px-6 bg-white">
         <ScrollReveal stagger className="max-w-[600px] mx-auto text-center">
           <MotionDiv>
             <SectionIcon src="/images/icons/icon-collaborate.svg" alt="Collaborate" />
