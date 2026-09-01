@@ -42,6 +42,28 @@
  * only, and a logo wide enough to be width-capped would silently ignore its
  * weight. Shaka Guide (7:1) is the closest and still clears it.
  *
+ * TWO ENTRIES ARE DELIBERATELY OFF THE FORMULA. Holoholo App and RVCM are
+ * both set 20% below what it returns, and re-deriving will hand back the old
+ * numbers unless this is carried across.
+ *
+ * The cause is a known limit of the measurement: ink is LUMINANCE, so it
+ * describes the muted rendering, and the grids now render `tone="colour"`
+ * (see LogoGrid). A saturated mark puts more on the page than its luminance
+ * implies. Ranking each mark's colour presence — mean HCL chroma over its
+ * area — against its measured ink isolates who this actually hurts:
+ *
+ *              colour/ink   weight   oversized?
+ *   Holoholo        1.76     1.75    yes — colour-forward AND large
+ *   RVCM            1.15     1.56    yes
+ *   Zippy's         1.95     0.90    no  — colour-forward but small already
+ *   OER             0.77     1.69    no  — large but not colour-forward
+ *   UH seal         0.44     1.57    no
+ *
+ * Only the two that are both colour-forward and large read wrong, which is
+ * why this is two overrides and not a re-derivation. The principled fix is a
+ * chroma term in the ink measure; it is not worth the churn for two logos,
+ * but it is the thing to do if the wall ever fills up with saturated marks.
+ *
  * A logo missing from this map renders at weight 1, i.e. plain height
  * normalisation. Safe, just less even; add a measured entry when one is added.
  */
@@ -51,7 +73,7 @@ export const LOGO_OPTICAL_WEIGHTS: Record<string, number> = {
   "Anthology Finn":         1.38,
   "Entrepreneurs Sandbox":  1.01,
   "Hawaii Coworking":       0.65,
-  "Holoholo App":           1.75,
+  "Holoholo App":           1.40, // 20% under formula — see note
   "Honolulu BitDevs":       1.23,
   "Honolulu Tech Network":  1.54,
   "HTDC":                   1.00,
@@ -63,7 +85,7 @@ export const LOGO_OPTICAL_WEIGHTS: Record<string, number> = {
   "OER":                    1.69,
   "Pi'iku Co.":             0.79,
   "Purple Mai'a":           1.30,
-  "RVCM":                   1.56,
+  "RVCM":                   1.25, // 20% under formula — see note
   "Servco":                 0.65,
   "Shaka Guide":            0.63,
   "Terranox":               0.94,
