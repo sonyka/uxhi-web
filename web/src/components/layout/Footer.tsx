@@ -5,8 +5,17 @@ import { SendIcon } from "@/components/ui/icons";
 /**
  * Footer Component
  *
- * Figma specs:
- * - Background: bg-teal-60 (#60D7E5)
+ * Background is bg-teal-50 (#7DDFE9), one step lighter than the teal-60 the
+ * Figma file specifies. Deliberate, and worth keeping: the footer's text is
+ * all gray-120, which reaches only 6.45:1 on teal-60 — AA, but short of AAA.
+ * Lightening the ground one step takes it to 7.11:1 and clears AAA, and the
+ * gray-140 link hover goes 10.39:1 -> 11.44:1.
+ *
+ * Note this changes the footer's usage, not the token: teal-60 is still what
+ * FAQSection's open state, FormSelect's selected row and the 2026 conference
+ * theme are built on, and none of those should move because this one did.
+ *
+ * Remaining Figma specs:
  * - Layout: justify-between, items-start, px-6 py-12 (48px vertical)
  * - Headline: font-semibold, text-xl (20px), leading-[45px], text-gray-120
  * - Left column: gap-14 (56px) between headline and logo row
@@ -76,7 +85,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-teal-60 px-6 py-12">
+    <footer className="bg-teal-50 px-6 py-12">
       <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
         {/* Headline — on desktop sits above logo in left column via lg:flex wrapper */}
         <div className="flex flex-col gap-14 shrink-0 order-1">
