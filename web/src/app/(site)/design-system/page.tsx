@@ -1502,6 +1502,18 @@ const contentComponents: Record<string, React.ReactNode> = {
           <p className="text-xs text-gray-100 mt-3">Hover a tile to bring its logo up in full colour.</p>
         </div>
         <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Full colour (<code>tone=&quot;colour&quot;</code>)</h4>
+          <LogoGrid logos={demoLogos} tone="colour" />
+          <p className="text-xs text-gray-100 mt-3">
+            Marks as drawn, so hover is inert — there is nothing held back to reveal. Use with care
+            on a wall mixing monochrome wordmarks with polychrome badges: a saturated mark advances
+            and a black wordmark recedes however carefully the two were matched for size, which is
+            the variable muting exists to remove. Note the optical weights are measured on
+            luminance, so they describe the muted rendering; a saturated mark reads heavier here
+            than its measured ink implies.
+          </p>
+        </div>
+        <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Small, on a beige ground</h4>
           <div className="bg-beige-30 p-6 rounded-xl">
             <LogoGrid logos={demoLogos} size="sm" />

@@ -28,8 +28,39 @@ interface LogoGridProps {
    * first. See `balanceRows` for what is otherwise done, and why.
    */
   preserveOrder?: boolean;
+  /**
+   * Resting treatment. `muted` desaturates and lifts, holding colour back as
+   * the hover reward. `colour` shows every mark as-drawn, which makes hover
+   * inert — there is nothing left to reveal. See TONES.
+   */
+  tone?: "muted" | "colour";
   className?: string;
 }
+
+/**
+ * Resting treatments.
+ *
+ * `muted` is the default and the one the grid was designed around: colour is
+ * held back so it becomes the reward for pointing at a cell.
+ *
+ * `colour` shows the marks as drawn. Worth knowing before choosing it — a wall
+ * mixing monochrome wordmarks with polychrome badges goes lumpy, because a
+ * saturated mark advances and a black wordmark recedes no matter how carefully
+ * the two were matched for size. Muting removes exactly that variable. The
+ * partner wall is the hard case (roughly half its marks are plain black); the
+ * sponsor wall, being mostly coloured already, holds together far better.
+ *
+ * Note also that the optical weights in lib/logoWeights.ts are measured on
+ * LUMINANCE, so they describe the muted rendering. Under `colour` a saturated
+ * mark carries more presence than its measured ink implies, and the sizing is
+ * a little less true than it looks in muted.
+ */
+const TONES = {
+  muted:
+    "grayscale brightness-[1.18] contrast-[.55] transition duration-300 " +
+    "group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100",
+  colour: "",
+} as const;
 
 const HEIGHTS = { sm: 28, md: 36, lg: 44 } as const;
 
@@ -151,6 +182,7 @@ export function LogoGrid({
   logos: sourceLogos,
   size = "md",
   preserveOrder = false,
+  tone = "muted",
   className,
 }: LogoGridProps) {
   if (!sourceLogos.length) return null;
@@ -197,11 +229,7 @@ export function LogoGrid({
             alt={logo.name}
             width={logo.width ?? 400}
             height={logo.height ?? 200}
-            className={cn(
-              "w-auto max-w-full object-contain",
-              "grayscale brightness-[1.18] contrast-[.55] transition duration-300",
-              "group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100"
-            )}
+            className={cn("w-auto max-w-full object-contain", TONES[tone])}
             style={{ height: Math.round(height * (logo.weight ?? 1)) }}
           />
         ) : (

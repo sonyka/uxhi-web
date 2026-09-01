@@ -653,7 +653,7 @@ export default async function GetInvolvedPage() {
               Successful partnerships
             </SectionEyebrow>
           </ScrollReveal>
-          <LogoGrid logos={partnerLogos} />
+          <LogoGrid logos={partnerLogos} tone="colour" />
         </div>
       </section>
 
@@ -681,7 +681,7 @@ export default async function GetInvolvedPage() {
               Past event sponsors
             </SectionEyebrow>
           </ScrollReveal>
-          <LogoGrid logos={sponsorLogos} />
+          <LogoGrid logos={sponsorLogos} tone="colour" />
         </div>
       </section>
 
