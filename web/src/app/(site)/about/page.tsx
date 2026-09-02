@@ -230,7 +230,11 @@ export default async function AboutPage() {
         <div className="mx-auto max-w-[900px]">
           <ScrollReveal stagger>
             <MotionDiv>
-              <SectionEyebrow className="mb-3">Our approach</SectionEyebrow>
+              <SectionEyebrow className="mb-3">
+                Our approach
+                <br />
+                From UX to aloha-centered design
+              </SectionEyebrow>
             </MotionDiv>
 
             <MotionDiv>
@@ -242,18 +246,19 @@ export default async function AboutPage() {
             <MotionDiv>
               <SectionLead size="md" className="mb-5">
                 Aloha-centered design is our Hawaiʻi-rooted approach to
-                human-centered design — built on the same foundation as UX, but
-                grounded in something more specific to where we practice it.
+                human-centered design. Built from foundations of UX. Grounded in
+                the values of our home.
               </SectionLead>
             </MotionDiv>
 
             <MotionDiv>
               <SectionLead size="md">
-                Where human-centered design generally asks you to design{" "}
-                <em className="italic">for</em> the user, aloha-centered design
-                asks you to design <em className="italic">with</em> aloha: for
-                the people who&apos;ll use what you build, the culture and place
-                they come from, and the communities they&apos;re part of.
+                Where UX and human-centered design generally just ask us to
+                design <em className="italic">for</em> the user, aloha-centered
+                design is more expansive than that. It asks us to design{" "}
+                <em className="italic">with</em> aloha: a heartfelt care for the
+                people who&apos;ll use what you build, their culture, where the
+                solution takes place, and the communities involved and impacted.
               </SectionLead>
             </MotionDiv>
 

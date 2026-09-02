@@ -603,7 +603,7 @@ export default async function GetInvolvedPage() {
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal>
             <SectionHeading className="mb-6">
-              Partner
+              Partner with us
             </SectionHeading>
           </ScrollReveal>
           <ScrollReveal>
@@ -667,7 +667,7 @@ export default async function GetInvolvedPage() {
           </MotionDiv>
           <MotionDiv>
             <p className="text-gray-120 text-lg leading-relaxed">
-              Our sponsorship packages are designed to elevate your brand, showcase your products, and facilitate connections with influencers, decision-makers, and potential partners. By partnering with us, you&apos;ll not only enhance your brand recognition but also reinforce your dedication to improving the digital landscape through UX design.
+              Our sponsorship packages are designed to elevate your brand and showcase your service or products. Through your sponsorship, you&apos;ll not only enhance your brand recognition but also reinforce your commitment towards supporting aloha-centered design.
             </p>
           </MotionDiv>
         </ScrollReveal>
