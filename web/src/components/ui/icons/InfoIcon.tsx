@@ -3,21 +3,30 @@ interface IconProps {
 }
 
 /**
- * InfoIcon - filled circle with a knocked-out "i".
+ * InfoIcon - UXHI's own info mark: a rounded speech form with an "i".
  *
- * Filled rather than outlined because this renders at roughly 1em beside
- * inline text, where a stroked circle and a stroked "i" muddy into each
- * other. The glyph is punched out with evenodd so the icon takes its colour
- * from `currentColor` alone.
+ * Drawn on a 40x40 grid and filled rather than stroked, so unlike the Lucide
+ * glyphs elsewhere it does not thin out as it scales down. Sized explicitly
+ * by the caller (20px in the homepage hero, 16px in body copy) rather than
+ * in em, because the artwork holds up better at set sizes than at whatever
+ * a surrounding type ramp happens to produce.
+ *
+ * The source export carried `fill="black"` plus an inline fill style; both
+ * are dropped for `currentColor` so the icon takes its colour from the
+ * trigger it sits in.
  */
 export function InfoIcon({ className = "w-4 h-4" }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M8 16A8 8 0 108 0a8 8 0 000 16zM8 3.6a.95.95 0 100 1.9.95.95 0 000-1.9zM7.1 7.3a.9.9 0 011.8 0v4.4a.9.9 0 01-1.8 0V7.3z"
-      />
+    <svg
+      className={className}
+      viewBox="0 0 40 40"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d="M0.00152969 31.6671V20.5677C-0.0606359 15.4304 1.82293 10.4597 5.27405 6.65371C8.72517 2.8477 13.4883 0.488142 18.6072 0.0487697C21.4643 -0.151124 24.331 0.264991 27.0134 1.26896C29.6957 2.27293 32.1312 3.84133 34.1549 5.86804C36.1786 7.89476 37.7434 10.3325 38.7434 13.0163C39.7434 15.7002 40.1552 18.5675 39.9511 21.4243C39.2145 32.0138 29.8633 40 18.1956 40H8.33442C6.12521 39.9974 4.00725 39.1186 2.4451 37.5564C0.882951 35.9943 0.00417598 33.8763 0.00152969 31.6671ZM18.8339 3.37526C14.5567 3.75364 10.5811 5.73665 7.70597 8.92589C4.83084 12.1151 3.26915 16.2743 3.33469 20.5677V31.6671C3.33469 32.9931 3.86144 34.2648 4.79908 35.2025C5.73671 36.1401 7.00841 36.6668 8.33442 36.6668H18.1956C28.2517 36.6668 35.9996 30.1672 36.6246 21.1943C36.7887 18.9087 36.4797 16.6139 35.7168 14.4531C34.954 12.2924 33.7538 10.3121 32.1912 8.6361C30.6286 6.96009 28.7371 5.62433 26.635 4.71227C24.5329 3.80021 22.2653 3.33144 19.9738 3.33526C19.5955 3.33526 19.2139 3.35026 18.8339 3.37526Z" />
+      <path d="M21.7693 12.6025C22.2381 12.1337 22.5015 11.4979 22.5015 10.8349C22.5015 10.1719 22.2381 9.536 21.7693 9.06719C21.3005 8.59837 20.6646 8.33499 20.0016 8.33499C19.3386 8.33499 18.7028 8.59837 18.2339 9.06719C17.7651 9.536 17.5017 10.1719 17.5017 10.8349C17.5017 11.4979 17.7651 12.1337 18.2339 12.6025C18.7028 13.0714 19.3386 13.3347 20.0016 13.3347C20.6646 13.3347 21.3005 13.0714 21.7693 12.6025Z" />
+      <path d="M23.3348 20.001V30.0005C23.3348 30.4425 23.1592 30.8664 22.8466 31.179C22.5341 31.4915 22.1102 31.6671 21.6682 31.6671C21.2262 31.6671 20.8023 31.4915 20.4897 31.179C20.1772 30.8664 20.0016 30.4425 20.0016 30.0005V20.001H18.335C17.893 20.001 17.4691 19.8255 17.1566 19.5129C16.844 19.2004 16.6685 18.7765 16.6685 18.3345C16.6685 17.8925 16.844 17.4686 17.1566 17.156C17.4691 16.8435 17.893 16.6679 18.335 16.6679H20.0016C20.8856 16.6679 21.7334 17.0191 22.3585 17.6441C22.9836 18.2692 23.3348 19.117 23.3348 20.001Z" />
     </svg>
   );
 }

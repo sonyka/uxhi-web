@@ -55,6 +55,7 @@ export default async function HomePage() {
               <MobileTooltip
                 tooltip={ALOHA_CENTERED_TOOLTIP}
                 href="/about#aloha-centered-design"
+                iconSize={20}
                 decorationElement={
                   // eslint-disable-next-line @next/next/no-img-element
                   <img

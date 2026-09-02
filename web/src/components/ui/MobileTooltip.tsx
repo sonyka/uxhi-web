@@ -19,7 +19,17 @@ interface MobileTooltipProps {
   linkLabel?: string;
   /** Trigger colours. Use "dark" on purple/dark backgrounds. */
   tone?: "light" | "dark";
+  /** Icon size in px: 20 beside the homepage hero, 16 in body copy. */
+  iconSize?: 16 | 20;
 }
+
+// Explicit sizes rather than an em ramp: the mark is drawn artwork, and it
+// holds up at set sizes better than at whatever a surrounding type ramp
+// happens to produce.
+const iconSizes = {
+  16: "w-4 h-4 align-[max(0.18em,calc(0.68em-16px))]",
+  20: "w-5 h-5 align-[max(0.18em,calc(0.68em-20px))]",
+} as const;
 
 const tones = {
   light: {
@@ -54,10 +64,12 @@ export function MobileTooltip({
   href,
   linkLabel = "Learn more",
   tone = "light",
+  iconSize = 16,
 }: MobileTooltipProps) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   const styles = tones[tone];
+  const icon = iconSizes[iconSize];
 
   // Close tooltip when clicking outside
   useEffect(() => {
@@ -90,23 +102,18 @@ export function MobileTooltip({
         {decorationElement}
       </span>
 
-      {/* Sized in em so it tracks body copy, capped so it stays a marker
-          rather than a button beside 80px display type.
+      {/* Superscripted by its top rather than its baseline: 0.68em sits above
+          a lowercase x-height, and taking off the icon's own height lifts its
+          top to there. The size is fixed in px while the lift is in em, so
+          the offset is written out per size in iconSizes, where Tailwind can
+          scan it: an interpolated class would never be generated.
 
-          Aligned by its top, not its baseline, so it clears the word and
-          reads as a superscript: 0.68em sits above a lowercase x-height, and
-          subtracting the icon's own height lifts its top to there.
-          `align-super` cannot do this — with a capped icon the height is not
-          a fixed share of the em, so the offset has to come off the size
-          actually rendered.
-
-          The floor carries body copy, where the icon is the full 0.7em and so
-          taller than the band it is aligning into: the subtraction goes to
-          nothing and would drop it flat onto the baseline. 0.18em lifts it
-          just clear of cap height instead, which is the same superscript
-          reading at a size where the arithmetic cannot produce it. */}
+          The floor catches body copy, where a 16px mark is taller than the
+          band it is aligning into: the subtraction goes to nothing and would
+          sit the icon flat on the baseline, at exactly the size where a
+          superscript is most legible as one. */}
       <InfoIcon
-        className={`inline-block w-[min(0.7em,20px)] h-[min(0.7em,20px)] ml-[0.06em] align-[max(0.18em,calc(0.68em-min(0.7em,20px)))] transition-colors ${styles.icon}`}
+        className={`inline-block ${icon} ml-[0.06em] transition-colors ${styles.icon}`}
       />
 
       {/* Tooltip - tap anywhere, plus hover on desktop */}

@@ -2764,7 +2764,8 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Styling</h4>
           <div className="text-sm text-gray-110 space-y-1">
-            <p>Trigger: <span className="font-mono text-xs bg-gray-20 px-1 rounded">InfoIcon</span> at <span className="font-mono text-xs bg-gray-20 px-1 rounded">min(0.7em, 20px)</span> — it tracks body copy but stays a marker beside display type</p>
+            <p>Trigger: <span className="font-mono text-xs bg-gray-20 px-1 rounded">InfoIcon</span>, UXHI&apos;s own mark rather than a Lucide glyph — filled, so it holds its weight as it scales down</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">iconSize</span>: <span className="font-mono text-xs bg-gray-20 px-1 rounded">20</span> beside the homepage hero, <span className="font-mono text-xs bg-gray-20 px-1 rounded">16</span> (default) in body copy. Set sizes, not an em ramp — and each one&apos;s superscript offset is written out in full, since Tailwind cannot scan an interpolated class</p>
             <p>Tooltip: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white rounded-xl shadow-lg</span> with tail arrow</p>
             <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">tone</span>: <span className="font-mono text-xs bg-gray-20 px-1 rounded">light</span> (default) or <span className="font-mono text-xs bg-gray-20 px-1 rounded">dark</span> for purple backgrounds</p>
             <p>Accepts optional <span className="font-mono text-xs bg-gray-20 px-1 rounded">decorationElement</span> prop, positioned against the text alone so a percentage-width decoration keeps its ratio</p>
