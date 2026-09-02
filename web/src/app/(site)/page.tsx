@@ -326,9 +326,12 @@ export default async function HomePage() {
           </MotionDiv>
           <MotionDiv>
             <p className="text-gray-110 text-lg mb-8 max-w-[600px] mx-auto">
-              Whether you&apos;re curious about aloha-centered design or already a practitioner,
-              join our free UXHI community to grow, build pilina, and help bring aloha-centered
-              design to organizations across Hawai&#699;i.
+              Whether you&apos;re curious about{" "}
+              <InlineLink href="/about#aloha-centered-design" variant="purple">
+                aloha-centered design
+              </InlineLink>{" "}
+              or already a practitioner, join our free UXHI community to grow, build pilina,
+              and help bring aloha-centered design to organizations across Hawai&#699;i.
             </p>
           </MotionDiv>
           <MotionDiv>
@@ -451,7 +454,7 @@ export default async function HomePage() {
               />
             </MotionDiv>
             <MotionDiv>
-              <SectionHeading size="xl" className="mb-6 leading-tight">
+              <SectionHeading size="xl" className="mb-6">
                 A community<br />
                 for designers,<br />
                 by designers
@@ -459,7 +462,12 @@ export default async function HomePage() {
             </MotionDiv>
             <MotionDiv>
               <p className="text-gray-110 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">
-                UXHI is built and run entirely by volunteers who share a passion for aloha-centered design. We create the spaces we wish existed to learn together, support each other, and elevate UX across Hawaiʻi.
+                UXHI is built and run entirely by volunteers who share a passion for{" "}
+                <InlineLink href="/about#aloha-centered-design" variant="purple">
+                  aloha-centered design
+                </InlineLink>
+                . We create the spaces we wish existed to learn together, support each other,
+                and elevate UX across Hawaiʻi.
               </p>
             </MotionDiv>
             <MotionDiv>

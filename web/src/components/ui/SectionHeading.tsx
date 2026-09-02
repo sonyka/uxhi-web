@@ -11,6 +11,10 @@ interface SectionHeadingProps {
    * - hero: 4xl → 5xl (interior page hero h1)
    * - xl: 4xl → 5xl → 6xl (large CTA headings)
    * - lg: 4xl → 5xl (section headings)
+   *
+   * Every size carries its own leading. Tailwind's default line-height falls to
+   * 1.0 by text-5xl, which reads as cramped on display type, so xl and lg pin
+   * theirs rather than inherit it.
    * - md: 3xl → 4xl (most common section heading)
    * - sm: 2xl → 3xl (smaller subsections)
    */
@@ -25,8 +29,8 @@ interface SectionHeadingProps {
 const sizeStyles: Record<HeadingSize, string> = {
   display: "text-[40px] md:text-[60px] lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight",
   hero: "text-4xl leading-[40px] lg:text-5xl lg:leading-[60px]",
-  xl: "text-4xl md:text-5xl lg:text-6xl",
-  lg: "text-4xl md:text-5xl",
+  xl: "text-4xl md:text-5xl lg:text-6xl leading-tight",
+  lg: "text-4xl md:text-5xl leading-tight",
   md: "text-3xl md:text-4xl",
   sm: "text-2xl md:text-3xl",
 };

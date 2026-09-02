@@ -844,11 +844,11 @@ const contentComponents: Record<string, React.ReactNode> = {
               <SectionHeading as="h1" size="hero" color="black">Hero Title</SectionHeading>
             </div>
             <div>
-              <span className="text-xs text-gray-100 font-mono">xl — large CTA headings (4xl → 5xl → 6xl)</span>
+              <span className="text-xs text-gray-100 font-mono">xl — large CTA headings (4xl → 5xl → 6xl, leading-tight)</span>
               <SectionHeading size="xl">Extra Large</SectionHeading>
             </div>
             <div>
-              <span className="text-xs text-gray-100 font-mono">lg — primary section headings (4xl → 5xl)</span>
+              <span className="text-xs text-gray-100 font-mono">lg — primary section headings (4xl → 5xl, leading-tight)</span>
               <SectionHeading size="lg">Large Heading</SectionHeading>
             </div>
             <div>
@@ -862,6 +862,20 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
         </div>
         <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Line Height</h4>
+          <div className="p-6 bg-beige-30 rounded-xl text-sm text-gray-110 space-y-3 mb-8">
+            <p>
+              <strong className="text-gray-130">The size variant owns the leading — never set it inline.</strong>{" "}
+              Tailwind&apos;s default line-height falls to 1.0 by{" "}
+              <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-5xl</span>, which reads as
+              cramped on display type, so <span className="font-mono text-xs bg-gray-20 px-1 rounded">xl</span>{" "}
+              and <span className="font-mono text-xs bg-gray-20 px-1 rounded">lg</span> pin their own{" "}
+              <span className="font-mono text-xs bg-gray-20 px-1 rounded">leading-tight</span> rather than
+              inherit it. A one-off{" "}
+              <span className="font-mono text-xs bg-gray-20 px-1 rounded">leading-*</span> in a consumer&apos;s
+              className is how the two large sizes drifted apart in the first place.
+            </p>
+          </div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Spacing Convention</h4>
           <div className="p-6 bg-beige-30 rounded-xl text-sm text-gray-110 space-y-3">
             <p>
