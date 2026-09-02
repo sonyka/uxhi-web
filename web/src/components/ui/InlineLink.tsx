@@ -32,7 +32,13 @@ interface InlineLinkProps {
  *
  * Variants:
  * - **teal**: Rich text/content links - font-semibold, teal-90 → teal-100
- * - **purple**: Paragraph links - purple-140 → purple-150, underline-offset-2
+ * - **purple**: Paragraph links - purple-140 → purple-150
+ *
+ * Both underline with a dotted rule in gray-80 rather than a solid one in the
+ * link colour: the line marks the link without competing with the label. This
+ * matches the treatment the 2026 conference site arrived at (its `LINK` token
+ * in `conferences/2026/theme.ts`) — the two sites share no code, so the
+ * decision travels by hand and has to be made in both places.
  *
  * Features:
  * - Auto-detects external links (http/https)
@@ -56,8 +62,8 @@ export function InlineLink({
   const shouldShowIcon = showIcon ?? (variant === "purple" && isExternal);
 
   const variantStyles = {
-    teal: "text-teal-90 hover:text-teal-100 transition-colors font-semibold underline",
-    purple: "text-purple-140 underline underline-offset-2 hover:text-purple-150 transition-colors",
+    teal: "text-teal-90 hover:text-teal-100 transition-colors font-semibold underline decoration-dotted decoration-gray-80 underline-offset-2",
+    purple: "text-purple-140 underline decoration-dotted decoration-gray-80 underline-offset-2 hover:text-purple-150 transition-colors",
   };
 
   const baseStyles = variantStyles[variant];

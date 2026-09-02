@@ -1280,7 +1280,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-inlinelink": (
     <ContentSection
       title="Inline Link"
-      description="Styled inline text links for use within paragraphs. Auto-detects external links and uses Next.js Link for internal navigation."
+      description="Styled inline text links for use within paragraphs. Auto-detects external links and uses Next.js Link for internal navigation. Both variants underline with a dotted rule in gray-80 rather than a solid one in the link colour — the line marks the link without competing with the label. The 2026 conference site reached the same treatment independently; the two share no code, so the decision has to be made in both places and can drift."
       componentPath="components/ui/InlineLink.tsx"
     >
       <div className="space-y-8">
