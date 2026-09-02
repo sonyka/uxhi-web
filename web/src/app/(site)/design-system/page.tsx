@@ -1934,7 +1934,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Background: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10</span></p>
                 <p>Border: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/20</span></p>
                 <p>Radius: <span className="font-mono text-xs bg-gray-20 px-1 rounded">rounded-xl</span></p>
-                <p>Placeholder: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-60/60</span></p>
+                <p>Placeholder: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-30</span></p>
               </div>
             </div>
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
@@ -2011,7 +2011,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Unchecked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/30 bg-white/5</span></p>
                 <p>Checked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-teal-90 border-teal-90</span></p>
                 <p>Inner dot: white, scales in on check</p>
-                <p>Label: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-50</span>, white on hover</p>
+                <p>Label: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-30</span>, white on hover</p>
               </div>
             </div>
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
@@ -2160,7 +2160,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Button: pill shape, <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20</span></p>
                 <p>Preview: 80px circle with border</p>
-                <p>Help text: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-60/60</span></p>
+                <p>Help text: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-30</span></p>
               </div>
             </div>
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
@@ -2188,15 +2188,15 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Component</h4>
           <div className="bg-purple-140 rounded-2xl p-8 space-y-6">
             <div className="space-y-2">
-              <p className="text-xs font-semibold text-purple-60 uppercase tracking-wide">Send Icon (InquiryForm)</p>
+              <p className="text-xs font-semibold text-purple-30 uppercase tracking-wide">Send Icon (InquiryForm)</p>
               <FormSubmitButton label="Send message" pendingLabel="Sending..." isPending={false} icon="send" />
             </div>
             <div className="space-y-2">
-              <p className="text-xs font-semibold text-purple-60 uppercase tracking-wide">Arrow Icon (Membership / Directory)</p>
+              <p className="text-xs font-semibold text-purple-30 uppercase tracking-wide">Arrow Icon (Membership / Directory)</p>
               <FormSubmitButton label="Submit application" pendingLabel="Submitting..." isPending={false} icon="arrow" />
             </div>
             <div className="space-y-2">
-              <p className="text-xs font-semibold text-purple-60 uppercase tracking-wide">Pending State</p>
+              <p className="text-xs font-semibold text-purple-30 uppercase tracking-wide">Pending State</p>
               <FormSubmitButton label="Send message" pendingLabel="Sending..." isPending={true} icon="send" />
             </div>
           </div>
@@ -2256,7 +2256,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Labels: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-50</span></p>
+                <p>Labels: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-30</span></p>
                 <p>Inputs: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20</span></p>
                 <p>Errors: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-yellow-80</span></p>
                 <p>Button: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/30</span></p>
@@ -2390,11 +2390,11 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Variants</h4>
           <div className="bg-purple-140 rounded-2xl p-8 space-y-4">
             <div>
-              <span className="text-xs text-purple-60 mb-2 block">error (default)</span>
+              <span className="text-xs text-purple-30 mb-2 block">error (default)</span>
               <FormAlert message="Something went wrong. Please try again." />
             </div>
             <div>
-              <span className="text-xs text-purple-60 mb-2 block">info</span>
+              <span className="text-xs text-purple-30 mb-2 block">info</span>
               <FormAlert message="Your session has been restored." variant="info" />
             </div>
           </div>
@@ -2414,7 +2414,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Error: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-orange-90/20 border-orange-70/30 text-orange-30</span></p>
-                <p>Info: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20 text-purple-50</span></p>
+                <p>Info: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20 text-white</span></p>
                 <p>Adds <span className="font-mono text-xs bg-gray-20 px-1 rounded">role=&quot;alert&quot;</span> for accessibility</p>
               </div>
             </div>
@@ -2434,7 +2434,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Component</h4>
           <div className="bg-purple-140 rounded-2xl p-8 space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-purple-50 mb-1.5">Email *</label>
+              <label className="block text-sm font-semibold text-purple-30 mb-1.5">Email *</label>
               <input
                 type="email"
                 disabled
@@ -2444,7 +2444,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <FieldError errors={{ email: ["Please enter a valid email address."] }} field="email" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-purple-50 mb-1.5">Name *</label>
+              <label className="block text-sm font-semibold text-purple-30 mb-1.5">Name *</label>
               <input
                 type="text"
                 disabled
@@ -2489,11 +2489,11 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Examples</h4>
           <div className="bg-purple-140 rounded-2xl p-8 space-y-6">
             <div>
-              <span className="text-xs text-purple-60 mb-2 block">Inquiry form</span>
+              <span className="text-xs text-purple-30 mb-2 block">Inquiry form</span>
               <FormSuccess icon="&#9989;" title="Message sent!" message="We'll get back to you within a few business days." />
             </div>
             <div>
-              <span className="text-xs text-purple-60 mb-2 block">Membership form</span>
+              <span className="text-xs text-purple-30 mb-2 block">Membership form</span>
               <FormSuccess icon="&#127881;" title="Application received!" message="Welcome to the UXHI community!" />
             </div>
           </div>
@@ -2515,7 +2515,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Container: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20 rounded-2xl p-8</span></p>
                 <p>Title: <span className="font-mono text-xs bg-gray-20 px-1 rounded">font-display text-2xl text-white</span></p>
-                <p>Message: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-50</span></p>
+                <p>Message: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-white</span></p>
               </div>
             </div>
           </div>

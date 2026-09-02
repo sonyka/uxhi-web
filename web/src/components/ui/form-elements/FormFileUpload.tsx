@@ -71,13 +71,13 @@ export function FormFileUpload({
             {fileName ? "Change file" : "Choose file"}
           </button>
           {fileName && (
-            <span className="text-xs text-purple-50 truncate max-w-[200px]">{fileName}</span>
+            <span className="text-xs text-purple-30 truncate max-w-[200px]">{fileName}</span>
           )}
         </div>
       </div>
 
       {helpText && (
-        <p className="text-xs text-purple-60/60">{helpText}</p>
+        <p className="text-xs text-purple-30">{helpText}</p>
       )}
     </div>
   );

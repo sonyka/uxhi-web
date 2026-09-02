@@ -55,7 +55,7 @@ const tones = {
   },
   dark: {
     trigger: "hover:text-white",
-    icon: "text-purple-50/70 group-hover:text-white",
+    icon: "text-purple-30 group-hover:text-white",
   },
 };
 
