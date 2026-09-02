@@ -2716,7 +2716,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "interactive-tooltip": (
     <ContentSection
       title="Mobile Tooltip"
-      description="Tap-to-reveal tooltip on mobile, hover on desktop. Shows a dotted underline on mobile to indicate interactivity. Used for inline definitions. Pass href to add a “Learn more” link into the panel — without one a tooltip is a dead end, defining a term with nowhere to go. The panel sits inside the trigger's hover group, so the link stays reachable when the pointer moves into it."
+      description="Inline definition, revealed on tap or hover. An info icon marks the term at every breakpoint: it replaced a dotted underline that only appeared below md, which left the desktop trigger advertising nothing but a cursor change. Pass href to add a “Learn more” link into the panel — without one a tooltip is a dead end, defining a term with nowhere to go. The panel sits inside the trigger's hover group, so the link stays reachable when the pointer moves into it. Use tone=&quot;dark&quot; on purple backgrounds."
       componentPath="components/ui/MobileTooltip.tsx"
     >
       <div className="space-y-6">
@@ -2725,7 +2725,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           <p className="text-gray-120 text-lg">
             UXHI&apos;s mission is to grow and elevate the professional standard of{" "}
             <MobileTooltip
-            tooltip="Aloha-centered design applies Hawaiʻi's values — care, reciprocity, and respect for place — to how we design for people."
+            tooltip="Aloha-centered design applies Hawaiʻi's values of care, reciprocity, and respect for place to how we design for people."
             href="/about#aloha-centered-design"
           >
             aloha-centered design
@@ -2738,11 +2738,27 @@ const contentComponents: Record<string, React.ReactNode> = {
           </p>
         </div>
         <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Dark Tone</h4>
+          <div className="bg-purple-140 rounded-xl p-6">
+            <p className="text-purple-50 text-lg">
+              Membership is free and includes our Slack community.{" "}
+              <MobileTooltip
+                tone="dark"
+                tooltip="Slack is a messaging app for teams that makes it easy to communicate and collaborate."
+                className="underline underline-offset-2"
+              >
+                What is Slack?
+              </MobileTooltip>
+            </p>
+          </div>
+        </div>
+        <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Styling</h4>
           <div className="text-sm text-gray-110 space-y-1">
-            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">decoration-dotted</span> underline on mobile, hidden on desktop</p>
+            <p>Trigger: <span className="font-mono text-xs bg-gray-20 px-1 rounded">InfoIcon</span> at <span className="font-mono text-xs bg-gray-20 px-1 rounded">min(0.7em, 20px)</span> — it tracks body copy but stays a marker beside display type</p>
             <p>Tooltip: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white rounded-xl shadow-lg</span> with tail arrow</p>
-            <p>Accepts optional <span className="font-mono text-xs bg-gray-20 px-1 rounded">decorationElement</span> prop for custom visuals</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">tone</span>: <span className="font-mono text-xs bg-gray-20 px-1 rounded">light</span> (default) or <span className="font-mono text-xs bg-gray-20 px-1 rounded">dark</span> for purple backgrounds</p>
+            <p>Accepts optional <span className="font-mono text-xs bg-gray-20 px-1 rounded">decorationElement</span> prop, positioned against the text alone so a percentage-width decoration keeps its ratio</p>
           </div>
         </div>
       </div>

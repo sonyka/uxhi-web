@@ -4,3 +4,4 @@ export { PlusIcon } from './PlusIcon';
 export { MinusIcon } from './MinusIcon';
 export { ChevronDownIcon } from './ChevronDownIcon';
 export { SendIcon } from './SendIcon';
+export { InfoIcon } from './InfoIcon';
