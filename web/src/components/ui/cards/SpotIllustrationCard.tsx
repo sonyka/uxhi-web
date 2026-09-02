@@ -41,7 +41,7 @@ const variantStyles: Record<SpotIllustrationCardVariant, { card: string; title: 
   dark: {
     card: "bg-purple-140 border border-purple-100/30",
     title: "font-display text-2xl text-white",
-    description: "text-purple-50",
+    description: "text-white",
   },
   beige: {
     card: "bg-beige-30 hover:shadow-lg transition-shadow duration-300",
@@ -56,7 +56,7 @@ const variantStyles: Record<SpotIllustrationCardVariant, { card: string; title: 
   translucent: {
     card: "bg-white/10",
     title: "font-display text-lg text-white",
-    description: "text-purple-30",
+    description: "text-white",
   },
 };
 
@@ -66,6 +66,10 @@ const variantStyles: Record<SpotIllustrationCardVariant, { card: string; title: 
  * Icon size: 96px desktop (w-24), 80px mobile (w-20)
  * Border radius: 24px (rounded-[24px])
  * Padding: 24px mobile, 32px desktop (p-6 md:p-8)
+ *
+ * Copy is white on the purple grounds and gray on the light ones. The tinted
+ * purples it used to carry on dark — purple-50 and purple-30 — read as washed
+ * out rather than quiet.
  *
  * Variants:
  * - dark: For purple backgrounds (home features section)

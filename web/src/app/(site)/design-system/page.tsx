@@ -1445,7 +1445,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-spotillustration": (
     <ContentSection
       title="Spot Illustration Card"
-      description="Card with large illustrated icon (96px desktop, 80px mobile). Supports description text or custom children for complex content. Also supports Sanity CMS images."
+      description="Card with large illustrated icon (96px desktop, 80px mobile). Supports description text or custom children for complex content. Also supports Sanity CMS images. Copy is white on the purple grounds and gray on the light ones — the tinted purples the dark variants used to carry read as washed out rather than quiet."
       componentPath="components/ui/cards/SpotIllustrationCard.tsx"
     >
       <div className="space-y-8">

@@ -419,7 +419,7 @@ export default async function ResourcesPage() {
               </p>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-purple-50 mb-10">
+              <p className="text-purple-50 text-lg leading-relaxed mb-10">
                 The report is currently done on a bi-annual basis to gain a better understanding of our UX design community.
               </p>
             </MotionDiv>
