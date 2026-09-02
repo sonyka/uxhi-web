@@ -19,8 +19,12 @@ interface MobileTooltipProps {
   linkLabel?: string;
   /** Trigger colours. Use "dark" on purple/dark backgrounds. */
   tone?: "light" | "dark";
-  /** Icon size in px: 20 beside the homepage hero, 16 in body copy. */
-  iconSize?: 16 | 20;
+  /** Icon size in px: 24 beside the homepage hero, 16 in body copy. */
+  iconSize?: 16 | 20 | 24;
+  /** Optical lift in px, on top of the superscript offset. */
+  iconNudge?: 0 | 2;
+  /** Extra px between the label and the icon. */
+  iconGap?: 0 | 2;
 }
 
 // Explicit sizes rather than an em ramp: the mark is drawn artwork, and it
@@ -29,7 +33,14 @@ interface MobileTooltipProps {
 const iconSizes = {
   16: "w-4 h-4 align-[max(0.18em,calc(0.68em-16px))]",
   20: "w-5 h-5 align-[max(0.18em,calc(0.68em-20px))]",
+  24: "w-6 h-6 align-[max(0.18em,calc(0.68em-24px))]",
 } as const;
+
+// Per-placement optical trims. Spelled out rather than computed for the same
+// reason as the sizes: Tailwind scans source text and cannot see a class
+// assembled at runtime.
+const iconNudges = { 0: "", 2: "-translate-y-[2px]" } as const;
+const iconGaps = { 0: "ml-[0.06em]", 2: "ml-[calc(0.06em+2px)]" } as const;
 
 const tones = {
   light: {
@@ -65,11 +76,13 @@ export function MobileTooltip({
   linkLabel = "Learn more",
   tone = "light",
   iconSize = 16,
+  iconNudge = 0,
+  iconGap = 0,
 }: MobileTooltipProps) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   const styles = tones[tone];
-  const icon = iconSizes[iconSize];
+  const icon = `${iconSizes[iconSize]} ${iconNudges[iconNudge]} ${iconGaps[iconGap]}`;
 
   // Close tooltip when clicking outside
   useEffect(() => {
@@ -113,7 +126,7 @@ export function MobileTooltip({
           sit the icon flat on the baseline, at exactly the size where a
           superscript is most legible as one. */}
       <InfoIcon
-        className={`inline-block ${icon} ml-[0.06em] transition-colors ${styles.icon}`}
+        className={`inline-block ${icon} transition-colors ${styles.icon}`}
       />
 
       {/* Tooltip - tap anywhere, plus hover on desktop */}

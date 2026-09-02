@@ -125,11 +125,14 @@ export default function JoinPage() {
             </MotionDiv>
             <MotionDiv>
               <p className="text-purple-50 text-lg leading-relaxed">
-                Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with 400+ designers!{" "}
+                Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with 400+ designers!
+                {/* Its own line: inline, it trailed a long paragraph and read
+                    as part of the sentence rather than as a thing to tap. */}
                 <MobileTooltip
                   tone="dark"
+                  iconGap={2}
                   tooltip="Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has 400+ designers sharing resources, job opportunities, and community support."
-                  className="underline underline-offset-2"
+                  className="mt-3 !block underline underline-offset-2 w-fit mx-auto"
                 >
                   What is Slack?
                 </MobileTooltip>
