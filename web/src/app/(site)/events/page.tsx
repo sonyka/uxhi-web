@@ -260,7 +260,7 @@ export default async function EventsPage() {
           <MotionDiv>
             <PressMention
               source="Hawaii Public Radio"
-              title="Bytemarks Cafe — UXHI Conference coverage"
+              title="Bytemarks Cafe covers the UXHI Conference"
               href="https://www.hawaiipublicradio.org/podcast/bytemarks-cafe"
               ctaLabel="Listen Now"
             />

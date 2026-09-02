@@ -20,7 +20,7 @@ import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, LinkedInIcon, Instagra
 
 const OG_TITLE = "UXHI Conference :: October 17, 2026";
 const OG_DESCRIPTION =
-  "UXHICon 2026 — October 17, 2026. An immersive day of design knowledge-sharing, inspiration, and connection in Hawaiʻi.";
+  "UXHICon 2026 · October 17, 2026. An immersive day of design knowledge-sharing, inspiration, and connection in Hawaiʻi.";
 const OG_IMAGE = "/conferences/2026/assets/images/og-image.png";
 
 export const metadata: Metadata = {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "UXHI Conference — Entrepreneurs Sandbox · October 17, 2026",
+        alt: "UXHI Conference · Entrepreneurs Sandbox · October 17, 2026",
       },
     ],
   },
@@ -202,7 +202,7 @@ export default async function Conference2026Page() {
 
         {/* Tapping the logo scrolls the content panel back to the top (the window
             itself doesn't scroll — the panel does — so a hash anchor is used). */}
-        <a href="#top" className="no-underline flex items-center" aria-label="UXHICONF26 — back to top">
+        <a href="#top" className="no-underline flex items-center" aria-label="UXHICONF26, back to top">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/conferences/2026/assets/logos/uxhicon_header.svg"

@@ -5,8 +5,8 @@ import { GRAY_110, TYPE } from "../theme";
 import { ShakaIcon, AngleDownIcon } from "./icons";
 
 const ITEMS = [
-  { label: "2025 — UXperience 'Aina", href: "/conferences/2025/" },
-  { label: "2024 — UXperience Aloha", href: "/conferences/2024/" },
+  { label: "2025 · UXperience 'Aina", href: "/conferences/2025/" },
+  { label: "2024 · UXperience Aloha", href: "/conferences/2024/" },
 ];
 
 export function PastConferencesMenu() {

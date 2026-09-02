@@ -35,8 +35,8 @@ export function ProgramSection() {
           mo&#699;olelo we each carry.
         </p>
         <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
-          Spend the day in culturally grounded keynotes, panels, and hands-on workshops &mdash; led by industry
-          experts and local voices &mdash; and leave with new pilina.
+          Spend the day in culturally grounded keynotes, panels, and hands-on workshops led by industry
+          experts and local voices, and leave with new pilina.
         </p>
       </div>
 

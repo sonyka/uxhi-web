@@ -104,7 +104,7 @@ export function SponsorsGrid({ sponsors }: { sponsors: Sponsor[] }) {
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>UXHI Conference Sponsors</SectionHeading>
       <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
-        We couldn&rsquo;t tell this mo&#699;olelo alone. Big mahalo to our incredible partners and sponsors for investing in our diverse community — your support fuels the creativity and innovation that bring together the brightest minds and the most exciting ideas in tech.
+        We couldn&rsquo;t tell this mo&#699;olelo alone. Big mahalo to our incredible partners and sponsors for investing in our diverse community. Your support fuels the creativity and innovation that bring together the brightest minds and the most exciting ideas in tech.
       </p>
 
       {/* Repeat of the hero CTA. Sits directly under the intro copy so it's

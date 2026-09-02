@@ -3,7 +3,7 @@
 import { MobileTooltip } from "./MobileTooltip";
 
 export const ALOHA_CENTERED_TOOLTIP =
-  "Aloha-centered design applies Hawaiʻi's values — care, reciprocity, and respect for place — to how we design for people.";
+  "Aloha-centered design applies Hawaiʻi's values of care, reciprocity, and respect for place to how we design for people.";
 
 /**
  * MissionStatement - UXHI's mission sentence, with both terms explained.

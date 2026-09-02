@@ -34,7 +34,7 @@ const ALOHA_PRINCIPLES = [
   {
     term: "People",
     description:
-      "Every design decision starts with genuine care for the humans affected by it — not just their needs, but their dignity.",
+      "Every design decision starts with genuine care for the humans affected by it. Not just their needs, but their dignity.",
   },
   {
     term: "Culture",
@@ -44,7 +44,7 @@ const ALOHA_PRINCIPLES = [
   {
     term: "Community",
     description:
-      "Designing in relationship, not isolation — building pilina with the people and communities our work touches.",
+      "Designing in relationship, not isolation. Building pilina with the people and communities our work touches.",
   },
   {
     term: "Place",
@@ -274,7 +274,7 @@ export default async function AboutPage() {
 
             <MotionDiv>
               <SectionLead size="md" className="mt-12">
-                UX remains our professional foundation — the skills, methods,
+                UX remains our professional foundation. The skills, methods,
                 and rigor don&apos;t change. Aloha-centered design is our
                 distinctive point of view on how and why we practice it here.
               </SectionLead>

@@ -29,7 +29,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What is the pre-conference event?",
-    a: "New this year, we’re hosting a pre-conference pau hana at OurSpace on Thursday, October 15, 2026. Tickets are sold separately — no conference ticket required. The event is 21+, your ticket includes one drink, and a cash bar is available. Timing will be confirmed once programming is set.",
+    a: "New this year, we’re hosting a pre-conference pau hana at OurSpace on Thursday, October 15, 2026. Tickets are sold separately. No conference ticket is required. The event is 21+, your ticket includes one drink, and a cash bar is available. Timing will be confirmed once programming is set.",
   },
   {
     q: "Are there group discounts available?",
@@ -75,7 +75,7 @@ export function FaqSection() {
         className={`${TYPE.body} max-w-[62ch]`}
         style={{ color: GRAY_110 }}
       >
-        Got questions? We&rsquo;ve got answers — here&rsquo;s everything you need to know
+        Got questions? We&rsquo;ve got answers. Here&rsquo;s everything you need to know
         about UXHICon.
       </p>
 
