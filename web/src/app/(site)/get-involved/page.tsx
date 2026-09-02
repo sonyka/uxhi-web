@@ -107,7 +107,7 @@ const fallbackCommittees = [
   },
   {
     name: "Conference",
-    description: "Plans and executes our annual UXHICon conference, bringing together speakers, sponsors, and attendees for Hawai\u2018i\u2019s premier UX event. Help shape the program, coordinate logistics, and create memorable experiences for our community.",
+    description: "Plans and executes UXHICon, bringing together speakers, sponsors, and attendees each year. Help shape the program, coordinate logistics, and create memorable experiences for our community.",
     icon: "/images/icons/icon-conference.svg",
   },
 ];

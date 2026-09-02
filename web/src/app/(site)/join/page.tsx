@@ -5,7 +5,14 @@ import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import type { Metadata } from "next";
 import { scaleReveal } from "@/lib/animations";
+
+export const metadata: Metadata = {
+  title: "Join us | UXHI",
+  description:
+    "Membership is free. Join UXHI to grow as a practitioner, build pilina with fellow designers, and help bring aloha-centered design to organizations across Hawaii.",
+};
 
 export default function JoinPage() {
   return (
