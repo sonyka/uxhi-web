@@ -350,9 +350,9 @@ export default async function HomePage() {
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-purple-50 text-lg">
+              <SectionLead size="lg" color="purple">
                 UXHI is the perfect place to learn, network, and grow your skills.
-              </p>
+              </SectionLead>
             </MotionDiv>
           </ScrollReveal>
 
@@ -412,7 +412,9 @@ export default async function HomePage() {
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-gray-110 text-lg">A look at our latest events, workshops, and community gatherings</p>
+              <SectionLead size="lg">
+                A look at our latest events, workshops, and community gatherings
+              </SectionLead>
             </MotionDiv>
           </ScrollReveal>
 

@@ -954,7 +954,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionlead": (
     <ContentSection
       title="Section Lead"
-      description="Supporting paragraph that sits directly beneath a heading. Pairs with SectionHeading — use size=&quot;hero&quot; under a display/hero heading, size=&quot;md&quot; under smaller section headings. Keeps subheadline type out of page files."
+      description="Supporting paragraph that sits directly beneath a heading. Pairs with SectionHeading — use size=&quot;hero&quot; under a display/hero heading, size=&quot;md&quot; under smaller section headings, and size=&quot;lg&quot; for a short one-liner that md leaves looking undersized. Every size owns a responsive ramp; a lead pinned to a single value is a lead that has stopped responding. Keeps subheadline type out of page files."
       componentPath="components/ui/SectionLead.tsx"
     >
       <div className="space-y-6">
@@ -966,6 +966,12 @@ const contentComponents: Record<string, React.ReactNode> = {
               <SectionLead>
                 A Hawai&#699;i-rooted approach to human-centered design, grounded in care for
                 people, culture, community, and place.
+              </SectionLead>
+            </div>
+            <div>
+              <span className="text-xs text-gray-100 font-mono">lg — a short one-line lead (lg → xl)</span>
+              <SectionLead size="lg">
+                UXHI is the perfect place to learn, network, and grow your skills.
               </SectionLead>
             </div>
             <div>
@@ -987,6 +993,9 @@ const contentComponents: Record<string, React.ReactNode> = {
             </div>
             <div className="p-4 bg-purple-140 rounded-xl">
               <SectionLead size="md" color="white">White (dark backgrounds)</SectionLead>
+            </div>
+            <div className="p-4 bg-purple-140 rounded-xl">
+              <SectionLead size="md" color="purple">Purple (a lead on a purple background)</SectionLead>
             </div>
           </div>
         </div>
