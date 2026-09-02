@@ -414,12 +414,12 @@ export default async function ResourcesPage() {
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-purple-30 text-lg leading-relaxed mb-4">
+              <p className="text-white text-lg leading-relaxed mb-4">
                 To answer that question, we conducted our own study on the status of UX jobs, hiring, education, awareness, and audiences to give us a better understanding of how our programming could best support UXers in Hawai&apos;i.
               </p>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-purple-50 text-lg leading-relaxed mb-10">
+              <p className="text-white text-lg leading-relaxed mb-10">
                 The report is currently done on a bi-annual basis to gain a better understanding of our UX design community.
               </p>
             </MotionDiv>
@@ -509,7 +509,7 @@ export default async function ResourcesPage() {
           {/* How Report Helps */}
           <ScrollReveal>
             <div className="mb-10">
-              <p className="text-purple-30 text-lg mb-6">The State of UX report charts our progress towards advancing the field of UX by:</p>
+              <p className="text-white text-lg mb-6">The State of UX report charts our progress towards advancing the field of UX by:</p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4">
                   <BulletPoint variant="yellow" />
@@ -546,7 +546,7 @@ export default async function ResourcesPage() {
                 2023 State of UXHI Report
               </PrimaryCTA>
             </div>
-            <p className="mt-6 text-purple-30">
+            <p className="mt-6 text-white">
               <InlineLink href="/state-of-ux/2025" variant="teal">
                 Preview: one section of the 2025 report, read as a web page
               </InlineLink>

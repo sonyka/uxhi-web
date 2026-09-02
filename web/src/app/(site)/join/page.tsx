@@ -124,7 +124,7 @@ export default function JoinPage() {
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-purple-50 text-lg leading-relaxed">
+              <p className="text-white text-lg leading-relaxed">
                 Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with 400+ designers!
                 {/* Its own line: inline, it trailed a long paragraph and read
                     as part of the sentence rather than as a thing to tap. */}

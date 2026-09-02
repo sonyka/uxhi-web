@@ -220,7 +220,7 @@ export default async function EventsPage() {
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>
-            <p className="text-purple-30 text-lg leading-relaxed mb-6 text-center max-w-[750px] mx-auto">
+            <p className="text-white text-lg leading-relaxed mb-6 text-center max-w-[750px] mx-auto">
               Our third annual conference is a hub for those infused in human-centered design, user experience, design thinking, and everything in between, offering an opportunity to deepen your expertise. Whether you&apos;re a newcomer eager to learn more about UX or an industry pro, you&apos;ll find value in the immersive day filled with inspiration, knowledge-sharing, and networking!
             </p>
           </MotionDiv>

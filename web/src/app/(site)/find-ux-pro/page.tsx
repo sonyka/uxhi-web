@@ -208,7 +208,7 @@ export default async function FindUXProPage() {
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-purple-50 text-lg leading-relaxed mb-4">
+              <p className="text-white text-lg leading-relaxed mb-4">
                 Are you a UX professional with ties to Hawaiʻi? Add yourself to the
                 directory and connect with our growing community. Whether you&apos;re
                 looking for new opportunities, seeking collaborators, or wanting to
@@ -216,7 +216,7 @@ export default async function FindUXProPage() {
               </p>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-purple-50 text-lg leading-relaxed mb-10">
+              <p className="text-white text-lg leading-relaxed mb-10">
                 UX professionals and anyone transitioning into UX design who lives
                 in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request
                 will automatically be added to the directory and a UXHI team

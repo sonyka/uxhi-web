@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 type LeadSize = "hero" | "lg" | "md";
-type LeadColor = "gray" | "black" | "white" | "purple";
+type LeadColor = "gray" | "black" | "white";
 
 interface SectionLeadProps {
   children: React.ReactNode;
@@ -26,7 +26,6 @@ const colorStyles: Record<LeadColor, string> = {
   gray: "text-gray-120",
   black: "text-black",
   white: "text-white",
-  purple: "text-purple-50",
 };
 
 /**

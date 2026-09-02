@@ -722,7 +722,7 @@ export default async function GetInvolvedPage() {
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>
-            <p className="text-purple-50 text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
+            <p className="text-white text-lg leading-relaxed mb-8 max-w-[650px] mx-auto">
               UXHI is a volunteer-run design community that connects people in Hawai&#x02BB;i and those with Hawai&#x02BB;i ties.
             </p>
           </MotionDiv>

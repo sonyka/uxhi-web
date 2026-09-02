@@ -994,9 +994,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-purple-140 rounded-xl">
               <SectionLead size="md" color="white">White (dark backgrounds)</SectionLead>
             </div>
-            <div className="p-4 bg-purple-140 rounded-xl">
-              <SectionLead size="md" color="purple">Purple (a lead on a purple background)</SectionLead>
-            </div>
+
           </div>
         </div>
       </div>
@@ -2749,7 +2747,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Dark Tone</h4>
           <div className="bg-purple-140 rounded-xl p-6">
-            <p className="text-purple-50 text-lg">
+            <p className="text-white text-lg">
               Membership is free and includes our Slack community.{" "}
               <MobileTooltip
                 tone="dark"

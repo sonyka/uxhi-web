@@ -352,7 +352,7 @@ export default async function HomePage() {
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
-              <SectionLead size="lg" color="purple">
+              <SectionLead size="lg" color="white">
                 UXHI is the perfect place to learn, network, and grow your skills.
               </SectionLead>
             </MotionDiv>

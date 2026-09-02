@@ -315,13 +315,13 @@ export default async function AboutPage() {
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-purple-50 text-lg leading-relaxed mb-6 max-w-[600px] mx-auto">
+              <p className="text-white text-lg leading-relaxed mb-6 max-w-[600px] mx-auto">
                 Whether you have a question, an idea, or something you want to
                 build with us, we read every message and we&apos;ll get back to you.
               </p>
             </MotionDiv>
             <MotionDiv>
-              <p className="text-purple-50 text-lg leading-relaxed mb-10 max-w-[600px] mx-auto">
+              <p className="text-white text-lg leading-relaxed mb-10 max-w-[600px] mx-auto">
                 Looking to join the community instead?{" "}
                 <InlineLink href="/join" variant="teal">Becoming a member is free</InlineLink>
                 {" "}and gets you into our Slack, our member directory, and our monthly events email.
