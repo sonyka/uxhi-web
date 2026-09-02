@@ -56,6 +56,7 @@ export default async function HomePage() {
                 tooltip={ALOHA_CENTERED_TOOLTIP}
                 href="/about#aloha-centered-design"
                 iconSize={24}
+                iconNudge={4}
                 decorationElement={
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
