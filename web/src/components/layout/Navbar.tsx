@@ -321,7 +321,7 @@ export const defaultNavItems: NavItem[] = [
     ],
   },
   { key: "events", label: "Events", href: "/events" },
-  { key: "conference", label: "Conference", href: "/conferences" },
+  { key: "conference", label: "Conference", href: "/conference" },
   {
     key: "resources",
     label: "Resources",

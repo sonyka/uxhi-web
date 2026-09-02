@@ -27,16 +27,38 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // /conferences and /conferences/ always serve the current year's site.
+      // /conference and /conference/ always serve the current year's site.
       // Update CURRENT_CONFERENCE_YEAR in middleware.ts when a new year starts.
       {
+        source: "/conference",
+        destination: "/conference/2026/",
+        permanent: false,
+      },
+      {
+        source: "/conference/",
+        destination: "/conference/2026/",
+        permanent: false,
+      },
+      // The plural was the public path until the nav and the URL were brought
+      // into line. Only the entry points redirect: anything deeper still has to
+      // resolve under /conferences/, because that is where the files live and
+      // the archived sites reference their own assets by absolute path.
+      {
         source: "/conferences",
-        destination: "/conferences/2026/",
+        destination: "/conference/2026/",
         permanent: false,
       },
       {
         source: "/conferences/",
-        destination: "/conferences/2026/",
+        destination: "/conference/2026/",
+        permanent: false,
+      },
+      // A year root under the old spelling moves to the new one. Safe to
+      // redirect because the pattern ends at the year: it cannot swallow
+      // /conferences/:year/assets/..., which must keep resolving as a path.
+      {
+        source: "/conferences/:year(\\d{4})/",
+        destination: "/conference/:year/",
         permanent: false,
       },
       // /volunteer was an earlier, unlinked version of the volunteer section on
@@ -55,12 +77,27 @@ const nextConfig: NextConfig = {
 
   async rewrites() {
     return [
+      // The URL is singular; the files are not. public/conferences/ keeps its
+      // name because the archived 2024 and 2025 sites carry ~700 absolute
+      // /conferences/... references baked into their frozen HTML, CSS and JS,
+      // and rewriting those to chase a folder rename is a poor trade.
       // Serve static HTML conference sites from public/conferences/:year/
       {
-        source: "/conferences/:year(\\d{4})/",
+        source: "/conference/:year(\\d{4})/",
         destination: "/conferences/:year/index.html",
       },
-      // Generic subpage rewrite: /conferences/2026/agenda → public/conferences/2026/agenda.html
+      // Generic subpage rewrite: /conference/2025/lineup → public/conferences/2025/lineup.html
+      {
+        source: "/conference/:year(\\d{4})/:page",
+        destination: "/conferences/:year/:page.html",
+      },
+      {
+        source: "/conference/:year(\\d{4})/:page/",
+        destination: "/conferences/:year/:page.html",
+      },
+      // Plural deep links stay served rather than redirected. A redirect here
+      // would also catch /conferences/:year/assets/..., and the archives ask
+      // for their assets by exactly that path.
       {
         source: "/conferences/:year(\\d{4})/:page",
         destination: "/conferences/:year/:page.html",

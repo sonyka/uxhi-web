@@ -228,14 +228,14 @@ export default async function EventsPage() {
           {/* CTA */}
           <MotionDiv>
             <div className="text-center mb-16">
-              <PrimaryCTA href="/conferences/2025/" external>
+              <PrimaryCTA href="/conference/2025/" external>
                 UXHI Conference
               </PrimaryCTA>
 
               {/* Past Archives */}
               <div className="mt-6 flex flex-wrap justify-center gap-4">
                 <Link
-                  href="/conferences/2024/"
+                  href="/conference/2024/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-purple-30 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"

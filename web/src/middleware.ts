@@ -12,11 +12,13 @@ export function middleware(request: NextRequest) {
   if (CONFERENCE_HOSTS.includes(hostname)) {
     const { pathname } = request.nextUrl;
 
-    // Static assets (images, SVGs, etc.) are stored under /conferences/YYYY/assets/.
-    // If the browser already resolved the full path, pass it through unchanged to
-    // avoid the middleware doubling the prefix (e.g. /conferences/2026/assets →
-    // /conferences/2026/conferences/2026/assets).
-    if (pathname.startsWith("/conferences/")) {
+    // Static assets (images, SVGs, etc.) are stored under /conferences/YYYY/assets/
+    // — the folder keeps the plural even though the public path is singular, so
+    // the archived sites' baked asset references keep resolving. If the browser
+    // already resolved a full path under either spelling, pass it through
+    // unchanged to avoid the middleware doubling the prefix (e.g.
+    // /conference/2026/assets → /conference/2026/conference/2026/assets).
+    if (pathname.startsWith("/conferences/") || pathname.startsWith("/conference/")) {
       return NextResponse.next();
     }
 
@@ -28,14 +30,14 @@ export function middleware(request: NextRequest) {
       return NextResponse.next();
     }
 
-    // uxhiconference.com/2025/[path] → /conferences/2025/[path]  (year archive)
-    // uxhiconference.com/[path]      → /conferences/2026/[path]  (current year)
+    // uxhiconference.com/2025/[path] → /conference/2025/[path]  (year archive)
+    // uxhiconference.com/[path]      → /conference/2026/[path]  (current year)
     const yearMatch = pathname.match(/^\/(\d{4})(\/.*)?$/);
     const conferencePath = yearMatch
-      ? `/conferences/${yearMatch[1]}${yearMatch[2] ?? "/"}`
+      ? `/conference/${yearMatch[1]}${yearMatch[2] ?? "/"}`
       : pathname === "/"
-        ? `/conferences/${CURRENT_CONFERENCE_YEAR}/`
-        : `/conferences/${CURRENT_CONFERENCE_YEAR}${pathname}`;
+        ? `/conference/${CURRENT_CONFERENCE_YEAR}/`
+        : `/conference/${CURRENT_CONFERENCE_YEAR}${pathname}`;
 
     const url = request.nextUrl.clone();
     url.pathname = conferencePath;

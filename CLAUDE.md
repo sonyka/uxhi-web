@@ -86,10 +86,10 @@ web/
 
 | URL | Serves |
 |-----|--------|
-| `uxhiconference.com` | `/conferences/2026/` (current year) |
-| `uxhiconference.com/agenda` | `/conferences/2026/agenda` |
-| `uxhiconference.com/2025` | `/conferences/2025/` (archive) |
-| `uxhiconference.com/2025/agenda` | `/conferences/2025/agenda` |
+| `uxhiconference.com` | `/conference/2026/` (current year) |
+| `uxhiconference.com/agenda` | `/conference/2026/agenda` |
+| `uxhiconference.com/2025` | `/conference/2025/` (archive) |
+| `uxhiconference.com/2025/agenda` | `/conference/2025/agenda` |
 
 Year-prefixed paths (`/YYYY/...`) are automatically routed to the matching archive. Unprefixed paths go to the current year.
 
@@ -98,6 +98,15 @@ Year-prefixed paths (`/YYYY/...`) are automatically routed to the matching archi
 const CURRENT_CONFERENCE_YEAR = "2027";
 ```
 Then drop the new year's static files into `public/conferences/[year]/`.
+
+**The URL is singular, the folder is plural — on purpose.** Public paths are
+`/conference/...`, matching the "Conference" nav label. The files stay at
+`public/conferences/...` because the archived 2024 and 2025 sites carry ~700
+absolute `/conferences/...` references baked into frozen HTML, CSS and JS,
+including paths built at runtime; rewriting those to chase a folder rename
+buys nothing a visitor can see. `next.config.ts` bridges the two, and the old
+plural URLs still resolve — year roots redirect, deeper paths are served,
+because a redirect there would also catch `/conferences/:year/assets/...`.
 
 ### Page Builder Pattern
 Pages use a block-based content model. The `PageBuilder` component (`src/components/blocks/PageBuilder.tsx`) maps Sanity block types to React section components. Block types: `heroBlock`, `statsBlock`, `featuresBlock`, `testimonialsBlock`, `teamBlock`, `ctaBlock`, `richTextBlock`.

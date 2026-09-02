@@ -6,9 +6,9 @@ import { Bricolage_Grotesque } from "next/font/google";
 // The conference section documents live code rather than transcribing it, so
 // these can't drift. Each conference year owns its own theme — this imports
 // 2026's; a future year gets its own section.
-import { TYPE as CONF_2026_TYPE } from "@/app/(conference)/conferences/2026/theme";
-import { ConferenceButton } from "@/app/(conference)/conferences/2026/_components/ConferenceButton";
-import { ShakaIcon, ArrowRightIcon } from "@/app/(conference)/conferences/2026/_components/icons";
+import { TYPE as CONF_2026_TYPE } from "@/app/(conference)/conference/2026/theme";
+import { ConferenceButton } from "@/app/(conference)/conference/2026/_components/ConferenceButton";
+import { ShakaIcon, ArrowRightIcon } from "@/app/(conference)/conference/2026/_components/icons";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { ArrowIcon, ExternalLinkIcon, PlusIcon, MinusIcon, ChevronDownIcon, SendIcon } from "@/components/ui/icons";
 import { InfoBox } from "@/components/ui/InfoBox";
@@ -3035,7 +3035,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     <ContentSection
       title="2026 Theme Tokens"
       description="Each conference year has its own theme; this is 2026's. Every value is a var() reference to the parent palette above — the year adds no colors of its own."
-      componentPath="src/app/(conference)/conferences/2026/theme.ts"
+      componentPath="src/app/(conference)/conference/2026/theme.ts"
     >
       <div className="space-y-8">
         <div>
@@ -3060,7 +3060,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     <ContentSection
       title="2026 Type Roles"
       description="Bricolage Grotesque. A role is one design decision expressed across breakpoints — resize the window to see each ramp move."
-      componentPath="src/app/(conference)/conferences/2026/theme.ts"
+      componentPath="src/app/(conference)/conference/2026/theme.ts"
     >
       <div className="space-y-8">
         <div className="space-y-6">
@@ -3152,7 +3152,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     <ContentSection
       title="2026 Inline Link"
       description="Hyperlink treatment for the 2026 site. A dotted rule in gray-80 rather than a solid underline in the link colour — the line marks the link without competing with the label, which matters on the teal and beige panels where a solid purple rule reads as heavy."
-      componentPath="src/app/(conference)/conferences/2026/theme.ts"
+      componentPath="src/app/(conference)/conference/2026/theme.ts"
     >
       <div className="space-y-4">
         <div className="rounded-xl bg-beige-30 p-6 text-gray-110">
@@ -3186,7 +3186,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     <ContentSection
       title="2026 Conference Button"
       description="The pill CTA for the 2026 site. Three variants; icons inherit the label color via currentColor."
-      componentPath="src/app/(conference)/conferences/2026/_components/ConferenceButton.tsx"
+      componentPath="src/app/(conference)/conference/2026/_components/ConferenceButton.tsx"
     >
       <div className="space-y-8">
         <div>
