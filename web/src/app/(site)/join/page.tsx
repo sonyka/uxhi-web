@@ -130,7 +130,7 @@ export default function JoinPage() {
                     as part of the sentence rather than as a thing to tap. */}
                 <MobileTooltip
                   tone="dark"
-                  iconGap={2}
+                  iconGap={4}
                   tooltip="Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has 400+ designers sharing resources, job opportunities, and community support."
                   className="mt-3 !block underline underline-offset-2 w-fit mx-auto"
                 >

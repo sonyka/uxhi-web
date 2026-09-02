@@ -22,9 +22,9 @@ interface MobileTooltipProps {
   /** Icon size in px: 24 beside the homepage hero, 16 in body copy. */
   iconSize?: 16 | 20 | 24;
   /** Optical lift in px, on top of the superscript offset. */
-  iconNudge?: 0 | 2;
-  /** Extra px between the label and the icon. */
-  iconGap?: 0 | 2;
+  iconNudge?: 0 | 2 | 4;
+  /** Gap between label and icon. 0 keeps the default, which tracks type size. */
+  iconGap?: 0 | 4;
 }
 
 // Explicit sizes rather than an em ramp: the mark is drawn artwork, and it
@@ -39,8 +39,14 @@ const iconSizes = {
 // Per-placement optical trims. Spelled out rather than computed for the same
 // reason as the sizes: Tailwind scans source text and cannot see a class
 // assembled at runtime.
-const iconNudges = { 0: "", 2: "-translate-y-[2px]" } as const;
-const iconGaps = { 0: "ml-[0.06em]", 2: "ml-[calc(0.06em+2px)]" } as const;
+const iconNudges = {
+  0: "",
+  2: "-translate-y-[2px]",
+  4: "-translate-y-[4px]",
+} as const;
+
+// 0 scales with the type it sits beside; a number is that gap in px flat.
+const iconGaps = { 0: "ml-[0.06em]", 4: "ml-[4px]" } as const;
 
 const tones = {
   light: {

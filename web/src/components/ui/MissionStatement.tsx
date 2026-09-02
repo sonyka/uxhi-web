@@ -25,7 +25,7 @@ export function MissionStatement() {
       <MobileTooltip
         tooltip={ALOHA_CENTERED_TOOLTIP}
         href="/about#aloha-centered-design"
-        iconNudge={2}
+        iconNudge={4}
         className="whitespace-nowrap"
         decorationElement={
           // eslint-disable-next-line @next/next/no-img-element
