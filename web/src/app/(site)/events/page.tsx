@@ -14,7 +14,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
 
 export const metadata: Metadata = {
-  title: "Events | UX Hawaii",
+  title: "Events | UXHI",
   description:
     "Discover upcoming UX events, workshops, and meetups in Hawaii. Connect with local UX professionals and grow your skills.",
 };

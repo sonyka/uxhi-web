@@ -19,7 +19,7 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "UX Hawaii - Hawaii's Premier UX Community",
+  title: "UXHI",
   description:
     "Join 500+ UX professionals, students, and curious individuals in Hawaii. Connect, learn, and grow together with UXHI.",
 };

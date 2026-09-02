@@ -12,7 +12,7 @@ import { DistributionBars } from "@/components/report/DistributionBars";
 export const metadata: Metadata = {
   title: "Average salaries remain a challenge | 2025 State of UX in Hawaiʻi",
   description:
-    "UX practitioners in Hawaiʻi earn an average of $110,203 against a national average of $121,196. From the 2025 State of UX in Hawaiʻi report by UX Hawaiʻi.",
+    "UX practitioners in Hawaiʻi earn an average of $110,203 against a national average of $121,196. From the 2025 State of UX in Hawaiʻi report by UXHI.",
 };
 
 const REPORT_PDF = "/reports/2025-state-of-ux-in-hawaii.pdf";

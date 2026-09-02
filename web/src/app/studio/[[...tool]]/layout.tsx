@@ -1,6 +1,6 @@
 export const metadata = {
   title: "UXHI Studio",
-  description: "Content management for UX Hawaii",
+  description: "Content management for UXHI",
 };
 
 export default function StudioLayout({

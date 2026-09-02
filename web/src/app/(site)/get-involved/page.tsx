@@ -19,7 +19,7 @@ import { SectionIcon } from "@/components/ui/SectionIcon";
 import { scaleReveal } from "@/lib/animations";
 
 export const metadata: Metadata = {
-  title: "Get Involved | UX Hawaii",
+  title: "Get Involved | UXHI",
   description:
     "Join the UXHI community! Volunteer, speak at events, sponsor, partner, or donate to support UX in Hawaii.",
 };

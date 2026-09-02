@@ -11,7 +11,7 @@ import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
-  title: "Shop | UX Hawaii",
+  title: "Shop | UXHI",
   description:
     "Show your UXHI pride with official merchandise. T-shirts, stickers, and more.",
 };

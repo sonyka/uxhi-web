@@ -9,8 +9,7 @@ const GA_COMMUNITY_ID = "G-DMCWLCQD08";
 const COMMUNITY_HOST = "uxhi.community";
 
 const siteSettings = {
-  siteName: "UX Hawaii",
-  tagline: "Hawaii's Premier UX Community",
+  siteName: "UXHI",
   mainNavigation: [
     { _key: "1", label: "Get Involved", linkType: "internal", internalLink: "/" },
     { _key: "2", label: "Find Experts", linkType: "internal", internalLink: "/find-ux-pro" },

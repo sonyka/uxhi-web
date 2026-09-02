@@ -12,7 +12,7 @@ import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
-  title: "Find Experts | UX Hawaii",
+  title: "Find Experts | UXHI",
   description:
     "Connect with UX professionals in Hawaii. Browse our member directory to find designers, researchers, and UX specialists.",
 };

@@ -19,7 +19,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
 
 export const metadata: Metadata = {
-  title: "Resources | UX Hawaii",
+  title: "Resources | UXHI",
   description:
     "Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaii.",
 };

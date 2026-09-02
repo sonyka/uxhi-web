@@ -54,7 +54,7 @@ const ALOHA_PRINCIPLES = [
 ];
 
 export const metadata: Metadata = {
-  title: "About | UX Hawaii",
+  title: "About | UXHI",
   description:
     "Learn about UXHI, Hawaiʻi's home for aloha-centered design. Meet the team and get in touch.",
 };
