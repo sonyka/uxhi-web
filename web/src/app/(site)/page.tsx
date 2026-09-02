@@ -75,7 +75,7 @@ export default async function HomePage() {
           {/* Subheadline */}
           <HeroItem>
             <SectionLead className="max-w-[46ch] mx-auto mb-12">
-              A Hawaiʻi-rooted approach to human-centered design, grounded in care for people,
+              A Hawaiʻi-rooted approach to UX and human-centered design, grounded in care for people,
               culture, community, and place.
             </SectionLead>
           </HeroItem>
@@ -134,7 +134,7 @@ export default async function HomePage() {
               <div className="h-[582px] rounded-[999px] bg-purple-140 px-6 pt-16 pb-14 flex flex-col items-center justify-center text-center relative overflow-hidden">
                 <span className="absolute -right-4 top-1/4 font-display text-[180px] text-purple-120/30 leading-none select-none pointer-events-none">52</span>
                 <p className="text-white/90 text-nav leading-relaxed relative z-10">
-                  Come join our free UXHI community to connect and learn with new UX friends, expand your professional network, and stay updated on the latest UXHI events.
+                  Come join our free UXHI community to connect and learn with new designer friends, expand your professional network, and stay updated on the latest UXHI events.
                 </p>
                 <ArrowLinkButton href="/join" className="mt-4 relative z-10">
                   Join us
@@ -205,7 +205,7 @@ export default async function HomePage() {
               <div className="h-[486px] rounded-[999px] bg-purple-140 px-5 py-12 flex flex-col items-center justify-center text-center relative overflow-hidden">
                 <span className="absolute -right-4 top-1/4 font-display text-[140px] text-purple-120/30 leading-none select-none pointer-events-none">52</span>
                 <p className="text-white/90 text-nav leading-relaxed relative z-10">
-                  Come join our free UXHI community to connect and learn with new UX friends.
+                  Come join our free UXHI community to connect and learn with new designer friends.
                 </p>
                 <ArrowLinkButton href="/join" className="mt-4 relative z-10">
                   Join us
@@ -293,9 +293,12 @@ export default async function HomePage() {
       <section className="py-20 px-6">
         <ScrollReveal className="max-w-[900px] mx-auto text-center">
           <SectionEyebrow className="mb-4 block text-purple-140">What we do</SectionEyebrow>
-          <SectionHeading size="sm" color="gray" className="leading-tight lg:text-4xl">
+          <SectionHeading size="sm" color="gray" className="leading-tight lg:text-4xl mb-10">
             <MissionStatement />
           </SectionHeading>
+          <PrimaryCTA href="/about#aloha-centered-design">
+            What is aloha-centered design?
+          </PrimaryCTA>
         </ScrollReveal>
       </section>
 
@@ -323,9 +326,9 @@ export default async function HomePage() {
           </MotionDiv>
           <MotionDiv>
             <p className="text-gray-110 text-lg mb-8 max-w-[600px] mx-auto">
-              Whether you&apos;re curious about UX, exploring a career switch, or already working in
-              the field, join our free UXHI community to grow as a practitioner, build pilina with
-              fellow designers, and help bring aloha-centered design to organizations across Hawai&#699;i.
+              Whether you&apos;re curious about aloha-centered design or already a practitioner,
+              join our free UXHI community to grow, build pilina, and help bring aloha-centered
+              design to organizations across Hawai&#699;i.
             </p>
           </MotionDiv>
           <MotionDiv>
@@ -340,7 +343,7 @@ export default async function HomePage() {
           <ScrollReveal stagger className="text-center mb-16">
             <MotionDiv>
               <SectionHeading size="lg" color="white" className="mb-6">
-                Together, we shape the future of UX
+                Together, we shape the future of UX in Hawai&#699;i
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
@@ -456,7 +459,7 @@ export default async function HomePage() {
             </MotionDiv>
             <MotionDiv>
               <p className="text-gray-110 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">
-                UXHI is built and run entirely by volunteers who share a passion for aloha-centered design. We create the spaces we wish existed—to learn together, support each other, and elevate UX across Hawaiʻi.
+                UXHI is built and run entirely by volunteers who share a passion for aloha-centered design. We create the spaces we wish existed to learn together, support each other, and elevate UX across Hawaiʻi.
               </p>
             </MotionDiv>
             <MotionDiv>

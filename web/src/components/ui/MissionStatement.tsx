@@ -5,9 +5,6 @@ import { MobileTooltip } from "./MobileTooltip";
 export const ALOHA_CENTERED_TOOLTIP =
   "Aloha-centered design applies Hawaiʻi's values — care, reciprocity, and respect for place — to how we design for people.";
 
-export const HUMAN_CENTERED_TOOLTIP =
-  "Human-centered design is an approach that prioritizes the unique needs of users.";
-
 /**
  * MissionStatement - UXHI's mission sentence, with both terms explained.
  *
@@ -16,15 +13,15 @@ export const HUMAN_CENTERED_TOOLTIP =
  * left-aligned in the mission section. The wording lives here so the two can
  * never drift apart — the mission is one statement, stated once.
  *
- * "aloha-centered design" carries the yellow underline; "human-centered
- * design" deliberately does not. One underline per sentence is enough.
+ * "aloha-centered design" carries the yellow underline — the one term in the
+ * sentence that needs explaining, and one underline per sentence is enough.
  *
  * @see /design-system for usage examples
  */
 export function MissionStatement() {
   return (
     <>
-      UXHI&apos;s mission is to champion and elevate{" "}
+      Our mission is to champion and elevate{" "}
       <MobileTooltip
         tooltip={ALOHA_CENTERED_TOOLTIP}
         href="/about#aloha-centered-design"
@@ -41,13 +38,7 @@ export function MissionStatement() {
         aloha-centered design
       </MobileTooltip>{" "}
       in Hawaiʻi by developing practitioners, building community, and connecting
-      organizations with{" "}
-      <MobileTooltip
-        tooltip={HUMAN_CENTERED_TOOLTIP}
-        className="whitespace-nowrap"
-      >
-        human-centered design
-      </MobileTooltip>.{" "}
+      organizations with our craft.{" "}
       <span className="inline-block">🌺</span>
     </>
   );
