@@ -93,19 +93,20 @@ export function MobileTooltip({
       {/* Sized in em so it tracks body copy, capped so it stays a marker
           rather than a button beside 80px display type.
 
-          Aligned by its top, not its baseline: 0.55em is about where a
-          lowercase x-height lands, so subtracting the icon's own height sits
-          its top beside the top of the word. `align-super` cannot do this —
-          with a capped icon the height is not a fixed share of the em, so the
-          offset has to come off the size actually rendered.
+          Aligned by its top, not its baseline, so it clears the word and
+          reads as a superscript: 0.68em sits above a lowercase x-height, and
+          subtracting the icon's own height lifts its top to there.
+          `align-super` cannot do this — with a capped icon the height is not
+          a fixed share of the em, so the offset has to come off the size
+          actually rendered.
 
-          The max() floor matters at body sizes, where the icon is the full
-          0.7em and so taller than the x-height it is being aligned into:
-          without it the subtraction goes negative and the icon sinks below
-          the baseline. Clamped at 0 it sits on the baseline instead, rising
-          to about cap height. */}
+          The floor carries body copy, where the icon is the full 0.7em and so
+          taller than the band it is aligning into: the subtraction goes to
+          nothing and would drop it flat onto the baseline. 0.18em lifts it
+          just clear of cap height instead, which is the same superscript
+          reading at a size where the arithmetic cannot produce it. */}
       <InfoIcon
-        className={`inline-block w-[min(0.7em,20px)] h-[min(0.7em,20px)] ml-[0.06em] align-[max(0px,calc(0.55em-min(0.7em,20px)))] transition-colors ${styles.icon}`}
+        className={`inline-block w-[min(0.7em,20px)] h-[min(0.7em,20px)] ml-[0.06em] align-[max(0.18em,calc(0.68em-min(0.7em,20px)))] transition-colors ${styles.icon}`}
       />
 
       {/* Tooltip - tap anywhere, plus hover on desktop */}
