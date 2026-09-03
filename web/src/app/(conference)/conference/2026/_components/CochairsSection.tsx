@@ -12,10 +12,12 @@
 // That also retired two separate bio presentations: a desktop flip and a mobile
 // bottom sheet, each with its own layout to keep in step.
 //
-// Columns cap at three via container queries rather than auto-fit. Auto-fit
-// cannot hold "three" — it keeps adding columns as the container grows, so a
-// wide window found a fourth. `@container` also measures this section rather
-// than the viewport, which is what the conference rail needs.
+// Columns are set by container queries rather than auto-fit: two, then three at
+// 576px, then four at 672px. Auto-fit could not express a chosen count — it
+// keeps adding columns as the container grows, so the count drifted with the
+// window. `@container` also measures this section rather than the viewport,
+// which is what the conference rail needs; the section is 620px wide at a 1280
+// window and 760px at 1800, so the 672px break falls cleanly between them.
 
 import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
@@ -63,7 +65,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
       </p>
 
       <div className="@container mt-1">
-        <div className="grid gap-3 md:gap-4 grid-cols-1 @xs:grid-cols-2 @xl:grid-cols-3">
+        <div className="grid gap-3 md:gap-4 grid-cols-1 @xs:grid-cols-2 @xl:grid-cols-3 @2xl:grid-cols-4">
           {cochairs.map((c) => (
             <button
               key={c._id}
