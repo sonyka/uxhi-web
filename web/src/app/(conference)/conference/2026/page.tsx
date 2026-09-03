@@ -425,8 +425,8 @@ export default async function Conference2026Page() {
               <div id="venue" className="scroll-mt-6 flex flex-col gap-3 md:gap-4">
                 <SectionHeading>The Venue: Entrepreneurs Sandbox</SectionHeading>
                 {/* Building photo + location map, side by side on desktop */}
-                <div className="flex flex-col md:flex-row gap-3 md:gap-4">
-                  <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[325/176] md:w-1/2">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3 md:gap-4">
+                  <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[325/176]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/conferences/2026/assets/images/venue-entrepreneurs-sandbox.jpg"
@@ -441,7 +441,7 @@ export default async function Conference2026Page() {
                     target="_blank"
                     rel="noopener"
                     aria-label="View the Entrepreneurs Sandbox on Google Maps"
-                    className="group relative block rounded-2xl md:rounded-3xl overflow-hidden aspect-[325/176] md:w-1/2"
+                    className="group relative block rounded-2xl md:rounded-3xl overflow-hidden aspect-[325/176]"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img

@@ -151,7 +151,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
       </p>
 
       <LayoutGroup>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mt-1">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-3 md:gap-4 mt-1">
           {cochairs.map((c) => {
             // Below md the bio opens in a bottom sheet, so the card itself never
             // expands in place — only the desktop flip does.
