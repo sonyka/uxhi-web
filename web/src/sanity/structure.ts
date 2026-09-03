@@ -15,6 +15,7 @@ import {
   CreditCardIcon,
   HeartIcon,
   AddUserIcon,
+  UserIcon,
 } from "@sanity/icons";
 
 export const structure = (S: StructureBuilder) =>
@@ -157,6 +158,16 @@ export const structure = (S: StructureBuilder) =>
                             .schemaType("conferenceTeam")
                             .filter('_type == "conferenceTeam" && year == 2026')
                             .defaultOrdering([{ field: "order", direction: "asc" }])
+                        ),
+                      S.listItem()
+                        .title("Speakers")
+                        .icon(UserIcon)
+                        .child(
+                          S.documentList()
+                            .title("Speakers — 2026")
+                            .schemaType("conferenceSpeaker")
+                            .filter('_type == "conferenceSpeaker" && year == 2026')
+                            .defaultOrdering([{ field: "name", direction: "asc" }])
                         ),
                       S.listItem()
                         .title("Sponsors")

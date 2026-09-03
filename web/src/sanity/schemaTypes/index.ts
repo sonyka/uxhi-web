@@ -17,6 +17,7 @@ import { committee } from "./documents/committee";
 
 // Conference (kept separate from the main site content)
 import { conferenceTeam } from "./documents/conferenceTeam";
+import { conferenceSpeaker } from "./documents/conferenceSpeaker";
 import { conferenceSponsor } from "./documents/conferenceSponsor";
 import { conferenceInstagramPost } from "./documents/conferenceInstagramPost";
 
@@ -46,6 +47,7 @@ export const schemaTypes = [
 
   // Conference (kept separate from the main site content)
   conferenceTeam,
+  conferenceSpeaker,
   conferenceSponsor,
   conferenceInstagramPost,
 

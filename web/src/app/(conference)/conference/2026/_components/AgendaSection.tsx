@@ -32,8 +32,49 @@ const ROOM_COLORS: Record<string, string> = {
 
 export interface AgendaSpeaker {
   name: string;
-  /** Headshot. Falls back to initials until real photos land. */
+  /** Join key to the Sanity conferenceSpeaker record. */
+  slug?: string;
+  /** Headshot. Falls back to initials where there is no record or no photo. */
   photo?: string;
+  title?: string;
+  bio?: string;
+  linkedin?: string;
+}
+
+/** What the CMS knows about a speaker, keyed by the agenda's slug. */
+export type SpeakerRecord = Omit<AgendaSpeaker, "name"> & { name?: string | null };
+
+/**
+ * Layer Sanity over the static agenda.
+ *
+ * The name in agenda.ts is the fallback, not a placeholder — the schedule
+ * renders in full with no CMS records at all, and a record only adds a photo,
+ * a bio and a title. That way an unpublished or mistyped speaker record
+ * degrades to a plain name rather than a hole in the day.
+ */
+export function withSpeakerRecords(
+  slots: AgendaSlot[],
+  records: SpeakerRecord[],
+): AgendaSlot[] {
+  const bySlug = new Map(records.filter((r) => r.slug).map((r) => [r.slug, r]));
+  return slots.map((slot) => ({
+    ...slot,
+    sessions: slot.sessions.map((session) => ({
+      ...session,
+      speakers: session.speakers?.map((speaker) => {
+        const record = speaker.slug ? bySlug.get(speaker.slug) : undefined;
+        if (!record) return speaker;
+        return {
+          ...speaker,
+          name: record.name || speaker.name,
+          photo: record.photo ?? speaker.photo,
+          title: record.title,
+          bio: record.bio,
+          linkedin: record.linkedin,
+        };
+      }),
+    })),
+  }));
 }
 
 export interface AgendaSession {

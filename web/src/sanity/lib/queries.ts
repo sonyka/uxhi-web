@@ -70,6 +70,19 @@ export const CONFERENCE_TEAM_QUERY = defineQuery(/* groq */ `
   }
 `);
 
+// Conference speakers for a given year. Resolves the same way conferenceTeam
+// does: local fields win, a linked team member answers otherwise.
+export const CONFERENCE_SPEAKERS_QUERY = defineQuery(/* groq */ `
+  *[_type == "conferenceSpeaker" && year == $year] {
+    "slug": slug.current,
+    "name": coalesce(name, person->name),
+    title,
+    "bio": coalesce(bio, person->bio),
+    "linkedin": coalesce(linkedin, person->socialLinks.linkedin),
+    "photo": coalesce(photo.asset->url, person->photo.asset->url)
+  }
+`);
+
 // Conference Instagram posts for a given year (curated, year-scoped)
 export const CONFERENCE_INSTAGRAM_QUERY = defineQuery(/* groq */ `
   *[_type == "conferenceInstagramPost" && year == $year] | order(order asc, _createdAt desc) {

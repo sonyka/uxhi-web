@@ -9,12 +9,12 @@ import { SponsorsGrid } from "./_components/SponsorsGrid";
 import { InstagramGrid } from "./_components/InstagramGrid";
 import { QuoteCard } from "./_components/QuoteCard";
 import { ProgramSection } from "./_components/ProgramSection";
-import { AgendaSection } from "./_components/AgendaSection";
+import { AgendaSection, withSpeakerRecords } from "./_components/AgendaSection";
 import { AGENDA_2026 } from "./agenda";
 import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
-import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY } from "@/sanity/lib/queries";
+import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY, CONFERENCE_SPEAKERS_QUERY } from "@/sanity/lib/queries";
 import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
 import { TICKETS_URL, SPONSOR_URL } from "./constants";
@@ -175,11 +175,13 @@ function SidebarInfo() {
 
 // ─────────────────────────────────────────────────────────────────────
 export default async function Conference2026Page() {
-  const [{ data: cochairs }, { data: sponsors }, { data: instagramPosts }] = await Promise.all([
-    sanityFetchCached({ query: CONFERENCE_TEAM_QUERY, params: { year: 2026 } }),
-    sanityFetchCached({ query: CONFERENCE_SPONSORS_QUERY, params: { year: 2026 } }),
-    sanityFetchCached({ query: CONFERENCE_INSTAGRAM_QUERY, params: { year: 2026 } }),
-  ]);
+  const [{ data: cochairs }, { data: sponsors }, { data: instagramPosts }, { data: speakers }] =
+    await Promise.all([
+      sanityFetchCached({ query: CONFERENCE_TEAM_QUERY, params: { year: 2026 } }),
+      sanityFetchCached({ query: CONFERENCE_SPONSORS_QUERY, params: { year: 2026 } }),
+      sanityFetchCached({ query: CONFERENCE_INSTAGRAM_QUERY, params: { year: 2026 } }),
+      sanityFetchCached({ query: CONFERENCE_SPEAKERS_QUERY, params: { year: 2026 } }),
+    ]);
 
   return (
     /**
@@ -411,7 +413,7 @@ export default async function Conference2026Page() {
               {/* ── Agenda ─────────────────────────────────────────── */}
               {/* Follows the Program, which frames the day; this is the day. */}
               <div id="agenda" className="scroll-mt-6">
-                <AgendaSection slots={AGENDA_2026} />
+                <AgendaSection slots={withSpeakerRecords(AGENDA_2026, speakers ?? [])} />
               </div>
 
               {/* Benefits headline — sits above the Sandbox/Venue section. */}
