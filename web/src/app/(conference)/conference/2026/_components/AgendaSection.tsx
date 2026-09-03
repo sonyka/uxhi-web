@@ -21,8 +21,8 @@ import { useState } from "react";
 import { BEIGE_40, GRAY_80, GRAY_100, GRAY_110, LINK, ORANGE_130, PURPLE, TYPE, YELLOW_80 } from "../theme";
 import { SectionHeading } from "./SectionHeading";
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
-import { LinkedInIcon } from "./icons";
 import type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
+import { LinkedInLink } from "./LinkedInLink";
 
 export type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
 
@@ -130,19 +130,7 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
           <p style={{ color: GRAY_100 }}>A bio for {speaker?.name} is on the way.</p>
         )}
         {speaker?.linkedin && (
-          <a
-            href={speaker.linkedin}
-            target="_blank"
-            rel="noopener"
-            aria-label={`${speaker.name} on LinkedIn`}
-            // Same treatment as the co-chair bio cards: icon only, no label, so
-            // the colour is set rather than inherited and the aria-label is
-            // carrying the name for anyone not seeing the mark.
-            className="inline-flex hover:opacity-70 transition-opacity w-fit"
-            style={{ color: GRAY_110 }}
-          >
-            <LinkedInIcon size={22} />
-          </a>
+<LinkedInLink href={speaker.linkedin} name={speaker.name} size={22} />
         )}
       </AgendaDrawer>
     </div>

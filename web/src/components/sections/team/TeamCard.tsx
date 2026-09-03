@@ -6,6 +6,7 @@ import { SanityImage } from "@/components/ui/SanityImage";
 import { urlFor } from "@/sanity/lib/image";
 import { cn } from "@/lib/utils";
 import type { TeamMember } from "./index";
+import { LinkedInLink } from "@/components/ui/LinkedInLink";
 
 interface TeamCardProps {
   member: TeamMember;
@@ -108,22 +109,7 @@ export function TeamCard({ member, isExpanded, onToggle }: TeamCardProps) {
             {/* Social links */}
             <div className="flex items-center gap-3">
               {member.socialLinks?.linkedin && (
-                <a
-                  href={member.socialLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-block group/link"
-                  aria-label={`${member.name}'s LinkedIn`}
-                >
-                  <Image
-                    src="/images/nav/glyph-linkedin.svg"
-                    alt="LinkedIn"
-                    width={24}
-                    height={24}
-                    className="grayscale opacity-50 group-hover/link:grayscale-0 group-hover/link:opacity-100 transition-all duration-300"
-                  />
-                </a>
+<LinkedInLink href={member.socialLinks.linkedin} name={member.name} size={24} />
               )}
               {member.socialLinks?.website && (
                 <a

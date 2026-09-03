@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_110 as GRAY, PURPLE, TYPE } from "../theme";
-import { LinkedInIcon } from "./icons";
+import { LinkedInLink } from "./LinkedInLink";
 
 // Data comes from Sanity (conferenceCochair, year-scoped) — see queries.ts.
 export type Cochair = {
@@ -125,18 +125,9 @@ function MobileBioSheet({ c, onClose }: { c: Cochair; onClose: () => void }) {
 
           {/* LinkedIn */}
           {c.linkedin && (
-            <a
-              href={c.linkedin}
-              target="_blank"
-              rel="noopener"
-              aria-label={`${c.name} on LinkedIn`}
-              className="inline-flex mt-5 hover:opacity-70 transition-opacity"
-              // No label text here, so the icon color is set explicitly rather
-              // than inherited — matches the bio copy beside it.
-              style={{ color: GRAY }}
-            >
-              <LinkedInIcon size={22} />
-            </a>
+            <div className="mt-5">
+              <LinkedInLink href={c.linkedin} name={c.name} size={22} />
+            </div>
           )}
         </div>
       </motion.div>
@@ -215,17 +206,9 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
 
                       {/* LinkedIn */}
                       {c.linkedin && (
-                        <a
-                          href={c.linkedin}
-                          target="_blank"
-                          rel="noopener"
-                          onClick={(e) => e.stopPropagation()}
-                          aria-label={`${c.name} on LinkedIn`}
-                          className="inline-flex shrink-0 hover:opacity-70 transition-opacity"
-                          style={{ color: GRAY }}
-                        >
-                          <LinkedInIcon size={22} />
-                        </a>
+                        <span className="shrink-0">
+                          <LinkedInLink href={c.linkedin} name={c.name} size={22} />
+                        </span>
                       )}
                     </motion.div>
                   ) : (

@@ -7,6 +7,7 @@ import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { urlFor } from "@/sanity/lib/image";
 import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS, INDUSTRY_OPTIONS, ISLAND_OPTIONS } from "./constants";
 import type { DirectoryMember } from "./MemberCard";
+import { LinkedInLink } from "@/components/ui/LinkedInLink";
 
 interface MemberDrawerProps {
   member: DirectoryMember | null;
@@ -202,21 +203,7 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
               {(member.linkedIn || member.portfolio) && (
                 <div className="flex gap-4 pt-4 border-t border-gray-20">
                   {member.linkedIn && (
-                    <a
-                      href={member.linkedIn}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block group"
-                      aria-label={`${member.name}'s LinkedIn profile`}
-                    >
-                      <Image
-                        src="/images/nav/glyph-linkedin.svg"
-                        alt="LinkedIn"
-                        width={32}
-                        height={32}
-                        className="grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                      />
-                    </a>
+<LinkedInLink href={member.linkedIn} name={member.name} size={32} />
                   )}
                   {member.portfolio && (
                     <a
