@@ -2,10 +2,8 @@ import { cn } from "@/lib/utils";
 import { SectionHeading } from "./SectionHeading";
 import {
   PURPLE,
-  PURPLE_100,
   TEAL_40,
   YELLOW_80,
-  BEIGE_40,
   GRAY_110 as GRAY,
   GRAY_100,
   GRAY_80,
@@ -146,33 +144,11 @@ export function ProgramSection() {
         </div>
       </div>
 
-      {/* Lineup teaser. The avatar stack stands in for speakers not yet
-          announced — three brand circles and an unknown, so the row reads as
-          "more to come" rather than as real people. Decorative, hence
-          aria-hidden. */}
+      {/* The avatar stack that stood here was a lineup teaser: three brand
+          circles and a "+?" standing in for speakers not yet announced. The
+          agenda below now names them, so the row was promising an unknown that
+          is no longer unknown. */}
       <div className="flex flex-col gap-5">
-        <div className="flex items-center gap-5">
-          <div className="flex items-center shrink-0" aria-hidden="true">
-            {[YELLOW_80, TEAL_40, PURPLE_100].map((fill) => (
-              <span
-                key={fill}
-                className="w-12 h-12 lg:w-14 lg:h-14 rounded-full -mr-3 lg:-mr-4"
-                style={{ background: fill }}
-              />
-            ))}
-            <span
-              className={`w-12 h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center ${TYPE.fine} font-bold`}
-              style={{ background: BEIGE_40, color: GRAY_100 }}
-            >
-              +?
-            </span>
-          </div>
-
-        </div>
-
-        {/* Sits below rather than beside. The conference content column is only
-            ~620px; putting the CTA in a third column alongside the avatars left
-            the headline 85px wide across seven lines. */}
         <ConferenceButton
           href="https://www.linkedin.com/company/uxhi/"
           variant="outline"
