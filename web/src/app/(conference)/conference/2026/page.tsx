@@ -10,7 +10,7 @@ import { InstagramGrid } from "./_components/InstagramGrid";
 import { QuoteCard } from "./_components/QuoteCard";
 import { ProgramSection } from "./_components/ProgramSection";
 import { AgendaSection } from "./_components/AgendaSection";
-import { AGENDA_2026, AGENDA_ROOMS } from "./agenda";
+import { AGENDA_2026 } from "./agenda";
 import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
@@ -411,7 +411,7 @@ export default async function Conference2026Page() {
               {/* ── Agenda ─────────────────────────────────────────── */}
               {/* Follows the Program, which frames the day; this is the day. */}
               <div id="agenda" className="scroll-mt-6">
-                <AgendaSection slots={AGENDA_2026} rooms={AGENDA_ROOMS} />
+                <AgendaSection slots={AGENDA_2026} />
               </div>
 
               {/* Benefits headline — sits above the Sandbox/Venue section. */}

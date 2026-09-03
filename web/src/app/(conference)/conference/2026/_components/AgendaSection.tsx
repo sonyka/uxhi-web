@@ -18,8 +18,20 @@
 // cross-year level holds only design-free things; an agenda is a design, and
 // 2027 should be free to lay its own out differently.
 
+import { GRAY_80, GRAY_100, GRAY_110, ORANGE_130, PURPLE, TYPE } from "../theme";
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_80, GRAY_100, GRAY_110, PURPLE, TEAL_90, TYPE } from "../theme";
+
+// Room labels carry the colour, since the rooms are named on every card and a
+// legend would only repeat them. Two hues rather than two tints of one: at
+// 13px uppercase the eye reads hue long before it reads a shade.
+//
+// Both are measured against the beige-30 card, not the page: purple-140 at
+// ~14:1, orange-130 at ~6.2:1. The teal these started as sat at 2.3:1 and was
+// the reason for the change.
+const ROOM_COLORS: Record<string, string> = {
+  "Purple Box": PURPLE,
+  "Main Room": ORANGE_130,
+};
 
 export interface AgendaSession {
   /** Room name. Omit for a slot the whole conference shares. */
@@ -27,26 +39,28 @@ export interface AgendaSession {
   title: string;
   /** "Talk", "Workshop", "Lightning Talks" — omitted for doors, lunch, breaks. */
   format?: string;
-  /** Presenter names, already formatted for display. */
+  /**
+   * Presenter names. Underlined, because each will open a bio drawer.
+   * Not yet interactive.
+   */
   speakers?: string;
+  /**
+   * Supporting text that is not a person: "Coffee and light breakfast",
+   * "To be announced". Kept apart from `speakers` so it is not underlined as
+   * though it were a name to click.
+   */
+  detail?: string;
 }
 
 export interface AgendaSlot {
   /** Start time as it should read: "9:00 am". */
   time: string;
-  /** "15 min", "1 hr" — shown under the time. */
+  /** "15 min", "40 min" — shown under the time. Omit where the length is unremarkable. */
   duration?: string;
   sessions: AgendaSession[];
 }
 
-export function AgendaSection({
-  slots,
-  rooms,
-}: {
-  slots: AgendaSlot[];
-  /** Room names, in column order, for the legend. */
-  rooms?: string[];
-}) {
+export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>Agenda</SectionHeading>
@@ -54,23 +68,6 @@ export function AgendaSection({
         One day, two rooms. Sessions run in parallel through the afternoon, so
         the schedule is yours to build.
       </p>
-
-      {rooms && rooms.length > 0 && (
-        <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-1">
-          {rooms.map((room) => (
-            <li key={room} className="flex items-center gap-2">
-              <span
-                aria-hidden="true"
-                className="w-2 h-2 rounded-full shrink-0"
-                style={{ backgroundColor: TEAL_90 }}
-              />
-              <span className={TYPE.fine} style={{ color: GRAY_100 }}>
-                {room}
-              </span>
-            </li>
-          ))}
-        </ul>
-      )}
 
       <ol className="flex flex-col gap-3 md:gap-4 mt-2">
         {slots.map((slot) => (
@@ -113,15 +110,18 @@ export function AgendaSection({
 }
 
 function SessionCard({ session }: { session: AgendaSession }) {
-  const { room, title, format, speakers } = session;
-  // Doors, lunch and clean-up carry neither a format nor a presenter. Without
-  // the divider they would end on a rule with nothing under it.
-  const hasMeta = Boolean(format || speakers);
+  const { room, title, format, speakers, detail } = session;
+  // Lunch and the icebreaker carry no meta at all. Without this the card would
+  // end on a divider with nothing under it.
+  const hasMeta = Boolean(format || speakers || detail);
 
   return (
     <div className="bg-beige-30 rounded-2xl px-5 py-[18px] h-full">
       {room && (
-        <div className={`${TYPE.eyebrow} mb-1.5`} style={{ color: TEAL_90 }}>
+        <div
+          className={`${TYPE.eyebrow} mb-1.5`}
+          style={{ color: ROOM_COLORS[room] ?? GRAY_100 }}
+        >
           {room}
         </div>
       )}
@@ -140,8 +140,11 @@ function SessionCard({ session }: { session: AgendaSession }) {
           />
           <p className={TYPE.fine} style={{ color: GRAY_100 }}>
             {format}
-            {format && speakers ? " · " : ""}
-            {speakers && <span className="italic">{speakers}</span>}
+            {format && (speakers || detail) ? " · " : ""}
+            {speakers && (
+              <span className="underline underline-offset-2">{speakers}</span>
+            )}
+            {detail}
           </p>
         </>
       )}

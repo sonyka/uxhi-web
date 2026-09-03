@@ -9,7 +9,7 @@ import { Bricolage_Grotesque } from "next/font/google";
 import { TYPE as CONF_2026_TYPE } from "@/app/(conference)/conference/2026/theme";
 import { ConferenceButton } from "@/app/(conference)/conference/2026/_components/ConferenceButton";
 import { AgendaSection } from "@/app/(conference)/conference/2026/_components/AgendaSection";
-import { AGENDA_2026, AGENDA_ROOMS } from "@/app/(conference)/conference/2026/agenda";
+import { AGENDA_2026 } from "@/app/(conference)/conference/2026/agenda";
 import { ShakaIcon, ArrowRightIcon } from "@/app/(conference)/conference/2026/_components/icons";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { ArrowIcon, ExternalLinkIcon, PlusIcon, MinusIcon, ChevronDownIcon, SendIcon } from "@/components/ui/icons";
@@ -3195,7 +3195,7 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Example</h4>
           <div className="bg-white rounded-2xl p-6 md:p-8">
-            <AgendaSection slots={AGENDA_2026} rooms={AGENDA_ROOMS} />
+            <AgendaSection slots={AGENDA_2026} />
           </div>
         </div>
         <div>

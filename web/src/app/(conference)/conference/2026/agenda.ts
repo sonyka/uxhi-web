@@ -6,49 +6,54 @@ import type { AgendaSlot } from "./_components/AgendaSection";
 // speaker, copy still to write — and are not content, so they are not here.
 //
 // The sheet also carries a third column, Blue Box, with no session in any row.
-// The room list below is the two that are actually programmed; the component
-// takes any number, so adding it later is a data change.
+// Rooms are named on each card, so adding it later is a data change.
 //
-// ⚠️ Two rows read as internal run-of-show rather than anything an attendee
-//    needs: "Close / Clean up" and "5:00 pm ish — Leave". They are kept so the
-//    day is complete, but they want a decision before this goes public.
-
-export const AGENDA_ROOMS = ["Main Room", "Purple Box"];
+// The open and close follow the 2025 site rather than the sheet: doors with
+// coffee and breakfast, and named opening and closing remarks. The sheet ended
+// on "Close / Clean up" and "5:00 pm ish — Leave", which are run-of-show notes
+// for the organisers rather than anything an attendee needs.
+//
+// Titles are Title Case. The rest of the site is sentence case; talk titles are
+// the deliberate exception, because a run of them stacked in a column reads as
+// a list of works rather than a list of sentences.
+//
+// ⚠️ The icebreaker host is "Sean" on the sheet. Written out here as Sean
+//    Tangco, who presents at 11:00 — worth confirming it is the same Sean.
 
 export const AGENDA_2026: AgendaSlot[] = [
   {
     time: "8:00 am",
-    sessions: [{ title: "Doors open" }],
+    sessions: [{ title: "Doors Open", detail: "Coffee and light breakfast" }],
   },
   {
     time: "9:00 am",
     duration: "15 min",
-    sessions: [{ title: "Opening remarks", speakers: "Kat and Jenn" }],
+    sessions: [
+      { title: "Opening Remarks", speakers: "Kat Duran-Higa & Jennifer Kumura" },
+    ],
   },
   {
     time: "9:15 am",
     duration: "40 min",
-    sessions: [{ title: "Conference-wide icebreaker", speakers: "Sean" }],
+    sessions: [{ title: "Conference-Wide Icebreaker", speakers: "Sean Tangco" }],
   },
   {
     time: "10:00 am",
-    duration: "1 hr",
-    sessions: [{ title: "Keynote" }],
+    sessions: [{ title: "Keynote", detail: "To be announced" }],
   },
   {
     time: "11:00 am",
-    duration: "1 hr",
     sessions: [
       {
         room: "Main Room",
-        title: "Case study showcase",
+        title: "Case Study Showcase",
         format: "Lightning Talks",
         speakers: "Carolyn Rojsutivat, Kim Cinco, Amy McKee, Gage Minamoto",
       },
       {
         room: "Purple Box",
         title:
-          "The professional listener: deep listening, strategic filtering, and getting to action",
+          "The Professional Listener: Deep Listening, Strategic Filtering, and Getting to Action",
         format: "Talk",
         speakers: "Sean Tangco",
       },
@@ -56,24 +61,22 @@ export const AGENDA_2026: AgendaSlot[] = [
   },
   {
     time: "12:00 pm",
-    duration: "1 hr",
     sessions: [{ title: "Lunch" }],
   },
   {
     time: "1:00 pm",
-    duration: "1 hr",
     sessions: [
       {
         room: "Main Room",
         // The sheet punctuates this with an em dash; the site does not use them.
         title:
-          "The Stories We Inherit: stewarding the narratives that shape our organizations",
+          "The Stories We Inherit: Stewarding the Narratives That Shape Our Organizations",
         format: "Talk",
         speakers: "Fai Visuthicho",
       },
       {
         room: "Purple Box",
-        title: "If mom says no, ask dad",
+        title: "If Mom Says No, Ask Dad",
         format: "Workshop",
         speakers: "Steph Lum",
       },
@@ -81,17 +84,16 @@ export const AGENDA_2026: AgendaSlot[] = [
   },
   {
     time: "2:00 pm",
-    duration: "1 hr",
     sessions: [
       {
         room: "Main Room",
-        title: "Designers are translators",
+        title: "Designers Are Translators",
         format: "Talk",
         speakers: "Nate Lynch",
       },
       {
         room: "Purple Box",
-        title: "Storytelling framework workshop",
+        title: "Storytelling Framework Workshop",
         format: "Workshop",
         speakers: "Anthology",
       },
@@ -99,17 +101,16 @@ export const AGENDA_2026: AgendaSlot[] = [
   },
   {
     time: "3:00 pm",
-    duration: "1 hr",
     sessions: [
       {
         room: "Main Room",
-        title: "Reciprocity by design: tech as a public good",
+        title: "Reciprocity by Design: Tech as a Public Good",
         format: "Talk",
         speakers: "Hanalei Ramos",
       },
       {
         room: "Purple Box",
-        title: "Sharing your career moʻolelo",
+        title: "Sharing Your Career Moʻolelo",
         format: "Workshop",
         speakers: "Piʻikū",
       },
@@ -117,10 +118,8 @@ export const AGENDA_2026: AgendaSlot[] = [
   },
   {
     time: "4:00 pm",
-    sessions: [{ title: "Close and clean up" }],
-  },
-  {
-    time: "5:00 pm",
-    sessions: [{ title: "Leave" }],
+    sessions: [
+      { title: "Closing Remarks", speakers: "Kat Duran-Higa & Jennifer Kumura" },
+    ],
   },
 ];
