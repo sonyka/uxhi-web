@@ -19,7 +19,8 @@ import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_
 import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
 import { TICKETS_URL, SPONSOR_URL } from "./constants";
-import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, LinkedInIcon, InstagramIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
+import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, InstagramIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
+import { LinkedInGlyph } from "./_components/LinkedInLink";
 
 const OG_TITLE = "UXHI Conference :: October 17, 2026";
 const OG_DESCRIPTION =
@@ -584,8 +585,8 @@ export default async function Conference2026Page() {
             <InstagramIcon size={24} />
           </a>
           <a href="https://www.linkedin.com/company/uxhi/" target="_blank" rel="noopener" aria-label="UXHI on LinkedIn"
-            className="flex items-center hover:opacity-70 transition-opacity" style={{ color: GRAY_110 }}>
-            <LinkedInIcon size={24} />
+            className="flex items-center">
+            <LinkedInGlyph size={24} />
           </a>
         </div>
       </div>

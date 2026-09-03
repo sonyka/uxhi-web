@@ -39,3 +39,16 @@ export function LinkedInLink({
     </a>
   );
 }
+
+/**
+ * The same mark, plain: no greyscale, no hover.
+ *
+ * For navigation and calls to action, where LinkedIn is a destination rather
+ * than someone's profile. The grey-to-colour reveal says "this is a person you
+ * can look up" and would be saying the wrong thing here.
+ *
+ * Takes `size` so it satisfies ConferenceButton's icon contract.
+ */
+export function LinkedInGlyph({ size = 24 }: { size?: number }) {
+  return <Image src="/images/nav/glyph-linkedin.svg" alt="" width={size} height={size} />;
+}

@@ -14,7 +14,8 @@ import {
 } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
 import { TICKETS_URL } from "../constants";
-import { ShakaIcon, LinkedInIcon } from "./icons";
+import { ShakaIcon } from "./icons";
+import { LinkedInGlyph } from "./LinkedInLink";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with
@@ -180,7 +181,7 @@ export function ProgramSection() {
         <ConferenceButton
           href="https://www.linkedin.com/company/uxhi/"
           variant="outline"
-          icon={LinkedInIcon}
+          icon={LinkedInGlyph}
           className="w-fit"
         >
           Follow @uxhi
