@@ -168,11 +168,6 @@ export function ProgramSection() {
             </span>
           </div>
 
-          {/* `body` rather than `lead`: lead tops out at 28px, which wrapped
-              this to three lines in the ~360px the avatars leave it. */}
-          <p className={cn(TYPE.body, "flex-1 font-bold")} style={{ color: PURPLE }}>
-            The speaker lineup and full agenda will be announced soon.
-          </p>
         </div>
 
         {/* Sits below rather than beside. The conference content column is only

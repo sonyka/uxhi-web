@@ -73,6 +73,8 @@ export const AGENDA_2026: AgendaSlot[] = [
         // The sheet punctuates this with an em dash; the site does not use them.
         title:
           "The Stories We Inherit: Stewarding the Narratives That Shape Our Organizations",
+        description:
+          "This year’s theme, moʻolelo, challenged me to think differently about storytelling. I realized that the stories shaping our organizations are not just the ones we intentionally tell, they are also the ones we inherit: the explanations, assumptions, and narratives that quietly become “the way things work.”\n\nWe often celebrate storytelling as one of UX’s greatest strengths. Stories help us understand users, align teams, and create clarity. But stories have another quality we talk about far less: they endure.\n\nEvery organization inherits stories about its customers, products, processes, and even itself. They become onboarding materials, product vocabulary, roadmaps, personas, conventions, and shared assumptions. They help organizations move quickly by giving people a shared understanding of the world around them.\n\nYet the longer a story is carried forward, the easier it becomes to mistake continuity for truth.\n\nThroughout my career in enterprise software and nonprofit leadership, the most consequential outcomes of research often had surprisingly little to do with discovering something new about users. Instead, they revealed that inherited narratives no longer matched the people, workflows, or systems organizations were designing for. Whether redefining customer roles, exposing hidden complexity in enterprise onboarding, or revealing how internal language quietly shapes product decisions, the greatest impact came from helping organizations revisit the stories they believed about themselves.\n\nRather than presenting another research methodology or storytelling framework, this talk invites us to reconsider one of our profession’s greatest responsibilities: not simply creating stories that endure, but returning to the stories we’ve inherited with enough humility to ask whether they’re still true.",
         speakers: [{ name: "Fai Visuthicho", slug: "fai-visuthicho" }],
       },
       {
@@ -88,6 +90,8 @@ export const AGENDA_2026: AgendaSlot[] = [
       {
         room: "Main Room",
         title: "Designers Are Translators",
+        description:
+          "Great products begin with great conversations. Designers sit at the intersection of end users, business, engineering, research, and AI, translating between people who often speak different languages and hold different assumptions. Through stories, research, and facilitation, designers uncover unmet needs, assess competing hypotheses against reality, and help organizations build a shared understanding before a single screen is designed. This session reframes design as the practice of translating meaning rather than producing interfaces. Before we create products, we help people understand one another.",
         speakers: [{ name: "Nate Lynch", slug: "nate-lynch" }],
       },
       {
@@ -103,11 +107,15 @@ export const AGENDA_2026: AgendaSlot[] = [
       {
         room: "Main Room",
         title: "Reciprocity by Design: Tech as a Public Good",
+        description:
+          "Designing tech as a public good is vital in Hawaiʻi. Beyond the workforce-pipeline focus (jobs, access, upskilling), we have to ask: who decides what gets built, for whom, and how? This session reframes reciprocity as the foundation of that authority: technology made for Hawaiians has to be built in relationship with this place, not just deployed onto it. That means designing alongside a community, where Native Hawaiian priorities shape the work as it’s created, not reviewed at the end. Grounded in real projects shaped by that relationship, the session explores how tech built this way can serve Hawaiʻi’s communities, and carry lessons well beyond them.",
         speakers: [{ name: "Hanalei Ramos", slug: "hanalei-ramos" }],
       },
       {
         room: "Purple Box",
         title: "Sharing Your Career Moʻolelo",
+        description:
+          "Everyone knows their own career journey, but can they describe it when asked? This workshop invites participants to reflect on the defining moments that shaped their careers and craft a concise, meaningful narrative they can confidently share in interviews, networking conversations, or introductions. Through guided exercises and small-group discussions, attendees will refine their personal career story while also learning from others.",
         speakers: [{ name: "Piʻikū", slug: "piiku" }],
       },
     ],
