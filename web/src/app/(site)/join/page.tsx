@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
+import { MEMBER_COUNT_PLUS } from "@/lib/stats";
 import type { Metadata } from "next";
 import { scaleReveal } from "@/lib/animations";
 
@@ -31,7 +32,7 @@ export default function JoinPage() {
             <HeroItem>
               <p className="text-black text-lg lg:text-xl leading-relaxed">
                 Joining UXHI is free! As a member, you gain access to our community
-                Slack group with 400+ designers, an invitation to join our member
+                Slack group with {MEMBER_COUNT_PLUS} designers, an invitation to join our member
                 directory, and early updates on the latest UX events through our
                 monthly emails.
               </p>
@@ -125,13 +126,13 @@ export default function JoinPage() {
             </MotionDiv>
             <MotionDiv>
               <p className="text-white text-lg leading-relaxed">
-                Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with 400+ designers!
+                Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with {MEMBER_COUNT_PLUS} designers!
                 {/* Its own line: inline, it trailed a long paragraph and read
                     as part of the sentence rather than as a thing to tap. */}
                 <MobileTooltip
                   tone="dark"
                   iconGap={4}
-                  tooltip="Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has 400+ designers sharing resources, job opportunities, and community support."
+                  tooltip={`Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has ${MEMBER_COUNT_PLUS} designers sharing resources, job opportunities, and community support.`}
                   className="mt-3 !block underline underline-offset-2 w-fit mx-auto"
                 >
                   What is Slack?

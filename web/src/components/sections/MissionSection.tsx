@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { MissionStatement } from "@/components/ui/MissionStatement";
+import { MEMBER_COUNT } from "@/lib/stats";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 interface Value {
@@ -84,7 +85,7 @@ export function MissionSection({ values }: MissionSectionProps) {
               volunteer-run organization that acts as the go-to resource for UX
               in the state. Our primary initiatives include our annual UXHI
               Conference, our State of UX report, our ongoing events, and
-              community of over 400 UX practitioners who share feedback and best
+              community of over {MEMBER_COUNT} UX practitioners who share feedback and best
               practices with each other via our dedicated Slack channel.
             </p>
           </motion.div>

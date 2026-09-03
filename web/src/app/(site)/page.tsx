@@ -12,6 +12,7 @@ import { MobileTooltip } from "@/components/ui/MobileTooltip";
 import { MissionStatement, ALOHA_CENTERED_TOOLTIP } from "@/components/ui/MissionStatement";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionLead } from "@/components/ui/SectionLead";
+import { MEMBER_COUNT, MEMBER_COUNT_PLUS } from "@/lib/stats";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, CountUp } from "@/components/ui/motion";
 import { scaleReveal, fadeIn, columnStaggerContainer, columnRise } from "@/lib/animations";
@@ -19,7 +20,7 @@ import { scaleReveal, fadeIn, columnStaggerContainer, columnRise } from "@/lib/a
 export const metadata: Metadata = {
   title: "UXHI - Community for aloha-centered design",
   description:
-    "Join 470+ UX professionals, students, and curious individuals in Hawaiʻi. Connect, learn, and grow together with UXHI.",
+    `Join ${MEMBER_COUNT_PLUS} UX professionals, students, and curious individuals in Hawaiʻi. Connect, learn, and grow together with UXHI.`,
 };
 
 
@@ -44,7 +45,7 @@ export default async function HomePage() {
                 height={36}
                 className="h-9 w-auto"
               />
-              <span className="text-nav text-gray-120 font-medium">470 members and counting</span>
+              <span className="text-nav text-gray-120 font-medium">{MEMBER_COUNT} members and counting</span>
             </div>
           </HeroItem>
 
@@ -125,7 +126,7 @@ export default async function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-6 left-0 right-0 text-center">
-                  <CountUp to={470} suffix="+" className="font-display text-4xl text-white" />
+                  <CountUp to={MEMBER_COUNT} className="font-display text-4xl text-white" />
                   <span className="block text-white/90 text-sm mt-1">Members and counting</span>
                 </div>
               </div>
@@ -134,7 +135,6 @@ export default async function HomePage() {
             {/* Column 3: Tallest purple pill (center) */}
             <MotionDiv variants={columnRise} className="w-[234px]">
               <div className="h-[582px] rounded-[999px] bg-purple-140 px-6 pt-16 pb-14 flex flex-col items-center justify-center text-center relative overflow-hidden">
-                <span className="absolute -right-4 top-1/4 font-display text-[180px] text-purple-120/30 leading-none select-none pointer-events-none">52</span>
                 <p className="text-white/90 text-nav leading-relaxed relative z-10">
                   Come join our free UXHI community to connect and learn with new designer friends, expand your professional network, and stay updated on the latest UXHI events.
                 </p>
@@ -205,7 +205,6 @@ export default async function HomePage() {
             {/* Column 2: Tallest purple pill (center) */}
             <MotionDiv variants={columnRise} className="w-[200px]">
               <div className="h-[486px] rounded-[999px] bg-purple-140 px-5 py-12 flex flex-col items-center justify-center text-center relative overflow-hidden">
-                <span className="absolute -right-4 top-1/4 font-display text-[140px] text-purple-120/30 leading-none select-none pointer-events-none">52</span>
                 <p className="text-white/90 text-nav leading-relaxed relative z-10">
                   Come join our free UXHI community to connect and learn with new designer friends.
                 </p>

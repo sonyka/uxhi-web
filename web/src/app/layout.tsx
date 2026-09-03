@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MEMBER_COUNT_PLUS } from "@/lib/stats";
 import { Dela_Gothic_One, Nunito } from "next/font/google";
 import { SanityLive } from "@/sanity/lib/live";
 import { VisualEditing } from "next-sanity/visual-editing";
@@ -21,7 +22,7 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   title: "UXHI",
   description:
-    "Join 500+ UX professionals, students, and curious individuals in Hawaii. Connect, learn, and grow together with UXHI.",
+    `Join ${MEMBER_COUNT_PLUS} UX professionals, students, and curious individuals in Hawaii. Connect, learn, and grow together with UXHI.`,
 };
 
 export default async function RootLayout({
