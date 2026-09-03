@@ -9,6 +9,8 @@ import { SponsorsGrid } from "./_components/SponsorsGrid";
 import { InstagramGrid } from "./_components/InstagramGrid";
 import { QuoteCard } from "./_components/QuoteCard";
 import { ProgramSection } from "./_components/ProgramSection";
+import { AgendaSection } from "./_components/AgendaSection";
+import { AGENDA_2026, AGENDA_ROOMS } from "./agenda";
 import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
@@ -90,6 +92,7 @@ const CAP = "xl:max-w-[1440px] xl:mx-auto xl:w-full";
 const NAV_ITEMS = [
   ["Moʻolelo", "#moolelo"],
   ["UXHICon", "#program"],
+  ["Agenda", "#agenda"],
   ["The Sandbox", "#venue"],
   ["About Us", "#about"],
   ["FAQ", "#faq"],
@@ -403,6 +406,12 @@ export default async function Conference2026Page() {
               {/* ── The Program: Share, Learn, & Connect ──────────── */}
               <div id="program" className="scroll-mt-6">
                 <ProgramSection />
+              </div>
+
+              {/* ── Agenda ─────────────────────────────────────────── */}
+              {/* Follows the Program, which frames the day; this is the day. */}
+              <div id="agenda" className="scroll-mt-6">
+                <AgendaSection slots={AGENDA_2026} rooms={AGENDA_ROOMS} />
               </div>
 
               {/* Benefits headline — sits above the Sandbox/Venue section. */}
