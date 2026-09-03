@@ -41,14 +41,26 @@ export function LinkedInLink({
 }
 
 /**
- * The same mark, plain: no greyscale, no hover.
+ * The same mark, monochrome and static.
  *
  * For navigation and calls to action, where LinkedIn is a destination rather
- * than someone's profile. The grey-to-colour reveal says "this is a person you
- * can look up" and would be saying the wrong thing here.
+ * than someone's profile. Shares the bio links' asset purely for its rounded
+ * corners; the colour and the hover reveal belong to the profile treatment and
+ * would be saying the wrong thing next to a monochrome Instagram icon.
  *
  * Takes `size` so it satisfies ConferenceButton's icon contract.
  */
 export function LinkedInGlyph({ size = 24 }: { size?: number }) {
-  return <Image src="/images/nav/glyph-linkedin.svg" alt="" width={size} height={size} />;
+  return (
+    <Image
+      src="/images/nav/glyph-linkedin.svg"
+      alt=""
+      width={size}
+      height={size}
+      // Greyscaled and left there. The asset is used for its rounded corners,
+      // not its blue: in a footer or on a button label this sits beside
+      // monochrome icons and should match them, so there is no hover reveal.
+      className="grayscale"
+    />
+  );
 }
