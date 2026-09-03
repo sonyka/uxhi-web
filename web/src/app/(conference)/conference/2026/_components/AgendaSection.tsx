@@ -1,3 +1,5 @@
+"use client";
+
 // Agenda — single day, two rooms.
 //
 // Structure adapted from techconf.webflow.io/schedule: a time gutter down the
@@ -15,8 +17,13 @@
 // A single-session slot needs no special case: auto-fit collapses the empty
 // track, so the card fills the row on its own.
 
+import { useState } from "react";
 import { BEIGE_40, GRAY_80, GRAY_100, GRAY_110, LINK, ORANGE_130, PURPLE, TYPE, YELLOW_80 } from "../theme";
 import { SectionHeading } from "./SectionHeading";
+import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
+import type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
+
+export type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
 
 // Room labels carry the colour, since the rooms are named on every card and a
 // legend would only repeat them. Two hues rather than two tints of one: at
@@ -30,79 +37,10 @@ const ROOM_COLORS: Record<string, string> = {
   "Main Room": ORANGE_130,
 };
 
-export interface AgendaSpeaker {
-  name: string;
-  /** Join key to the Sanity conferenceSpeaker record. */
-  slug?: string;
-  /** Headshot. Falls back to initials where there is no record or no photo. */
-  photo?: string;
-  title?: string;
-  bio?: string;
-  linkedin?: string;
-}
-
-/** What the CMS knows about a speaker, keyed by the agenda's slug. */
-export type SpeakerRecord = Omit<AgendaSpeaker, "name"> & { name?: string | null };
-
-/**
- * Layer Sanity over the static agenda.
- *
- * The name in agenda.ts is the fallback, not a placeholder — the schedule
- * renders in full with no CMS records at all, and a record only adds a photo,
- * a bio and a title. That way an unpublished or mistyped speaker record
- * degrades to a plain name rather than a hole in the day.
- */
-export function withSpeakerRecords(
-  slots: AgendaSlot[],
-  records: SpeakerRecord[],
-): AgendaSlot[] {
-  const bySlug = new Map(records.filter((r) => r.slug).map((r) => [r.slug, r]));
-  return slots.map((slot) => ({
-    ...slot,
-    sessions: slot.sessions.map((session) => ({
-      ...session,
-      speakers: session.speakers?.map((speaker) => {
-        const record = speaker.slug ? bySlug.get(speaker.slug) : undefined;
-        if (!record) return speaker;
-        return {
-          ...speaker,
-          name: record.name || speaker.name,
-          photo: record.photo ?? speaker.photo,
-          title: record.title,
-          bio: record.bio,
-          linkedin: record.linkedin,
-        };
-      }),
-    })),
-  }));
-}
-
-export interface AgendaSession {
-  /** Room name. Omit for a slot the whole conference shares. */
-  room?: string;
-  title: string;
-  /**
-   * Pill above the title, in the same yellow the Pau Hana stub uses for "New
-   * this year". For a status the session does not have yet, not a label.
-   */
-  badge?: string;
-  /** Presenters. Each will open a bio drawer; not yet interactive. */
-  speakers?: AgendaSpeaker[];
-  /**
-   * Supporting text that is not a person: "Coffee and light breakfast",
-   * "To be announced". Kept apart from `speakers` so it is neither underlined
-   * nor given a face.
-   */
-  detail?: string;
-}
-
-export interface AgendaSlot {
-  /** Start time as it should read: "9:00 am". */
-  time: string;
-  sessions: AgendaSession[];
-}
-
 export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
+  const [session, setSession] = useState<AgendaSession | null>(null);
+  const [speaker, setSpeaker] = useState<AgendaSpeaker | null>(null);
+
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>Agenda</SectionHeading>
@@ -128,16 +66,80 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
             </div>
 
             <div className="flex-1 grid gap-3 md:gap-4 grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
-              {slot.sessions.map((session) => (
+              {slot.sessions.map((s) => (
                 <SessionCard
-                  key={`${session.room ?? "all"}-${session.title}`}
-                  session={session}
+                  key={`${s.room ?? "all"}-${s.title}`}
+                  session={s}
+                  onOpenSession={() => setSession(s)}
+                  onOpenSpeaker={setSpeaker}
                 />
               ))}
             </div>
           </li>
         ))}
       </ol>
+
+      <AgendaDrawer
+        open={Boolean(session)}
+        onClose={() => setSession(null)}
+        eyebrow={session?.room}
+        title={session?.title ?? ""}
+      >
+        {session?.description && <Paragraphs text={session.description} />}
+        {session?.speakers && session.speakers.length > 0 && (
+          <div className="flex flex-col gap-3 pt-1">
+            <div className={TYPE.eyebrow} style={{ color: GRAY_100 }}>
+              {session.speakers.length > 1 ? "Speakers" : "Speaker"}
+            </div>
+            <ul className="flex flex-col gap-2">
+              {session.speakers.map((sp) => (
+                <SpeakerRow
+                  key={sp.name}
+                  speaker={sp}
+                  // Swap drawers rather than stacking them: two panels deep is
+                  // a place you cannot back out of on a phone.
+                  onOpen={() => {
+                    setSession(null);
+                    setSpeaker(sp);
+                  }}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
+      </AgendaDrawer>
+
+      <AgendaDrawer
+        open={Boolean(speaker)}
+        onClose={() => setSpeaker(null)}
+        eyebrow={speaker?.title}
+        title={speaker?.name ?? ""}
+      >
+        {speaker?.photo && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={speaker.photo}
+            alt=""
+            className="w-24 h-24 rounded-full object-cover"
+          />
+        )}
+        {speaker?.bio ? (
+          <Paragraphs text={speaker.bio} />
+        ) : (
+          <p style={{ color: GRAY_100 }}>A bio for {speaker?.name} is on the way.</p>
+        )}
+        {speaker?.linkedin && (
+          <a
+            href={speaker.linkedin}
+            target="_blank"
+            rel="noopener"
+            className={LINK}
+            style={{ color: PURPLE }}
+          >
+            LinkedIn
+          </a>
+        )}
+      </AgendaDrawer>
     </div>
   );
 }
@@ -152,43 +154,84 @@ function initials(name: string) {
     .toUpperCase();
 }
 
-function SpeakerRow({ speaker }: { speaker: AgendaSpeaker }) {
+function SpeakerRow({
+  speaker,
+  onOpen,
+}: {
+  speaker: AgendaSpeaker;
+  onOpen: () => void;
+}) {
   return (
-    <li className="flex items-center gap-2">
-      <span
-        aria-hidden="true"
-        className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-[11px] font-bold overflow-hidden"
-        style={{ backgroundColor: BEIGE_40, color: PURPLE }}
+    <li>
+      <button
+        type="button"
+        // The card behind is itself clickable; without this, opening a bio
+        // would also open the session drawer underneath it.
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpen();
+        }}
+        className="flex items-center gap-2 text-left cursor-pointer"
       >
-        {speaker.photo ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={speaker.photo}
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          initials(speaker.name)
-        )}
-      </span>
-      <span
-        className={`${LINK} font-semibold text-[15px] leading-[1.3]`}
-        style={{ color: PURPLE }}
-      >
-        {speaker.name}
-      </span>
+        <span
+          aria-hidden="true"
+          className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-[11px] font-bold overflow-hidden"
+          style={{ backgroundColor: BEIGE_40, color: PURPLE }}
+        >
+          {speaker.photo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={speaker.photo} alt="" className="w-full h-full object-cover" />
+          ) : (
+            initials(speaker.name)
+          )}
+        </span>
+        <span
+          className={`${LINK} font-semibold text-[15px] leading-[1.3]`}
+          style={{ color: PURPLE }}
+        >
+          {speaker.name}
+        </span>
+      </button>
     </li>
   );
 }
 
-function SessionCard({ session }: { session: AgendaSession }) {
-  const { room, title, badge, speakers, detail } = session;
+function SessionCard({
+  session,
+  onOpenSession,
+  onOpenSpeaker,
+}: {
+  session: AgendaSession;
+  onOpenSession: () => void;
+  onOpenSpeaker: (speaker: AgendaSpeaker) => void;
+}) {
+  const { room, title, badge, description, speakers, detail } = session;
   // Lunch carries no meta at all. Without this the card would end on a divider
   // with nothing under it.
   const hasMeta = Boolean(speakers?.length || detail);
+  // Only a card with something to show is tappable. Doors and lunch have no
+  // description, and a chevron on them would promise a drawer that never opens.
+  const expandable = Boolean(description);
 
   return (
-    <div className="bg-beige-30 rounded-2xl px-5 py-[18px] h-full">
+    <div
+      className={`bg-beige-30 rounded-2xl px-5 py-[18px] h-full ${
+        expandable ? "cursor-pointer transition-colors hover:bg-beige-40" : ""
+      }`}
+      onClick={expandable ? onOpenSession : undefined}
+      role={expandable ? "button" : undefined}
+      tabIndex={expandable ? 0 : undefined}
+      onKeyDown={
+        expandable
+          ? (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onOpenSession();
+              }
+            }
+          : undefined
+      }
+    >
       {room && (
         <div
           className={`${TYPE.eyebrow} mb-1.5`}
@@ -197,20 +240,40 @@ function SessionCard({ session }: { session: AgendaSession }) {
           {room}
         </div>
       )}
+
+      <div className="flex items-start gap-3">
+        <h3
+          className="flex-1 font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140"
+          style={{ textWrap: "balance" }}
+        >
+          {title}
+        </h3>
+        {expandable && (
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className="w-4 h-4 shrink-0 mt-[3px]"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ color: GRAY_80 }}
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        )}
+      </div>
+
       {badge && (
         <span
-          className="inline-flex items-center rounded-full px-3 py-1 mb-2 font-bold uppercase tracking-[0.06em] text-[12px]"
+          className="inline-flex items-center rounded-full px-3 py-1 mt-2 font-bold uppercase tracking-[0.06em] text-[12px]"
           style={{ background: YELLOW_80, color: PURPLE }}
         >
           {badge}
         </span>
       )}
-      <h3
-        className="font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140"
-        style={{ textWrap: "balance" }}
-      >
-        {title}
-      </h3>
+
       {hasMeta && (
         <>
           <div
@@ -221,7 +284,7 @@ function SessionCard({ session }: { session: AgendaSession }) {
           {speakers && speakers.length > 0 && (
             <ul className="flex flex-col gap-2">
               {speakers.map((s) => (
-                <SpeakerRow key={s.name} speaker={s} />
+                <SpeakerRow key={s.name} speaker={s} onOpen={() => onOpenSpeaker(s)} />
               ))}
             </ul>
           )}

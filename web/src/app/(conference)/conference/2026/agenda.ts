@@ -1,4 +1,4 @@
-import type { AgendaSlot } from "./_components/AgendaSection";
+import type { AgendaSlot } from "./_components/agendaTypes";
 
 // 2026 run of show, transcribed from the planning sheet.
 //
@@ -49,6 +49,8 @@ export const AGENDA_2026: AgendaSlot[] = [
       {
         room: "Main Room",
         title: "Case Study Showcase",
+        description:
+          "Join us for a showcase of case studies from a diverse group of Hawai\u02bbi-based practitioners working across design, technology, culture, and community. Each speaker will share a project or experience that offers a glimpse into their process, the challenges they encountered, and what they learned along the way. Featuring perspectives from people working with indigenous knowledge, place-based technology, and creative practice, this session is an opportunity to hear a variety of individual mo\u02bbolelo through the work they share.",
         speakers: [{ name: "Carolyn Rojsutivat", slug: "carolyn-rojsutivat" }, { name: "Kim Cinco", slug: "kim-cinco" }, { name: "Amy McKee", slug: "amy-mckee" }, { name: "Gage Minamoto", slug: "gage-minamoto" }],
       },
       {
