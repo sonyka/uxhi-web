@@ -31,19 +31,17 @@ export const AGENDA_2026: AgendaSlot[] = [
   },
   {
     time: "9:00 am",
-    duration: "15 min",
     sessions: [
       { title: "Opening Remarks", speakers: [{ name: "Kat Duran-Higa", slug: "kat-duran-higa" }, { name: "Jennifer Kumura", slug: "jennifer-kumura" }] },
     ],
   },
   {
     time: "9:15 am",
-    duration: "40 min",
     sessions: [{ title: "Conference-Wide Icebreaker", speakers: [{ name: "Sean Tangco", slug: "sean-tangco" }] }],
   },
   {
     time: "10:00 am",
-    sessions: [{ title: "Keynote", detail: "To be announced" }],
+    sessions: [{ title: "Keynote", badge: "To be announced" }],
   },
   {
     time: "11:00 am",
@@ -51,14 +49,12 @@ export const AGENDA_2026: AgendaSlot[] = [
       {
         room: "Main Room",
         title: "Case Study Showcase",
-        format: "Lightning Talks",
         speakers: [{ name: "Carolyn Rojsutivat", slug: "carolyn-rojsutivat" }, { name: "Kim Cinco", slug: "kim-cinco" }, { name: "Amy McKee", slug: "amy-mckee" }, { name: "Gage Minamoto", slug: "gage-minamoto" }],
       },
       {
         room: "Purple Box",
         title:
           "The Professional Listener: Deep Listening, Strategic Filtering, and Getting to Action",
-        format: "Talk",
         speakers: [{ name: "Sean Tangco", slug: "sean-tangco" }],
       },
     ],
@@ -75,13 +71,11 @@ export const AGENDA_2026: AgendaSlot[] = [
         // The sheet punctuates this with an em dash; the site does not use them.
         title:
           "The Stories We Inherit: Stewarding the Narratives That Shape Our Organizations",
-        format: "Talk",
         speakers: [{ name: "Fai Visuthicho", slug: "fai-visuthicho" }],
       },
       {
         room: "Purple Box",
         title: "If Mom Says No, Ask Dad",
-        format: "Workshop",
         speakers: [{ name: "Steph Lum", slug: "steph-lum" }],
       },
     ],
@@ -92,13 +86,11 @@ export const AGENDA_2026: AgendaSlot[] = [
       {
         room: "Main Room",
         title: "Designers Are Translators",
-        format: "Talk",
         speakers: [{ name: "Nate Lynch", slug: "nate-lynch" }],
       },
       {
         room: "Purple Box",
         title: "Storytelling Framework Workshop",
-        format: "Workshop",
         speakers: [{ name: "Anthology", slug: "anthology" }],
       },
     ],
@@ -109,13 +101,11 @@ export const AGENDA_2026: AgendaSlot[] = [
       {
         room: "Main Room",
         title: "Reciprocity by Design: Tech as a Public Good",
-        format: "Talk",
         speakers: [{ name: "Hanalei Ramos", slug: "hanalei-ramos" }],
       },
       {
         room: "Purple Box",
         title: "Sharing Your Career Moʻolelo",
-        format: "Workshop",
         speakers: [{ name: "Piʻikū", slug: "piiku" }],
       },
     ],

@@ -15,7 +15,7 @@
 // A single-session slot needs no special case: auto-fit collapses the empty
 // track, so the card fills the row on its own.
 
-import { BEIGE_40, GRAY_80, GRAY_100, GRAY_110, ORANGE_130, PURPLE, TYPE } from "../theme";
+import { BEIGE_40, GRAY_80, GRAY_100, GRAY_110, LINK, ORANGE_130, PURPLE, TYPE, YELLOW_80 } from "../theme";
 import { SectionHeading } from "./SectionHeading";
 
 // Room labels carry the colour, since the rooms are named on every card and a
@@ -81,8 +81,11 @@ export interface AgendaSession {
   /** Room name. Omit for a slot the whole conference shares. */
   room?: string;
   title: string;
-  /** "Talk", "Workshop", "Lightning Talks" — omitted for doors, lunch, breaks. */
-  format?: string;
+  /**
+   * Pill above the title, in the same yellow the Pau Hana stub uses for "New
+   * this year". For a status the session does not have yet, not a label.
+   */
+  badge?: string;
   /** Presenters. Each will open a bio drawer; not yet interactive. */
   speakers?: AgendaSpeaker[];
   /**
@@ -96,8 +99,6 @@ export interface AgendaSession {
 export interface AgendaSlot {
   /** Start time as it should read: "9:00 am". */
   time: string;
-  /** "15 min", "40 min" — shown under the time. Omit where the length is unremarkable. */
-  duration?: string;
   sessions: AgendaSession[];
 }
 
@@ -124,11 +125,6 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
               >
                 {slot.time}
               </div>
-              {slot.duration && (
-                <div className={TYPE.fine} style={{ color: GRAY_80 }}>
-                  {slot.duration}
-                </div>
-              )}
             </div>
 
             <div className="flex-1 grid gap-3 md:gap-4 grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
@@ -175,7 +171,10 @@ function SpeakerRow({ speaker }: { speaker: AgendaSpeaker }) {
           initials(speaker.name)
         )}
       </span>
-      <span className="font-semibold text-[15px] leading-[1.3] text-gray-140 underline underline-offset-2">
+      <span
+        className={`${LINK} font-semibold text-[15px] leading-[1.3]`}
+        style={{ color: PURPLE }}
+      >
         {speaker.name}
       </span>
     </li>
@@ -183,10 +182,10 @@ function SpeakerRow({ speaker }: { speaker: AgendaSpeaker }) {
 }
 
 function SessionCard({ session }: { session: AgendaSession }) {
-  const { room, title, format, speakers, detail } = session;
+  const { room, title, badge, speakers, detail } = session;
   // Lunch carries no meta at all. Without this the card would end on a divider
   // with nothing under it.
-  const hasMeta = Boolean(format || speakers?.length || detail);
+  const hasMeta = Boolean(speakers?.length || detail);
 
   return (
     <div className="bg-beige-30 rounded-2xl px-5 py-[18px] h-full">
@@ -197,6 +196,14 @@ function SessionCard({ session }: { session: AgendaSession }) {
         >
           {room}
         </div>
+      )}
+      {badge && (
+        <span
+          className="inline-flex items-center rounded-full px-3 py-1 mb-2 font-bold uppercase tracking-[0.06em] text-[12px]"
+          style={{ background: YELLOW_80, color: PURPLE }}
+        >
+          {badge}
+        </span>
       )}
       <h3
         className="font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140"
@@ -211,13 +218,8 @@ function SessionCard({ session }: { session: AgendaSession }) {
             className="border-t border-dotted my-3"
             style={{ borderColor: GRAY_80 }}
           />
-          {format && (
-            <p className={TYPE.fine} style={{ color: GRAY_100 }}>
-              {format}
-            </p>
-          )}
           {speakers && speakers.length > 0 && (
-            <ul className={`flex flex-col gap-2 ${format ? "mt-2" : ""}`}>
+            <ul className="flex flex-col gap-2">
               {speakers.map((s) => (
                 <SpeakerRow key={s.name} speaker={s} />
               ))}
