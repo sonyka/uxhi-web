@@ -27,11 +27,30 @@ export const conferenceTeam = defineType({
       description: "Display order (lower numbers appear first).",
       initialValue: 0,
     }),
+    // People who are on the standing UXHI team are the same person here, not a
+    // second copy of them. Optional on purpose: three of the eight 2026 team
+    // are conference volunteers with no standing-team record, and a required
+    // reference would have stranded them.
+    defineField({
+      name: "person",
+      title: "Team Member",
+      type: "reference",
+      to: [{ type: "teamMember" }],
+      description:
+        "Link to the UXHI team member, if they are one. Name, photo and bio are then taken from that record, so there is one place to update them. Leave empty for a conference-only volunteer and fill in the fields below instead.",
+    }),
     defineField({
       name: "name",
       title: "Name",
       type: "string",
-      validation: (rule) => rule.required(),
+      description: "Only needed when there is no linked team member above.",
+      hidden: ({ parent }) => Boolean(parent?.person),
+      validation: (rule) =>
+        rule.custom((value, context) => {
+          const parent = context.parent as { person?: unknown } | undefined;
+          if (parent?.person || value) return true;
+          return "Add a name, or link a team member above.";
+        }),
     }),
     defineField({
       name: "title",
@@ -51,6 +70,8 @@ export const conferenceTeam = defineType({
       title: "Bio",
       type: "text",
       rows: 4,
+      description:
+        "Overrides the linked team member's bio. Use it when the year needs its own words — \"this year's conference co-chair\" belongs to 2026, not to the person's standing bio. Leave empty to inherit.",
     }),
     defineField({
       name: "linkedin",
@@ -62,18 +83,26 @@ export const conferenceTeam = defineType({
       title: "Photo",
       type: "image",
       options: { hotspot: true },
+      description: "Overrides the linked team member's photo. Leave empty to inherit.",
       fields: [
         defineField({ name: "alt", title: "Alt Text", type: "string" }),
       ],
     }),
   ],
   preview: {
-    select: { title: "name", year: "year", role: "title", media: "photo" },
-    prepare({ title, year, role, media }) {
+    select: {
+      title: "name",
+      personName: "person.name",
+      year: "year",
+      role: "title",
+      media: "photo",
+      personMedia: "person.photo",
+    },
+    prepare({ title, personName, year, role, media, personMedia }) {
       return {
-        title,
+        title: title || personName,
         subtitle: [year, role].filter(Boolean).join(" · "),
-        media,
+        media: media || personMedia,
       };
     },
   },

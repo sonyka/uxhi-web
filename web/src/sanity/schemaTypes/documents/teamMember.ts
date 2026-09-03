@@ -113,6 +113,14 @@ export const teamMember = defineType({
       initialValue: false,
     }),
     defineField({
+      name: "hidden",
+      title: "Hidden from /about",
+      type: "boolean",
+      description:
+        "Hide from the team grid without deleting the record. Deleting would blank this person out of any past conference year that borrows their bio, which would quietly rewrite an archive.",
+      initialValue: false,
+    }),
+    defineField({
       name: "featured",
       title: "Featured",
       type: "boolean",

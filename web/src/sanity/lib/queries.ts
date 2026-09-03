@@ -42,7 +42,7 @@ export const PRODUCT_QUERY = defineQuery(/* groq */ `
 
 // Team members (for About page)
 export const TEAM_MEMBERS_QUERY = defineQuery(/* groq */ `
-  *[_type == "teamMember"] | order(order asc, name asc) {
+  *[_type == "teamMember" && hidden != true] | order(order asc, name asc) {
     _id,
     name,
     role,
@@ -58,12 +58,15 @@ export const TEAM_MEMBERS_QUERY = defineQuery(/* groq */ `
 export const CONFERENCE_TEAM_QUERY = defineQuery(/* groq */ `
   *[_type == "conferenceTeam" && year == $year] | order(order asc, name asc) {
     _id,
-    name,
+    // Local fields win where set, so a year can override; otherwise the linked
+    // team member answers. Volunteers with no standing-team record have no
+    // person to fall back to, which is why the locals are still here.
+    "name": coalesce(name, person->name),
     title,
-    bio,
-    linkedin,
-    "photo": photo.asset->url,
-    "photoAlt": photo.alt
+    "bio": coalesce(bio, person->bio),
+    "linkedin": coalesce(linkedin, person->socialLinks.linkedin),
+    "photo": coalesce(photo.asset->url, person->photo.asset->url),
+    "photoAlt": coalesce(photo.alt, person->photo.alt, coalesce(name, person->name))
   }
 `);
 
