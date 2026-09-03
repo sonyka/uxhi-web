@@ -81,7 +81,7 @@ export function InstagramGrid({ posts }: { posts: InstagramPost[] }) {
       </p>
 
       <div className="@container mt-1">
-        <div className="grid gap-3 md:gap-4 grid-cols-1 @xs:grid-cols-2 @xl:grid-cols-3 @xl:min-[1800px]:grid-cols-4">
+        <div className="grid gap-3 md:gap-4 grid-cols-1 @xs:grid-cols-2 @xl:grid-cols-3">
           {posts.map((p) => (
             <PostCard key={p._id} p={p} />
           ))}

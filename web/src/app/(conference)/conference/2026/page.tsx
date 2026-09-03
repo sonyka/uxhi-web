@@ -271,12 +271,15 @@ export default async function Conference2026Page() {
                 xl → 508px   lg → 400px   md → 340px
               At sm: full-width, order-2 (below right panel)
           ──────────────────────────────────────────────────────────── */}
-          {/* At xl the rail holds a constant SHARE of the card (41% — its ratio at
-              1280) instead of a fixed 508px, so it doesn't shrink relative to the
-              content as the card grows toward the cap. min-width pins 1280 to the
-              exact previous value; max-width is 41% of the capped card. */}
+          {/* The rail grows with the card up to 508px and then stops, so every
+              pixel past roughly 1290 goes to the content instead. It used to
+              keep a constant 41% share, which put it at 571px on a 1440 screen
+              to hold a 200px photo ticker and a paragraph of stats — more room
+              than that side is carrying. Its own contents are unaffected: 508 is
+              exactly gutter 24 + info 244 + gap 16 + ticker 200 + gutter 24, the
+              width the sidebar was designed at. */}
           <aside
-            className="hidden md:block relative shrink-0 overflow-hidden md:w-[340px] lg:w-[420px] xl:w-[41%] xl:min-w-[508px] xl:max-w-[576px]"
+            className="hidden md:block relative shrink-0 overflow-hidden md:w-[340px] lg:w-[420px] xl:w-[41%] xl:min-w-[508px] xl:max-w-[508px]"
             aria-label="Conference sidebar"
           >
             {/* Vertical photo ticker — desktop only (absolute-positioned) */}

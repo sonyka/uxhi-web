@@ -63,13 +63,14 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
       </p>
 
       <div className="@container mt-1">
-        {/* Three across, four past 1800px. The fourth is a viewport query, not
-            a container one: the card holding this section caps at 1440px (see
-            CAP in page.tsx), so the column itself stops growing at 760px and a
-            container query would never fire however wide the screen got. The
-            stacking steps below stay container-based, because down there the
-            column really does change width. */}
-        <div className="grid gap-3 md:gap-4 grid-cols-1 @xs:grid-cols-2 @xl:grid-cols-3 @xl:min-[1800px]:grid-cols-4">
+        {/* Three across, and it stays three. The card holding this section
+            caps at 1440px (CAP in page.tsx), so the column stops growing at
+            760px — it is 760px at 1600 and still 760px at 2560. A fourth column
+            past that point would only make the cards smaller as the page got
+            wider, which is backwards. The steps below three stay
+            container-based, because down there the column really does change
+            width. */}
+        <div className="grid gap-3 md:gap-4 grid-cols-1 @xs:grid-cols-2 @xl:grid-cols-3">
           {cochairs.map((c) => (
             <button
               key={c._id}
