@@ -5,20 +5,17 @@
 // single-track, so the two-room split is the part that had to be designed
 // rather than adapted.
 //
-// How a slot decides its own layout:
-//   • one session  → the card spans the full width (doors, keynote, lunch).
-//     These are the moments the whole conference shares, and a full-width card
-//     says so without needing a label.
-//   • two sessions → a two-column split from md up, each card naming its room.
-//     Below md the columns stack, and the room label is the only thing keeping
-//     the two readable as a choice rather than a sequence — which is why every
-//     card in a split slot carries one, even though the order never changes.
+// The split is content-driven, not breakpoint-driven: auto-fit with a 240px
+// minimum, so a slot shows two columns only where two columns actually fit and
+// otherwise stacks. Viewport breakpoints were wrong here — this sits in the
+// conference's scroll rail, which is 569px wide at a 1440px viewport but only
+// 328px at 900px, so `md:grid-cols-2` was splitting a 328px rail into two
+// 156px columns and setting every title one word per line.
 //
-// This lives in the year folder, not components/ui/. Per CLAUDE.md the
-// cross-year level holds only design-free things; an agenda is a design, and
-// 2027 should be free to lay its own out differently.
+// A single-session slot needs no special case: auto-fit collapses the empty
+// track, so the card fills the row on its own.
 
-import { GRAY_80, GRAY_100, GRAY_110, ORANGE_130, PURPLE, TYPE } from "../theme";
+import { BEIGE_40, GRAY_80, GRAY_100, GRAY_110, ORANGE_130, PURPLE, TYPE } from "../theme";
 import { SectionHeading } from "./SectionHeading";
 
 // Room labels carry the colour, since the rooms are named on every card and a
@@ -26,12 +23,18 @@ import { SectionHeading } from "./SectionHeading";
 // 13px uppercase the eye reads hue long before it reads a shade.
 //
 // Both are measured against the beige-30 card, not the page: purple-140 at
-// ~14:1, orange-130 at ~6.2:1. The teal these started as sat at 2.3:1 and was
-// the reason for the change.
+// ~13.3:1, orange-130 at ~6.2:1. The teal these started as sat at 2.3:1 and
+// was the reason for the change.
 const ROOM_COLORS: Record<string, string> = {
   "Purple Box": PURPLE,
   "Main Room": ORANGE_130,
 };
+
+export interface AgendaSpeaker {
+  name: string;
+  /** Headshot. Falls back to initials until real photos land. */
+  photo?: string;
+}
 
 export interface AgendaSession {
   /** Room name. Omit for a slot the whole conference shares. */
@@ -39,15 +42,12 @@ export interface AgendaSession {
   title: string;
   /** "Talk", "Workshop", "Lightning Talks" — omitted for doors, lunch, breaks. */
   format?: string;
-  /**
-   * Presenter names. Underlined, because each will open a bio drawer.
-   * Not yet interactive.
-   */
-  speakers?: string;
+  /** Presenters. Each will open a bio drawer; not yet interactive. */
+  speakers?: AgendaSpeaker[];
   /**
    * Supporting text that is not a person: "Coffee and light breakfast",
-   * "To be announced". Kept apart from `speakers` so it is not underlined as
-   * though it were a name to click.
+   * "To be announced". Kept apart from `speakers` so it is neither underlined
+   * nor given a face.
    */
   detail?: string;
 }
@@ -90,11 +90,7 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
               )}
             </div>
 
-            <div
-              className={`flex-1 grid gap-3 md:gap-4 ${
-                slot.sessions.length > 1 ? "md:grid-cols-2" : "grid-cols-1"
-              }`}
-            >
+            <div className="flex-1 grid gap-3 md:gap-4 grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
               {slot.sessions.map((session) => (
                 <SessionCard
                   key={`${session.room ?? "all"}-${session.title}`}
@@ -109,11 +105,47 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
   );
 }
 
+/** First letters of the first two words: "Kim Cinco" → KC, "Anthology" → A. */
+function initials(name: string) {
+  return name
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+}
+
+function SpeakerRow({ speaker }: { speaker: AgendaSpeaker }) {
+  return (
+    <li className="flex items-center gap-2">
+      <span
+        aria-hidden="true"
+        className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-[11px] font-bold overflow-hidden"
+        style={{ backgroundColor: BEIGE_40, color: PURPLE }}
+      >
+        {speaker.photo ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={speaker.photo}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          initials(speaker.name)
+        )}
+      </span>
+      <span className="font-semibold text-[15px] leading-[1.3] text-gray-140 underline underline-offset-2">
+        {speaker.name}
+      </span>
+    </li>
+  );
+}
+
 function SessionCard({ session }: { session: AgendaSession }) {
   const { room, title, format, speakers, detail } = session;
-  // Lunch and the icebreaker carry no meta at all. Without this the card would
-  // end on a divider with nothing under it.
-  const hasMeta = Boolean(format || speakers || detail);
+  // Lunch carries no meta at all. Without this the card would end on a divider
+  // with nothing under it.
+  const hasMeta = Boolean(format || speakers?.length || detail);
 
   return (
     <div className="bg-beige-30 rounded-2xl px-5 py-[18px] h-full">
@@ -138,14 +170,23 @@ function SessionCard({ session }: { session: AgendaSession }) {
             className="border-t border-dotted my-3"
             style={{ borderColor: GRAY_80 }}
           />
-          <p className={TYPE.fine} style={{ color: GRAY_100 }}>
-            {format}
-            {format && (speakers || detail) ? " · " : ""}
-            {speakers && (
-              <span className="underline underline-offset-2">{speakers}</span>
-            )}
-            {detail}
-          </p>
+          {format && (
+            <p className={TYPE.fine} style={{ color: GRAY_100 }}>
+              {format}
+            </p>
+          )}
+          {speakers && speakers.length > 0 && (
+            <ul className={`flex flex-col gap-2 ${format ? "mt-2" : ""}`}>
+              {speakers.map((s) => (
+                <SpeakerRow key={s.name} speaker={s} />
+              ))}
+            </ul>
+          )}
+          {detail && (
+            <p className={TYPE.fine} style={{ color: GRAY_100 }}>
+              {detail}
+            </p>
+          )}
         </>
       )}
     </div>

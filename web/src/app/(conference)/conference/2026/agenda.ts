@@ -29,13 +29,13 @@ export const AGENDA_2026: AgendaSlot[] = [
     time: "9:00 am",
     duration: "15 min",
     sessions: [
-      { title: "Opening Remarks", speakers: "Kat Duran-Higa & Jennifer Kumura" },
+      { title: "Opening Remarks", speakers: [{ name: "Kat Duran-Higa" }, { name: "Jennifer Kumura" }] },
     ],
   },
   {
     time: "9:15 am",
     duration: "40 min",
-    sessions: [{ title: "Conference-Wide Icebreaker", speakers: "Sean Tangco" }],
+    sessions: [{ title: "Conference-Wide Icebreaker", speakers: [{ name: "Sean Tangco" }] }],
   },
   {
     time: "10:00 am",
@@ -48,14 +48,14 @@ export const AGENDA_2026: AgendaSlot[] = [
         room: "Main Room",
         title: "Case Study Showcase",
         format: "Lightning Talks",
-        speakers: "Carolyn Rojsutivat, Kim Cinco, Amy McKee, Gage Minamoto",
+        speakers: [{ name: "Carolyn Rojsutivat" }, { name: "Kim Cinco" }, { name: "Amy McKee" }, { name: "Gage Minamoto" }],
       },
       {
         room: "Purple Box",
         title:
           "The Professional Listener: Deep Listening, Strategic Filtering, and Getting to Action",
         format: "Talk",
-        speakers: "Sean Tangco",
+        speakers: [{ name: "Sean Tangco" }],
       },
     ],
   },
@@ -72,13 +72,13 @@ export const AGENDA_2026: AgendaSlot[] = [
         title:
           "The Stories We Inherit: Stewarding the Narratives That Shape Our Organizations",
         format: "Talk",
-        speakers: "Fai Visuthicho",
+        speakers: [{ name: "Fai Visuthicho" }],
       },
       {
         room: "Purple Box",
         title: "If Mom Says No, Ask Dad",
         format: "Workshop",
-        speakers: "Steph Lum",
+        speakers: [{ name: "Steph Lum" }],
       },
     ],
   },
@@ -89,13 +89,13 @@ export const AGENDA_2026: AgendaSlot[] = [
         room: "Main Room",
         title: "Designers Are Translators",
         format: "Talk",
-        speakers: "Nate Lynch",
+        speakers: [{ name: "Nate Lynch" }],
       },
       {
         room: "Purple Box",
         title: "Storytelling Framework Workshop",
         format: "Workshop",
-        speakers: "Anthology",
+        speakers: [{ name: "Anthology" }],
       },
     ],
   },
@@ -106,20 +106,20 @@ export const AGENDA_2026: AgendaSlot[] = [
         room: "Main Room",
         title: "Reciprocity by Design: Tech as a Public Good",
         format: "Talk",
-        speakers: "Hanalei Ramos",
+        speakers: [{ name: "Hanalei Ramos" }],
       },
       {
         room: "Purple Box",
         title: "Sharing Your Career Moʻolelo",
         format: "Workshop",
-        speakers: "Piʻikū",
+        speakers: [{ name: "Piʻikū" }],
       },
     ],
   },
   {
     time: "4:00 pm",
     sessions: [
-      { title: "Closing Remarks", speakers: "Kat Duran-Higa & Jennifer Kumura" },
+      { title: "Closing Remarks", speakers: [{ name: "Kat Duran-Higa" }, { name: "Jennifer Kumura" }] },
     ],
   },
 ];
