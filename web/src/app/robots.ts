@@ -28,14 +28,20 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     // Preview, staging and the bare Netlify address: keep the whole thing out
     // of search results.
     //
-    // Claude-User is the exception, and a narrow one: it is the agent behind a
-    // person pasting a URL and asking Claude to read it, not a crawler building
-    // an index. Allowing it lets the team review staging from claude.ai without
-    // the directory turning up in anyone's search results. Claude-User only,
-    // not ClaudeBot or Claude-SearchBot — those two do index.
+    // Anthropic's agents are the exception, so the team can review staging from
+    // claude.ai. Everything else still gets Disallow: / — which is what keeps
+    // the member directory out of Google and Bing, the actual reason this rule
+    // exists.
+    //
+    // All three tokens rather than just Claude-User: a fetch that does not
+    // match its own group falls through to `*` and is refused, and which token
+    // a given client sends is not something this file can see. Guessing one
+    // cost a deploy and a round of debugging.
     return {
       rules: [
         { userAgent: "Claude-User", allow: "/" },
+        { userAgent: "ClaudeBot", allow: "/" },
+        { userAgent: "Claude-SearchBot", allow: "/" },
         { userAgent: "*", disallow: "/" },
       ],
     };
