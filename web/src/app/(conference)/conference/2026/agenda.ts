@@ -21,6 +21,12 @@ import type { AgendaSlot } from "./_components/agendaTypes";
 // record for a photo and bio. The name stays here so the agenda still renders
 // in full without Sanity — the CMS enriches it rather than owning it.
 //
+// A session with a `description` is tappable and opens a drawer; one without is
+// inert, and shows no chevron promising otherwise. Four are deliberately
+// without and are not waiting on copy: Doors Open, Opening Remarks, Lunch and
+// Closing Remarks. The others still bare — the icebreaker, the keynote, If Mom
+// Says No, and the Storytelling Framework Workshop — have copy coming.
+//
 // ⚠️ The icebreaker host is "Sean" on the sheet. Written out here as Sean
 //    Tangco, who presents at 11:00 — worth confirming it is the same Sean.
 
