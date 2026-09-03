@@ -27,7 +27,18 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
   if (!PUBLIC_HOSTS.includes(host)) {
     // Preview, staging and the bare Netlify address: keep the whole thing out
     // of search results.
-    return { rules: [{ userAgent: "*", disallow: "/" }] };
+    //
+    // Claude-User is the exception, and a narrow one: it is the agent behind a
+    // person pasting a URL and asking Claude to read it, not a crawler building
+    // an index. Allowing it lets the team review staging from claude.ai without
+    // the directory turning up in anyone's search results. Claude-User only,
+    // not ClaudeBot or Claude-SearchBot — those two do index.
+    return {
+      rules: [
+        { userAgent: "Claude-User", allow: "/" },
+        { userAgent: "*", disallow: "/" },
+      ],
+    };
   }
 
   return {
