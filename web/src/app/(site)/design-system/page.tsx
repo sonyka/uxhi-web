@@ -8,6 +8,8 @@ import { Bricolage_Grotesque } from "next/font/google";
 // 2026's; a future year gets its own section.
 import { TYPE as CONF_2026_TYPE } from "@/app/(conference)/conference/2026/theme";
 import { ConferenceButton } from "@/app/(conference)/conference/2026/_components/ConferenceButton";
+import { AgendaSection } from "@/app/(conference)/conference/2026/_components/AgendaSection";
+import { AGENDA_2026, AGENDA_ROOMS } from "@/app/(conference)/conference/2026/agenda";
 import { ShakaIcon, ArrowRightIcon } from "@/app/(conference)/conference/2026/_components/icons";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { ArrowIcon, ExternalLinkIcon, PlusIcon, MinusIcon, ChevronDownIcon, SendIcon } from "@/components/ui/icons";
@@ -207,6 +209,7 @@ const navigationItems = [
       { id: "conference-type", label: "2026 Type Roles" },
       { id: "conference-link", label: "2026 Inline Link" },
       { id: "conference-button", label: "2026 Button" },
+      { id: "conference-agenda", label: "2026 Agenda" },
     ],
   },
 ];
@@ -3178,6 +3181,31 @@ const contentComponents: Record<string, React.ReactNode> = {
           <span className="font-mono text-xs bg-gray-20 px-1 rounded">cn(LINK, &quot;font-bold&quot;)</span>{" "}
           when a link needs extra weight.
         </p>
+      </div>
+    </ContentSection>
+  ),
+
+  "conference-agenda": (
+    <ContentSection
+      title="2026 Agenda"
+      description="Single day, two rooms. A time gutter down the left with each session as a card beside it, after techconf.webflow.io/schedule. That reference runs one track, so the two-room split is the part designed rather than adapted. A slot with one session spans the full width, which is how the day's shared moments read as shared without needing to say so; a slot with two splits into named columns from md up, and stacks below it. Takes any number of rooms. Lives in the 2026 folder, not components/ui/, because an agenda is a design and 2027 should be free to lay its own out differently."
+      componentPath="src/app/(conference)/conference/2026/_components/AgendaSection.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Example</h4>
+          <div className="bg-white rounded-2xl p-6 md:p-8">
+            <AgendaSection slots={AGENDA_2026} rooms={AGENDA_ROOMS} />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Data</h4>
+          <div className="text-sm text-gray-110 space-y-1">
+            <p>Content lives in <span className="font-mono text-xs bg-gray-20 px-1 rounded">conference/2026/agenda.ts</span>, so the schedule changes without touching the layout</p>
+            <p>A session takes <span className="font-mono text-xs bg-gray-20 px-1 rounded">room</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">title</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">format</span> and <span className="font-mono text-xs bg-gray-20 px-1 rounded">speakers</span>. Omit <span className="font-mono text-xs bg-gray-20 px-1 rounded">room</span> for a slot the whole conference shares</p>
+            <p>Cards with neither format nor speaker drop the dotted divider rather than end on a rule with nothing under it</p>
+          </div>
+        </div>
       </div>
     </ContentSection>
   ),
