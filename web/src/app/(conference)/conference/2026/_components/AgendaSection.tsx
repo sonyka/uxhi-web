@@ -44,7 +44,14 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
 
   return (
     <div className="flex flex-col gap-3 md:gap-4">
-      <SectionHeading>Agenda</SectionHeading>
+      {/* Tighter than the section's own gap: the eyebrow belongs to the
+          heading, not beside it. Separator matches the hero's date line. */}
+      <div className="flex flex-col gap-1.5">
+        <div className={TYPE.eyebrow} style={{ color: PURPLE }}>
+          Saturday, October 17, 2026 &bull; Entrepreneurs Sandbox
+        </div>
+        <SectionHeading>UXHICon Agenda</SectionHeading>
+      </div>
       <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY_110 }}>
         One day, two rooms. Sessions run in parallel through the afternoon, so
         the schedule is yours to build.
