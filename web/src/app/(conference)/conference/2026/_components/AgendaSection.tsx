@@ -121,7 +121,7 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
           <img
             src={speaker.photo}
             alt=""
-            className="w-24 h-24 rounded-full object-cover"
+            className="w-full max-w-[280px] aspect-[4/5] rounded-2xl object-cover"
           />
         )}
         {speaker?.bio ? (
