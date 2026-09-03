@@ -1,8 +1,16 @@
 import { defineType, defineField } from "sanity";
 import { UserIcon } from "@sanity/icons";
 
-export const member = defineType({
-  name: "member",
+// Renamed from `member` in Sept 2026. The old name was indistinguishable from
+// `directoryMember` — the public /find-ux-pro directory — in queries and schema
+// files, which is a bad thing to be guessing about. Studio labels are unchanged:
+// this has always shown as "Team Members".
+//
+// Sanity cannot rename a type in place, so the 9 documents were copied to new
+// `teamMember` ids rather than mutated. The originals are deliberately still
+// there: production is serving /about#team from them until this code ships.
+export const teamMember = defineType({
+  name: "teamMember",
   title: "Team",
   type: "document",
   icon: UserIcon,

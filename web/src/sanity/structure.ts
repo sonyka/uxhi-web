@@ -43,7 +43,7 @@ export const structure = (S: StructureBuilder) =>
           S.list()
             .title("About Page Content")
             .items([
-              S.documentTypeListItem("member").title("Team Members").icon(UsersIcon),
+              S.documentTypeListItem("teamMember").title("Team Members").icon(UsersIcon),
               S.documentTypeListItem("value").title("Values").icon(StarIcon),
               S.documentTypeListItem("aboutFaq").title("FAQs - About").icon(BookIcon),
             ])

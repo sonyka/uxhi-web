@@ -42,7 +42,7 @@ export const PRODUCT_QUERY = defineQuery(/* groq */ `
 
 // Team members (for About page)
 export const TEAM_MEMBERS_QUERY = defineQuery(/* groq */ `
-  *[_type == "member"] | order(order asc, name asc) {
+  *[_type == "teamMember"] | order(order asc, name asc) {
     _id,
     name,
     role,

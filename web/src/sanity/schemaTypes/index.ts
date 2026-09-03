@@ -1,7 +1,7 @@
 // Documents
 import { product } from "./documents/product";
 import { submission } from "./documents/submission";
-import { member } from "./documents/member";
+import { teamMember } from "./documents/teamMember";
 import { faq } from "./documents/faq";
 import { aboutFaq } from "./documents/aboutFaq";
 import { communityPhoto } from "./documents/communityPhoto";
@@ -30,7 +30,7 @@ export const schemaTypes = [
   // Documents
   product,
   submission,
-  member,
+  teamMember,
   faq,
   aboutFaq,
   communityPhoto,
