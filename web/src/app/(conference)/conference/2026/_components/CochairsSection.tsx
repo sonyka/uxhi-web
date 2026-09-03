@@ -117,16 +117,6 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
         eyebrow={open?.title ?? undefined}
         title={open?.name ?? ""}
       >
-        {open?.photo && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={sized(open.photo, 560, 700)}
-            alt=""
-            // Rectangular and large: a headshot cropped to a 96px circle in a
-            // panel this wide was a thumbnail of a photo already on the card.
-            className="w-full max-w-[280px] aspect-[4/5] rounded-2xl object-cover"
-          />
-        )}
         {open?.bio ? (
           <Paragraphs text={open.bio} />
         ) : (
