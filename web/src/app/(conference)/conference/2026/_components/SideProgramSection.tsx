@@ -1,5 +1,5 @@
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_120, PURPLE, TYPE, YELLOW_80 } from "../theme";
+import { BEIGE_50, GRAY_120, PURPLE, TYPE, YELLOW_80 } from "../theme";
 
 // Side programming — the things that run *alongside* the talks rather than in a
 // room on the schedule.
@@ -32,6 +32,8 @@ interface SideProgramItem {
   body: string;
   /** Yellow pill beside the title, for a status rather than a label. */
   badge?: string;
+  /** ʻOhe kāpala band down the right edge of the card. */
+  pattern?: boolean;
 }
 
 const NEW_THIS_YEAR: SideProgramItem[] = [
@@ -40,6 +42,7 @@ const NEW_THIS_YEAR: SideProgramItem[] = [
     // The pill carries this rather than the prose opening with "New this year!"
     // — it is a status, and saying it in both places says it twice.
     badge: "New this year",
+    pattern: true,
     body:
       "A cultural activity based on ancient hula practices, led by a member of our own UXHI team. Bring a piece of fabric, paper, a tote, or a shirt you’d like to print, and we’ll have traditional tools on hand to help you leave your mark on this year’s moʻolelo.",
   },
@@ -81,12 +84,41 @@ const GRID =
 
 function SideProgramCard({ item }: { item: SideProgramItem }) {
   return (
-    <li className="bg-beige-30 rounded-2xl px-5 py-[18px] h-full flex flex-col gap-1.5">
+    <li className="relative overflow-hidden bg-beige-30 rounded-2xl px-5 py-[18px] h-full flex flex-col gap-1.5">
+      {item.pattern ? (
+        // ʻOhe kāpala — the bamboo stamp the activity is about, as a band down
+        // the right edge rather than a picture in the copy.
+        //
+        // A mask, not an image: the artwork is black on white, and masking a
+        // beige-50 fill with its alpha means the colour comes from the palette
+        // and follows it, instead of a recoloured PNG going stale the next time
+        // the beiges move. Two steps up from the card's own beige-30 — enough
+        // to read as printed on it, not enough to compete with the copy.
+        //
+        // Hidden below sm. The card is full width on its own row at desktop,
+        // but on a phone it is the whole rail, and a band down the side there
+        // costs the copy about a fifth of its measure.
+        <div
+          aria-hidden="true"
+          className="hidden sm:block absolute inset-y-0 right-0 w-[92px] md:w-[116px] lg:w-[132px] pointer-events-none"
+          style={{
+            backgroundColor: BEIGE_50,
+            WebkitMaskImage: "url(/conferences/2026/assets/images/ohe-kapala.png)",
+            maskImage: "url(/conferences/2026/assets/images/ohe-kapala.png)",
+            WebkitMaskSize: "cover",
+            maskSize: "cover",
+            WebkitMaskPosition: "center",
+            maskPosition: "center",
+            WebkitMaskRepeat: "no-repeat",
+            maskRepeat: "no-repeat",
+          }}
+        />
+      ) : null}
       {/* Badge beside the title, not under it. Wrapping rather than nowrap:
           this rail is 569px at a 1440px viewport and 328px at 900px, so on a
           narrow card the pill drops to its own line instead of squeezing the
           title into one word per line. */}
-      <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+      <div className={`relative flex flex-wrap items-center gap-x-2.5 gap-y-1.5 ${item.pattern ? "sm:pr-[104px] md:pr-[128px] lg:pr-[144px]" : ""}`}>
         {/* Matches the agenda's session-title ramp exactly: these cards sit
             directly under those and read as the same kind of thing. */}
         <h4 className="font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140">
@@ -104,7 +136,12 @@ function SideProgramCard({ item }: { item: SideProgramItem }) {
       {/* gray-120, not the gray-110 body copy takes on white. Beige-30 is a warm
           ground, and gray-110 lands on it at 6.68:1 — still AA, but under AAA
           and visibly washed out beside a gray-140 title. gray-120 is 9.73:1. */}
-      <p className={TYPE.fine} style={{ color: GRAY_120 }}>
+      <p
+        // Narrower than the card when the band is there, so the copy stops
+        // short of it rather than running under it.
+        className={`relative ${TYPE.fine} ${item.pattern ? "sm:pr-[104px] md:pr-[128px] lg:pr-[144px] max-w-[68ch]" : ""}`}
+        style={{ color: GRAY_120 }}
+      >
         {item.body}
       </p>
     </li>
@@ -114,12 +151,7 @@ function SideProgramCard({ item }: { item: SideProgramItem }) {
 export function SideProgramSection() {
   return (
     <div className="flex flex-col gap-3 md:gap-4">
-      <div className="flex flex-col gap-1.5">
-        <p className={TYPE.eyebrow} style={{ color: PURPLE }}>
-          Alongside the talks
-        </p>
-        <SectionHeading>Beyond the sessions</SectionHeading>
-      </div>
+      <SectionHeading>Beyond the sessions</SectionHeading>
 
       <ul className={`${GRID} mt-1`}>
         {NEW_THIS_YEAR.map((item) => (

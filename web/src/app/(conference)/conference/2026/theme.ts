@@ -35,6 +35,7 @@ export const GRAY_80 = "var(--color-gray-80)"; // #969DA4 — icons, muted label
 export const YELLOW_80 = "var(--color-yellow-80)"; // #FFCC40 — shaka gold
 export const BEIGE_30 = "var(--color-beige-30)"; // #F4F1EA — page background
 export const BEIGE_40 = "var(--color-beige-40)"; // #EDE8DD — raised/active surface
+export const BEIGE_50 = "var(--color-beige-50)"; // #E5DED0 — pattern on a beige card
 export const ORANGE_130 = "var(--color-orange-130)"; // #A62D00 — agenda room label
 
 // No year-specific color tokens. 2026 draws entirely from the parent ramps —
