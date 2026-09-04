@@ -49,7 +49,7 @@ const NEW_THIS_YEAR: SideProgramItem[] = [
     pattern: true,
     icon: ScrollIcon,
     body:
-      "A cultural activity based on ancient hula practices, led by a member of our own UXHI team. Bring a piece of fabric, paper, a tote, or a shirt you’d like to print, and we’ll have traditional tools on hand to help you leave your mark on this year’s moʻolelo.",
+      "A hands-on introduction to traditional Hawaiian printmaking, one of the oldest forms of visual storytelling. Bring a piece of fabric, paper, a tote, or a shirt you’d like to print, and we’ll have the tools on hand to help you leave your mark on this year’s moʻolelo.",
   },
 ];
 
