@@ -104,7 +104,7 @@ export const AGENDA_2026: AgendaSlot[] = [
       },
       {
         room: "Purple Box",
-        title: "Finding the Why",
+        title: "Narrative Arc: A Workshop",
         description:
           "In Hawaiʻi, moʻolelo is a highly intentional act that shapes how people relate to experiences, systems, and each other. For human-centered designers, storytelling isn’t just fluff. It is a powerful design tool that breathes life into brands and builds meaningful connections with audiences.\n\nLed by April Rutherford (EVP/Executive Creative Director, Anthology FINN Partners), this interactive storytelling workshop will equip attendees with a practical framework for creating a narrative architecture. From extracting core human insights to understanding brand statements, they will actively engage in finding “The Why” in storytelling.\n\nAttendees will leave with actionable storytelling frameworks that change how they look at their life and their work.",
         speakers: [{ name: "Anthology Finn Partners", slug: "anthology" }],
