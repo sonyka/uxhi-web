@@ -75,11 +75,14 @@ export const CONFERENCE_TEAM_QUERY = defineQuery(/* groq */ `
 export const CONFERENCE_SPEAKERS_QUERY = defineQuery(/* groq */ `
   *[_type == "conferenceSpeaker" && year == $year] {
     "slug": slug.current,
+    kind,
     "name": coalesce(name, person->name),
     title,
     "bio": coalesce(bio, person->bio),
     "linkedin": coalesce(linkedin, person->socialLinks.linkedin),
-    "photo": coalesce(photo.asset->url, person->photo.asset->url)
+    website,
+    "photo": coalesce(photo.asset->url, person->photo.asset->url),
+    "logo": logo.asset->url
   }
 `);
 

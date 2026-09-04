@@ -37,6 +37,24 @@ export const conferenceSpeaker = defineType({
       options: { source: "name", maxLength: 96 },
       validation: (rule) => rule.required(),
     }),
+    // Two speakers are organizations rather than people — Piʻikū and
+    // Anthology. They need a square mark where a face would go, a full
+    // wordmark in the drawer, and a website where a person would have a
+    // LinkedIn, so the difference has to be recorded rather than inferred.
+    defineField({
+      name: "kind",
+      title: "Speaker is",
+      type: "string",
+      options: {
+        list: [
+          { title: "A person", value: "person" },
+          { title: "An organization", value: "organization" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "person",
+      validation: (rule) => rule.required(),
+    }),
     defineField({
       name: "person",
       title: "Team Member",
@@ -44,6 +62,7 @@ export const conferenceSpeaker = defineType({
       to: [{ type: "teamMember" }],
       description:
         "Link if the speaker is also on the UXHI team. Name, photo and bio are then taken from that record. Leave empty for an outside speaker and fill in the fields below.",
+      hidden: ({ parent }) => parent?.kind === "organization",
     }),
     defineField({
       name: "name",
@@ -68,11 +87,29 @@ export const conferenceSpeaker = defineType({
     }),
     defineField({
       name: "photo",
-      title: "Photo",
+      title: "Photo or square mark",
       type: "image",
       options: { hotspot: true },
-      description: "Overrides a linked team member's photo. Leave empty to inherit.",
+      description:
+        "The small thumbnail beside the name in the agenda. A headshot for a person; for an organization use a square mark, since a wordmark is unreadable at 28px.",
       fields: [defineField({ name: "alt", title: "Alt Text", type: "string" })],
+    }),
+    defineField({
+      name: "logo",
+      title: "Full logo",
+      type: "image",
+      options: { hotspot: false },
+      description:
+        "Shown in the drawer in place of a portrait. The full wordmark, with room to breathe — this is where the square mark above would look cropped.",
+      hidden: ({ parent }) => parent?.kind !== "organization",
+      fields: [defineField({ name: "alt", title: "Alt Text", type: "string" })],
+    }),
+    defineField({
+      name: "website",
+      title: "Website",
+      type: "url",
+      description: "Takes the place of LinkedIn for an organization.",
+      hidden: ({ parent }) => parent?.kind !== "organization",
     }),
     defineField({
       name: "title",
@@ -84,6 +121,7 @@ export const conferenceSpeaker = defineType({
       name: "linkedin",
       title: "LinkedIn URL",
       type: "url",
+      hidden: ({ parent }) => parent?.kind === "organization",
     }),
   ],
   preview: {

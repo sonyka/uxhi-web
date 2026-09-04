@@ -23,6 +23,7 @@ import { SectionHeading } from "./SectionHeading";
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
 import type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
 import { LinkedInLink } from "./LinkedInLink";
+import { GlobeIcon } from "./icons";
 
 export type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
 
@@ -123,22 +124,46 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
         eyebrow={speaker?.title}
         title={speaker?.name ?? ""}
       >
-        {speaker?.photo && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={speaker.photo}
-            alt=""
-            className="w-full max-w-[280px] aspect-[4/5] rounded-2xl object-cover"
-          />
-        )}
+        {speaker?.kind === "organization"
+          ? speaker.logo && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={speaker.logo}
+                alt={`${speaker.name} logo`}
+                // contain, not cover, and no fixed ratio: a wordmark cropped to
+                // a portrait is a wordmark with its ends cut off.
+                className="w-full max-w-[280px] h-auto max-h-[120px] object-contain object-left"
+              />
+            )
+          : speaker?.photo && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={speaker.photo}
+                alt=""
+                className="w-full max-w-[280px] aspect-[4/5] rounded-2xl object-cover"
+              />
+            )}
         {speaker?.bio ? (
           <Paragraphs text={speaker.bio} />
         ) : (
           <p style={{ color: GRAY_100 }}>A bio for {speaker?.name} is on the way.</p>
         )}
-        {speaker?.linkedin && (
-<LinkedInLink href={speaker.linkedin} name={speaker.name} size={22} />
-        )}
+        {speaker?.kind === "organization"
+          ? speaker.website && (
+              <a
+                href={speaker.website}
+                target="_blank"
+                rel="noopener"
+                className={`${LINK} inline-flex items-center gap-2 w-fit font-semibold`}
+                style={{ color: PURPLE }}
+              >
+                <GlobeIcon size={18} />
+                Visit website
+              </a>
+            )
+          : speaker?.linkedin && (
+              <LinkedInLink href={speaker.linkedin} name={speaker.name} size={22} />
+            )}
       </AgendaDrawer>
     </div>
   );
@@ -175,7 +200,12 @@ function SpeakerRow({
       >
         <span
           aria-hidden="true"
-          className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-[11px] font-bold overflow-hidden"
+          // Square for an organization, round for a person: a logo cropped into
+          // a circle loses its corners, and the shape difference reads before
+          // the name does.
+          className={`w-7 h-7 shrink-0 flex items-center justify-center text-[11px] font-bold overflow-hidden ${
+            speaker.kind === "organization" ? "rounded-md" : "rounded-full"
+          }`}
           style={{ backgroundColor: BEIGE_40, color: PURPLE }}
         >
           {speaker.photo ? (

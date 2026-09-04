@@ -9,11 +9,20 @@ export interface AgendaSpeaker {
   name: string;
   /** Join key to the Sanity conferenceSpeaker record. */
   slug?: string;
-  /** Headshot. Falls back to initials where there is no record or no photo. */
+  /**
+   * "organization" for a speaker that is a company rather than a person —
+   * Piʻikū and Anthology. Changes the thumbnail from a circle to a square, the
+   * drawer's portrait to a wordmark, and LinkedIn to a website link.
+   */
+  kind?: "person" | "organization";
+  /** Headshot, or a square mark for an organization. Falls back to initials. */
   photo?: string;
+  /** Full wordmark, shown in the drawer in place of a portrait. */
+  logo?: string;
   title?: string;
   bio?: string;
   linkedin?: string;
+  website?: string;
 }
 
 export interface AgendaSession {
@@ -68,10 +77,13 @@ export function withSpeakerRecords(
         return {
           ...speaker,
           name: record.name || speaker.name,
+          kind: record.kind ?? speaker.kind,
           photo: record.photo ?? speaker.photo,
+          logo: record.logo,
           title: record.title,
           bio: record.bio,
           linkedin: record.linkedin,
+          website: record.website,
         };
       }),
     })),
