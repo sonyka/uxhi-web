@@ -8,8 +8,17 @@ import Image from "next/image";
  * 2027 can restyle without touching the parent — the duplication is the price
  * of that rule, and it is written down in both files so neither looks accidental.
  *
- * The brand glyph itself is shared from /public, since it is LinkedIn's mark
- * rather than a UXHI design decision.
+ * The glyph is a copy inside the year's own asset tree, not the shared one at
+ * /images/nav/. It has to be: the conference host rewrites any unmatched path
+ * into the current year, so a request for /images/nav/glyph-linkedin.svg became
+ * /conference/2026/images/nav/glyph-linkedin.svg and 404'd — the mark was broken
+ * in the footer, the Pau Hana CTA and every speaker drawer at once. Everything
+ * under /conferences/<year>/assets/ is passed through untouched and served
+ * straight off the CDN, which is why every other asset here kept working.
+ *
+ * Middleware now also passes file requests through, but this does not lean on
+ * that: the asset sits where the year's other assets sit, and the routing it
+ * depends on is the same routing they depend on.
  */
 export function LinkedInLink({
   href,
@@ -30,7 +39,7 @@ export function LinkedInLink({
       className="inline-block w-fit group/linkedin"
     >
       <Image
-        src="/images/nav/glyph-linkedin.svg"
+        src="/conferences/2026/assets/logos/glyph-linkedin.svg"
         alt=""
         width={size}
         height={size}
@@ -53,7 +62,7 @@ export function LinkedInLink({
 export function LinkedInGlyph({ size = 24 }: { size?: number }) {
   return (
     <Image
-      src="/images/nav/glyph-linkedin.svg"
+      src="/conferences/2026/assets/logos/glyph-linkedin.svg"
       alt=""
       width={size}
       height={size}
