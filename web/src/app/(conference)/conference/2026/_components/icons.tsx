@@ -182,3 +182,58 @@ export function CursorClickIcon({ size = 20, className, style }: IconProps) {
     </svg>
   );
 }
+
+/** Rolled scroll — the printing activity. */
+export function ScrollIcon({ size = 20, className, style }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className={className}
+      style={style}
+    >
+      <path fill="currentColor" d="m21,17h-1V4c0-2.206-1.794-4-4-4H3.5C1.57,0,0,1.57,0,3.5v.5c0,1.654,1.346,3,3,3h2v13.5c0,1.929,1.569,3.499,3.499,3.5h12.001c1.93,0,3.5-1.57,3.5-3.5v-.5c0-1.654-1.346-3-3-3ZM5,5h-2c-.551,0-1-.449-1-1v-.5c0-.827.673-1.5,1.5-1.5s1.5.673,1.5,1.5v1.5Zm5,15v.5c0,.827-.673,1.5-1.5,1.5s-1.5-.673-1.5-1.5V3.5c0-.539-.133-1.044-.351-1.5h9.351c1.103,0,2,.897,2,2v13h-5c-1.654,0-3,1.346-3,3Zm12,.5c0,.827-.673,1.5-1.5,1.5h-8.838c.216-.455.338-.963.338-1.5v-.5c0-.551.449-1,1-1h8c.551,0,1,.449,1,1v.5Z" />
+    </svg>
+  );
+}
+
+/** Browser window — portfolio reviews. */
+export function BrowserIcon({ size = 20, className, style }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className={className}
+      style={style}
+    >
+      <path fill="currentColor" d="m19 1h-14a5.006 5.006 0 0 0 -5 5v12a5.006 5.006 0 0 0 5 5h14a5.006 5.006 0 0 0 5-5v-12a5.006 5.006 0 0 0 -5-5zm-14 2h14a3 3 0 0 1 3 3v1h-20v-1a3 3 0 0 1 3-3zm14 18h-14a3 3 0 0 1 -3-3v-9h20v9a3 3 0 0 1 -3 3zm0-8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1zm-4 4a1 1 0 0 1 -1 1h-8a1 1 0 0 1 0-2h8a1 1 0 0 1 1 1zm-12-12a1 1 0 1 1 1 1 1 1 0 0 1 -1-1zm3 0a1 1 0 1 1 1 1 1 1 0 0 1 -1-1zm3 0a1 1 0 1 1 1 1 1 1 0 0 1 -1-1z" />
+    </svg>
+  );
+}
+
+/** Camera — professional headshots. */
+export function CameraIcon({ size = 20, className, style }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className={className}
+      style={style}
+    >
+      <path fill="currentColor" d="M19,4h-.508L16.308,1.168A3.023,3.023,0,0,0,13.932,0H10.068A3.023,3.023,0,0,0,7.692,1.168L5.508,4H5A5.006,5.006,0,0,0,0,9V19a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V9A5.006,5.006,0,0,0,19,4ZM9.276,2.39A1.006,1.006,0,0,1,10.068,2h3.864a1.008,1.008,0,0,1,.792.39L15.966,4H8.034ZM22,19a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V9A3,3,0,0,1,5,6H19a3,3,0,0,1,3,3Z" />
+      <path fill="currentColor" d="M12,8a6,6,0,1,0,6,6A6.006,6.006,0,0,0,12,8Zm0,10a4,4,0,1,1,4-4A4,4,0,0,1,12,18Z" />
+    </svg>
+  );
+}

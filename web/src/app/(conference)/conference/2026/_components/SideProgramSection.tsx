@@ -1,5 +1,7 @@
 import { SectionHeading } from "./SectionHeading";
 import { BEIGE_50, GRAY_120, PURPLE, TYPE, YELLOW_80 } from "../theme";
+import { BrowserIcon, CameraIcon, ScrollIcon } from "./icons";
+import type { ComponentType } from "react";
 
 // Side programming — the things that run *alongside* the talks rather than in a
 // room on the schedule.
@@ -34,6 +36,8 @@ interface SideProgramItem {
   badge?: string;
   /** ʻOhe kāpala band down the right edge of the card. */
   pattern?: boolean;
+  /** Small mark leading the title, naming the activity at a glance. */
+  icon?: ComponentType<{ size?: number; style?: React.CSSProperties }>;
 }
 
 const NEW_THIS_YEAR: SideProgramItem[] = [
@@ -43,6 +47,7 @@ const NEW_THIS_YEAR: SideProgramItem[] = [
     // — it is a status, and saying it in both places says it twice.
     badge: "New this year",
     pattern: true,
+    icon: ScrollIcon,
     body:
       "A cultural activity based on ancient hula practices, led by a member of our own UXHI team. Bring a piece of fabric, paper, a tote, or a shirt you’d like to print, and we’ll have traditional tools on hand to help you leave your mark on this year’s moʻolelo.",
   },
@@ -51,11 +56,13 @@ const NEW_THIS_YEAR: SideProgramItem[] = [
 const RETURNING: SideProgramItem[] = [
   {
     title: "Portfolio Reviews",
+    icon: BrowserIcon,
     body:
       "We’re excited to offer portfolio reviews at this year’s conference yet again! As a community of designers, we know how valuable feedback is, and we want to help you get some fresh eyes on some work you’ve been wanting a new perspective on.",
   },
   {
     title: "Professional Headshots",
+    icon: CameraIcon,
     body:
       "Get a fresh headshot for your LinkedIn profile! We’ll have a photographer on site, so come as you are. Drop in anytime during the afternoon, and the final photos come to you after the conference.",
   },
@@ -118,7 +125,12 @@ function SideProgramCard({ item }: { item: SideProgramItem }) {
           this rail is 569px at a 1440px viewport and 328px at 900px, so on a
           narrow card the pill drops to its own line instead of squeezing the
           title into one word per line. */}
-      <div className={`relative flex flex-wrap items-center gap-x-2.5 gap-y-1.5 ${item.pattern ? "sm:pr-[104px] md:pr-[128px] lg:pr-[144px]" : ""}`}>
+      <div className={`relative flex flex-wrap items-center gap-x-2 gap-y-1.5 ${item.pattern ? "sm:pr-[104px] md:pr-[128px] lg:pr-[144px]" : ""}`}>
+        {/* Leads the title at the body's weight rather than the title's, so it
+            marks the card without reading as part of the heading. Sized to the
+            LinkedIn glyph in the bio drawers, which is the other small mark on
+            this page. */}
+        {item.icon ? <item.icon size={22} style={{ color: GRAY_120 }} /> : null}
         {/* Matches the agenda's session-title ramp exactly: these cards sit
             directly under those and read as the same kind of thing. */}
         <h4 className="font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140">
