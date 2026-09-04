@@ -13,26 +13,3 @@
 
 [context.production.environment]
   NEXT_PUBLIC_IS_PREVIEW = "false"
-
-# Singular archive URLs, served by the CDN rather than by Next.
-#
-# next.config.ts rewrites /conference/:year/ to the frozen files under
-# public/conferences/:year/. That works in `next dev` and `next start`, and not
-# here: Netlify uploads public/ to the CDN and does not bundle it into the
-# server function, so a Next rewrite whose destination is a public file resolves
-# inside a function that cannot see it, and 404s. These rules answer the same
-# paths one layer earlier, at the CDN, where the files actually are.
-#
-# Years are listed one by one on purpose. A /conference/:year/* wildcard would
-# also swallow the current year, which is a real Next route with no index.html
-# behind it — public/conferences/2026/ holds assets only — and the live site
-# would 404. When a conference year is archived, add it here.
-[[redirects]]
-  from = "/conference/2025/*"
-  to = "/conferences/2025/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/conference/2024/*"
-  to = "/conferences/2024/:splat"
-  status = 200

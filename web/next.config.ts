@@ -39,10 +39,6 @@ const nextConfig: NextConfig = {
         destination: "/conference/2026/",
         permanent: false,
       },
-      // The plural was the public path until the nav and the URL were brought
-      // into line. Only the entry points redirect: anything deeper still has to
-      // resolve under /conferences/, because that is where the files live and
-      // the archived sites reference their own assets by absolute path.
       {
         source: "/conferences",
         destination: "/conference/2026/",
@@ -53,12 +49,23 @@ const nextConfig: NextConfig = {
         destination: "/conference/2026/",
         permanent: false,
       },
-      // A year root under the old spelling moves to the new one. Safe to
-      // redirect because the pattern ends at the year: it cannot swallow
-      // /conferences/:year/assets/..., which must keep resolving as a path.
+      // The singular spelling is for the live conference, which is a real
+      // route. The archives keep the plural, because they are folders of frozen
+      // files and Netlify serves public/ from the CDN without bundling it into
+      // the server function — a Next rewrite pointing at one resolves inside a
+      // function that cannot see it. Serving them where they actually live
+      // needs no rewrite, no per-year CDN rule, and cannot drift.
+      //
+      // Years are named rather than matched: the pattern would otherwise catch
+      // /conference/2026/, which is the live route.
       {
-        source: "/conferences/:year(\\d{4})/",
-        destination: "/conference/:year/",
+        source: "/conference/2025/",
+        destination: "/conferences/2025/",
+        permanent: false,
+      },
+      {
+        source: "/conference/2024/",
+        destination: "/conferences/2024/",
         permanent: false,
       },
       // /volunteer was an earlier, unlinked version of the volunteer section on
@@ -77,27 +84,17 @@ const nextConfig: NextConfig = {
 
   async rewrites() {
     return [
-      // The URL is singular; the files are not. public/conferences/ keeps its
-      // name because the archived 2024 and 2025 sites carry ~700 absolute
-      // /conferences/... references baked into their frozen HTML, CSS and JS,
-      // and rewriting those to chase a folder rename is a poor trade.
-      // Serve static HTML conference sites from public/conferences/:year/
+      // Serve the frozen archives out of public/conferences/:year/.
+      //
+      // These exist for `next dev` and `next start`, which do not resolve a
+      // directory to its index or an extensionless path to its .html file.
+      // On Netlify the CDN does both before the Next handler is reached, so in
+      // production these never fire. Keeping them is what makes local and
+      // deployed behaviour agree.
       {
-        source: "/conference/:year(\\d{4})/",
+        source: "/conferences/:year(\\d{4})/",
         destination: "/conferences/:year/index.html",
       },
-      // Generic subpage rewrite: /conference/2025/lineup → public/conferences/2025/lineup.html
-      {
-        source: "/conference/:year(\\d{4})/:page",
-        destination: "/conferences/:year/:page.html",
-      },
-      {
-        source: "/conference/:year(\\d{4})/:page/",
-        destination: "/conferences/:year/:page.html",
-      },
-      // Plural deep links stay served rather than redirected. A redirect here
-      // would also catch /conferences/:year/assets/..., and the archives ask
-      // for their assets by exactly that path.
       {
         source: "/conferences/:year(\\d{4})/:page",
         destination: "/conferences/:year/:page.html",

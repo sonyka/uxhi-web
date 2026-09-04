@@ -6,61 +6,103 @@ const CURRENT_CONFERENCE_YEAR = "2026";
 
 const CONFERENCE_HOSTS = ["uxhiconference.com", "www.uxhiconference.com"];
 
+/**
+ * Host routing for uxhiconference.com.
+ *
+ *   uxhiconference.com/            → /conference/2026/       (a real Next route)
+ *   uxhiconference.com/agenda      → /conference/2026/agenda
+ *   uxhiconference.com/2025/       → /conferences/2025/      (frozen files)
+ *   uxhiconference.com/2025/lineup → /conferences/2025/lineup
+ *
+ * The year alone is the archive URL, so no spelling of the word "conference"
+ * appears in it at all — the hostname already says that. The plural page URLs
+ * redirect here rather than answering alongside the short ones, so each archive
+ * page has exactly one address.
+ *
+ * Note the two destinations. The current year is a real route and is reached
+ * under the singular public path. An archive is a folder of frozen files under
+ * public/conferences/, and on Netlify the CDN serves public/ *before* the Next
+ * handler runs — the server bundle does not carry those files at all — so an
+ * archive has to be sent to the path the CDN can answer, which is the plural
+ * one the folder uses.
+ */
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get("host") ?? "";
-
-  if (CONFERENCE_HOSTS.includes(hostname)) {
-    const { pathname } = request.nextUrl;
-
-    // Static assets (images, SVGs, etc.) are stored under /conferences/YYYY/assets/
-    // — the folder keeps the plural even though the public path is singular, so
-    // the archived sites' baked asset references keep resolving. If the browser
-    // already resolved a full path under either spelling, pass it through
-    // unchanged to avoid the middleware doubling the prefix (e.g.
-    // /conference/2026/assets → /conference/2026/conference/2026/assets).
-    if (pathname.startsWith("/conferences/") || pathname.startsWith("/conference/")) {
-      return NextResponse.next();
-    }
-
-    // Crawler files answer for the hostname itself and must not be rewritten
-    // into the conference tree — /robots.txt would otherwise resolve to
-    // /conferences/YYYY/robots.txt, which does not exist, and the host would
-    // silently have no robots rules at all.
-    if (pathname === "/robots.txt" || pathname === "/sitemap.xml") {
-      return NextResponse.next();
-    }
-
-    // uxhiconference.com/2025/[path] → /conference/2025/[path]  (year archive)
-    // uxhiconference.com/[path]      → /conference/2026/[path]  (current year)
-    const yearMatch = pathname.match(/^\/(\d{4})(\/.*)?$/);
-
-    // A request for a file is a request for a file, whatever the host. Shared
-    // assets live at the path they are written as — /images/nav/glyph-linkedin.svg
-    // is served from public/ — and folding one into the year's tree asks for
-    // /conference/2026/images/nav/glyph-linkedin.svg, where nothing exists. That
-    // is how the LinkedIn mark came to 404 in the footer, the Pau Hana CTA and
-    // every speaker drawer at once.
-    //
-    // Checked after the year match, not before: a year-prefixed asset
-    // (/2025/assets/logo.png) still belongs to that archive and has to keep
-    // being rewritten into it.
-    const isFile = !yearMatch && /\.[^/]+$/.test(pathname);
-    if (isFile) {
-      return NextResponse.next();
-    }
-
-    const conferencePath = yearMatch
-      ? `/conference/${yearMatch[1]}${yearMatch[2] ?? "/"}`
-      : pathname === "/"
-        ? `/conference/${CURRENT_CONFERENCE_YEAR}/`
-        : `/conference/${CURRENT_CONFERENCE_YEAR}${pathname}`;
-
-    const url = request.nextUrl.clone();
-    url.pathname = conferencePath;
-    return NextResponse.rewrite(url);
+  if (!CONFERENCE_HOSTS.includes(hostname)) {
+    return NextResponse.next();
   }
 
-  return NextResponse.next();
+  // `trailingSlash: true` normalises the path before middleware sees it, so in
+  // production this arrives as "/robots.txt/" while `next dev` leaves it as
+  // "/robots.txt". Every test below reads a bare path, so strip the slash once
+  // here rather than accounting for it in each one.
+  //
+  // This is not hypothetical tidiness. It is why robots.txt was rewritten into
+  // the conference tree and answered with no rules at all on the live domain,
+  // and why a shared asset 404'd: both guards compared against a path that
+  // never matched in production, and both looked correct in dev.
+  const raw = request.nextUrl.pathname;
+  const pathname = raw.length > 1 && raw.endsWith("/") ? raw.slice(0, -1) : raw;
+
+  // An archive page under its plural path moves to the short one. Only the
+  // index and a top-level .html page: the pattern cannot reach
+  // /conferences/:year/assets/..., which the frozen sites request by exactly
+  // that path and which must keep resolving where it stands.
+  //
+  // The current year is excluded because it has no frozen index to redirect to
+  // — public/conferences/2026/ holds assets only.
+  const pluralPage = pathname.match(/^\/conferences\/(\d{4})(?:\/([^/]+)\.html)?$/);
+  if (pluralPage && pluralPage[1] !== CURRENT_CONFERENCE_YEAR) {
+    const [, year, page] = pluralPage;
+    const url = request.nextUrl.clone();
+    url.pathname = page ? `/${year}/${page}` : `/${year}`;
+    return NextResponse.redirect(url, 308);
+  }
+
+  // Anything else already carrying a full path under either spelling is passed
+  // through, so the middleware never doubles the prefix (e.g. /conference/2026/
+  // assets → /conference/2026/conference/2026/assets).
+  if (pathname.startsWith("/conferences/") || pathname.startsWith("/conference/")) {
+    return NextResponse.next();
+  }
+
+  // Crawler files answer for the hostname itself and must not be rewritten into
+  // the conference tree — /robots.txt would otherwise resolve to
+  // /conferences/YYYY/robots.txt, which does not exist, and the host would
+  // silently have no robots rules at all.
+  if (pathname === "/robots.txt" || pathname === "/sitemap.xml") {
+    return NextResponse.next();
+  }
+
+  const yearMatch = pathname.match(/^\/(\d{4})(\/.*)?$/);
+
+  // A request for a file is a request for a file, whatever the host. Shared
+  // assets live at the path they are written as, and folding one into the
+  // year's tree asks for a path where nothing exists.
+  //
+  // Checked after the year match, not before: a year-prefixed asset
+  // (/2025/assets/logo.png) still belongs to that archive.
+  if (!yearMatch && /\.[^/]+$/.test(pathname)) {
+    return NextResponse.next();
+  }
+
+  let conferencePath: string;
+  if (yearMatch) {
+    const [, year, rest] = yearMatch;
+    conferencePath =
+      year === CURRENT_CONFERENCE_YEAR
+        ? `/conference/${year}${rest ?? "/"}`
+        : `/conferences/${year}${rest ?? "/"}`;
+  } else {
+    conferencePath =
+      pathname === "/"
+        ? `/conference/${CURRENT_CONFERENCE_YEAR}/`
+        : `/conference/${CURRENT_CONFERENCE_YEAR}${pathname}`;
+  }
+
+  const url = request.nextUrl.clone();
+  url.pathname = conferencePath;
+  return NextResponse.rewrite(url);
 }
 
 export const config = {

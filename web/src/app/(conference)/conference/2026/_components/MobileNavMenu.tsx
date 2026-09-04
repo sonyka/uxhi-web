@@ -6,8 +6,8 @@ import { ShakaIcon, StarIcon, EmailHeartIcon, AngleDownIcon, CursorClickIcon } f
 
 // Flat menu — past conferences + about uxhi on the same tier
 const ITEMS = [
-  { label: "2025 · UXperience 'Aina", href: "/conferences/2025/", Icon: ShakaIcon },
-  { label: "2024 · UXperience Aloha",  href: "/conferences/2024/", Icon: ShakaIcon },
+  { label: "2025 · UXperience 'Aina", href: "/2025/", Icon: ShakaIcon },
+  { label: "2024 · UXperience Aloha",  href: "/2024/", Icon: ShakaIcon },
   { label: "UXHI",                     href: "https://uxhi.community", Icon: StarIcon },
   { label: "Email us",                 href: "mailto:uxhiconference@gmail.com", Icon: EmailHeartIcon },
 ];
