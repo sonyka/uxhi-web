@@ -81,19 +81,25 @@ export function SideProgramSection() {
             key={item.title}
             className="bg-beige-30 rounded-2xl px-5 py-[18px] h-full flex flex-col gap-1.5"
           >
-            {/* Matches the agenda's session-title ramp exactly: these cards sit
-                directly under those and read as the same kind of thing. */}
-            <h4 className="font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140">
-              {item.title}
-            </h4>
-            {"badge" in item && item.badge ? (
-              <span
-                className="inline-flex items-center self-start rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
-                style={{ background: YELLOW_80, color: PURPLE }}
-              >
-                {item.badge}
-              </span>
-            ) : null}
+            {/* Badge beside the title, not under it. Wrapping rather than
+                nowrap: this rail is 569px at a 1440px viewport and 328px at
+                900px, so on a narrow card the pill drops to its own line
+                instead of squeezing the title into one word per line. */}
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+              {/* Matches the agenda's session-title ramp exactly: these cards
+                  sit directly under those and read as the same kind of thing. */}
+              <h4 className="font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140">
+                {item.title}
+              </h4>
+              {"badge" in item && item.badge ? (
+                <span
+                  className="inline-flex items-center shrink-0 rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
+                  style={{ background: YELLOW_80, color: PURPLE }}
+                >
+                  {item.badge}
+                </span>
+              ) : null}
+            </div>
             <p className={TYPE.fine} style={{ color: GRAY }}>
               {item.body}
             </p>
