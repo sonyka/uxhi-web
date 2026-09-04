@@ -149,7 +149,10 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
               <img
                 src={speaker.photo}
                 alt=""
-                className="w-full max-w-[280px] aspect-[4/5] rounded-2xl object-cover"
+                // 168px on a phone, 280 from sm up. The drawer is a bottom
+                // sheet at that width, so a 280px portrait is 350px tall and
+                // takes most of the sheet before the bio has started.
+                className="w-full max-w-[168px] sm:max-w-[280px] aspect-[4/5] rounded-2xl object-cover"
               />
             )}
         {speaker?.bio ? (
@@ -159,15 +162,19 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
         )}
         {speaker?.kind === "organization"
           ? speaker.website && (
+              // The mark alone, as the LinkedIn link is for a person: two
+              // shapes doing the same job in the same slot should look like it.
+              // The label carried the meaning when this was the only icon of
+              // its kind here; the aria-label carries it now.
               <a
                 href={speaker.website}
                 target="_blank"
                 rel="noopener"
-                className={`${LINK} inline-flex items-center gap-2 w-fit font-semibold`}
+                aria-label={`${speaker.name} website`}
+                className="inline-flex items-center w-fit hover:opacity-70 transition-opacity"
                 style={{ color: PURPLE }}
               >
-                <GlobeIcon size={18} />
-                Visit website
+                <GlobeIcon size={22} />
               </a>
             )
           : speaker?.linkedin && (

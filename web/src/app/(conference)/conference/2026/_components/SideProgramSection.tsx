@@ -130,7 +130,7 @@ function SideProgramCard({ item }: { item: SideProgramItem }) {
             marks the card without reading as part of the heading. Sized to the
             LinkedIn glyph in the bio drawers, which is the other small mark on
             this page. */}
-        {item.icon ? <item.icon size={22} style={{ color: GRAY_120 }} /> : null}
+        {item.icon ? <item.icon size={20} style={{ color: GRAY_120 }} /> : null}
         {/* Matches the agenda's session-title ramp exactly: these cards sit
             directly under those and read as the same kind of thing. */}
         <h4 className="font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140">
@@ -145,13 +145,19 @@ function SideProgramCard({ item }: { item: SideProgramItem }) {
           </span>
         ) : null}
       </div>
-      {/* gray-120, not the gray-110 body copy takes on white. Beige-30 is a warm
-          ground, and gray-110 lands on it at 6.68:1 — still AA, but under AAA
-          and visibly washed out beside a gray-140 title. gray-120 is 9.73:1. */}
+      {/* `body`, not `fine`. This is the card's own copy, not a caveat under
+          something else, and `fine` starts at 13px — under the 16px floor body
+          text should hold on a phone, which is exactly where these cards are
+          widest and most read. `body` starts at 16 and ramps to 18.
+
+          gray-120, not the gray-110 body copy takes on white. Beige-30 is a
+          warm ground, and gray-110 lands on it at 6.68:1 — still AA, but under
+          AAA and visibly washed out beside a gray-140 title. gray-120 is
+          9.73:1. */}
       <p
         // Narrower than the card when the band is there, so the copy stops
         // short of it rather than running under it.
-        className={`relative ${TYPE.fine} ${item.pattern ? "sm:pr-[104px] md:pr-[128px] lg:pr-[144px] max-w-[68ch]" : ""}`}
+        className={`relative ${TYPE.body} ${item.pattern ? "sm:pr-[104px] md:pr-[128px] lg:pr-[144px] max-w-[68ch]" : ""}`}
         style={{ color: GRAY_120 }}
       >
         {item.body}
