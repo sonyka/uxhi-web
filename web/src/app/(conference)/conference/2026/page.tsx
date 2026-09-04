@@ -19,7 +19,7 @@ import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY, CONFERENCE_SPEAKERS_QUERY } from "@/sanity/lib/queries";
 import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
-import { TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE } from "./constants";
+import { TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS } from "./constants";
 import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
 import { SocialLink } from "./_components/SocialLink";
 
@@ -90,17 +90,6 @@ const CAP = "xl:max-w-[1440px] xl:mx-auto xl:w-full";
 //    is ~1.22x the average lowercase glyph — so `72ch` renders ~88 characters,
 //    and at this cap it resolves wider than the column and does nothing at all.
 //    Re-measure before changing it; the number is font-specific.
-
-// Section anchor nav items — shared by the desktop header nav and the mobile strip.
-const NAV_ITEMS = [
-  ["Moʻolelo", "#moolelo"],
-  ["UXHICon", "#program"],
-  ["Agenda", "#agenda"],
-  ["About Us", "#about"],
-  ["The Sandbox", "#venue"],
-  ["FAQ", "#faq"],
-  ["Sponsors", "#sponsors"],
-] as const;
 
 const EVENT_DATE = new Date("2026-10-17T00:00:00");
 

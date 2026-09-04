@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { SECTION_ANCHORS } from "@/app/(conference)/conference/2026/constants";
 
 // Update this when a new conference year begins.
 // Also update the redirect in next.config.ts to match.
@@ -10,7 +11,7 @@ const CONFERENCE_HOSTS = ["uxhiconference.com", "www.uxhiconference.com"];
  * Host routing for uxhiconference.com.
  *
  *   uxhiconference.com/            → /conference/2026/       (a real Next route)
- *   uxhiconference.com/agenda      → /conference/2026/agenda
+ *   uxhiconference.com/agenda      → /#agenda  (a section, not a route)
  *   uxhiconference.com/2025/       → /conferences/2025/      (frozen files)
  *   uxhiconference.com/2025/lineup → /conferences/2025/lineup
  *
@@ -72,6 +73,25 @@ export function middleware(request: NextRequest) {
   // silently have no robots rules at all.
   if (pathname === "/robots.txt" || pathname === "/sitemap.xml") {
     return NextResponse.next();
+  }
+
+  // A section of the current year is an anchor on its one page, not a route, so
+  // /agenda has to become /#agenda — a rewrite cannot do this, because the
+  // fragment never reaches the server. Without it the host answered 404 for a
+  // section that is right there on the page and is named in the nav.
+  //
+  // Named rather than matched loosely: sending every unknown path to an anchor
+  // would turn a typo into a silent homepage instead of a 404, and would swallow
+  // any real page a later year adds.
+  //
+  // Temporary, not permanent: a year owns its own sections, and 2027 renaming
+  // one should not have to outlive a cached 308 in someone's browser.
+  const section = pathname.slice(1);
+  if (SECTION_ANCHORS.includes(section)) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    url.hash = section;
+    return NextResponse.redirect(url, 307);
   }
 
   const yearMatch = pathname.match(/^\/(\d{4})(\/.*)?$/);
