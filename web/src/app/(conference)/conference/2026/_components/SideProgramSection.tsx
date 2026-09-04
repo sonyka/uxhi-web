@@ -43,9 +43,26 @@ export function SideProgramSection() {
         </p>
         <SectionHeading>Beyond the sessions</SectionHeading>
       </div>
-      {/* Same content-driven split as the agenda: two columns only where two
-          actually fit, since this sits in the same variable-width rail. */}
-      <ul className="grid gap-3 md:gap-4 grid-cols-[repeat(auto-fit,minmax(240px,1fr))] mt-1">
+      {/*
+        Stacks in lockstep with the agenda above it. Same auto-fit idea, but
+        the minimum is not the same number, because the two grids are not the
+        same width: an agenda slot spends its first 128px (md) or 148px (lg) on
+        the time gutter plus the flex gap, and only the remainder is grid. This
+        list has no gutter, so at an identical rail width it is that much wider
+        and would hold two columns for a whole band after the schedule had
+        already stacked.
+
+        Both grids break when their own width drops under 2 × min + 16px gap,
+        so matching the break means adding half the missing gutter to the min:
+        240 + 128/2 = 304 at md, 240 + 148/2 = 314 at lg. Below md the agenda
+        puts its time above the card rather than beside it, the two grids are
+        the same width again, and 240 is correct as-is.
+
+        ⚠️ These track AgendaSection's gutter (`md:w-[104px] lg:w-[124px]`) and
+        its `md:gap-6`. Change either there and re-derive here, or the two
+        sections start breaking at different widths again.
+      */}
+      <ul className="grid gap-3 md:gap-4 grid-cols-[repeat(auto-fit,minmax(240px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(304px,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(314px,1fr))] mt-1">
         {SIDE_PROGRAMMING.map((item) => (
           <li
             key={item.title}
