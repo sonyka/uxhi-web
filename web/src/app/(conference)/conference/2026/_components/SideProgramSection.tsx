@@ -28,7 +28,7 @@ const SIDE_PROGRAMMING = [
   {
     title: "Professional Headshots",
     body:
-      "Most of us are long overdue for a new headshot, and it is never the thing you get around to on your own. We’ll have a photographer on site, so come as you are, sit for a few minutes between sessions, and leave with a photo you are happy to put your name on.",
+      "A proper headshot, taken on site and sent to you after the conference. No appointment and no studio visit. Come as you are between sessions and leave with something current for your profile.",
   },
 ];
 
@@ -39,14 +39,8 @@ export function SideProgramSection() {
         <p className={TYPE.eyebrow} style={{ color: PURPLE }}>
           Back by popular demand
         </p>
-        <SectionHeading>More Than Talks</SectionHeading>
+        <SectionHeading>Beyond the sessions</SectionHeading>
       </div>
-      <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
-        Plenty going on beyond the sessions. Both of these ran at past UXHICons,
-        you asked for them back, and they return this year. Step out of a talk
-        and take your turn.
-      </p>
-
       {/* Same content-driven split as the agenda: two columns only where two
           actually fit, since this sits in the same variable-width rail. */}
       <ul className="grid gap-3 md:gap-4 grid-cols-[repeat(auto-fit,minmax(240px,1fr))] mt-1">
