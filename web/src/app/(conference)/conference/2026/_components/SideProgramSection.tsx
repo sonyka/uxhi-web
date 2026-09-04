@@ -12,9 +12,11 @@ import { GRAY_110 as GRAY, PURPLE, TYPE } from "../theme";
 // Reading it after the schedule is also the right order — you learn what the
 // day holds, then what you can step out of it to do.
 //
-// No times. They were here at first, carried over from the 2025 activity
-// agenda, and came out on purpose: neither is a thing you show up for at an
-// hour, and a start time invites people to plan around one.
+// No time line on the cards. Times were here at first, carried over from the
+// 2025 activity agenda, and came out on purpose: neither is a thing you show up
+// for at an hour, and a start time invites people to plan around one. Where a
+// window genuinely helps it goes in the copy as a window ("anytime during the
+// afternoon"), which is the part that is true.
 //
 // Structure in code for the same reason the schedule is: this is the shape of
 // the day, edited by someone already in the codebase. Bios and photos are
@@ -28,7 +30,7 @@ const SIDE_PROGRAMMING = [
   {
     title: "Professional Headshots",
     body:
-      "A proper headshot, taken on site and sent to you after the conference. No appointment and no studio visit. Come as you are between sessions and leave with something current for your profile.",
+      "Photographer on site. Get a fresh headshot for your LinkedIn profile! Drop in anytime during the afternoon, and we’ll send you the final photo after the conference.",
   },
 ];
 
