@@ -15,7 +15,9 @@ export const committee = defineType({
     defineField({
       name: "description",
       type: "text",
-      rows: 3,
+      rows: 8,
+      description:
+        "An opening sentence or two, then one line per responsibility starting with •. The card renders those as a bulleted list; without them it shows the whole thing as a paragraph.",
       validation: (rule) => rule.required(),
     }),
     defineField({

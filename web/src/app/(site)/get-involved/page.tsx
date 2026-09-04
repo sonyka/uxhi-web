@@ -78,6 +78,90 @@ function HandCoinsIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
+type ImageCrop = { top?: number; bottom?: number; left?: number; right?: number };
+
+type SanityImage = {
+  asset?: { _id?: string; url?: string; metadata?: { lqip?: string; dimensions?: { width?: number; height?: number } } };
+  alt?: string;
+  hotspot?: unknown;
+  crop?: ImageCrop | null;
+};
+
+/**
+ * Split a committee description into its opening line and its bullets.
+ *
+ * Editors already write these as a sentence or two followed by "•" items, and
+ * the card was rendering the whole thing as one paragraph — which is how a
+ * committee ended up showing 975 characters of run-on text with bullet
+ * characters buried mid-sentence.
+ *
+ * Split on the character rather than on newlines: at least one committee has
+ * two items sharing a line ("...events. • Coordinate volunteers..."), and a
+ * line-based split silently merges those two into one.
+ */
+function splitCommittee(description: string) {
+  const i = description.indexOf("\u2022");
+  if (i === -1) return { lead: description.trim(), items: [] as string[] };
+  return {
+    lead: description.slice(0, i).trim(),
+    items: description
+      .slice(i)
+      .split("\u2022")
+      .map((item) => item.trim())
+      .filter(Boolean),
+  };
+}
+
+/**
+ * A committee card.
+ *
+ * Lead sentence, then the responsibilities as a bulleted list, matching the
+ * State of UX findings cards. A volunteer scanning six committees wants the
+ * work itemised; the bullets were already written, they just had nowhere to go.
+ */
+function CommitteeCard({
+  image,
+  imageSrc,
+  name,
+  description,
+}: {
+  image?: SanityImage;
+  imageSrc?: string;
+  name: string;
+  description: string;
+}) {
+  const { lead, items } = splitCommittee(description);
+
+  return (
+    <SpotIllustrationCard
+      image={image}
+      imageSrc={imageSrc}
+      imageAlt={name}
+      title={name}
+      description={items.length === 0 ? lead : undefined}
+      variant="beige"
+    >
+      {items.length > 0 ? (
+        // Left-aligned inside a centred card, as on the findings cards: a
+        // ragged-right list is readable, a centred one is not — and a centred
+        // lead sitting on top of left-aligned bullets reads as a mistake, so
+        // the whole block goes left together.
+        <div className="flex flex-col gap-4 text-left">
+          {lead && <p className="leading-relaxed">{lead}</p>}
+          <ul className="space-y-3 text-base">
+            {items.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <BulletPoint />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : undefined}
+    </SpotIllustrationCard>
+  );
+}
+
 // Hardcoded fallback committees
 const fallbackCommittees = [
   {
@@ -153,13 +237,6 @@ export default async function GetInvolvedPage() {
     sanityFetchCached({ query: COMMITTEES_QUERY }),
   ]);
 
-  type ImageCrop = { top?: number; bottom?: number; left?: number; right?: number };
-  type SanityImage = {
-    asset?: { _id?: string; url?: string; metadata?: { lqip?: string; dimensions?: { width?: number; height?: number } } };
-    alt?: string;
-    hotspot?: unknown;
-    crop?: ImageCrop | null;
-  };
   type PartnerSponsor = { _id: string; name: string; logo: SanityImage | null; website: string | null; displayWidth: number | null; darkGray: boolean | null };
   type Committee = { _id: string; name: string; description: string; icon: SanityImage | null };
 
@@ -485,24 +562,20 @@ export default async function GetInvolvedPage() {
               {committees.length > 0 ? (
                 committees.map((committee) => (
                   <MotionDiv key={committee._id}>
-                    <SpotIllustrationCard
+                    <CommitteeCard
                       image={committee.icon ?? undefined}
-                      imageAlt={committee.name}
-                      title={committee.name}
+                      name={committee.name}
                       description={committee.description}
-                      variant="beige"
                     />
                   </MotionDiv>
                 ))
               ) : (
                 fallbackCommittees.map((committee) => (
                   <MotionDiv key={committee.name}>
-                    <SpotIllustrationCard
+                    <CommitteeCard
                       imageSrc={committee.icon}
-                      imageAlt={committee.name}
-                      title={committee.name}
+                      name={committee.name}
                       description={committee.description}
-                      variant="beige"
                     />
                   </MotionDiv>
                 ))
