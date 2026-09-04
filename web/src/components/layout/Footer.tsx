@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SendIcon } from "@/components/ui/icons";
+import { SocialGlyph } from "@/components/ui/SocialGlyph";
 
 /**
  * Footer Component
@@ -56,26 +57,12 @@ export function Footer() {
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/company/uxhi/",
-      icon: (
-        <Image
-          src="/images/nav/glyph-linkedin.svg"
-          alt=""
-          width={16}
-          height={16}
-        />
-      ),
+      icon: <SocialGlyph network="linkedin" size={16} />,
     },
     {
       label: "Instagram",
       href: "https://www.instagram.com/uxhicommunity",
-      icon: (
-        <Image
-          src="/images/nav/glyph-insta.png"
-          alt=""
-          width={16}
-          height={16}
-        />
-      ),
+      icon: <SocialGlyph network="instagram" size={16} />,
     },
     {
       label: "Get in touch",
@@ -130,7 +117,7 @@ export function Footer() {
                 href={link.href}
                 target={link.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className="flex items-center gap-1.5 text-base text-gray-120 hover:text-gray-140 transition-colors"
+                className="group flex items-center gap-1.5 text-base text-gray-120 hover:text-gray-140 transition-colors"
               >
                 {link.icon}
                 {link.label}

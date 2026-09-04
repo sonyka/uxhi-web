@@ -27,6 +27,7 @@ import { SectionIcon } from "@/components/ui/SectionIcon";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { LogoGrid } from "@/components/ui/LogoGrid";
 import { BulletPoint } from "@/components/ui/BulletPoint";
+import { SocialGlyph } from "@/components/ui/SocialGlyph";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
 import { MissionStatement } from "@/components/ui/MissionStatement";
@@ -200,6 +201,7 @@ const navigationItems = [
     category: "Icons",
     items: [
       { id: "icons-all", label: "Icon Library" },
+      { id: "icons-social", label: "Social Glyph" },
     ],
   },
   {
@@ -767,6 +769,46 @@ const contentComponents: Record<string, React.ReactNode> = {
         </span>
         <InlineLink href="#" variant="teal">Link Style (Teal)</InlineLink>
         <InlineLink href="#" variant="purple">Link Style (Purple)</InlineLink>
+      </div>
+    </ContentSection>
+  ),
+  "icons-social": (
+    <ContentSection
+      title="Social Glyph"
+      description="LinkedIn and Instagram as outline marks: gray at rest, full brand colour on hover. Colour is revealed by group-hover, so the hover target is whatever ancestor carries `group` — the link around it, or a button or row it sits inside."
+      componentPath="components/ui/SocialGlyph.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Hover to reveal colour</h4>
+          <div className="flex items-center gap-6">
+            <a href="#" className="group inline-flex items-center gap-2 text-gray-120">
+              <SocialGlyph network="linkedin" size={24} />
+              LinkedIn
+            </a>
+            <a href="#" className="group inline-flex items-center gap-2 text-gray-120">
+              <SocialGlyph network="instagram" size={24} />
+              Instagram
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Sizes</h4>
+          <div className="flex items-end gap-6">
+            {[16, 20, 24, 32].map((size) => (
+              <div key={size} className="group flex flex-col items-center gap-2">
+                <SocialGlyph network="linkedin" size={size} />
+                <span className="text-xs text-gray-100">{size}px</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="text-sm text-gray-100 max-w-[62ch]">
+          Both marks are drawn in one 48x48 box at one stroke weight, so they read as a
+          set. The reveal cross-fades two files rather than filtering one: the resting
+          gray is a chosen neutral, not a desaturation of either brand colour.
+          LinkedInLink wraps this for profile links.
+        </p>
       </div>
     </ContentSection>
   ),
