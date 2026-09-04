@@ -33,6 +33,22 @@ export function middleware(request: NextRequest) {
     // uxhiconference.com/2025/[path] → /conference/2025/[path]  (year archive)
     // uxhiconference.com/[path]      → /conference/2026/[path]  (current year)
     const yearMatch = pathname.match(/^\/(\d{4})(\/.*)?$/);
+
+    // A request for a file is a request for a file, whatever the host. Shared
+    // assets live at the path they are written as — /images/nav/glyph-linkedin.svg
+    // is served from public/ — and folding one into the year's tree asks for
+    // /conference/2026/images/nav/glyph-linkedin.svg, where nothing exists. That
+    // is how the LinkedIn mark came to 404 in the footer, the Pau Hana CTA and
+    // every speaker drawer at once.
+    //
+    // Checked after the year match, not before: a year-prefixed asset
+    // (/2025/assets/logo.png) still belongs to that archive and has to keep
+    // being rewritten into it.
+    const isFile = !yearMatch && /\.[^/]+$/.test(pathname);
+    if (isFile) {
+      return NextResponse.next();
+    }
+
     const conferencePath = yearMatch
       ? `/conference/${yearMatch[1]}${yearMatch[2] ?? "/"}`
       : pathname === "/"
