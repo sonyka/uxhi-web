@@ -30,7 +30,7 @@ const SIDE_PROGRAMMING = [
   {
     title: "Professional Headshots",
     body:
-      "Photographer on site. Get a fresh headshot for your LinkedIn profile! Drop in anytime during the afternoon, and we’ll send you the final photo after the conference.",
+      "We’ll have a photographer on site, so come as you are. Get a fresh headshot for your LinkedIn profile! Drop in anytime during the afternoon, and the final photo comes to you after the conference.",
   },
 ];
 
