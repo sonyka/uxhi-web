@@ -49,7 +49,7 @@ const NEW_THIS_YEAR: SideProgramItem[] = [
     pattern: true,
     icon: ScrollIcon,
     body:
-      "A hands-on introduction to traditional Hawaiian printmaking, one of the oldest forms of visual storytelling. Bring a piece of fabric, paper, a tote, or a shirt you’d like to print, and we’ll have the tools on hand to help you tell yours.",
+      "A hands-on introduction to traditional Hawaiian printmaking, one of the oldest forms of visual storytelling. Bring a piece of fabric, paper, a tote, or a shirt you’d like to print, and we’ll have the tools on hand to help you tell your moʻolelo.",
   },
 ];
 
