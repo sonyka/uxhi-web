@@ -53,10 +53,19 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
         </div>
         <SectionHeading>UXHICon Agenda</SectionHeading>
       </div>
-      <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY_110 }}>
-        One day, two rooms. Sessions run in parallel through the afternoon, so
-        the schedule is yours to build.
-      </p>
+      {/* The caveat sits under the lead rather than inside it: it is a
+          different register — housekeeping, not welcome — and at body size in
+          the same paragraph it competes with the invitation above it. */}
+      <div className="flex flex-col gap-2 max-w-[62ch]">
+        <p className={TYPE.body} style={{ color: GRAY_110 }}>
+          One day, two rooms. Sessions run in parallel through the afternoon, so
+          the schedule is yours to build. Open a session for the full
+          description and speaker bios.
+        </p>
+        <p className={TYPE.fine} style={{ color: GRAY_100 }}>
+          Agenda subject to change.
+        </p>
+      </div>
 
       <ol className="flex flex-col gap-3 md:gap-4 mt-2">
         {slots.map((slot) => (
