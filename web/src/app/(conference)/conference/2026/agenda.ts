@@ -105,7 +105,7 @@ export const AGENDA_2026: AgendaSlot[] = [
       {
         room: "Purple Box",
         title: "Storytelling Framework Workshop",
-        speakers: [{ name: "Anthology", slug: "anthology" }],
+        speakers: [{ name: "Anthology Finn Partners", slug: "anthology" }],
       },
     ],
   },
