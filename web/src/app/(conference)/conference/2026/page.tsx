@@ -19,9 +19,9 @@ import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY, CONFERENCE_SPEAKERS_QUERY } from "@/sanity/lib/queries";
 import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
-import { TICKETS_URL, SPONSOR_URL } from "./constants";
-import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, InstagramIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
-import { LinkedInGlyph } from "./_components/LinkedInLink";
+import { TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE } from "./constants";
+import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
+import { SocialLink } from "./_components/SocialLink";
 
 const OG_TITLE = "UXHI Conference :: October 17, 2026";
 const OG_DESCRIPTION =
@@ -589,14 +589,8 @@ export default async function Conference2026Page() {
         <div className="flex items-center gap-[14px]">
           {/* These two carry no text, so they set the icon color themselves —
               the footer links above inherit it from their own label color. */}
-          <a href="https://www.instagram.com/uxhicommunity/" target="_blank" rel="noopener" aria-label="UXHI on Instagram"
-            className="flex items-center hover:opacity-70 transition-opacity" style={{ color: GRAY_110 }}>
-            <InstagramIcon size={24} />
-          </a>
-          <a href="https://www.linkedin.com/company/uxhi/" target="_blank" rel="noopener" aria-label="UXHI on LinkedIn"
-            className="flex items-center">
-            <LinkedInGlyph size={24} />
-          </a>
+          <SocialLink network="instagram" href={IG_PROFILE} name="UXHI" size={24} />
+          <SocialLink network="linkedin" href={LINKEDIN_PROFILE} name="UXHI" size={24} />
         </div>
       </div>
       </footer>

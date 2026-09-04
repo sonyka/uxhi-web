@@ -22,7 +22,7 @@ import { BEIGE_40, GRAY_80, GRAY_100, GRAY_110, LINK, ORANGE_130, PURPLE, TYPE, 
 import { SectionHeading } from "./SectionHeading";
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
 import type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
-import { LinkedInLink } from "./LinkedInLink";
+import { SocialLink } from "./SocialLink";
 import { GlobeIcon } from "./icons";
 
 export type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
@@ -171,7 +171,7 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
               </a>
             )
           : speaker?.linkedin && (
-              <LinkedInLink href={speaker.linkedin} name={speaker.name} size={22} />
+              <SocialLink network="linkedin" href={speaker.linkedin} name={speaker.name} size={22} />
             )}
       </AgendaDrawer>
     </div>

@@ -1,6 +1,14 @@
 import { SectionHeading } from "./SectionHeading";
 import { cn } from "@/lib/utils";
 import { GRAY_110 as GRAY, PURPLE, LINK, TYPE } from "../theme";
+import { ConferenceButton } from "./ConferenceButton";
+import { InstagramGlyph, LinkedInGlyph } from "./SocialLink";
+import {
+  IG_PROFILE,
+  IG_HANDLE,
+  LINKEDIN_PROFILE,
+  LINKEDIN_HANDLE,
+} from "../constants";
 
 // Curated Instagram posts (Sanity: conferenceInstagramPost, year-scoped).
 // Editors hand-pick which conference posts appear — see the schema for why we
@@ -13,9 +21,6 @@ export type InstagramPost = {
   imageAlt?: string | null;
   lqip?: string | null;
 };
-
-const IG_PROFILE = "https://www.instagram.com/uxhicommunity/";
-const LINKEDIN_PROFILE = "https://www.linkedin.com/company/uxhi/";
 
 // Size Sanity images on the CDN to Instagram's 4:5 portrait crop (1080×1350)
 // rather than shipping the full-res asset.
@@ -71,11 +76,11 @@ export function InstagramGrid({ posts }: { posts: InstagramPost[] }) {
       <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
         Catch the latest news on ticket sales, speaker lineup, and behind-the-scenes stories on Instagram{" "}
         <a href={IG_PROFILE} target="_blank" rel="noopener" className={cn(LINK, "font-semibold")} style={{ color: PURPLE }}>
-          @uxhicommunity
+          {IG_HANDLE}
         </a>{" "}
         and LinkedIn{" "}
         <a href={LINKEDIN_PROFILE} target="_blank" rel="noopener" className={cn(LINK, "font-semibold")} style={{ color: PURPLE }}>
-          @uxhi
+          {LINKEDIN_HANDLE}
         </a>
         .
       </p>
@@ -86,6 +91,32 @@ export function InstagramGrid({ posts }: { posts: InstagramPost[] }) {
             <PostCard key={p._id} p={p} />
           ))}
         </div>
+      </div>
+
+      {/* The paragraph above names both handles as inline links; these repeat
+          them as targets you can hit. Outline rather than filled: the grid
+          above is already dense with imagery, and two solid pills under it
+          would read as the loudest thing in the section.
+
+          They wrap on a narrow rail instead of shrinking — the labels carry
+          handles, which should not be allowed to break mid-word. */}
+      <div className="flex flex-wrap gap-3 mt-2">
+        <ConferenceButton
+          href={IG_PROFILE}
+          variant="outline"
+          icon={InstagramGlyph}
+          className="w-fit"
+        >
+          Follow {IG_HANDLE}
+        </ConferenceButton>
+        <ConferenceButton
+          href={LINKEDIN_PROFILE}
+          variant="outline"
+          icon={LinkedInGlyph}
+          className="w-fit"
+        >
+          Follow {LINKEDIN_HANDLE}
+        </ConferenceButton>
       </div>
     </div>
   );

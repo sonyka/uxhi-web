@@ -13,7 +13,7 @@ import {
 import { ConferenceButton } from "./ConferenceButton";
 import { TICKETS_URL } from "../constants";
 import { ShakaIcon } from "./icons";
-import { LinkedInGlyph } from "./LinkedInLink";
+import { LinkedInGlyph } from "./SocialLink";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with

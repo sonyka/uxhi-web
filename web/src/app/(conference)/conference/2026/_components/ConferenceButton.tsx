@@ -30,8 +30,11 @@ interface ConferenceButtonProps {
   className?: string;
 }
 
+// `group` is here so an icon can react to the button being hovered — the social
+// glyphs cross-fade to full colour that way. Icons that paint with currentColor
+// ignore it and are unaffected.
 const BASE =
-  "inline-flex items-center gap-2 h-[44px] px-5 rounded-full no-underline hover:opacity-80 transition-opacity whitespace-nowrap";
+  "group inline-flex items-center gap-2 h-[44px] px-5 rounded-full no-underline hover:opacity-80 transition-opacity whitespace-nowrap";
 
 // Icons inherit the label color via currentColor, so the variant only has to
 // set text color — no per-variant icon handling (the primary variant used to

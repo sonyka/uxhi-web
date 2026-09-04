@@ -21,7 +21,7 @@ import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_110 as GRAY, TYPE } from "../theme";
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
-import { LinkedInLink } from "./LinkedInLink";
+import { SocialLink } from "./SocialLink";
 
 // Data comes from Sanity (conferenceTeam, year-scoped) — see queries.ts.
 export type Cochair = {
@@ -123,7 +123,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
           <p style={{ color: GRAY }}>A bio for {open?.name} is on the way.</p>
         )}
         {open?.linkedin && (
-          <LinkedInLink href={open.linkedin} name={open.name} size={22} />
+          <SocialLink network="linkedin" href={open.linkedin} name={open.name} size={22} />
         )}
       </AgendaDrawer>
     </div>
