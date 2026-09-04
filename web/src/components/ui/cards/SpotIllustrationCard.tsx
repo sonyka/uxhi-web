@@ -46,7 +46,15 @@ const variantStyles: Record<SpotIllustrationCardVariant, { card: string; title: 
   beige: {
     card: "bg-beige-30 hover:shadow-lg transition-shadow duration-300",
     title: "font-semibold text-gray-140 group-hover:text-purple-140 transition-colors",
-    description: "text-gray-110 text-base",
+    // gray-120, not the gray-110 the light variants otherwise share. Beige-30 is
+    // a warm ground rather than white, and gray-110 lands on it at 6.68:1 —
+    // still AA, but under AAA and visibly washed out next to the gray-140
+    // title. gray-120 reads as body copy again at 9.73:1.
+    //
+    // The white variant keeps gray-110 on purpose: on white that same colour is
+    // 7.53:1 and already clears AAA, so darkening it would only make two light
+    // cards disagree for no gain.
+    description: "text-gray-120 text-base",
   },
   white: {
     card: "bg-white shadow-sm hover:shadow-lg transition-shadow duration-300",

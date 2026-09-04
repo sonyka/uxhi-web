@@ -1508,14 +1508,14 @@ const contentComponents: Record<string, React.ReactNode> = {
               imageSrc="/images/icons/icon-community-engagement.svg"
               imageAlt="Community engagement illustration"
               title="Beige"
-              description="For light backgrounds with hover shadow. Used for committee cards."
+              description="For light backgrounds with hover shadow. Used for committee cards. Body copy is gray-120 — a step darker than the other light variants, because beige-30 is a warm ground and gray-110 lands on it under AAA."
             />
             <SpotIllustrationCard
               variant="white"
               imageSrc="/images/icons/icon-resources.svg"
               imageAlt="Resources illustration"
               title="White"
-              description="For beige backgrounds. Used for values cards."
+              description="For beige backgrounds. Used for values cards. Body copy stays gray-110, which already clears AAA on white."
             />
             <div className="bg-purple-140 rounded-xl p-4">
               <SpotIllustrationCard
