@@ -140,6 +140,9 @@ function CommitteeCard({
       title={name}
       description={items.length === 0 ? lead : undefined}
       variant="beige"
+      // Cards in a row end level. Committees run to very different lengths, and
+      // at two up a ragged bottom edge is half the row rather than a third of it.
+      className="h-full"
     >
       {items.length > 0 ? (
         // Left-aligned inside a centred card, as on the findings cards: a
@@ -558,7 +561,11 @@ export default async function GetInvolvedPage() {
                 </p>
               </MotionDiv>
             </ScrollReveal>
-            <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Two up, not three. The section caps at 900px, so a third column left
+                each card about 220px of text — roughly 30 characters a line, which
+                turns every bullet into a ragged stack of two- and three-word rows.
+                Two columns give around 52, which is a readable measure. */}
+            <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {committees.length > 0 ? (
                 committees.map((committee) => (
                   <MotionDiv key={committee._id}>
