@@ -87,7 +87,7 @@ export function ProgramSection() {
             </a>. Come gather, mingle, and get inspired by the stories that connect us.
           </p>
 
-          <p className={`${TYPE.fine} max-w-[62ch]`} style={{ color: GRAY_100 }}>
+          <p className={`${TYPE.caption} max-w-[62ch]`} style={{ color: GRAY_100 }}>
             This event is 21+. Your ticket includes one drink, and a cash bar is available.
           </p>
         </div>
@@ -116,7 +116,7 @@ export function ProgramSection() {
               </span>{" "}
               <span className="lg:block">October 15, 2026</span>
             </p>
-            <p className={`${TYPE.fine} leading-snug`} style={{ color: PURPLE }}>
+            <p className={TYPE.caption} style={{ color: PURPLE }}>
               <span className="lg:block">
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=1052+Waimanu+St%2C+Honolulu%2C+HI+96814"

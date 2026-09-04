@@ -70,7 +70,7 @@ function SponsorCard({ s }: { s: Sponsor }) {
       <div className="flex flex-col gap-1">
         {s.logo && <h3 className="font-semibold text-[16px] leading-tight text-gray-140">{s.name}</h3>}
         {s.description && (
-          <p className="text-[14px] leading-[1.5]" style={{ color: GRAY }}>
+          <p className={TYPE.bodyCompact} style={{ color: GRAY }}>
             {s.description}
           </p>
         )}

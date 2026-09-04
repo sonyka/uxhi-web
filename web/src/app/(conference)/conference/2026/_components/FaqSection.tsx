@@ -124,7 +124,7 @@ export function FaqSection() {
                     className="overflow-hidden"
                   >
                     <p
-                      className="px-5 pb-[18px] font-normal leading-[1.5] text-[15px] md:text-[16px]"
+                      className={`px-5 pb-[18px] ${TYPE.body}`}
                       // gray-120 on the beige card, for the same reason the side
                       // programming cards take it: gray-110 is under AAA here.
                       style={{ color: GRAY_120 }}

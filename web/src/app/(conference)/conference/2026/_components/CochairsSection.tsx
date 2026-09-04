@@ -101,7 +101,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
                   {c.name}
                 </div>
                 {c.title && (
-                  <div className="text-[13px] leading-[1.3] text-white/85">
+                  <div className={`${TYPE.caption} text-white/85`}>
                     {c.title}
                   </div>
                 )}

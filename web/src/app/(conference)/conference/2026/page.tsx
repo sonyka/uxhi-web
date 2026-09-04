@@ -311,7 +311,7 @@ export default async function Conference2026Page() {
                     above the photo strip (mobile only; sidebar stats are hidden here). */}
                 <div className="flex items-end gap-4">
                   <LogoBadge />
-                  <div className="flex items-start gap-2 max-w-[62%] text-[14px] font-medium leading-[1.5]" style={{ color: "#000" }}>
+                  <div className={`flex items-start gap-2 max-w-[62%] ${TYPE.bodyCompact} font-medium`} style={{ color: "#000" }}>
                     {/* Wrapper is one line tall and centers the dot, so it lines up
                         with the first text line regardless of wrapping. */}
                     <span className="flex items-center h-[1.5em] shrink-0">
