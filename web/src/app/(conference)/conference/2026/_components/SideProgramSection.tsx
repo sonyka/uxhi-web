@@ -1,10 +1,14 @@
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_110 as GRAY, PURPLE, TYPE } from "../theme";
+import { GRAY_110 as GRAY, PURPLE, TYPE, YELLOW_80 } from "../theme";
 
-// Side programming — the two things that run *alongside* the talks rather than
-// in a room on the schedule. Both ran in previous years (portfolio reviews in
-// 2024 and 2025, headshots in 2025) and come back by request, which is why the
-// eyebrow leads with that rather than with the activity names.
+// Side programming — the things that run *alongside* the talks rather than in a
+// room on the schedule. Two ran in previous years (portfolio reviews in 2024
+// and 2025, headshots in 2025); the printing activity is new.
+//
+// That mix is why the eyebrow no longer says "Back by popular demand". It was
+// true when both items were returning ones, and a section label that contradicts
+// a card inside it is worse than a plainer label — so the eyebrow now states
+// what all three have in common, and the new one carries the badge instead.
 //
 // Sits under the agenda, not inside it: the agenda is a sequence of time slots,
 // and an item that runs most of the day in no room would either break the time
@@ -32,6 +36,15 @@ const SIDE_PROGRAMMING = [
     body:
       "Get a fresh headshot for your LinkedIn profile! We’ll have a photographer on site, so come as you are. Drop in anytime during the afternoon, and the final photos come to you after the conference.",
   },
+  {
+    title: "Print Your Story",
+    // Same yellow pill the Pau Hana card and the agenda badges use, rather than
+    // "New this year!" opening the copy: the flag is a status, and saying it in
+    // the prose as well would say it twice.
+    badge: "New this year",
+    body:
+      "A cultural activity based on ancient hula practices, led by a member of our own UXHI team. Bring a piece of fabric, paper, a tote, or a shirt you’d like to print, and we’ll have traditional tools on hand to help you leave your mark on this year’s moʻolelo.",
+  },
 ];
 
 export function SideProgramSection() {
@@ -39,7 +52,7 @@ export function SideProgramSection() {
     <div className="flex flex-col gap-3 md:gap-4">
       <div className="flex flex-col gap-1.5">
         <p className={TYPE.eyebrow} style={{ color: PURPLE }}>
-          Back by popular demand
+          Alongside the talks
         </p>
         <SectionHeading>Beyond the sessions</SectionHeading>
       </div>
@@ -73,6 +86,14 @@ export function SideProgramSection() {
             <h4 className="font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140">
               {item.title}
             </h4>
+            {"badge" in item && item.badge ? (
+              <span
+                className="inline-flex items-center self-start rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
+                style={{ background: YELLOW_80, color: PURPLE }}
+              >
+                {item.badge}
+              </span>
+            ) : null}
             <p className={TYPE.fine} style={{ color: GRAY }}>
               {item.body}
             </p>
