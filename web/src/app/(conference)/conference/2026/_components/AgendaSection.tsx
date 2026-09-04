@@ -18,7 +18,7 @@
 // track, so the card fills the row on its own.
 
 import { useState } from "react";
-import { BEIGE_40, GRAY_80, GRAY_100, GRAY_110, LINK, ORANGE_130, PURPLE, TYPE, YELLOW_80 } from "../theme";
+import { BEIGE_40, GRAY_80, GRAY_100, GRAY_110, GRAY_120, LINK, ORANGE_130, PURPLE, TYPE, YELLOW_80 } from "../theme";
 import { SectionHeading } from "./SectionHeading";
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
 import type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
@@ -239,7 +239,7 @@ function SpeakerRow({
     return (
       <li className="flex items-center gap-2">
         {avatar}
-        <span className="font-semibold text-[15px] leading-[1.3]" style={{ color: GRAY_110 }}>
+        <span className="font-semibold text-[15px] leading-[1.3]" style={{ color: GRAY_120 }}>
           {speaker.name}
         </span>
       </li>
@@ -363,7 +363,9 @@ function SessionCard({
             </ul>
           )}
           {detail && (
-            <p className={TYPE.fine} style={{ color: GRAY_100 }}>
+            // A step lighter than the card's body but no longer gray-100, which
+            // was 4.64:1 on beige — supporting copy, not disappearing copy.
+            <p className={TYPE.fine} style={{ color: GRAY_110 }}>
               {detail}
             </p>
           )}

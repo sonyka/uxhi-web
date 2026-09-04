@@ -12,7 +12,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_80 as ICON_GRAY, GRAY_110, PURPLE, LINK, TYPE } from "../theme";
+import { GRAY_80 as ICON_GRAY, GRAY_110, GRAY_120, PURPLE, LINK, TYPE } from "../theme";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
@@ -125,7 +125,9 @@ export function FaqSection() {
                   >
                     <p
                       className="px-5 pb-[18px] font-normal leading-[1.5] text-[15px] md:text-[16px]"
-                      style={{ color: GRAY_110 }}
+                      // gray-120 on the beige card, for the same reason the side
+                      // programming cards take it: gray-110 is under AAA here.
+                      style={{ color: GRAY_120 }}
                     >
                       {a}
                     </p>
