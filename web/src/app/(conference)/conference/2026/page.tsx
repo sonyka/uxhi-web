@@ -10,6 +10,7 @@ import { InstagramGrid } from "./_components/InstagramGrid";
 import { QuoteCard } from "./_components/QuoteCard";
 import { ProgramSection } from "./_components/ProgramSection";
 import { AgendaSection } from "./_components/AgendaSection";
+import { SideProgramSection } from "./_components/SideProgramSection";
 import { withSpeakerRecords } from "./_components/agendaTypes";
 import { AGENDA_2026 } from "./agenda";
 import { BenefitsHeadline } from "./_components/BenefitsHeadline";
@@ -417,8 +418,12 @@ export default async function Conference2026Page() {
 
               {/* ── Agenda ─────────────────────────────────────────── */}
               {/* Follows the Program, which frames the day; this is the day. */}
-              <div id="agenda" className="scroll-mt-6">
+              {/* Side programming shares the Agenda anchor: it is part of what
+                  the day holds, and reads as a coda to the schedule rather than
+                  a section you would navigate to on its own. */}
+              <div id="agenda" className="scroll-mt-6 flex flex-col gap-10 md:gap-16 xl:gap-20">
                 <AgendaSection slots={withSpeakerRecords(AGENDA_2026, speakers ?? [])} />
+                <SideProgramSection />
               </div>
 
               {/* ── About UXHI ─────────────────────────────────────── */}
