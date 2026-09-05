@@ -49,23 +49,31 @@ export function Header({ settings }: HeaderProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // With the menu open the capsule steps aside: the panel is its own white
-  // surface, and a white capsule floating above it left a strip of live page
-  // showing through the gap between the two. The header takes the page ground
-  // instead, so the open menu reads as one state rather than two cards.
-  const capsuleOn = scrolled && !mobileMenuOpen;
+  // Below lg the glass rides the header itself — full-bleed, square, flush to
+  // both edges — because that is the width a phone has to give. The capsule is
+  // a desktop shape: it needs slack on either side to read as a floating object,
+  // and at 390px there is none, so a rounded bar inset from the edges would just
+  // look like a bar that missed.
+  //
+  // It also settles the open menu. The panel is its own white surface; a capsule
+  // floating above it left a strip of live page showing through the gap, whereas
+  // one sheet of glass behind both rows covers the whole header at once.
+  const barOn = scrolled || mobileMenuOpen;
+  const capsuleOn = scrolled;
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 px-6 xl:px-9 py-4 md:py-6 transition-colors duration-300 ${
-        mobileMenuOpen ? "bg-beige-30" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 px-6 xl:px-9 py-4 md:py-6 transition-colors duration-300 lg:bg-transparent lg:backdrop-blur-none lg:border-b-0 ${
+        barOn
+          ? "bg-white/90 backdrop-blur-sm border-b border-beige-50"
+          : "bg-transparent"
       }`}
     >
       <div
-        className={`max-w-[1400px] mx-auto flex items-center justify-between gap-10 rounded-full border pl-6 xl:pl-8 pr-2 py-2 transition-[background-color,border-color,box-shadow] duration-300 ${
+        className={`max-w-[1400px] mx-auto flex items-center justify-between gap-10 lg:rounded-full lg:border lg:pl-6 xl:pl-8 lg:pr-2 lg:py-2 transition-[background-color,border-color,box-shadow] duration-300 ${
           capsuleOn
-            ? "bg-white/90 backdrop-blur-sm border-beige-50 shadow-[0px_1px_2px_0px_rgba(0,0,0,0.04),0px_6px_20px_0px_rgba(0,0,0,0.06)]"
-            : "bg-transparent border-transparent shadow-none"
+            ? "lg:bg-white/90 lg:backdrop-blur-sm lg:border-beige-50 lg:shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_4px_12px_0px_rgba(0,0,0,0.035)]"
+            : "lg:bg-transparent lg:border-transparent lg:shadow-none"
         }`}
       >
         {/* Logo */}
