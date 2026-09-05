@@ -475,15 +475,18 @@ const contentComponents: Record<string, React.ReactNode> = {
   "nav-desktop": (
     <ContentSection
       title="Desktop Navbar"
-      description="Main navigation component with dropdowns. Used in the site header."
+      description="Main navigation links with dropdowns, used in the site header. It carries no ground of its own — the Header draws one capsule behind the logo and the nav together once the page scrolls, so a pill here would read as a seam inside that one."
       componentPath="components/layout/Navbar.tsx"
     >
       <div className="space-y-8">
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Component</h4>
-          <div className="bg-gray-20 p-6 rounded-xl overflow-x-auto">
+          <div className="bg-white border border-beige-50 rounded-full px-8 py-2 overflow-x-auto shadow-[0px_1px_2px_0px_rgba(0,0,0,0.04),0px_6px_20px_0px_rgba(0,0,0,0.06)]">
             <Navbar items={demoNavItems} />
           </div>
+          <p className="text-xs text-gray-100 mt-3">
+            Shown inside a stand-in for the Header capsule, since the nav no longer draws one.
+          </p>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
@@ -491,11 +494,9 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Container</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white</span> background</p>
-                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">rounded-full</span> border radius</p>
-                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">px-7</span> (28px) horizontal padding</p>
-                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">py-5</span> (20px) vertical padding</p>
-                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">gap-8</span> (32px) between items</p>
+                <p>No background, radius or padding — the <span className="font-mono text-xs bg-gray-20 px-1 rounded">Header</span> capsule provides them</p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">gap-4</span> → <span className="font-mono text-xs bg-gray-20 px-1 rounded">xl:gap-8</span> between items</p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">whitespace-nowrap</span> so items never wrap</p>
               </div>
             </div>
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">

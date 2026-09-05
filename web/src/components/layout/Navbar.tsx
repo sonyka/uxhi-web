@@ -30,7 +30,9 @@ interface NavbarProps {
  * Desktop Navbar Component
  *
  * Specs from Figma:
- * - Container: bg-white, gap-8 (32px), pl-8 (32px), pr-6 (24px), py-5 (20px), rounded-full
+ * - Container: gap-8 (32px) — no ground of its own. The Header draws a single
+ *   capsule behind the logo and the nav together once the page scrolls; a pill
+ *   inside that pill would read as a seam.
  * - Text: text-base (16px), font-medium, text-black
  * - Nav icon gap: gap-0.5 (2px) between text and icon
  * - Chevron icons: w-4 h-4 (16px), text-gray-100 (#676D73)
@@ -42,7 +44,7 @@ export function Navbar({ items, ctaLabel = "Join us", ctaHref = "/join" }: Navba
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <nav className="flex items-center gap-4 xl:gap-8 rounded-full bg-white/90 backdrop-blur-sm px-5 xl:pl-8 xl:pr-6 py-4 xl:py-5 whitespace-nowrap">
+    <nav className="flex items-center gap-4 xl:gap-8 whitespace-nowrap">
       {items.map((item) =>
         item.dropdown ? (
           <div
