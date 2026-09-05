@@ -183,8 +183,12 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
                 target="_blank"
                 rel="noopener"
                 aria-label={`${speaker.name} website`}
-                className="inline-flex items-center w-fit hover:opacity-70 transition-opacity"
-                style={{ color: PURPLE }}
+                // Gray-110 at rest, which is the grey the LinkedIn mark is
+                // drawn in — the two sit side by side and were reading as
+                // different kinds of thing purely because one was already
+                // purple. Purple is the hover, so both marks now do the same
+                // thing: quiet until you reach for them.
+                className="inline-flex items-center w-fit text-gray-110 hover:text-purple-140 transition-colors"
               >
                 <GlobeIcon size={22} />
               </a>
