@@ -80,7 +80,7 @@ export const CONFERENCE_SPEAKERS_QUERY = defineQuery(/* groq */ `
     title,
     "bio": coalesce(bio, person->bio),
     "linkedin": coalesce(linkedin, person->socialLinks.linkedin),
-    website,
+    "website": coalesce(website, person->socialLinks.website),
     "photo": coalesce(photo.asset->url, person->photo.asset->url),
     "logo": logo.asset->url
   }

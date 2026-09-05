@@ -160,12 +160,24 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
         ) : (
           <p style={{ color: GRAY_100 }}>A bio for {speaker?.name} is on the way.</p>
         )}
-        {speaker?.kind === "organization"
-          ? speaker.website && (
-              // The mark alone, as the LinkedIn link is for a person: two
-              // shapes doing the same job in the same slot should look like it.
-              // The label carried the meaning when this was the only icon of
-              // its kind here; the aria-label carries it now.
+        {/* Every link the speaker has, rather than one per kind. It used to be
+            LinkedIn for a person and a website for an organization, which meant
+            a speaker with both showed only the LinkedIn — Sean Tangco has a site
+            as well, and there was nowhere for it to go.
+
+            Marks alone, no labels: two shapes doing the same job in the same
+            row should look like it, and the aria-labels carry the meaning. */}
+        {(speaker?.linkedin || speaker?.website) && (
+          <div className="flex items-center gap-3">
+            {speaker.linkedin && (
+              <SocialLink
+                network="linkedin"
+                href={speaker.linkedin}
+                name={speaker.name}
+                size={22}
+              />
+            )}
+            {speaker.website && (
               <a
                 href={speaker.website}
                 target="_blank"
@@ -176,10 +188,9 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
               >
                 <GlobeIcon size={22} />
               </a>
-            )
-          : speaker?.linkedin && (
-              <SocialLink network="linkedin" href={speaker.linkedin} name={speaker.name} size={22} />
             )}
+          </div>
+        )}
       </AgendaDrawer>
     </div>
   );

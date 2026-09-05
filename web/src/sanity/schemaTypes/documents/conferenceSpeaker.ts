@@ -104,12 +104,15 @@ export const conferenceSpeaker = defineType({
       hidden: ({ parent }) => parent?.kind !== "organization",
       fields: [defineField({ name: "alt", title: "Alt Text", type: "string" })],
     }),
+    // Open to people as well as organizations. For an organization it stands
+    // in for LinkedIn; for a person it sits beside it, because plenty of
+    // speakers have both and the drawer used to be able to show only one.
     defineField({
       name: "website",
       title: "Website",
       type: "url",
-      description: "Takes the place of LinkedIn for an organization.",
-      hidden: ({ parent }) => parent?.kind !== "organization",
+      description:
+        "A personal site, portfolio or studio. Shown beside LinkedIn in the speaker drawer, or on its own for an organization. Inherited from a linked team member's Personal Website if left empty.",
     }),
     defineField({
       name: "title",
