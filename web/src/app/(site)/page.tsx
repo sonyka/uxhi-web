@@ -66,7 +66,13 @@ export default async function HomePage() {
                     // Underlines "aloha-centered" only, not the trailing " design".
                     // 69% is that word pair's share of the phrase width — a ratio, so
                     // it holds as the type scales across breakpoints.
-                    className="absolute left-0 bottom-0 md:-bottom-1 lg:-bottom-2 w-[69%] h-[7px] md:h-[9px] lg:h-[12px] pointer-events-none hidden md:block"
+                    //
+                    // Sits at bottom-0 at every size rather than stepping further
+                    // below as the type grows: "aloha-centered" has no descender to
+                    // clear, so a drawn underline reads as attached to the word only
+                    // when it rides close to the baseline. The stroke thickens with
+                    // the type instead, which is what carries the ramp.
+                    className="absolute left-0 bottom-0 w-[69%] h-[7px] md:h-[9px] lg:h-[12px] pointer-events-none hidden md:block"
                   />
                 }
               >
