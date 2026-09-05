@@ -7,7 +7,7 @@ import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { LinkCard } from "@/components/ui/LinkCard";
 import { InfoBox } from "@/components/ui/InfoBox";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
-import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
+import { SpotDetailCard } from "@/components/ui/cards/SpotDetailCard";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
@@ -429,80 +429,53 @@ export default async function ResourcesPage() {
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {/* Education Findings */}
             <MotionDiv>
-              <SpotIllustrationCard
+              <SpotDetailCard
                 variant="translucent"
                 imageSrc="/images/icons/icon-education-findings.svg"
                 imageAlt="Education Findings"
                 title="Education Findings"
-                className="rounded-[20px]"
-              >
-                <ul className="space-y-3 text-base text-left">
-                  <li className="flex items-start gap-3">
-                    <BulletPoint variant="yellow" />
-                    <span><span className="font-black text-white">75%</span> of individual contributors surveyed have a bachelor&apos;s degree or higher</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BulletPoint variant="yellow" />
-                    <span><span className="font-black text-white">42%</span> of managers have a master&apos;s degree or higher</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BulletPoint variant="yellow" />
-                    <span><span className="font-black text-white">40%</span> of VPs, Directors, and C-level founders have a bachelor&apos;s degree as the highest level of education</span>
-                  </li>
-                </ul>
-              </SpotIllustrationCard>
+                stat={{
+                  value: "75%",
+                  caption: "of individual contributors hold a bachelor\u2019s degree or higher",
+                }}
+                bullets={[
+                  <><strong>42%</strong> of managers have a master&apos;s degree or higher</>,
+                  <><strong>40%</strong> of VPs, Directors, and C-level founders top out at a bachelor&apos;s</>,
+                ]}
+              />
             </MotionDiv>
 
             {/* Career Findings */}
             <MotionDiv>
-              <SpotIllustrationCard
+              <SpotDetailCard
                 variant="translucent"
                 imageSrc="/images/icons/icon-career-findings.svg"
                 imageAlt="Career Findings"
                 title="Career Findings"
-                className="rounded-[20px]"
-              >
-                <ul className="space-y-3 text-base text-left">
-                  <li className="flex items-start gap-3">
-                    <BulletPoint variant="yellow" />
-                    <span><span className="font-black text-white">33%</span> of surveyors live on the islands, but do not work for a company that operates in Hawai&apos;i</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BulletPoint variant="yellow" />
-                    <span>UXers in Hawai&apos;i are working harder - to find consistent employment, to be a &quot;jack of all trades&quot; or as a department of one or within small teams</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BulletPoint variant="yellow" />
-                    <span>Are earning an average of <span className="font-black text-white">$110,203</span> versus <span className="font-black text-white">$121,196</span> as the national average</span>
-                  </li>
-                </ul>
-              </SpotIllustrationCard>
+                stat={{
+                  value: "$110,203",
+                  caption: <>average local salary, versus <strong>$121,196</strong> nationally</>,
+                }}
+                bullets={[
+                  <><strong>33%</strong> live on the islands but work for companies outside Hawai&apos;i</>,
+                  <>UXers work harder &mdash; as a &ldquo;jack of all trades,&rdquo; a department of one, or within small teams</>,
+                ]}
+              />
             </MotionDiv>
 
             {/* Top Challenges */}
             <MotionDiv>
-              <SpotIllustrationCard
+              <SpotDetailCard
                 variant="translucent"
                 imageSrc="/images/icons/icon-challenges.svg"
                 imageAlt="Top Challenges"
                 title="Top Challenges"
-                className="rounded-[20px]"
-              >
-                <ul className="space-y-3 text-base text-left">
-                  <li className="flex items-start gap-3">
-                    <BulletPoint variant="yellow" />
-                    <span>Many business leaders do not know what UX is</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BulletPoint variant="yellow" />
-                    <span>UX is not prioritized or funded</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BulletPoint variant="yellow" />
-                    <span>The UX job market in Hawai&apos;i is limited</span>
-                  </li>
-                </ul>
-              </SpotIllustrationCard>
+                ranked={[
+                  "Many business leaders do not know what UX is",
+                  "UX is not prioritized or funded",
+                  "The UX job market in Hawai\u2019i is limited",
+                ]}
+              />
             </MotionDiv>
           </ScrollReveal>
 

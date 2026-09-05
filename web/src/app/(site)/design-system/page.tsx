@@ -18,7 +18,7 @@ import { LinkCard } from "@/components/ui/LinkCard";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InlineLink } from "@/components/ui/InlineLink";
-import { SpotIllustrationCard } from "@/components/ui/cards";
+import { SpotIllustrationCard, SpotDetailCard } from "@/components/ui/cards";
 import { StatComparison } from "@/components/report/StatComparison";
 import { DistributionBars } from "@/components/report/DistributionBars";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -132,6 +132,7 @@ const navigationItems = [
     category: "Cards & Modules",
     items: [
       { id: "card-spotillustration", label: "Spot Illustration Card" },
+      { id: "card-spotdetail", label: "Spot Detail Card" },
       { id: "card-logogrid", label: "Logo Grid" },
       { id: "card-carousel", label: "Carousel Testimonial" },
       { id: "card-link", label: "Link Card" },
@@ -1552,6 +1553,86 @@ const contentComponents: Record<string, React.ReactNode> = {
             </div>
           </div>
         </div>
+      </div>
+    </ContentSection>
+  ),
+  "card-spotdetail": (
+    <ContentSection
+      title="Spot Detail Card"
+      description="Sibling to the Spot Illustration Card, not a variant of it — the difference is structural. The icon shrinks to 56px and moves into a header row beside the title, so a reader scanning a grid meets the name before the art, and the whole card reads left-aligned. The body is passed as data — a lead, a hero stat, bullets, or a ranking — never as markup, which is what keeps size and colour decisions inside the component. Used for the committee cards on Get Involved and the State of UX findings on Resources. The centred icon-over-prose cards still belong to the Spot Illustration Card."
+      componentPath="components/ui/cards/SpotDetailCard.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Beige — lead + bullets (committee cards)</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <SpotDetailCard
+              variant="beige"
+              imageSrc="/images/icons/icon-community-engagement.svg"
+              imageAlt="Community engagement illustration"
+              title="Community Engagement"
+              lead="Keeps the community welcoming and active."
+              bullets={[
+                "Organize social events and networking opportunities",
+                "Run member spotlights",
+                "Welcome new members and keep participation active",
+              ]}
+            />
+            <SpotDetailCard
+              variant="beige"
+              imageSrc="/images/icons/icon-conference.svg"
+              imageAlt="Conference illustration"
+              title="Conference"
+              description="A committee whose description carries no bullets falls back to prose in the body, rather than pushing a long sentence into the header row beside the icon."
+            />
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Translucent — hero stat and ranking (report findings)</h4>
+          <div className="bg-purple-140 rounded-xl p-6">
+            <div className="grid md:grid-cols-3 gap-5">
+              <SpotDetailCard
+                variant="translucent"
+                imageSrc="/images/icons/icon-education-findings.svg"
+                imageAlt="Education findings illustration"
+                title="Education Findings"
+                stat={{ value: "75%", caption: "of individual contributors hold a bachelor\u2019s degree or higher" }}
+                bullets={[
+                  <><strong>42%</strong> of managers have a master&apos;s degree or higher</>,
+                  <><strong>40%</strong> of VPs, Directors, and C-level founders top out at a bachelor&apos;s</>,
+                ]}
+              />
+              <SpotDetailCard
+                variant="translucent"
+                imageSrc="/images/icons/icon-career-findings.svg"
+                imageAlt="Career findings illustration"
+                title="Career Findings"
+                stat={{ value: "$110,203", caption: <>average local salary, versus <strong>$121,196</strong> nationally</> }}
+                bullets={[
+                  <><strong>33%</strong> live on the islands but work for companies outside Hawai&apos;i</>,
+                ]}
+              />
+              <SpotDetailCard
+                variant="translucent"
+                imageSrc="/images/icons/icon-challenges.svg"
+                imageAlt="Top challenges illustration"
+                title="Top Challenges"
+                ranked={[
+                  "Many business leaders do not know what UX is",
+                  "UX is not prioritized or funded",
+                  "The UX job market in Hawai\u2019i is limited",
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+        <p className="text-xs text-gray-100">
+          A card with a <code>stat</code> draws a hairline rule beneath it before the bullets, so the
+          number reads as the card&apos;s headline rather than as its first list item. Pass emphasis
+          as a plain <code>&lt;strong&gt;</code> — the card colours it per variant, so a page marking
+          up an inline figure never reaches for a colour class of its own. <code>bullets</code> and
+          <code> ranked</code> are alternatives; a card takes one or the other.
+        </p>
       </div>
     </ContentSection>
   ),

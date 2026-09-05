@@ -6,7 +6,7 @@ import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { PARTNERS_QUERY, SPONSORS_QUERY, COMMITTEES_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
-import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
+import { SpotDetailCard } from "@/components/ui/cards/SpotDetailCard";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { BulletPoint } from "@/components/ui/BulletPoint";
@@ -115,9 +115,12 @@ function splitCommittee(description: string) {
 /**
  * A committee card.
  *
- * Lead sentence, then the responsibilities as a bulleted list, matching the
- * State of UX findings cards. A volunteer scanning six committees wants the
- * work itemised; the bullets were already written, they just had nowhere to go.
+ * The icon rides in the header row beside the name rather than sitting 96px
+ * tall above it, so a volunteer scanning six committees meets the name first
+ * and the duties as a list. The lead sentence rides with the title; the
+ * responsibilities become the body. Where a committee has no bullets, the whole
+ * description is the body instead — a 400-character "lead" in the header row
+ * would push the icon out of line.
  */
 function CommitteeCard({
   image,
@@ -131,37 +134,19 @@ function CommitteeCard({
   description: string;
 }) {
   const { lead, items } = splitCommittee(description);
+  const hasItems = items.length > 0;
 
   return (
-    <SpotIllustrationCard
+    <SpotDetailCard
+      variant="beige"
       image={image}
       imageSrc={imageSrc}
       imageAlt={name}
       title={name}
-      description={items.length === 0 ? lead : undefined}
-      variant="beige"
-      // Cards in a row end level. Committees run to very different lengths, and
-      // at two up a ragged bottom edge is half the row rather than a third of it.
-      className="h-full"
-    >
-      {items.length > 0 ? (
-        // Left-aligned inside a centred card, as on the findings cards: a
-        // ragged-right list is readable, a centred one is not — and a centred
-        // lead sitting on top of left-aligned bullets reads as a mistake, so
-        // the whole block goes left together.
-        <div className="flex flex-col gap-4 text-left">
-          {lead && <p className="leading-relaxed">{lead}</p>}
-          <ul className="space-y-3 text-base">
-            {items.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <BulletPoint />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : undefined}
-    </SpotIllustrationCard>
+      lead={hasItems ? lead : undefined}
+      description={hasItems ? undefined : lead}
+      bullets={hasItems ? items : undefined}
+    />
   );
 }
 
