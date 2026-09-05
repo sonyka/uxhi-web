@@ -70,7 +70,7 @@ export function Header({ settings }: HeaderProps) {
       }`}
     >
       <div
-        className={`max-w-[1400px] mx-auto flex items-center justify-between gap-10 lg:rounded-full lg:border lg:pl-6 xl:pl-8 lg:pr-2 lg:py-2 transition-[background-color,border-color,box-shadow] duration-300 ${
+        className={`max-w-[1400px] mx-auto flex items-center justify-between gap-10 lg:rounded-full lg:border lg:py-3 lg:pr-3 lg:pl-8 transition-[background-color,border-color,box-shadow] duration-300 ${
           capsuleOn
             ? "lg:bg-white/90 lg:backdrop-blur-sm lg:border-beige-50 lg:shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_4px_12px_0px_rgba(0,0,0,0.035)]"
             : "lg:bg-transparent lg:border-transparent lg:shadow-none"
