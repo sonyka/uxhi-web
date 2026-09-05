@@ -1,5 +1,6 @@
 import { GoogleAnalyticsGated } from "@/components/analytics/GoogleAnalyticsGated";
 import { Header } from "@/components/layout/Header";
+import { TopScrim } from "@/components/layout/TopScrim";
 import { Footer } from "@/components/layout/Footer";
 
 // GA4 for the community site. Gated to uxhi.community so staging/preview
@@ -43,6 +44,7 @@ export default function SiteLayout({
 }) {
   return (
     <>
+      <TopScrim />
       <Header settings={siteSettings} />
       <main>{children}</main>
       <Footer />

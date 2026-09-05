@@ -18,7 +18,7 @@ import { LinkCard } from "@/components/ui/LinkCard";
 import { ArrowLinkButton } from "@/components/ui/ArrowLinkButton";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { InlineLink } from "@/components/ui/InlineLink";
-import { SpotIllustrationCard, SpotDetailCard } from "@/components/ui/cards";
+import { SpotIllustrationCard } from "@/components/ui/cards";
 import { StatComparison } from "@/components/report/StatComparison";
 import { DistributionBars } from "@/components/report/DistributionBars";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -132,7 +132,6 @@ const navigationItems = [
     category: "Cards & Modules",
     items: [
       { id: "card-spotillustration", label: "Spot Illustration Card" },
-      { id: "card-spotdetail", label: "Spot Detail Card" },
       { id: "card-logogrid", label: "Logo Grid" },
       { id: "card-carousel", label: "Carousel Testimonial" },
       { id: "card-link", label: "Link Card" },
@@ -1489,84 +1488,35 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-spotillustration": (
     <ContentSection
       title="Spot Illustration Card"
-      description="Card with large illustrated icon (96px desktop, 80px mobile). Supports description text or custom children for complex content. Also supports Sanity CMS images. Copy is white on the purple grounds and gray on the light ones — the tinted purples the dark variants used to carry read as washed out rather than quiet."
+      description="One card in two arrangements. Stacked leads with a 96px illustration over centred prose and an optional footer link. Detail drops the icon to 56px and moves it into a header row beside the title, so a reader scanning a grid meets the name before the art, and passes the body as data — a lead, a hero stat, bullets, or a ranking — rather than as markup, which is what keeps size and colour decisions inside the component. Each ground pairs with one layout in practice: dark and white are stacked, beige and translucent are detail."
       componentPath="components/ui/cards/SpotIllustrationCard.tsx"
     >
       <div className="space-y-8">
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">All Variants</h4>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Stacked — dark and white</h4>
+          <div className="grid md:grid-cols-2 gap-6">
             <SpotIllustrationCard
               variant="dark"
               imageSrc="/images/icons/icon-membership.svg"
               imageAlt="Membership illustration"
               title="Dark"
-              description="For purple backgrounds. Used on home features section."
+              description="For purple grounds, with an optional footer link. Used on the home features section."
               footer={<ArrowLinkButton href="#">With Footer</ArrowLinkButton>}
-            />
-            <SpotIllustrationCard
-              variant="beige"
-              imageSrc="/images/icons/icon-community-engagement.svg"
-              imageAlt="Community engagement illustration"
-              title="Beige"
-              description="For light backgrounds with hover shadow. Used for committee cards. Body copy is gray-120 — a step darker than the other light variants, because beige-30 is a warm ground and gray-110 lands on it under AAA."
             />
             <SpotIllustrationCard
               variant="white"
               imageSrc="/images/icons/icon-resources.svg"
               imageAlt="Resources illustration"
               title="White"
-              description="For beige backgrounds. Used for values cards. Body copy stays gray-110, which already clears AAA on white."
+              description="For beige grounds. Used for the values cards. Body copy is gray-110, which clears AAA on white."
             />
-            <div className="bg-purple-140 rounded-xl p-4">
-              <SpotIllustrationCard
-                variant="translucent"
-                imageSrc="/images/icons/icon-education-findings.svg"
-                imageAlt="Education findings"
-                title="Translucent"
-                description="Semi-transparent for purple backgrounds. Used for findings cards."
-              />
-            </div>
           </div>
         </div>
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">With Custom Children (Bullet List)</h4>
-          <div className="bg-purple-140 rounded-xl p-6">
-            <div className="max-w-sm">
-              <SpotIllustrationCard
-                variant="translucent"
-                imageSrc="/images/icons/icon-challenges.svg"
-                imageAlt="Challenges"
-                title="Custom Content"
-              >
-                <ul className="space-y-2 text-left text-base">
-                  <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-yellow-80 rounded-full mt-1.5 flex-shrink-0" />
-                    <span>First bullet point item</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-yellow-80 rounded-full mt-1.5 flex-shrink-0" />
-                    <span>Second bullet point item</span>
-                  </li>
-                </ul>
-              </SpotIllustrationCard>
-            </div>
-          </div>
-        </div>
-      </div>
-    </ContentSection>
-  ),
-  "card-spotdetail": (
-    <ContentSection
-      title="Spot Detail Card"
-      description="Sibling to the Spot Illustration Card, not a variant of it — the difference is structural. The icon shrinks to 56px and moves into a header row beside the title, so a reader scanning a grid meets the name before the art, and the whole card reads left-aligned. The body is passed as data — a lead, a hero stat, bullets, or a ranking — never as markup, which is what keeps size and colour decisions inside the component. Used for the committee cards on Get Involved and the State of UX findings on Resources. The centred icon-over-prose cards still belong to the Spot Illustration Card."
-      componentPath="components/ui/cards/SpotDetailCard.tsx"
-    >
-      <div className="space-y-8">
-        <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Beige — lead + bullets (committee cards)</h4>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Detail, beige — lead + bullets (committee cards)</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <SpotDetailCard
+            <SpotIllustrationCard
+              layout="detail"
               variant="beige"
               imageSrc="/images/icons/icon-community-engagement.svg"
               imageAlt="Community engagement illustration"
@@ -1578,20 +1528,22 @@ const contentComponents: Record<string, React.ReactNode> = {
                 "Welcome new members and keep participation active",
               ]}
             />
-            <SpotDetailCard
+            <SpotIllustrationCard
+              layout="detail"
               variant="beige"
               imageSrc="/images/icons/icon-conference.svg"
               imageAlt="Conference illustration"
               title="Conference"
-              description="A committee whose description carries no bullets falls back to prose in the body, rather than pushing a long sentence into the header row beside the icon."
+              description="A committee whose description carries no bullets falls back to prose in the body, rather than pushing a long sentence into the header row beside the icon. Body copy is gray-120 here — a step darker than on white, because beige-30 is a warm ground and gray-110 lands on it under AAA."
             />
           </div>
         </div>
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Translucent — hero stat and ranking (report findings)</h4>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Detail, translucent — hero stat and ranking (report findings)</h4>
           <div className="bg-purple-140 rounded-xl p-6">
             <div className="grid md:grid-cols-3 gap-5">
-              <SpotDetailCard
+              <SpotIllustrationCard
+                layout="detail"
                 variant="translucent"
                 imageSrc="/images/icons/icon-education-findings.svg"
                 imageAlt="Education findings illustration"
@@ -1602,7 +1554,8 @@ const contentComponents: Record<string, React.ReactNode> = {
                   <><strong>40%</strong> of VPs, Directors, and C-level founders top out at a bachelor&apos;s</>,
                 ]}
               />
-              <SpotDetailCard
+              <SpotIllustrationCard
+                layout="detail"
                 variant="translucent"
                 imageSrc="/images/icons/icon-career-findings.svg"
                 imageAlt="Career findings illustration"
@@ -1612,7 +1565,8 @@ const contentComponents: Record<string, React.ReactNode> = {
                   <><strong>33%</strong> live on the islands but work for companies outside Hawai&apos;i</>,
                 ]}
               />
-              <SpotDetailCard
+              <SpotIllustrationCard
+                layout="detail"
                 variant="translucent"
                 imageSrc="/images/icons/icon-challenges.svg"
                 imageAlt="Top challenges illustration"
@@ -1629,9 +1583,11 @@ const contentComponents: Record<string, React.ReactNode> = {
         <p className="text-xs text-gray-100">
           A card with a <code>stat</code> draws a hairline rule beneath it before the bullets, so the
           number reads as the card&apos;s headline rather than as its first list item. Pass emphasis
-          as a plain <code>&lt;strong&gt;</code> — the card colours it per variant, so a page marking
+          as a plain <code>&lt;strong&gt;</code> — the card colours it per ground, so a page marking
           up an inline figure never reaches for a colour class of its own. <code>bullets</code> and
-          <code> ranked</code> are alternatives; a card takes one or the other.
+          <code> ranked</code> are alternatives; a card takes one or the other. Detail cards are
+          <code> h-full</code> so a row ends level; stacked cards are not, since the grids they sit
+          in never asked for equal heights.
         </p>
       </div>
     </ContentSection>

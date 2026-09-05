@@ -6,7 +6,7 @@ import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { PARTNERS_QUERY, SPONSORS_QUERY, COMMITTEES_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
-import { SpotDetailCard } from "@/components/ui/cards/SpotDetailCard";
+import { SpotIllustrationCard } from "@/components/ui/cards";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { BulletPoint } from "@/components/ui/BulletPoint";
@@ -137,7 +137,8 @@ function CommitteeCard({
   const hasItems = items.length > 0;
 
   return (
-    <SpotDetailCard
+    <SpotIllustrationCard
+      layout="detail"
       variant="beige"
       image={image}
       imageSrc={imageSrc}

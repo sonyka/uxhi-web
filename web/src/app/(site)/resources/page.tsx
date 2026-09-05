@@ -7,7 +7,7 @@ import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { LinkCard } from "@/components/ui/LinkCard";
 import { InfoBox } from "@/components/ui/InfoBox";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
-import { SpotDetailCard } from "@/components/ui/cards/SpotDetailCard";
+import { SpotIllustrationCard } from "@/components/ui/cards";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
@@ -429,7 +429,8 @@ export default async function ResourcesPage() {
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {/* Education Findings */}
             <MotionDiv>
-              <SpotDetailCard
+              <SpotIllustrationCard
+                layout="detail"
                 variant="translucent"
                 imageSrc="/images/icons/icon-education-findings.svg"
                 imageAlt="Education Findings"
@@ -447,7 +448,8 @@ export default async function ResourcesPage() {
 
             {/* Career Findings */}
             <MotionDiv>
-              <SpotDetailCard
+              <SpotIllustrationCard
+                layout="detail"
                 variant="translucent"
                 imageSrc="/images/icons/icon-career-findings.svg"
                 imageAlt="Career Findings"
@@ -465,7 +467,8 @@ export default async function ResourcesPage() {
 
             {/* Top Challenges */}
             <MotionDiv>
-              <SpotDetailCard
+              <SpotIllustrationCard
+                layout="detail"
                 variant="translucent"
                 imageSrc="/images/icons/icon-challenges.svg"
                 imageAlt="Top Challenges"
