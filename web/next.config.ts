@@ -49,25 +49,6 @@ const nextConfig: NextConfig = {
         destination: "/conference/2026/",
         permanent: false,
       },
-      // The singular spelling is for the live conference, which is a real
-      // route. The archives keep the plural, because they are folders of frozen
-      // files and Netlify serves public/ from the CDN without bundling it into
-      // the server function — a Next rewrite pointing at one resolves inside a
-      // function that cannot see it. Serving them where they actually live
-      // needs no rewrite, no per-year CDN rule, and cannot drift.
-      //
-      // Years are named rather than matched: the pattern would otherwise catch
-      // /conference/2026/, which is the live route.
-      {
-        source: "/conference/2025/",
-        destination: "/conferences/2025/",
-        permanent: false,
-      },
-      {
-        source: "/conference/2024/",
-        destination: "/conferences/2024/",
-        permanent: false,
-      },
       // /volunteer was an earlier, unlinked version of the volunteer section on
       // /get-involved. The page is gone; this keeps any bookmarked or shared
       // link working instead of 404ing. Permanent, because it is not coming back.
@@ -94,6 +75,22 @@ const nextConfig: NextConfig = {
       {
         source: "/conferences/:year(\\d{4})/",
         destination: "/conferences/:year/index.html",
+      },
+      // The singular archive paths, for `next dev` and `next start`. On Netlify
+      // the CDN rule in netlify.toml answers these before Next is reached, and
+      // has to, because the server function does not carry public/. Keeping
+      // them means local and deployed resolve the same URLs.
+      {
+        source: "/conference/:year(\\d{4})/",
+        destination: "/conferences/:year/index.html",
+      },
+      {
+        source: "/conference/:year(\\d{4})/:page",
+        destination: "/conferences/:year/:page.html",
+      },
+      {
+        source: "/conference/:year(\\d{4})/:page/",
+        destination: "/conferences/:year/:page.html",
       },
       {
         source: "/conferences/:year(\\d{4})/:page",

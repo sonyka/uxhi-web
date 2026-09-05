@@ -109,10 +109,15 @@ export function middleware(request: NextRequest) {
   let conferencePath: string;
   if (yearMatch) {
     const [, year, rest] = yearMatch;
-    conferencePath =
-      year === CURRENT_CONFERENCE_YEAR
-        ? `/conference/${year}${rest ?? "/"}`
-        : `/conferences/${year}${rest ?? "/"}`;
+    // Both spellings go to the singular path. For the current year that is a
+    // real route; for an archive, netlify.toml maps it to the frozen files.
+    //
+    // Rewriting an archive straight to /conferences/<year>/ would be one hop
+    // shorter and works locally, but it has never run on Netlify: what
+    // production demonstrates is rewrite -> redirect rule -> static file, not
+    // rewrite -> static file. Two archive URLs that answer 200 today are not
+    // worth spending on that difference.
+    conferencePath = `/conference/${year}${rest ?? "/"}`;
   } else {
     conferencePath =
       pathname === "/"
