@@ -519,11 +519,6 @@ export default async function ResourcesPage() {
                 2023 State of UXHI Report
               </PrimaryCTA>
             </div>
-            <p className="mt-6 text-white">
-              <InlineLink href="/state-of-ux/2025" variant="teal">
-                Preview: one section of the 2025 report, read as a web page
-              </InlineLink>
-            </p>
           </ScrollReveal>
 
           {/* Report Preview Image */}
