@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { MEMBER_COUNT_PLUS } from "@/lib/stats";
 import { Dela_Gothic_One, Nunito } from "next/font/google";
 import { SanityLive } from "@/sanity/lib/live";
+import { ThemeColorSync } from "@/components/layout/ThemeColorSync";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
 import "./globals.css";
@@ -30,11 +31,13 @@ export const metadata: Metadata = {
 // white band above a beige page, in the one place a phone shows chrome the site
 // does not draw.
 //
+// This is the value the strip carries before hydration; ThemeColorSync then
+// keeps it matched to whatever is actually at the top of the viewport, which
+// changes with scroll and from page to page.
+//
 // The hex is restated rather than aliased because this is browser chrome
 // outside the document: it never sees the stylesheet, so it cannot read
-// --color-beige-30. Keep it in step with --background in globals.css. The 2026
-// conference shell already paints html/body the same beige for the safe area;
-// this is the half of that fix which reaches the status bar.
+// --color-beige-30. Keep it in step with --background in globals.css.
 export const viewport: Viewport = {
   themeColor: "#F4F1EA",
 };
@@ -48,6 +51,7 @@ export default async function RootLayout({
     <html lang="en" className={`${delaGothic.variable} ${nunito.variable}`}>
       <body className="antialiased">
         {children}
+        <ThemeColorSync />
         <SanityLive />
         {(await draftMode()).isEnabled && <VisualEditing />}
       </body>
