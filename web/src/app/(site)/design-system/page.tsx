@@ -1322,12 +1322,13 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-arrowlink": (
     <ContentSection
       title="Arrow Link Button"
-      description="Text with arrow, pill-shaped hover state. Supports dark (default, for purple backgrounds) and light (for white/beige backgrounds) variants, plus an optional leading icon."
+      description="Text with an arrow in a pill. Dark (default, for purple backgrounds) and light (for white/beige backgrounds) draw the pill only under the cursor — they are links that reward a hover. Solid wears the pill at rest, for the one CTA a purple panel is actually asking to be clicked; its fill and border are PrimaryCTA’s dark variant, so the two filled things the site puts on purple agree. All three take an optional leading icon."
       componentPath="components/ui/ArrowLinkButton.tsx"
     >
       <div className="space-y-4">
         <div className="flex flex-wrap gap-6 items-center p-6 bg-purple-140 rounded-xl">
           <ArrowLinkButton href="#">Dark (default)</ArrowLinkButton>
+          <ArrowLinkButton href="#" variant="solid">Solid</ArrowLinkButton>
         </div>
         <div className="flex flex-wrap gap-6 items-center p-6 bg-white rounded-xl border border-gray-30">
           <ArrowLinkButton href="#" variant="light">Light</ArrowLinkButton>

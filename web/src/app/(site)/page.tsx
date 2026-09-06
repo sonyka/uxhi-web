@@ -409,7 +409,7 @@ export default async function HomePage() {
                 imageSrc="/images/icons/icon-membership.svg"
                 imageAlt="Free Membership"
                 title="Free Membership"
-                footer={<ArrowLinkButton href="/join">Join free</ArrowLinkButton>}
+                footer={<ArrowLinkButton href="/join" variant="solid">Join free</ArrowLinkButton>}
               >
                 <p>
                   Connect with other UX&apos;ers, then keep the conversation going in our{" "}
@@ -429,7 +429,7 @@ export default async function HomePage() {
                 imageAlt="Events"
                 title="Events"
                 description="Experience an array of educational webinars, interactive workshops, and casual meetups we host each month, both virtual and in-person"
-                footer={<ArrowLinkButton href="/events">View events</ArrowLinkButton>}
+                footer={<ArrowLinkButton href="/events" variant="solid">View events</ArrowLinkButton>}
               />
             </MotionDiv>
 
@@ -442,7 +442,7 @@ export default async function HomePage() {
                 imageAlt="Resources"
                 title="Resources"
                 description="Discover and share resources in our online content hub to support your UX journey and growth."
-                footer={<ArrowLinkButton href="/resources">Browse resources</ArrowLinkButton>}
+                footer={<ArrowLinkButton href="/resources" variant="solid">Browse resources</ArrowLinkButton>}
               />
             </MotionDiv>
           </ScrollReveal>
