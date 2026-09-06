@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { InlineLink } from "@/components/ui/InlineLink";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PlusIcon, MinusIcon } from "@/components/ui/icons";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
@@ -85,9 +86,9 @@ export function FAQSection({ faqs, id }: FAQSectionProps) {
         >
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="mb-12">
-            <h2 className="font-display text-4xl md:text-5xl text-purple-140 mb-4">
+            <SectionHeading size="lg" className="mb-4">
               Frequently asked questions
-            </h2>
+            </SectionHeading>
             <p className="text-gray-110 text-lg">
               Questions about what we offer, and how to be a part of it? If the
               answer to your question isn&apos;t found below, just{" "}

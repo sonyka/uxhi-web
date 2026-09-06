@@ -886,23 +886,23 @@ const contentComponents: Record<string, React.ReactNode> = {
               <SectionHeading as="h1" size="display" color="black">Display Title</SectionHeading>
             </div>
             <div>
-              <span className="text-xs text-gray-100 font-mono">hero — interior page h1 (4xl → 5xl)</span>
+              <span className="text-xs text-gray-100 font-mono">hero — interior page h1 (32px → 4xl → 5xl)</span>
               <SectionHeading as="h1" size="hero" color="black">Hero Title</SectionHeading>
             </div>
             <div>
-              <span className="text-xs text-gray-100 font-mono">xl — large CTA headings (4xl → 5xl → 6xl, leading-tight)</span>
+              <span className="text-xs text-gray-100 font-mono">xl — large CTA headings (28px → 5xl → 6xl, leading-tight)</span>
               <SectionHeading size="xl">Extra Large</SectionHeading>
             </div>
             <div>
-              <span className="text-xs text-gray-100 font-mono">lg — primary section headings (4xl → 5xl, leading-tight)</span>
+              <span className="text-xs text-gray-100 font-mono">lg — primary section headings (28px → 5xl, leading-tight)</span>
               <SectionHeading size="lg">Large Heading</SectionHeading>
             </div>
             <div>
-              <span className="text-xs text-gray-100 font-mono">md (default) — standard section headings (3xl → 4xl)</span>
+              <span className="text-xs text-gray-100 font-mono">md (default) — standard section headings (2xl → 4xl)</span>
               <SectionHeading>Medium Heading</SectionHeading>
             </div>
             <div>
-              <span className="text-xs text-gray-100 font-mono">sm — subsection headings (2xl → 3xl)</span>
+              <span className="text-xs text-gray-100 font-mono">sm — subsection headings (xl → 3xl)</span>
               <SectionHeading size="sm">Small Heading</SectionHeading>
             </div>
             <div>
