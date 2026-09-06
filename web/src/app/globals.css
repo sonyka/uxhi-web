@@ -160,6 +160,26 @@ body {
   font-family: var(--font-body);
 }
 
+/* A lone word ending a paragraph is the one print "orphan" that survives on the
+   web: there are no pages or columns here for a true widow to fall into, so the
+   runt on a last line is all that is left. `pretty` asks the browser to avoid it
+   without re-balancing the whole block, and is ignored where unsupported.
+
+   Inside @layer base, not unlayered as the rules around it are, because an
+   unlayered declaration outranks every Tailwind layer — including utilities —
+   and would beat the `text-balance` a heading or a short lead sets on itself.
+
+   Headings are the other half of this and are not handled here: they set
+   `text-balance` through SectionHeading, since balance is worth its cost on
+   display type and gets capped by the browser on long blocks anyway. */
+@layer base {
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+}
+
 /* Typography utilities */
 .font-display {
   font-family: var(--font-display);

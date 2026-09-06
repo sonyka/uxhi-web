@@ -81,7 +81,7 @@ export function FormSuccess({ icon, title, message, className }: FormSuccessProp
   return (
     <div ref={ref} className={cn("bg-white/10 border border-white/20 rounded-2xl p-8 text-center", className)}>
       <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="font-display text-2xl text-white mb-2">{title}</h3>
+      <h3 className="font-display text-2xl text-white text-balance mb-2">{title}</h3>
       <p className="text-white">{message}</p>
     </div>
   );

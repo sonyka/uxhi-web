@@ -95,6 +95,7 @@ const navigationItems = [
       { id: "typography-fonts", label: "Font Families" },
       { id: "typography-headings", label: "Headings" },
       { id: "typography-body", label: "Body Text" },
+      { id: "typography-wrapping", label: "Text Wrapping" },
       { id: "typography-special", label: "Special Styles" },
       { id: "typography-bulletpoint", label: "Bullet Point" },
       { id: "typography-eyebrow", label: "Section Eyebrow" },
@@ -758,6 +759,75 @@ const contentComponents: Record<string, React.ReactNode> = {
       </div>
     </ContentSection>
   ),
+  "typography-wrapping": (
+    <ContentSection
+      title="Text Wrapping"
+      description="Where lines are allowed to break. Handled entirely in CSS and entirely at the component level — no page hand-tunes a break, because a break fixed at one viewport is a break broken at the next."
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Headings — text-balance</h4>
+          {/* Both columns are pinned to 380px, measured rather than guessed: at
+              this width greedy wrapping puts this heading on 340 / 313 / 128px
+              lines and balance evens them to 226 / 287 / 268. The pair only
+              teaches anything at a width where greedy actually strands a word,
+              and a fluid column reaches that width on some screens, not others. */}
+          <div className="flex flex-wrap gap-8 p-6 bg-beige-30 rounded-xl">
+            <div className="w-[380px]">
+              <span className="text-xs text-gray-100 font-mono">balanced — what SectionHeading does</span>
+              <SectionHeading size="sm" color="black">Together, we shape the future of UX in Hawai&#699;i</SectionHeading>
+            </div>
+            <div className="w-[380px]">
+              <span className="text-xs text-gray-100 font-mono">unbalanced — for comparison only</span>
+              {/* A plain h3 with an inline style, not SectionHeading: the
+                  component's own text-balance and a `[text-wrap:normal]` class
+                  are the same property from the same layer, and the utility
+                  Tailwind emits last wins — which is text-balance. An inline
+                  style is the only reliable way to show the before. Nothing
+                  outside this specimen should ever turn balance off. */}
+              <h3
+                className="font-display text-xl md:text-3xl text-black"
+                style={{ textWrap: "normal" }}
+              >
+                Together, we shape the future of UX in Hawai&#699;i
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Body — text-pretty</h4>
+          <div className="p-6 bg-beige-30 rounded-xl">
+            <p className="text-base text-gray-110 max-w-[46ch]">
+              Every <code>&lt;p&gt;</code>, <code>&lt;li&gt;</code> and <code>&lt;dd&gt;</code> on the
+              site gets <code>text-wrap: pretty</code> from a base rule in globals.css, which asks the
+              browser to avoid leaving one word alone on a last line. Nothing needs to opt in.
+            </p>
+          </div>
+        </div>
+        <div className="text-xs text-gray-100 space-y-2 max-w-[80ch]">
+          <p>
+            <strong>The rule:</strong> balance headings, pretty body copy, and control the measure.
+            A print widow — a paragraph&apos;s last line stranded at the top of the next page or
+            column — cannot happen here; the web has neither. What survives is the runt, a lone word
+            on a last line, and it only matters in proportion to type size: obvious under a 72px
+            display heading, invisible in 16px card copy.
+          </p>
+          <p>
+            <strong>Why CSS and not markup:</strong> both properties re-solve at every viewport,
+            where an <code>&amp;nbsp;</code> or a hard <code>&lt;br&gt;</code> fixes one width and
+            breaks another — and <code>&amp;nbsp;</code> can force overflow on a phone. Hard breaks
+            are legitimate only inside a container whose width cannot change, which is why the
+            fixed-width pills on the homepage still carry them.
+          </p>
+          <p>
+            <strong>Measure does the rest.</strong> Constrain a prose block to roughly 45–75
+            characters and the rag becomes predictable on its own. Both properties are ignored by
+            browsers that do not support them, so neither is load-bearing.
+          </p>
+        </div>
+      </div>
+    </ContentSection>
+  ),
   "typography-special": (
     <ContentSection title="Special Styles" description="Badges, eyebrows, and link styles.">
       <div className="flex flex-wrap gap-4 items-center p-6 bg-beige-30 rounded-xl">
@@ -874,7 +944,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionheading": (
     <ContentSection
       title="Section Heading"
-      description="Display heading for page sections. Uses Dela Gothic One with responsive sizing. Supports size variants (display, hero, xl, lg, md, sm), color variants (purple, white, black, gray), and heading tags (h1-h3)."
+      description="Display heading for page sections. Uses Dela Gothic One with responsive sizing. Supports size variants (display, hero, xl, lg, md, sm), color variants (purple, white, black, gray), and heading tags (h1-h3). Every size carries text-balance, so a heading never leaves one word alone on its last line at any viewport."
       componentPath="components/ui/SectionHeading.tsx"
     >
       <div className="space-y-6">
@@ -1004,7 +1074,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionlead": (
     <ContentSection
       title="Section Lead"
-      description="Supporting paragraph that sits directly beneath a heading. Pairs with SectionHeading — use size=&quot;hero&quot; under a display/hero heading, size=&quot;md&quot; under smaller section headings, and size=&quot;lg&quot; for a short one-liner that md leaves looking undersized. Every size owns a responsive ramp; a lead pinned to a single value is a lead that has stopped responding. Keeps subheadline type out of page files."
+      description="Supporting paragraph that sits directly beneath a heading. Pairs with SectionHeading — use size=&quot;hero&quot; under a display/hero heading, size=&quot;md&quot; under smaller section headings, and size=&quot;lg&quot; for a short one-liner that md leaves looking undersized. Every size owns a responsive ramp; a lead pinned to a single value is a lead that has stopped responding. Keeps subheadline type out of page files. hero and lg balance their lines; md is running copy and takes the site-wide text-pretty instead."
       componentPath="components/ui/SectionLead.tsx"
     >
       <div className="space-y-6">

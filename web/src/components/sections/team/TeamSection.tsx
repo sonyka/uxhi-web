@@ -89,7 +89,7 @@ export function TeamSection({ members, id }: TeamSectionProps) {
             // Mirrors SectionHeading's `lg` size ramp, spelled out because this
             // heading is a motion element and carries its own variants. Only the
             // sizes: it keeps its own leading, which the role sets tighter.
-            className="font-display text-[28px] md:text-5xl text-purple-140 mb-4"
+            className="font-display text-[28px] md:text-5xl text-purple-140 text-balance mb-4"
           >
             Who we are
           </motion.h2>

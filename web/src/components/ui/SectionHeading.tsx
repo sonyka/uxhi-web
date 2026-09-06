@@ -80,7 +80,10 @@ export function SectionHeading({
   return (
     <Tag
       className={cn(
-        "font-display",
+        // text-balance on every size: display type is where a one-word last
+        // line is actually visible, and balance re-solves at each viewport
+        // rather than fixing one width the way an &nbsp; or a <br> would.
+        "font-display text-balance",
         sizeStyles[size],
         colorStyles[color],
         className

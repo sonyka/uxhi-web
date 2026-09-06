@@ -16,9 +16,14 @@ interface SectionLeadProps {
   className?: string;
 }
 
+// hero and lg balance; md does not. The first two are a sentence or two set
+// large and usually centred under a heading, where an even rag is the point.
+// md is running copy, and balance on a block that long is both wrong — it
+// narrows the measure — and capped by the browser anyway. It takes the
+// `text-wrap: pretty` every <p> gets in globals.css instead.
 const sizeStyles: Record<LeadSize, string> = {
-  hero: "text-lg md:text-xl lg:text-2xl leading-relaxed",
-  lg: "text-lg md:text-xl leading-relaxed",
+  hero: "text-lg md:text-xl lg:text-2xl leading-relaxed text-balance",
+  lg: "text-lg md:text-xl leading-relaxed text-balance",
   md: "text-base md:text-lg leading-relaxed",
 };
 

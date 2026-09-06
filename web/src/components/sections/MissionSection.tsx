@@ -73,7 +73,7 @@ export function MissionSection({ values }: MissionSectionProps) {
           {/* Mission Statement */}
           <motion.h2
             variants={fadeInUp}
-            className="font-display text-xl md:text-3xl lg:text-4xl text-purple-120 leading-tight mb-8 max-w-4xl"
+            className="font-display text-xl md:text-3xl lg:text-4xl text-purple-120 leading-tight text-balance mb-8 max-w-4xl"
           >
             <MissionStatement />
           </motion.h2>
@@ -93,7 +93,7 @@ export function MissionSection({ values }: MissionSectionProps) {
           {/* Values — hidden for now, see SHOW_VALUES above */}
           {SHOW_VALUES && (
           <motion.div variants={fadeInUp}>
-            <h3 className="font-display text-xl md:text-3xl text-purple-140 mb-8 text-center">
+            <h3 className="font-display text-xl md:text-3xl text-purple-140 text-balance mb-8 text-center">
               Our Values
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

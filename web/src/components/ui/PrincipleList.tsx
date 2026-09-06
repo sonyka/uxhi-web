@@ -34,7 +34,7 @@ export function PrincipleList({ principles, className }: PrincipleListProps) {
       {principles.map((principle) => (
         <div key={principle.term} className="flex flex-col gap-2">
           <span className="h-[3px] w-10 rounded-full bg-teal-90" aria-hidden="true" />
-          <dt className="font-display text-xl text-purple-140 md:text-2xl">
+          <dt className="font-display text-xl text-purple-140 md:text-2xl text-balance">
             {principle.term}
           </dt>
           <dd className="m-0 text-base leading-relaxed text-gray-120 md:text-lg">

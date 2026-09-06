@@ -78,7 +78,7 @@ export function StatComparison({
       <Figure figure={primary} prefix={prefix} tone="text-orange-90" />
 
       <span
-        className="font-display text-xl text-purple-140 sm:mt-6 md:text-2xl"
+        className="font-display text-xl text-purple-140 text-balance sm:mt-6 md:text-2xl"
         aria-hidden="true"
       >
         {separator}

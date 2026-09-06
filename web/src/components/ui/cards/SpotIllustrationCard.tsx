@@ -105,7 +105,7 @@ const variantStyles: Record<
 > = {
   dark: {
     card: "bg-purple-140 border border-purple-100/30 rounded-[24px]",
-    title: "font-display text-xl md:text-2xl text-white",
+    title: "font-display text-xl md:text-2xl text-white text-balance",
     description: "text-white",
     lead: "text-sm text-purple-10",
     statValue: "text-yellow-80",
@@ -118,7 +118,7 @@ const variantStyles: Record<
   },
   white: {
     card: "bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-[24px]",
-    title: "font-display text-lg text-purple-140",
+    title: "font-display text-lg text-purple-140 text-balance",
     description: "text-gray-110 text-base",
     lead: "text-sm text-gray-110",
     statValue: "text-purple-120",
@@ -131,7 +131,7 @@ const variantStyles: Record<
   },
   beige: {
     card: "bg-beige-30 rounded-[24px]",
-    title: "text-lg font-extrabold text-gray-140",
+    title: "text-lg font-extrabold text-gray-140 text-balance",
     // gray-120, not the gray-110 the other light ground uses. Beige-30 is a warm
     // ground rather than white, and gray-110 lands on it at 6.68:1 — still AA,
     // but under AAA and visibly washed out next to the gray-140 title. gray-120
@@ -150,7 +150,7 @@ const variantStyles: Record<
   },
   translucent: {
     card: "bg-white/8 border border-white/[0.16] rounded-[20px]",
-    title: "text-lg font-extrabold text-white",
+    title: "text-lg font-extrabold text-white text-balance",
     description: "text-sm text-purple-10",
     lead: "text-sm text-purple-10",
     statValue: "text-yellow-80",
@@ -273,7 +273,9 @@ export function SpotIllustrationCard({
       {children ? (
         <div
           className={cn(
-            "leading-relaxed w-full",
+            // text-pretty by hand here: children is a div, so it misses the
+            // base rule that gives every <p> and <li> the same treatment.
+            "leading-relaxed w-full text-pretty",
             // Anchored grows the body for the same reason stacked does: it pins
             // the footer link, so a row's links line up the way its icons do.
             !isDetail && "flex-grow",
