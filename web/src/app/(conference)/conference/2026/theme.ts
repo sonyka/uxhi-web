@@ -76,28 +76,40 @@ export const ORANGE_130 = "var(--color-orange-130)"; // #A62D00 — agenda room 
 export const LINK =
   "underline decoration-dotted decoration-gray-80 underline-offset-2 hover:opacity-70 transition-opacity";
 
+// How a role wraps is part of the role, the same way its ramp is. A headline
+// set at 56px shows a one-word last line to everyone; the same rag in 16px body
+// copy is invisible, and the reader's viewport is an arbitrary width anyway.
+// So the display roles balance and the prose roles only avoid the runt:
+// `text-balance` above, `text-pretty` from `lead` down. The chrome roles —
+// eyebrow, nav, ui — are labels of a few words and take neither.
+//
+// Both are ignored where unsupported, and neither is a substitute for the
+// measure: prose here carries max-w-[62ch], which is what makes the rag
+// predictable in the first place.
 export const TYPE = {
   /** Oversized flowing headline — BenefitsHeadline only. */
   display:
-    "text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] xl:text-[56px] font-normal leading-[1.1] tracking-[-0.02em]",
+    "text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px] xl:text-[56px] font-normal leading-[1.1] tracking-[-0.02em] text-balance",
   /** Page hero headlines. Intentionally dips at md (narrower column). */
   hero:
-    "text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px] font-semibold leading-[1.2] tracking-[-0.02em]",
-  /** Lead paragraph under a hero or section title. */
+    "text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px] font-semibold leading-[1.2] tracking-[-0.02em] text-balance",
+  /** Lead paragraph under a hero or section title. Pretty rather than balance:
+   *  a lead here runs to several lines inside a 62ch measure, and balancing a
+   *  block that long narrows it against the measure the section already set. */
   lead:
-    "text-[16px] sm:text-[17px] md:text-[19px] lg:text-[22px] xl:text-[28px] font-normal leading-[1.4] tracking-[-0.02em]",
+    "text-[16px] sm:text-[17px] md:text-[19px] lg:text-[22px] xl:text-[28px] font-normal leading-[1.4] tracking-[-0.02em] text-pretty",
   /** Standard section intro / body copy. The most-used role. */
-  body: "text-[16px] lg:text-[17px] xl:text-[18px] font-normal leading-[1.4]",
+  body: "text-[16px] lg:text-[17px] xl:text-[18px] font-normal leading-[1.4] text-pretty",
   /** Body copy in a denser place than a section — a card, or a meta line
    *  beside a logo. One step under `body` the whole way up. */
-  bodyCompact: "text-[15px] lg:text-[16px] xl:text-[17px] font-normal leading-[1.5]",
+  bodyCompact: "text-[15px] lg:text-[16px] xl:text-[17px] font-normal leading-[1.5] text-pretty",
   /** A supporting line attached to something else: a person's title under
    *  their name, a note under a heading. Two steps under `body`, one over
    *  `fine`, which is where copy stops being a caveat and starts being read. */
-  caption: "text-[14px] lg:text-[15px] xl:text-[16px] font-normal leading-[1.5]",
+  caption: "text-[14px] lg:text-[15px] xl:text-[16px] font-normal leading-[1.5] text-pretty",
   /** Fine print sitting under body copy — terms, conditions, caveats.
    *  A step below `caption` at every breakpoint, so the ramps stay parallel. */
-  fine: "text-[13px] lg:text-[14px] xl:text-[15px] font-normal leading-[1.5]",
+  fine: "text-[13px] lg:text-[14px] xl:text-[15px] font-normal leading-[1.5] text-pretty",
   /** Uppercase eyebrow label above a section title. */
   eyebrow: "text-[13px] md:text-[14px] font-bold uppercase tracking-[0.08em]",
   /** Header section-anchor nav — desktop row and the mobile scroll strip. */

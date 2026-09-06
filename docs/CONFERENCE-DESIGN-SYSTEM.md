@@ -251,6 +251,14 @@ A type role is one design decision expressed across breakpoints. Flattening a ra
 number destroys intent — see the Phase 2 correction, where a frequency count made a
 responsive ladder look like duplicate values.
 
+A role also owns **how it wraps**, for the same reason it owns its ramp: both are decisions
+about the same text at every width. `display` and `hero` carry `text-balance`; `lead`,
+`body`, `bodyCompact`, `caption` and `fine` carry `text-pretty`; the chrome roles —
+`eyebrow`, `nav`, `ui` — are labels of a few words and carry neither. A lone word ending a
+56px headline is seen by everyone and the same rag in 16px body copy by no one, which is
+what splits the two. Neither replaces the measure: prose here stays at `max-w-[62ch]`, and
+neither replaces a hard break inside a container whose width genuinely cannot change.
+
 **6. Shared appearance is not shared purpose.**
 Two things that render alike may encode different intent, and merging them couples designs
 that should move independently. See the `LogoImage` and 14px-`meta` decisions in Phases 2–3.
