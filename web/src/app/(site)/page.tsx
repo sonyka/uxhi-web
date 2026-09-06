@@ -333,7 +333,7 @@ export default async function HomePage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 px-6">
+      <section className="py-12 md:py-20 px-6">
         <ScrollReveal className="max-w-[900px] mx-auto text-center">
           <SectionEyebrow className="mb-4 block text-purple-140">What we do</SectionEyebrow>
           <SectionHeading size="statement" color="gray" className="mb-10">
@@ -346,7 +346,7 @@ export default async function HomePage() {
       </section>
 
       {/* Large Community Photo */}
-      <section className="px-6 pb-16">
+      <section className="px-6 pb-6 md:pb-16">
         <ScrollReveal variants={scaleReveal} className="max-w-[1300px] mx-auto">
           <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
             <Image
@@ -360,7 +360,7 @@ export default async function HomePage() {
       </section>
 
       {/* Connect Learn Grow Section */}
-      <section className="py-16 px-6">
+      <section className="py-10 md:py-16 px-6">
         <ScrollReveal stagger className="max-w-[800px] mx-auto text-center">
           <MotionDiv>
             <SectionHeading size="lg" className="mb-6">
@@ -384,7 +384,7 @@ export default async function HomePage() {
       </section>
 
       {/* Features Section - Dark Purple */}
-      <section className="bg-purple-140 py-20 px-6">
+      <section className="bg-purple-140 py-12 md:py-20 px-6">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal stagger className="text-center mb-16">
             <MotionDiv>
@@ -446,7 +446,7 @@ export default async function HomePage() {
       </section>
 
       {/* Instagram Feed Section */}
-      <section className="py-20 px-6">
+      <section className="py-12 md:py-20 px-6">
         <div className="max-w-[1300px] mx-auto">
           <ScrollReveal stagger className="text-center mb-12">
             <MotionDiv>
@@ -481,7 +481,7 @@ export default async function HomePage() {
       </section>
 
       {/* Community CTA Section */}
-      <section className="py-24 px-6">
+      <section className="py-14 md:py-24 px-6">
         <div className="max-w-[1400px] mx-auto">
           {/* Community Photos Grid - managed in Sanity */}
           <CommunityPhotosGrid photos={communityPhotos || []} />
