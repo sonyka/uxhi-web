@@ -33,11 +33,11 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-[134px] md:pt-[200px] pb-12 px-4">
+      <section className="pt-[134px] md:pt-[200px] pb-6 md:pb-12 px-4">
         <HeroEntrance className="max-w-[1280px] mx-auto text-center">
           {/* Member Badge */}
           <HeroItem>
-            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-white rounded-3xl sm:rounded-full px-4 py-3 sm:pl-2 sm:pr-6 sm:py-2 mb-10 border border-gray-20 shadow-sm">
+            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-white rounded-3xl sm:rounded-full px-4 py-3 sm:pl-2 sm:pr-6 sm:py-2 mb-5 md:mb-10 border border-gray-20 shadow-sm">
               <Image
                 src="/images/home/members.png"
                 alt="UXHI community members"
@@ -51,7 +51,7 @@ export default async function HomePage() {
 
           {/* Main Headline */}
           <HeroItem>
-            <SectionHeading as="h1" size="display" color="black" className="mb-6">
+            <SectionHeading as="h1" size="display" color="black" className="mb-3 md:mb-6">
               Community for<br className="hidden md:block" />{" "}
               <MobileTooltip
                 tooltip={ALOHA_CENTERED_TOOLTIP}
@@ -90,7 +90,7 @@ export default async function HomePage() {
 
           {/* Subheadline */}
           <HeroItem>
-            <SectionLead className="max-w-[46ch] mx-auto mb-12">
+            <SectionLead className="max-w-[46ch] mx-auto mb-7 md:mb-12">
               A Hawaiʻi-rooted approach to UX and human-centered design, grounded in care for people,
               culture, community, and place.
             </SectionLead>
@@ -104,7 +104,7 @@ export default async function HomePage() {
       </section>
 
       {/* Bento Grid Section */}
-      <section className="pt-8 pb-0 px-4 overflow-hidden">
+      <section className="pt-3 md:pt-8 pb-0 px-4 overflow-hidden">
         <div className="max-w-[1280px] mx-auto">
           {/* Desktop: 5-column layout matching Figma */}
           <ScrollReveal
@@ -262,10 +262,15 @@ export default async function HomePage() {
             </MotionDiv>
           </ScrollReveal>
 
-          {/* Mobile: 3-column simplified layout */}
+          {/* Mobile: two columns */}
           <ScrollReveal
             stagger
             variants={columnStaggerContainer}
+            // The default asks for 30% of the block in view before it reveals.
+            // On a phone the grid clears the fold by about 70 of its 376px, so
+            // at 30% the top row stayed hidden until you had already scrolled
+            // past the thing it was meant to hint at.
+            amount={0.05}
             className="flex md:hidden gap-3 items-end justify-center px-2"
           >
             {/* Column 1: Pill + teal rect */}
