@@ -1044,7 +1044,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "layout-herosection": (
     <ContentSection
       title="Hero Section"
-      description="Outer wrapper for interior page heroes. Caps at 1400px and centres. It is the positioned ancestor the hero art anchors to, so capping it brings both halves in together — text and art — rather than leaving them pinned to opposite screen edges."
+      description="Outer wrapper for interior page heroes. Caps at 1400px and centres. It is the positioned ancestor the hero art anchors to, so capping it brings both halves in together — text and art — rather than leaving them pinned to opposite screen edges. It also paints the hero ground, beige-30, so every interior hero matches the homepage’s."
       componentPath="components/ui/HeroSection.tsx"
     >
       <div className="space-y-4 text-sm text-gray-110">
@@ -1063,8 +1063,22 @@ const contentComponents: Record<string, React.ReactNode> = {
             untouched.
           </p>
           <p>
+            <strong className="text-gray-130">It owns the hero ground.</strong> Interior pages
+            set <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-beige-10</span> on{" "}
+            <span className="font-mono text-xs bg-gray-20 px-1 rounded">&lt;main&gt;</span>, a step
+            lighter than the <span className="font-mono text-xs bg-gray-20 px-1 rounded">beige-30</span>{" "}
+            the homepage hero shows. Every section below a hero paints its own background, so that
+            lighter ground was visible in exactly one place per page — behind the hero — which made
+            the interior heroes read whiter than the one they are compared against. The colour is
+            painted on a full-width box inside the component, not on the capped one: a background on
+            a 1400px box stops at 1400px, and past that width the{" "}
+            <span className="font-mono text-xs bg-gray-20 px-1 rounded">&lt;main&gt;</span> ground
+            would show as gutters either side.
+          </p>
+          <p>
             Pairs with <span className="font-mono text-xs bg-gray-20 px-1 rounded">HeroContent</span>{" "}
-            for the left column. The homepage does not use either — it has its own centred hero.
+            for the left column. The homepage does not use either — it has its own centred hero,
+            which shows the page ground rather than painting one.
           </p>
         </div>
       </div>
