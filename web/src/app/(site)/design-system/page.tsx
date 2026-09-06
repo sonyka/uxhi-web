@@ -1281,7 +1281,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-primarycta": (
     <ContentSection
       title="Primary CTA"
-      description="Pill button with arrow circle. Variants: default (yellow circle), subdued (gray circle, for secondary CTAs), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow. An optional shortLabel swaps in shorter wording below md, for a label that survives a desktop line but not a phone's. An optional icon sits before the label, and the leading padding closes up to suit it."
+      description="Pill button with arrow circle. Variants: default (yellow circle), subdued (gray circle, for secondary CTAs), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow. An optional shortLabel swaps in shorter wording below md, for a label that survives a desktop line but not a phone's."
       componentPath="components/ui/PrimaryCTA.tsx"
     >
       <div className="space-y-6">
@@ -1298,21 +1298,6 @@ const contentComponents: Record<string, React.ReactNode> = {
             <PrimaryCTA href="#" variant="subdued">Secondary action</PrimaryCTA>
             <PrimaryCTA href="#" external variant="subdued">External Subdued</PrimaryCTA>
           </div>
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Leading icon (<code>icon</code>)</h4>
-          <div className="flex flex-wrap gap-4 items-center">
-            <PrimaryCTA href="#" external icon={<SocialGlyph network="instagram" size={20} />}>
-              Follow @uxhicommunity
-            </PrimaryCTA>
-            <PrimaryCTA href="#" external variant="subdued" icon={<SocialGlyph network="linkedin" size={20} />}>
-              Follow @uxhi
-            </PrimaryCTA>
-          </div>
-          <p className="text-xs text-gray-100 mt-3">
-            The button carries <code>group</code>, so a <code>SocialGlyph</code> passed here does its
-            grey-to-colour reveal on the button&apos;s own hover with nothing wired up.
-          </p>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Short label below md (<code>shortLabel</code>)</h4>
@@ -1337,7 +1322,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-arrowlink": (
     <ContentSection
       title="Arrow Link Button"
-      description="Text with arrow, pill-shaped hover state. Supports dark (default, for purple backgrounds) and light (for white/beige backgrounds) variants."
+      description="Text with arrow, pill-shaped hover state. Supports dark (default, for purple backgrounds) and light (for white/beige backgrounds) variants, plus an optional leading icon."
       componentPath="components/ui/ArrowLinkButton.tsx"
     >
       <div className="space-y-4">
@@ -1347,6 +1332,19 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div className="flex flex-wrap gap-6 items-center p-6 bg-white rounded-xl border border-gray-30">
           <ArrowLinkButton href="#" variant="light">Light</ArrowLinkButton>
         </div>
+        <div className="flex flex-wrap gap-6 items-center p-6 bg-beige-30 rounded-xl">
+          <ArrowLinkButton href="#" external variant="light" icon={<SocialGlyph network="instagram" size={20} />}>
+            Follow @uxhicommunity
+          </ArrowLinkButton>
+          <ArrowLinkButton href="#" external variant="light" icon={<SocialGlyph network="linkedin" size={20} />}>
+            Follow @uxhi
+          </ArrowLinkButton>
+        </div>
+        <p className="text-xs text-gray-100">
+          An optional <code>icon</code> sits before the label. The link carries <code>group</code>,
+          so a <code>SocialGlyph</code> passed here does its grey-to-colour reveal on the link&apos;s
+          own hover with nothing wired up.
+        </p>
       </div>
     </ContentSection>
   ),

@@ -468,23 +468,24 @@ export default async function HomePage() {
 
           <ScrollReveal stagger className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
             <MotionDiv>
-              <PrimaryCTA
+              <ArrowLinkButton
                 href="https://www.instagram.com/uxhicommunity/"
                 external
+                variant="light"
                 icon={<SocialGlyph network="instagram" size={20} />}
               >
                 Follow @uxhicommunity
-              </PrimaryCTA>
+              </ArrowLinkButton>
             </MotionDiv>
             <MotionDiv>
-              <PrimaryCTA
+              <ArrowLinkButton
                 href="https://www.linkedin.com/company/uxhi/"
                 external
-                variant="subdued"
+                variant="light"
                 icon={<SocialGlyph network="linkedin" size={20} />}
               >
                 Follow @uxhi
-              </PrimaryCTA>
+              </ArrowLinkButton>
             </MotionDiv>
           </ScrollReveal>
         </div>
