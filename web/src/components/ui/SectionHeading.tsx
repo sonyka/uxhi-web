@@ -7,7 +7,7 @@ type HeadingTag = "h1" | "h2" | "h3";
 interface SectionHeadingProps {
   children: React.ReactNode;
   /** Size variant:
-   * - display: 40 → 60 → 80px (homepage hero only — the largest type on the site)
+   * - display: 36 → 60 → 80px (homepage hero only — the largest type on the site)
    * - hero: 4xl → 5xl (interior page hero h1)
    * - xl: 4xl → 5xl → 6xl (large CTA headings)
    * - lg: 4xl → 5xl (section headings)
@@ -46,7 +46,7 @@ interface SectionHeadingProps {
 // display stays at 40. It is the homepage hero, the one place on the site whose
 // job is to be the largest thing on the screen.
 const sizeStyles: Record<HeadingSize, string> = {
-  display: "text-[40px] md:text-[60px] lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight",
+  display: "text-[36px] md:text-[60px] lg:text-[80px] leading-[1.05] lg:leading-[84px] tracking-tight",
   hero: "text-[32px] leading-[36px] md:text-4xl md:leading-[40px] lg:text-5xl lg:leading-[60px]",
   xl: "text-[28px] md:text-5xl lg:text-6xl leading-tight",
   lg: "text-[28px] md:text-5xl leading-tight",

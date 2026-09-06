@@ -33,7 +33,7 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-[134px] md:pt-[200px] pb-6 md:pb-12 px-4">
+      <section className="pt-[104px] md:pt-[200px] pb-6 md:pb-12 px-4">
         <HeroEntrance className="max-w-[1280px] mx-auto text-center">
           {/* Member Badge */}
           <HeroItem>
@@ -275,7 +275,7 @@ export default async function HomePage() {
           >
             {/* Column 1: Pill + teal rect */}
             <MotionDiv variants={columnRise} className="flex flex-col gap-3 flex-1 max-w-[160px]">
-              <div className="h-[240px] rounded-[999px] overflow-hidden relative">
+              <div className="h-[280px] rounded-[999px] overflow-hidden relative">
                 <Image
                   src="/images/home/ux101-group.jpg"
                   alt="UXHI UX 101 workshop"
@@ -287,8 +287,8 @@ export default async function HomePage() {
                   wrap rather than broken by hand: at this width the desktop's
                   four fixed lines do not describe where the text actually
                   breaks. */}
-              <div className="h-[112px] rounded-[20px] bg-teal-90 p-3 flex items-end text-gray-140">
-                <span className="text-sm leading-snug font-medium">From students to industry leaders, all designers are welcome</span>
+              <div className="h-[128px] rounded-[20px] bg-teal-90 p-3 flex items-end text-gray-140">
+                <span className="text-base leading-snug font-medium">From students to industry leaders, all designers are welcome</span>
               </div>
             </MotionDiv>
 
@@ -302,8 +302,8 @@ export default async function HomePage() {
                   so the call to action was the piece the small screen dropped.
                   Centred rather than bottom-right, since a link wants to sit in
                   the middle of its tile, and padded past the arch's curve. */}
-              <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-purple-140 px-3 pt-16 pb-5 flex flex-col items-center justify-center text-center">
-                <p className="text-white/90 text-sm leading-relaxed">
+              <div className="h-[280px] rounded-t-[999px] rounded-b-[32px] bg-purple-140 px-3 pt-16 pb-6 flex flex-col items-center justify-center text-center">
+                <p className="text-white/90 text-base leading-relaxed">
                   Join our free community to connect with UX friends.
                 </p>
                 <ArrowLinkButton href="/join" className="mt-2">
@@ -314,7 +314,7 @@ export default async function HomePage() {
                 href="https://uxhiconference.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block h-[112px] rounded-[20px] overflow-hidden relative group"
+                className="block h-[128px] rounded-[20px] overflow-hidden relative group"
               >
                 <Image
                   src="/images/home/uxhicon-25.jpg"
