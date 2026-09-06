@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-type HeadingSize = "sm" | "md" | "lg" | "xl" | "hero" | "display";
+type HeadingSize = "statement" | "sm" | "md" | "lg" | "xl" | "hero" | "display";
 type HeadingColor = "purple" | "white" | "black" | "gray";
 type HeadingTag = "h1" | "h2" | "h3";
 
@@ -17,6 +17,12 @@ interface SectionHeadingProps {
    * theirs rather than inherit it.
    * - md: 3xl → 4xl (most common section heading)
    * - sm: 2xl → 3xl (smaller subsections)
+   * - statement: xl → 3xl → 4xl (the mission sentence)
+   *
+   * `statement` starts a step below `sm` although it ends at the same place,
+   * because it sets a sentence rather than a heading. Three or four lines of
+   * display type at 24px fills a phone; the same 24px on a two-word subsection
+   * heading is right, which is why the two roles cannot share a ramp.
    */
   size?: HeadingSize;
   /** Color variant (default: purple) */
@@ -33,6 +39,7 @@ const sizeStyles: Record<HeadingSize, string> = {
   lg: "text-4xl md:text-5xl leading-tight",
   md: "text-3xl md:text-4xl",
   sm: "text-2xl md:text-3xl",
+  statement: "text-xl md:text-3xl lg:text-4xl leading-tight",
 };
 
 const colorStyles: Record<HeadingColor, string> = {

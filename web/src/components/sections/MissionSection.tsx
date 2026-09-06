@@ -73,7 +73,7 @@ export function MissionSection({ values }: MissionSectionProps) {
           {/* Mission Statement */}
           <motion.h2
             variants={fadeInUp}
-            className="font-display text-2xl md:text-3xl lg:text-4xl text-purple-120 leading-tight mb-8 max-w-4xl"
+            className="font-display text-xl md:text-3xl lg:text-4xl text-purple-120 leading-tight mb-8 max-w-4xl"
           >
             <MissionStatement />
           </motion.h2>

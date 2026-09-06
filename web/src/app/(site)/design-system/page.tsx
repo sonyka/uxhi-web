@@ -905,6 +905,10 @@ const contentComponents: Record<string, React.ReactNode> = {
               <span className="text-xs text-gray-100 font-mono">sm — subsection headings (2xl → 3xl)</span>
               <SectionHeading size="sm">Small Heading</SectionHeading>
             </div>
+            <div>
+              <span className="text-xs text-gray-100 font-mono">statement — the mission sentence (xl → 3xl → 4xl, leading-tight)</span>
+              <SectionHeading size="statement" color="gray">A sentence set in display type, which is why it starts a step below sm although it ends in the same place.</SectionHeading>
+            </div>
           </div>
         </div>
         <div>

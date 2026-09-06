@@ -307,7 +307,7 @@ export default async function HomePage() {
       <section className="py-20 px-6">
         <ScrollReveal className="max-w-[900px] mx-auto text-center">
           <SectionEyebrow className="mb-4 block text-purple-140">What we do</SectionEyebrow>
-          <SectionHeading size="sm" color="gray" className="leading-tight lg:text-4xl mb-10">
+          <SectionHeading size="statement" color="gray" className="mb-10">
             <MissionStatement />
           </SectionHeading>
           <PrimaryCTA href="/about#aloha-centered-design">
