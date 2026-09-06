@@ -18,6 +18,8 @@ import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { scaleReveal } from "@/lib/animations";
 
+export { viewportBeige10 as viewport } from "@/lib/themeColor";
+
 export const metadata: Metadata = {
   title: "Get Involved | UXHI",
   description:

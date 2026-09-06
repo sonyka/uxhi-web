@@ -53,6 +53,8 @@ const ALOHA_PRINCIPLES = [
   },
 ];
 
+export { viewportBeige10 as viewport } from "@/lib/themeColor";
+
 export const metadata: Metadata = {
   title: "About | UXHI",
   description:

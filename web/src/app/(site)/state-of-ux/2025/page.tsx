@@ -9,6 +9,8 @@ import { ScrollReveal, MotionDiv } from "@/components/ui/motion";
 import { StatComparison } from "@/components/report/StatComparison";
 import { DistributionBars } from "@/components/report/DistributionBars";
 
+export { viewportTeal10 as viewport } from "@/lib/themeColor";
+
 export const metadata: Metadata = {
   title: "Average salaries remain a challenge | 2025 State of UX in Hawaiʻi",
   description:

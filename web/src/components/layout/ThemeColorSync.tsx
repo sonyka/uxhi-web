@@ -8,9 +8,13 @@ import { useEffect } from "react";
  *
  * iOS paints the strip behind the dynamic island, and the bar behind Safari's
  * bottom toolbar, from theme-color. A single static value cannot stay right:
- * the top of the viewport is the page ground at rest, the header's glass once
- * scrolled, and a different beige again on a page whose first section sets its
- * own background. Any fixed choice is wrong in two of those three states.
+ * the top of the viewport is the page ground at rest and the header's glass
+ * once scrolled.
+ *
+ * The value a page OPENS with is not this component's job — iOS Safari reads
+ * theme-color at load and does not reliably honour changes afterwards, so each
+ * route declares its own in a `viewport` export (see lib/themeColor). This
+ * keeps the strip matched while you scroll, on the browsers that do listen.
  *
  * So read it rather than declare it. Sample the stack of elements at the very
  * top of the viewport, skip the header itself, and take the first one that
@@ -60,6 +64,19 @@ export function ThemeColorSync() {
 
     const fallback = meta.content;
     const parseColor = makeParser();
+    let current = meta;
+
+    // Replace the element rather than assign to `content`. WebKit picks up a
+    // freshly inserted meta where it ignores a mutated one, and skipping the
+    // write when nothing changed keeps that out of the scroll path.
+    const write = (value: string) => {
+      if (current.content === value) return;
+      const next = document.createElement("meta");
+      next.name = "theme-color";
+      next.content = value;
+      current.replaceWith(next);
+      current = next;
+    };
     let frame = 0;
     let settle: ReturnType<typeof setTimeout> | undefined;
 
@@ -79,7 +96,7 @@ export function ThemeColorSync() {
       }
       base ??= parseColor(getComputedStyle(document.body).backgroundColor);
       if (!base || base[3] === 0) {
-        meta.content = fallback;
+        write(fallback);
         return;
       }
 
@@ -91,7 +108,7 @@ export function ThemeColorSync() {
         g = over[1] * a + g * (1 - a);
         b = over[2] * a + b * (1 - a);
       }
-      meta.content = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+      write(`rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`);
     };
 
     // rAF keeps it in step during the scroll; the trailing pass catches the

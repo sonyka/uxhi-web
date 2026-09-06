@@ -18,6 +18,8 @@ import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
 
+export { viewportBeige10 as viewport } from "@/lib/themeColor";
+
 export const metadata: Metadata = {
   title: "Resources | UXHI",
   description:

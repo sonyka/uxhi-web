@@ -10,6 +10,8 @@ import { MEMBER_COUNT_PLUS } from "@/lib/stats";
 import type { Metadata } from "next";
 import { scaleReveal } from "@/lib/animations";
 
+export { viewportBeige10 as viewport } from "@/lib/themeColor";
+
 export const metadata: Metadata = {
   title: "Join us | UXHI",
   description:

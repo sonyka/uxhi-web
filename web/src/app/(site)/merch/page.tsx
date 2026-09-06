@@ -10,6 +10,8 @@ import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 
+export { viewportBeige10 as viewport } from "@/lib/themeColor";
+
 export const metadata: Metadata = {
   title: "Shop | UXHI",
   description:
