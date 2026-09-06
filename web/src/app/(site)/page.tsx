@@ -289,17 +289,19 @@ export default async function HomePage() {
 
             {/* Column 3: Teal top + gray rect */}
             <MotionDiv variants={columnRise} className="flex flex-col gap-3 flex-1 max-w-[160px]">
-              {/* Same arch, same teal: only what it holds changes. The invite
+              {/* The arch shape stays; the ground becomes the purple the wider
+                  layouts give this invitation, so the call to action reads the
+                  same at every width. The invite
                   is the one thing in this grid asking to be acted on, and on a
                   phone the purple pill that carried it was hidden outright —
                   so the call to action was the piece the small screen dropped.
                   Centred rather than bottom-right, since a link wants to sit in
                   the middle of its tile, and padded past the arch's curve. */}
-              <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-teal-90 px-3 pt-16 pb-5 flex flex-col items-center justify-center text-center text-gray-140">
-                <p className="text-sm leading-relaxed">
+              <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-purple-140 px-3 pt-16 pb-5 flex flex-col items-center justify-center text-center">
+                <p className="text-white/90 text-sm leading-relaxed">
                   Join our free community to connect with UX friends.
                 </p>
-                <ArrowLinkButton href="/join" variant="teal" className="mt-2">
+                <ArrowLinkButton href="/join" className="mt-2">
                   Join us
                 </ArrowLinkButton>
               </div>
