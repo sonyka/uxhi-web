@@ -7,6 +7,12 @@ interface PrimaryCTAProps {
   children: React.ReactNode;
   external?: boolean;
   variant?: "default" | "dark" | "subdued";
+  /**
+   * Shorter wording below md, for a label that survives a desktop line but not
+   * a phone's. Both are in the markup and one is display:none, so a screen
+   * reader is only ever offered the one on screen.
+   */
+  shortLabel?: React.ReactNode;
 }
 
 const variants = {
@@ -30,8 +36,16 @@ const variants = {
   },
 };
 
-export function PrimaryCTA({ href, children, external = false, variant = "default" }: PrimaryCTAProps) {
+export function PrimaryCTA({ href, children, external = false, variant = "default", shortLabel }: PrimaryCTAProps) {
   const styles = variants[variant];
+  const label = shortLabel ? (
+    <>
+      <span className="md:hidden">{shortLabel}</span>
+      <span className="hidden md:inline">{children}</span>
+    </>
+  ) : (
+    children
+  );
   const className = `inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 font-medium transition-colors group ${styles.button}`;
 
   if (external) {
@@ -43,7 +57,7 @@ export function PrimaryCTA({ href, children, external = false, variant = "defaul
         className={className}
       >
         <TextSlideUp className={styles.text}>
-          {children}
+          {label}
         </TextSlideUp>
         <span className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors ${styles.circle}`}>
           <ExternalLinkIcon className={`w-4 h-4 ${styles.icon}`} />
@@ -55,7 +69,7 @@ export function PrimaryCTA({ href, children, external = false, variant = "defaul
   return (
     <Link href={href} className={className}>
       <TextSlideUp className={styles.text}>
-        {children}
+        {label}
       </TextSlideUp>
       <span className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors ${styles.circle}`}>
         <ArrowIcon className={`w-4 h-4 ${styles.icon}`} />

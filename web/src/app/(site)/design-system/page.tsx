@@ -1281,7 +1281,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-primarycta": (
     <ContentSection
       title="Primary CTA"
-      description="Pill button with arrow circle. Variants: default (yellow circle), subdued (gray circle, for secondary CTAs), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow."
+      description="Pill button with arrow circle. Variants: default (yellow circle), subdued (gray circle, for secondary CTAs), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow. An optional shortLabel swaps in shorter wording below md, for a label that survives a desktop line but not a phone's."
       componentPath="components/ui/PrimaryCTA.tsx"
     >
       <div className="space-y-6">
@@ -1298,6 +1298,16 @@ const contentComponents: Record<string, React.ReactNode> = {
             <PrimaryCTA href="#" variant="subdued">Secondary action</PrimaryCTA>
             <PrimaryCTA href="#" external variant="subdued">External Subdued</PrimaryCTA>
           </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Short label below md (<code>shortLabel</code>)</h4>
+          <div className="flex flex-wrap gap-4 items-center">
+            <PrimaryCTA href="#" shortLabel="aloha-centered design">What is aloha-centered design?</PrimaryCTA>
+          </div>
+          <p className="text-xs text-gray-100 mt-3">
+            Narrow the window past md to see it swap. Both labels are in the markup and one is
+            <code> display:none</code>, so a screen reader is only offered the one on screen.
+          </p>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Dark Variant</h4>

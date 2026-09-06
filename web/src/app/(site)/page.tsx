@@ -339,7 +339,7 @@ export default async function HomePage() {
           <SectionHeading size="statement" color="gray" className="mb-10">
             <MissionStatement />
           </SectionHeading>
-          <PrimaryCTA href="/about#aloha-centered-design">
+          <PrimaryCTA href="/about#aloha-centered-design" shortLabel="aloha-centered design">
             What is aloha-centered design?
           </PrimaryCTA>
         </ScrollReveal>
