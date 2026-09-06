@@ -102,7 +102,7 @@ const variantStyles: Record<
 > = {
   dark: {
     card: "bg-purple-140 border border-purple-100/30 rounded-[24px]",
-    title: "font-display text-2xl text-white",
+    title: "font-display text-xl md:text-2xl text-white",
     description: "text-white",
     lead: "text-sm text-purple-10",
     statValue: "text-yellow-80",
@@ -176,6 +176,11 @@ const variantStyles: Record<
  *
  * Copy is white on the purple grounds and gray on the light ones. The tinted
  * purples the dark variants used to carry read as washed out rather than quiet.
+ *
+ * The dark title takes a phone step of its own — 20px below md, 24 above. Held
+ * flat at 24 it landed level with an `md` section heading on a phone and only
+ * 4px under the `lg` heading these cards sit beneath, which read as one level
+ * where there are two.
  *
  * Icon size: 96px desktop / 80px mobile stacked, 56px detail
  * Border radius: 24px, or 20px on translucent

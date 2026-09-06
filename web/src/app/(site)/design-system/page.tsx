@@ -1505,7 +1505,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               imageSrc="/images/icons/icon-membership.svg"
               imageAlt="Membership illustration"
               title="Dark"
-              description="For purple grounds, with an optional footer link. Used on the home features section."
+              description="For purple grounds, with an optional footer link. Used on the home features section. Its title takes a phone step of its own — 20px below md, 24 above — so it stays a level under the section heading it sits beneath."
               footer={<ArrowLinkButton href="#">With Footer</ArrowLinkButton>}
             />
             <SpotIllustrationCard
