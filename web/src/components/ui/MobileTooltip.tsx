@@ -19,7 +19,13 @@ interface MobileTooltipProps {
   linkLabel?: string;
   /** Trigger colours. Use "dark" on purple/dark backgrounds. */
   tone?: "light" | "dark";
-  /** Icon size in px: 24 beside the homepage hero, 16 in body copy. */
+  /**
+   * Icon size: 24 beside the homepage hero, 16 in body copy.
+   *
+   * 24 is a role, not a flat measurement — it ramps 20 → 24 at md. The hero it
+   * belongs to runs 40px on a phone and 80px on a desktop, so a mark held at
+   * one size is twice the proportion of the type on the smaller screen.
+   */
   iconSize?: 16 | 20 | 24;
   /** Optical lift in px, on top of the superscript offset. */
   iconNudge?: 0 | 2 | 4;
@@ -33,7 +39,7 @@ interface MobileTooltipProps {
 const iconSizes = {
   16: "w-4 h-4 align-[max(0.18em,calc(0.68em-16px))]",
   20: "w-5 h-5 align-[max(0.18em,calc(0.68em-20px))]",
-  24: "w-6 h-6 align-[max(0.18em,calc(0.68em-24px))]",
+  24: "w-5 h-5 md:w-6 md:h-6 align-[max(0.18em,calc(0.68em-20px))] md:align-[max(0.18em,calc(0.68em-24px))]",
 } as const;
 
 // Per-placement optical trims. Spelled out rather than computed for the same

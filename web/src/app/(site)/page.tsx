@@ -33,7 +33,7 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-[200px] pb-12 px-4">
+      <section className="pt-[134px] md:pt-[200px] pb-12 px-4">
         <HeroEntrance className="max-w-[1280px] mx-auto text-center">
           {/* Member Badge */}
           <HeroItem>
@@ -58,25 +58,32 @@ export default async function HomePage() {
                 href="/about#aloha-centered-design"
                 iconSize={24}
                 iconNudge={4}
-                decorationElement={
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src="/images/home/hcd-underline.svg"
-                    alt=""
-                    // Underlines "aloha-centered" only, not the trailing " design".
-                    // 69% is that word pair's share of the phrase width — a ratio, so
-                    // it holds as the type scales across breakpoints.
-                    //
-                    // Sits at bottom-0 at every size rather than stepping further
-                    // below as the type grows: "aloha-centered" has no descender to
-                    // clear, so a drawn underline reads as attached to the word only
-                    // when it rides close to the baseline. The stroke thickens with
-                    // the type instead, which is what carries the ramp.
-                    className="absolute left-0 bottom-0 w-[69%] h-[7px] md:h-[9px] lg:h-[12px] pointer-events-none hidden md:block"
-                  />
-                }
               >
-                aloha-centered design
+                {/* The underline belongs to "aloha-centered", so it hangs off
+                    a box holding exactly that — not off a share of the whole
+                    phrase. The old 69% ratio only described the desktop line;
+                    below md the phrase wraps before "design" and the ratio
+                    pointed at nothing, which is why the rule was hidden there.
+
+                    Drawn as a background rather than an absolutely positioned
+                    image because the word itself wraps. At 375px and below
+                    "aloha-centered" is wider than the column and breaks at its
+                    hyphen; an absolute rule spans the whole two-line box and
+                    lands between the fragments, while a background with
+                    box-decoration-break:clone gives each fragment its own,
+                    sized to that fragment. One rule, correct at every width,
+                    with no type ramp bent around the longest word.
+
+                    Lifted 0.11em off the bottom of the content box, which sits
+                    a descender's depth below the baseline: "aloha-centered" has
+                    no descender to clear, so the rule reads as attached to the
+                    word only when it rides the baseline itself. In em so the
+                    lift tracks the type; the stroke thickens with it too, and
+                    that is what carries the ramp. */}
+                <span className="bg-[url('/images/home/hcd-underline.svg')] bg-no-repeat [background-position:0_calc(100%_-_0.11em)] bg-[length:100%_6px] md:bg-[length:100%_9px] lg:bg-[length:100%_12px] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
+                  aloha-centered
+                </span>{" "}
+                design
               </MobileTooltip>
             </SectionHeading>
           </HeroItem>
