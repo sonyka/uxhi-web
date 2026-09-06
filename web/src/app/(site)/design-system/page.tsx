@@ -1312,7 +1312,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-arrowlink": (
     <ContentSection
       title="Arrow Link Button"
-      description="Text with arrow, pill-shaped hover state. Supports dark (default, for purple backgrounds) and light (for white/beige backgrounds) variants."
+      description="Text with arrow, pill-shaped hover state. Three grounds: dark (default, for purple panels), light (white and beige), and teal (the teal-90 bento tiles, where light's gray-100 sits too close to the ground to read and its teal-10 hover chip disappears into it)."
       componentPath="components/ui/ArrowLinkButton.tsx"
     >
       <div className="space-y-4">
@@ -1321,6 +1321,9 @@ const contentComponents: Record<string, React.ReactNode> = {
         </div>
         <div className="flex flex-wrap gap-6 items-center p-6 bg-white rounded-xl border border-gray-30">
           <ArrowLinkButton href="#" variant="light">Light</ArrowLinkButton>
+        </div>
+        <div className="flex flex-wrap gap-6 items-center p-6 bg-teal-90 rounded-xl">
+          <ArrowLinkButton href="#" variant="teal">Teal</ArrowLinkButton>
         </div>
       </div>
     </ContentSection>

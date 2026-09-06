@@ -138,7 +138,12 @@ export default async function HomePage() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-6 left-0 right-0 text-center">
+                {/* bottom-10, not bottom-6: the tile is a full pill, so its
+                    bottom is a 117px-radius cap. Two dozen pixels up from the
+                    base the cap is only ~142px wide and "Members and counting"
+                    is wider than that, which is what put the line on the edge.
+                    Forty gives it ~176px to sit in. */}
+                <div className="absolute bottom-10 left-0 right-0 text-center">
                   <CountUp to={MEMBER_COUNT} className="font-display text-4xl text-white" />
                   <span className="block text-white/90 text-sm mt-1">Members and counting</span>
                 </div>
@@ -178,18 +183,23 @@ export default async function HomePage() {
               <div className="h-[382px] rounded-t-[999px] rounded-b-[40px] bg-teal-90 px-5 pt-20 pb-6 flex items-end justify-end text-gray-140 text-right">
                 <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
               </div>
-              <div className="h-[182px] rounded-[24px] overflow-hidden relative">
+              <a
+                href="https://uxhiconference.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-[182px] rounded-[24px] overflow-hidden relative group"
+              >
                 <Image
                   src="/images/home/uxhicon-25.jpg"
                   alt="UXHI Annual Conference"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="font-display text-lg text-white leading-tight">UXHI Annual<br/>Conference</span>
                 </div>
-              </div>
+              </a>
             </MotionDiv>
           </ScrollReveal>
 
@@ -232,18 +242,23 @@ export default async function HomePage() {
               <div className="h-[320px] rounded-t-[999px] rounded-b-[40px] bg-teal-90 px-4 pt-16 pb-5 flex items-end justify-end text-gray-140 text-right">
                 <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all designers are<br/>welcome</span>
               </div>
-              <div className="h-[150px] rounded-[24px] overflow-hidden relative">
+              <a
+                href="https://uxhiconference.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-[150px] rounded-[24px] overflow-hidden relative group"
+              >
                 <Image
                   src="/images/home/uxhicon-25.jpg"
                   alt="UXHI Annual Conference"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3">
                   <span className="font-display text-lg text-white leading-tight">UXHI Annual<br/>Conference</span>
                 </div>
-              </div>
+              </a>
             </MotionDiv>
           </ScrollReveal>
 
@@ -263,41 +278,48 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="h-[100px] rounded-[20px] bg-teal-90 p-3 flex flex-col justify-end text-gray-140">
-                <CountUp from={2000} to={2021} className="font-display text-4xl leading-none" />
-                <span className="text-base mt-0.5">Year founded</span>
-              </div>
-            </MotionDiv>
-
-            {/* Column 2: Tall purple pill - hidden on SM and mobile */}
-            <MotionDiv variants={columnRise} className="hidden flex-1 max-w-[160px]">
-              <div className="h-[356px] rounded-[999px] bg-purple-140 px-4 py-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
-                <p className="text-white/90 text-xs leading-relaxed relative z-10">
-                  Join our free community to connect with UX friends.
-                </p>
-                <ArrowLinkButton href="/join" className="mt-3 !gap-1 !text-xs !px-2 !py-1 relative z-10">
-                  Join us
-                </ArrowLinkButton>
+              {/* The welcome line, which the arch above used to carry. Left to
+                  wrap rather than broken by hand: at this width the desktop's
+                  four fixed lines do not describe where the text actually
+                  breaks. */}
+              <div className="h-[112px] rounded-[20px] bg-teal-90 p-3 flex items-end text-gray-140">
+                <span className="text-sm leading-snug font-medium">From students to industry leaders, all designers are welcome</span>
               </div>
             </MotionDiv>
 
             {/* Column 3: Teal top + gray rect */}
             <MotionDiv variants={columnRise} className="flex flex-col gap-3 flex-1 max-w-[160px]">
-              <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-teal-90 px-3 pt-12 pb-4 flex items-end justify-end text-gray-140 text-right">
-                <span className="text-nav leading-snug font-medium">From students to<br/>industry leaders,<br/>all welcome</span>
+              {/* Same arch, same teal: only what it holds changes. The invite
+                  is the one thing in this grid asking to be acted on, and on a
+                  phone the purple pill that carried it was hidden outright —
+                  so the call to action was the piece the small screen dropped.
+                  Centred rather than bottom-right, since a link wants to sit in
+                  the middle of its tile, and padded past the arch's curve. */}
+              <div className="h-[240px] rounded-t-[999px] rounded-b-[32px] bg-teal-90 px-3 pt-16 pb-5 flex flex-col items-center justify-center text-center text-gray-140">
+                <p className="text-sm leading-relaxed">
+                  Join our free community to connect with UX friends.
+                </p>
+                <ArrowLinkButton href="/join" variant="teal" className="mt-2">
+                  Join us
+                </ArrowLinkButton>
               </div>
-              <div className="h-[100px] rounded-[20px] overflow-hidden relative">
+              <a
+                href="https://uxhiconference.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-[112px] rounded-[20px] overflow-hidden relative group"
+              >
                 <Image
                   src="/images/home/uxhicon-25.jpg"
                   alt="UXHI Annual Conference"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-2 left-2 right-2">
                   <span className="font-display text-lg text-white leading-tight">UXHI Conference</span>
                 </div>
-              </div>
+              </a>
             </MotionDiv>
           </ScrollReveal>
         </div>
