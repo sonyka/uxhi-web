@@ -402,8 +402,9 @@ export default async function HomePage() {
 
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Free Membership */}
-            <MotionDiv>
+            <MotionDiv className="h-full">
               <SpotIllustrationCard
+                layout="anchored"
                 variant="dark"
                 imageSrc="/images/icons/icon-membership.svg"
                 imageAlt="Free Membership"
@@ -420,8 +421,9 @@ export default async function HomePage() {
             </MotionDiv>
 
             {/* Events */}
-            <MotionDiv>
+            <MotionDiv className="h-full">
               <SpotIllustrationCard
+                layout="anchored"
                 variant="dark"
                 imageSrc="/images/icons/icon-events.svg"
                 imageAlt="Events"
@@ -432,8 +434,9 @@ export default async function HomePage() {
             </MotionDiv>
 
             {/* Resources */}
-            <MotionDiv>
+            <MotionDiv className="h-full">
               <SpotIllustrationCard
+                layout="anchored"
                 variant="dark"
                 imageSrc="/images/icons/icon-resources.svg"
                 imageAlt="Resources"

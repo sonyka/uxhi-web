@@ -1516,27 +1516,53 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-spotillustration": (
     <ContentSection
       title="Spot Illustration Card"
-      description="One card in two arrangements. Stacked leads with a 96px illustration over centred prose and an optional footer link. Detail drops the icon to 56px and moves it into a header row beside the title, so a reader scanning a grid meets the name before the art, and passes the body as data — a lead, a hero stat, bullets, or a ranking — rather than as markup, which is what keeps size and colour decisions inside the component. Each ground pairs with one layout in practice: dark and white are stacked, beige and translucent are detail."
+      description="One card in three arrangements. Stacked leads with a 96px illustration over centred prose and an optional footer link. Anchored keeps that icon size but reads it last — left-aligned prose at the top, the illustration pinned to the bottom-left — so a row of cards ends on a line of art. Detail drops the icon to 56px and moves it into a header row beside the title, so a reader scanning a grid meets the name before the art, and passes the body as data — a lead, a hero stat, bullets, or a ranking — rather than as markup, which is what keeps size and colour decisions inside the component. Each ground pairs with one layout in practice: dark is anchored, white is stacked, beige and translucent are detail."
       componentPath="components/ui/cards/SpotIllustrationCard.tsx"
     >
       <div className="space-y-8">
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Stacked — dark and white</h4>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Anchored, dark — home features</h4>
+          <div className="bg-purple-140 rounded-xl p-6">
+            <div className="grid md:grid-cols-3 gap-6">
+              <SpotIllustrationCard
+                layout="anchored"
+                variant="dark"
+                imageSrc="/images/icons/icon-membership.svg"
+                imageAlt="Membership illustration"
+                title="Free Membership"
+                description="Title, prose and footer sit left-aligned at the top; the illustration takes the leftover height as a margin and lands in the bottom-left corner."
+                footer={<ArrowLinkButton href="#">Join free</ArrowLinkButton>}
+              />
+              <SpotIllustrationCard
+                layout="anchored"
+                variant="dark"
+                imageSrc="/images/icons/icon-events.svg"
+                imageAlt="Events illustration"
+                title="Events"
+                description="Cards are h-full, so however unevenly the copy fills a row the icons still end on one line."
+                footer={<ArrowLinkButton href="#">View events</ArrowLinkButton>}
+              />
+              <SpotIllustrationCard
+                layout="anchored"
+                variant="dark"
+                imageSrc="/images/icons/icon-resources.svg"
+                imageAlt="Resources illustration"
+                title="Resources"
+                description="The dark title takes a phone step of its own — 20px below md, 24 above — so it stays a level under the section heading it sits beneath."
+                footer={<ArrowLinkButton href="#">Browse resources</ArrowLinkButton>}
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Stacked, white — values cards</h4>
           <div className="grid md:grid-cols-2 gap-6">
-            <SpotIllustrationCard
-              variant="dark"
-              imageSrc="/images/icons/icon-membership.svg"
-              imageAlt="Membership illustration"
-              title="Dark"
-              description="For purple grounds, with an optional footer link. Used on the home features section. Its title takes a phone step of its own — 20px below md, 24 above — so it stays a level under the section heading it sits beneath."
-              footer={<ArrowLinkButton href="#">With Footer</ArrowLinkButton>}
-            />
             <SpotIllustrationCard
               variant="white"
               imageSrc="/images/icons/icon-resources.svg"
               imageAlt="Resources illustration"
               title="White"
-              description="For beige grounds. Used for the values cards. Body copy is gray-110, which clears AAA on white."
+              description="A 96px icon centred over centred prose. For beige grounds. Body copy is gray-110, which clears AAA on white."
             />
           </div>
         </div>
@@ -1613,9 +1639,10 @@ const contentComponents: Record<string, React.ReactNode> = {
           number reads as the card&apos;s headline rather than as its first list item. Pass emphasis
           as a plain <code>&lt;strong&gt;</code> — the card colours it per ground, so a page marking
           up an inline figure never reaches for a colour class of its own. <code>bullets</code> and
-          <code> ranked</code> are alternatives; a card takes one or the other. Detail cards are
-          <code> h-full</code> so a row ends level; stacked cards are not, since the grids they sit
-          in never asked for equal heights.
+          <code> ranked</code> are alternatives; a card takes one or the other. Anchored and detail
+          cards are <code>h-full</code> so a row ends level — anchored needs it for the icons to
+          line up at all. Stacked cards are not, since the grid it sits in never asked for equal
+          heights.
         </p>
       </div>
     </ContentSection>

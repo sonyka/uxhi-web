@@ -5,7 +5,7 @@ import { SanityImage } from "@/components/ui/SanityImage";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 
 type SpotIllustrationCardVariant = "dark" | "beige" | "white" | "translucent";
-type SpotIllustrationCardLayout = "stacked" | "detail";
+type SpotIllustrationCardLayout = "stacked" | "anchored" | "detail";
 
 interface SanityImageValue {
   asset?: { _id?: string; url?: string };
@@ -31,14 +31,17 @@ interface SpotIllustrationCardProps {
   /**
    * Ground the card sits on. Sets background, radius and every type colour.
    *
-   * In practice each ground pairs with one layout — dark and white are stacked
-   * cards, beige and translucent are detail cards — because that is how the
+   * In practice each ground pairs with one layout — dark is anchored, white is
+   * stacked, beige and translucent are detail cards — because that is how the
    * four card styles are drawn. Nothing enforces the pairing.
    */
   variant?: SpotIllustrationCardVariant;
   /**
    * How the card is arranged:
-   * - stacked: 96px icon centred above centred prose (home features, values)
+   * - stacked: 96px icon centred above centred prose (values cards)
+   * - anchored: the same 96px icon, moved below left-aligned prose and pinned
+   *   to the bottom-left, so a row of cards ends on a line of illustrations
+   *   (home features)
    * - detail: 56px icon in a header row beside the title, everything left
    *   aligned, body passed as data (committee cards, report findings)
    */
@@ -163,10 +166,16 @@ const variantStyles: Record<
 /**
  * SpotIllustrationCard - Card led by a spot illustration
  *
- * Two arrangements of the same card, chosen with `layout`:
+ * Three arrangements of the same card, chosen with `layout`:
  *
  * - **stacked** — a 96px icon centred over centred prose, with an optional
- *   footer link. The homepage features and the About values cards.
+ *   footer link. The About values cards.
+ * - **anchored** — the same 96px icon, but read last: title, prose and footer
+ *   sit left-aligned at the top and the illustration is pushed to the
+ *   bottom-left corner. Cards are `h-full` and the icon takes the leftover
+ *   space as a top margin, so across a row the words start on one line and the
+ *   art lands on another, however unevenly the copy fills each card. The home
+ *   features band.
  * - **detail** — the icon drops to 56px and moves into a header row beside the
  *   title, and the card reads left-aligned throughout, so a reader scanning a
  *   grid meets the name before the art. The body arrives as data — a lead, a
@@ -205,12 +214,16 @@ export function SpotIllustrationCard({
 }: SpotIllustrationCardProps) {
   const styles = variantStyles[variant];
   const isDetail = layout === "detail";
+  const isAnchored = layout === "anchored";
 
   const icon = (
     <div
       className={cn(
         "relative shrink-0",
-        isDetail ? "w-14 h-14" : "w-20 h-20 md:w-24 md:h-24 mb-4 md:mb-6"
+        isDetail && "w-14 h-14",
+        !isDetail && "w-20 h-20 md:w-24 md:h-24",
+        // Anchored spaces the icon from above, in the wrapper that pins it.
+        layout === "stacked" && "mb-4 md:mb-6"
       )}
     >
       {image?.asset ? (
@@ -234,9 +247,11 @@ export function SpotIllustrationCard({
         // h-full on detail only: a grid of detail cards ends level without the
         // page asking for it, whereas adding it to stacked would change the
         // home and values grids that never asked for equal heights.
-        isDetail
-          ? "h-full p-6 md:p-7 flex flex-col gap-4"
-          : "p-6 md:p-8 flex flex-col items-center text-center group",
+        isDetail && "h-full p-6 md:p-7 flex flex-col gap-4",
+        // h-full on anchored too, and for the same reason detail has it: the
+        // bottom edge is doing work, so the row has to agree on where it is.
+        isAnchored && "h-full p-6 md:p-8 flex flex-col items-start group",
+        layout === "stacked" && "p-6 md:p-8 flex flex-col items-center text-center group",
         styles.card,
         className
       )}
@@ -248,7 +263,7 @@ export function SpotIllustrationCard({
         </div>
       ) : (
         <>
-          {icon}
+          {!isAnchored && icon}
           <h4 className={cn("mb-3 md:mb-4", styles.title)}>{title}</h4>
         </>
       )}
@@ -259,6 +274,8 @@ export function SpotIllustrationCard({
         <div
           className={cn(
             "leading-relaxed w-full",
+            // Anchored grows the body for the same reason stacked does: it pins
+            // the footer link, so a row's links line up the way its icons do.
             !isDetail && "flex-grow",
             styles.description
           )}
@@ -267,7 +284,11 @@ export function SpotIllustrationCard({
         </div>
       ) : description ? (
         <p
-          className={cn("leading-relaxed", !isDetail && "flex-grow", styles.description)}
+          className={cn(
+            "leading-relaxed",
+            !isDetail && "flex-grow",
+            styles.description
+          )}
         >
           {description}
         </p>
@@ -329,6 +350,10 @@ export function SpotIllustrationCard({
       )}
 
       {footer && <div className="mt-6">{footer}</div>}
+
+      {/* pt-10 keeps a floor under the gap on the card whose copy runs longest,
+          the one where mt-auto has nothing left to give. */}
+      {isAnchored && <div className="mt-auto pt-10">{icon}</div>}
     </div>
   );
 }
