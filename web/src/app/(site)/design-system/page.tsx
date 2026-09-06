@@ -882,7 +882,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Size Variants</h4>
           <div className="space-y-4 p-6 bg-beige-30 rounded-xl">
             <div>
-              <span className="text-xs text-gray-100 font-mono">display — homepage hero only (40 → 60 → 80px)</span>
+              <span className="text-xs text-gray-100 font-mono">display — homepage hero only (36 → 60 → 72px)</span>
               <SectionHeading as="h1" size="display" color="black">Display Title</SectionHeading>
             </div>
             <div>
