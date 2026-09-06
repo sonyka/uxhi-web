@@ -462,11 +462,7 @@ export default async function HomePage() {
             </MotionDiv>
           </ScrollReveal>
 
-          <ScrollReveal variants={fadeIn}>
-            <InstagramFeed />
-          </ScrollReveal>
-
-          <ScrollReveal stagger className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+          <ScrollReveal stagger className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
             <MotionDiv>
               <ArrowLinkButton
                 href="https://www.instagram.com/uxhicommunity/"
@@ -487,6 +483,10 @@ export default async function HomePage() {
                 Follow @uxhi
               </ArrowLinkButton>
             </MotionDiv>
+          </ScrollReveal>
+
+          <ScrollReveal variants={fadeIn}>
+            <InstagramFeed />
           </ScrollReveal>
         </div>
       </section>
