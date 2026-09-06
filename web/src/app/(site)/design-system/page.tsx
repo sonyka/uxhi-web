@@ -1281,7 +1281,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-primarycta": (
     <ContentSection
       title="Primary CTA"
-      description="Pill button with arrow circle. Variants: default (yellow circle), subdued (gray circle, for secondary CTAs), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow. An optional shortLabel swaps in shorter wording below md, for a label that survives a desktop line but not a phone's."
+      description="Pill button with arrow circle. Variants: default (yellow circle), subdued (gray circle, for secondary CTAs), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow. An optional shortLabel swaps in shorter wording below md, for a label that survives a desktop line but not a phone's. An optional icon sits before the label, and the leading padding closes up to suit it."
       componentPath="components/ui/PrimaryCTA.tsx"
     >
       <div className="space-y-6">
@@ -1298,6 +1298,21 @@ const contentComponents: Record<string, React.ReactNode> = {
             <PrimaryCTA href="#" variant="subdued">Secondary action</PrimaryCTA>
             <PrimaryCTA href="#" external variant="subdued">External Subdued</PrimaryCTA>
           </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Leading icon (<code>icon</code>)</h4>
+          <div className="flex flex-wrap gap-4 items-center">
+            <PrimaryCTA href="#" external icon={<SocialGlyph network="instagram" size={20} />}>
+              Follow @uxhicommunity
+            </PrimaryCTA>
+            <PrimaryCTA href="#" external variant="subdued" icon={<SocialGlyph network="linkedin" size={20} />}>
+              Follow @uxhi
+            </PrimaryCTA>
+          </div>
+          <p className="text-xs text-gray-100 mt-3">
+            The button carries <code>group</code>, so a <code>SocialGlyph</code> passed here does its
+            grey-to-colour reveal on the button&apos;s own hover with nothing wired up.
+          </p>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Short label below md (<code>shortLabel</code>)</h4>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { InstagramFeed } from "@/components/sections/InstagramFeed";
+import { SocialGlyph } from "@/components/ui/SocialGlyph";
 import { CommunityPhotosGrid } from "@/components/sections/CommunityPhotosGrid";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { COMMUNITY_PHOTOS_QUERY } from "@/sanity/lib/queries";
@@ -467,13 +468,22 @@ export default async function HomePage() {
 
           <ScrollReveal stagger className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
             <MotionDiv>
-              <PrimaryCTA href="https://www.instagram.com/uxhicommunity/" external>
-                Follow UXHI on Instagram
+              <PrimaryCTA
+                href="https://www.instagram.com/uxhicommunity/"
+                external
+                icon={<SocialGlyph network="instagram" size={20} />}
+              >
+                Follow @uxhicommunity
               </PrimaryCTA>
             </MotionDiv>
             <MotionDiv>
-              <PrimaryCTA href="https://www.linkedin.com/company/uxhawaii/" external variant="subdued">
-                Follow UXHI on LinkedIn
+              <PrimaryCTA
+                href="https://www.linkedin.com/company/uxhi/"
+                external
+                variant="subdued"
+                icon={<SocialGlyph network="linkedin" size={20} />}
+              >
+                Follow @uxhi
               </PrimaryCTA>
             </MotionDiv>
           </ScrollReveal>

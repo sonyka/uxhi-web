@@ -13,6 +13,14 @@ interface PrimaryCTAProps {
    * reader is only ever offered the one on screen.
    */
   shortLabel?: React.ReactNode;
+  /**
+   * Leading mark, before the label. Decorative — the label carries the meaning,
+   * so pass a glyph with an empty alt.
+   *
+   * The button already carries `group`, so a SocialGlyph dropped in here does
+   * its grey-to-colour reveal on the button's own hover without wiring.
+   */
+  icon?: React.ReactNode;
 }
 
 const variants = {
@@ -36,7 +44,7 @@ const variants = {
   },
 };
 
-export function PrimaryCTA({ href, children, external = false, variant = "default", shortLabel }: PrimaryCTAProps) {
+export function PrimaryCTA({ href, children, external = false, variant = "default", shortLabel, icon }: PrimaryCTAProps) {
   const styles = variants[variant];
   const label = shortLabel ? (
     <>
@@ -46,7 +54,9 @@ export function PrimaryCTA({ href, children, external = false, variant = "defaul
   ) : (
     children
   );
-  const className = `inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 font-medium transition-colors group ${styles.button}`;
+  // A mark of its own carries weight the label does not, so the leading edge
+  // closes up when one is present — 24px of air before a glyph reads as a gap.
+  const className = `inline-flex items-center gap-3 rounded-full ${icon ? "pl-4" : "pl-6"} pr-2 py-2 font-medium transition-colors group ${styles.button}`;
 
   if (external) {
     return (
@@ -56,6 +66,7 @@ export function PrimaryCTA({ href, children, external = false, variant = "defaul
         rel="noopener noreferrer"
         className={className}
       >
+        {icon}
         <TextSlideUp className={styles.text}>
           {label}
         </TextSlideUp>
@@ -68,6 +79,7 @@ export function PrimaryCTA({ href, children, external = false, variant = "defaul
 
   return (
     <Link href={href} className={className}>
+      {icon}
       <TextSlideUp className={styles.text}>
         {label}
       </TextSlideUp>
