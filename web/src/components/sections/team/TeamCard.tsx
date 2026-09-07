@@ -51,8 +51,26 @@ export function TeamCard({ member, isExpanded, onToggle }: TeamCardProps) {
   const reduceMotion = useReducedMotion();
   const flips = !reduceMotion;
 
+  const rootRef = useRef<HTMLDivElement>(null);
   const bioRef = useRef<HTMLDivElement>(null);
   const [moreBelow, setMoreBelow] = useState(false);
+
+  // Click away to turn the card back. pointerdown rather than click, and that
+  // is the whole trick: the click that opened this card is still travelling up
+  // to document when this effect attaches its listener, so a click listener
+  // would catch that very click and shut the card again the instant it opened.
+  // pointerdown has already been and gone by then.
+  //
+  // Landing on another card's face closes this one and opens that one, in that
+  // order, which is what it looks like it should do.
+  useEffect(() => {
+    if (!isExpanded) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) onToggle();
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [isExpanded, onToggle]);
 
   // The scrollbar says the bio scrolls; this says which way there is more.
   // A fade at the bottom edge marks the cut and clears at the end, so it never
@@ -76,7 +94,7 @@ export function TeamCard({ member, isExpanded, onToggle }: TeamCardProps) {
   const facePosition = "absolute inset-0 rounded-xl overflow-hidden";
 
   return (
-    <div className="relative aspect-[4/5] [perspective:1200px]">
+    <div ref={rootRef} className="relative aspect-[4/5] [perspective:1200px]">
       <motion.div
         className={cn("relative w-full h-full", flips && "[transform-style:preserve-3d]")}
         animate={flips ? { rotateY: isExpanded ? 180 : 0 } : undefined}
