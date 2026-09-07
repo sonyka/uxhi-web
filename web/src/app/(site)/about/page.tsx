@@ -132,11 +132,17 @@ export default async function AboutPage() {
                 Learn about UXHI, Hawaiʻi&apos;s home for aloha-centered design.
                 Founded in the summer of 2021, we are a female-founded
                 volunteer-run organization that acts as the go-to resource for
-                UX in the state. Our primary initiatives include our annual UXHI
-                Conference, our State of UX report, our ongoing events, and
-                community of over {MEMBER_COUNT} UX practitioners who share
-                feedback and best practices with each other via our dedicated
-                Slack channel.
+                UX in the state. Our primary initiatives include our annual{" "}
+                <InlineLink href="https://uxhiconference.com/" variant="purple">
+                  UXHI Conference
+                </InlineLink>
+                , our{" "}
+                <InlineLink href="/resources#report" variant="purple">
+                  State of UX Report
+                </InlineLink>
+                , our ongoing events, and community of over {MEMBER_COUNT} UX
+                practitioners who share feedback and best practices with each
+                other via our dedicated Slack channel.
               </SectionLead>
             </HeroItem>
 
