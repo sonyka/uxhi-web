@@ -2960,9 +2960,14 @@ const contentComponents: Record<string, React.ReactNode> = {
       description="UXHI's mission sentence, with 'aloha-centered design' explained on hover or tap. Renders the sentence only — no heading — so each page keeps its own type treatment: the homepage sets it centred in a SectionHeading, /about sets it left-aligned in the mission section. The wording lives in one file so the two can never drift apart. That one term carries the yellow underline — it is the only phrase in the sentence that needs explaining, and one underline per sentence is enough."
       componentPath="components/ui/MissionStatement.tsx"
     >
-      <p className="font-display text-2xl md:text-3xl text-purple-120 leading-tight max-w-4xl">
-        <MissionStatement />
-      </p>
+      {/* Through SectionHeading, as both real usages do — this specimen used to
+          hand-roll purple-120 type and so showed a treatment the site no
+          longer has anywhere. */}
+      <div className="max-w-4xl">
+        <SectionHeading size="statement">
+          <MissionStatement />
+        </SectionHeading>
+      </div>
     </ContentSection>
   ),
 

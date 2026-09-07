@@ -39,8 +39,7 @@ export function MissionStatement() {
         aloha-centered design
       </MobileTooltip>{" "}
       in Hawaiʻi by developing practitioners, building community, and connecting
-      organizations with our craft.{" "}
-      <span className="inline-block">🌺</span>
+      organizations with our craft.
     </>
   );
 }

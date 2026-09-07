@@ -35,22 +35,22 @@ const ALOHA_PRINCIPLES = [
   {
     term: "People",
     description:
-      "Every design decision starts with genuine care for the humans affected by it. Not just their needs, but their dignity.",
+      "Every design decision starts with genuine care for the humans affected by it. We design with people, inviting them into the process, not just studying them from a distance.",
   },
   {
     term: "Culture",
     description:
-      "Honoring the values, language, and ways of knowing that make Hawaiʻi's communities distinct, rather than importing frameworks wholesale.",
+      "We honor local knowledge as expertise, not anecdote. We design with respect for what they already know, not importing frameworks wholesale.",
   },
   {
     term: "Community",
     description:
-      "Designing in relationship, not isolation. Building pilina with the people and communities our work touches.",
+      "We believe in designing through relationship, not in isolation. Building pilina with the people and communities our work touches is core to our approach.",
   },
   {
     term: "Place",
     description:
-      "Recognizing that context matters. What works elsewhere doesn't always translate here, and Hawaiʻi's environment, history, and communities shape what good design looks like.",
+      "Context matters. What works in one place doesn't always translate to another, and the land, history, and people who live there shape what good design looks like.",
   },
 ];
 
@@ -260,8 +260,8 @@ export default async function AboutPage() {
             <MotionDiv>
               <SectionLead size="md" className="mb-5">
                 Aloha-centered design is our Hawaiʻi-rooted approach to
-                human-centered design. Built from foundations of UX. Grounded in
-                the values of our home.
+                human-centered design. Built from foundations of UX, and
+                grounded in the values of our home.
               </SectionLead>
             </MotionDiv>
 
