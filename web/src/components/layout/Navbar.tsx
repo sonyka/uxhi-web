@@ -346,7 +346,7 @@ export const defaultNavItems: NavItem[] = [
     dropdown: [
       // Order matches the quick-link pills in the /about hero — keep them in sync.
       { label: "Our approach", href: "/about#aloha-centered-design", description: "Aloha-centered design" },
-      { label: "Who we are", href: "/about#team", description: "Meet our volunteers" },
+      { label: "Who we are", href: "/about#team", description: "Meet our leadership team" },
       // FAQs hidden for now (2026-08-29) — the section it points at is gated
       // behind SHOW_FAQS in app/(site)/about/page.tsx. Restore both together.
       // { label: "FAQs", href: "/about#faqs", description: "Common questions" },
