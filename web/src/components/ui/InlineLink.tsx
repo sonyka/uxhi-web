@@ -61,8 +61,14 @@ export function InlineLink({
   // Default showIcon: true for purple external links, false otherwise
   const shouldShowIcon = showIcon ?? (variant === "purple" && isExternal);
 
+  // font-medium on teal, not semibold. Teal is the variant that sits on the
+  // purple bands, where a bright link at semibold reads as shouting — the
+  // colour is already doing the work of marking it, and the dotted rule
+  // finishes the job. purple carries no weight of its own and inherits the
+  // paragraph's, so medium is the closest the two get to agreeing while teal
+  // still has to hold against a dark ground.
   const variantStyles = {
-    teal: "text-teal-90 hover:text-teal-100 transition-colors font-semibold underline decoration-dotted decoration-gray-80 underline-offset-2",
+    teal: "text-teal-90 hover:text-teal-100 transition-colors font-medium underline decoration-dotted decoration-gray-80 underline-offset-2",
     purple: "text-purple-140 underline decoration-dotted decoration-gray-80 underline-offset-2 hover:text-purple-150 transition-colors",
   };
 

@@ -8,6 +8,7 @@ import { PressMention } from "@/components/ui/PressMention";
 import { ExternalLinkIcon } from "@/components/ui/icons";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { HeroContent } from "@/components/ui/HeroContent";
+import { InlineLink } from "@/components/ui/InlineLink";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { SectionIcon } from "@/components/ui/SectionIcon";
@@ -57,7 +58,11 @@ export default async function EventsPage() {
             </HeroItem>
             <HeroItem>
               <SectionLead size="lg">
-                We host a mix of educational webinars, interactive workshops, and casual meetups every month, as well as our annual conference. Become a member and you&apos;ll receive advanced notice on all our events!
+                We host a mix of educational webinars, interactive workshops, and casual meetups every month, as well as our{" "}
+                <InlineLink href="https://uxhiconference.com/" variant="purple">
+                  annual conference
+                </InlineLink>
+                . Become a member and you&apos;ll receive advanced notice on all our events!
               </SectionLead>
             </HeroItem>
             <HeroItem>
@@ -219,7 +224,7 @@ export default async function EventsPage() {
           </MotionDiv>
           <MotionDiv>
             <SectionHeading size="lg" color="white" className="mb-6 text-center">
-              Conference
+              UXHI Conference
             </SectionHeading>
           </MotionDiv>
           <MotionDiv>
@@ -231,28 +236,32 @@ export default async function EventsPage() {
           {/* CTA */}
           <MotionDiv>
             <div className="text-center mb-16">
-              <PrimaryCTA href="/conferences/2025/" external>
+              {/* The live conference site, not an archive. This pointed at
+                  /conferences/2025/ while the button said only "UXHI
+                  Conference", so an unyeared button sent visitors to last
+                  year's event. The archives below carry the years. */}
+              <PrimaryCTA href="https://uxhiconference.com/" external>
                 UXHI Conference
               </PrimaryCTA>
 
               {/* Past Archives */}
               <div className="mt-6 flex flex-wrap justify-center gap-4">
                 <Link
-                  href="/conferences/2024/"
+                  href="/conference/2025/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-purple-30 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
+                >
+                  <span>2025 UXHI Conference</span>
+                  <ExternalLinkIcon className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/conference/2024/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-purple-30 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
                 >
                   <span>2024 UXHI Conference</span>
-                  <ExternalLinkIcon className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="https://2023.uxhiconference.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-purple-30 hover:text-white hover:bg-white/10 rounded-full px-4 py-2 transition-all text-sm font-medium"
-                >
-                  <span>2023 UXHI Conference</span>
                   <ExternalLinkIcon className="w-4 h-4" />
                 </Link>
               </div>

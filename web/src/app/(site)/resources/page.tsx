@@ -488,7 +488,7 @@ export default async function ResourcesPage() {
           {/* How Report Helps */}
           <ScrollReveal>
             <div className="mb-10">
-              <p className="text-white text-lg mb-6">The State of UX report charts our progress towards advancing the field of UX by:</p>
+              <p className="text-white text-lg mb-6">The State of UX Report charts our progress towards advancing the field of UX by:</p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4">
                   <BulletPoint variant="yellow" />

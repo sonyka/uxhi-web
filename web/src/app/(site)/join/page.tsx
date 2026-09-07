@@ -136,7 +136,7 @@ export default function JoinPage() {
                   tone="dark"
                   iconGap={4}
                   tooltip={`Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has ${MEMBER_COUNT_PLUS} designers sharing resources, job opportunities, and community support.`}
-                  className="mt-3 !block underline underline-offset-2 w-fit mx-auto"
+                  className="mt-3 !block font-medium underline decoration-dotted decoration-gray-80 underline-offset-2 w-fit mx-auto"
                 >
                   What is Slack?
                 </MobileTooltip>
