@@ -133,11 +133,11 @@ export default async function AboutPage() {
                 Founded in the summer of 2021, we are a female-founded
                 volunteer-run organization that acts as the go-to resource for
                 UX in the state. Our primary initiatives include our annual{" "}
-                <InlineLink href="https://uxhiconference.com/" variant="purple">
+                <InlineLink href="https://uxhiconference.com/">
                   UXHI Conference
                 </InlineLink>
                 , our{" "}
-                <InlineLink href="/resources#report" variant="purple">
+                <InlineLink href="/resources#report">
                   State of UX Report
                 </InlineLink>
                 , our ongoing events, and community of over {MEMBER_COUNT} UX
@@ -343,7 +343,7 @@ export default async function AboutPage() {
             <MotionDiv>
               <p className="text-white text-lg leading-relaxed mb-10 max-w-[600px] mx-auto">
                 Looking to join the community instead?{" "}
-                <InlineLink href="/join" variant="teal">Becoming a member is free</InlineLink>
+                <InlineLink href="/join">Becoming a member is free</InlineLink>
                 {" "}and gets you into our Slack, our member directory, and our monthly events email.
               </p>
             </MotionDiv>

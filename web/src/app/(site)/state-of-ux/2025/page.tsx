@@ -128,7 +128,7 @@ export default function StateOfUx2025Page() {
                 <PrimaryCTA href={REPORT_PDF} external>
                   Download the full report
                 </PrimaryCTA>
-                <InlineLink href="/resources" variant="teal">
+                <InlineLink href="/resources">
                   Back to resources
                 </InlineLink>
               </div>

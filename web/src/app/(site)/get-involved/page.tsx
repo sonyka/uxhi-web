@@ -293,7 +293,7 @@ export default async function GetInvolvedPage() {
             <HeroItem>
               <SectionLead size="lg">
                 There are many ways to contribute to the UXHI community. Check out our{" "}
-                <InlineLink href="/events" variant="purple">
+                <InlineLink href="/events">
                   upcoming events
                 </InlineLink>{" "}
                 or find other ways to get involved below.
@@ -491,32 +491,32 @@ export default async function GetInvolvedPage() {
                 <BulletPoint />
                 <span>
                   Propose a topic related to the field of UX as a presenter at our{" "}
-                  <InlineLink href="https://uxhiconference.com/" variant="purple">UXHI Conference</InlineLink>{" "}
+                  <InlineLink href="https://uxhiconference.com/">UXHI Conference</InlineLink>{" "}
                   or{" "}
-                  <InlineLink href="/events" variant="purple">events</InlineLink>
+                  <InlineLink href="/events">events</InlineLink>
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <BulletPoint />
                 <span>
                   Propose a topic as a guest author for our{" "}
-                  <InlineLink href="/resources" variant="purple">Resources</InlineLink>
+                  <InlineLink href="/resources">Resources</InlineLink>
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <BulletPoint />
                 <span>
                   Join our committees for any of our initiatives, like the{" "}
-                  <InlineLink href="https://uxhiconference.com/" variant="purple">UXHI Conference</InlineLink>{" "}
+                  <InlineLink href="https://uxhiconference.com/">UXHI Conference</InlineLink>{" "}
                   or the{" "}
-                  <InlineLink href="/resources#report" variant="purple">State of UX Report</InlineLink>
+                  <InlineLink href="/resources#report">State of UX Report</InlineLink>
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <BulletPoint />
                 <span>
                   Provide general assistance with our{" "}
-                  <InlineLink href="/events" variant="purple">events</InlineLink>
+                  <InlineLink href="/events">events</InlineLink>
                 </span>
               </li>
               <li className="flex items-start gap-3">

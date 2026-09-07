@@ -371,7 +371,7 @@ export default async function HomePage() {
           <MotionDiv>
             <p className="text-gray-110 text-lg mb-8 max-w-[600px] mx-auto">
               Whether you&apos;re curious about{" "}
-              <InlineLink href="/about#aloha-centered-design" variant="purple">
+              <InlineLink href="/about#aloha-centered-design">
                 aloha-centered design
               </InlineLink>{" "}
               or already a practitioner, join our free UXHI community to grow, build pilina,
@@ -413,9 +413,9 @@ export default async function HomePage() {
               >
                 <p>
                   Connect with other UX&apos;ers, then keep the conversation going in our{" "}
-                  <InlineLink href="/join" variant="teal" className="!text-purple-30 hover:!text-white underline !font-normal">Slack community</InlineLink>
+                  <InlineLink href="/join">Slack community</InlineLink>
                   {" "}or tap into our{" "}
-                  <InlineLink href="/find-ux-pro" variant="teal" className="!text-purple-30 hover:!text-white underline !font-normal">membership directory</InlineLink>.
+                  <InlineLink href="/find-ux-pro">membership directory</InlineLink>.
                 </p>
               </SpotIllustrationCard>
             </MotionDiv>
@@ -522,7 +522,7 @@ export default async function HomePage() {
             <MotionDiv>
               <p className="text-gray-110 text-base md:text-lg mb-10 max-w-[680px] mx-auto leading-relaxed">
                 UXHI is built and run entirely by volunteers who share a passion for{" "}
-                <InlineLink href="/about#aloha-centered-design" variant="purple">
+                <InlineLink href="/about#aloha-centered-design">
                   aloha-centered design
                 </InlineLink>
                 . We create the spaces we wish existed to learn together, support each other,

@@ -92,7 +92,7 @@ export function FAQSection({ faqs, id }: FAQSectionProps) {
             <p className="text-gray-110 text-lg">
               Questions about what we offer, and how to be a part of it? If the
               answer to your question isn&apos;t found below, just{" "}
-              <InlineLink href="/about#contact" variant="teal">contact us</InlineLink>
+              <InlineLink href="/about#contact">contact us</InlineLink>
               .
             </p>
           </motion.div>

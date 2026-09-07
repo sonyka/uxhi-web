@@ -494,20 +494,20 @@ export default async function ResourcesPage() {
                   <BulletPoint variant="yellow" />
                   <span className="text-white text-lg">
                     Inspiring local business leaders to{" "}
-                    <InlineLink href="/find-ux-pro" variant="teal">find and hire UX professionals</InlineLink>
+                    <InlineLink href="/find-ux-pro">find and hire UX professionals</InlineLink>
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
                   <BulletPoint variant="yellow" />
                   <span className="text-white text-lg">
-                    <InlineLink href="/join" variant="teal">Generate opportunities</InlineLink>
+                    <InlineLink href="/join">Generate opportunities</InlineLink>
                     {" "}for new UXers to gain experience
                   </span>
                 </li>
                 <li className="flex items-start gap-4">
                   <BulletPoint variant="yellow" />
                   <span className="text-white text-lg">
-                    <InlineLink href="/events" variant="teal">Host collaborative events</InlineLink>
+                    <InlineLink href="/events">Host collaborative events</InlineLink>
                     {" "}to strengthen the UX community
                   </span>
                 </li>

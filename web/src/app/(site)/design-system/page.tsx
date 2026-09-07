@@ -838,8 +838,8 @@ const contentComponents: Record<string, React.ReactNode> = {
         <span className="text-purple-140 font-bold uppercase tracking-wider text-sm">
           EYEBROW TEXT
         </span>
-        <InlineLink href="#" variant="teal">Link Style (Teal)</InlineLink>
-        <InlineLink href="#" variant="purple">Link Style (Purple)</InlineLink>
+        <InlineLink href="#">Link Style (Teal)</InlineLink>
+        <InlineLink href="#">Link Style (Purple)</InlineLink>
       </div>
     </ContentSection>
   ),
@@ -1460,31 +1460,31 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-inlinelink": (
     <ContentSection
       title="Inline Link"
-      description="Styled inline text links for use within paragraphs. Auto-detects external links and uses Next.js Link for internal navigation. Both variants underline with a dotted rule in gray-80 rather than a solid one in the link colour — the line marks the link without competing with the label. Teal sits at font-medium, not semibold: it is the variant that goes on the purple bands, where a bright link at semibold reads as shouting, and the colour is already marking it. Purple sets no weight and inherits the paragraph's. The 2026 conference site reached the same treatment independently; the two share no code, so the decision has to be made in both places and can drift."
+      description="A link in running copy takes the colour of the copy it sits in — no colour of its own, font-medium against the paragraph's normal, and a dotted rule beneath. Weight and rule do the marking. There used to be two variants, teal-90 at semibold and purple-140, and both were markers stacked on a marker: the rule already says link, and a coloured word pulls the eye off the sentence it belongs to. One treatment now reads correctly on the beige plane, on the purple bands and inside a dark card, with no variant for each. The rule is drawn in the text's own colour at 40% rather than a fixed grey, so the relationship holds on every ground; hover fades the link rather than recolouring it. The 2026 conference site was already here; the two share no code, so the decision has to be made in both places and can drift."
       componentPath="components/ui/InlineLink.tsx"
     >
       <div className="space-y-8">
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Teal Variant (Rich Text / Content)</h4>
-          <p className="text-base text-gray-110 mb-4">Used for links within rich text content. Font-semibold with teal colors.</p>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">On the beige plane</h4>
+          <p className="text-base text-gray-110 mb-4">Gray-120 body copy, so the links are gray-120. External ones carry the icon.</p>
           <div className="p-6 bg-beige-30 rounded-xl">
             <p className="text-base text-gray-120 leading-relaxed">
               Learn more about our community on the{" "}
-              <InlineLink href="/about" variant="teal">About page</InlineLink>{" "}
+              <InlineLink href="/about">About page</InlineLink>{" "}
               or visit the{" "}
-              <InlineLink href="https://uxhicon.com" variant="teal">UXHI Conference website</InlineLink>.
+              <InlineLink href="https://uxhicon.com">UXHI Conference website</InlineLink>.
             </p>
           </div>
         </div>
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Purple Variant (Paragraph Links)</h4>
-          <p className="text-base text-gray-110 mb-4">Used for inline paragraph links. Purple colors with underline-offset. External links show icon by default.</p>
-          <div className="p-6 bg-beige-30 rounded-xl">
-            <p className="text-base text-gray-120 leading-relaxed">
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">On a purple band</h4>
+          <p className="text-base text-gray-110 mb-4">The same component, unchanged. White copy, so the links are white &mdash; this is the case the teal variant used to shout on.</p>
+          <div className="p-6 bg-purple-140 rounded-xl">
+            <p className="text-base text-white leading-relaxed">
               Propose a topic as a presenter at our{" "}
-              <InlineLink href="https://uxhicon.com" variant="purple">UXHI Conference</InlineLink>{" "}
+              <InlineLink href="https://uxhicon.com">UXHI Conference</InlineLink>{" "}
               or{" "}
-              <InlineLink href="/events" variant="purple">local events</InlineLink>.
+              <InlineLink href="/events">local events</InlineLink>.
             </p>
           </div>
         </div>
@@ -1494,15 +1494,15 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="p-6 bg-beige-30 rounded-xl space-y-3">
             <p className="text-base text-gray-120">
               External with icon (default):{" "}
-              <InlineLink href="https://example.com" variant="purple">Example Link</InlineLink>
+              <InlineLink href="https://example.com">Example Link</InlineLink>
             </p>
             <p className="text-base text-gray-120">
               External without icon:{" "}
-              <InlineLink href="https://example.com" variant="purple" showIcon={false}>Example Link</InlineLink>
+              <InlineLink href="https://example.com" showIcon={false}>Example Link</InlineLink>
             </p>
             <p className="text-base text-gray-120">
               Internal with icon:{" "}
-              <InlineLink href="/about" variant="purple" showIcon>About Page</InlineLink>
+              <InlineLink href="/about" showIcon>About Page</InlineLink>
             </p>
           </div>
         </div>
