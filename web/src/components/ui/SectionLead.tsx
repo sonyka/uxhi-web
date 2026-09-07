@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 type LeadSize = "hero" | "lg" | "md";
-type LeadColor = "gray" | "black" | "white";
+type LeadColor = "gray" | "white";
 
 interface SectionLeadProps {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ interface SectionLeadProps {
    * - md: base → lg (supporting copy under a section heading)
    */
   size?: LeadSize;
-  /** Color variant (default: gray) */
+  /** Ground the lead sits on: gray-120 for light, white for dark. */
   color?: LeadColor;
   className?: string;
 }
@@ -27,9 +27,13 @@ const sizeStyles: Record<LeadSize, string> = {
   md: "text-base md:text-lg leading-relaxed",
 };
 
+// Two colours, matching SectionHeading: gray-120 on a light ground, white on
+// a dark one. `black` went with the seven interior hero leads that were the
+// only thing using it — each one an inline <p> repeating this component's job,
+// and the only leads on the site that were not gray-120. Removing the name
+// makes a return to black a type error rather than a quiet drift.
 const colorStyles: Record<LeadColor, string> = {
   gray: "text-gray-120",
-  black: "text-black",
   white: "text-white",
 };
 

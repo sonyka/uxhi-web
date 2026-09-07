@@ -128,7 +128,7 @@ export default async function AboutPage() {
                   under the mission statement, now a single introduction. A
                   reader met the first line, scrolled past the mission, and
                   found the rest of the same thought three sections later. */}
-              <p className="text-black text-lg lg:text-xl leading-relaxed">
+              <SectionLead size="lg">
                 Learn about UXHI, Hawaiʻi&apos;s home for aloha-centered design.
                 Founded in the summer of 2021, we are a female-founded
                 volunteer-run organization that acts as the go-to resource for
@@ -137,7 +137,7 @@ export default async function AboutPage() {
                 community of over {MEMBER_COUNT} UX practitioners who share
                 feedback and best practices with each other via our dedicated
                 Slack channel.
-              </p>
+              </SectionLead>
             </HeroItem>
 
             {/* Quick Link Modules - hidden on mobile */}

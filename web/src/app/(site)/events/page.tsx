@@ -6,6 +6,7 @@ import { EVENTS_QUERY } from "@/sanity/lib/queries";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { PressMention } from "@/components/ui/PressMention";
 import { ExternalLinkIcon } from "@/components/ui/icons";
+import { SectionLead } from "@/components/ui/SectionLead";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
@@ -55,9 +56,9 @@ export default async function EventsPage() {
               </SectionHeading>
             </HeroItem>
             <HeroItem>
-              <p className="text-black text-lg lg:text-xl leading-relaxed">
+              <SectionLead size="lg">
                 We host a mix of educational webinars, interactive workshops, and casual meetups every month, as well as our annual conference. Become a member and you&apos;ll receive advanced notice on all our events!
-              </p>
+              </SectionLead>
             </HeroItem>
             <HeroItem>
               <div>

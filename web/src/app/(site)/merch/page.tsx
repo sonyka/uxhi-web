@@ -6,6 +6,7 @@ import { PRODUCTS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionLead } from "@/components/ui/SectionLead";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
@@ -131,9 +132,9 @@ export default async function ShopPage() {
               </SectionHeading>
             </HeroItem>
             <HeroItem>
-              <p className="text-black text-lg lg:text-xl leading-relaxed">
+              <SectionLead size="lg">
                 Show your UXHI pride with official merchandise. All proceeds support community events and programs.
-              </p>
+              </SectionLead>
             </HeroItem>
             <HeroItem>
               <div>

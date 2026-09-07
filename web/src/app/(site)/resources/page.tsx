@@ -11,6 +11,7 @@ import { SpotIllustrationCard } from "@/components/ui/cards";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
+import { SectionLead } from "@/components/ui/SectionLead";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
@@ -130,9 +131,9 @@ export default async function ResourcesPage() {
               </SectionHeading>
             </HeroItem>
             <HeroItem>
-              <p className="text-black text-lg lg:text-xl leading-relaxed">
+              <SectionLead size="lg">
                 Curated UX resources including student guides, industry reports, and a directory of tech organizations in Hawaiʻi.
-              </p>
+              </SectionLead>
             </HeroItem>
 
             {/* Quick Link Modules - hidden on mobile */}

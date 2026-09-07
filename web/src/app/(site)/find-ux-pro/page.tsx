@@ -7,6 +7,7 @@ import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionLead } from "@/components/ui/SectionLead";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
@@ -35,10 +36,10 @@ export default async function FindUXProPage() {
               </SectionHeading>
             </HeroItem>
             <HeroItem>
-              <p className="text-black text-lg lg:text-xl leading-relaxed">
+              <SectionLead size="lg">
                 Connect with talented UX design professionals in Hawaiʻi and those
                 with Hawaiʻi ties, across all experience levels.
-              </p>
+              </SectionLead>
             </HeroItem>
             <HeroItem>
               <div className="flex flex-wrap gap-3">

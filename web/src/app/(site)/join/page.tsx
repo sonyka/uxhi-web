@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { MembershipForm } from "@/components/forms/MembershipForm";
+import { SectionLead } from "@/components/ui/SectionLead";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
@@ -32,12 +33,12 @@ export default function JoinPage() {
               </SectionHeading>
             </HeroItem>
             <HeroItem>
-              <p className="text-black text-lg lg:text-xl leading-relaxed">
+              <SectionLead size="lg">
                 Joining UXHI is free! As a member, you gain access to our community
                 Slack group with {MEMBER_COUNT_PLUS} designers, an invitation to join our member
                 directory, and early updates on the latest UX events through our
                 monthly emails.
-              </p>
+              </SectionLead>
             </HeroItem>
             <HeroItem>
               <div>

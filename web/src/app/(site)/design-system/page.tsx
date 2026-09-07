@@ -1095,7 +1095,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionlead": (
     <ContentSection
       title="Section Lead"
-      description="Supporting paragraph that sits directly beneath a heading. Pairs with SectionHeading — use size=&quot;hero&quot; under a display/hero heading, size=&quot;md&quot; under smaller section headings, and size=&quot;lg&quot; for a short one-liner that md leaves looking undersized. Every size owns a responsive ramp; a lead pinned to a single value is a lead that has stopped responding. Keeps subheadline type out of page files. hero and lg balance their lines; md is running copy and takes the site-wide text-pretty instead."
+      description="Supporting paragraph that sits directly beneath a heading, including the lead in every page hero. Pairs with SectionHeading — use size=&quot;hero&quot; under a display/hero heading, size=&quot;md&quot; under smaller section headings, and size=&quot;lg&quot; for a short one-liner that md leaves looking undersized. Every size owns a responsive ramp; a lead pinned to a single value is a lead that has stopped responding. Keeps subheadline type out of page files. hero and lg balance their lines; md is running copy and takes the site-wide text-pretty instead."
       componentPath="components/ui/SectionLead.tsx"
     >
       <div className="space-y-6">
@@ -1127,14 +1127,17 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Color Variants</h4>
           <div className="space-y-4">
             <div className="p-4 bg-beige-30 rounded-xl">
-              <SectionLead size="md">Gray (default)</SectionLead>
-            </div>
-            <div className="p-4 bg-beige-30 rounded-xl">
-              <SectionLead size="md" color="black">Black</SectionLead>
+              <SectionLead size="md">Gray (default) &mdash; every lead on a light ground</SectionLead>
             </div>
             <div className="p-4 bg-purple-140 rounded-xl">
-              <SectionLead size="md" color="white">White (dark backgrounds)</SectionLead>
+              <SectionLead size="md" color="white">White &mdash; every lead on a dark one</SectionLead>
             </div>
+            <p className="text-xs text-gray-100 max-w-[80ch]">
+              Two colours, as with <code>SectionHeading</code>. <code>black</code> is gone: the only
+              things using it were the seven interior hero leads, each an inline{" "}
+              <code>&lt;p&gt;</code> repeating this component&apos;s job, and the only leads on the
+              site that were not gray-120. They go through <code>size=&quot;lg&quot;</code> now.
+            </p>
 
           </div>
         </div>

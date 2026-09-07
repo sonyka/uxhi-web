@@ -12,6 +12,7 @@ import { InlineLink } from "@/components/ui/InlineLink";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionLead } from "@/components/ui/SectionLead";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
@@ -290,13 +291,13 @@ export default async function GetInvolvedPage() {
               </SectionHeading>
             </HeroItem>
             <HeroItem>
-              <p className="text-black text-lg lg:text-xl leading-relaxed">
+              <SectionLead size="lg">
                 There are many ways to contribute to the UXHI community. Check out our{" "}
                 <InlineLink href="/events" variant="purple">
                   upcoming events
                 </InlineLink>{" "}
                 or find other ways to get involved below.
-              </p>
+              </SectionLead>
             </HeroItem>
 
             {/* Quick Link Modules - hidden on mobile (iPhone) */}
