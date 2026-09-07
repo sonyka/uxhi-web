@@ -204,7 +204,7 @@ export default async function ShopPage() {
       </HeroSection>
 
       {/* Products Grid */}
-      <section id="products" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
+      <section id="products" className="pt-12 pb-20 px-6 bg-beige-30 scroll-mt-24">
         <div className="max-w-[1100px] mx-auto">
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayProducts.map((product: { _id?: string; id?: string; name: string; price?: number | string; description?: string; category?: string; variants?: string[]; images?: Array<{ asset?: { _id?: string; url?: string } }>; purchaseUrl?: string; comingSoon?: boolean; featured?: boolean }) => (
@@ -213,7 +213,13 @@ export default async function ShopPage() {
                 className="bg-white border border-gray-30 rounded-[20px] overflow-hidden hover:shadow-lg transition-shadow"
               >
                 {/* Product Image */}
-                <div className="aspect-square bg-beige-30 flex items-center justify-center relative">
+                {/* beige-10, not the beige-30 it used to be: the section ground is
+                    beige-30 now, and a tile in the plane's own colour made the
+                    top half of each card dissolve into the page, leaving the
+                    white info strip below it reading as the whole card. A step
+                    lighter sits inside the white card without touching the
+                    plane. */}
+                <div className="aspect-square bg-beige-10 flex items-center justify-center relative">
                   {product.images && product.images[0]?.asset ? (
                     <SanityImage
                       value={product.images[0]}

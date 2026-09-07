@@ -1235,13 +1235,17 @@ const contentComponents: Record<string, React.ReactNode> = {
         <ColorSwatch name="150" value="#1C1A14" textColor="text-white" />
       </div>
       <p className="text-xs text-gray-100 mt-4 max-w-[80ch]">
-        <strong className="text-gray-130">beige-30 is the only beige ground.</strong> Page and
-        section backgrounds use it and nothing else, on every page including the homepage — a
-        section on beige-10 above one on beige-30 does not read as two bands, it reads as a smudge
-        across the edge between them, because the two are four points apart in luminance. White
-        remains a section ground and still alternates with beige; that contrast is large enough to
-        be a decision. The lighter steps are for elements sitting ON a ground — beige-10 is the
-        LinkCard fill on white, beige-50 the hairline rule inside a beige card.
+        <strong className="text-gray-130">beige-30 is the plane. White is what sits on it.</strong>{" "}
+        Every page and section ground on the site is beige-30 — cards, tiles, filter bars and
+        inputs are white. Two rules fell out of one idea: a change of ground should mark a change
+        in kind, not simply the next section. beige-10 over beige-30 read as a smudge across the
+        edge rather than two bands, four points of luminance apart; white over beige read as a
+        hard cut through content that was still continuing. Purple is the exception that proves
+        it — a CTA band genuinely is a different kind of thing.{" "}
+        <strong className="text-gray-130">The lighter steps are for surfaces, never grounds:</strong>{" "}
+        beige-10 is the LinkCard hover and the merch product tile, beige-50 the hairline inside a
+        card. This documentation page is the one white ground left, and deliberately: the specimens
+        on it are themselves beige-30, and would dissolve into a beige page.
       </p>
     </ContentSection>
   ),
@@ -1611,7 +1615,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-spotillustration": (
     <ContentSection
       title="Spot Illustration Card"
-      description="One card in three arrangements. Stacked leads with a 96px illustration over centred prose and an optional footer link. Anchored keeps that icon size but reads it last — left-aligned prose at the top, the illustration pinned to the bottom-left — so a row of cards ends on a line of art. Detail drops the icon to 56px and moves it into a header row beside the title, so a reader scanning a grid meets the name before the art, and passes the body as data — a lead, a hero stat, bullets, or a ranking — rather than as markup, which is what keeps size and colour decisions inside the component. Each ground pairs with one layout in practice: dark is anchored, white is stacked, beige and translucent are detail."
+      description="One card in three arrangements. Stacked leads with a 96px illustration over centred prose and an optional footer link. Anchored keeps that icon size but reads it last — left-aligned prose at the top, the illustration pinned to the bottom-left — so a row of cards ends on a line of art. Detail drops the icon to 56px and moves it into a header row beside the title, so a reader scanning a grid meets the name before the art, and passes the body as data — a lead, a hero stat, bullets, or a ranking — rather than as markup, which is what keeps size and colour decisions inside the component. Each ground pairs with one layout in practice: dark is anchored, white is stacked and detail, translucent is detail. The beige variant has no call site left — the committee cards it was built for moved to white when the section grounds became beige-30, since a card has to be lighter than the plane it sits on. It stays for a card nested on a white surface."
       componentPath="components/ui/cards/SpotIllustrationCard.tsx"
     >
       <div className="space-y-8">
@@ -1662,7 +1666,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
         </div>
         <div>
-          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Detail, beige — lead + bullets (committee cards)</h4>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Detail, beige — lead + bullets (no call site; see note below)</h4>
           <div className="grid md:grid-cols-2 gap-6">
             <SpotIllustrationCard
               layout="detail"
@@ -1824,7 +1828,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-link": (
     <ContentSection
       title="Link Card"
-      description="Beige card with title, optional purple description, optional leading media slot, and an external link icon. The background lightens on hover; the title deliberately holds its colour — it used to turn teal-100, which measured 2.63:1 against the hover background and failed AA. Used for every card on /resources, including the tech-organisation list."
+      description="White card with title, optional purple description, optional leading media slot, and an external link icon. It was beige-10 on a white section until the grounds became beige-30 — at which point its beige-30 hover WAS the ground and the card dissolved into the page under the cursor. Now it is white at rest and beige-10 on hover, a step darker without reaching the plane. The title deliberately holds its colour — it used to turn teal-100, which measured 2.63:1 against the hover background and failed AA. Used for every card on /resources, including the tech-organisation list."
       componentPath="components/ui/LinkCard.tsx"
     >
       <div className="space-y-6">

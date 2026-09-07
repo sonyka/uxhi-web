@@ -149,7 +149,7 @@ export default function JoinPage() {
       </section>
 
       {/* Large Team Photo */}
-      <section className="px-6 py-16 bg-white">
+      <section className="px-6 py-16 bg-beige-30">
         <ScrollReveal variants={scaleReveal} className="max-w-[1300px] mx-auto">
           <div className="rounded-[32px] overflow-hidden aspect-[16/7] relative">
             <Image

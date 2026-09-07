@@ -222,7 +222,7 @@ export default async function ResourcesPage() {
       </HeroSection>
 
       {/* UX for students Section */}
-      <section id="students" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
+      <section id="students" className="pt-12 pb-20 px-6 bg-beige-30 scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal stagger className="text-center mb-10">
             <MotionDiv>
@@ -285,7 +285,7 @@ export default async function ResourcesPage() {
       </section>
 
       {/* Conference Photo Bento Grid */}
-      <section className="px-6 pb-16 bg-white">
+      <section className="px-6 pb-16 bg-beige-30">
         <div className="max-w-[1300px] mx-auto flex flex-col gap-4">
           {/* Top row — 2 equal images */}
           <ScrollReveal stagger className="flex flex-col sm:flex-row gap-4">
@@ -341,7 +341,7 @@ export default async function ResourcesPage() {
         </div>
       </section>
 
-      <section className="pb-20 px-6 bg-white">
+      <section className="pb-20 px-6 bg-beige-30">
         <div className="max-w-[900px] mx-auto">
           {/* Online Programs */}
           <div className="mb-12">
@@ -387,7 +387,7 @@ export default async function ResourcesPage() {
       </section>
 
       {/* UX for Practitioners & Businesses (Coming Soon) */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 bg-beige-30">
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <MotionDiv>
@@ -542,7 +542,7 @@ export default async function ResourcesPage() {
       </section>
 
       {/* Directory of Tech Organizations */}
-      <section id="directory" className="py-20 px-6 bg-white scroll-mt-24">
+      <section id="directory" className="py-20 px-6 bg-beige-30 scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal stagger className="text-center">
             <MotionDiv>

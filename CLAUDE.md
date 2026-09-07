@@ -131,7 +131,7 @@ Whenever a UI component's styling, props, or behavior is changed, the design sys
 Quick reference (see design system for full details):
 - Primary: teal (`--color-teal-90: #09C0D7`)
 - Secondary: purple (`--color-purple-140: #231769`)
-- Background: beige (`--color-beige-10: #FDF9F6`)
+- Background: beige (`--color-beige-30: #F4F1EA`) — every page and section ground; white is for cards and surfaces sitting on it
 - Fonts: Dela Gothic One (display), Nunito (body)
 
 **Conference site design — every year is a full redesign.** 2024, 2025 and 2026 share no

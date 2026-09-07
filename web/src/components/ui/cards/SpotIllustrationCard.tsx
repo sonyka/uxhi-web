@@ -32,8 +32,12 @@ interface SpotIllustrationCardProps {
    * Ground the card sits on. Sets background, radius and every type colour.
    *
    * In practice each ground pairs with one layout — dark is anchored, white is
-   * stacked, beige and translucent are detail cards — because that is how the
-   * four card styles are drawn. Nothing enforces the pairing.
+   * stacked and detail, translucent is detail — because that is how the card
+   * styles are drawn. Nothing enforces the pairing.
+   *
+   * `beige` is the one with no call site left. Section grounds are beige-30
+   * now, so a beige card would sit on its own colour; it survives for a card
+   * nested on a white surface, which is the only place it would still read.
    */
   variant?: SpotIllustrationCardVariant;
   /**

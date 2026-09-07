@@ -173,7 +173,7 @@ export default async function FindUXProPage() {
       </HeroSection>
 
       {/* Member directory section */}
-      <section id="directory" className="py-12 px-6 bg-white scroll-mt-24">
+      <section id="directory" className="py-12 px-6 bg-beige-30 scroll-mt-24">
         <div className="max-w-[1400px] mx-auto">
           <ScrollReveal stagger className="max-w-[900px] mx-auto text-center mb-10">
             <MotionDiv>

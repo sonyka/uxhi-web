@@ -128,7 +128,7 @@ export default async function EventsPage() {
       </HeroSection>
 
       {/* Upcoming events Section - Luma Embed */}
-      <section className="pt-12 pb-20 px-6 bg-white">
+      <section className="pt-12 pb-20 px-6 bg-beige-30">
         <div className="max-w-[1100px] mx-auto text-center">
           <ScrollReveal stagger className="text-center">
             {/* Upcoming events Icon */}
@@ -162,7 +162,7 @@ export default async function EventsPage() {
 
 
       {/* Conference Attendees Bento Grid */}
-      <section className="px-6 pb-16 bg-white">
+      <section className="px-6 pb-16 bg-beige-30">
         <div className="max-w-[1300px] mx-auto">
           <ScrollReveal stagger className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2">
             {/* Row 1, Left — wide */}

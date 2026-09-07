@@ -14,10 +14,16 @@ interface LinkCardProps {
 }
 
 /**
- * LinkCard - External link card with beige-30 background
+ * LinkCard - External link card that sits on the beige plane
+ *
+ * White at rest and beige-10 on hover. It was the other way round — beige-10
+ * on a white section — until the section grounds became beige-30, at which
+ * point the hover colour WAS the ground and the card dissolved into the page
+ * under the cursor. A card is lighter than the plane it sits on; the hover
+ * then darkens it a step without reaching the plane.
  *
  * Design tokens:
- * - Background: beige-30 (#f4f1ea), hover: beige-30
+ * - Background: white, hover: beige-10 (#FDFBF7)
  * - Border radius: 16px (rounded-[16px])
  * - Padding: 20px (p-5)
  * - Title: text-base, font-medium, gray-140 — unchanged on hover
@@ -33,7 +39,7 @@ export function LinkCard({ href, title, description, media, className = "" }: Li
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center justify-between bg-beige-10 rounded-[16px] p-5 hover:bg-beige-30 transition-colors group ${className}`}
+      className={`flex items-center justify-between bg-white rounded-[16px] p-5 hover:bg-beige-10 transition-colors group ${className}`}
     >
       <div className="flex items-center gap-3">
         {media}

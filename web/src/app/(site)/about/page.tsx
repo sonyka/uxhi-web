@@ -227,7 +227,7 @@ export default async function AboutPage() {
       {/* Aloha-Centered Design */}
       <section
         id="aloha-centered-design"
-        className="scroll-mt-24 bg-white px-6 py-20"
+        className="scroll-mt-24 bg-beige-30 px-6 py-20"
       >
         <div className="mx-auto max-w-[900px]">
           <ScrollReveal stagger>

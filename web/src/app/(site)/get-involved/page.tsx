@@ -141,7 +141,7 @@ function CommitteeCard({
   return (
     <SpotIllustrationCard
       layout="detail"
-      variant="beige"
+      variant="white"
       image={image}
       imageSrc={imageSrc}
       imageAlt={name}
@@ -474,7 +474,7 @@ export default async function GetInvolvedPage() {
       </HeroSection>
 
       {/* Volunteer Section */}
-      <section id="volunteer" className="pt-12 pb-20 px-6 bg-white scroll-mt-24">
+      <section id="volunteer" className="pt-12 pb-20 px-6 bg-beige-30 scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal>
             <SectionHeading className="mb-6">
@@ -587,7 +587,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Speaking Opportunities Section */}
-      <section id="speak" className="py-20 px-6 bg-white scroll-mt-24">
+      <section id="speak" className="py-20 px-6 bg-beige-30 scroll-mt-24">
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           <MotionDiv>
             <SectionHeading className="mb-6">
@@ -618,7 +618,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Speaker Photo Bento Grid */}
-      <section className="px-6 pb-16 bg-white">
+      <section className="px-6 pb-16 bg-beige-30">
         <div className="max-w-[1300px] mx-auto">
           <ScrollReveal stagger className="flex flex-col lg:flex-row gap-4 lg:h-[500px]">
             {/* Left column -- tall */}
@@ -667,7 +667,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Partnerships Section */}
-      <section id="partner" className="py-20 px-6 bg-white scroll-mt-24">
+      <section id="partner" className="py-20 px-6 bg-beige-30 scroll-mt-24">
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal>
             <SectionHeading className="mb-6">
@@ -714,7 +714,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Successful partnerships Section */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 bg-beige-30">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
             <SectionEyebrow className="text-center mb-12">
@@ -726,7 +726,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Sponsorships Section */}
-      <section id="sponsor" className="py-20 px-6 bg-white scroll-mt-24">
+      <section id="sponsor" className="py-20 px-6 bg-beige-30 scroll-mt-24">
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           <MotionDiv>
             <SectionHeading className="mb-6">
@@ -742,7 +742,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Past event sponsors Section */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 bg-beige-30">
         <div className="max-w-[1200px] mx-auto">
           <ScrollReveal>
             <SectionEyebrow className="text-center mb-12">
@@ -754,7 +754,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Ready to Collaborate Section */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 bg-beige-30">
         <ScrollReveal stagger className="max-w-[600px] mx-auto text-center">
           <MotionDiv>
             <SectionIcon src="/images/icons/icon-collaborate.svg" alt="Collaborate" />
