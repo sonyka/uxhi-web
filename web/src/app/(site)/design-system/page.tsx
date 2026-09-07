@@ -1546,17 +1546,51 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-css": (
     <ContentSection
       title="CSS Utility Classes"
-      description="CSS classes for custom button styling (not component-based)."
+      description="CSS classes that are not component-based, defined in globals.css."
       componentPath="globals.css"
     >
-      <div className="flex flex-wrap gap-4 items-center">
-        <button className="btn-primary">btn-primary</button>
-        <button className="btn-primary-arrow">
-          <span className="text-white">btn-primary-arrow</span>
-          <span className="w-8 h-8 rounded-full bg-yellow-80 flex items-center justify-center">
-            <ArrowIcon className="w-4 h-4 text-gray-140" />
-          </span>
-        </button>
+      <div className="space-y-8">
+        <div className="flex flex-wrap gap-4 items-center">
+          <button className="btn-primary">btn-primary</button>
+          <button className="btn-primary-arrow">
+            <span className="text-white">btn-primary-arrow</span>
+            <span className="w-8 h-8 rounded-full bg-yellow-80 flex items-center justify-center">
+              <ArrowIcon className="w-4 h-4 text-gray-140" />
+            </span>
+          </button>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">scrollbar-visible</h4>
+          <div className="grid md:grid-cols-2 gap-6 items-start">
+            <div>
+              <p className="text-sm text-gray-110 mb-3">With the class &mdash; the bar is there before you touch it.</p>
+              <div className="scrollbar-visible h-32 overflow-y-auto rounded-xl border border-gray-30 bg-white p-4 text-base text-gray-120">
+                A box whose content is cut off mid-sentence has to say so. macOS hides overlay
+                scrollbars until a scroll begins, which is fine on a page — the content obviously
+                continues — and wrong here, because nothing on screen tells the reader there is
+                more and they have to guess and try. This utility forces a real, space-taking bar.
+              </div>
+            </div>
+            <div>
+              <p className="text-sm text-gray-110 mb-3">Without it &mdash; the same box, no affordance until you scroll.</p>
+              <div className="h-32 overflow-y-auto rounded-xl border border-gray-30 bg-white p-4 text-base text-gray-120">
+                A box whose content is cut off mid-sentence has to say so. macOS hides overlay
+                scrollbars until a scroll begins, which is fine on a page — the content obviously
+                continues — and wrong here, because nothing on screen tells the reader there is
+                more and they have to guess and try. This utility forces a real, space-taking bar.
+              </div>
+            </div>
+          </div>
+          <p className="text-xs text-gray-100 mt-4 max-w-[80ch]">
+            Two syntaxes, and the split matters. Giving{" "}
+            <code>::-webkit-scrollbar</code> a width is what opts an element out of overlay
+            scrollbars in Safari and Chrome. The standard <code>scrollbar-width</code> does not —
+            it defers to the OS setting, and in Blink it <em>wins</em> over the pseudo-element, so
+            declaring it unconditionally is what keeps the bar hidden. It sits behind{" "}
+            <code>@supports not selector(::-webkit-scrollbar)</code> so it reaches Firefox and
+            nothing else. Used on the team card bios, where a scrolling box is only 300px tall.
+          </p>
+        </div>
       </div>
     </ContentSection>
   ),

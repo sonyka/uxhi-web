@@ -189,6 +189,48 @@ body {
   font-family: var(--font-body);
 }
 
+/* A scrollbar you can see before you touch it.
+   macOS hides overlay scrollbars until a scroll begins. On a page that is
+   fine — the content obviously continues. In a small box whose text is cut
+   off mid-sentence it is not: nothing on screen says there is more, and the
+   reader has to guess and try. Forcing a visible track is the affordance.
+
+   Both syntaxes on purpose. scrollbar-width/-color is the standard one and
+   the only one Firefox reads; ::-webkit-scrollbar is what Safari and Chrome
+   style, and setting it opts that element out of overlay behaviour. */
+/* Firefox only. In Blink the standard property WINS over ::-webkit-scrollbar,
+   and `scrollbar-width` still defers to the OS overlay setting — so declaring
+   it unconditionally is what kept the scrollbar hidden until you scrolled,
+   measured as a 0px gutter. Behind @supports it reaches Firefox, which has no
+   ::-webkit-scrollbar, and stays away from the browsers that do. */
+@supports not selector(::-webkit-scrollbar) {
+  .scrollbar-visible {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-40) var(--color-beige-30);
+  }
+}
+
+/* Giving ::-webkit-scrollbar a width opts the element out of overlay
+   scrollbars in Safari and Chrome: the bar takes real layout space and is
+   there before the first scroll, which is the whole point. */
+.scrollbar-visible::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-visible::-webkit-scrollbar-track {
+  background: var(--color-beige-30);
+  border-radius: 999px;
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background: var(--color-gray-40);
+  border-radius: 999px;
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-60);
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
