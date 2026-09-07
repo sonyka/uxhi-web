@@ -126,7 +126,7 @@ export default async function ShopPage() {
         <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
-              <SectionHeading as="h1" size="hero" color="black">
+              <SectionHeading as="h1" size="hero">
                 Shop
               </SectionHeading>
             </HeroItem>

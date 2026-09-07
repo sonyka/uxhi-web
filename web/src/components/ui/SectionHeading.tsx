@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 type HeadingSize = "statement" | "sm" | "md" | "lg" | "xl" | "hero" | "display";
-type HeadingColor = "purple" | "white" | "black" | "gray";
+type HeadingColor = "purple" | "white";
 type HeadingTag = "h1" | "h2" | "h3";
 
 interface SectionHeadingProps {
@@ -29,7 +29,7 @@ interface SectionHeadingProps {
    * even where the numbers agree.
    */
   size?: HeadingSize;
-  /** Color variant (default: purple) */
+  /** Ground the heading sits on: purple-140 for light, white for dark. */
   color?: HeadingColor;
   /** HTML heading tag (default: h2) */
   as?: HeadingTag;
@@ -55,11 +55,20 @@ const sizeStyles: Record<HeadingSize, string> = {
   statement: "text-xl md:text-3xl lg:text-4xl leading-tight",
 };
 
+// Two colours, and only two: a heading is purple-140 on a light ground and
+// white on a dark one. There used to be four. `black` dressed the eight page
+// h1s, `gray-130` the mission statement on the homepage, and a hand-rolled h2
+// on /about gave that same sentence purple-120 — so a reader moving between
+// two pages met the identical sentence in two colours, and a reader moving
+// down one page met the title in a third.
+//
+// The union is the enforcement. Dropping the two unused names turns a future
+// `color="black"` into a type error rather than a decision nobody notices for
+// six months. Re-add one when a design genuinely calls for a neutral heading,
+// not to make one page's title louder than the rest.
 const colorStyles: Record<HeadingColor, string> = {
   purple: "text-purple-140",
   white: "text-white",
-  black: "text-black",
-  gray: "text-gray-130",
 };
 
 /**

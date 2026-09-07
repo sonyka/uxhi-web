@@ -52,7 +52,7 @@ export default async function HomePage() {
 
           {/* Main Headline */}
           <HeroItem>
-            <SectionHeading as="h1" size="display" color="black" className="mb-3 md:mb-6">
+            <SectionHeading as="h1" size="display" className="mb-3 md:mb-6">
               Community for<br className="hidden md:block" />{" "}
               <MobileTooltip
                 tooltip={ALOHA_CENTERED_TOOLTIP}
@@ -336,8 +336,8 @@ export default async function HomePage() {
       {/* Mission Section */}
       <section className="py-12 md:py-20 px-6">
         <ScrollReveal className="max-w-[900px] mx-auto text-center">
-          <SectionEyebrow className="mb-4 block text-purple-140">What we do</SectionEyebrow>
-          <SectionHeading size="statement" color="gray" className="mb-10">
+          <SectionEyebrow className="mb-4 block">What we do</SectionEyebrow>
+          <SectionHeading size="statement" className="mb-10">
             <MissionStatement />
           </SectionHeading>
           <PrimaryCTA href="/about#aloha-centered-design" shortLabel="aloha-centered design">

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { MissionStatement } from "@/components/ui/MissionStatement";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MEMBER_COUNT } from "@/lib/stats";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
@@ -70,13 +71,16 @@ export function MissionSection({ values }: MissionSectionProps) {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Mission Statement */}
-          <motion.h2
-            variants={fadeInUp}
-            className="font-display text-xl md:text-3xl lg:text-4xl text-purple-120 leading-tight text-balance mb-8 max-w-4xl"
-          >
-            <MissionStatement />
-          </motion.h2>
+          {/* Mission Statement.
+              Through SectionHeading rather than a hand-rolled h2: this carried
+              its own copy of the `statement` ramp — the same three steps, typed
+              out again — and a colour, purple-120, that the same sentence on the
+              homepage did not use. One sentence, two renderings, two colours. */}
+          <motion.div variants={fadeInUp} className="mb-8 max-w-4xl">
+            <SectionHeading size="statement">
+              <MissionStatement />
+            </SectionHeading>
+          </motion.div>
 
           {/* Description */}
           <motion.div variants={fadeInUp} className="max-w-4xl mb-12">

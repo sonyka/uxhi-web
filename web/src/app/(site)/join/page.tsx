@@ -27,7 +27,7 @@ export default function JoinPage() {
         <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
-              <SectionHeading as="h1" size="hero" color="black">
+              <SectionHeading as="h1" size="hero">
                 Become a member!
               </SectionHeading>
             </HeroItem>

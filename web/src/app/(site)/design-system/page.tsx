@@ -775,7 +775,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="flex flex-wrap gap-8 p-6 bg-beige-30 rounded-xl">
             <div className="w-[380px]">
               <span className="text-xs text-gray-100 font-mono">balanced — what SectionHeading does</span>
-              <SectionHeading size="sm" color="black">Together, we shape the future of UX in Hawai&#699;i</SectionHeading>
+              <SectionHeading size="sm">Together, we shape the future of UX in Hawai&#699;i</SectionHeading>
             </div>
             <div className="w-[380px]">
               <span className="text-xs text-gray-100 font-mono">unbalanced — for comparison only</span>
@@ -944,7 +944,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionheading": (
     <ContentSection
       title="Section Heading"
-      description="Display heading for page sections. Uses Dela Gothic One with responsive sizing. Supports size variants (display, hero, xl, lg, md, sm), color variants (purple, white, black, gray), and heading tags (h1-h3). Every size carries text-balance, so a heading never leaves one word alone on its last line at any viewport."
+      description="Display heading for page sections. Uses Dela Gothic One with responsive sizing. Supports size variants (display, hero, xl, lg, md, sm), two colour variants (purple for light grounds, white for dark), and heading tags (h1-h3). Every size carries text-balance, so a heading never leaves one word alone on its last line at any viewport."
       componentPath="components/ui/SectionHeading.tsx"
     >
       <div className="space-y-6">
@@ -953,11 +953,11 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="space-y-4 p-6 bg-beige-30 rounded-xl">
             <div>
               <span className="text-xs text-gray-100 font-mono">display — homepage hero only (36 → 60 → 72px)</span>
-              <SectionHeading as="h1" size="display" color="black">Display Title</SectionHeading>
+              <SectionHeading as="h1" size="display">Display Title</SectionHeading>
             </div>
             <div>
               <span className="text-xs text-gray-100 font-mono">hero — interior page h1 (32px → 4xl → 5xl)</span>
-              <SectionHeading as="h1" size="hero" color="black">Hero Title</SectionHeading>
+              <SectionHeading as="h1" size="hero">Hero Title</SectionHeading>
             </div>
             <div>
               <span className="text-xs text-gray-100 font-mono">xl — large CTA headings (28px → 5xl → 6xl, leading-tight)</span>
@@ -977,7 +977,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             </div>
             <div>
               <span className="text-xs text-gray-100 font-mono">statement — the mission sentence (xl → 3xl → 4xl, leading-tight)</span>
-              <SectionHeading size="statement" color="gray">A sentence set in display type, which is why it starts a step below sm although it ends in the same place.</SectionHeading>
+              <SectionHeading size="statement">A sentence set in display type, which is why it starts a step below sm although it ends in the same place.</SectionHeading>
             </div>
           </div>
         </div>
@@ -1027,14 +1027,20 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Color Variants</h4>
           <div className="space-y-4">
             <div className="p-4 bg-beige-30 rounded-xl">
-              <SectionHeading>Purple (default)</SectionHeading>
+              <SectionHeading>Purple (default) &mdash; every heading on a light ground</SectionHeading>
             </div>
             <div className="p-4 bg-purple-140 rounded-xl">
-              <SectionHeading color="white">White (dark backgrounds)</SectionHeading>
+              <SectionHeading color="white">White &mdash; every heading on a dark one</SectionHeading>
             </div>
-            <div className="p-4 bg-beige-30 rounded-xl">
-              <SectionHeading color="black">Black (hero sections)</SectionHeading>
-            </div>
+            <p className="text-xs text-gray-100 max-w-[80ch]">
+              <strong className="text-gray-130">Two colours, and the union enforces it.</strong> There
+              were four: <code>black</code> on the eight page h1s, <code>gray-130</code> on the
+              homepage mission statement, and a hand-rolled h2 on /about giving that same sentence
+              <code> purple-120</code> — so the identical sentence appeared in two colours across two
+              pages, and a page title sat in a third. <code>black</code> and <code>gray</code> are
+              gone from <code>HeadingColor</code>, which turns a future <code>color=&quot;black&quot;</code>
+              into a type error rather than a decision nobody notices for six months.
+            </p>
           </div>
         </div>
       </div>
@@ -3057,7 +3063,7 @@ const contentComponents: Record<string, React.ReactNode> = {
 {`<HeroContent>
   <HeroEntrance className="flex flex-col gap-6">
     <HeroItem>
-      <SectionHeading as="h1" size="hero" color="black">
+      <SectionHeading as="h1" size="hero">
         Page Title
       </SectionHeading>
     </HeroItem>
