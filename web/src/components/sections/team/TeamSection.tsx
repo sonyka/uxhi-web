@@ -74,7 +74,7 @@ export function TeamSection({ members, id }: TeamSectionProps) {
   const otherGroup = grouped.find((g) => g.key === "other");
 
   return (
-    <section id={id} className="py-20 md:py-28 bg-beige-10 scroll-mt-24">
+    <section id={id} className="py-20 md:py-28 bg-beige-30 scroll-mt-24">
       <Container>
         {/* Section Header */}
         <motion.div

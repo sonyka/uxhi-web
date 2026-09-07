@@ -1063,17 +1063,18 @@ const contentComponents: Record<string, React.ReactNode> = {
             untouched.
           </p>
           <p>
-            <strong className="text-gray-130">It owns the hero ground.</strong> Interior pages
-            set <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-beige-10</span> on{" "}
+            <strong className="text-gray-130">It owns the hero ground,</strong>{" "}
+            <span className="font-mono text-xs bg-gray-20 px-1 rounded">beige-30</span> — the same
+            ground the homepage hero shows. Interior pages used to set{" "}
+            <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-beige-10</span> on{" "}
             <span className="font-mono text-xs bg-gray-20 px-1 rounded">&lt;main&gt;</span>, a step
-            lighter than the <span className="font-mono text-xs bg-gray-20 px-1 rounded">beige-30</span>{" "}
-            the homepage hero shows. Every section below a hero paints its own background, so that
-            lighter ground was visible in exactly one place per page — behind the hero — which made
-            the interior heroes read whiter than the one they are compared against. The colour is
-            painted on a full-width box inside the component, not on the capped one: a background on
-            a 1400px box stops at 1400px, and past that width the{" "}
-            <span className="font-mono text-xs bg-gray-20 px-1 rounded">&lt;main&gt;</span> ground
-            would show as gutters either side.
+            lighter, and every beige ground on the site has since moved to beige-30 — two beiges
+            that close together read as a smudge across a section edge rather than as two bands.
+            Keeping the colour here makes the hero&apos;s ground a fact about the component instead
+            of a line each page has to get right. It is painted on a full-width box inside the
+            component, not on the capped one: a background on a 1400px box stops at 1400px, and a
+            page whose <span className="font-mono text-xs bg-gray-20 px-1 rounded">&lt;main&gt;</span>{" "}
+            ever set a different ground would show it as gutters either side.
           </p>
           <p>
             Pairs with <span className="font-mono text-xs bg-gray-20 px-1 rounded">HeroContent</span>{" "}
@@ -1233,6 +1234,15 @@ const contentComponents: Record<string, React.ReactNode> = {
         <ColorSwatch name="140" value="#332E25" textColor="text-white" />
         <ColorSwatch name="150" value="#1C1A14" textColor="text-white" />
       </div>
+      <p className="text-xs text-gray-100 mt-4 max-w-[80ch]">
+        <strong className="text-gray-130">beige-30 is the only beige ground.</strong> Page and
+        section backgrounds use it and nothing else, on every page including the homepage — a
+        section on beige-10 above one on beige-30 does not read as two bands, it reads as a smudge
+        across the edge between them, because the two are four points apart in luminance. White
+        remains a section ground and still alternates with beige; that contrast is large enough to
+        be a decision. The lighter steps are for elements sitting ON a ground — beige-10 is the
+        LinkCard fill on white, beige-50 the hairline rule inside a beige card.
+      </p>
     </ContentSection>
   ),
   "colors-skin": (

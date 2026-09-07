@@ -118,7 +118,7 @@ export default async function ResourcesPage() {
   const displayTechOrgs = techOrganizations && techOrganizations.length > 0 ? techOrganizations : techOrgs;
 
   return (
-    <main className="min-h-screen bg-beige-10">
+    <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}
       <HeroSection>
         {/* Left Side - Content */}

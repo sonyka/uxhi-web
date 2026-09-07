@@ -20,17 +20,17 @@ interface HeroSectionProps {
  * apart at 1920, 544px at 2560, with over half the screen empty between the
  * heading and the art.
  *
- * It also owns the hero ground. Interior pages set `bg-beige-10` on <main>,
- * a step lighter than the beige-30 the homepage hero shows — and since every
- * section below a hero paints its own background, that lighter ground was
- * visible in exactly one place per page: behind the hero. So the interior
- * heroes read whiter than the homepage's, which is the one they sit next to
- * in a visitor's memory. The ground is painted here, in the component all
- * seven share, rather than in seven page files.
+ * It also owns the hero ground. The interior pages once set `bg-beige-10` on
+ * <main>, a step lighter than the beige-30 the homepage hero shows, and since
+ * every section below a hero paints its own background that lighter ground was
+ * visible in exactly one place per page — behind the hero. The pages have since
+ * moved to beige-30 themselves, so nothing disagrees with this any more, and
+ * the ground stays here anyway: the hero's colour is then a fact about the
+ * component rather than a line each page has to keep getting right.
  *
  * The colour goes on an outer, full-width box rather than on the capped one:
- * a background on a 1400px box stops at 1400px, and above that width the
- * <main> ground would show through as gutters either side of the hero.
+ * a background on a 1400px box stops at 1400px, and a page whose <main> ever
+ * sets a different ground would show it as gutters either side of the hero.
  *
  * Not used on the homepage, which has its own centred hero.
  *

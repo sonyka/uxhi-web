@@ -278,7 +278,7 @@ export default async function GetInvolvedPage() {
   const sponsorLogos = toLogos(sponsors, fallbackSponsors);
 
   return (
-    <main className="min-h-screen bg-beige-10">
+    <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}
       <HeroSection>
         {/* Left Side - Content */}

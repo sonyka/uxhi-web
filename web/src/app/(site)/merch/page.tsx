@@ -119,7 +119,7 @@ export default async function ShopPage() {
   const displayProducts = sanityProducts && sanityProducts.length > 0 ? sanityProducts : products;
 
   return (
-    <main className="min-h-screen bg-beige-10">
+    <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}
       <HeroSection>
         {/* Left Side - Content */}
@@ -285,7 +285,7 @@ export default async function ShopPage() {
       </section>
 
       {/* Coming Soon Section */}
-      <section className="py-16 px-6 bg-beige-10">
+      <section className="py-16 px-6 bg-beige-30">
         <ScrollReveal stagger className="max-w-[600px] mx-auto text-center">
           <MotionDiv>
             <SectionIcon src="/images/icons/icon-shopping.svg" alt="Shopping" />

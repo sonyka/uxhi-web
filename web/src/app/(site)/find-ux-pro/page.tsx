@@ -23,7 +23,7 @@ export default async function FindUXProPage() {
   const { data: members } = await sanityFetchCached({ query: DIRECTORY_MEMBERS_QUERY });
 
   return (
-    <main className="min-h-screen bg-beige-10">
+    <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}
       <HeroSection>
         {/* Left Side - Content */}

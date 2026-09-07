@@ -111,7 +111,7 @@ export default async function AboutPage() {
   const values = valuesResult.data || [];
 
   return (
-    <main className="min-h-screen bg-beige-10">
+    <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}
       <HeroSection>
         {/* Left Side - Content */}
@@ -287,7 +287,7 @@ export default async function AboutPage() {
 
       {/* Featured Press — hidden for now, see SHOW_PRESS above */}
       {SHOW_PRESS && (
-        <section className="pb-16 px-6 bg-beige-10">
+        <section className="pb-16 px-6 bg-beige-30">
           <div className="max-w-[1100px] mx-auto">
             <ScrollReveal>
               <PressMention

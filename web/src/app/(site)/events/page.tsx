@@ -43,7 +43,7 @@ export default async function EventsPage() {
   const events: Event[] = eventsResult.data || [];
 
   return (
-    <main className="min-h-screen bg-beige-10">
+    <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}
       <HeroSection>
         {/* Left Side - Content */}
