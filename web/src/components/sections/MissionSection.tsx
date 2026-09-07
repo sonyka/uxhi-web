@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/Container";
 import { SpotIllustrationCard } from "@/components/ui/cards/SpotIllustrationCard";
 import { MissionStatement } from "@/components/ui/MissionStatement";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { MEMBER_COUNT } from "@/lib/stats";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 interface Value {
@@ -76,27 +75,20 @@ export function MissionSection({ values }: MissionSectionProps) {
               its own copy of the `statement` ramp — the same three steps, typed
               out again — and a colour, purple-120, that the same sentence on the
               homepage did not use. One sentence, two renderings, two colours. */}
-          <motion.div variants={fadeInUp} className="mb-8 max-w-4xl">
+          <motion.div variants={fadeInUp} className="max-w-4xl">
             <SectionHeading size="statement">
               <MissionStatement />
             </SectionHeading>
           </motion.div>
 
-          {/* Description */}
-          <motion.div variants={fadeInUp} className="max-w-4xl mb-12">
-            <p className="text-gray-120 text-lg leading-relaxed">
-              Founded in the summer of 2021, we are a female-founded
-              volunteer-run organization that acts as the go-to resource for UX
-              in the state. Our primary initiatives include our annual UXHI
-              Conference, our State of UX report, our ongoing events, and
-              community of over {MEMBER_COUNT} UX practitioners who share feedback and best
-              practices with each other via our dedicated Slack channel.
-            </p>
-          </motion.div>
-
-          {/* Values — hidden for now, see SHOW_VALUES above */}
+          {/* Values — hidden for now, see SHOW_VALUES above.
+              The gap above belongs here rather than under the statement: the
+              statement used to carry an mb-8 that separated it from a founding
+              paragraph, and when that paragraph moved to the hero the margin
+              stayed behind as dead space under a section with nothing after
+              it. Spacing sits on the thing that needs it. */}
           {SHOW_VALUES && (
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUp} className="mt-8">
             <h3 className="font-display text-xl md:text-3xl text-purple-140 text-balance mb-8 text-center">
               Our Values
             </h3>

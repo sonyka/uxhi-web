@@ -18,6 +18,7 @@ import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
+import { MEMBER_COUNT } from "@/lib/stats";
 
 // The FAQ section is hidden on /about for now (2026-08-29). The FAQs still
 // come from Sanity and the markup is intact, so restoring is flipping this
@@ -123,8 +124,19 @@ export default async function AboutPage() {
               </SectionHeading>
             </HeroItem>
             <HeroItem>
+              {/* The one-line lead and the founding paragraph that used to sit
+                  under the mission statement, now a single introduction. A
+                  reader met the first line, scrolled past the mission, and
+                  found the rest of the same thought three sections later. */}
               <p className="text-black text-lg lg:text-xl leading-relaxed">
                 Learn about UXHI, Hawaiʻi&apos;s home for aloha-centered design.
+                Founded in the summer of 2021, we are a female-founded
+                volunteer-run organization that acts as the go-to resource for
+                UX in the state. Our primary initiatives include our annual UXHI
+                Conference, our State of UX report, our ongoing events, and
+                community of over {MEMBER_COUNT} UX practitioners who share
+                feedback and best practices with each other via our dedicated
+                Slack channel.
               </p>
             </HeroItem>
 
