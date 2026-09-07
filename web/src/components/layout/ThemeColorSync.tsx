@@ -59,22 +59,49 @@ export function ThemeColorSync() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-    if (!meta) return;
+    // React's own tag — the one the route's `viewport` export renders. Read for
+    // its value, then left alone: it belongs to React, which will remove it
+    // itself on the next navigation that changes the colour.
+    const routeMeta = document.querySelector<HTMLMetaElement>(
+      'meta[name="theme-color"]:not([data-theme-color-sync])'
+    );
+    if (!routeMeta) return;
 
-    const fallback = meta.content;
+    const fallback = routeMeta.content;
     const parseColor = makeParser();
-    let current = meta;
 
-    // Replace the element rather than assign to `content`. WebKit picks up a
-    // freshly inserted meta where it ignores a mutated one, and skipping the
-    // write when nothing changed keeps that out of the scroll path.
+    // Our own tag, and only ours. It goes BEFORE the route's, because a browser
+    // takes the first theme-color in document order and ignores the rest — an
+    // appended one would never be read.
+    //
+    // Owning a separate element is the whole point. This used to replace the
+    // route's tag in place, which removed a node React had rendered. React then
+    // tried to delete that node on the next navigation, found it had no parent,
+    // and threw `Cannot read properties of null (reading 'removeChild')` in the
+    // middle of the commit. The URL had already changed by then, so the address
+    // bar moved to the new route while the old page stayed on screen until a
+    // second click — on every navigation that changed the colour, which was
+    // every trip between the homepage and an interior page.
+    //
+    // The element is still replaced rather than mutated: WebKit picks up a
+    // freshly inserted meta where it ignores a changed one. Now it is ours to
+    // replace. The write is skipped when nothing changed, keeping it out of the
+    // scroll path.
+    let current: HTMLMetaElement | null = null;
+
     const write = (value: string) => {
-      if (current.content === value) return;
+      if (current?.content === value) return;
       const next = document.createElement("meta");
       next.name = "theme-color";
       next.content = value;
-      current.replaceWith(next);
+      next.dataset.themeColorSync = "";
+      if (current) {
+        current.replaceWith(next);
+      } else if (routeMeta.parentNode) {
+        routeMeta.before(next);
+      } else {
+        document.head.prepend(next);
+      }
       current = next;
     };
     let frame = 0;
@@ -128,6 +155,9 @@ export function ThemeColorSync() {
       window.removeEventListener("resize", schedule);
       cancelAnimationFrame(frame);
       clearTimeout(settle);
+      // Ours to remove. Dropping it here hands the next route back to its own
+      // server-rendered tag until this effect runs again and computes one.
+      current?.remove();
     };
   }, [pathname]);
 
