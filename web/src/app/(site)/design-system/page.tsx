@@ -476,7 +476,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "nav-desktop": (
     <ContentSection
       title="Desktop Navbar"
-      description="Main navigation links with dropdowns, used in the site header. It carries no ground of its own — the Header draws one capsule behind the logo and the nav together once the page scrolls, so a pill here would read as a seam inside that one."
+      description="Main navigation links with dropdowns, used in the site header. It carries no ground of its own — the Header draws one capsule behind the logo and the nav together once the page scrolls, so a pill here would read as a seam inside that one. That capsule is glass: white at 70% over a medium backdrop blur, so the page reads through it rather than stopping at it. The labels are black, which measures 11:1 on the composite even over purple-140, the darkest ground that scrolls beneath it."
       componentPath="components/layout/Navbar.tsx"
     >
       <div className="space-y-8">

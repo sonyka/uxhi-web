@@ -34,10 +34,20 @@ export function Header({ settings }: HeaderProps) {
   // Nothing moves when it appears. The padding is the same in both states, so
   // the capsule materialises around the logo and nav rather than shifting them.
   //
-  // The capsule keeps the glass the nav pill has always worn — bg-white/90 over
-  // backdrop-blur-sm — rather than the solid fill the reference uses. Content
-  // still ghosts behind it, which is the point: the capsule reads as a pane
-  // over the page rather than a lid on it.
+  // The capsule is glass rather than the solid fill the reference uses: content
+  // ghosts behind it, so it reads as a pane over the page rather than a lid on
+  // it. white/70 over backdrop-blur-md, where it used to be white/90 over
+  // blur-sm — at 90% the ghosting was barely there and the pane read as opaque.
+  //
+  // The blur goes up as the fill comes down, and has to: the fill was doing the
+  // legibility work, and at 70% what is behind the nav labels is a photograph
+  // rather than a wash. blur-md averages it into one field for the labels to
+  // sit on. Nav links are text-black, which clears AA on the composite even
+  // over purple-140, the darkest thing that scrolls under it.
+  //
+  // The full-bleed bar below lg stays at 90%. The capsule can afford this
+  // because it floats with slack around it; a bar flush to both edges of a
+  // 390px screen is the only ground its labels have.
   //
   // A low threshold on purpose: the collision starts within the first hundred
   // pixels of scroll, so waiting for the fold would leave it uncovered exactly
@@ -72,7 +82,7 @@ export function Header({ settings }: HeaderProps) {
       <div
         className={`max-w-[1400px] mx-auto flex items-center justify-between gap-10 lg:rounded-full lg:border lg:py-3 lg:pr-3 lg:pl-8 transition-[background-color,border-color,box-shadow] duration-300 ${
           capsuleOn
-            ? "lg:bg-white/90 lg:backdrop-blur-sm lg:border-beige-50 lg:shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_4px_12px_0px_rgba(0,0,0,0.035)]"
+            ? "lg:bg-white/70 lg:backdrop-blur-md lg:border-beige-50 lg:shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_4px_12px_0px_rgba(0,0,0,0.035)]"
             : "lg:bg-transparent lg:border-transparent lg:shadow-none"
         }`}
       >
