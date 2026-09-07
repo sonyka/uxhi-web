@@ -14,15 +14,20 @@ import type { Viewport } from "next";
  * outside the document: it never sees the stylesheet, so it cannot read a CSS
  * variable. Each one names the token it mirrors; keep them in step.
  *
- * A page's value is whatever paints the top of its viewport, which is the
- * ground its <main> sets — not the body background.
+ * A page's value is whatever paints the top of its viewport — not the body
+ * background, and not the ground its <main> sets either. On the interior pages
+ * <main> is beige-10, but HeroSection paints beige-30 over it, and the hero is
+ * what a visitor's status bar sits against.
  */
 
-/** beige-30 — the body ground. Home and the conference shell. */
+/**
+ * beige-30 — the body ground, and the ground HeroSection paints.
+ *
+ * Home, the conference shell, and all seven interior pages. The interior pages
+ * declared beige-10 until HeroSection took ownership of the hero ground; there
+ * is no beige-10 export any more because nothing opens on beige-10.
+ */
 export const viewportBeige30: Viewport = { themeColor: "#F4F1EA" };
-
-/** beige-10 — the ground every interior page's <main> sets. */
-export const viewportBeige10: Viewport = { themeColor: "#FDFBF7" };
 
 /** teal-10 — the State of UX report. */
 export const viewportTeal10: Viewport = { themeColor: "#F1FDFB" };
