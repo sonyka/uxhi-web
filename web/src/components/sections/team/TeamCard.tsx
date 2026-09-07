@@ -100,7 +100,7 @@ export function TeamCard({ member, isExpanded, onToggle }: TeamCardProps) {
             {/* Bio */}
             {member.bio && (
               <div className="max-h-[200px] overflow-y-auto mb-4 pr-1">
-                <p className="text-gray-120 text-sm leading-relaxed">
+                <p className="text-gray-120 text-base leading-relaxed">
                   {member.bio}
                 </p>
               </div>

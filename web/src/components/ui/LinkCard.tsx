@@ -27,7 +27,7 @@ interface LinkCardProps {
  * - Border radius: 16px (rounded-[16px])
  * - Padding: 20px (p-5)
  * - Title: text-base, font-medium, gray-140 — unchanged on hover
- * - Description: text-sm, purple-140
+ * - Description: text-base, purple-140
  * - Icon: gray-80, hover: teal-90
  * - Optional leading `media` slot (32px logos on the tech-organisation list)
  *
@@ -52,7 +52,7 @@ export function LinkCard({ href, title, description, media, className = "" }: Li
             {title}
           </p>
           {description && (
-            <p className="text-sm text-purple-140">{description}</p>
+            <p className="text-base text-purple-140">{description}</p>
           )}
         </div>
       </div>

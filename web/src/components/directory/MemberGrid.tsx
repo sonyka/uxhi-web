@@ -37,7 +37,7 @@ export function MemberGrid({ members, onMemberClick }: MemberGridProps) {
           />
         </div>
         <h3 className="text-lg font-semibold text-gray-140 mb-1">No members found</h3>
-        <p className="text-sm text-gray-100 text-center max-w-sm">
+        <p className="text-base text-gray-100 text-center max-w-sm">
           Try adjusting your filters to see more results, or clear all filters to see everyone.
         </p>
       </div>

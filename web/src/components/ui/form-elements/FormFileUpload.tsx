@@ -77,7 +77,7 @@ export function FormFileUpload({
       </div>
 
       {helpText && (
-        <p className="text-xs text-purple-30">{helpText}</p>
+        <p className="text-base text-purple-30">{helpText}</p>
       )}
     </div>
   );

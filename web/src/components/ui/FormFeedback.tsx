@@ -28,7 +28,7 @@ export function FormAlert({ message, variant = "error", className }: FormAlertPr
       ref={ref}
       role="alert"
       className={cn(
-        "rounded-xl border px-4 py-3 text-sm",
+        "rounded-xl border px-4 py-3 text-base",
         alertStyles[variant],
         className,
       )}
@@ -55,7 +55,7 @@ export function FieldError({ errors, field, className }: FieldErrorProps) {
     <p
       role="alert"
       id={`${field}-error`}
-      className={cn("text-yellow-80 text-sm mt-1", className)}
+      className={cn("text-yellow-80 text-base mt-1", className)}
     >
       {messages[0]}
     </p>

@@ -42,7 +42,7 @@ function Figure({
         {figure.label}
       </span>
       {figure.source && (
-        <span className="mt-1 max-w-xs text-xs leading-relaxed text-gray-120">
+        <span className="mt-1 max-w-xs text-base leading-relaxed text-gray-120">
           {figure.source}
         </span>
       )}
