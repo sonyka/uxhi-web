@@ -31,12 +31,11 @@ function getInitials(name: string) {
  * about to read next. A flip keeps the footprint exactly as it was — the card
  * holds its cell open or closed, and nothing else on the page moves.
  *
- * The back is the bio and only the bio. Lattice keeps a thumbnail, a name and
- * a title above theirs, which works at their card size; ours is a quarter of a
- * 1200px row, and reprinting the face you just clicked would leave the bio
- * about a hundred pixels to live in. The name is still announced — it is on
- * the back's aria-label and in a visually hidden heading — so a screen reader
- * never loses whose bio this is.
+ * The back carries the name and role above the bio, as Lattice does, minus the
+ * thumbnail — the photo is what you just turned over, and at a quarter of a
+ * 1200px row there is no height to spend printing it twice. The heading is the
+ * real one rather than a visually hidden stand-in, so what a screen reader
+ * announces and what a reader sees are the same thing.
  *
  * Both faces are always in the DOM, which is what makes the flip possible and
  * is also the trap: backface-visibility hides the far side visually but leaves
@@ -165,8 +164,6 @@ export function TeamCard({ member, isExpanded, onToggle }: TeamCardProps) {
             !isExpanded && "pointer-events-none"
           )}
         >
-          <h3 className="sr-only">{member.name}</h3>
-
           <button
             type="button"
             onClick={onToggle}
@@ -185,15 +182,24 @@ export function TeamCard({ member, isExpanded, onToggle }: TeamCardProps) {
             </svg>
           </button>
 
-          {/* pt-11 keeps the first line clear of the close button, which floats
-              over this box rather than sitting above it; pr-3 keeps the text
-              off the scrollbar. */}
+          {/* pr-10 on the header keeps the name clear of the close button
+              floating over it. */}
+          <div className="px-4 pt-4 pr-10 pb-3">
+            <h3 className="font-display text-base text-purple-140 leading-tight">
+              {member.name}
+            </h3>
+            {member.role && (
+              <p className="text-gray-110 text-sm mt-0.5 leading-snug">{member.role}</p>
+            )}
+          </div>
+
+          {/* pr-3 keeps the text off the scrollbar. */}
           <div className="relative flex-1 min-h-0">
             <div
               ref={bioRef}
               onScroll={measure}
               tabIndex={isExpanded ? 0 : -1}
-              className="scrollbar-visible h-full overflow-y-auto pl-4 pr-3 pt-11 pb-4"
+              className="scrollbar-visible h-full overflow-y-auto pl-4 pr-3 pb-4"
             >
               {member.bio ? (
                 <p className="text-gray-120 text-base leading-relaxed">{member.bio}</p>
