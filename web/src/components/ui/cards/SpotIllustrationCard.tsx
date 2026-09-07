@@ -124,7 +124,12 @@ const variantStyles: Record<
     card: "bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-[24px]",
     title: "font-display text-lg text-purple-140 text-balance",
     description: "text-gray-110 text-base",
-    lead: "text-sm text-gray-110",
+    // text-base, not the text-sm the other grounds give a lead. This is the
+    // committee cards on Get Involved, where the lead is the sentence that
+    // says what the committee does — a paragraph, and the card's bullets
+    // beneath it are already 16. A 14px line above 16px bullets read as a
+    // caption for them rather than as the thing they belong to.
+    lead: "text-base text-gray-110",
     statValue: "text-purple-120",
     statCaption: "text-sm text-gray-110",
     rule: "bg-gray-30",
