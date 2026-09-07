@@ -6,15 +6,26 @@ import { SocialGlyph } from "@/components/ui/SocialGlyph";
 /**
  * Footer Component
  *
- * Background is bg-teal-50 (#7DDFE9), one step lighter than the teal-60 the
- * Figma file specifies. Deliberate, and worth keeping: the footer's text is
- * all gray-120, which reaches only 6.45:1 on teal-60 — AA, but short of AAA.
- * Lightening the ground one step takes it to 7.11:1 and clears AAA, and the
- * gray-140 link hover goes 10.39:1 -> 11.44:1.
+ * Background is bg-beige-50 (#E5DED0). It was teal-50, which was itself a step
+ * off the teal-60 in Figma, taken for contrast. Two things then changed under
+ * it: the section grounds unified on beige-30, and the headings moved to
+ * purple — which between them left the footer as the only shout on the site,
+ * arriving directly after a purple CTA band on four of the eight pages.
  *
- * Note this changes the footer's usage, not the token: teal-60 is still what
- * FAQSection's open state, FormSelect's selected row and the 2026 conference
- * theme are built on, and none of those should move because this one did.
+ * beige-50 rather than the beige-30 plane itself, because the footer is the one
+ * region that has earned a ground of its own: it is site meta and the end of
+ * the document, not content that continues. On four pages — home, join, merch
+ * and resources — the last section is already beige-30, so a beige-30 footer
+ * would have had no edge at all and the page would simply have stopped.
+ *
+ * The edge it does have is 1.19:1 against the plane, softer than the old teal's
+ * 1.37 but stronger than the 1.13 of a white card on beige-30, which reads
+ * clearly. Contrast improved rather than suffered: gray-120 body copy goes
+ * 7.11:1 -> 8.20:1 and the gray-140 link hover 11.44:1 -> 13.20:1, both AAA.
+ *
+ * The teal tokens are untouched: teal-60 still carries FAQSection's open state,
+ * FormSelect's selected row and the 2026 conference theme, and none of those
+ * should move because this one did.
  *
  * Remaining Figma specs:
  * - Layout: justify-between, items-start, px-6 py-12 (48px vertical)
@@ -72,7 +83,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-teal-50 px-6 py-12">
+    <footer className="bg-beige-50 px-6 py-12">
       <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
         {/* Headline — on desktop sits above logo in left column via lg:flex wrapper */}
         <div className="flex flex-col gap-14 shrink-0 order-1">

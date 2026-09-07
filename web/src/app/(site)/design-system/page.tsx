@@ -635,7 +635,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "nav-footer": (
     <ContentSection
       title="Footer"
-      description="Site-wide footer with headline, logo, copyright, and 4-column navigation grid."
+      description="Site-wide footer with headline, logo, copyright, and 4-column navigation grid. Its ground is beige-50 — the one region on the site that keeps a ground of its own, because it is site meta and the end of the document rather than content that continues. Not the beige-30 plane itself: four pages already end on a beige-30 section, and the footer would have had no edge at all. It was teal-50 until the grounds unified and the headings moved to purple, which left it the only shout on the page."
       componentPath="components/layout/Footer.tsx"
     >
       <div className="space-y-8">
@@ -1249,8 +1249,9 @@ const contentComponents: Record<string, React.ReactNode> = {
         hard cut through content that was still continuing. Purple is the exception that proves
         it — a CTA band genuinely is a different kind of thing.{" "}
         <strong className="text-gray-130">The lighter steps are for surfaces, never grounds:</strong>{" "}
-        beige-10 is the LinkCard hover and the merch product tile, beige-50 the hairline inside a
-        card. This documentation page is the one white ground left, and deliberately: the specimens
+        beige-10 is the LinkCard hover and the merch product tile. beige-50 is the exception that
+        keeps the rule — the footer, the one region that ends the document rather than continuing
+        it, plus the hairline rule inside a card. This documentation page is the one white ground left, and deliberately: the specimens
         on it are themselves beige-30, and would dissolve into a beige page.
       </p>
     </ContentSection>
