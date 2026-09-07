@@ -27,7 +27,7 @@ const HIDDEN_CATEGORIES = new Set(["communication-outreach", "standards-credenti
 const CATEGORY_LABELS: Record<string, string> = {
   founder: "Founders",
   "community-events": "Community & Events",
-  "annual-conference": "Annual Conference",
+  "annual-conference": "UXHI Conference",
   "professional-development": "Professional Development",
   "research-partnerships": "Research & Industry Partnerships",
 };

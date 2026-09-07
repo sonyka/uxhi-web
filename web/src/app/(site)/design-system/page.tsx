@@ -269,7 +269,7 @@ function FAQAccordionDemo() {
   const demoFaqs = [
     { id: "1", question: "What is UXHI?", answer: "UXHI is a community for aloha-centered design, connecting designers, researchers, and product professionals across the islands." },
     { id: "2", question: "How can I get involved?", answer: "You can join our events, volunteer, speak at meetups, or become a sponsor. Visit our Get Involved page for more details." },
-    { id: "3", question: "Are events free?", answer: "Most of our community events are free to attend. Some workshops and the annual conference may have a fee." },
+    { id: "3", question: "Are events free?", answer: "Most of our community events are free to attend. Some workshops and the UXHI Conference may have a fee." },
   ];
 
   return (

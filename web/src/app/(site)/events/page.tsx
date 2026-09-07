@@ -60,7 +60,7 @@ export default async function EventsPage() {
               <SectionLead size="lg">
                 We host a mix of educational webinars, interactive workshops, and casual meetups every month, as well as our{" "}
                 <InlineLink href="https://uxhiconference.com/">
-                  annual conference
+                  UXHI Conference
                 </InlineLink>
                 . Become a member and you&apos;ll receive advanced notice on all our events!
               </SectionLead>
@@ -229,7 +229,7 @@ export default async function EventsPage() {
           </MotionDiv>
           <MotionDiv>
             <p className="text-white text-lg leading-relaxed mb-6 text-center max-w-[750px] mx-auto">
-              Our annual conference is a hub for those infused in human-centered design, user experience, design thinking, and everything in between, offering an opportunity to deepen your expertise. Whether you&apos;re a newcomer eager to learn more about UX or an industry pro, you&apos;ll find value in the immersive day filled with inspiration, knowledge-sharing, and networking!
+              Our UXHI Conference is a hub for those infused in human-centered design, user experience, design thinking, and everything in between, offering an opportunity to deepen your expertise. Whether you&apos;re a newcomer eager to learn more about UX or an industry pro, you&apos;ll find value in the immersive day filled with inspiration, knowledge-sharing, and networking!
             </p>
           </MotionDiv>
 

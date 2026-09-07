@@ -192,13 +192,13 @@ export default async function HomePage() {
               >
                 <Image
                   src="/images/home/uxhicon-25.jpg"
-                  alt="UXHI Annual Conference"
+                  alt="UXHI Conference"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <span className="font-display text-lg text-white leading-tight">UXHI Annual<br/>Conference</span>
+                  <span className="font-display text-lg text-white leading-tight">UXHI Conference</span>
                 </div>
               </a>
             </MotionDiv>
@@ -251,13 +251,13 @@ export default async function HomePage() {
               >
                 <Image
                   src="/images/home/uxhicon-25.jpg"
-                  alt="UXHI Annual Conference"
+                  alt="UXHI Conference"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3">
-                  <span className="font-display text-lg text-white leading-tight">UXHI Annual<br/>Conference</span>
+                  <span className="font-display text-lg text-white leading-tight">UXHI Conference</span>
                 </div>
               </a>
             </MotionDiv>
@@ -319,7 +319,7 @@ export default async function HomePage() {
               >
                 <Image
                   src="/images/home/uxhicon-25.jpg"
-                  alt="UXHI Annual Conference"
+                  alt="UXHI Conference"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />

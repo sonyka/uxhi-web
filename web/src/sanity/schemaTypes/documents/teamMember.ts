@@ -44,7 +44,7 @@ export const teamMember = defineType({
         list: [
           { title: "Founder", value: "founder" },
           { title: "Community & Events", value: "community-events" },
-          { title: "Annual Conference", value: "annual-conference" },
+          { title: "UXHI Conference", value: "annual-conference" },
           { title: "Professional Development", value: "professional-development" },
           // Hidden from /about#team since 2026-08-29 — both held only a "TBD"
           // placeholder. Disabled here too so nobody assigns a member to a
