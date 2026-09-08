@@ -1,4 +1,5 @@
 "use client";
+import { SpamGuard } from "./SpamGuard";
 
 import { useActionState } from "react";
 import { submitMembership, type MembershipState } from "@/lib/actions/membership";
@@ -31,11 +32,7 @@ export function MembershipForm() {
 
   return (
     <form action={formAction} className="space-y-6 text-left">
-      {/* Honeypot */}
-      <div className="absolute opacity-0 -z-10" aria-hidden="true">
-        <label htmlFor="website">Website</label>
-        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
-      </div>
+      <SpamGuard />
 
       {state?.message && !state.success && (
         <FormAlert message={state.message} />

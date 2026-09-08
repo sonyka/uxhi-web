@@ -3,6 +3,7 @@
 import { membershipSchema } from "@/lib/validations";
 import { client } from "@/sanity/lib/client";
 import { sendSlackNotification } from "@/lib/slack";
+import { looksAutomated, isRepeatSubmission, rememberSubmission } from "@/lib/spam";
 
 const writeClient = client.withConfig({
   token: process.env.SANITY_API_WRITE_TOKEN,
@@ -15,22 +16,16 @@ export type MembershipState = {
   errors?: Record<string, string[]>;
 } | null;
 
-const submissions = new Map<string, number>();
-
 export async function submitMembership(
   _prevState: MembershipState,
   formData: FormData,
 ): Promise<MembershipState> {
-  // Honeypot check
-  if (formData.get("website")) {
+  if (looksAutomated(formData)) {
     return { success: true, message: "Thanks for applying! We'll review your application and be in touch soon." };
   }
 
-  // Rate limiting
   const email = formData.get("email") as string;
-  const now = Date.now();
-  const lastSubmission = submissions.get(email);
-  if (lastSubmission && now - lastSubmission < 60 * 60 * 1000) {
+  if (isRepeatSubmission(email)) {
     return {
       success: false,
       message: "You've already submitted recently. Please try again later.",
@@ -97,7 +92,7 @@ export async function submitMembership(
         : []),
     ]);
 
-    submissions.set(data.email, now);
+    rememberSubmission(data.email);
     return {
       success: true,
       message: "Thanks for applying! We'll review your application and be in touch soon.",

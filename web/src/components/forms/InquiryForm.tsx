@@ -1,4 +1,5 @@
 "use client";
+import { SpamGuard } from "./SpamGuard";
 
 import { Suspense, useActionState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -37,11 +38,7 @@ function InquiryFormInner() {
 
   return (
     <form action={formAction} className="space-y-5 text-left max-w-[600px] mx-auto">
-      {/* Honeypot */}
-      <div className="absolute opacity-0 -z-10" aria-hidden="true">
-        <label htmlFor="website">Website</label>
-        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
-      </div>
+      <SpamGuard />
 
       {state?.message && !state.success && (
         <FormAlert message={state.message} />

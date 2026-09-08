@@ -1,4 +1,5 @@
 "use client";
+import { SpamGuard } from "./SpamGuard";
 
 import { useState, useActionState } from "react";
 import { submitDirectoryEntry, type DirectorySubmitState } from "@/lib/actions/directory-submit";
@@ -34,11 +35,7 @@ export function DirectorySubmitForm() {
 
   return (
     <form action={formAction} className="space-y-6 text-left">
-      {/* Honeypot */}
-      <div className="absolute opacity-0 -z-10" aria-hidden="true">
-        <label htmlFor="company_url">Company URL</label>
-        <input type="text" id="company_url" name="company_url" tabIndex={-1} autoComplete="off" />
-      </div>
+      <SpamGuard />
 
       {state?.message && !state.success && (
         <FormAlert message={state.message} />

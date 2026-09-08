@@ -3,6 +3,7 @@
 import { inquirySchema } from "@/lib/validations";
 import { client } from "@/sanity/lib/client";
 import { sendSlackNotification } from "@/lib/slack";
+import { looksAutomated, isRepeatSubmission, rememberSubmission } from "@/lib/spam";
 
 export type InquiryState = {
   success: boolean;
@@ -15,24 +16,18 @@ const writeClient = client.withConfig({
   useCdn: false,
 });
 
-// Simple in-memory rate limiting
-const submissions = new Map<string, number>();
-
 export async function submitInquiry(
   _prevState: InquiryState,
   formData: FormData,
 ): Promise<InquiryState> {
-  // Honeypot check
-  if (formData.get("website")) {
-    // Bot detected — silently succeed
+  // Answered with the same success a person gets: telling a bot why it was
+  // refused is free tuning information.
+  if (looksAutomated(formData)) {
     return { success: true, message: "Thanks! We'll be in touch soon." };
   }
 
-  // Rate limiting: 3 submissions per email per hour
   const email = formData.get("email") as string;
-  const now = Date.now();
-  const lastSubmission = submissions.get(email);
-  if (lastSubmission && now - lastSubmission < 60 * 60 * 1000) {
+  if (isRepeatSubmission(email)) {
     return {
       success: false,
       message: "You've already submitted recently. Please try again later.",
@@ -98,7 +93,7 @@ export async function submitInquiry(
       },
     ]);
 
-    submissions.set(data.email, now);
+    rememberSubmission(data.email);
     return { success: true, message: "Thanks! We'll be in touch soon." };
   } catch (error) {
     console.error("Inquiry submission error:", error);

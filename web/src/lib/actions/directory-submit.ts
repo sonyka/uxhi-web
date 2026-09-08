@@ -3,6 +3,7 @@
 import { directorySubmissionSchema } from "@/lib/validations";
 import { client } from "@/sanity/lib/client";
 import { sendSlackNotification } from "@/lib/slack";
+import { looksAutomated, isRepeatSubmission, rememberSubmission } from "@/lib/spam";
 
 export type DirectorySubmitState = {
   success: boolean;
@@ -15,24 +16,19 @@ const writeClient = client.withConfig({
   useCdn: false,
 });
 
-const submissions = new Map<string, number>();
-
 export async function submitDirectoryEntry(
   _prevState: DirectorySubmitState,
   formData: FormData,
 ): Promise<DirectorySubmitState> {
-  // Honeypot check
-  if (formData.get("company_url")) {
+  if (looksAutomated(formData)) {
     return { success: true, message: "Your profile has been submitted for review." };
   }
 
-  // Rate limiting by name (no email field in this form)
+  // Keyed on the name: this form has no email field.
   const firstName = formData.get("firstName") as string;
   const lastName = formData.get("lastName") as string;
-  const now = Date.now();
   const key = `${firstName} ${lastName}`.toLowerCase().trim();
-  const lastSubmission = submissions.get(key);
-  if (lastSubmission && now - lastSubmission < 60 * 60 * 1000) {
+  if (isRepeatSubmission(key)) {
     return {
       success: false,
       message: "You've already submitted recently. Please try again later.",
@@ -148,7 +144,7 @@ export async function submitDirectoryEntry(
       },
     ]);
 
-    if (key) submissions.set(key, now);
+    rememberSubmission(key);
     return {
       success: true,
       message: "Your profile has been submitted for review. A team member will publish it within a few business days.",
