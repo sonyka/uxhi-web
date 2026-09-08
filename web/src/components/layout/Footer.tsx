@@ -60,6 +60,7 @@ export function Footer() {
         // { label: "Shop", href: "/merch" },
         { label: "About", href: "/about" },
         { label: "Join us", href: "/join" },
+        { label: "Privacy", href: "/privacy" },
       ],
     },
   ];

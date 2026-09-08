@@ -40,6 +40,7 @@ const PATHS = [
   "/directory",
   "/get-involved",
   "/join",
+  "/privacy",
   "/resources",
   "/state-of-ux/2025",
 ];
