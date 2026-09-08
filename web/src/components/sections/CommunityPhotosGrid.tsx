@@ -88,6 +88,7 @@ export function CommunityPhotosGrid({ photos }: CommunityPhotosGridProps) {
                         src={urlFor(photo.image).width(270).height(360).url()}
                         alt={photo.name || "Community member"}
                         fill
+                        sizes="270px"
                         className="object-cover"
                       />
                     </div>

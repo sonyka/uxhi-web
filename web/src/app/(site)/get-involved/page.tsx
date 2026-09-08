@@ -346,7 +346,7 @@ export default async function GetInvolvedPage() {
               <Image
                 src="/images/get-involved/bento-getinvolved-01.png"
                 alt="UXHI conference"
-                fill
+                fill sizes="200px"
                 className="object-cover"
               />
             </div>
@@ -365,7 +365,7 @@ export default async function GetInvolvedPage() {
               <Image
                 src="/images/get-involved/bento-getinvolved-02.png"
                 alt="UXHI community crowd"
-                fill
+                fill sizes="200px"
                 className="object-cover"
               />
             </div>
@@ -381,7 +381,7 @@ export default async function GetInvolvedPage() {
               <Image
                 src="/images/get-involved/bento-getinvolved-01.png"
                 alt="UXHI conference"
-                fill
+                fill sizes="200px"
                 className="object-cover"
               />
             </div>
@@ -400,7 +400,7 @@ export default async function GetInvolvedPage() {
               <Image
                 src="/images/get-involved/bento-getinvolved-02.png"
                 alt="UXHI community crowd"
-                fill
+                fill sizes="200px"
                 className="object-cover"
               />
             </div>
@@ -415,7 +415,7 @@ export default async function GetInvolvedPage() {
                 <Image
                   src="/images/get-involved/bento-getinvolved-01.png"
                   alt="UXHI conference"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>
@@ -434,7 +434,7 @@ export default async function GetInvolvedPage() {
                 <Image
                   src="/images/get-involved/bento-getinvolved-02.png"
                   alt="UXHI community crowd"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>
@@ -447,7 +447,7 @@ export default async function GetInvolvedPage() {
                 <Image
                   src="/images/get-involved/bento-getinvolved-03.png"
                   alt="UX101 group"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>
@@ -456,7 +456,7 @@ export default async function GetInvolvedPage() {
                 <Image
                   src="/images/get-involved/bento-getinvolved-04.png"
                   alt="UXHI community members with leis"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>
@@ -465,7 +465,7 @@ export default async function GetInvolvedPage() {
                 <Image
                   src="/images/get-involved/bento-getinvolved-05.png"
                   alt="UXHI photobooth"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>

@@ -33,6 +33,7 @@ export function MemberGrid({ members, onMemberClick }: MemberGridProps) {
             src="/images/icons/icon-empty.svg"
             alt=""
             fill
+            sizes="96px"
             className="object-contain"
           />
         </div>

@@ -57,7 +57,7 @@ export default async function FindUXProPage() {
               <Image
                 src="/images/find-ux-pro/bento-find-ux-01.png"
                 alt="UXHI community"
-                fill
+                fill sizes="200px"
                 className="object-cover"
               />
             </div>
@@ -74,7 +74,7 @@ export default async function FindUXProPage() {
               <Image
                 src="/images/find-ux-pro/bento-find-ux-02.png"
                 alt="UXHI conference"
-                fill
+                fill sizes="200px"
                 className="object-cover"
               />
             </div>
@@ -89,7 +89,7 @@ export default async function FindUXProPage() {
               <Image
                 src="/images/find-ux-pro/bento-find-ux-01.png"
                 alt="UXHI community"
-                fill
+                fill sizes="200px"
                 className="object-cover"
               />
             </div>
@@ -106,7 +106,7 @@ export default async function FindUXProPage() {
               <Image
                 src="/images/find-ux-pro/bento-find-ux-02.png"
                 alt="UXHI conference"
-                fill
+                fill sizes="200px"
                 className="object-cover"
               />
             </div>
@@ -120,7 +120,7 @@ export default async function FindUXProPage() {
                 <Image
                   src="/images/find-ux-pro/bento-find-ux-03.png"
                   alt="UX101 group"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>
@@ -128,7 +128,7 @@ export default async function FindUXProPage() {
                 <Image
                   src="/images/find-ux-pro/bento-find-ux-01.png"
                   alt="UXHI community"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>
@@ -136,7 +136,7 @@ export default async function FindUXProPage() {
                 <Image
                   src="/images/find-ux-pro/bento-find-ux-02.png"
                   alt="UXHI conference"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>
@@ -147,7 +147,7 @@ export default async function FindUXProPage() {
                 <Image
                   src="/images/find-ux-pro/bento-find-ux-04.png"
                   alt="UXHICon"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>
@@ -164,7 +164,7 @@ export default async function FindUXProPage() {
                 <Image
                   src="/images/find-ux-pro/bento-find-ux-05.png"
                   alt="UXHI photobooth"
-                  fill
+                  fill sizes="200px"
                   className="object-cover"
                 />
               </div>

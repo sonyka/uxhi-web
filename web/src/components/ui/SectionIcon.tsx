@@ -22,6 +22,7 @@ export function SectionIcon({ src, alt, className }: SectionIconProps) {
         src={src}
         alt={alt}
         fill
+        sizes="128px"
         className="object-contain"
       />
     </div>

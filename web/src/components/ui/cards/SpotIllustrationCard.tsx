@@ -243,7 +243,7 @@ export function SpotIllustrationCard({
           className="w-full h-full object-contain"
         />
       ) : imageSrc ? (
-        <Image src={imageSrc} alt={imageAlt} fill className="object-contain" />
+        <Image src={imageSrc} alt={imageAlt} fill sizes="96px" className="object-contain" />
       ) : (
         <div className="w-full h-full bg-purple-30 rounded-full" />
       )}
