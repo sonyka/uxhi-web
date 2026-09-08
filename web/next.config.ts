@@ -25,6 +25,58 @@ const nextConfig: NextConfig = {
       fullUrl: true,
     },
   },
+  /**
+   * Security headers, set here rather than in netlify.toml so staging on
+   * Vercel gets the same ones — a header that only exists in production is a
+   * header nobody tests.
+   *
+   * Deliberately the safe subset. A full Content-Security-Policy with a
+   * script-src is the one that actually stops cross-site scripting, and it is
+   * also the one that silently breaks Next's inline bootstrap, Google
+   * Analytics and the embedded Studio if it is written blind. That wants a
+   * session with the console open, not a guess.
+   *
+   * frame-ancestors is here, though, because it is the part that needs local
+   * knowledge: Sanity's Presentation tool previews the live site inside an
+   * iframe served from the Studio, so a flat X-Frame-Options: DENY would look
+   * correct and quietly break visual editing. 'self' covers the Studio
+   * embedded at /studio; the sanity.studio entry covers the hosted one.
+   */
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          // Stop a browser second-guessing a Content-Type. The classic case is
+          // a text file sniffed as HTML and run.
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          // Send the full URL to ourselves, only the origin to anyone else, and
+          // nothing at all downgrading to http.
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          // Nothing here needs a camera, a microphone or a location, so no
+          // embedded third party gets to ask for one.
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+          },
+          // Who may frame us. Replaces X-Frame-Options, which cannot express
+          // an allowlist.
+          {
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'self' https://*.sanity.studio",
+          },
+          // A year of HTTPS-only. No includeSubDomains and no preload on
+          // purpose: both are hard to walk back, and this domain carries email
+          // and may grow subdomains that are not ours to promise for.
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000",
+          },
+        ],
+      },
+    ];
+  },
+
   async redirects() {
     return [
       // /conference and /conference/ always serve the current year's site.
