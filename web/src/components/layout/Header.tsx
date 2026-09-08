@@ -6,13 +6,14 @@ import Image from "next/image";
 import { Navbar, MobileNavbar, HamburgerButton, defaultNavItems } from "./Navbar";
 
 interface HeaderProps {
+  /**
+   * Narrowed to what this component reads. It used to advertise a logo, a site
+   * name and a main navigation as well, none of which it ever looked at — a
+   * prop type that promises fields the component ignores invites someone to
+   * set them and wonder why nothing moved. The nav items come from
+   * `defaultNavItems` below, and the logo is a fixed asset.
+   */
   settings: {
-    logo?: {
-      asset?: { _id?: string; url?: string };
-      alt?: string;
-    };
-    siteName: string;
-    mainNavigation?: unknown[];
     ctaButton?: {
       label: string;
       url: string;

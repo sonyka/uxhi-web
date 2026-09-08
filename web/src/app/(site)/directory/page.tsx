@@ -15,12 +15,12 @@ import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "
 export { viewportBeige30 as viewport } from "@/lib/themeColor";
 
 export const metadata: Metadata = {
-  title: "Find Experts | UXHI",
+  title: "Find a Pro | UXHI",
   description:
     "Connect with UX professionals in Hawaii. Browse our member directory to find designers, researchers, and UX specialists.",
 };
 
-export default async function FindUXProPage() {
+export default async function DirectoryPage() {
   const { data: members } = await sanityFetchCached({ query: DIRECTORY_MEMBERS_QUERY });
 
   return (

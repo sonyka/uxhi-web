@@ -1,37 +1,24 @@
 /**
- * The site's navigation, CTA and footer links.
+ * The header's call-to-action button.
  *
- * Lifted out of the (site) layout because the 404 page cannot use that layout.
- * An unmatched URL is served by app/not-found.tsx, which Next renders inside
- * the ROOT layout only — route-group layouts do not apply to it — so the 404
- * has to mount the Header and Footer itself, and needs the same settings they
- * are given everywhere else. Two copies of a nav is how a nav starts to
- * disagree with itself.
+ * This was a forty-line object carrying a logo, a site name, a main
+ * navigation, a footer navigation, a contact email and social links. None of
+ * it was read. Header takes `settings` and uses exactly one field —
+ * `ctaButton` — and Footer takes no props at all and owns its own links.
+ *
+ * That is worse than clutter: the unread mainNavigation said "Find Experts"
+ * while the rendered nav said "Find a pro", and its links still pointed at
+ * /find-ux-pro after the directory moved. Anyone editing it to fix the nav
+ * would have changed nothing and been left wondering why.
+ *
+ * The real navigation lives in `defaultNavItems` in Navbar.tsx, and the
+ * footer's links live in Footer.tsx. This file is only what Header is
+ * genuinely given.
+ *
+ * It lives here rather than in the (site) layout because the 404 needs it too:
+ * app/not-found.tsx renders inside the ROOT layout, so it mounts its own
+ * Header and would otherwise need a second copy.
  */
 export const siteSettings = {
-  siteName: "UXHI",
-  mainNavigation: [
-    { _key: "1", label: "Get Involved", linkType: "internal", internalLink: "/" },
-    { _key: "2", label: "Find Experts", linkType: "internal", internalLink: "/directory" },
-    { _key: "3", label: "Events", linkType: "internal", internalLink: "/events" },
-    { _key: "4", label: "About", linkType: "internal", internalLink: "/about" },
-    { _key: "5", label: "Resources", linkType: "internal", internalLink: "/resources" },
-    { _key: "6", label: "Merch", linkType: "internal", internalLink: "/merch" },
-  ],
   ctaButton: { label: "Join us", url: "/join" },
-  footerNavigation: [
-    { _key: "1", label: "Home", linkType: "internal", internalLink: "/" },
-    { _key: "2", label: "Get Involved", linkType: "internal", internalLink: "/" },
-    { _key: "3", label: "Find Experts", linkType: "internal", internalLink: "/directory" },
-    { _key: "4", label: "Resources", linkType: "internal", internalLink: "/resources" },
-    { _key: "5", label: "About", linkType: "internal", internalLink: "/about" },
-    { _key: "6", label: "Events", linkType: "internal", internalLink: "/events" },
-    { _key: "7", label: "Merch", linkType: "internal", internalLink: "/merch" },
-  ],
-  contactEmail: "aloha@uxhi.community",
-  socialLinks: [
-    { _key: "1", platform: "slack", url: "#" },
-    { _key: "2", platform: "instagram", url: "https://www.instagram.com/uxhicommunity" },
-    { _key: "3", platform: "linkedin", url: "https://www.linkedin.com/company/uxhi/" },
-  ],
 };
