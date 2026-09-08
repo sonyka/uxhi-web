@@ -204,14 +204,18 @@ const navigationItems = [
       { id: "icons-social", label: "Social Glyph" },
     ],
   },
+  // A year, not a family. Each conference year is a full redesign sharing only
+  // the parent palette, so "Conference > 2026" would imply a conference system
+  // that 2026 is a variant of — and there is no such thing. 2027 gets its own
+  // section beside this one, which is why the ids carry the year too.
   {
-    category: "Conference",
+    category: "2026 Conference",
     items: [
-      { id: "conference-tokens", label: "2026 Theme Tokens" },
-      { id: "conference-type", label: "2026 Type Roles" },
-      { id: "conference-link", label: "2026 Inline Link" },
-      { id: "conference-button", label: "2026 Button" },
-      { id: "conference-agenda", label: "2026 Agenda" },
+      { id: "conference-2026-tokens", label: "Theme Tokens" },
+      { id: "conference-2026-type", label: "Type Roles" },
+      { id: "conference-2026-link", label: "Inline Link" },
+      { id: "conference-2026-button", label: "Button" },
+      { id: "conference-2026-agenda", label: "Agenda" },
     ],
   },
 ];
@@ -3315,7 +3319,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   ),
 
   // ── Conference ──────────────────────────────────────────────────────
-  "conference-tokens": (
+  "conference-2026-tokens": (
     <ContentSection
       title="2026 Theme Tokens"
       description="Each conference year has its own theme; this is 2026's. Every value is a var() reference to the parent palette above — the year adds no colors of its own."
@@ -3340,10 +3344,10 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
 
-  "conference-type": (
+  "conference-2026-type": (
     <ContentSection
       title="2026 Type Roles"
-      description="Bricolage Grotesque. A role is one design decision expressed across breakpoints — resize the window to see each ramp move."
+      description="Bricolage Grotesque. A role is one design decision expressed across breakpoints — resize the window to see each ramp move. sectionTitle, panelTitle and itemTitle were added on 8 Sep: five headings had been sized at their call sites, and the sponsor name was flat at 16px, the one heading on the year with no ramp at all."
       componentPath="src/app/(conference)/conference/2026/theme.ts"
     >
       <div className="space-y-8">
@@ -3362,6 +3366,27 @@ const contentComponents: Record<string, React.ReactNode> = {
               sample: "UXHICon is an annual event for Hawai‘i’s design community.",
               color: "text-[color:var(--foreground)]",
               colorNote: "inherits — no color set",
+            },
+            {
+              role: "sectionTitle",
+              note: "Section titles — dips at md, as hero does",
+              sample: "UXHI Conference 2026: Mo\u2018olelo and Meaning",
+              color: "text-[color:var(--foreground)]",
+              colorNote: "inherits — no color set",
+            },
+            {
+              role: "panelTitle",
+              note: "A panel or drawer heading, one step under a section title",
+              sample: "Case Study Showcase",
+              color: "text-gray-140",
+              colorNote: "GRAY_140",
+            },
+            {
+              role: "itemTitle",
+              note: "One item in a list — an agenda session, a card, a sponsor",
+              sample: "Opening Remarks",
+              color: "text-gray-140",
+              colorNote: "GRAY_140",
             },
             {
               role: "lead",
@@ -3432,7 +3457,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
 
-  "conference-link": (
+  "conference-2026-link": (
     <ContentSection
       title="2026 Inline Link"
       description="Hyperlink treatment for the 2026 site. A dotted rule in gray-80 rather than a solid underline in the link colour — the line marks the link without competing with the label, which matters on the teal and beige panels where a solid purple rule reads as heavy."
@@ -3466,7 +3491,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
 
-  "conference-agenda": (
+  "conference-2026-agenda": (
     <ContentSection
       title="2026 Agenda"
       description="Single day, two rooms. A time gutter down the left with each session as a card beside it, after techconf.webflow.io/schedule. That reference runs one track, so the two-room split is the part designed rather than adapted. A slot with one session spans the full width, which is how the day's shared moments read as shared without needing to say so; a slot with two splits into named columns from md up, and stacks below it. Takes any number of rooms. Lives in the 2026 folder, not components/ui/, because an agenda is a design and 2027 should be free to lay its own out differently."
@@ -3491,7 +3516,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     </ContentSection>
   ),
 
-  "conference-button": (
+  "conference-2026-button": (
     <ContentSection
       title="2026 Conference Button"
       description="The pill CTA for the 2026 site. Three variants; icons inherit the label color via currentColor."
