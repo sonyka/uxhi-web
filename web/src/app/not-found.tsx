@@ -93,7 +93,7 @@ export default function NotFound() {
 
             <div className="mt-12 flex flex-wrap justify-center gap-4">
               <QuickLinkPill
-                href="/find-ux-pro"
+                href="/directory"
                 icon={<UsersIcon className="w-7 h-7" />}
                 label="Find a pro"
                 subtitle="Member directory"

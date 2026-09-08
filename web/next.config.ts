@@ -79,6 +79,27 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // The directory moved from /find-ux-pro to /directory on 8 Sep, before
+      // launch. Permanent because it is: the page's own heading is "Member
+      // directory", and /find-ux-pro named the nav label rather than the page,
+      // so it would have become a fossil the first time that label changed.
+      //
+      // Nothing external points at the old path yet — the site is not public —
+      // but it is in the worklog, the handoff guide and anything the team has
+      // bookmarked on staging, and a redirect costs nothing to keep.
+      {
+        source: "/find-ux-pro",
+        // Trailing slash on the destination, because trailingSlash is on: send
+        // them to /directory and the visitor takes a second redirect to reach
+        // /directory/. Three hops became two.
+        destination: "/directory/",
+        permanent: true,
+      },
+      {
+        source: "/find-ux-pro/:path*",
+        destination: "/directory/:path*",
+        permanent: true,
+      },
       // /conference and /conference/ always serve the current year's site.
       // Update CURRENT_CONFERENCE_YEAR in middleware.ts when a new year starts.
       {

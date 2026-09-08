@@ -37,7 +37,7 @@ const PATHS = [
   "/",
   "/about",
   "/events",
-  "/find-ux-pro",
+  "/directory",
   "/get-involved",
   "/join",
   "/resources",

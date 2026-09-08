@@ -410,7 +410,7 @@ function ContentSection({
 
 // Demo nav items for design system (simplified)
 const demoNavItems = [
-  { key: "find-ux-pro", label: "Find Experts", href: "#" },
+  { key: "directory", label: "Find Experts", href: "#" },
   {
     key: "get-involved",
     label: "Get Involved",
@@ -2064,7 +2064,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-member": (
     <ContentSection
       title="Member Card"
-      description="Directory member card with photo, badges, tags, and hover overlay. Used on /find-ux-pro."
+      description="Directory member card with photo, badges, tags, and hover overlay. Used on /directory."
       componentPath="components/directory/MemberCard.tsx"
     >
       <div className="space-y-8">
@@ -2612,7 +2612,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "form-directory": (
     <ContentSection
       title="Directory Submission Form"
-      description="Directory submission form on /find-ux-pro. Creates draft directoryMember in Sanity + Slack notification. Designed for purple (bg-purple-140) backgrounds."
+      description="Directory submission form on /directory. Creates draft directoryMember in Sanity + Slack notification. Designed for purple (bg-purple-140) backgrounds."
       componentPath={["components/forms/DirectorySubmitForm.tsx", "lib/actions/directory-submit.ts"]}
     >
       <div className="space-y-8">

@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 import { UserIcon } from "@sanity/icons";
 
 // Renamed from `member` in Sept 2026. The old name was indistinguishable from
-// `directoryMember` — the public /find-ux-pro directory — in queries and schema
+// `directoryMember` — the public /directory directory — in queries and schema
 // files, which is a bad thing to be guessing about. Studio labels are unchanged:
 // this has always shown as "Team Members".
 //

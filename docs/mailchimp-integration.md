@@ -13,7 +13,7 @@ All 3 forms currently save to:
 
 | Form | Server Action | Collects Email |
 |------|--------------|----------------|
-| Directory Submission (`/find-ux-pro`) | `lib/actions/directory-submit.ts` | No |
+| Directory Submission (`/directory`) | `lib/actions/directory-submit.ts` | No |
 | Membership (`/join`) | `lib/actions/membership.ts` | Yes |
 | Inquiry (`/about#contact`) | `lib/actions/inquiry.ts` | Yes |
 

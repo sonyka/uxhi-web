@@ -106,7 +106,7 @@ This is the primary way you'll update content. Go to `/studio` and you'll see th
 | **Resources** | Resource categories + individual items | `/resources` |
 | **State of UX Reports** | Annual report cards | `/resources` |
 | **Tech Organizations** | Local tech org directory | `/resources` |
-| **Member Directory** | UX professional profiles | `/find-ux-pro` |
+| **Member Directory** | UX professional profiles | `/directory` |
 | **Join FAQs** | Membership FAQ accordion items | `/join` |
 | **Instagram Posts** | Homepage feed photos | `/` |
 | **Community Photos** | Homepage community photo grid | `/` |
@@ -153,7 +153,7 @@ All pages are in `web/src/app/(site)/`:
 | `about/page.tsx` | "About Us" hero headline & description, section intro text |
 | `join/page.tsx` | Membership page headline, benefits list, pricing copy |
 | `events/page.tsx` | Events page headline & description |
-| `find-ux-pro/page.tsx` | Directory page headline & description |
+| `directory/page.tsx` | Directory page headline & description |
 | `get-involved/page.tsx` | Get Involved page headline, partner/sponsor section intros |
 | `resources/page.tsx` | Resources page headline & description |
 | `merch/page.tsx` | Shop page headline |
@@ -304,7 +304,7 @@ Three forms exist on the site. They work automatically — no maintenance needed
 |---|---|---|
 | Contact Inquiry | `/about#contact` | Sanity "Submissions" + Slack notification |
 | Membership Application | `/join` | Sanity "Membership Applications" + Slack notification |
-| Directory Submission | `/find-ux-pro` | Sanity "Member Directory" (as draft) + Slack notification |
+| Directory Submission | `/directory` | Sanity "Member Directory" (as draft) + Slack notification |
 
 - View submissions in Sanity Studio
 - Directory submissions are created as **drafts** — review and publish them to make profiles appear in the directory

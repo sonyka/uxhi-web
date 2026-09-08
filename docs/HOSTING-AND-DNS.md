@@ -124,7 +124,7 @@ certificate**. A brief error state first is normal, not a failure.
 
 #### 6 — Verify the site
 
-Load `https://uxhi.community` and walk: homepage, `/about`, `/find-ux-pro` (all 63 members,
+Load `https://uxhi.community` and walk: homepage, `/about`, `/directory` (all 63 members,
 filters working), `/resources` (both PDFs download), `/join` and the contact form. Confirm
 `www` redirects to the canonical form chosen above.
 

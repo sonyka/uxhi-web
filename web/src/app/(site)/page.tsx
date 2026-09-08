@@ -415,7 +415,7 @@ export default async function HomePage() {
                   Connect with other UX&apos;ers, then keep the conversation going in our{" "}
                   <InlineLink href="/join">Slack community</InlineLink>
                   {" "}or tap into our{" "}
-                  <InlineLink href="/find-ux-pro">membership directory</InlineLink>.
+                  <InlineLink href="/directory">membership directory</InlineLink>.
                 </p>
               </SpotIllustrationCard>
             </MotionDiv>

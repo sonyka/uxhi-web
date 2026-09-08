@@ -308,7 +308,7 @@ export function HamburgerButton({ isOpen, onClick }: HamburgerButtonProps) {
 
 // Default navigation items used across the site
 export const defaultNavItems: NavItem[] = [
-  { key: "find-ux-pro", label: "Find a pro", href: "/find-ux-pro" },
+  { key: "directory", label: "Find a pro", href: "/directory" },
   {
     key: "get-involved",
     label: "Get involved",
