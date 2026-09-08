@@ -236,6 +236,27 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Everything the motion library does not own.
+   MotionConfig handles the framer animations; this catches the rest — CSS
+   transitions and keyframes, the photo that scales on hover, the arrow that
+   slides in a button, and smooth scrolling. Near-zero rather than `none` on
+   purpose: a duration of 0 can stop transitionend from firing, and anything
+   waiting on that event would hang instead of finishing instantly. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Focus styles for accessibility */
 *:focus-visible {
   outline: 2px solid var(--color-teal-90);

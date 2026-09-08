@@ -3,6 +3,7 @@ import { MEMBER_COUNT_PLUS } from "@/lib/stats";
 import { Dela_Gothic_One, Nunito } from "next/font/google";
 import { SanityLive } from "@/sanity/lib/live";
 import { ThemeColorSync } from "@/components/layout/ThemeColorSync";
+import { MotionPreferences } from "@/components/ui/motion/MotionPreferences";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
 import "./globals.css";
@@ -92,7 +93,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${delaGothic.variable} ${nunito.variable}`}>
       <body className="antialiased">
-        {children}
+        <MotionPreferences>{children}</MotionPreferences>
         <ThemeColorSync />
         <SanityLive />
         {(await draftMode()).isEnabled && <VisualEditing />}
