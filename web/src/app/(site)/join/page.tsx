@@ -157,6 +157,7 @@ export default function JoinPage() {
               src="/images/join/image-conferece.jpg"
               alt="UXHI community group photo"
               fill
+                sizes="(max-width: 1024px) 100vw, 1300px"
               className="object-cover"
             />
           </div>

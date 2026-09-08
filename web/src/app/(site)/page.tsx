@@ -125,6 +125,7 @@ export default async function HomePage() {
                   src="/images/home/ux101-group.jpg"
                   alt="UXHI UX 101 workshop"
                   fill
+                sizes="234px"
                   className="object-cover"
                 />
               </div>
@@ -141,6 +142,7 @@ export default async function HomePage() {
                   src="/images/home/crowd-community.jpg"
                   alt="UXHI community gathering"
                   fill
+                sizes="234px"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -175,6 +177,7 @@ export default async function HomePage() {
                   src="/images/home/photobooth.jpg"
                   alt="UXHI members at photo booth"
                   fill
+                sizes="234px"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-teal-100/90 via-transparent to-transparent" />
@@ -199,6 +202,7 @@ export default async function HomePage() {
                   src="/images/home/uxhicon-25.jpg"
                   alt="UXHI Conference"
                   fill
+                sizes="234px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
@@ -222,6 +226,7 @@ export default async function HomePage() {
                   src="/images/home/ux101-group.jpg"
                   alt="UXHI UX 101 workshop"
                   fill
+                sizes="234px"
                   className="object-cover"
                 />
               </div>
@@ -258,6 +263,7 @@ export default async function HomePage() {
                   src="/images/home/uxhicon-25.jpg"
                   alt="UXHI Conference"
                   fill
+                sizes="234px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
@@ -286,6 +292,7 @@ export default async function HomePage() {
                   src="/images/home/ux101-group.jpg"
                   alt="UXHI UX 101 workshop"
                   fill
+                sizes="234px"
                   className="object-cover"
                 />
               </div>
@@ -326,6 +333,7 @@ export default async function HomePage() {
                   src="/images/home/uxhicon-25.jpg"
                   alt="UXHI Conference"
                   fill
+                sizes="234px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
@@ -359,6 +367,7 @@ export default async function HomePage() {
               src="/images/home/community-photo.jpg"
               alt="UXHI community group photo on rooftop"
               fill
+                sizes="(max-width: 1024px) 100vw, 1300px"
               className="object-cover"
             />
           </div>

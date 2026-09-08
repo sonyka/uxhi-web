@@ -296,7 +296,8 @@ export default async function ResourcesPage() {
               <div className="absolute inset-px rounded-lg bg-white max-sm:rounded-t-[2rem] sm:rounded-tl-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-sm:rounded-t-[calc(2rem_+_1px)] sm:rounded-tl-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-1.jpg" alt="UXHI conference stickers and swag" fill className="object-cover" />
+                  <Image src="/images/resources/bentogrid-resources-1.jpg" alt="UXHI conference stickers and swag" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-sm:rounded-t-[2rem] sm:rounded-tl-[2rem]" />
@@ -305,7 +306,8 @@ export default async function ResourcesPage() {
               <div className="absolute inset-px rounded-lg bg-white sm:rounded-tr-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] sm:rounded-tr-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-2.jpg" alt="UXHI panelists speaking at conference" fill className="object-cover" />
+                  <Image src="/images/resources/bentogrid-resources-2.jpg" alt="UXHI panelists speaking at conference" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 sm:rounded-tr-[2rem]" />
@@ -317,7 +319,8 @@ export default async function ResourcesPage() {
               <div className="absolute inset-px rounded-lg bg-white sm:rounded-bl-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] sm:rounded-bl-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-3.jpg" alt="UXHI speaker with lei" fill className="object-cover" />
+                  <Image src="/images/resources/bentogrid-resources-3.jpg" alt="UXHI speaker with lei" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 sm:rounded-bl-[2rem]" />
@@ -326,7 +329,8 @@ export default async function ResourcesPage() {
               <div className="absolute inset-px rounded-lg bg-white" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-4.jpg" alt="UXHI member sharing phone at event" fill className="object-cover" />
+                  <Image src="/images/resources/bentogrid-resources-4.jpg" alt="UXHI member sharing phone at event" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
@@ -335,7 +339,8 @@ export default async function ResourcesPage() {
               <div className="absolute inset-px rounded-lg bg-white max-sm:rounded-b-[2rem] sm:rounded-br-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-sm:rounded-b-[calc(2rem_+_1px)] sm:rounded-br-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-5.jpg" alt="UXHI community members posing together" fill className="object-cover" />
+                  <Image src="/images/resources/bentogrid-resources-5.jpg" alt="UXHI community members posing together" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-sm:rounded-b-[2rem] sm:rounded-br-[2rem]" />

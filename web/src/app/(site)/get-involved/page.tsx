@@ -627,7 +627,8 @@ export default async function GetInvolvedPage() {
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-t-[calc(2rem_+_1px)] lg:rounded-l-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/4] lg:aspect-auto w-full lg:flex-1">
-                  <Image src="/images/get-involved/bentogrid-getinvolved-1.jpg" alt="UXHI speaker with lei" fill className="object-cover" />
+                  <Image src="/images/get-involved/bentogrid-getinvolved-1.jpg" alt="UXHI speaker with lei" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
@@ -638,7 +639,8 @@ export default async function GetInvolvedPage() {
                 <div className="absolute inset-px rounded-lg bg-white" />
                 <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
                   <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
-                    <Image src="/images/get-involved/bentogrid-getinvolved-2.jpg" alt="UXHI conference audience" fill className="object-cover" />
+                    <Image src="/images/get-involved/bentogrid-getinvolved-2.jpg" alt="UXHI conference audience" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                   </div>
                 </div>
                 <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
@@ -647,7 +649,8 @@ export default async function GetInvolvedPage() {
                 <div className="absolute inset-px rounded-lg bg-white" />
                 <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
                   <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
-                    <Image src="/images/get-involved/bentogrid-getinvolved-3.jpg" alt="UXHI panelists speaking" fill className="object-cover" />
+                    <Image src="/images/get-involved/bentogrid-getinvolved-3.jpg" alt="UXHI panelists speaking" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                   </div>
                 </div>
                 <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
@@ -658,7 +661,8 @@ export default async function GetInvolvedPage() {
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-b-[calc(2rem_+_1px)] lg:rounded-r-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/4] lg:aspect-auto w-full lg:flex-1">
-                  <Image src="/images/get-involved/bentogrid-getinvolved-4.jpg" alt="UX means no user gets left behind sticker" fill className="object-cover" />
+                  <Image src="/images/get-involved/bentogrid-getinvolved-4.jpg" alt="UX means no user gets left behind sticker" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]" />

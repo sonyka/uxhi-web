@@ -31,8 +31,11 @@ export default async function DirectoryPage() {
         <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
+              {/* The nav, the browser tab and this now say the same thing.
+                  The descriptive version has not been lost — it is the lead
+                  directly beneath, which is where a longer sentence belongs. */}
               <SectionHeading as="h1" size="hero">
-                Find a UX professional
+                Find a Pro
               </SectionHeading>
             </HeroItem>
             <HeroItem>

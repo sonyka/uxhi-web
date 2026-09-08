@@ -158,7 +158,8 @@ export default function EventsPage() {
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-t-[calc(2rem_+_1px)] lg:rounded-tl-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
-                  <Image src="/images/events/bentogrid-events-1.jpg" alt="UXHI community members posing together" fill className="object-cover" />
+                  <Image src="/images/events/bentogrid-events-1.jpg" alt="UXHI community members posing together" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
@@ -168,7 +169,8 @@ export default function EventsPage() {
               <div className="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] lg:rounded-tr-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/events/bentogrid-events-2.jpg" alt="UXHI meetup audience gathering" fill className="object-cover" />
+                  <Image src="/images/events/bentogrid-events-2.jpg" alt="UXHI meetup audience gathering" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]" />
@@ -178,7 +180,8 @@ export default function EventsPage() {
               <div className="absolute inset-px rounded-lg bg-white lg:rounded-bl-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] lg:rounded-bl-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/events/bentogrid-events-3.jpg" alt="UXHI members at photobooth with sunglasses" fill className="object-cover" />
+                  <Image src="/images/events/bentogrid-events-3.jpg" alt="UXHI members at photobooth with sunglasses" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]" />
@@ -188,7 +191,8 @@ export default function EventsPage() {
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-b-[calc(2rem_+_1px)] lg:rounded-br-[calc(2rem_+_1px)]">
                 <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
-                  <Image src="/images/events/bentogrid-events-4.jpg" alt="UXHI holiday dinner gathering" fill className="object-cover" />
+                  <Image src="/images/events/bentogrid-events-4.jpg" alt="UXHI holiday dinner gathering" fill
+                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
