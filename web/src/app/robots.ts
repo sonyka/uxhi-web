@@ -21,6 +21,11 @@ const PUBLIC_HOSTS = [
   "www.uxhi.community",
 ];
 
+// Only these advertise a sitemap. sitemap.ts answers the conference hosts with
+// an empty list — its pages are frozen archives served through rewrites — and
+// pointing a crawler at an empty file is worse than not pointing at all.
+const SITEMAP_HOSTS = ["uxhi.community", "www.uxhi.community"];
+
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const host = (await headers()).get("host")?.toLowerCase().split(":")[0] ?? "";
 
@@ -53,8 +58,16 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         userAgent: "*",
         allow: "/",
         // The CMS is not content; it is a login screen.
+        //
+        // /design-system is deliberately NOT here. It is kept out of results
+        // with a noindex tag in its own layout, and adding a Disallow would
+        // undo that: a crawler told not to fetch the page never reads the
+        // noindex on it, and can still list the URL from a link elsewhere.
         disallow: ["/studio", "/studio/"],
       },
     ],
+    ...(SITEMAP_HOSTS.includes(host)
+      ? { sitemap: `https://${host}/sitemap.xml` }
+      : {}),
   };
 }
