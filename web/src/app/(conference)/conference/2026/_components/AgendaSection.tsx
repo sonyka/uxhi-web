@@ -338,10 +338,7 @@ function SessionCard({
       )}
 
       <div className="flex items-start gap-3">
-        <h3
-          className="flex-1 font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140"
-          style={{ textWrap: "balance" }}
-        >
+        <h3 className={`${TYPE.itemTitle} flex-1 text-gray-140`}>
           {title}
         </h3>
         {expandable && (

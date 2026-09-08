@@ -93,6 +93,19 @@ export const TYPE = {
   /** Page hero headlines. Intentionally dips at md (narrower column). */
   hero:
     "text-[26px] md:text-[22px] lg:text-[30px] xl:text-[36px] font-semibold leading-[1.2] tracking-[-0.02em] text-balance",
+  /** Section titles — Moʻolelo, The Venue, FAQs, Meet the Organizers. Dips at
+   *  md for the same reason hero does: the column narrows there. */
+  sectionTitle:
+    "text-[24px] md:text-[20px] lg:text-[26px] xl:text-[32px] font-semibold leading-[1.3] tracking-[-0.02em] text-balance",
+  /** A panel or drawer heading — one step under a section title. */
+  panelTitle:
+    "text-[20px] md:text-[22px] font-semibold leading-[1.25] tracking-[-0.01em] text-balance",
+  /** The name of one item in a list: an agenda session, a side-programme card,
+   *  a sponsor. Three components had typed this ramp out separately, and the
+   *  side programme's copy carried a comment explaining that it was meant to
+   *  match the agenda's exactly — which is a role asking to exist. */
+  itemTitle:
+    "text-[16px] md:text-[17px] font-semibold leading-[1.35] tracking-[-0.01em] text-balance",
   /** Lead paragraph under a hero or section title. Pretty rather than balance:
    *  a lead here runs to several lines inside a 62ch measure, and balancing a
    *  block that long narrows it against the measure the section already set. */

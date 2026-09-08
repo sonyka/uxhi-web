@@ -131,9 +131,11 @@ function SideProgramCard({ item }: { item: SideProgramItem }) {
             LinkedIn glyph in the bio drawers, which is the other small mark on
             this page. */}
         {item.icon ? <item.icon size={20} style={{ color: GRAY_120 }} /> : null}
-        {/* Matches the agenda's session-title ramp exactly: these cards sit
-            directly under those and read as the same kind of thing. */}
-        <h4 className="font-semibold text-[16px] md:text-[17px] leading-[1.35] tracking-[-0.01em] text-gray-140">
+        {/* The agenda's session titles and these are one role, TYPE.itemTitle:
+            these cards sit directly under those and read as the same kind of
+            thing. It used to be the same string typed twice with a comment
+            saying so. */}
+        <h4 className={`${TYPE.itemTitle} text-gray-140`}>
           {item.title}
         </h4>
         {item.badge ? (

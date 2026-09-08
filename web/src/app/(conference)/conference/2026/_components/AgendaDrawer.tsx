@@ -114,10 +114,7 @@ export function AgendaDrawer({
                 {eyebrow}
               </div>
             )}
-            <h2
-              className="font-semibold text-[20px] md:text-[22px] leading-[1.25] tracking-[-0.01em] text-gray-140 pr-10"
-              style={{ textWrap: "balance" }}
-            >
+            <h2 className={`${TYPE.panelTitle} text-gray-140 pr-10`}>
               {title}
             </h2>
 

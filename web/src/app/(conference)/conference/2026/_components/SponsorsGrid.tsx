@@ -68,7 +68,12 @@ function SponsorCard({ s }: { s: Sponsor }) {
         )}
       </div>
       <div className="flex flex-col gap-1">
-        {s.logo && <h3 className="font-semibold text-[16px] leading-tight text-gray-140">{s.name}</h3>}
+        {s.logo && (
+          /* Was text-[16px] flat — the one heading on the year with no ramp at
+             all, which is the thing this system says a role must never be.
+             Joining itemTitle adds a pixel above md and a little leading. */
+          <h3 className={`${TYPE.itemTitle} text-gray-140`}>{s.name}</h3>
+        )}
         {s.description && (
           <p className={TYPE.bodyCompact} style={{ color: GRAY }}>
             {s.description}
