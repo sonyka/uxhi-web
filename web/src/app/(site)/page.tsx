@@ -39,11 +39,16 @@ export default async function HomePage() {
           {/* Member Badge */}
           <HeroItem>
             <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-white rounded-3xl sm:rounded-full px-4 py-3 sm:pl-2 sm:pr-6 sm:py-2 mb-5 md:mb-10 border border-gray-20 shadow-sm">
+              {/* priority because Next measures this as the homepage's Largest
+                  Contentful Paint — it sits directly above the h1, and was
+                  being lazy-loaded, so the first thing a visitor sees was
+                  waiting on a request that had not been asked for yet. */}
               <Image
                 src="/images/home/members.png"
                 alt="UXHI community members"
                 width={130}
                 height={36}
+                priority
                 className="h-9 w-auto"
               />
               <span className="text-nav text-gray-120 font-medium">{MEMBER_COUNT} members and counting</span>
