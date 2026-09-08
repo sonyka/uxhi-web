@@ -57,7 +57,7 @@ export const AGENDA_2026: AgendaSlot[] = [
         title: "Case Study Showcase",
         description:
           "Join us for a showcase of case studies from a diverse group of Hawai\u02bbi-based practitioners working across design, technology, culture, and community. Each speaker will share a project or experience that offers a glimpse into their process, the challenges they encountered, and what they learned along the way. Featuring perspectives from people working with indigenous knowledge, place-based technology, and creative practice, this session is an opportunity to hear a variety of individual mo\u02bbolelo through the work they share.",
-        speakers: [{ name: "Kim Cinco", slug: "kim-cinco" }, { name: "Dr. Kari Noe", slug: "dr-kari-noe" }, { name: "Gage Minamoto", slug: "gage-minamoto" }],
+        speakers: [{ name: "Kim Cinco", slug: "kim-cinco" }, { name: "Gage Minamoto", slug: "gage-minamoto" }, { name: "Dr. Kari Noe", slug: "dr-kari-noe" }],
       },
       {
         room: "Purple Box",
