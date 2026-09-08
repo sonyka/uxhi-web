@@ -17,7 +17,6 @@ import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { scaleReveal } from "@/lib/animations";
 import { MEMBER_COUNT } from "@/lib/stats";
 
 // The FAQ section is hidden on /about for now (2026-08-29). The FAQs still

@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { sanityFetchCached } from "@/sanity/lib/fetchCached";
-import { EVENTS_QUERY } from "@/sanity/lib/queries";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { PressMention } from "@/components/ui/PressMention";
 import { ExternalLinkIcon } from "@/components/ui/icons";
@@ -23,27 +21,11 @@ export const metadata: Metadata = {
     "Discover upcoming UX events, workshops, and meetups in Hawaii. Connect with local UX professionals and grow your skills.",
 };
 
-// Hardcoded fallback events (shown when Sanity has no data)
-const fallbackEvents = [
-  { date: "Feb. 26", title: "Resume Review Day", time: "3:00pm - 5:00pm", tentative: false },
-  { date: "March 6", title: "Careers in Tech and Intelligence Fair (UH Manoa)", time: "1:00pm - 4:00pm", tentative: false },
-  { date: "March 12", title: "UH West Oahu Career Fair", time: "10:00am - 1:00pm", tentative: true },
-  { date: "April 7", title: "Leeward CC Career Fair", time: "12:00pm - 2:00pm", tentative: false },
-  { date: "March 12 OR April 7", title: "Talk Story with Tech Pros", time: "evening", tentative: false },
-];
-
-function formatEventDate(dateStr: string) {
-  const date = new Date(dateStr + "T00:00:00");
-  return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
-}
-
-export default async function EventsPage() {
-  const eventsResult = await sanityFetchCached({ query: EVENTS_QUERY });
-
-  type Event = { _id: string; title: string; date: string; time: string | null; location: string | null; description: string | null; url: string | null; tentative: boolean | null };
-
-  const events: Event[] = eventsResult.data || [];
-
+// The Sanity events query, a hardcoded fallback list, a date formatter and the
+// Event type all lived here and none of them reached the page: the listing is
+// a Luma embed now. Removed rather than silenced — git has them if the
+// CMS-driven list ever comes back.
+export default function EventsPage() {
   return (
     <main className="min-h-screen bg-beige-30">
       {/* Hero Section */}

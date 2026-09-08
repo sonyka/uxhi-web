@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
-import { RESOURCE_ITEMS_QUERY, TECH_ORGANIZATIONS_QUERY, STATE_OF_UX_REPORTS_QUERY } from "@/sanity/lib/queries";
+import { RESOURCE_ITEMS_QUERY, TECH_ORGANIZATIONS_QUERY } from "@/sanity/lib/queries";
 import { SanityImage } from "@/components/ui/SanityImage";
 import { QuickLinkPill } from "@/components/ui/QuickLinkPill";
 import { LinkCard } from "@/components/ui/LinkCard";
@@ -101,10 +101,12 @@ const techOrgs = [
 ];
 
 export default async function ResourcesPage() {
-  const [{ data: resourceItems }, { data: techOrganizations }, { data: reports }] = await Promise.all([
+  // The State of UX reports query used to fill this page and no longer does —
+  // the two PDFs are linked directly. Fetching it and discarding the result was
+  // a round trip on every render for nothing.
+  const [{ data: resourceItems }, { data: techOrganizations }] = await Promise.all([
     sanityFetchCached({ query: RESOURCE_ITEMS_QUERY }),
     sanityFetchCached({ query: TECH_ORGANIZATIONS_QUERY }),
-    sanityFetchCached({ query: STATE_OF_UX_REPORTS_QUERY }),
   ]);
 
   // Group resource items by category

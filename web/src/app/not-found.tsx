@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
+import { SkipLink } from "@/components/layout/SkipLink";
 import { Footer } from "@/components/layout/Footer";
 import { siteSettings } from "@/components/layout/siteSettings";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
@@ -68,8 +69,9 @@ function BookIcon({ className = "w-5 h-5" }: { className?: string }) {
 export default function NotFound() {
   return (
     <>
+      <SkipLink />
       <Header settings={siteSettings} />
-      <main>
+      <main id="main" tabIndex={-1}>
         <section className="bg-beige-30 px-6 pt-32 pb-20 md:pt-40 md:pb-28">
           <div className="mx-auto max-w-[720px] text-center">
             <SectionIcon src="/images/icons/icon-empty.svg" alt="" />

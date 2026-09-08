@@ -1,5 +1,6 @@
 import { GoogleAnalyticsGated } from "@/components/analytics/GoogleAnalyticsGated";
 import { Header } from "@/components/layout/Header";
+import { SkipLink } from "@/components/layout/SkipLink";
 import { Footer } from "@/components/layout/Footer";
 import { siteSettings } from "@/components/layout/siteSettings";
 
@@ -16,8 +17,14 @@ export default function SiteLayout({
 }) {
   return (
     <>
+      <SkipLink />
       <Header settings={siteSettings} />
-      <main>{children}</main>
+      {/* tabIndex -1 so the skip link can move focus here, not just scroll —
+          without it a screen reader follows the link and keeps reading from
+          the header it was trying to leave. */}
+      <main id="main" tabIndex={-1}>
+        {children}
+      </main>
       <Footer />
       <GoogleAnalyticsGated gaId={GA_COMMUNITY_ID} productionHost={COMMUNITY_HOST} />
     </>

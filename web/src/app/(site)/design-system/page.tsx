@@ -24,7 +24,6 @@ import { DistributionBars } from "@/components/report/DistributionBars";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { SectionIcon } from "@/components/ui/SectionIcon";
-import { HeroContent } from "@/components/ui/HeroContent";
 import { LogoGrid } from "@/components/ui/LogoGrid";
 import { BulletPoint } from "@/components/ui/BulletPoint";
 import { SocialGlyph } from "@/components/ui/SocialGlyph";
