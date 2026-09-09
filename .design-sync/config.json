@@ -72,7 +72,20 @@
     "ProgramSection": {
       "cardMode": "column",
       "viewport": "1200x900"
+    },
+    "AgendaSection": {
+      "cardMode": "column"
+    },
+    "BenefitsHeadline": {
+      "cardMode": "column"
+    },
+    "SideProgramSection": {
+      "cardMode": "column"
+    },
+    "SocialLink": {
+      "cardMode": "column"
     }
   },
-  "readmeHeader": ".design-sync/conventions.md"
+  "readmeHeader": ".design-sync/conventions.md",
+  "docsDir": "../.design-sync/docs"
 }

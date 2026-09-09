@@ -41,8 +41,7 @@ Tailwind entry silently matches nothing, and every arbitrary-value class in `the
 goes missing from the compiled CSS with no error. The entry scans `../web/src` wholesale
 for exactly this reason. If the type ramps ever look flat in a preview, check this first.
 
-**3. Host-served assets never resolve, and Sanity ones always do.** This split is the
-most useful fact about the repo:
+**3. Host-served assets: Sanity resolves, the site's public folder never does.**
 
 - `https://cdn.sanity.io/images/evh83z0t/…` loads fine during capture, so components
   taking image URLs as props (`SponsorsGrid`, `CochairsSection`, `InstagramGrid`) render
@@ -50,17 +49,21 @@ most useful fact about the repo:
   `curl -s 'https://evh83z0t.apicdn.sanity.io/v2024-01-01/data/query/production?query=…'`
   — public, no token. The URLs are already inlined in those three preview files.
 - Anything under `/conferences/2026/assets/…` is served by the Next host and 404s in a
-  standalone bundle. It affects `QuoteCard` (shaka mark), `SocialGlyph` (both social
-  marks), `LogoBadge` (the badge *is* that one image), and both `PhotoTicker`s.
-  `SocialGlyph`'s gap travels: anything mounting it inherits the broken mark, including
-  `InstagramGrid`'s follow pills and the speaker bio drawers.
+  standalone bundle.
 
-**Deliberately not fixed.** Copying `web/public/conferences/` into `ds-bundle/` would
-make the local screenshots whole, and would change nothing in the product — a design
-built with `QuoteCard` in Claude Design still has no such path. A card that renders
-correctly locally and broken in the product is worse than one that is honest in both.
-The limitation is documented in `conventions.md`, which is where the design agent reads
-it. Revisit only if the app ever serves project files at an absolute root path.
+**Resolved 9 Sep 2026 by fixing the components, not the pipeline.** The brand marks were
+`<img>`/`next/image` references to files in `public/`, which meant a component was whole
+on this site and a broken-image box anywhere else. They are inline SVG now, in
+`_components/marks.tsx`, generated from the same SVG sources (which stay in `public/` for
+OG images and non-React use). That fixed `QuoteCard`, `SocialGlyph`, `SocialLink`,
+`LogoBadge`, and everything that mounts a glyph — and it removed the last `next/image`
+import from the year, so trap 1 no longer has a live trigger.
+
+Still outstanding: `PhotoTickerH` / `PhotoTickerV` hardcode nine photographs at
+`/conferences/2026/assets/images/image-ticker-N.png`, 76–120KB each. Too large to inline;
+the honest fix is an optional `photos` prop defaulting to the current paths, so a preview
+or a design can pass its own. Not done — it changes a component's API rather than its
+internals, which is a decision rather than a repair.
 
 **4. Vertical clipping is silent.** Grading captures each story alone at 900×700 and
 simply clips anything taller, with no warning in the log. Two cards lost content this
@@ -150,3 +153,18 @@ Two things look like faults in the graded sheets and are not:
 FaqSection's open answer, AgendaSection's card and speaker hover (the drawer's own cells
 cover those states instead), SocialLink's hover cross-fade, and the ConferenceButton
 hover opacity shift.
+
+## Card grouping, and the doc files behind it
+
+The Design System pane groups cards by each component's `<group>`, which comes from the
+`category` frontmatter of its per-component doc. To get an **Icons** section beside
+**Components**, `cfg.docsDir` points at `.design-sync/docs/` — one `<Name>.md` per
+component, each carrying `category: Icons` or `category: Components`.
+
+**These files were seeded from the converter's own synthesized `.prompt.md` output**, so
+grouping cost no documentation. The trade is that they no longer regenerate: a doc file
+now wins over synthesis, so a component whose props change will keep the old prop list in
+its doc until someone updates the file. **Re-sync risk:** when a component's API changes,
+re-seed its doc from the freshly built `.prompt.md` and re-add the frontmatter, or edit it
+by hand. Twelve are Icons (the eleven from icons.tsx plus SocialGlyph); the rest are
+Components.

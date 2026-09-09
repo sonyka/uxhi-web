@@ -3,7 +3,12 @@
 // SocialLink attaches an onClick, so the module is a client one. The footer is
 // a server component and imports the glyphs from here, which is fine — it just
 // means these few presentational nodes render on the client.
-import Image from "next/image";
+import {
+  InstagramMarkColour,
+  InstagramMarkGrey,
+  LinkedInMarkColour,
+  LinkedInMarkGrey,
+} from "./marks";
 
 /**
  * The conference's social marks: grey at rest, full colour on hover.
@@ -21,27 +26,20 @@ import Image from "next/image";
  * near #6a6a6a, which is close enough to look like a mistake rather than a
  * decision.
  *
- * The assets live in the year's own tree. The conference host rewrites any
- * unmatched path into the current year, so a shared /images/nav/ asset 404s
- * there; everything under /conferences/<year>/assets/ is passed through and
- * served straight off the CDN.
+ * Both marks are inline SVG rather than files under /conferences/2026/assets/.
+ * A URL only resolves on this site, so a component carrying one is whole here
+ * and a broken-image box anywhere else it is used — a preview, an export, a
+ * design tool. See marks.tsx.
  */
-
-const ASSETS = "/conferences/2026/assets/logos";
 
 export type Network = "instagram" | "linkedin";
 
-const NETWORKS: Record<Network, { label: string; grey: string; colour: string }> = {
-  instagram: {
-    label: "Instagram",
-    grey: `${ASSETS}/glyph-instagram.svg`,
-    colour: `${ASSETS}/glyph-instagram-color.svg`,
-  },
-  linkedin: {
-    label: "LinkedIn",
-    grey: `${ASSETS}/glyph-linkedin.svg`,
-    colour: `${ASSETS}/glyph-linkedin-color.svg`,
-  },
+const NETWORKS: Record<
+  Network,
+  { label: string; Grey: typeof InstagramMarkGrey; Colour: typeof InstagramMarkColour }
+> = {
+  instagram: { label: "Instagram", Grey: InstagramMarkGrey, Colour: InstagramMarkColour },
+  linkedin: { label: "LinkedIn", Grey: LinkedInMarkGrey, Colour: LinkedInMarkColour },
 };
 
 /**
@@ -59,25 +57,19 @@ export function SocialGlyph({
   network: Network;
   size?: number;
 }) {
-  const { grey, colour } = NETWORKS[network];
+  const { Grey, Colour } = NETWORKS[network];
 
   return (
     <span
       className="relative inline-block shrink-0 align-middle"
       style={{ width: size, height: size }}
     >
-      <Image
-        src={grey}
-        alt=""
-        width={size}
-        height={size}
+      <Grey
+        size={size}
         className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"
       />
-      <Image
-        src={colour}
-        alt=""
-        width={size}
-        height={size}
+      <Colour
+        size={size}
         className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       />
     </span>

@@ -17,13 +17,11 @@ Two things the host page must supply, because Next supplied them on the real sit
    whole system falls back to a system sans and looks wrong immediately.
 2. **Image assets, but only one kind.** Imagery passed in as a prop works: the sponsor,
    co-chair and Instagram components take URLs and render real photography from the CMS
-   without any setup. What does not work is the handful of components that *hardcode*
-   paths the site serves from its own public folder — `/conferences/2026/assets/logos/…`
-   (QuoteCard's shaka mark, SocialGlyph's Instagram and LinkedIn marks, LogoBadge) and
-   `/conferences/2026/assets/photos/…` (PhotoTickerH, PhotoTickerV). Nothing here serves
-   those paths, so those marks are missing in this bundle and in any design built with
-   them. SocialGlyph's gap travels: anything mounting it — the footer row, a speaker's
-   bio drawer, the Instagram follow pills — inherits it.
+   with no setup. The brand marks — the shaka, the UXHICon badge, the Instagram and
+   LinkedIn glyphs — are inline SVG and travel with their components. The one exception
+   is `PhotoTickerH` and `PhotoTickerV`, which hardcode nine photographs at
+   `/conferences/2026/assets/images/…`. Those are served by the site, so the tickers
+   render their geometry — cadence, doubled track, edge fades — with empty tiles.
 
 ## The styling idiom
 
