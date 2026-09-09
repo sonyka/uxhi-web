@@ -31,7 +31,7 @@ export const metadata: Metadata = {
  * domain is pointed here.
  */
 
-const LAST_UPDATED = "8 September 2026";
+const LAST_UPDATED = "9 September 2026";
 
 /** A heading and its paragraphs, so every section is spaced the same way. */
 function Section({
@@ -130,7 +130,10 @@ export default function PrivacyPage() {
                 <strong className="font-black text-gray-140">
                   Form submissions
                 </strong>{" "}
-                — 90 days, then deleted.
+                — kept for as long as they are useful to us. We do not run an
+                automatic deletion schedule, so if you want a submission gone,{" "}
+                <InlineLink href="#removal">ask</InlineLink> and we will delete
+                it.
               </li>
               <li>
                 <strong className="font-black text-gray-140">

@@ -137,6 +137,8 @@ then return to `staging` immediately. Only ever on explicit instruction — see 
 ## Known issues
 
 - The report PDFs in `web/public/reports/` are compressed but still 7.9 MB and 5.0 MB.
-- Nothing enforces the 90-day deletion of form submissions that the privacy notice promises.
+- Form submissions are never deleted automatically. That is now what the privacy notice
+  says (2026-09-09), rather than the 90-day promise it used to make, so this is a
+  documented practice and not a gap. Deletion on request is manual, via the Studio.
 - Legacy/duplicate Vercel projects (`uxhi-web`, `uxhi-website`) are still slated for deletion.
 - `docs/archive/` holds the Notion migration record. Read-only history.
