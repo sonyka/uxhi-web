@@ -49,10 +49,13 @@ matter, including the two that are easy to violate by accident:
 
 ## Docs
 
-Everything non-obvious lives in [`../docs/`](../docs/):
+Two live documents and two reference files:
 
+- **[UXHI Site Handbook](https://claude.ai/code/artifact/3526c45a-92cb-42fe-ae35-5563968c0d23)** —
+  the human-facing reference: where every piece of content is edited, how a change reaches the
+  live site, the forms, the outside services, and the DNS runbook. Not in this repo, on purpose:
+  it is shared with people who do not clone it
 - **[PROJECT-STATE.md](../docs/PROJECT-STATE.md)** — deployment reality, source-of-truth map and agent gotchas
-- **[handoff-guide.md](../docs/handoff-guide.md)** — for whoever edits content, not code
 - **[CONFERENCE-DESIGN-SYSTEM.md](../docs/CONFERENCE-DESIGN-SYSTEM.md)** — why the
   conference is a theme layer rather than a fork
 - **[notion-directory-migration.md](../docs/archive/notion-directory-migration.md)** — how the

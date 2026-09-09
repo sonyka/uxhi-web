@@ -1,29 +1,24 @@
 # Project State — for agents and developers
 
-**This is the technical living document.** It holds the things a coding agent or a developer
-needs in order to act safely: where each thing is deployed, what must not be touched, which
-file is the source of truth for what, and the open work with its exact commands.
+**This is the technical living document.** It holds what a coding agent or a developer needs
+in order to act safely: where each thing is deployed, what must not be touched, which file is
+the source of truth for what, and the gotchas that are not visible from the code.
 
-> **Status lives elsewhere.** What is done, what is outstanding, and what needs deciding is
-> tracked in the **Path to Launch worklog** — a non-technical, human-facing document for Sony
-> and the UXHI team:
+> **Two live documents sit outside this repo, and they own everything human-facing.**
 >
-> **https://claude.ai/code/artifact/f5861a52-1822-47ca-b284-a08688f1134a**
+> - **[UXHI Site Handbook](https://claude.ai/code/artifact/3526c45a-92cb-42fe-ae35-5563968c0d23)** —
+>   where every piece of content is edited and whether editing it changes anything, how a
+>   change reaches the live site, the three forms, the outside services, access and local
+>   setup, the DNS runbook for pointing `uxhi.community`, and the parked Mailchimp and Stripe
+>   plans. Shared with the team.
+> - **[Path to Launch worklog](https://claude.ai/code/artifact/f5861a52-1822-47ca-b284-a08688f1134a)** —
+>   what is done, what is outstanding, what needs deciding.
 >
-> Do not duplicate its checklists here. If a status changes, update the worklog. This file
-> records *mechanics*, not progress.
-
----
-
-## Which document serves what
-
-| Need | Go to |
-|---|---|
-| What is done / outstanding / needs deciding | **The worklog artifact** (link above) |
-| Rules, architecture, design system, deploy policy | `CLAUDE.md` |
-| How to point the domain, GA setup, Mailchimp plan | The runbooks in this folder |
-| How the 63 directory members got here | `docs/archive/` |
-| This file | Deployment reality, source-of-truth map, agent gotchas |
+> They replaced five files in this folder on 8 Sep 2026 — a handoff guide, a DNS runbook, an
+> analytics note, a Mailchimp plan and a Stripe comparison — which had drifted precisely
+> because the same facts were written down in two places. **Do not restate their content
+> here.** If a fact belongs to a human workflow, it goes in the handbook; if it is progress,
+> it goes in the worklog; this file is for mechanics an agent needs.
 
 ---
 
@@ -33,7 +28,7 @@ file is the source of truth for what, and the open work with its exact commands.
 |---|---|---|
 | **Staging — everything** | `web-henna-five-45.vercel.app` → **Vercel** (`staging` branch) | The only staging URL. Share this for review. |
 | **Conference production** | `uxhiconference.com` → **Netlify** (`main`) | Conference only. Current year at `/`, archives at `/YYYY`. |
-| **Main site production** | `uxhi.community` → **Netlify** (`main`) | **Domain not yet pointed.** See the runbook in [HOSTING-AND-DNS.md](HOSTING-AND-DNS.md). |
+| **Main site production** | `uxhi.community` → **Netlify** (`main`) | **Domain not yet pointed.** Runbook is in the handbook. |
 | Active dev branch | `staging` | All commits go here. |
 
 > ⛔ **Never push `main`, and never suggest it.** Until `uxhi.community` is pointed, the only
@@ -55,12 +50,39 @@ file is the source of truth for what, and the open work with its exact commands.
 
 | Thing | Lives in | Notes |
 |---|---|---|
-| Member directory content | **Sanity** | Notion retired 2026-08-30. Edit in the Studio. |
+| Every content type with a Sanity schema | **Sanity** | The CMS is the only source. Pages render what it returns and nothing else — no hardcoded fallback lists. See the rule below. |
+| Conference schedule | `app/(conference)/conference/2026/agenda.ts` | Times, rooms, session titles and which speakers sit on which session. The CMS supplies a speaker's photo, title, bio and links, joined on `slug`. Deleting a speaker record does not remove their name from the page. |
+| Shop products | `app/(site)/merch/page.tsx` | The CMS has no products, so the placeholder array is what renders. Publishing a real product replaces it. |
 | Focus / industry options | `web/src/components/directory/constants.ts` | The Sanity schema **imports** these — do not duplicate them. Mirrors the live submission form. |
-| Page content | **Sanity** | Localhost shows drafts; staging and production show published. |
 | Design tokens | `web/src/app/globals.css` | Component styling changes go at the component level, never inline on a page. |
 | Component documentation | `/design-system` | Must be updated in the same changeset as any component change. |
-| Conference per-year design | `app/(conference)/conferences/<year>/` | Years share no code. See [CONFERENCE-DESIGN-SYSTEM.md](CONFERENCE-DESIGN-SYSTEM.md). |
+| Conference per-year design | `app/(conference)/conference/<year>/` | Years share no code. See [CONFERENCE-DESIGN-SYSTEM.md](CONFERENCE-DESIGN-SYSTEM.md). |
+
+### No fallback content
+
+A page must not carry a hardcoded copy of CMS content behind a `rows.length > 0 ? rows :
+hardcoded` branch. Four of these existed and all four had drifted: the committee fallback
+still advertised two committees that no longer exist, the partner list was four short, and
+the resource lists predated the import. They never rendered, so nobody corrected them, and
+the one moment they would have appeared is the moment the CMS was unreachable.
+
+Removed 8 Sep 2026. When a fetch returns nothing, render nothing.
+
+---
+
+## Content that is fetched but not shown
+
+Live sections are listed in the handbook. These are the exceptions an agent will trip over:
+
+- **`value`** — fetched on `/about` and passed to `MissionSection`, whose values grid is
+  switched off. The query is a round trip for nothing while that stays true.
+- **`aboutFaq`** — behind `SHOW_FAQS = false` in `app/(site)/about/page.tsx`.
+- **`faq`** ("FAQs — Join") — 5 documents, no consumer at all. `/join` reads nothing from the CMS.
+- **`event`** — 0 documents, no consumer. `/events` embeds a Luma calendar.
+- **`stateOfUxReport`** — 1 document, no consumer. `/resources` links both PDFs directly.
+
+Deleting these schemas is a decision, not a cleanup — the hidden sections are parked pending
+Sony's call on Our Values and the FAQ.
 
 ---
 
@@ -74,11 +96,23 @@ file is the source of truth for what, and the open work with its exact commands.
   crawlable. Add a hostname to `PUBLIC_HOSTS` only if it is genuinely meant to be found.
   `/robots.txt` and `/sitemap.xml` are excluded from the hostname rewrite in `middleware.ts` —
   without that, the conference domain would serve no rules at all.
+- **`sitemap.ts` is host-aware too** — the conference host gets an empty sitemap on purpose,
+  so it never hands out community URLs.
 - **Sanity CORS** currently allows: both localhost dev ports, the hosted Studio, the Netlify
   default domain, staging, `uxhi.community` and `uxhiconference.com`. A new public hostname
-  needs adding or live content updates break silently.
+  needs adding or live content updates break silently. `www.uxhi.community` is **not** on the
+  list — it only matters if `www` becomes canonical at launch.
 - **Analytics are host-gated.** Both GA tags load only on their production hostname, via
-  `components/analytics/GoogleAnalyticsGated.tsx`.
+  `components/analytics/GoogleAnalyticsGated.tsx`: `G-DMCWLCQD08` on `uxhi.community`,
+  `G-CT4QB1KDE2` on `uxhiconference.com`. Neither reports from staging, so an analytics change
+  cannot be verified before a production deploy. If the launch domain ever differs from
+  `uxhi.community`, update the `productionHost` prop in `app/(site)/layout.tsx` or the tag
+  silently records nothing.
+- **Security headers and the CSP** are set in `next.config.ts`, not `netlify.toml`, so staging
+  gets them too. The CSP is `frame-ancestors` only — allow-listed rather than `DENY`, because a
+  flat block breaks Sanity's Presentation preview.
+- **Error reporting degrades silently.** `SLACK_WEBHOOK_URL` unset in production means no
+  alerts at all, with only a server log line.
 - **Deleting a route?** Next's generated types cache the old path. `rm -rf web/.next/types`
   if the typecheck complains about a page you removed.
 - **`next.config.ts` changes need a dev-server restart** — they do not hot-reload under
@@ -86,27 +120,14 @@ file is the source of truth for what, and the open work with its exact commands.
 
 ---
 
-## Pre-launch checks — the exact mechanics
+## Pre-launch mechanics
 
-The worklog states these in plain language for the team. Here is what they actually mean.
-
-**Placeholder gate.** Before pointing the domain, confirm no placeholder directory rows exist:
+**Placeholder gate.** Before pointing the domain, confirm no placeholder directory rows exist.
+Run in the Studio's Vision tool; it must return zero:
 
 ```groq
 *[_type == "directoryMember" && name match "Placeholder*"]
 ```
-
-Must return zero. It does today; the gate exists in case placeholders are ever re-seeded for
-staging. Run it in the Studio's Vision tool.
-
-**Analytics host.** The community GA tag only loads on its production hostname. If the launch
-domain is anything other than `uxhi.community`, update `COMMUNITY_HOST` in
-`web/src/app/(site)/layout.tsx` before launch, or analytics silently records nothing. The
-gating component checks both the bare host and its `www.` form, so `www` needs no change.
-
-**Instagram feed.** The homepage feed is a Behold widget; its token expires every 60 days. The
-widget's layout — including the number of columns per breakpoint — is configured in the Behold
-dashboard, not in this codebase. `InstagramFeed.tsx` accepts only a `feedId`.
 
 **Publishing to production.** `git checkout main && git merge staging && git push origin main`,
 then return to `staging` immediately. Only ever on explicit instruction — see the rule above.
@@ -115,20 +136,7 @@ then return to `staging` immediately. Only ever on explicit instruction — see 
 
 ## Known issues
 
-- Two ESLint warnings remain in `TeamCard.tsx` and elsewhere (unused imports). Zero errors.
 - The report PDFs in `web/public/reports/` are compressed but still 7.9 MB and 5.0 MB.
+- Nothing enforces the 90-day deletion of form submissions that the privacy notice promises.
+- Legacy/duplicate Vercel projects (`uxhi-web`, `uxhi-website`) are still slated for deletion.
 - `docs/archive/` holds the Notion migration record. Read-only history.
-
----
-
-## Runbooks in this folder
-
-- **[HOSTING-AND-DNS.md](HOSTING-AND-DNS.md)** — phases, and the DNS runbook for
-  pointing `uxhi.community` (including the MX-record warning).
-- **[GOOGLE_ANALYTICS.md](GOOGLE_ANALYTICS.md)** — both GA properties and their gating.
-- **[mailchimp-integration.md](mailchimp-integration.md)** — written, on hold, ready to build.
-- **[stripe-payment-options.md](stripe-payment-options.md)** — options for merch payments,
-  undecided.
-- **[handoff-guide.md](handoff-guide.md)** — onboarding for a new maintainer.
-- **[CONFERENCE-DESIGN-SYSTEM.md](CONFERENCE-DESIGN-SYSTEM.md)** — why each conference year is
-  its own design world.
