@@ -67,39 +67,6 @@ function NotebookTabsIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-// Online Resources
-const onlineResources = [
-  { name: "Visual Design", url: "https://shiftnudge.com", label: "shiftnudge.com" },
-  { name: "Interaction Design", url: "https://interaction-design.org", label: "interaction-design.org" },
-  { name: "UX Design", url: "https://nngroup.com", label: "nngroup.com" },
-  { name: "Figma", url: "https://help.figma.com", label: "help.figma.com" },
-  { name: "Articles", url: "https://uxdesign.cc", label: "uxdesign.cc" },
-];
-
-// Online Programs
-const onlinePrograms = [
-  { name: "Google UX Design Certificate", url: "https://www.coursera.org/professional-certificates/google-ux-design", label: "coursera.org" },
-  { name: "General Assembly UX Design Bootcamp", url: "https://generalassemb.ly/students/courses/user-experience-design-bootcamp", label: "generalassemb.ly" },
-];
-
-// Communities
-// Tech Organizations
-const techOrgs = [
-  { name: "Hawai'i Tech Development Corporation (HTDC)", url: "https://htdc.org" },
-  { name: "Hawai'i Angel", url: "https://hawaiiangel.com" },
-  { name: "Blue Startups / East Meets West", url: "https://bluestartups.com" },
-  { name: "Pi'iku", url: "https://piiku.co" },
-  { name: "Hawaiians in Tech", url: "https://hawaiiansintech.org" },
-  { name: "TRUE Hawaii", url: "https://truehawaii.org" },
-  { name: "Hawaii Women in Tech", url: "https://hawaiiwomenintechnology.org" },
-  { name: "Honolulu Tech Network", url: "https://www.meetup.com/honolulu-tech-network/" },
-  { name: "Honolulu Bitcoin", url: "https://www.meetup.com/honolulu-bitdevs/" },
-  { name: "Hawaii Center for AI", url: "https://hawaiiai.org" },
-  { name: "Hawaii AI and XR", url: "https://hawaiiai.org" },
-  { name: "Pacific Asian Center for Entrepreneurship (PACE)", url: "https://pace.shidler.hawaii.edu" },
-  { name: "Honolulu Tech Week", url: "https://honolulutechweek.com" },
-];
-
 export default async function ResourcesPage() {
   // The State of UX reports query used to fill this page and no longer does —
   // the two PDFs are linked directly. Fetching it and discarding the result was
@@ -116,9 +83,6 @@ export default async function ResourcesPage() {
     acc[categorySlug].push(item);
     return acc;
   }, {} as Record<string, typeof resourceItems>);
-
-  // Use Sanity data or fall back to hardcoded data
-  const displayTechOrgs = techOrganizations && techOrganizations.length > 0 ? techOrganizations : techOrgs;
 
   return (
     <main className="min-h-screen bg-beige-30">
@@ -244,15 +208,12 @@ export default async function ResourcesPage() {
               <SectionEyebrow className="mb-6">Online Resources</SectionEyebrow>
             </ScrollReveal>
             <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {(groupedResources['online-resources-students'] && groupedResources['online-resources-students'].length > 0
-                ? groupedResources['online-resources-students']
-                : onlineResources
-              ).map((resource: { _id?: string; name?: string; title?: string; url?: string; description?: string; label?: string }) => (
-                <MotionDiv key={resource._id || resource.name || resource.title}>
+              {(groupedResources['online-resources-students'] ?? []).map((resource: { _id?: string; title?: string; url?: string; description?: string }) => (
+                <MotionDiv key={resource._id}>
                   <LinkCard
                     href={resource.url || "#"}
-                    title={resource.title || resource.name || ""}
-                    description={resource.description || resource.label || new URL(resource.url || "").hostname}
+                    title={resource.title || ""}
+                    description={resource.description}
                   />
                 </MotionDiv>
               ))}
@@ -357,15 +318,12 @@ export default async function ResourcesPage() {
               <SectionEyebrow className="mb-6">Online Programs</SectionEyebrow>
             </ScrollReveal>
             <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {(groupedResources['online-programs-students'] && groupedResources['online-programs-students'].length > 0
-                ? groupedResources['online-programs-students']
-                : onlinePrograms
-              ).map((program: { _id?: string; name?: string; title?: string; url?: string; description?: string; label?: string }) => (
-                <MotionDiv key={program._id || program.name || program.title}>
+              {(groupedResources['online-programs-students'] ?? []).map((program: { _id?: string; title?: string; url?: string; description?: string }) => (
+                <MotionDiv key={program._id}>
                   <LinkCard
                     href={program.url || "#"}
-                    title={program.title || program.name || ""}
-                    description={program.description || program.label || new URL(program.url || "").hostname}
+                    title={program.title || ""}
+                    description={program.description}
                   />
                 </MotionDiv>
               ))}
@@ -569,10 +527,10 @@ export default async function ResourcesPage() {
           </ScrollReveal>
 
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-            {displayTechOrgs.map((org: { _id?: string; name: string; website?: string; url?: string; logo?: { asset?: { _id?: string; url?: string } } }) => (
-              <MotionDiv key={org._id || org.name}>
+            {(techOrganizations ?? []).map((org: { _id?: string; name: string; website?: string; logo?: { asset?: { _id?: string; url?: string } } }) => (
+              <MotionDiv key={org._id}>
                 <LinkCard
-                  href={org.website || org.url || "#"}
+                  href={org.website || "#"}
                   title={org.name}
                   media={
                     org.logo?.asset ? (
