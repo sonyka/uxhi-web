@@ -1,0 +1,78 @@
+{
+  "projectId": "992872a3-3c1d-44f6-b568-55f70e214eec",
+  "shape": "package",
+  "pkg": "web",
+  "globalName": "UXHICon2026",
+  "srcDir": "src/app/(conference)/conference/2026/_components",
+  "tsconfig": ".ds-tsconfig.json",
+  "cssEntry": ".ds-styles.css",
+  "componentSrcMap": {
+    "AgendaDrawer": "src/app/(conference)/conference/2026/_components/AgendaDrawer.tsx",
+    "AgendaSection": "src/app/(conference)/conference/2026/_components/AgendaSection.tsx",
+    "AngleDownIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "ArrowRightIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "BenefitsHeadline": "src/app/(conference)/conference/2026/_components/BenefitsHeadline.tsx",
+    "BrowserIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "CameraIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "CochairsSection": "src/app/(conference)/conference/2026/_components/CochairsSection.tsx",
+    "ConferenceButton": "src/app/(conference)/conference/2026/_components/ConferenceButton.tsx",
+    "CursorClickIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "EmailHeartIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "FaqSection": "src/app/(conference)/conference/2026/_components/FaqSection.tsx",
+    "GlobeIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "HandHoldingHeartIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "InstagramGlyph": null,
+    "InstagramGrid": "src/app/(conference)/conference/2026/_components/InstagramGrid.tsx",
+    "LinkedInGlyph": null,
+    "LogoBadge": "src/app/(conference)/conference/2026/_components/LogoBadge.tsx",
+    "MobileNavMenu": "src/app/(conference)/conference/2026/_components/MobileNavMenu.tsx",
+    "Paragraphs": null,
+    "PastConferencesMenu": "src/app/(conference)/conference/2026/_components/PastConferencesMenu.tsx",
+    "PhotoTickerH": "src/app/(conference)/conference/2026/_components/PhotoTicker.tsx",
+    "PhotoTickerV": "src/app/(conference)/conference/2026/_components/PhotoTicker.tsx",
+    "ProgramSection": "src/app/(conference)/conference/2026/_components/ProgramSection.tsx",
+    "QuoteCard": "src/app/(conference)/conference/2026/_components/QuoteCard.tsx",
+    "ScrollIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "SectionHeading": "src/app/(conference)/conference/2026/_components/SectionHeading.tsx",
+    "ShakaIcon": "src/app/(conference)/conference/2026/_components/icons.tsx",
+    "SideProgramSection": "src/app/(conference)/conference/2026/_components/SideProgramSection.tsx",
+    "SocialGlyph": "src/app/(conference)/conference/2026/_components/SocialLink.tsx",
+    "SocialLink": "src/app/(conference)/conference/2026/_components/SocialLink.tsx",
+    "SponsorsGrid": "src/app/(conference)/conference/2026/_components/SponsorsGrid.tsx",
+    "StarIcon": "src/app/(conference)/conference/2026/_components/icons.tsx"
+  },
+  "overrides": {
+    "MobileNavMenu": {
+      "cardMode": "single",
+      "viewport": "390x700"
+    },
+    "SponsorsGrid": {
+      "cardMode": "column"
+    },
+    "CochairsSection": {
+      "cardMode": "column"
+    },
+    "InstagramGrid": {
+      "cardMode": "column"
+    },
+    "PhotoTickerH": {
+      "cardMode": "column"
+    },
+    "PhotoTickerV": {
+      "cardMode": "column"
+    },
+    "AgendaDrawer": {
+      "cardMode": "single",
+      "primaryStory": "SessionDetail"
+    },
+    "FaqSection": {
+      "cardMode": "column",
+      "viewport": "900x1000"
+    },
+    "ProgramSection": {
+      "cardMode": "column",
+      "viewport": "1200x900"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}

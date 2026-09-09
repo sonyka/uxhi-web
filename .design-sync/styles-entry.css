@@ -1,0 +1,28 @@
+/* Design-sync stylesheet entry for the UXHICon 2026 system.
+ *
+ * The site gets its CSS three ways that a standalone bundle does not:
+ * Tailwind compiles at build time, globals.css declares the parent @theme,
+ * and the year's layout.tsx loads Bricolage Grotesque through next/font and
+ * applies it via a wrapper div. This file reassembles all three so a preview
+ * rendered outside Next looks like the real page.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import "../web/src/app/globals.css";
+
+/* Class strings live in theme.ts as well as in the components, so both are
+ * scanned — a role's ramp is written there and nowhere else. */
+/* Scans all of src: the route-group parentheses in
+ * app/(conference)/conference/2026 are glob syntax, so a path that names the
+ * year silently matches nothing and every arbitrary-value class in theme.ts
+ * goes missing from the output. */
+@source "../web/src";
+
+/* next/font mints this variable at runtime. Here it is a plain declaration,
+ * and the family is applied at the root rather than by the year's wrapper
+ * div, which previews do not have. */
+:root {
+  --font-bricolage: "Bricolage Grotesque";
+}
+body {
+  font-family: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+}

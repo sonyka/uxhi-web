@@ -18,3 +18,12 @@ orphaned-assets.html
 
 # local artifact preview, not part of the site
 _worklog-preview.html
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
+web/.ds-styles.css
+web/.ds-entry.tsx
+web/.ds-shims/
+web/.ds-tsconfig.json
