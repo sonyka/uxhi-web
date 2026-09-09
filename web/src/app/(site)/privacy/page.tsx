@@ -222,14 +222,6 @@ export default function PrivacyPage() {
             </p>
           </Section>
 
-          <Section title="Children">
-            <p>
-              This site is meant for working designers, students and people
-              curious about the field. It is not directed at children under 13,
-              and we do not knowingly collect their information.
-            </p>
-          </Section>
-
           <Section title="Changes to this notice">
             <p>
               If what we collect changes, this page changes with it, and the

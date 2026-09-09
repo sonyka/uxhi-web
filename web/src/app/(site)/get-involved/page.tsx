@@ -127,12 +127,10 @@ function splitCommittee(description: string) {
  */
 function CommitteeCard({
   image,
-  imageSrc,
   name,
   description,
 }: {
   image?: SanityImage;
-  imageSrc?: string;
   name: string;
   description: string;
 }) {
@@ -144,7 +142,6 @@ function CommitteeCard({
       layout="detail"
       variant="white"
       image={image}
-      imageSrc={imageSrc}
       imageAlt={name}
       title={name}
       lead={hasItems ? lead : undefined}
@@ -153,74 +150,6 @@ function CommitteeCard({
     />
   );
 }
-
-// Hardcoded fallback committees
-const fallbackCommittees = [
-  {
-    name: "Educational Outreach",
-    description: "Fosters UX education at foundational levels. Initiatives focus on engaging K-12 students through introductory workshops and programs, and collaborating with colleges and universities to support their UX curricula, offer guest lectures, and connect with emerging talent.",
-    icon: "/images/icons/icon-educational-outreach.svg",
-  },
-  {
-    name: "Workforce Outreach",
-    description: "Develop and deliver educational workshops and presentations to companies, helping them integrate UX principles, methodologies, and best practices into their operations.",
-    icon: "/images/icons/icon-workforce-outreach.svg",
-  },
-  {
-    name: "Community Engagement",
-    description: "Organize social events, networking opportunities, member spotlights, and initiatives to welcome new members and ensure active participation.",
-    icon: "/images/icons/icon-community-engagement.svg",
-  },
-  {
-    name: "Professional Development",
-    description: "Provides continuous learning and upskilling opportunities for our members through workshops, webinars, speaker events, and hands-on sessions designed to enhance practical UX skills.",
-    icon: "/images/icons/icon-professional-development.svg",
-  },
-  {
-    name: "Communications",
-    description: "Manages all external and internal communications for the community including maintaining the website, managing social media channels, creating newsletters, promoting events, and ensuring consistent branding and messaging.",
-    icon: "/images/icons/icon-communications.svg",
-  },
-  {
-    name: "Conference",
-    description: "Plans and executes UXHICon, bringing together speakers, sponsors, and attendees each year. Help shape the program, coordinate logistics, and create memorable experiences for our community.",
-    icon: "/images/icons/icon-conference.svg",
-  },
-];
-
-// Hardcoded fallback partners
-const fallbackPartners = [
-  { name: "Pi'iku Co.", logo: "/images/company_logos/piiku-logo.png", width: 80, height: 32 },
-  { name: "Hawaii Coworking", logo: "/images/company_logos/hawaii-coworking-logo.png", width: 128, height: 44 },
-  { name: "Hub Coworking Hawaii", logo: "/images/company_logos/hub-logo.png", width: 90, height: 36 },
-  { name: "Entrepreneurs Sandbox", logo: "/images/company_logos/sandbox-logo.svg", width: 100, height: 32 },
-  { name: "Vanta", logo: "/images/company_logos/vanta-logo.png", width: 128, height: 48 },
-  { name: "Holoholo App", logo: "/images/company_logos/holoholo-logo.png", width: 128, height: 128 },
-  { name: "Purple Mai'a", logo: "/images/company_logos/purple-maia.png", width: 72, height: 32 },
-  { name: "University of Hawaii", logo: "/images/company_logos/uh-logo.png", width: 80, height: 32 },
-  { name: "AI Hawaii", logo: "/images/company_logos/HiAI-logo.png", width: 80, height: 32 },
-  { name: "Honolulu Tech Network", logo: "/images/company_logos/htn-logo.png", width: 80, height: 28 },
-  { name: "Honolulu BitDevs", logo: "/images/company_logos/hnl-bitdevs-logo.png", width: 80, height: 28 },
-  { name: "HTW", logo: "/images/company_logos/htw-logo.webp", width: 80, height: 32 },
-];
-
-// Hardcoded fallback sponsors
-const fallbackSponsors = [
-  { name: "HTDC", logo: "/images/company_logos/htdc-logo.svg", width: 80, height: 32 },
-  { name: "Entrepreneurs Sandbox", logo: "/images/company_logos/sandbox-logo.svg", width: 100, height: 32 },
-  { name: "Purple Mai'a", logo: "/images/company_logos/purple-maia.png", width: 72, height: 32 },
-  { name: "Zippy's", logo: "/images/company_logos/Zippy Logo RGB.svg", width: 80, height: 40, darkGray: true },
-  { name: "Servco", logo: "/images/company_logos/servco.svg", width: 80, height: 24 },
-  { name: "Anthology Finn", logo: "/images/company_logos/anthology-finn.png", width: 80, height: 32 },
-  { name: "Terranox", logo: "/images/company_logos/terranox-logo.svg", width: 90, height: 28 },
-  { name: "Shaka Guide", logo: "/images/company_logos/shakaguide-logo.png", width: 128, height: 40 },
-  { name: "Adobe", logo: "/images/company_logos/adobe-logo.svg", width: 90, height: 36 },
-  { name: "Hub Coworking", logo: "/images/company_logos/hub-logo.png", width: 90, height: 36 },
-  { name: "OER", logo: "/images/company_logos/OER Logo.png", width: 80, height: 32 },
-  { name: "Mantle", logo: "/images/company_logos/mantle-logo.svg", width: 90, height: 32 },
-  { name: "KCC NMA", logo: "/images/company_logos/kccnma-logo.png", width: 80, height: 32 },
-  { name: "RVCM", logo: "/images/company_logos/rvcm-logo.svg", width: 72, height: 28 },
-];
 
 export default async function GetInvolvedPage() {
   const [partnersResult, sponsorsResult, committeesResult] = await Promise.all([
@@ -236,8 +165,8 @@ export default async function GetInvolvedPage() {
   const sponsors: PartnerSponsor[] = sponsorsResult.data || [];
   const committees: Committee[] = committeesResult.data || [];
 
-  // CMS rows where present, the hardcoded list otherwise. The marquee sizes on
-  // height, so `displayWidth` only informs how wide to request the asset.
+  // The marquee sizes on height, so `displayWidth` only informs how wide to
+  // request the asset.
   // The rendered aspect ratio has to be the CROPPED asset's, not the original's.
   // Pass the raw dimensions and object-contain letterboxes every cropped logo
   // inside phantom whitespace, which is exactly the unevenness being fixed.
@@ -251,32 +180,21 @@ export default async function GetInvolvedPage() {
     };
   };
 
-  const toLogos = (
-    rows: PartnerSponsor[],
-    fallback: { name: string; logo: string; width?: number; height?: number }[]
-  ): GridLogo[] =>
-    rows.length > 0
-      ? rows.map((row) => {
-          const size = row.logo?.asset ? croppedSize(row.logo) : { width: 400, height: 200 };
-          return {
-            name: row.name,
-            src: row.logo?.asset ? urlFor(row.logo).height(240).url() : undefined,
-            width: size.width,
-            height: size.height,
-            href: row.website || undefined,
-            weight: logoWeight(row.name),
-          };
-        })
-      : fallback.map((row) => ({
-          name: row.name,
-          src: row.logo,
-          width: row.width,
-          height: row.height,
-          weight: logoWeight(row.name),
-        }));
+  const toLogos = (rows: PartnerSponsor[]): GridLogo[] =>
+    rows.map((row) => {
+      const size = row.logo?.asset ? croppedSize(row.logo) : { width: 400, height: 200 };
+      return {
+        name: row.name,
+        src: row.logo?.asset ? urlFor(row.logo).height(240).url() : undefined,
+        width: size.width,
+        height: size.height,
+        href: row.website || undefined,
+        weight: logoWeight(row.name),
+      };
+    });
 
-  const partnerLogos = toLogos(partners, fallbackPartners);
-  const sponsorLogos = toLogos(sponsors, fallbackSponsors);
+  const partnerLogos = toLogos(partners);
+  const sponsorLogos = toLogos(sponsors);
 
   return (
     <main className="min-h-screen bg-beige-30">
@@ -555,27 +473,15 @@ export default async function GetInvolvedPage() {
                 turns every bullet into a ragged stack of two- and three-word rows.
                 Two columns give around 52, which is a readable measure. */}
             <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {committees.length > 0 ? (
-                committees.map((committee) => (
-                  <MotionDiv key={committee._id}>
-                    <CommitteeCard
-                      image={committee.icon ?? undefined}
-                      name={committee.name}
-                      description={committee.description}
-                    />
-                  </MotionDiv>
-                ))
-              ) : (
-                fallbackCommittees.map((committee) => (
-                  <MotionDiv key={committee.name}>
-                    <CommitteeCard
-                      imageSrc={committee.icon}
-                      name={committee.name}
-                      description={committee.description}
-                    />
-                  </MotionDiv>
-                ))
-              )}
+              {committees.map((committee) => (
+                <MotionDiv key={committee._id}>
+                  <CommitteeCard
+                    image={committee.icon ?? undefined}
+                    name={committee.name}
+                    description={committee.description}
+                  />
+                </MotionDiv>
+              ))}
             </ScrollReveal>
 
             <ScrollReveal className="mt-12 text-center">
