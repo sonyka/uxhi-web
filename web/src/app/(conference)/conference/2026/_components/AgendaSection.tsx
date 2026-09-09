@@ -51,7 +51,7 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
         <div className={TYPE.eyebrow} style={{ color: PURPLE }}>
           Saturday, October 17, 2026 &bull; Entrepreneurs Sandbox
         </div>
-        <SectionHeading>UXHICon Agenda</SectionHeading>
+        <SectionHeading>UXHICon Lineup</SectionHeading>
       </div>
       {/* The caveat sits under the lead rather than inside it: it is a
           different register — housekeeping, not welcome — and at body size in
