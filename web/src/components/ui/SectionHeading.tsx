@@ -9,7 +9,7 @@ interface SectionHeadingProps {
   /** Size variant:
    * - display: 36 → 60 → 72px (homepage hero only — the largest type on the site)
    * - hero: 4xl → 5xl (interior page hero h1)
-   * - xl: 4xl → 5xl → 6xl (large CTA headings)
+   * - xl: 4xl → 5xl → 6xl (large CTA headings; tightens to 64px at the 6xl step)
    * - lg: 4xl → 5xl (section headings)
    *
    * Every size carries its own leading. Tailwind's default line-height falls to
@@ -48,7 +48,14 @@ interface SectionHeadingProps {
 const sizeStyles: Record<HeadingSize, string> = {
   display: "text-[36px] md:text-[60px] lg:text-[72px] leading-[1.05] lg:leading-[76px] tracking-tight",
   hero: "text-[32px] leading-[36px] md:text-4xl md:leading-[40px] lg:text-5xl lg:leading-[60px]",
-  xl: "text-[28px] md:text-5xl lg:text-6xl leading-tight",
+  // 64px at the 60px step, not leading-tight's 75. Every other size holds one
+  // ratio the whole way up, which works while the type stays near body scale
+  // and stops working above it: the same 1.25 that reads well at 48px reads
+  // airy at 60, and `display` already concedes this by pinning 76px at 72.
+  // The only xl on the site is the homepage's three-line "A community / for
+  // designers, / by designers", where lines 25% further apart than the 48px
+  // headings above it made the block look unrelated to them.
+  xl: "text-[28px] md:text-5xl lg:text-6xl leading-tight lg:leading-[64px]",
   lg: "text-[28px] md:text-5xl leading-tight",
   md: "text-2xl md:text-4xl",
   sm: "text-xl md:text-3xl",

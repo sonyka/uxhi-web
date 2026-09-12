@@ -963,7 +963,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <SectionHeading as="h1" size="hero">Hero Title</SectionHeading>
             </div>
             <div>
-              <span className="text-xs text-gray-100 font-mono">xl — large CTA headings (28px → 5xl → 6xl, leading-tight)</span>
+              <span className="text-xs text-gray-100 font-mono">xl — large CTA headings (28px → 5xl → 6xl; leading-tight, 64px at 6xl)</span>
               <SectionHeading size="xl">Extra Large</SectionHeading>
             </div>
             <div>
