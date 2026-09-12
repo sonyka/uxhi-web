@@ -27,3 +27,9 @@ web/.ds-styles.css
 web/.ds-entry.tsx
 web/.ds-shims/
 web/.ds-tsconfig.json
+
+# Screenshots dropped by a browser-automation review at a package root.
+# Scoped to those two directories on purpose: a bare *.png would also swallow
+# the real assets under web/public/ and web/src/.
+/*.png
+/web/*.png

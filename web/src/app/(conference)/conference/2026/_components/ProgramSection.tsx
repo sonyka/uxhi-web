@@ -88,7 +88,7 @@ export function ProgramSection() {
           </p>
 
           <p className={`${TYPE.caption} max-w-[62ch]`} style={{ color: GRAY_100 }}>
-            This event is 21+. Your ticket includes one drink, and a cash bar is available.
+            This event is 21+. Your ticket includes one drink.
           </p>
         </div>
 
@@ -114,7 +114,10 @@ export function ProgramSection() {
               <span className="lg:block">
                 Thursday<span className="lg:hidden">,</span>
               </span>{" "}
-              <span className="lg:block">October 15, 2026</span>
+              <span className="lg:block">
+                October 15, 2026<span className="lg:hidden"> &middot;</span>
+              </span>{" "}
+              <span className="lg:block">5:30&ndash;8:30 pm</span>
             </p>
             <p className={TYPE.caption} style={{ color: PURPLE }}>
               <span className="lg:block">
