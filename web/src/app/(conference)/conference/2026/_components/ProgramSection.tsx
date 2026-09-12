@@ -114,10 +114,13 @@ export function ProgramSection() {
               <span className="lg:block">
                 Thursday<span className="lg:hidden">,</span>
               </span>{" "}
-              <span className="lg:block">
-                October 15, 2026<span className="lg:hidden"> &middot;</span>
-              </span>{" "}
-              <span className="lg:block">5:30&ndash;8:30 pm</span>
+              <span className="lg:block">October 15, 2026</span>{" "}
+              {/* Block at every width, not just lg: below the breakpoint the
+                  day and date already fill the line, and the time trailing
+                  after a middot read as an afterthought to the address rather
+                  than as the other half of "when". Its own line at every size
+                  means no separator is needed either. */}
+              <span className="block">5:30&ndash;8:30 pm</span>
             </p>
             <p className={TYPE.caption} style={{ color: PURPLE }}>
               <span className="lg:block">
