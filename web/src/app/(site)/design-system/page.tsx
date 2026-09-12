@@ -3405,7 +3405,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             {
               role: "fine",
               note: "Fine print under body copy — terms, caveats",
-              sample: "This event is 21+. Your ticket includes one drink, and a cash bar is available.",
+              sample: "This event is 21+. Your ticket includes one drink.",
               color: "text-gray-100",
               colorNote: "GRAY_100",
             },
