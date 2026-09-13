@@ -28,13 +28,13 @@ export function ProgramSection() {
           Share, Learn, &amp; Connect
         </p>
         <SectionHeading>UXHICon</SectionHeading>
-        <p className={`${TYPE.lead} max-w-[62ch]`} style={{ color: GRAY }}>
-          Hawai&#699;i&rsquo;s design community gathers here to exchange the knowledge, craft, and
-          mo&#699;olelo we each carry.
-        </p>
+        {/* One paragraph, `body` rather than `lead`. These were two blocks at
+            two sizes, which read as a pull quote followed by its explanation;
+            they are two sentences of the same thought and now sit as one. */}
         <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
-          Spend the day in culturally grounded keynotes, panels, and hands-on workshops led by industry
-          experts and local voices, and leave with new pilina.
+          Hawai&#699;i&rsquo;s design community gathers here to exchange the knowledge, craft, and
+          mo&#699;olelo we each carry. Spend the day in culturally grounded keynotes, panels, and
+          hands-on workshops led by industry experts and local voices, and leave with new pilina.
         </p>
 
         {/* When and where, set the way the pau hana tear-off sets them: the
