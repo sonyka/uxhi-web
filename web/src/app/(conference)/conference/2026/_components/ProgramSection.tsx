@@ -11,7 +11,7 @@ import {
   TYPE,
 } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
-import { TICKETS_URL, VENUE_MAP_URL, VENUE_NAME } from "../constants";
+import { TICKETS_URL, VENUE_NAME, VENUE_ADDRESS, LINKEDIN_PROFILE, LINKEDIN_HANDLE } from "../constants";
 import { ShakaIcon } from "./icons";
 import { LinkedInGlyph } from "./SocialLink";
 
@@ -51,17 +51,15 @@ export function ProgramSection() {
             <span className="hidden md:inline"> &middot; </span>
             <span className="md:inline block">8:00 am&ndash;4:00 pm</span>
           </p>
+          {/* The venue name jumps to #venue rather than out to a map: the
+              section it lands on has the photo, the map, the accessibility
+              note and the parking, so the in-page answer is the fuller one.
+              The map link still sits inside that section. */}
           <p className={TYPE.caption} style={{ color: PURPLE }}>
-            <a
-              href={VENUE_MAP_URL}
-              target="_blank"
-              rel="noopener"
-              className={cn(LINK, "font-bold")}
-              style={{ color: PURPLE }}
-            >
+            <a href="#venue" className={cn(LINK, "font-bold")} style={{ color: PURPLE }}>
               {VENUE_NAME}
             </a>{" "}
-            &middot; Honolulu
+            &middot; {VENUE_ADDRESS}
           </p>
         </div>
       </div>
@@ -181,14 +179,21 @@ export function ProgramSection() {
           circles and a "+?" standing in for speakers not yet announced. The
           agenda below now names them, so the row was promising an unknown that
           is no longer unknown. */}
-      <div className="flex flex-col gap-5">
+      {/* Tickets first, follow second: the section has just told someone what
+          the day is, when it is and where — the next move is buying, and the
+          only Get tickets above this point belongs to the pau hana stub, a
+          separate ticket for a different evening. */}
+      <div className="flex flex-wrap items-center gap-3">
+        <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit">
+          Get tickets
+        </ConferenceButton>
         <ConferenceButton
-          href="https://www.linkedin.com/company/uxhi/"
+          href={LINKEDIN_PROFILE}
           variant="outline"
           icon={LinkedInGlyph}
           className="w-fit"
         >
-          Follow @uxhi
+          Follow {LINKEDIN_HANDLE}
         </ConferenceButton>
       </div>
     </div>
