@@ -27,9 +27,9 @@ export function ProgramSection() {
         <p className={TYPE.eyebrow} style={{ color: PURPLE }}>
           Share, Learn, &amp; Connect
         </p>
-        <SectionHeading>UXHI Conference</SectionHeading>
+        <SectionHeading>UXHICon</SectionHeading>
         <p className={`${TYPE.lead} max-w-[62ch]`} style={{ color: GRAY }}>
-          UXHICon is where Hawai&#699;i&rsquo;s design community gathers to exchange the knowledge, craft, and
+          Hawai&#699;i&rsquo;s design community gathers here to exchange the knowledge, craft, and
           mo&#699;olelo we each carry.
         </p>
         <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
@@ -38,8 +38,9 @@ export function ProgramSection() {
         </p>
 
         {/* When and where, set the way the pau hana tear-off sets them: the
-            date and its time window in the eyebrow role, the venue a step
-            quieter with its name carrying the map link.
+            one fact a line — day, hours, venue, street — and no separators
+            to read past. Date and hours take the eyebrow role, the venue a
+            step quieter.
 
             Sits after the copy rather than under the heading. Directly beneath
             a title it reads as a subtitle and the eye runs straight past it
@@ -47,19 +48,18 @@ export function ProgramSection() {
             and the thing acted on, which is also where the stub puts it. */}
         <div className="flex flex-col gap-1.5">
           <p className={`${TYPE.eyebrow} leading-tight`} style={{ color: PURPLE }}>
-            <span className="md:inline block">Saturday, October 17, 2026</span>
-            <span className="hidden md:inline"> &middot; </span>
-            <span className="md:inline block">8:00 am&ndash;4:00 pm</span>
+            <span className="block">Saturday, October 17, 2026</span>
+            <span className="block">8:00 am&ndash;4:00 pm</span>
           </p>
           {/* The venue name jumps to #venue rather than out to a map: the
               section it lands on has the photo, the map, the accessibility
               note and the parking, so the in-page answer is the fuller one.
               The map link still sits inside that section. */}
           <p className={TYPE.caption} style={{ color: PURPLE }}>
-            <a href="#venue" className={cn(LINK, "font-bold")} style={{ color: PURPLE }}>
+            <a href="#venue" className={cn(LINK, "block w-fit font-bold")} style={{ color: PURPLE }}>
               {VENUE_NAME}
-            </a>{" "}
-            &middot; {VENUE_ADDRESS}
+            </a>
+            <span className="block">{VENUE_ADDRESS}</span>
           </p>
         </div>
       </div>
