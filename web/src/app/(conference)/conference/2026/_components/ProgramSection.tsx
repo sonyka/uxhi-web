@@ -27,15 +27,24 @@ export function ProgramSection() {
         <p className={TYPE.eyebrow} style={{ color: PURPLE }}>
           Share, Learn, &amp; Connect
         </p>
-        <SectionHeading>UXHICon</SectionHeading>
+        <SectionHeading>UXHI Conference</SectionHeading>
+        <p className={`${TYPE.lead} max-w-[62ch]`} style={{ color: GRAY }}>
+          UXHICon is where Hawai&#699;i&rsquo;s design community gathers to exchange the knowledge, craft, and
+          mo&#699;olelo we each carry.
+        </p>
+        <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
+          Spend the day in culturally grounded keynotes, panels, and hands-on workshops led by industry
+          experts and local voices, and leave with new pilina.
+        </p>
 
         {/* When and where, set the way the pau hana tear-off sets them: the
             date and its time window in the eyebrow role, the venue a step
-            quieter with its name carrying the map link. The date used to ride
-            inside the heading, which made the one line do two jobs and left
-            the day with no time and no place — the pau hana beneath it,
-            the smaller of the two events, was the only one that said where to
-            turn up and when. */}
+            quieter with its name carrying the map link.
+
+            Sits after the copy rather than under the heading. Directly beneath
+            a title it reads as a subtitle and the eye runs straight past it
+            into the prose; at the end of the block it is the last thing read
+            and the thing acted on, which is also where the stub puts it. */}
         <div className="flex flex-col gap-1.5">
           <p className={`${TYPE.eyebrow} leading-tight`} style={{ color: PURPLE }}>
             <span className="md:inline block">Saturday, October 17, 2026</span>
@@ -55,14 +64,6 @@ export function ProgramSection() {
             &middot; Honolulu
           </p>
         </div>
-        <p className={`${TYPE.lead} max-w-[62ch]`} style={{ color: GRAY }}>
-          UXHICon is where Hawai&#699;i&rsquo;s design community gathers to exchange the knowledge, craft, and
-          mo&#699;olelo we each carry.
-        </p>
-        <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
-          Spend the day in culturally grounded keynotes, panels, and hands-on workshops led by industry
-          experts and local voices, and leave with new pilina.
-        </p>
       </div>
 
       {/*
