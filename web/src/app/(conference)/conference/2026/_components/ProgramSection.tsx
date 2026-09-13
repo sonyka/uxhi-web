@@ -27,7 +27,7 @@ export function ProgramSection() {
         <p className={TYPE.eyebrow} style={{ color: PURPLE }}>
           Share, Learn, &amp; Connect
         </p>
-        <SectionHeading>UXHICon</SectionHeading>
+        <SectionHeading>UXHI Conference 2026</SectionHeading>
         {/* One paragraph, `body` rather than `lead`. These were two blocks at
             two sizes, which read as a pull quote followed by its explanation;
             they are two sentences of the same thought and now sit as one. */}
