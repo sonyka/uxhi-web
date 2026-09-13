@@ -7,6 +7,12 @@
 export const TICKETS_URL = "https://givebutter.com/uxhi-con-26-tickets";
 export const SPONSOR_URL = "https://givebutter.com/uxhi-con-2026-sponsor";
 
+// The venue, and the map it points at. Written inline twice in page.tsx before
+// the programme intro wanted it a third time — the same drift the ticket URL
+// above was pulled out to stop.
+export const VENUE_NAME = "Entrepreneurs Sandbox";
+export const VENUE_MAP_URL = "https://maps.app.goo.gl/zBHS4EXnXWuhysEu5";
+
 // The two profiles, and the handles as they should read. Named once because the
 // footer, the "Stay in the loop" copy and its follow buttons all point here, and
 // because the handles differ per network — @uxhicommunity on Instagram,

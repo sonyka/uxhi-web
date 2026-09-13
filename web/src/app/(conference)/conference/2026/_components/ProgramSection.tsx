@@ -11,7 +11,7 @@ import {
   TYPE,
 } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
-import { TICKETS_URL } from "../constants";
+import { TICKETS_URL, VENUE_MAP_URL, VENUE_NAME } from "../constants";
 import { ShakaIcon } from "./icons";
 import { LinkedInGlyph } from "./SocialLink";
 
@@ -27,7 +27,34 @@ export function ProgramSection() {
         <p className={TYPE.eyebrow} style={{ color: PURPLE }}>
           Share, Learn, &amp; Connect
         </p>
-        <SectionHeading>UXHICon &bull; Saturday, October 17, 2026</SectionHeading>
+        <SectionHeading>UXHICon</SectionHeading>
+
+        {/* When and where, set the way the pau hana tear-off sets them: the
+            date and its time window in the eyebrow role, the venue a step
+            quieter with its name carrying the map link. The date used to ride
+            inside the heading, which made the one line do two jobs and left
+            the day with no time and no place — the pau hana beneath it,
+            the smaller of the two events, was the only one that said where to
+            turn up and when. */}
+        <div className="flex flex-col gap-1.5">
+          <p className={`${TYPE.eyebrow} leading-tight`} style={{ color: PURPLE }}>
+            <span className="md:inline block">Saturday, October 17, 2026</span>
+            <span className="hidden md:inline"> &middot; </span>
+            <span className="md:inline block">8:00 am&ndash;4:00 pm</span>
+          </p>
+          <p className={TYPE.caption} style={{ color: PURPLE }}>
+            <a
+              href={VENUE_MAP_URL}
+              target="_blank"
+              rel="noopener"
+              className={cn(LINK, "font-bold")}
+              style={{ color: PURPLE }}
+            >
+              {VENUE_NAME}
+            </a>{" "}
+            &middot; Honolulu
+          </p>
+        </div>
         <p className={`${TYPE.lead} max-w-[62ch]`} style={{ color: GRAY }}>
           UXHICon is where Hawai&#699;i&rsquo;s design community gathers to exchange the knowledge, craft, and
           mo&#699;olelo we each carry.

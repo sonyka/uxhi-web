@@ -19,7 +19,7 @@ import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY, CONFERENCE_SPEAKERS_QUERY } from "@/sanity/lib/queries";
 import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
-import { TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS } from "./constants";
+import { VENUE_MAP_URL, TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS } from "./constants";
 import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
 import { SocialLink } from "./_components/SocialLink";
 
@@ -469,7 +469,7 @@ export default async function Conference2026Page() {
                   {/* Map snapshot — clicking opens the venue in Google Maps.
                       Map tiles © OpenStreetMap contributors. */}
                   <a
-                    href="https://maps.app.goo.gl/zBHS4EXnXWuhysEu5"
+                    href={VENUE_MAP_URL}
                     target="_blank"
                     rel="noopener"
                     aria-label="View the Entrepreneurs Sandbox on Google Maps"
@@ -502,7 +502,7 @@ export default async function Conference2026Page() {
                   <p>Metered street parking is available nearby, and paid parking is available at the adjacent lot (entrance on Keawe Street). Please note: parking passes will not be provided this year.</p>
                 </div>
                 <ConferenceButton
-                  href="https://maps.app.goo.gl/zBHS4EXnXWuhysEu5"
+                  href={VENUE_MAP_URL}
                   variant="secondary"
                   icon={ArrowRightIcon}
                   iconPosition="trailing"
