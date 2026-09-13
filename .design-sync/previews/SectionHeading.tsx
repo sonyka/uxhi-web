@@ -23,7 +23,7 @@ export const InContext = () => (
     >
       Saturday, October 17, 2026
     </p>
-    <SectionHeading>The lineup</SectionHeading>
+    <SectionHeading>The Lineup</SectionHeading>
     <p style={{ color: "var(--color-gray-120)", fontSize: 17, lineHeight: 1.4, margin: 0 }}>
       A day of case studies, workshops and talks from Hawai&#699;i-based practitioners working
       across design, technology, culture and community.

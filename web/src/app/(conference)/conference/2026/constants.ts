@@ -34,8 +34,8 @@ export const NAV_ITEMS = [
   ["Moʻolelo", "#moolelo"],
   ["UXHICon", "#program"],
   ["Lineup", "#agenda"],
-  ["About Us", "#about"],
-  ["The Sandbox", "#venue"],
+  ["About", "#about"],
+  ["The Venue", "#venue"],
   ["FAQ", "#faq"],
   ["Sponsors", "#sponsors"],
 ] as const;
