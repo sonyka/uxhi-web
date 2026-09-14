@@ -49,7 +49,7 @@ export function ProgramSection() {
         <div className="flex flex-col gap-1.5">
           <p className={`${TYPE.eyebrow} leading-tight`} style={{ color: PURPLE }}>
             <span className="block">Saturday, October 17, 2026</span>
-            <span className="block">8:00 am&ndash;4:00 pm</span>
+            <span className="block">8:00 am&ndash;4:30 pm</span>
           </p>
           {/* The venue name jumps to #venue rather than out to a map: the
               section it lands on has the photo, the map, the accessibility
