@@ -14,6 +14,13 @@ export const VENUE_NAME = "Entrepreneurs Sandbox";
 export const VENUE_ADDRESS = "643 Ilalo St, Honolulu, HI 96813";
 export const VENUE_MAP_URL = "https://maps.app.goo.gl/zBHS4EXnXWuhysEu5";
 
+// The day itself, as it should read. The long date is also written out in the
+// agenda's eyebrow; the running time is new with the sidebar, and is the whole
+// day rather than the first and last sessions — doors at 8:00, and the sheet
+// has everyone out by 4:30.
+export const EVENT_DATE_LONG = "Saturday, October 17, 2026";
+export const EVENT_TIME = "8:00 am–4:30 pm";
+
 // The two profiles, and the handles as they should read. Named once because the
 // footer, the "Stay in the loop" copy and its follow buttons all point here, and
 // because the handles differ per network — @uxhicommunity on Instagram,

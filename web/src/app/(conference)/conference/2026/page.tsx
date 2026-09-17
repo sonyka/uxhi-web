@@ -8,6 +8,7 @@ import { CochairsSection } from "./_components/CochairsSection";
 import { SponsorsGrid } from "./_components/SponsorsGrid";
 import { InstagramGrid } from "./_components/InstagramGrid";
 import { QuoteCard } from "./_components/QuoteCard";
+import { NumbersCard } from "./_components/NumbersCard";
 import { ProgramSection } from "./_components/ProgramSection";
 import { AgendaSection } from "./_components/AgendaSection";
 import { SpeakersSection } from "./_components/SpeakersSection";
@@ -18,9 +19,9 @@ import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY, CONFERENCE_SPEAKERS_QUERY } from "@/sanity/lib/queries";
-import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, TYPE , LINK } from "./theme";
+import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, GRAY_120, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
-import { VENUE_MAP_URL, TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS } from "./constants";
+import { VENUE_MAP_URL, VENUE_NAME, VENUE_ADDRESS, EVENT_DATE_LONG, EVENT_TIME, TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS } from "./constants";
 import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
 import { SocialLink } from "./_components/SocialLink";
 
@@ -92,14 +93,6 @@ const CAP = "xl:max-w-[1440px] xl:mx-auto xl:w-full";
 //    and at this cap it resolves wider than the column and does nothing at all.
 //    Re-measure before changing it; the number is font-specific.
 
-const EVENT_DATE = new Date("2026-10-17T00:00:00");
-
-function daysUntil() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return Math.max(0, Math.ceil((EVENT_DATE.getTime() - today.getTime()) / 86400000));
-}
-
 // ── Pulsing dot ───────────────────────────────────────────────────────
 function PulseDot() {
   return (
@@ -114,53 +107,47 @@ function PulseDot() {
   );
 }
 
-// ── Stat row ──────────────────────────────────────────────────────────
-// Figma: ~11px, both label and value in light gray, very subtle separator
-function StatRow({ label, value }: { label: string; value: string }) {
-  return (
-    <p className="text-[16px] font-normal text-gray-100">
-      {value} {label}
-    </p>
-  );
-}
-
 // ── Sidebar info ──────────────────────────────────────────────────────
-// Matches Figma sidebar typography:
-//   • All three copy lines — 13px, bold, uppercase, PURPLE, leading-[2]
-//   • Stat rows            — 12px, gray label / gray-darker value
-// SidebarInfo returns a Fragment so the parent flex context controls
-// desktop (flex-col gap-10) vs mobile (flex-row gap-4) layout.
+// Returns a Fragment so the parent flex context owns the layout.
+//
+// The sidebar's one job: answer when, where and how do I come — on every screen.
+//
+// It used to hold a countdown, a tagline and last year's three figures, which
+// meant the most persistent element on the page (a third of the card, held for
+// all 16-odd screens of scrolling) said nothing about this year's event and
+// asked for nothing. The date, venue and ticket button existed only in the hero,
+// and scrolled away after the first screen.
+//
+// The 2025 figures moved to NumbersCard, an interlude in the content column.
 function SidebarInfo() {
   return (
     <>
       <LogoBadge />
-      {/* Tighter copy→stats gap on mobile (gap-3); full gap-6 from md up. */}
-      <div className="flex flex-col gap-3 md:gap-6">
-        {/* Copy lines — bold uppercase purple
-            Responsive sizes per Figma column widths:
-              base/SM (256px col) → 10px, lh 1.7 → 17px/line ✓
-              MD     (156px col)  → 10px, lh 1.7 → 17px/line ✓
-              LG     (216px col)  → 14px, lh 1.4 → 19.6px/line ✓
-              XL     (244px col)  → 20px, lh 1.45 → 29px/line ✓
-        */}
-        <div className="flex flex-col gap-2">
-          <p className="hidden md:block font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
-            {daysUntil()} Days to Go
+      <div className="flex flex-col gap-5 lg:gap-6">
+        <div className="flex flex-col gap-1">
+          <p className="font-bold uppercase leading-[1.3] text-[14px] lg:text-[16px] xl:text-[20px]" style={{ color: PURPLE }}>
+            UXHI Conference 2026
           </p>
-          {/* Hidden on mobile to save vertical space; shown from md up. */}
-          <p className="hidden md:block font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
-            By designers,&nbsp;&nbsp;for designers
+          {/* Date and time in the page's own voice rather than the eyebrow's
+              uppercase — this is the answer to a question, not a label. */}
+          <p className={`${TYPE.bodyCompact} font-medium`} style={{ color: GRAY_120 }}>
+            {EVENT_DATE_LONG}
           </p>
-          <p className="hidden md:block font-bold uppercase text-[14px] leading-[1.7] lg:text-[16px] lg:leading-[1.4] xl:text-[20px] xl:leading-[1.45]" style={{ color: PURPLE }}>
-            2025 UXHICON by the numbers:
+          <p className={`${TYPE.bodyCompact} font-medium`} style={{ color: GRAY_120 }}>
+            {EVENT_TIME}
           </p>
         </div>
-        {/* Stats — hidden on mobile per request; shown from md up. */}
-        <div className="hidden md:flex flex-col gap-1">
-          <StatRow label="Speakers"  value="37"  />
-          <StatRow label="Sessions"  value="12"  />
-          <StatRow label="Attendees" value="127" />
+        <div className="flex flex-col gap-1">
+          <p className={`${TYPE.bodyCompact} font-semibold`} style={{ color: GRAY_120 }}>
+            {VENUE_NAME}
+          </p>
+          <p className={TYPE.bodyCompact} style={{ color: GRAY_110 }}>
+            {VENUE_ADDRESS}
+          </p>
         </div>
+        <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit">
+          Get tickets
+        </ConferenceButton>
       </div>
     </>
   );
@@ -460,6 +447,12 @@ export default async function Conference2026Page() {
 
               {/* ── Co-Chairs / Team ───────────────────────────────── */}
               <CochairsSection cochairs={cochairs ?? []} />
+
+              {/* ── Last year, in three numbers ─────────────────────── */}
+              {/* Sits here on purpose: straight after the grid of people who
+                  run the day, as the evidence of what they pulled off, and as
+                  a breath between eight faces and the venue. */}
+              <NumbersCard />
 
               {/* Benefits headline — the lead-in to the Sandbox/Venue section, so it
                   moves with it. */}
