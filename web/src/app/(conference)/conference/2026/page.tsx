@@ -137,10 +137,9 @@ function PulseDot() {
 // The sidebar's one job: answer when, where and how do I come — on every screen.
 //
 // It used to hold a countdown (now the hero's line beside the pulse), a tagline
-// and last year's three figures, which
-// meant the most persistent element on the page (a third of the card, held for
-// all 16-odd screens of scrolling) said nothing about this year's event and
-// asked for nothing. The date, venue and ticket button existed only in the hero,
+// and last year's three figures, which meant the most persistent element on the
+// page (a third of the card, held for all 16-odd screens of scrolling) said
+// nothing about this year's event and asked for nothing. The date, venue and ticket button existed only in the hero,
 // and scrolled away after the first screen.
 //
 // The 2025 figures moved to NumbersCard, an interlude in the content column.
@@ -476,12 +475,6 @@ export default async function Conference2026Page() {
               {/* ── Co-Chairs / Team ───────────────────────────────── */}
               <CochairsSection cochairs={cochairs ?? []} />
 
-              {/* ── Last year, in three numbers ─────────────────────── */}
-              {/* Sits here on purpose: straight after the grid of people who
-                  run the day, as the evidence of what they pulled off, and as
-                  a breath between eight faces and the venue. */}
-              <NumbersCard />
-
               {/* Benefits headline — the lead-in to the Sandbox/Venue section, so it
                   moves with it. */}
               <BenefitsHeadline />
@@ -556,6 +549,12 @@ export default async function Conference2026Page() {
               <div id="faq" className="scroll-mt-6">
                 <FaqSection />
               </div>
+
+              {/* ── Last year, in three numbers ─────────────────────── */}
+              {/* Sits above the sponsors, where last year's turnout reads as
+                  the case for backing this one — and gives the sponsor wall a
+                  run-up instead of starting cold off the FAQ. */}
+              <NumbersCard />
 
               {/* ── Sponsors (Sanity: conferenceSponsor, year-scoped) ─── */}
               <div id="sponsors" className="scroll-mt-6">
