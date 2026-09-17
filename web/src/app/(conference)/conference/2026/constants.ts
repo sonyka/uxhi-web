@@ -11,7 +11,7 @@ export const SPONSOR_URL = "https://givebutter.com/uxhi-con-2026-sponsor";
 // the programme intro wanted it a third time — the same drift the ticket URL
 // above was pulled out to stop.
 export const VENUE_NAME = "Entrepreneurs Sandbox";
-export const VENUE_ADDRESS = "643 Ilalo St, Honolulu, HI 96813";
+export const VENUE_ADDRESS = "643 Ilalo St, Honolulu, HI";
 export const VENUE_MAP_URL = "https://maps.app.goo.gl/zBHS4EXnXWuhysEu5";
 
 // The day itself, as it should read. The long date is also written out in the

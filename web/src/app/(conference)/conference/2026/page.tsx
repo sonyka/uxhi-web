@@ -93,6 +93,30 @@ const CAP = "xl:max-w-[1440px] xl:mx-auto xl:w-full";
 //    and at this cap it resolves wider than the column and does nothing at all.
 //    Re-measure before changing it; the number is font-specific.
 
+// ── Countdown ─────────────────────────────────────────────────────────
+// The line beside the pulsing dot. The dot animates to say "live"; a fixed
+// date sitting next to it was not the thing being counted, and the date is
+// answered permanently by the sidebar now.
+//
+// Computed on the server, so it is whatever the day was when the page was
+// last rendered — the data fetches revalidate every 60s, which keeps it
+// accurate to the day without a client clock or a hydration mismatch.
+//
+// The past is a real case: this page becomes the 2026 archive the morning
+// after. It used to clamp at zero, which would have read "0 Days to Go"
+// forever.
+const EVENT_DATE = new Date("2026-10-17T00:00:00");
+
+function countdownLabel() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const days = Math.ceil((EVENT_DATE.getTime() - today.getTime()) / 86400000);
+  if (days > 1) return `${days} days to go`;
+  if (days === 1) return "1 day to go";
+  if (days === 0) return "Happening today";
+  return "Mahalo for joining us";
+}
+
 // ── Pulsing dot ───────────────────────────────────────────────────────
 function PulseDot() {
   return (
@@ -112,7 +136,8 @@ function PulseDot() {
 //
 // The sidebar's one job: answer when, where and how do I come — on every screen.
 //
-// It used to hold a countdown, a tagline and last year's three figures, which
+// It used to hold a countdown (now the hero's line beside the pulse), a tagline
+// and last year's three figures, which
 // meant the most persistent element on the page (a third of the card, held for
 // all 16-odd screens of scrolling) said nothing about this year's event and
 // asked for nothing. The date, venue and ticket button existed only in the hero,
@@ -125,8 +150,11 @@ function SidebarInfo() {
       <LogoBadge />
       <div className="flex flex-col gap-5 lg:gap-6">
         <div className="flex flex-col gap-1">
-          <p className="font-bold uppercase leading-[1.3] text-[14px] lg:text-[16px] xl:text-[20px]" style={{ color: PURPLE }}>
-            UXHI Conference 2026
+          {/* Not uppercased. "UXHICon" is a mixed-case brand form — the nav
+              sets it that way too — and text-transform would render it
+              UXHICON, which is the thing the name was shortened away from. */}
+          <p className="font-bold leading-[1.3] text-[16px] lg:text-[18px] xl:text-[22px]" style={{ color: PURPLE }}>
+            UXHICon 2026
           </p>
           {/* Date and time in the page's own voice rather than the eyebrow's
               uppercase — this is the answer to a question, not a label. */}
@@ -299,8 +327,8 @@ export default async function Conference2026Page() {
               {/* Mobile/sm sidebar info — badge, days-to-go/stats, photo strip.
                   Scrolls away with the rest of the content (no fixed positioning). */}
               <div className="md:hidden flex flex-col gap-4">
-                {/* Logo + date/venue beside it, bottom-aligned so the date sits just
-                    above the photo strip (mobile only; sidebar stats are hidden here). */}
+                {/* Logo + countdown beside it, bottom-aligned so the line sits
+                    just above the photo strip (mobile only). */}
                 <div className="flex items-end gap-4">
                   <LogoBadge />
                   <div className={`flex items-start gap-2 max-w-[62%] ${TYPE.bodyCompact} font-medium`} style={{ color: "#000" }}>
@@ -309,7 +337,7 @@ export default async function Conference2026Page() {
                     <span className="flex items-center h-[1.5em] shrink-0">
                       <PulseDot />
                     </span>
-                    <span>October 17, 2026 • Entrepreneurs Sandbox, Honolulu</span>
+                    <span>{countdownLabel()}</span>
                   </div>
                 </div>
                 <PhotoTickerH />
@@ -318,7 +346,7 @@ export default async function Conference2026Page() {
               {/* ── Hero: date badge, tagline, CTAs ───────────────── */}
               <div className="flex flex-col gap-4 md:gap-5">
 
-                {/* Date + venue — desktop only here (on mobile it moves up to the
+                {/* Countdown — desktop only here (on mobile it moves up to the
                     top-right, above the photo strip). Plain text with a teal pulse. */}
                 <div
                   className="hidden md:flex items-center gap-[10px] text-[14px] md:text-[16px] font-medium"
@@ -327,7 +355,7 @@ export default async function Conference2026Page() {
                   <span className="shrink-0">
                     <PulseDot />
                   </span>
-                  <span>October 17, 2026 • Entrepreneurs Sandbox, Honolulu</span>
+                  <span>{countdownLabel()}</span>
                 </div>
 
                 {/* Tagline — three parts per Figma:

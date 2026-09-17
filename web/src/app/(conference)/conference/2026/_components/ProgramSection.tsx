@@ -164,7 +164,7 @@ export function ProgramSection() {
               <span className="lg:block">
                 1052 Waimanu St<span className="lg:hidden">,</span>
               </span>{" "}
-              <span className="lg:block">Honolulu, HI 96814</span>
+              <span className="lg:block">Honolulu, HI</span>
             </p>
           </div>
 
