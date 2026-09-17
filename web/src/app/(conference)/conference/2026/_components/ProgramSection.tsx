@@ -11,9 +11,8 @@ import {
   TYPE,
 } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
-import { TICKETS_URL, VENUE_NAME, VENUE_ADDRESS, LINKEDIN_PROFILE, LINKEDIN_HANDLE } from "../constants";
+import { TICKETS_URL, VENUE_NAME, VENUE_ADDRESS } from "../constants";
 import { ShakaIcon } from "./icons";
-import { LinkedInGlyph } from "./SocialLink";
 
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with
@@ -175,27 +174,12 @@ export function ProgramSection() {
         </div>
       </div>
 
-      {/* The avatar stack that stood here was a lineup teaser: three brand
-          circles and a "+?" standing in for speakers not yet announced. The
-          agenda below now names them, so the row was promising an unknown that
-          is no longer unknown. */}
-      {/* Tickets first, follow second: the section has just told someone what
-          the day is, when it is and where — the next move is buying, and the
-          only Get tickets above this point belongs to the pau hana stub, a
-          separate ticket for a different evening. */}
-      <div className="flex flex-wrap items-center gap-3">
-        <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit">
-          Get tickets
-        </ConferenceButton>
-        <ConferenceButton
-          href={LINKEDIN_PROFILE}
-          variant="outline"
-          icon={LinkedInGlyph}
-          className="w-fit"
-        >
-          Follow {LINKEDIN_HANDLE}
-        </ConferenceButton>
-      </div>
+      {/* Nothing follows the pau hana stub. Two things have stood here and
+          both were removed for the same reason — the page says it better
+          elsewhere. First an avatar stack teasing an unannounced lineup, which
+          the agenda below now names outright. Then a Get tickets / Follow pair,
+          which repeated the header's standing ticket button and the footer's
+          follow links a few hundred pixels from both. */}
     </div>
   );
 }
