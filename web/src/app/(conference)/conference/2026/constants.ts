@@ -37,14 +37,17 @@ export const LINKEDIN_HANDLE = "@uxhi";
 // than a route. That is why the middleware needs this list: uxhiconference.com/
 // agenda is a URL people type and share, and without somewhere to send it the
 // host answered 404 for a section that plainly exists.
+// Listed in the order the sections appear on the page, so the nav reads as a
+// map of the scroll rather than an arbitrary set of links. About moved down
+// past the venue and the FAQ when the section did.
 export const NAV_ITEMS = [
   ["Moʻolelo", "#moolelo"],
   ["UXHICon", "#program"],
   ["Speakers", "#speakers"],
   ["Lineup", "#agenda"],
-  ["About", "#about"],
   ["The Venue", "#venue"],
   ["FAQ", "#faq"],
+  ["About", "#about"],
   ["Sponsors", "#sponsors"],
 ] as const;
 

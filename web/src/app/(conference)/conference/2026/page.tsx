@@ -444,39 +444,6 @@ export default async function Conference2026Page() {
                 <SideProgramSection />
               </div>
 
-              {/* ── About UXHI ─────────────────────────────────────── */}
-              {/* Copy carried over from the 2025 conference site. */}
-              <div id="about" className="scroll-mt-6 flex flex-col gap-3 md:gap-4">
-                <SectionHeading>About UXHI</SectionHeading>
-                <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[1000/417]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/conferences/2026/assets/images/about-uxhi-group.png"
-                    alt="The UXHI community gathered at a past event"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div
-                  className={`flex flex-col gap-[1.3em] ${TYPE.body} max-w-[62ch]`}
-                  style={{ color: GRAY_110 }}
-                >
-                  <p>We are a female-founded community organization whose mission is to connect and elevate the field of human-centered design for the people of Hawai&#699;i.</p>
-                  <p>Whether you&rsquo;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends and expand your professional network.</p>
-                </div>
-                <ConferenceButton
-                  href="https://uxhi.community"
-                  variant="secondary"
-                  icon={ArrowRightIcon}
-                  iconPosition="trailing"
-                  className="w-fit mt-1"
-                >
-                  Join our community
-                </ConferenceButton>
-              </div>
-
-              {/* ── Co-Chairs / Team ───────────────────────────────── */}
-              <CochairsSection cochairs={cochairs ?? []} />
-
               {/* Benefits headline — the lead-in to the Sandbox/Venue section, so it
                   moves with it. */}
               <BenefitsHeadline />
@@ -552,10 +519,44 @@ export default async function Conference2026Page() {
                 <FaqSection />
               </div>
 
+              {/* ── About UXHI ─────────────────────────────────────── */}
+              {/* Copy carried over from the 2025 conference site. */}
+              <div id="about" className="scroll-mt-6 flex flex-col gap-3 md:gap-4">
+                <SectionHeading>About UXHI</SectionHeading>
+                <div className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[1000/417]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/conferences/2026/assets/images/about-uxhi-group.png"
+                    alt="The UXHI community gathered at a past event"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div
+                  className={`flex flex-col gap-[1.3em] ${TYPE.body} max-w-[62ch]`}
+                  style={{ color: GRAY_110 }}
+                >
+                  <p>We are a female-founded community organization whose mission is to connect and elevate the field of human-centered design for the people of Hawai&#699;i.</p>
+                  <p>Whether you&rsquo;re curious about UX, looking to make a career switch, or are a working professional in the field, come join our free UXHI community to connect and learn with new UX friends and expand your professional network.</p>
+                </div>
+                <ConferenceButton
+                  href="https://uxhi.community"
+                  variant="secondary"
+                  icon={ArrowRightIcon}
+                  iconPosition="trailing"
+                  className="w-fit mt-1"
+                >
+                  Join our community
+                </ConferenceButton>
+              </div>
+
+              {/* ── Co-Chairs / Team ───────────────────────────────── */}
+              <CochairsSection cochairs={cochairs ?? []} />
+
               {/* ── Last year, in three numbers ─────────────────────── */}
               {/* Sits above the sponsors, where last year's turnout reads as
-                  the case for backing this one — and gives the sponsor wall a
-                  run-up instead of starting cold off the FAQ. */}
+                  the case for backing this one, and straight after the people
+                  who ran it — the org, its organizers, what they drew, who
+                  backed them. */}
               <NumbersCard />
 
               {/* ── Sponsors (Sanity: conferenceSponsor, year-scoped) ─── */}
