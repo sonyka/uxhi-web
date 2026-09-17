@@ -1,6 +1,6 @@
 "use client";
 
-// A portrait tile for one person: photo, name, role, opens a drawer.
+// A portrait tile for one person: photo, name, opens a drawer.
 //
 // Lifted out of CochairsSection when the speaker lineup wanted the same tile.
 // Two grids of faces on one page that differ by a few pixels of scrim or a
@@ -11,6 +11,13 @@
 // Deliberately not told which section it is in. A speaker and an organizer are
 // the same kind of thing to look at; what differs is the grid around them and
 // the heading above it.
+//
+// The role used to sit under the name. It came off because a real job title is
+// long — "SVP, Executive Creative Director at Anthology FINN Partners" — and at
+// tile size it had to be clamped, so it half-said something while taking the
+// bottom third of the photograph to do it. The drawer's byline says it in full
+// on the first tap. What is left is a face and a name, which is what a grid of
+// people is for, and the name takes `itemTitle` now that it is not sharing.
 
 import { GRAY_110 as GRAY, TYPE } from "../theme";
 
@@ -31,13 +38,11 @@ function sized(url: string, w: number, h: number) {
 
 export function PersonTile({
   name,
-  title,
   photo,
   photoAlt,
   onOpen,
 }: {
   name: string;
-  title?: string | null;
   photo?: string | null;
   photoAlt?: string | null;
   onOpen: () => void;
@@ -65,24 +70,11 @@ export function PersonTile({
         </div>
       )}
 
-      {/* Scrim behind the name, so it stays readable over any photo.
-          Deep top padding rather than a stronger black: the gradient needs
-          runway above the text to fade out in. With a one-line organizer title
-          the old p-3 was enough; a two-line speaker title pushed the first line
-          clear of the dark zone and onto the photo — Sean Tangco's name landed
-          on a pale shirt and Kim Cinco's on a lit cave wall. */}
-      <div className="absolute inset-x-0 bottom-0 px-3 pb-3 pt-12 bg-gradient-to-t from-black/85 via-black/50 to-transparent">
-        <div className="font-semibold text-[15px] leading-[1.25] text-white">
-          {name}
-        </div>
-        {/* Two lines, then ellipsis. Organizer titles are short — "Co-chair,
-            Programming" — but a speaker's is a real job title, and "SVP,
-            Executive Creative Director at Anthology FINN Partners" ran off the
-            bottom of the tile and was clipped mid-word. The full text is the
-            drawer's byline, one tap away. */}
-        {title && (
-          <div className={`${TYPE.caption} text-white/85 line-clamp-2`}>{title}</div>
-        )}
+      {/* Scrim behind the name, so it stays readable over any photo. The
+          gradient needs runway above the text to fade out in, and enough of it
+          for a long name to take two lines in the narrowest column. */}
+      <div className="absolute inset-x-0 bottom-0 px-3 pb-3 pt-10 bg-gradient-to-t from-black/85 via-black/45 to-transparent">
+        <div className={`${TYPE.itemTitle} text-white`}>{name}</div>
       </div>
     </button>
   );

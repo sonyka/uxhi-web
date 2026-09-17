@@ -56,7 +56,6 @@ export function SpeakersSection({ speakers }: { speakers: AgendaSpeaker[] }) {
             <PersonTile
               key={s.slug ?? s.name}
               name={s.name}
-              title={s.title}
               photo={s.photo}
               photoAlt={s.name}
               onOpen={() => setOpen(s)}

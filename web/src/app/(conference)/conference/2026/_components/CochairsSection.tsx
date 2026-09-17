@@ -75,15 +75,15 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
 
             Below @md both fall to two across — phones, and iPad portrait,
             whose rail is only 390px. @sm was tried so the hierarchy would hold
-            there too and was worse than the tie: at 119px every second name
-            wrapped to two lines, titles truncated mid-word, and the scrim
-            covered more than half the face it sat on. */}
+            there too and was worse than the tie: it puts a tile at 119px, where
+            every second name wraps to two lines and the scrim covers most of
+            the face under it. (Worth re-measuring now that the tile carries a
+            name and no role; it was rejected when it carried both.) */}
         <div className="grid gap-3 md:gap-4 grid-cols-2 @md:grid-cols-3 @xl:grid-cols-4">
           {cochairs.map((c) => (
             <PersonTile
               key={c._id}
               name={c.name}
-              title={c.title}
               photo={c.photo}
               photoAlt={c.photoAlt}
               onOpen={() => setOpen(c)}
