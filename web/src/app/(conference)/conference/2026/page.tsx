@@ -330,7 +330,7 @@ export default async function Conference2026Page() {
                     just above the photo strip (mobile only). */}
                 <div className="flex items-end gap-4">
                   <LogoBadge />
-                  <div className={`flex items-start gap-2 max-w-[62%] ${TYPE.bodyCompact} font-medium`} style={{ color: "#000" }}>
+                  <div className={`flex items-start gap-2 max-w-[62%] ${TYPE.eyebrow}`} style={{ color: "#000" }}>
                     {/* Wrapper is one line tall and centers the dot, so it lines up
                         with the first text line regardless of wrapping. */}
                     <span className="flex items-center h-[1.5em] shrink-0">
@@ -346,9 +346,11 @@ export default async function Conference2026Page() {
               <div className="flex flex-col gap-4 md:gap-5">
 
                 {/* Countdown — desktop only here (on mobile it moves up to the
-                    top-right, above the photo strip). Plain text with a teal pulse. */}
+                    top-right, above the photo strip). Eyebrow type beside a
+                    teal pulse — it is a status line, which is the job that role
+                    already does everywhere else on the page. */}
                 <div
-                  className="hidden md:flex items-center gap-[10px] text-[14px] md:text-[16px] font-medium"
+                  className={`hidden md:flex items-center gap-[10px] ${TYPE.eyebrow}`}
                   style={{ color: "#000" }}
                 >
                   <span className="shrink-0">
