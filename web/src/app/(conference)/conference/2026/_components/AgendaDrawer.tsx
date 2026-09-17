@@ -33,13 +33,20 @@ function useIsDesktop() {
 export function AgendaDrawer({
   open,
   onClose,
-  eyebrow,
+  byline,
   title,
   children,
 }: {
   open: boolean;
   onClose: () => void;
-  eyebrow?: string;
+  /**
+   * Supporting line under the title: "3:00 pm • Purple Box" for a session, a
+   * speaker's title and company for a person. It sits below rather than above
+   * because the thing you tapped is the thing you came to read — leading with
+   * the room or the job title made you scan past a label to find out which
+   * panel had opened.
+   */
+  byline?: string;
   title: string;
   children: React.ReactNode;
 }) {
@@ -109,14 +116,14 @@ export function AgendaDrawer({
               </svg>
             </button>
 
-            {eyebrow && (
-              <div className={`${TYPE.eyebrow} mb-2 pr-10`} style={{ color: GRAY_100 }}>
-                {eyebrow}
-              </div>
-            )}
             <h2 className={`${TYPE.panelTitle} text-gray-140 pr-10`}>
               {title}
             </h2>
+            {byline && (
+              <div className={`${TYPE.caption} mt-1.5 pr-10`} style={{ color: GRAY_100 }}>
+                {byline}
+              </div>
+            )}
 
             <div className={`${TYPE.body} mt-4 flex flex-col gap-4`} style={{ color: GRAY_110 }}>
               {children}

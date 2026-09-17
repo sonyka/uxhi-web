@@ -114,7 +114,7 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
       <AgendaDrawer
         open={Boolean(open)}
         onClose={() => setOpen(null)}
-        eyebrow={open?.title ?? undefined}
+        byline={open?.title ?? undefined}
         title={open?.name ?? ""}
       >
         {open?.bio ? (

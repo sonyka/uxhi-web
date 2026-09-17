@@ -40,7 +40,10 @@ const ROOM_COLORS: Record<string, string> = {
 };
 
 export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
-  const [session, setSession] = useState<AgendaSession | null>(null);
+  // The open session carries its slot time with it. Time lives on the slot
+  // rather than the session, so a session on its own cannot say when it runs —
+  // and the drawer's byline needs to.
+  const [session, setSession] = useState<{ session: AgendaSession; time: string } | null>(null);
   const [speaker, setSpeaker] = useState<AgendaSpeaker | null>(null);
 
   return (
@@ -88,7 +91,7 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
                 <SessionCard
                   key={`${s.room ?? "all"}-${s.title}`}
                   session={s}
-                  onOpenSession={() => setSession(s)}
+                  onOpenSession={() => setSession({ session: s, time: slot.time })}
                   onOpenSpeaker={setSpeaker}
                 />
               ))}
@@ -100,17 +103,22 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
       <AgendaDrawer
         open={Boolean(session)}
         onClose={() => setSession(null)}
-        eyebrow={session?.room}
-        title={session?.title ?? ""}
+        // Time first, then room — the order the schedule itself is read in.
+        // A slot the whole conference shares has no room, so the separator
+        // cannot be hardcoded between them.
+        byline={
+          session ? [session.time, session.session.room].filter(Boolean).join(" • ") : undefined
+        }
+        title={session?.session.title ?? ""}
       >
-        {session?.description && <Paragraphs text={session.description} />}
-        {session?.speakers && session.speakers.length > 0 && (
+        {session?.session.description && <Paragraphs text={session.session.description} />}
+        {session?.session.speakers && session.session.speakers.length > 0 && (
           <div className="flex flex-col gap-3 pt-1">
             <div className={TYPE.eyebrow} style={{ color: GRAY_100 }}>
-              {session.speakers.length > 1 ? "Speakers" : "Speaker"}
+              {session.session.speakers.length > 1 ? "Speakers" : "Speaker"}
             </div>
             <ul className="flex flex-col gap-2">
-              {session.speakers.map((sp) => (
+              {session.session.speakers.map((sp) => (
                 <SpeakerRow
                   key={sp.name}
                   speaker={sp}
@@ -130,7 +138,7 @@ export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
       <AgendaDrawer
         open={Boolean(speaker)}
         onClose={() => setSpeaker(null)}
-        eyebrow={speaker?.title}
+        byline={speaker?.title}
         title={speaker?.name ?? ""}
       >
         {speaker?.kind === "organization"
