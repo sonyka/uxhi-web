@@ -4,9 +4,20 @@ import { useEffect, useRef } from "react";
 import { GRAY_110, TYPE } from "../theme";
 import { ShakaIcon, AngleDownIcon } from "./icons";
 
+// Archives are linked by their full path, not the short /2025/ form.
+//
+// The short one is produced by middleware, which only runs for the
+// uxhiconference.com hostname — so /2025/ answered 404 on localhost, on the
+// Vercel staging domain and on Netlify's default domain, which between them is
+// every place this site gets reviewed before it ships.
+//
+// /conference/<year>/ resolves on all of them, production included: the
+// middleware passes any path already starting with /conference/ straight
+// through, and next.config bridges it to the frozen files under
+// public/conferences/. One URL, correct everywhere.
 const ITEMS = [
-  { label: "2025 · UXperience 'Aina", href: "/2025/" },
-  { label: "2024 · UXperience Aloha", href: "/2024/" },
+  { label: "2025 · UXperience 'Aina", href: "/conference/2025/" },
+  { label: "2024 · UXperience Aloha", href: "/conference/2024/" },
 ];
 
 export function PastConferencesMenu() {

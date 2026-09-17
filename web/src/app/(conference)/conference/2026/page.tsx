@@ -330,7 +330,7 @@ export default async function Conference2026Page() {
                     just above the photo strip (mobile only). */}
                 <div className="flex items-end gap-4">
                   <LogoBadge />
-                  <div className={`flex items-start gap-2 max-w-[62%] ${TYPE.eyebrow}`} style={{ color: "#000" }}>
+                  <div className={`flex items-start gap-2 max-w-[62%] ${TYPE.eyebrow}`} style={{ color: PURPLE }}>
                     {/* Wrapper is one line tall and centers the dot, so it lines up
                         with the first text line regardless of wrapping. */}
                     <span className="flex items-center h-[1.5em] shrink-0">
@@ -351,7 +351,7 @@ export default async function Conference2026Page() {
                     already does everywhere else on the page. */}
                 <div
                   className={`hidden md:flex items-center gap-[10px] ${TYPE.eyebrow}`}
-                  style={{ color: "#000" }}
+                  style={{ color: PURPLE }}
                 >
                   <span className="shrink-0">
                     <PulseDot />

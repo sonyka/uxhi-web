@@ -5,9 +5,14 @@ import { GRAY_110, BEIGE_30, TYPE } from "../theme";
 import { ShakaIcon, StarIcon, EmailHeartIcon, AngleDownIcon, CursorClickIcon } from "./icons";
 
 // Flat menu — past conferences + about uxhi on the same tier
+//
+// Archive paths are the full /conference/<year>/ form for the reason spelled
+// out in PastConferencesMenu: the short /2025/ is made by middleware that only
+// runs for the uxhiconference.com hostname, so it 404s everywhere the site is
+// reviewed. These two links had the same bug as that menu's.
 const ITEMS = [
-  { label: "2025 · UXperience 'Aina", href: "/2025/", Icon: ShakaIcon },
-  { label: "2024 · UXperience Aloha",  href: "/2024/", Icon: ShakaIcon },
+  { label: "2025 · UXperience 'Aina", href: "/conference/2025/", Icon: ShakaIcon },
+  { label: "2024 · UXperience Aloha",  href: "/conference/2024/", Icon: ShakaIcon },
   { label: "UXHI",                     href: "https://uxhi.community", Icon: StarIcon },
   { label: "Email us",                 href: "mailto:uxhiconference@gmail.com", Icon: EmailHeartIcon },
 ];
