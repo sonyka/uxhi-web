@@ -126,7 +126,7 @@ export const AGENDA_2026: AgendaSlot[] = [
         title: "Sharing Your Career Moʻolelo",
         description:
           "Everyone knows their own career journey, but can they describe it when asked? This workshop invites participants to reflect on the defining moments that shaped their careers and craft a concise, meaningful narrative they can confidently share in interviews, networking conversations, or introductions. Through guided exercises and small-group discussions, attendees will refine their personal career story while also learning from others.",
-        speakers: [{ name: "Piʻikū", slug: "piiku" }],
+        speakers: [{ name: "May Sermonia", slug: "may-sermonia" }, { name: "Kim Davidson", slug: "kim-davidson" }, { name: "Michelle Tran", slug: "michelle-tran" }],
       },
     ],
   },
