@@ -12,10 +12,16 @@
 // That also retired two separate bio presentations: a desktop flip and a mobile
 // bottom sheet, each with its own layout to keep in step.
 //
-// Columns cap at three via container queries rather than auto-fit. Auto-fit
-// cannot hold "three" — it keeps adding columns as the container grows, so a
-// wide window found a fourth. `@container` also measures this section rather
+// Columns cap at four via container queries rather than auto-fit. Auto-fit
+// cannot hold a number — it keeps adding columns as the container grows, so a
+// wide window found one more. `@container` also measures this section rather
 // than the viewport, which is what the conference rail needs.
+//
+// Four, not the three it used to be. Organizers and speakers were drawn at the
+// same 265px, which said they carried the same weight; the people presenting
+// should read louder than the people running the day. Dropping to four takes an
+// organizer to 195px against a speaker's 265 — a bit over half the area — and
+// lands the eight of them in two clean rows.
 
 import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
@@ -49,14 +55,30 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
       </p>
 
       <div className="@container mt-1">
-        {/* Three across, and it stays three. The card holding this section
-            caps at 1440px (CAP in page.tsx), so the column stops growing at
-            760px — it is 760px at 1600 and still 760px at 2560. A fourth column
+        {/* Four across, and it stays four. The card holding this section caps
+            at 1440px (CAP in page.tsx), so this container stops growing at
+            828px — it is 828px at 1600 and still 828px at 2560. A fifth column
             past that point would only make the cards smaller as the page got
-            wider, which is backwards. The steps below three stay
-            container-based, because down there the column really does change
-            width. */}
-        <div className="grid gap-3 md:gap-4 grid-cols-1 @xs:grid-cols-2 @xl:grid-cols-3">
+            wider, which is backwards.
+
+            Each step sits one breakpoint below the speakers' matching step —
+            @md where they go to two, @xl where they go to three — so an
+            organizer grid is always exactly one column denser than a speaker
+            grid, and the size difference holds at every width above phone.
+
+            Both earlier attempts looked right on the 1512px laptop they were
+            checked on and collapsed elsewhere, because the rail is much
+            narrower than the window: 620px at a 1280px viewport, 484px at
+            1024px. @2xl for four left 1280 drawing two identical 196px grids;
+            @lg for three did the same to 1024 at 234px. Measure the rail, not
+            the viewport.
+
+            Below @md both fall to two across — phones, and iPad portrait,
+            whose rail is only 390px. @sm was tried so the hierarchy would hold
+            there too and was worse than the tie: at 119px every second name
+            wrapped to two lines, titles truncated mid-word, and the scrim
+            covered more than half the face it sat on. */}
+        <div className="grid gap-3 md:gap-4 grid-cols-2 @md:grid-cols-3 @xl:grid-cols-4">
           {cochairs.map((c) => (
             <PersonTile
               key={c._id}
