@@ -21,6 +21,7 @@ import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_110 as GRAY, TYPE } from "../theme";
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
+import { PersonTile } from "./PersonTile";
 import { SocialLink } from "./SocialLink";
 
 // Data comes from Sanity (conferenceTeam, year-scoped) — see queries.ts.
@@ -33,21 +34,6 @@ export type Cochair = {
   photo?: string | null; // Sanity asset URL
   photoAlt?: string | null;
 };
-
-function initials(name: string) {
-  return name
-    .replace(/,.*$/, "")
-    .split(" ")
-    .filter(Boolean)
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
-
-function sized(url: string, w: number, h: number) {
-  return `${url}?w=${w}&h=${h}&fit=crop&auto=format`;
-}
 
 export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
   const [open, setOpen] = useState<Cochair | null>(null);
@@ -72,41 +58,14 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
             width. */}
         <div className="grid gap-3 md:gap-4 grid-cols-1 @xs:grid-cols-2 @xl:grid-cols-3">
           {cochairs.map((c) => (
-            <button
+            <PersonTile
               key={c._id}
-              type="button"
-              onClick={() => setOpen(c)}
-              aria-label={`Read about ${c.name}`}
-              className="group relative block w-full aspect-[4/5] rounded-2xl overflow-hidden text-left cursor-pointer"
-            >
-              {c.photo ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={sized(c.photo, 600, 750)}
-                  alt={c.photoAlt || c.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              ) : (
-                <div
-                  className="absolute inset-0 flex items-center justify-center bg-beige-40 font-display text-2xl"
-                  style={{ color: GRAY }}
-                >
-                  {initials(c.name)}
-                </div>
-              )}
-
-              {/* Scrim behind the name, so it stays readable over any photo. */}
-              <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
-                <div className="font-semibold text-[15px] leading-[1.25] text-white">
-                  {c.name}
-                </div>
-                {c.title && (
-                  <div className={`${TYPE.caption} text-white/85`}>
-                    {c.title}
-                  </div>
-                )}
-              </div>
-            </button>
+              name={c.name}
+              title={c.title}
+              photo={c.photo}
+              photoAlt={c.photoAlt}
+              onOpen={() => setOpen(c)}
+            />
           ))}
         </div>
       </div>

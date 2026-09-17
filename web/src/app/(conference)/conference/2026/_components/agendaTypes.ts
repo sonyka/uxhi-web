@@ -39,6 +39,13 @@ export interface AgendaSession {
   /** Presenters. Each opens a bio drawer. */
   speakers?: AgendaSpeaker[];
   /**
+   * Set false for a slot whose speakers host rather than present — the opening
+   * and closing remarks. Those are the co-chairs, already shown at full size
+   * under Meet the Organizers, and without this they appear twice on one page.
+   * Defaults to true: a session is part of the lineup unless it says otherwise.
+   */
+  inLineup?: boolean;
+  /**
    * Supporting text that is not a person: "Coffee and light breakfast". Kept
    * apart from `speakers` so it is neither linked nor given a face.
    */
@@ -49,6 +56,41 @@ export interface AgendaSlot {
   /** Start time as it should read: "9:00 am". */
   time: string;
   sessions: AgendaSession[];
+}
+
+/**
+ * The speaker lineup, derived from the agenda rather than queried separately.
+ *
+ * The agenda is what actually knows who is speaking, so reading the lineup out
+ * of it means the two cannot disagree — a speaker dropped from the schedule
+ * leaves the grid at the same moment, and a Sanity record for someone not on
+ * the programme (Piʻikū still has one) never appears.
+ *
+ * One entry per person, however many sessions they run: the grid answers "who
+ * will I hear from", and the same face three times is a worse answer.
+ *
+ * Only people with both a photo and a bio. A portrait grid makes an empty
+ * record conspicuous in a way a 28px thumbnail in the agenda never did, and
+ * three speakers are still waiting on theirs — they are in the schedule, just
+ * not in the lineup yet.
+ */
+export function speakerLineup(slots: AgendaSlot[]): AgendaSpeaker[] {
+  const seen = new Set<string>();
+  const lineup: AgendaSpeaker[] = [];
+
+  for (const slot of slots) {
+    for (const session of slot.sessions) {
+      if (session.inLineup === false) continue;
+      for (const speaker of session.speakers ?? []) {
+        const key = speaker.slug ?? speaker.name;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        if (speaker.photo && speaker.bio) lineup.push(speaker);
+      }
+    }
+  }
+
+  return lineup;
 }
 
 /** What the CMS knows about a speaker, keyed by the agenda's slug. */

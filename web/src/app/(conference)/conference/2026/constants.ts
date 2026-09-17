@@ -33,6 +33,7 @@ export const LINKEDIN_HANDLE = "@uxhi";
 export const NAV_ITEMS = [
   ["Moʻolelo", "#moolelo"],
   ["UXHICon", "#program"],
+  ["Speakers", "#speakers"],
   ["Lineup", "#agenda"],
   ["About", "#about"],
   ["The Venue", "#venue"],

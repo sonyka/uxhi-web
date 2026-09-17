@@ -38,7 +38,7 @@ export const AGENDA_2026: AgendaSlot[] = [
   {
     time: "9:00 am",
     sessions: [
-      { title: "Opening Remarks", speakers: [{ name: "Kat Duran-Higa", slug: "kat-duran-higa" }, { name: "Jennifer Kumura", slug: "jennifer-kumura" }] },
+      { title: "Opening Remarks", inLineup: false, speakers: [{ name: "Kat Duran-Higa", slug: "kat-duran-higa" }, { name: "Jennifer Kumura", slug: "jennifer-kumura" }] },
     ],
   },
   {
@@ -133,7 +133,7 @@ export const AGENDA_2026: AgendaSlot[] = [
   {
     time: "4:00 pm",
     sessions: [
-      { title: "Closing Remarks", speakers: [{ name: "Kat Duran-Higa", slug: "kat-duran-higa" }, { name: "Jennifer Kumura", slug: "jennifer-kumura" }] },
+      { title: "Closing Remarks", inLineup: false, speakers: [{ name: "Kat Duran-Higa", slug: "kat-duran-higa" }, { name: "Jennifer Kumura", slug: "jennifer-kumura" }] },
     ],
   },
 ];

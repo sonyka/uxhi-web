@@ -10,8 +10,9 @@ import { InstagramGrid } from "./_components/InstagramGrid";
 import { QuoteCard } from "./_components/QuoteCard";
 import { ProgramSection } from "./_components/ProgramSection";
 import { AgendaSection } from "./_components/AgendaSection";
+import { SpeakersSection } from "./_components/SpeakersSection";
 import { SideProgramSection } from "./_components/SideProgramSection";
-import { withSpeakerRecords } from "./_components/agendaTypes";
+import { speakerLineup, withSpeakerRecords } from "./_components/agendaTypes";
 import { AGENDA_2026 } from "./agenda";
 import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
@@ -174,6 +175,10 @@ export default async function Conference2026Page() {
       sanityFetchCached({ query: CONFERENCE_INSTAGRAM_QUERY, params: { year: 2026 } }),
       sanityFetchCached({ query: CONFERENCE_SPEAKERS_QUERY, params: { year: 2026 } }),
     ]);
+
+  // Merged once and read twice — the schedule renders it, and Meet the Speakers
+  // derives the lineup from it. Both then see the same people.
+  const agenda = withSpeakerRecords(AGENDA_2026, speakers ?? []);
 
   return (
     /**
@@ -405,13 +410,21 @@ export default async function Conference2026Page() {
                 <ProgramSection />
               </div>
 
+              {/* ── Speakers ───────────────────────────────────────── */}
+              {/* Before the schedule, not after it: the page reads what → who
+                  → when → who ran it. The agenda was carrying the lineup as
+                  well as the times, and was the wrong shape for both. */}
+              <div id="speakers" className="scroll-mt-6">
+                <SpeakersSection speakers={speakerLineup(agenda)} />
+              </div>
+
               {/* ── Agenda ─────────────────────────────────────────── */}
               {/* Follows the Program, which frames the day; this is the day. */}
               {/* Side programming shares the Agenda anchor: it is part of what
                   the day holds, and reads as a coda to the schedule rather than
                   a section you would navigate to on its own. */}
               <div id="agenda" className="scroll-mt-6 flex flex-col gap-10 md:gap-16 xl:gap-20">
-                <AgendaSection slots={withSpeakerRecords(AGENDA_2026, speakers ?? [])} />
+                <AgendaSection slots={agenda} />
                 <SideProgramSection />
               </div>
 
