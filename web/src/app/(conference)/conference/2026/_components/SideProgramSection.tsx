@@ -91,7 +91,12 @@ const GRID =
 
 function SideProgramCard({ item }: { item: SideProgramItem }) {
   return (
-    <li className="relative overflow-hidden bg-beige-30 rounded-2xl px-5 py-[18px] h-full flex flex-col gap-1.5">
+    // Roomier than an agenda card's px-5 py-[18px]. Those hold a title and a
+    // name or two; these hold a paragraph at body size, and at the agenda's
+    // padding a full line ran to within 20px of the edge — the returning pair
+    // read as cramped beside Print Your Story, whose pattern band keeps its
+    // copy well clear of the right side.
+    <li className="relative overflow-hidden bg-beige-30 rounded-2xl p-6 lg:p-7 h-full flex flex-col gap-2">
       {item.pattern ? (
         // ʻOhe kāpala — the bamboo stamp the activity is about, as a band down
         // the right edge rather than a picture in the copy.
