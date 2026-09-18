@@ -7,8 +7,10 @@
 // it is the same person either way. Written out twice it would not stay that
 // way for long.
 //
-// Ends with the speaker's sessions, the mirror of the speaker list in a session
-// drawer: from either side you can step across to the other.
+// The bio is followed by the speaker's sessions, the mirror of the speaker list
+// in a session drawer: from either side you can step across to the other. They
+// come before the social links — where to catch someone at the conference is
+// the thing this page is for, and a LinkedIn is for afterwards.
 
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
 import { SocialLink } from "./SocialLink";
@@ -62,6 +64,18 @@ export function SpeakerDrawer({
       ) : (
         <p style={{ color: GRAY_100 }}>A bio for {speaker?.name} is on the way.</p>
       )}
+      {sessions.length > 0 && (
+        <div className="flex flex-col gap-3 pt-1">
+          <div className={TYPE.eyebrow} style={{ color: GRAY_100 }}>
+            {sessions.length > 1 ? "Sessions" : "Session"}
+          </div>
+          <ul className="flex flex-col gap-3">
+            {sessions.map((s) => (
+              <SessionRow key={`${s.time}-${s.session.title}`} scheduled={s} onOpen={() => onOpenSession(s)} />
+            ))}
+          </ul>
+        </div>
+      )}
       {/* Every link the speaker has, rather than one per kind. It used to be
           LinkedIn for a person and a website for an organization, which meant
           a speaker with both showed only the LinkedIn — Sean Tangco has a site
@@ -95,18 +109,6 @@ export function SpeakerDrawer({
               <GlobeIcon size={22} />
             </a>
           )}
-        </div>
-      )}
-      {sessions.length > 0 && (
-        <div className="flex flex-col gap-3 pt-1">
-          <div className={TYPE.eyebrow} style={{ color: GRAY_100 }}>
-            {sessions.length > 1 ? "Sessions" : "Session"}
-          </div>
-          <ul className="flex flex-col gap-3">
-            {sessions.map((s) => (
-              <SessionRow key={`${s.time}-${s.session.title}`} scheduled={s} onOpen={() => onOpenSession(s)} />
-            ))}
-          </ul>
         </div>
       )}
     </AgendaDrawer>
