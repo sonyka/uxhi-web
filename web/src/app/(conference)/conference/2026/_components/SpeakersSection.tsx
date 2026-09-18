@@ -36,7 +36,7 @@ export function SpeakersSection({ speakers }: { speakers: AgendaSpeaker[] }) {
       <SectionHeading>Meet the Speakers</SectionHeading>
       <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
         The practitioners, researchers and builders sharing their moʻolelo this
-        year. Tap a face for their bio — the schedule below says when to catch
+        year. Tap a card for their bio — the schedule below says when to catch
         them.
       </p>
 
