@@ -40,7 +40,7 @@ export function SpeakersSection({ slots }: { slots: AgendaSlot[] }) {
       <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
         UXHICon brings together voices from Hawaiʻi and beyond who are shaping
         the future of human-centered design. Our speakers share their moʻolelo:
-        real stories, hard-won lessons and fresh perspectives to inspire the
+        real stories, lessons learned and fresh perspectives to inspire the
         next wave of designers.
       </p>
 

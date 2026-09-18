@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "5mb",
     },
   },
+  // Dev only: lets another machine on the local network load the dev server's
+  // scripts (Next blocks cross-origin dev requests by default), so a preview at
+  // http://<this-mac's-LAN-IP>:3000 hydrates instead of rendering inert.
+  allowedDevOrigins: ["192.168.*.*", "*.local"],
   trailingSlash: true,
   skipTrailingSlashRedirect: false,
   images: {

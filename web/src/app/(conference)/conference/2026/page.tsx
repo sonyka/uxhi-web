@@ -9,6 +9,8 @@ import { SponsorsGrid } from "./_components/SponsorsGrid";
 import { InstagramGrid } from "./_components/InstagramGrid";
 import { QuoteCard } from "./_components/QuoteCard";
 import { NumbersCard } from "./_components/NumbersCard";
+import { TestimonialCarousel } from "./_components/TestimonialCarousel";
+import { TESTIMONIALS_2026 } from "./testimonials";
 import { ProgramSection } from "./_components/ProgramSection";
 import { AgendaSection } from "./_components/AgendaSection";
 import { SpeakersSection } from "./_components/SpeakersSection";
@@ -508,11 +510,16 @@ export default async function Conference2026Page() {
                 </ConferenceButton>
               </div>
 
-              {/* ── Refrain (testimonial-style card, shaka glyph) ────── */}
-              <QuoteCard />
+              {/* ── Testimonials ───────────────────────────────────── */}
+              {/* Straight after the venue: where the day happens, then what
+                  past attendees said about it. */}
+              <TestimonialCarousel testimonials={TESTIMONIALS_2026} />
 
               {/* ── Instagram (Sanity: conferenceInstagramPost, curated) ── */}
               <InstagramGrid posts={instagramPosts ?? []} />
+
+              {/* ── Refrain (testimonial-style card, shaka glyph) ────── */}
+              <QuoteCard />
 
               {/* ── FAQ ────────────────────────────────────────────── */}
               <div id="faq" className="scroll-mt-6">

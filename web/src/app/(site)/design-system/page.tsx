@@ -10,6 +10,8 @@ import { TYPE as CONF_2026_TYPE } from "@/app/(conference)/conference/2026/theme
 import { ConferenceButton } from "@/app/(conference)/conference/2026/_components/ConferenceButton";
 import { AgendaSection } from "@/app/(conference)/conference/2026/_components/AgendaSection";
 import { AGENDA_2026 } from "@/app/(conference)/conference/2026/agenda";
+import { TestimonialCarousel } from "@/app/(conference)/conference/2026/_components/TestimonialCarousel";
+import { TESTIMONIALS_2026 } from "@/app/(conference)/conference/2026/testimonials";
 import { ShakaIcon, ArrowRightIcon } from "@/app/(conference)/conference/2026/_components/icons";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { ArrowIcon, ExternalLinkIcon, PlusIcon, MinusIcon, ChevronDownIcon, SendIcon } from "@/components/ui/icons";
@@ -216,6 +218,7 @@ const navigationItems = [
       { id: "conference-2026-link", label: "Inline Link" },
       { id: "conference-2026-button", label: "Button" },
       { id: "conference-2026-agenda", label: "Agenda" },
+      { id: "conference-2026-testimonials", label: "Testimonial Carousel" },
     ],
   },
 ];
@@ -3510,6 +3513,32 @@ const contentComponents: Record<string, React.ReactNode> = {
             <p>Content lives in <span className="font-mono text-xs bg-gray-20 px-1 rounded">conference/2026/agenda.ts</span>, so the schedule changes without touching the layout</p>
             <p>A session takes <span className="font-mono text-xs bg-gray-20 px-1 rounded">room</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">title</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">format</span> and <span className="font-mono text-xs bg-gray-20 px-1 rounded">speakers</span>. Omit <span className="font-mono text-xs bg-gray-20 px-1 rounded">room</span> for a slot the whole conference shares</p>
             <p>Cards with neither format nor speaker drop the dotted divider rather than end on a rule with nothing under it</p>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+
+  "conference-2026-testimonials": (
+    <ContentSection
+      title="2026 Testimonial Carousel"
+      description="Attendee quotes, one at a time. Unboxed, like the refrain and the numbers interludes — no card fill and no eyebrow, just a teal opening quote and the quote set a step under the lead role. A native scroll-snap track, so swipe and trackpad scroll behave the way the platform does; the arrows and dots drive the same scroll position. No autoplay: a quote you are halfway through should not leave on a timer."
+      componentPath="src/app/(conference)/conference/2026/_components/TestimonialCarousel.tsx"
+    >
+      <div className="space-y-6">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Example</h4>
+          <ConfType className="bg-white rounded-2xl p-6 md:p-8 max-w-3xl">
+            <TestimonialCarousel testimonials={TESTIMONIALS_2026} />
+          </ConfType>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Data</h4>
+          <div className="text-sm text-gray-110 space-y-1">
+            <p>Content lives in <span className="font-mono text-xs bg-gray-20 px-1 rounded">conference/2026/testimonials.ts</span></p>
+            <p>A testimonial takes <span className="font-mono text-xs bg-gray-20 px-1 rounded">quote</span> and an optional <span className="font-mono text-xs bg-gray-20 px-1 rounded">attribution</span>, shown as a caption when present</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">label</span> is the carousel&rsquo;s accessible name, not shown on screen (default &ldquo;What attendees said&rdquo;). With one testimonial the controls are dropped</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">TestimonialCard</span> is exported on its own for a single static quote</p>
           </div>
         </div>
       </div>
