@@ -145,35 +145,65 @@ function PulseDot() {
 // and scrolled away after the first screen.
 //
 // The 2025 figures moved to NumbersCard, an interlude in the content column.
+// Name, date and venue — the facts a visitor looks for first. One component,
+// read in two places: the desktop sidebar, and beside the logo at the top of
+// the mobile column.
+//
+// `compact` is the mobile form, fitted to the ~130–200px beside a 96px badge:
+//   • no "UXHICon 2026" line — the badge right next to it already says so;
+//   • the countdown leads instead, in the slot the name had;
+//   • lines set tight (leading-snug) and the groups close together, so the
+//     block stays within the badge's height;
+//   • time and street address only from sm, where the row has room.
+function EventDetails({ compact = false }: { compact?: boolean }) {
+  const lineCls = compact ? `${TYPE.bodyCompact} !leading-snug` : TYPE.bodyCompact;
+  const extra = compact ? "hidden sm:block" : "";
+  return (
+    <div className={`flex flex-col ${compact ? "gap-1.5" : "gap-5 lg:gap-6"}`}>
+      {compact ? (
+        <div className={`flex items-center gap-2 mb-0.5 ${TYPE.eyebrow}`} style={{ color: PURPLE }}>
+          <span className="shrink-0">
+            <PulseDot />
+          </span>
+          <span>{countdownLabel()}</span>
+        </div>
+      ) : null}
+      <div className={`flex flex-col ${compact ? "" : "gap-1"}`}>
+        {/* Not uppercased. "UXHICon" is a mixed-case brand form — the nav
+            sets it that way too — and text-transform would render it
+            UXHICON, which is the thing the name was shortened away from. */}
+        {compact ? null : (
+          <p className="font-bold leading-[1.3] text-[16px] lg:text-[18px] xl:text-[22px]" style={{ color: PURPLE }}>
+            UXHICon 2026
+          </p>
+        )}
+        {/* Date and time in the page's own voice rather than the eyebrow's
+            uppercase — this is the answer to a question, not a label. */}
+        <p className={`${lineCls} font-medium`} style={{ color: GRAY_120 }}>
+          {EVENT_DATE_LONG}
+        </p>
+        <p className={`${lineCls} font-medium ${extra}`} style={{ color: GRAY_120 }}>
+          {EVENT_TIME}
+        </p>
+      </div>
+      <div className={`flex flex-col ${compact ? "" : "gap-1"}`}>
+        <p className={`${lineCls} font-semibold`} style={{ color: GRAY_120 }}>
+          {VENUE_NAME}
+        </p>
+        <p className={`${lineCls} ${extra}`} style={{ color: GRAY_110 }}>
+          {VENUE_ADDRESS}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function SidebarInfo() {
   return (
     <>
       <LogoBadge />
       <div className="flex flex-col gap-5 lg:gap-6">
-        <div className="flex flex-col gap-1">
-          {/* Not uppercased. "UXHICon" is a mixed-case brand form — the nav
-              sets it that way too — and text-transform would render it
-              UXHICON, which is the thing the name was shortened away from. */}
-          <p className="font-bold leading-[1.3] text-[16px] lg:text-[18px] xl:text-[22px]" style={{ color: PURPLE }}>
-            UXHICon 2026
-          </p>
-          {/* Date and time in the page's own voice rather than the eyebrow's
-              uppercase — this is the answer to a question, not a label. */}
-          <p className={`${TYPE.bodyCompact} font-medium`} style={{ color: GRAY_120 }}>
-            {EVENT_DATE_LONG}
-          </p>
-          <p className={`${TYPE.bodyCompact} font-medium`} style={{ color: GRAY_120 }}>
-            {EVENT_TIME}
-          </p>
-        </div>
-        <div className="flex flex-col gap-1">
-          <p className={`${TYPE.bodyCompact} font-semibold`} style={{ color: GRAY_120 }}>
-            {VENUE_NAME}
-          </p>
-          <p className={TYPE.bodyCompact} style={{ color: GRAY_110 }}>
-            {VENUE_ADDRESS}
-          </p>
-        </div>
+        <EventDetails />
         <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit">
           Get tickets
         </ConferenceButton>
@@ -325,20 +355,17 @@ export default async function Conference2026Page() {
           >
             <div id="top" className="flex flex-col gap-10 p-4 md:gap-16 md:py-16 md:pl-8 md:pr-6 lg:pr-10 xl:gap-20 xl:py-32 xl:pl-10 xl:pr-16">
 
-              {/* Mobile/sm sidebar info — badge, days-to-go/stats, photo strip.
+              {/* Mobile/sm sidebar info — badge, event details, photo strip.
                   Scrolls away with the rest of the content (no fixed positioning). */}
               <div className="md:hidden flex flex-col gap-4">
-                {/* Logo + countdown beside it, bottom-aligned so the line sits
-                    just above the photo strip (mobile only). */}
-                <div className="flex items-end gap-4">
+                {/* Logo with the countdown, date and venue beside it — the same
+                    details the desktop sidebar leads with. Centred on the badge:
+                    the compact block is about its height, and top-aligned it
+                    left a gap underneath. */}
+                <div className="flex items-center gap-4">
                   <LogoBadge />
-                  <div className={`flex items-start gap-2 max-w-[62%] ${TYPE.eyebrow}`} style={{ color: PURPLE }}>
-                    {/* Wrapper is one line tall and centers the dot, so it lines up
-                        with the first text line regardless of wrapping. */}
-                    <span className="flex items-center h-[1.5em] shrink-0">
-                      <PulseDot />
-                    </span>
-                    <span>{countdownLabel()}</span>
+                  <div className="min-w-0">
+                    <EventDetails compact />
                   </div>
                 </div>
                 <PhotoTickerH />
@@ -347,10 +374,10 @@ export default async function Conference2026Page() {
               {/* ── Hero: date badge, tagline, CTAs ───────────────── */}
               <div className="flex flex-col gap-4 md:gap-5">
 
-                {/* Countdown — desktop only here (on mobile it moves up to the
-                    top-right, above the photo strip). Eyebrow type beside a
-                    teal pulse — it is a status line, which is the job that role
-                    already does everywhere else on the page. */}
+                {/* Countdown — desktop only here; on mobile it leads the event
+                    details beside the logo (EventDetails compact). Eyebrow type
+                    beside a teal pulse — it is a status line, which is the job
+                    that role already does everywhere else on the page. */}
                 <div
                   className={`hidden md:flex items-center gap-[10px] ${TYPE.eyebrow}`}
                   style={{ color: PURPLE }}

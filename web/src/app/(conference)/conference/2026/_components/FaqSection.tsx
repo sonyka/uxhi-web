@@ -1,7 +1,7 @@
 "use client";
 
-// FAQ accordion — design adapted from method.framer.media (warm pill rows,
-// "+" toggle that rotates into "×" on open, gray answer text).
+// FAQ accordion — adapted from method.framer.media (rows now hairline-ruled on
+// white rather than warm pills; "+" toggle that rotates into "×" on open).
 //
 // Uses Framer Motion (not native <details>) so the answer height animates open/
 // closed smoothly instead of snapping. Items open independently.
@@ -12,7 +12,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { GRAY_80 as ICON_GRAY, GRAY_110, GRAY_120, PURPLE, LINK, TYPE } from "../theme";
+import { GRAY_80 as ICON_GRAY, GRAY_110, PURPLE, LINK, TYPE } from "../theme";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
@@ -79,20 +79,22 @@ export function FaqSection() {
         about UXHICon.
       </p>
 
-      {/* Accordion list */}
-      <div className="flex flex-col gap-2 md:gap-3 mt-1">
+      {/* Accordion list. White on white, no card fill: the rows are separated
+          by a hairline rule rather than each being a beige panel, and sit flush
+          with the heading and intro above them instead of inset from them. */}
+      <div className="flex flex-col mt-1 border-t border-gray-30">
         {FAQS.map(({ q, a }) => {
           const isOpen = !!open[q];
           return (
             <div
               key={q}
-              className={`rounded-2xl transition-colors ${isOpen ? "bg-beige-40" : "bg-beige-30"}`}
+              className="border-b border-gray-30"
             >
               <button
                 type="button"
                 onClick={() => setOpen((prev) => ({ ...prev, [q]: !prev[q] }))}
                 aria-expanded={isOpen}
-                className="w-full flex items-center justify-between gap-4 cursor-pointer select-none text-left px-5 py-[18px]"
+                className="w-full flex items-center justify-between gap-4 cursor-pointer select-none text-left py-[18px] hover:opacity-70 transition-opacity"
               >
                 <span className="font-medium leading-[1.35] tracking-[-0.01em] text-[16px] md:text-[17px] text-gray-140">
                   {q}
@@ -124,10 +126,8 @@ export function FaqSection() {
                     className="overflow-hidden"
                   >
                     <p
-                      className={`px-5 pb-[18px] ${TYPE.body}`}
-                      // gray-120 on the beige card, for the same reason the side
-                      // programming cards take it: gray-110 is under AAA here.
-                      style={{ color: GRAY_120 }}
+                      className={`pb-[18px] pr-9 ${TYPE.body} max-w-[62ch]`}
+                      style={{ color: GRAY_110 }}
                     >
                       {a}
                     </p>
