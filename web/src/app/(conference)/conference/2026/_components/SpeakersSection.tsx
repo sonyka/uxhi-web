@@ -41,8 +41,7 @@ export function SpeakersSection({ slots }: { slots: AgendaSlot[] }) {
         UXHICon brings together voices from Hawaiʻi and beyond who are shaping
         the future of human-centered design. Our speakers share their moʻolelo:
         real stories, hard-won lessons and fresh perspectives to inspire the
-        next wave of designers. Tap a card for their bio and when to catch
-        them.
+        next wave of designers.
       </p>
 
       <div className="@container mt-1">
