@@ -18,14 +18,13 @@ export type Sponsor = {
 };
 
 // Tiers render in this order, each under its own label; only non-empty tiers show.
-const TIER_ORDER = ["platinum", "gold", "silver", "bronze", "swag", "community"] as const;
+const TIER_ORDER = ["platinum", "gold", "silver", "bronze", "swag"] as const;
 const TIER_LABELS: Record<string, string> = {
   platinum: "Platinum",
   gold: "Gold",
   silver: "Silver",
   bronze: "Bronze",
   swag: "Swag",
-  community: "Community",
 };
 
 // Size Sanity images on the CDN rather than shipping the full-res asset.

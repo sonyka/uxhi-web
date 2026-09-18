@@ -90,7 +90,7 @@ const CHRIS_OTA: Sponsor = {
  * The section as the page mounts it: intro, the repeated "Become a sponsor"
  * CTA, then one labelled block per populated tier, in TIER_ORDER. Two tiers
  * and abridged blurbs, so the whole section fits one frame — the live page
- * runs six tiers deep with the full Sanity descriptions.
+ * runs five tiers deep with the full Sanity descriptions.
  */
 export const Tiers = () => (
   <SponsorsGrid
