@@ -44,6 +44,7 @@ export const conferenceSponsor = defineType({
           { title: "Gold", value: "gold" },
           { title: "Silver", value: "silver" },
           { title: "Bronze", value: "bronze" },
+          { title: "Swag", value: "swag" },
           { title: "Community", value: "community" },
         ],
         layout: "radio",
