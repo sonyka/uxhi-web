@@ -32,7 +32,8 @@ SponsorsGrid from web. Use via `window.UXHICon2026.SponsorsGrid` (bundle loaded 
  * Why the card normalises logos rather than trusting the asset. These four sit
  * in one row on the live site: a 10:1 wordmark, a 2.3:1 stacked lockup that
  * earns the taller 48px box, a logo Sanity scales up by 1.38, and an untouched
- * 3.3:1. Every one lands inside the same 140×48 envelope.
+ * 3.3:1. Every one lands inside the same 140×48 envelope. (Near-square
+ * badges under 1.6:1 get a 64px box instead, so they don't read as specks.)
  */
 ```
 

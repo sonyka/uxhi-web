@@ -35,17 +35,21 @@ function sized(url: string, w: number) {
 function SponsorCard({ s }: { s: Sponsor }) {
   // Logos are normalized by height (h-10 ≈ 40px). A stacked/multi-line lockup
   // (e.g. ANTHOLOGY / FINN / PARTNERS) reads a touch small at that height, so tall
-  // logos (low aspect ratio) get a taller box (48px).
-  const isTall = s.logoAspect != null && s.logoAspect < 2.5;
-  const boxClass = isTall ? "h-12" : "h-10";
+  // logos (low aspect ratio) get a taller box (48px). A near-square badge (e.g.
+  // Boom Photo Booth, ~1.3:1) at 48px is barely 60px wide and reads as a speck
+  // beside the wordmarks, so badges get 64px — roughly the same ink area as a
+  // 2.3:1 lockup at 48px.
+  const isBadge = s.logoAspect != null && s.logoAspect < 1.6;
+  const isTall = !isBadge && s.logoAspect != null && s.logoAspect < 2.5;
+  const boxClass = isBadge ? "h-16" : isTall ? "h-12" : "h-10";
 
   // Height for the auto bucket, plus a uniform MAX WIDTH so wide wordmarks (~5:1
   // and up, and the ~10:1 outlier) don't outsize the more compact logos — every
-  // logo now fits the same 140×48 box. `logoScale` (Sanity) fine-tunes any single
-  // logo. Box height is unchanged, so scaled logos stay vertically centred and
-  // aligned within their row.
+  // wordmark fits the same 140×48 box (badges, 140×64). `logoScale` (Sanity)
+  // fine-tunes any single logo. Box height is unchanged, so scaled logos stay
+  // vertically centred and aligned within their row.
   const scale = s.logoScale && s.logoScale > 0 ? s.logoScale : 1;
-  const baseH = isTall ? 48 : 40;
+  const baseH = isBadge ? 64 : isTall ? 48 : 40;
   const imgStyle: React.CSSProperties = {
     maxHeight: baseH * scale,
     maxWidth: 140 * scale,
