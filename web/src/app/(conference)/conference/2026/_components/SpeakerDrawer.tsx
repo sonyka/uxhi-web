@@ -6,19 +6,27 @@
 // tile in Meet the Speakers — and it has to be the same panel from both, since
 // it is the same person either way. Written out twice it would not stay that
 // way for long.
+//
+// Ends with the speaker's sessions, the mirror of the speaker list in a session
+// drawer: from either side you can step across to the other.
 
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
 import { SocialLink } from "./SocialLink";
 import { GlobeIcon } from "./icons";
-import { GRAY_100 } from "../theme";
-import type { AgendaSpeaker } from "./agendaTypes";
+import { GRAY_100, GRAY_120, LINK, PURPLE, TYPE } from "../theme";
+import type { AgendaSpeaker, ScheduledSession } from "./agendaTypes";
 
 export function SpeakerDrawer({
   speaker,
+  sessions,
   onClose,
+  onOpenSession,
 }: {
   speaker: AgendaSpeaker | null;
+  /** Where to catch them, in schedule order. */
+  sessions: ScheduledSession[];
   onClose: () => void;
+  onOpenSession: (session: ScheduledSession) => void;
 }) {
   return (
     <AgendaDrawer
@@ -89,6 +97,61 @@ export function SpeakerDrawer({
           )}
         </div>
       )}
+      {sessions.length > 0 && (
+        <div className="flex flex-col gap-3 pt-1">
+          <div className={TYPE.eyebrow} style={{ color: GRAY_100 }}>
+            {sessions.length > 1 ? "Sessions" : "Session"}
+          </div>
+          <ul className="flex flex-col gap-3">
+            {sessions.map((s) => (
+              <SessionRow key={`${s.time}-${s.session.title}`} scheduled={s} onOpen={() => onOpenSession(s)} />
+            ))}
+          </ul>
+        </div>
+      )}
     </AgendaDrawer>
+  );
+}
+
+/**
+ * A session on a speaker's list: the title, and when and where under it. Same
+ * rule as the agenda cards — only a session with a description opens, so the
+ * opening remarks read as plain text rather than a link to an empty drawer.
+ */
+function SessionRow({
+  scheduled,
+  onOpen,
+}: {
+  scheduled: ScheduledSession;
+  onOpen: () => void;
+}) {
+  const { session, time } = scheduled;
+  const when = [time, session.room].filter(Boolean).join(" • ");
+  const whenLine = (
+    <span className={`${TYPE.caption} block mt-0.5`} style={{ color: GRAY_100 }}>
+      {when}
+    </span>
+  );
+
+  if (!session.description) {
+    return (
+      <li>
+        <span className="block font-semibold text-[15px] leading-[1.3]" style={{ color: GRAY_120 }}>
+          {session.title}
+        </span>
+        {whenLine}
+      </li>
+    );
+  }
+
+  return (
+    <li>
+      <button type="button" onClick={onOpen} className="block text-left cursor-pointer">
+        <span className={`${LINK} font-semibold text-[15px] leading-[1.3]`} style={{ color: PURPLE }}>
+          {session.title}
+        </span>
+        {whenLine}
+      </button>
+    </li>
   );
 }

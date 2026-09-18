@@ -131,3 +131,29 @@ export function withSpeakerRecords(
     })),
   }));
 }
+
+/**
+ * A session with the time it runs. Time lives on the slot rather than the
+ * session, so a session lifted out of the schedule — into a drawer, or onto a
+ * speaker's list — has to carry it along or it cannot say when it is.
+ */
+export interface ScheduledSession {
+  session: AgendaSession;
+  time: string;
+}
+
+/**
+ * Every session a speaker appears on, in schedule order. Matched on slug, then
+ * name, the same key the lineup dedupes on.
+ *
+ * Hosted slots count too. `inLineup: false` keeps the co-chairs out of the
+ * speaker grid, but the opening remarks are still theirs to point at.
+ */
+export function sessionsFor(slots: AgendaSlot[], speaker: AgendaSpeaker): ScheduledSession[] {
+  const key = speaker.slug ?? speaker.name;
+  return slots.flatMap((slot) =>
+    slot.sessions
+      .filter((session) => session.speakers?.some((s) => (s.slug ?? s.name) === key))
+      .map((session) => ({ session, time: slot.time })),
+  );
+}

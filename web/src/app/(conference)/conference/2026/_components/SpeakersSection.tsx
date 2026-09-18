@@ -19,15 +19,18 @@
 // organizers drop to a compact row, these become the largest faces on the page
 // without having to grow.
 
-import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_110 as GRAY, TYPE } from "../theme";
 import { PersonTile } from "./PersonTile";
-import { SpeakerDrawer } from "./SpeakerDrawer";
-import type { AgendaSpeaker } from "./agendaTypes";
+import { useAgendaDrawers } from "./SessionDrawer";
+import { speakerLineup, type AgendaSlot } from "./agendaTypes";
 
-export function SpeakersSection({ speakers }: { speakers: AgendaSpeaker[] }) {
-  const [open, setOpen] = useState<AgendaSpeaker | null>(null);
+// Takes the whole agenda rather than the lineup alone: a bio lists that
+// speaker's sessions, and those open from here without scrolling to the
+// schedule.
+export function SpeakersSection({ slots }: { slots: AgendaSlot[] }) {
+  const speakers = speakerLineup(slots);
+  const { openSpeaker, drawers } = useAgendaDrawers(slots);
 
   if (speakers.length === 0) return null;
 
@@ -58,13 +61,13 @@ export function SpeakersSection({ speakers }: { speakers: AgendaSpeaker[] }) {
               name={s.name}
               photo={s.photo}
               photoAlt={s.name}
-              onOpen={() => setOpen(s)}
+              onOpen={() => openSpeaker(s)}
             />
           ))}
         </div>
       </div>
 
-      <SpeakerDrawer speaker={open} onClose={() => setOpen(null)} />
+      {drawers}
     </div>
   );
 }

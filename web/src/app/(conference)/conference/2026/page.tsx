@@ -13,7 +13,7 @@ import { ProgramSection } from "./_components/ProgramSection";
 import { AgendaSection } from "./_components/AgendaSection";
 import { SpeakersSection } from "./_components/SpeakersSection";
 import { SideProgramSection } from "./_components/SideProgramSection";
-import { speakerLineup, withSpeakerRecords } from "./_components/agendaTypes";
+import { withSpeakerRecords } from "./_components/agendaTypes";
 import { AGENDA_2026 } from "./agenda";
 import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
@@ -431,7 +431,7 @@ export default async function Conference2026Page() {
                   → when → who ran it. The agenda was carrying the lineup as
                   well as the times, and was the wrong shape for both. */}
               <div id="speakers" className="scroll-mt-6">
-                <SpeakersSection speakers={speakerLineup(agenda)} />
+                <SpeakersSection slots={agenda} />
               </div>
 
               {/* ── Agenda ─────────────────────────────────────────── */}
