@@ -38,12 +38,12 @@ export const AGENDA_2026: AgendaSlot[] = [
   {
     time: "9:00 am",
     sessions: [
-      { title: "Opening Remarks", inLineup: false, speakers: [{ name: "Kat Duran-Higa", slug: "kat-duran-higa" }, { name: "Jennifer Kumura", slug: "jennifer-kumura" }] },
+      { room: "Main Room", title: "Opening Remarks", inLineup: false, speakers: [{ name: "Kat Duran-Higa", slug: "kat-duran-higa" }, { name: "Jennifer Kumura", slug: "jennifer-kumura" }] },
     ],
   },
   {
     time: "9:15 am",
-    sessions: [{ title: "Conference-Wide Icebreaker", speakers: [{ name: "Sean Tangco", slug: "sean-tangco" }] }],
+    sessions: [{ room: "Main Room", title: "Conference-Wide Icebreaker", speakers: [{ name: "Sean Tangco", slug: "sean-tangco" }] }],
   },
   {
     time: "10:00 am",
@@ -133,7 +133,7 @@ export const AGENDA_2026: AgendaSlot[] = [
   {
     time: "4:00 pm",
     sessions: [
-      { title: "Closing Remarks", inLineup: false, speakers: [{ name: "Kat Duran-Higa", slug: "kat-duran-higa" }, { name: "Jennifer Kumura", slug: "jennifer-kumura" }] },
+      { room: "Main Room", title: "Closing Remarks", inLineup: false, speakers: [{ name: "Kat Duran-Higa", slug: "kat-duran-higa" }, { name: "Jennifer Kumura", slug: "jennifer-kumura" }] },
     ],
   },
 ];

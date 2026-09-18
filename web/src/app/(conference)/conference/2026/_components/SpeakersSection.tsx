@@ -38,8 +38,10 @@ export function SpeakersSection({ slots }: { slots: AgendaSlot[] }) {
     <div className="flex flex-col gap-3 md:gap-4">
       <SectionHeading>Meet the Speakers</SectionHeading>
       <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
-        The practitioners, researchers and builders sharing their moʻolelo this
-        year. Tap a card for their bio — the schedule below says when to catch
+        UXHICon brings together voices from Hawaiʻi and beyond who are shaping
+        the future of human-centered design. Our speakers share their moʻolelo:
+        real stories, hard-won lessons and fresh perspectives to inspire the
+        next wave of designers. Tap a card for their bio and when to catch
         them.
       </p>
 
