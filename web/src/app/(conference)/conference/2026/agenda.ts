@@ -24,8 +24,8 @@ import type { AgendaSlot } from "./_components/agendaTypes";
 // A session with a `description` is tappable and opens a drawer; one without is
 // inert, and shows no chevron promising otherwise. Four are deliberately
 // without and are not waiting on copy: Doors Open, Opening Remarks, Lunch and
-// Closing Remarks. The others still bare — the icebreaker, the keynote and If
-// Mom Says No — have copy coming.
+// Closing Remarks. The others still bare — the icebreaker and If Mom Says No —
+// have copy coming.
 //
 // ⚠️ The icebreaker host is "Sean" on the sheet. Written out here as Sean
 //    Tangco, who presents at 11:00 — worth confirming it is the same Sean.
@@ -47,7 +47,15 @@ export const AGENDA_2026: AgendaSlot[] = [
   },
   {
     time: "10:00 am",
-    sessions: [{ title: "Keynote", badge: "To be announced" }],
+    sessions: [
+      {
+        room: "Main Room",
+        title: "MO\u02bbO: Stories Shaping Tomorrow",
+        description:
+          "Mo\u02bbolelo (stories, histories, and traditions) connects mo\u02bbo, a succession or series, with \u02bb\u014dlelo, speech or language. Through mo\u02bbolelo, collective knowledge and experience travel across generations. This presentation explores stories not simply as something to communicate, but as a framework of knowledge that guides our design decisions and helps form personal and shared experiences.\n\nWhile our disciplines vary, our relationships with Hawai\u02bbi offer common ground. As k\u0101naka maoli and kama\u02bb\u0101ina, our distinct perspectives are shaped by geography, interwoven cultures, and complex histories. Our experiences differ, yet our values and responsibilities often align and complement.\n\nThe familial and interdependent relationship between \u02bb\u0101ina and k\u0101naka (land and people) provides the why, we are both children and stewards of this land. A personal application of WCIT\u2019s Mo\u02bbo methodology offers the how: researching a project\u2019s genealogy, developing its emerging story, and translating that understanding into design through a Hawaiian and local lens. Existing values guide this process, while projects create opportunities for people to cultivate new meaning, relationships, and value through lived experience.\n\nThrough an architectural perspective, this talk invites connections with graphic, web, product, service, and experience design. Our methods may differ, but questions of care, meaning, and responsibility connect our practices. How do a people\u2019s and place\u2019s stories shape design decisions? As stewards, how do we perpetuate a place\u2019s collective knowledge and experience for future generations?",
+        speakers: [{ name: "Reuben Chock", slug: "reuben-chock" }],
+      },
+    ],
   },
   {
     time: "11:00 am",
