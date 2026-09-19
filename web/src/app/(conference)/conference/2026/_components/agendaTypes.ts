@@ -31,7 +31,8 @@ export interface AgendaSession {
   title: string;
   /**
    * Pill above the title, in the same yellow the Pau Hana stub uses for "New
-   * this year". For a status the session does not have yet, not a label.
+   * this year". For a status ("To be announced") or a callout that sets the
+   * session apart from the rest of the day ("Keynote").
    */
   badge?: string;
   /** Long description, shown in the drawer. A card without one is not tappable. */
