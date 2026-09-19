@@ -147,6 +147,17 @@ function SessionCard({
       <div className="flex items-start gap-3">
         <h3 className={`${TYPE.itemTitle} flex-1 text-gray-140`}>
           {title}
+          {badge && (
+            // Inline after the title rather than on a row of its own, so it
+            // rides the title's last line and the card stays as short as its
+            // neighbours. nowrap keeps the pill whole when the line breaks.
+            <span
+              className="inline-block align-middle whitespace-nowrap rounded-full px-2.5 py-1 ml-2 -mt-0.5 font-bold uppercase tracking-[0.06em] text-[11px] leading-none"
+              style={{ background: YELLOW_80, color: PURPLE }}
+            >
+              {badge}
+            </span>
+          )}
         </h3>
         {expandable && (
           <svg
@@ -164,15 +175,6 @@ function SessionCard({
           </svg>
         )}
       </div>
-
-      {badge && (
-        <span
-          className="inline-flex items-center rounded-full px-3 py-1 mt-2 font-bold uppercase tracking-[0.06em] text-[12px]"
-          style={{ background: YELLOW_80, color: PURPLE }}
-        >
-          {badge}
-        </span>
-      )}
 
       {hasMeta && (
         <>

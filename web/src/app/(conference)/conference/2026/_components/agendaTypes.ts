@@ -30,7 +30,7 @@ export interface AgendaSession {
   room?: string;
   title: string;
   /**
-   * Pill above the title, in the same yellow the Pau Hana stub uses for "New
+   * Pill after the title, in the same yellow the Pau Hana stub uses for "New
    * this year". For a status ("To be announced") or a callout that sets the
    * session apart from the rest of the day ("Keynote").
    */
