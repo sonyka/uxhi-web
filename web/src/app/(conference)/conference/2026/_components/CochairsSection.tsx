@@ -27,7 +27,7 @@ import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_110 as GRAY, TYPE } from "../theme";
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
-import { PersonTile } from "./PersonTile";
+import { PersonTile, PersonAvatar } from "./PersonTile";
 import { SocialLink } from "./SocialLink";
 
 // Data comes from Sanity (conferenceTeam, year-scoped) — see queries.ts.
@@ -97,6 +97,10 @@ export function CochairsSection({ cochairs }: { cochairs: Cochair[] }) {
         onClose={() => setOpen(null)}
         byline={open?.title ?? undefined}
         title={open?.name ?? ""}
+        // The same header a speaker's drawer carries. An organizer is also
+        // reached from a large tile, so the panel identifies rather than
+        // repeats: one avatar, whichever kind of person you tapped.
+        media={open ? <PersonAvatar name={open.name} photo={open.photo} /> : undefined}
       >
         {open?.bio ? (
           <Paragraphs text={open.bio} />

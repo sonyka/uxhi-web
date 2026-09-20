@@ -1,6 +1,6 @@
 "use client";
 
-// The speaker drawer: portrait, bio, links.
+// The speaker drawer: avatar beside the name, then bio, sessions, links.
 //
 // Reached from two places now — a name under a session in the agenda, and a
 // tile in Meet the Speakers — and it has to be the same panel from both, since
@@ -13,6 +13,7 @@
 // the thing this page is for, and a LinkedIn is for afterwards.
 
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
+import { PersonAvatar } from "./PersonTile";
 import { SocialLink } from "./SocialLink";
 import { GlobeIcon } from "./icons";
 import { GRAY_100, GRAY_120, LINK, PURPLE, TYPE } from "../theme";
@@ -36,29 +37,24 @@ export function SpeakerDrawer({
       onClose={onClose}
       byline={speaker?.title}
       title={speaker?.name ?? ""}
+      media={
+        speaker && speaker.kind !== "organization" ? (
+          <PersonAvatar name={speaker.name} photo={speaker.photo} />
+        ) : undefined
+      }
     >
-      {speaker?.kind === "organization"
-        ? speaker.logo && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={speaker.logo}
-              alt={`${speaker.name} logo`}
-              // contain, not cover, and no fixed ratio: a wordmark cropped to
-              // a portrait is a wordmark with its ends cut off.
-              className="w-full max-w-[280px] h-auto max-h-[120px] object-contain object-left"
-            />
-          )
-        : speaker?.photo && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={speaker.photo}
-              alt=""
-              // 168px on a phone, 280 from sm up. The drawer is a bottom
-              // sheet at that width, so a 280px portrait is 350px tall and
-              // takes most of the sheet before the bio has started.
-              className="w-full max-w-[168px] sm:max-w-[280px] aspect-[4/5] rounded-2xl object-cover"
-            />
-          )}
+      {/* An organization keeps its wordmark in the body: "Anthology FINN
+          Partners" cropped into a 64px circle beside the title is unreadable,
+          and a wordmark is not a face — there is nothing to identify. The
+          heading already carries the name. */}
+      {speaker?.kind === "organization" && speaker.logo && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={speaker.logo}
+          alt={`${speaker.name} logo`}
+          className="w-full max-w-[280px] h-auto max-h-[120px] object-contain object-left"
+        />
+      )}
       {speaker?.bio ? (
         <Paragraphs text={speaker.bio} />
       ) : (

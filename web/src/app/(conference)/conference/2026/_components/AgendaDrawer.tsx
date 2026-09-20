@@ -35,6 +35,7 @@ export function AgendaDrawer({
   onClose,
   byline,
   title,
+  media,
   children,
 }: {
   open: boolean;
@@ -48,6 +49,13 @@ export function AgendaDrawer({
    */
   byline?: string;
   title: string;
+  /**
+   * A small thing to identify what opened, beside the title rather than above
+   * the body: a speaker's portrait, say. It sits here because the body is for
+   * reading — a portrait leading it pushes the first line of a bio a panel's
+   * worth down the page, to repeat a face the reader just tapped.
+   */
+  media?: React.ReactNode;
   children: React.ReactNode;
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
@@ -116,14 +124,21 @@ export function AgendaDrawer({
               </svg>
             </button>
 
-            <h2 className={`${TYPE.panelTitle} text-gray-140 pr-10`}>
-              {title}
-            </h2>
-            {byline && (
-              <div className={`${TYPE.caption} mt-1.5 pr-10`} style={{ color: GRAY_100 }}>
-                {byline}
+            <div className="flex items-center gap-4">
+              {media}
+              {/* min-w-0 so a long unbroken name wraps inside the column
+                  instead of pushing the portrait out of the panel. */}
+              <div className="min-w-0 flex-1">
+                <h2 className={`${TYPE.panelTitle} text-gray-140 pr-10`}>
+                  {title}
+                </h2>
+                {byline && (
+                  <div className={`${TYPE.caption} mt-1.5 pr-10`} style={{ color: GRAY_100 }}>
+                    {byline}
+                  </div>
+                )}
               </div>
-            )}
+            </div>
 
             <div className={`${TYPE.body} mt-4 flex flex-col gap-4`} style={{ color: GRAY_110 }}>
               {children}

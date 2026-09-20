@@ -1,6 +1,7 @@
 "use client";
 
-// A portrait tile for one person: photo, name, opens a drawer.
+// One person, at the two sizes this page shows them: the portrait tile in a
+// grid, and the avatar in the header of the drawer that tile opens.
 //
 // Lifted out of CochairsSection when the speaker lineup wanted the same tile.
 // Two grids of faces on one page that differ by a few pixels of scrim or a
@@ -77,5 +78,52 @@ export function PersonTile({
         <div className={`${TYPE.itemTitle} text-white`}>{name}</div>
       </div>
     </button>
+  );
+}
+
+/**
+ * The same person at the top of their drawer.
+ *
+ * Every entrance to a bio on this page is unified on this one mark — a speaker
+ * tapped from Meet the Speakers, a speaker tapped from a name in the agenda,
+ * an organizer tapped from Meet the Organizers. It exists because two of those
+ * three arrive from a large photograph that is still on screen behind the
+ * scrim, so a portrait in the panel repeated the face rather than identifying
+ * it; and the third arrives from a 28px avatar in a list, where dropping the
+ * face entirely would leave the panel anonymous. An avatar answers both: it
+ * confirms who opened without spending the top of the panel on a photograph
+ * the reader has already seen.
+ *
+ * Round, not the tile's 4/5 crop — the difference in shape is what stops it
+ * reading as a shrunken second copy of the tile.
+ */
+export function PersonAvatar({
+  name,
+  photo,
+}: {
+  name: string;
+  photo?: string | null;
+}) {
+  if (!photo) {
+    return (
+      <div
+        aria-hidden="true"
+        className="w-16 h-16 shrink-0 rounded-full flex items-center justify-center bg-beige-40 font-display text-lg"
+        style={{ color: GRAY }}
+      >
+        {initials(name)}
+      </div>
+    );
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      // 2x, because a 64px avatar off a full-size Sanity asset is a portrait
+      // download for a thumbnail.
+      src={sized(photo, 128, 128)}
+      alt=""
+      className="w-16 h-16 shrink-0 rounded-full object-cover"
+    />
   );
 }
