@@ -21,13 +21,29 @@ const previewClient = previewDrafts
 // <SanityLive> component reacting to live events. SanityLive can't run on the
 // deployed site (no browser token in Vercel/Netlify env), so that cache stayed
 // frozen until a redeploy — published CMS edits never propagated. A time-based
-// `revalidate` keeps every public page self-updating within a minute of publish,
-// independent of SanityLive. stega is disabled so no visual-editing markers leak
-// into rendered text on the public site.
+// `revalidate` keeps every public page self-updating without SanityLive. stega
+// is disabled so no visual-editing markers leak into rendered text on the
+// public site.
+//
+// Why an hour and not a minute. This default sets the revalidate window for
+// every public page, because a fetch-level `revalidate` propagates to the whole
+// page segment. Each expiry lets a page re-render and re-save, and Vercel bills
+// that save as an ISR write. At 60s, seven ISR pages could write ~302k times a
+// month against a 200k free-tier allowance — and they did, which is what paused
+// staging. The meter is driven by how often a page is *allowed* to re-save, not
+// by visitor numbers: one request per page per minute reaches the ceiling, and
+// nothing requires that request to be a person. Bots ignore the staging
+// Disallow, and robots.ts lets Claude's agents through on purpose.
+//
+// An hour costs ~5k writes a month, ~2.5% of the allowance. Content here
+// changes a few times a month, so the delay is invisible, and any push to
+// staging redeploys and clears the cache anyway. If a publish ever needs to be
+// live immediately, that redeploy is the lever — or wire a Sanity webhook to
+// revalidateTag, which removes the periodic writes entirely.
 export async function sanityFetchCached<const Q extends string>({
   query,
   params = {},
-  revalidate = 60,
+  revalidate = 3600,
 }: {
   query: Q;
   params?: QueryParams;

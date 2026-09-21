@@ -101,8 +101,9 @@ const CAP = "xl:max-w-[1440px] xl:mx-auto xl:w-full";
 // answered permanently by the sidebar now.
 //
 // Computed on the server, so it is whatever the day was when the page was
-// last rendered — the data fetches revalidate every 60s, which keeps it
-// accurate to the day without a client clock or a hydration mismatch.
+// last rendered — the data fetches revalidate hourly, which keeps it accurate
+// to the day without a client clock or a hydration mismatch. The seam is the
+// hour after midnight, where a cached copy can still show yesterday's count.
 //
 // The past is a real case: this page becomes the 2026 archive the morning
 // after. It used to clamp at zero, which would have read "0 Days to Go"
