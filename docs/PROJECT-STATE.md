@@ -140,5 +140,10 @@ then return to `staging` immediately. Only ever on explicit instruction — see 
 - Form submissions are never deleted automatically. That is now what the privacy notice
   says (2026-09-09), rather than the 90-day promise it used to make, so this is a
   documented practice and not a gap. Deletion on request is manual, via the Studio.
-- Legacy/duplicate Vercel projects (`uxhi-web`, `uxhi-website`) are still slated for deletion.
+- Vercel free tier allows 200,000 ISR write units/month, team-wide, and staging spent
+  201,909 of them in the Aug 22 – Sep 21 2026 cycle. Cause and fix are in CLAUDE.md
+  under "Vercel ISR-write limit"; the short version is that every public page had a
+  60-second revalidate window and now has an hour. Worth watching Edge Requests and
+  Function Invocations too — the same steady traffic feeds those meters, and ISR
+  writes may simply have been the first ceiling to break.
 - `docs/archive/` holds the Notion migration record. Read-only history.
