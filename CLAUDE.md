@@ -268,3 +268,33 @@ git checkout staging           # immediately return to staging
 Netlify free tier = **300 credits/month**, ~15 per production build = **~20 deploys/month max**. Builds are silently paused when exhausted — this is why production deploys must be conservative.
 
 If builds are paused: Netlify dashboard → Billing → buy credits or upgrade to Pro ($20/month, 3,000 credits).
+
+### ⚠️ Vercel ISR-write limit (staging)
+
+Vercel free tier = **200,000 ISR writes/month**, team-wide. Exceed it and projects
+are **automatically paused** — there is no on-demand overage on the free plan.
+We intend to stay on the free plan, so this is a hard ceiling, not a budget.
+
+An ISR write is not a page view. It is a page **re-save**: when a page's
+`revalidate` window expires and a request arrives, Next re-renders it and writes
+a new cached copy. So the meter is driven by how often a page is *allowed* to
+re-save, and by how many pages do it — never by visitor numbers. One request per
+page per minute reaches the ceiling, and nothing requires that request to be a
+person: bots ignore the staging `Disallow: /`, and `robots.ts` admits Claude's
+agents on purpose so the team can review staging from claude.ai.
+
+This bit us in Sept 2026. Every public page inherited a 60-second window from one
+default in `src/sanity/lib/fetchCached.ts` — a fetch-level `revalidate`
+propagates to the whole page segment — giving seven ISR pages a ceiling of ~302k
+writes/month. Staging used 100% of the allowance. The window is now **one hour**
+(~5k/month, ~2.5% of the allowance).
+
+**So: treat that default as a budget, not a preference.** Lowering it, or adding
+ISR pages, multiplies writes by 1,440/revalidate-seconds per page per day. If
+content ever needs to be live faster than the window, the answer is a Sanity
+webhook → `revalidateTag`, which makes publishes instant *and* drops periodic
+writes to zero — not a shorter timer.
+
+Deploy count is negligible by comparison: ~300 staging deploys/month cost ~2,100
+writes. Push to staging freely; a deploy also clears the cache, so it is the
+quickest way to make a CMS edit appear before the hour is up.
