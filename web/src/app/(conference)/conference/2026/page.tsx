@@ -244,6 +244,12 @@ export default async function Conference2026Page() {
      */
     <div className="w-full h-dvh flex flex-col overflow-hidden" style={{ background: BEIGE_30 }}>
 
+      {/* ── KEYNOTE ANNOUNCEMENT ───────────────────────────────────── */}
+      {/* Above the header so it is the first thing on the page at every scroll
+          position. Renders only while the agenda still badges a session
+          "Keynote", so it retires itself rather than needing to be removed. */}
+      <KeynoteBanner slots={agenda} />
+
       {/* ── HEADER ─────────────────────────────────────────────────── */}
       {/* The <header> stays full-bleed so the cream background runs edge to edge;
           the inner wrapper carries CAP so the logo/nav/CTA align to the card. */}
@@ -375,11 +381,6 @@ export default async function Conference2026Page() {
 
               {/* ── Hero: date badge, tagline, CTAs ───────────────── */}
               <div className="flex flex-col gap-4 md:gap-5">
-
-                {/* Keynote announcement — fills the band above the countdown,
-                    and renders only while the agenda still badges a session
-                    "Keynote". */}
-                <KeynoteBanner slots={agenda} />
 
                 {/* Countdown — desktop only here; on mobile it leads the event
                     details beside the logo (EventDetails compact). Eyebrow type

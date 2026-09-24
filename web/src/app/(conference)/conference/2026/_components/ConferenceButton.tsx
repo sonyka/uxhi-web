@@ -34,6 +34,13 @@ interface ConferenceButtonProps {
    * Pass it only to override that reading.
    */
   external?: boolean;
+  /**
+   * md (default) is the 44px pill the hero and header use. sm is for a CTA
+   * inside a band of running text, where a 44px pill sets the height of the
+   * whole band rather than sitting in it.
+   */
+  size?: "md" | "sm";
+  onClick?: () => void;
   className?: string;
 }
 
@@ -41,7 +48,12 @@ interface ConferenceButtonProps {
 // glyphs cross-fade to full colour that way. Icons that paint with currentColor
 // ignore it and are unaffected.
 const BASE =
-  "group inline-flex items-center gap-2 h-[44px] px-5 rounded-full no-underline hover:opacity-80 transition-opacity whitespace-nowrap";
+  "group inline-flex items-center gap-2 rounded-full no-underline hover:opacity-80 transition-opacity whitespace-nowrap";
+
+const SIZES = {
+  md: { className: "h-[44px] px-5", type: TYPE.ui, icon: 20 },
+  sm: { className: "h-[34px] px-4 text-[14px] font-medium", type: "", icon: 16 },
+} as const;
 
 // Icons inherit the label color via currentColor, so the variant only has to
 // set text color — no per-variant icon handling (the primary variant used to
@@ -70,18 +82,22 @@ export function ConferenceButton({
   icon: Icon,
   iconPosition = "leading",
   external,
+  size = "md",
+  onClick,
   className,
 }: ConferenceButtonProps) {
   const v = VARIANTS[variant];
+  const sz = SIZES[size];
   const isExternal =
     external ?? !(href.startsWith("#") || href.startsWith("/"));
-  const iconEl = Icon ? <Icon size={20} /> : null;
+  const iconEl = Icon ? <Icon size={sz.icon} /> : null;
 
   return (
     <a
       href={href}
       {...(isExternal ? { target: "_blank", rel: "noopener" } : {})}
-      className={cn(BASE, TYPE.ui, v.className, className)}
+      onClick={onClick}
+      className={cn(BASE, sz.className, sz.type, v.className, className)}
       style={{
         background: v.background,
         ...(v.borderColor ? { borderColor: v.borderColor, color: v.borderColor } : {}),

@@ -19,8 +19,11 @@
 
 import { GRAY_80, GRAY_100, GRAY_110, ORANGE_130, PURPLE, TYPE, YELLOW_80 } from "../theme";
 import { SectionHeading } from "./SectionHeading";
+import { useEffect } from "react";
 import { useAgendaDrawers } from "./SessionDrawer";
+import { OPEN_KEYNOTE_EVENT } from "./KeynoteBanner";
 import { SpeakerRow } from "./SpeakerRow";
+import { keynoteSession } from "./agendaTypes";
 import type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
 
 export type { AgendaSession, AgendaSlot, AgendaSpeaker } from "./agendaTypes";
@@ -39,6 +42,19 @@ const ROOM_COLORS: Record<string, string> = {
 
 export function AgendaSection({ slots }: { slots: AgendaSlot[] }) {
   const { openSession, openSpeaker, drawers } = useAgendaDrawers(slots);
+
+  // The announcement strip at the top of the page sends the reader here with
+  // the keynote already open. It cannot call openSession itself — the drawers
+  // belong to this section — so it asks, and this is the one place listening.
+  // The anchor in the strip does the scrolling; this only opens the panel.
+  useEffect(() => {
+    const open = () => {
+      const keynote = keynoteSession(slots);
+      if (keynote) openSession(keynote);
+    };
+    window.addEventListener(OPEN_KEYNOTE_EVENT, open);
+    return () => window.removeEventListener(OPEN_KEYNOTE_EVENT, open);
+  }, [slots, openSession]);
 
   return (
     <div className="flex flex-col gap-3 md:gap-4">

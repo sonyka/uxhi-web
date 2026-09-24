@@ -1,82 +1,81 @@
-// The keynote announcement, in the band above the hero's countdown.
-//
-// That band was the one piece of the page with nothing in it — the right panel
-// opens on 128px of padding at xl — and an announcement is exactly what wants
-// to sit there: it is news, it expires, and it should be the first thing read
-// on arrival without displacing "Hana Hou!" as the page's opening line.
-//
-// So it is chrome, not a section. No heading element (an h2 above the h1 would
-// invert the document outline), no anchor of its own, and nothing in the nav.
-// It is an <aside> with a label, which is what a promotional band actually is.
-//
-// The content is read out of the agenda rather than typed here. The banner
-// cannot name a session the schedule does not have, cannot go stale when the
-// title is edited, and disappears on its own the moment the Keynote badge does
-// — which is what should happen to an announcement once it stops being news.
+"use client";
 
-import { GRAY_110, PURPLE, TYPE, YELLOW_80 } from "../theme";
+// The keynote announcement strip, across the top of the view.
+//
+// Sits above the header rather than inside the hero, so it is the first thing
+// on the page at every scroll position and does not push "Hana Hou!" down the
+// column. That is what an announcement bar is: page chrome that outranks the
+// layout for as long as the news is news, and then leaves.
+//
+// It leaves on its own. The strip is derived from the schedule — it renders
+// only while some session is badged "Keynote", and takes that session's title
+// from the agenda rather than repeating it here. Drop the badge and the strip
+// goes with it.
+//
+// The byline is written out rather than read from the speaker record, and the
+// two deliberately differ: Sanity carries Reuben's full title ("Senior Vice
+// President, Principal, and Lead Designer at WCIT"), which is right in a bio
+// drawer and too long for a line someone reads on the way past.
+
+import { GRAY_110, PURPLE, TEAL_20, TYPE } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
 import { ArrowRightIcon } from "./icons";
 import { keynoteSession, type AgendaSlot } from "./agendaTypes";
+
+/**
+ * Asks the agenda to open the keynote drawer.
+ *
+ * A window event rather than lifted state: page.tsx is a server component, and
+ * the drawers are deliberately owned by the sections that show them (see
+ * useAgendaDrawers) — a context spanning the page to carry one click would be
+ * more machinery than the feature. AgendaSection is the only listener, so the
+ * drawer cannot open twice.
+ *
+ * The CTA is still a real anchor to #agenda underneath, so the scroll happens
+ * with or without this: without JS you land on the lineup, with it the keynote
+ * is already open when you get there.
+ */
+export const OPEN_KEYNOTE_EVENT = "uxhicon26:open-keynote";
+
+/** Speaker as the banner says it. See the note above on why this is not the CMS value. */
+const SPEAKER = "Reuben J.D.Y. Chock, VP & Principal at WCIT Architecture";
 
 export function KeynoteBanner({ slots }: { slots: AgendaSlot[] }) {
   const keynote = keynoteSession(slots);
   if (!keynote) return null;
 
-  const { session, time } = keynote;
-  const speakers = (session.speakers ?? []).map((s) => s.name).join(", ");
-
   return (
-    // Beige on the panel's white, the same surface the side-programme cards
-    // use. The band reads as laid on the page rather than cut into it, which is
-    // the right weight for something temporary.
-    //
-    // Stacks below sm and sits as a row above it: at the rail's narrow widths a
-    // pill beside the copy leaves the title about four words a line.
-    <aside
-      aria-label="Keynote announcement"
-      className="bg-beige-30 rounded-2xl p-5 md:p-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
-    >
-      <div className="flex flex-col gap-2 min-w-0">
-        {/* The agenda's own Keynote pill, in the same yellow — someone who
-            scrolls to the schedule should recognise the thing they were sent
-            to look for. */}
-        <span
-          className="inline-flex self-start items-center rounded-full px-3 py-1 font-bold uppercase tracking-[0.06em] text-[12px]"
-          style={{ background: YELLOW_80, color: PURPLE }}
-        >
-          Keynote announced
-        </span>
-
-        {/* itemTitle, the role the agenda gives a session name. This is the
-            same object, quoted somewhere else on the page. */}
-        <p className={`${TYPE.itemTitle} text-gray-140`}>{session.title}</p>
-
-        {speakers && (
+    <div className="shrink-0 w-full" style={{ background: TEAL_20 }}>
+      {/* Capped and guttered like the header and the card, so the copy inside
+          the strip lines up with the page even though its ground runs edge to
+          edge. */}
+      <div className="xl:max-w-[1440px] xl:mx-auto xl:w-full px-6 py-2.5">
+        {/* Wraps rather than truncates. This is one long sentence, and on a
+            phone it is three lines with the pill under them — a strip that
+            elides its own announcement is not worth the row. */}
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center">
           <p className={TYPE.caption} style={{ color: GRAY_110 }}>
-            {speakers} · {time}
+            <span aria-hidden="true">🌟</span>{" "}
+            <span style={{ color: PURPLE }}>The keynote is here:</span>{" "}
+            <span className="font-bold" style={{ color: PURPLE }}>
+              {keynote.session.title}
+            </span>{" "}
+            by {SPEAKER}.
           </p>
-        )}
+
+          <ConferenceButton
+            href="#agenda"
+            variant="outline"
+            size="sm"
+            icon={ArrowRightIcon}
+            iconPosition="trailing"
+            className="shrink-0"
+            onClick={() => window.dispatchEvent(new Event(OPEN_KEYNOTE_EVENT))}
+          >
+            See the session
+          </ConferenceButton>
+        </div>
       </div>
-
-      {/* #agenda, which the nav labels "Lineup" — that is where the keynote's
-          own card sits, badge and all, and tapping it opens the full session
-          description. #speakers would land on Reuben's face and make the
-          reader hunt for the talk they were just sold.
-
-          Outline rather than a fill. The hero's two filled pills sit directly
-          under this one, and Get tickets is the page's actual conversion — a
-          third filled pill above it competes with the thing it should be
-          feeding. The yellow badge is already doing the work of being seen. */}
-      <ConferenceButton
-        href="#agenda"
-        variant="outline"
-        icon={ArrowRightIcon}
-        iconPosition="trailing"
-        className="shrink-0 self-start sm:self-auto"
-      >
-        See the keynote
-      </ConferenceButton>
-    </aside>
+    </div>
   );
 }
