@@ -17,7 +17,7 @@
 // President, Principal, and Lead Designer at WCIT"), which is right in a bio
 // drawer and too long for a line someone reads on the way past.
 
-import { GRAY_110, PURPLE, TEAL_20, TYPE } from "../theme";
+import { GRAY_110, PURPLE, TEAL_40, TYPE } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
 import { ArrowRightIcon } from "./icons";
 import { keynoteSession, type AgendaSlot } from "./agendaTypes";
@@ -45,7 +45,10 @@ export function KeynoteBanner({ slots }: { slots: AgendaSlot[] }) {
   if (!keynote) return null;
 
   return (
-    <div className="shrink-0 w-full" style={{ background: TEAL_20 }}>
+    // teal-40, the same light blue as the pau hana stub's tear-off panel.
+    // The two are the page's only teal grounds, and they are the same kind of
+    // thing: a strip of news laid over the cream.
+    <div className="shrink-0 w-full" style={{ background: TEAL_40 }}>
       {/* Capped and guttered like the header and the card, so the copy inside
           the strip lines up with the page even though its ground runs edge to
           edge. */}
