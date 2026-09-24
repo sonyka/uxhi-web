@@ -18,7 +18,7 @@
 // width a pill is a fourth line for two words, and the sentence ends up
 // reading as a paragraph with a button stranded beneath it.
 
-import { GRAY_110, LINK, PURPLE, TEAL_40, TYPE } from "../theme";
+import { LINK, PURPLE, TEAL_40, TYPE } from "../theme";
 import { ConferenceButton } from "./ConferenceButton";
 import { ArrowRightIcon } from "./icons";
 import { keynoteSession, type AgendaSlot } from "./agendaTypes";
@@ -68,12 +68,13 @@ export function KeynoteBanner({ slots }: { slots: AgendaSlot[] }) {
           {/* `body`, not `caption`. This is the first sentence on the page and
               it was being read at 14px on the device most likely to meet it
               first. A role rather than a one-off size, so it keeps a ramp. */}
-          <p className={TYPE.body} style={{ color: GRAY_110 }}>
-            <span aria-hidden="true">🌟</span>{" "}
-            <span style={{ color: PURPLE }}>The keynote is here:</span>{" "}
-            <span className="font-bold" style={{ color: PURPLE }}>
-              {keynote.session.title}
-            </span>{" "}
+          {/* One colour for the whole sentence. The byline used to sit in grey
+              to rank it under the announcement, but in a band this size that
+              read as two strips of copy rather than one line, and the title's
+              bold already carries the emphasis. */}
+          <p className={TYPE.body} style={{ color: PURPLE }}>
+            <span aria-hidden="true">🌟</span> The keynote is here:{" "}
+            <span className="font-bold">{keynote.session.title}</span>{" "}
             by {SPEAKER}, <span className="md:hidden">{AFFILIATION_SHORT}</span>
             <span className="hidden md:inline">{AFFILIATION}</span>.{" "}
             {/* Phone CTA: inside the sentence, so the bar stays three lines
