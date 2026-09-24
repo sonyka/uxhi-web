@@ -24,8 +24,7 @@ import type { AgendaSlot } from "./_components/agendaTypes";
 // A session with a `description` is tappable and opens a drawer; one without is
 // inert, and shows no chevron promising otherwise. Four are deliberately
 // without and are not waiting on copy: Doors Open, Opening Remarks, Lunch and
-// Closing Remarks. The others still bare — the icebreaker and If Mom Says No —
-// have copy coming.
+// Closing Remarks. The one still bare — the icebreaker — has copy coming.
 //
 // ⚠️ The icebreaker host is "Sean" on the sheet. Written out here as Sean
 //    Tangco, who presents at 11:00 — worth confirming it is the same Sean.
@@ -97,6 +96,8 @@ export const AGENDA_2026: AgendaSlot[] = [
       {
         room: "Purple Box",
         title: "If Mom Says No, Ask Dad",
+        description:
+          "Ever notice how the same request lands completely differently depending on who’s hearing it? This interactive session explores why, and what to do about it. Starting with a familiar, funny example, we unpack a simple framework: Data, Story, and Relationship, that explains why some people need evidence first, others need context, and others need trust before they’ll say yes.\n\nWe’ll connect this to the DiSC framework to help you read communication styles and preferences in the room, walk through a practical Conversation Planner you can use on your next high-stakes ask, and then put it into practice. Working in small groups with real stakeholder personas, you’ll rank communication approaches and see how quickly the \u201cright\u201d answer changes depending on who you’re talking to. Come away with a tool for planning any conversation where you need buy-in.\n\nParticipants will be able to:\nIdentify the three components, Data, Story, and Relationship, that drive buy-in, and recognize which one a given stakeholder needs first.\nApply a DiSC-informed lens to adapt a message’s tone, pacing, and level of detail to different communication styles.\nUse a Conversation Planner to structure a real, high-stakes ask, from framing evidence and context to addressing concerns and stating a clear next step.",
         speakers: [{ name: "Steph Lum", slug: "steph-lum" }],
       },
     ],
@@ -127,14 +128,14 @@ export const AGENDA_2026: AgendaSlot[] = [
         room: "Main Room",
         title: "Reciprocity by Design: Tech as a Public Good",
         description:
-          "Designing tech as a public good is vital in Hawaiʻi. Beyond the workforce-pipeline focus (jobs, access, upskilling), we have to ask: who decides what gets built, for whom, and how? This session reframes reciprocity as the foundation of that authority: technology made for Hawaiians has to be built in relationship with this place, not just deployed onto it. That means designing alongside a community, where Native Hawaiian priorities shape the work as it’s created, not reviewed at the end. Grounded in real projects shaped by that relationship, the session explores how tech built this way can serve Hawaiʻi’s communities, and carry lessons well beyond them.",
+          "Designing tech as a public good is vital in Hawaiʻi. Beyond the workforce-pipeline focus (jobs, access, upskilling), we have to ask: who decides what gets built, for whom, and how? This session reframes reciprocity as the foundation of that authority: technology made for Hawaiians must be built in relationship with this place, not just deployed onto it. That means designing alongside a community, where local priorities shape the work as it’s created, not reviewed at the end. Grounded in real projects shaped by that relationship from other parts of the world, the session explores how tech built this way can serve Hawaiʻi’s communities, and carry lessons well beyond them.\n\nThis is for designers and technologists coming to Hawaiʻi from elsewhere. It’s for anyone who wants to know how to build as a guest: how to enter with respect, follow the lead of those who call this place home, and to make something that helps rather than harms.",
         speakers: [{ name: "Hanalei Ramos", slug: "hanalei-ramos" }],
       },
       {
         room: "Purple Box",
         title: "Sharing Your Career Moʻolelo with Piʻikū Co.",
         description:
-          "Everyone knows their own career journey, but can they describe it when asked? This workshop invites participants to reflect on the defining moments that shaped their careers and craft a concise, meaningful narrative they can confidently share in interviews, networking conversations, or introductions. Through guided exercises and small-group discussions, attendees will refine their personal career story while also learning from others.",
+          "How do you turn a collection of experiences, hobbies, and projects into a cohesive story that feels like you? In this workshop, we invite you to reflect on the experiences and defining moments that have shaped your journey and uncover the threads that connect them. Through guided reflection and small-group activities, you’ll identify the themes that show up across your experiences and turn them into a clear, cohesive story you can feel confident using in interviews, networking events, or with friends and family. This workshop is led by Kim, May, and Michelle from Piʻikū Co., a Hawaiʻi nonprofit dedicated to expanding opportunities in tech for Hawaiʻi’s community.",
         speakers: [{ name: "May Sermonia", slug: "may-sermonia" }, { name: "Kim Davidson", slug: "kim-davidson" }, { name: "Michelle Tran", slug: "michelle-tran" }],
       },
     ],
