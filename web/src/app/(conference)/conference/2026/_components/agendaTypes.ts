@@ -144,6 +144,24 @@ export interface ScheduledSession {
 }
 
 /**
+ * The keynote, if the day has one.
+ *
+ * Found by the badge rather than by time or title: "Keynote" is already how the
+ * schedule marks it, so reading that back means a banner elsewhere on the page
+ * cannot announce a different session than the agenda lists. Remove the badge
+ * and everything downstream stops rendering rather than going stale.
+ *
+ * First match wins. A day with two keynotes is a different design problem.
+ */
+export function keynoteSession(slots: AgendaSlot[]): ScheduledSession | undefined {
+  for (const slot of slots) {
+    const session = slot.sessions.find((s) => s.badge?.toLowerCase() === "keynote");
+    if (session) return { session, time: slot.time };
+  }
+  return undefined;
+}
+
+/**
  * Every session a speaker appears on, in schedule order. Matched on slug, then
  * name, the same key the lineup dedupes on.
  *

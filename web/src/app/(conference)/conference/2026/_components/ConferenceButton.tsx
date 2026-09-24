@@ -27,6 +27,13 @@ interface ConferenceButtonProps {
   icon?: ComponentType<{ size?: number }>;
   /** Leading (default) reads as "do this"; trailing as "go here". */
   iconPosition?: "leading" | "trailing";
+  /**
+   * Whether the destination is off this site. Inferred from `href` — an anchor
+   * or a site-relative path is in-site, anything else is not — so an in-page
+   * CTA cannot accidentally open a second tab of the page it is already on.
+   * Pass it only to override that reading.
+   */
+  external?: boolean;
   className?: string;
 }
 
@@ -51,8 +58,10 @@ const VARIANTS: Record<
 /**
  * ConferenceButton — pill CTA for the conference site.
  *
- * Every current use is an external link, so target/rel are baked in. Add an
- * `external` prop if an in-site destination ever needs one.
+ * Outside links open in a new tab; in-site ones (an anchor on this page, a
+ * site-relative path) open in place. That is read off `href` rather than asked
+ * for at each call site, and `external` overrides it if a link ever needs the
+ * other behaviour.
  */
 export function ConferenceButton({
   href,
@@ -60,16 +69,18 @@ export function ConferenceButton({
   variant = "primary",
   icon: Icon,
   iconPosition = "leading",
+  external,
   className,
 }: ConferenceButtonProps) {
   const v = VARIANTS[variant];
+  const isExternal =
+    external ?? !(href.startsWith("#") || href.startsWith("/"));
   const iconEl = Icon ? <Icon size={20} /> : null;
 
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener"
+      {...(isExternal ? { target: "_blank", rel: "noopener" } : {})}
       className={cn(BASE, TYPE.ui, v.className, className)}
       style={{
         background: v.background,

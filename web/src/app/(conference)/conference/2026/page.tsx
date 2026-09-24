@@ -14,6 +14,7 @@ import { TESTIMONIALS_2026 } from "./testimonials";
 import { ProgramSection } from "./_components/ProgramSection";
 import { AgendaSection } from "./_components/AgendaSection";
 import { SpeakersSection } from "./_components/SpeakersSection";
+import { KeynoteBanner } from "./_components/KeynoteBanner";
 import { SideProgramSection } from "./_components/SideProgramSection";
 import { withSpeakerRecords } from "./_components/agendaTypes";
 import { AGENDA_2026 } from "./agenda";
@@ -374,6 +375,11 @@ export default async function Conference2026Page() {
 
               {/* ── Hero: date badge, tagline, CTAs ───────────────── */}
               <div className="flex flex-col gap-4 md:gap-5">
+
+                {/* Keynote announcement — fills the band above the countdown,
+                    and renders only while the agenda still badges a session
+                    "Keynote". */}
+                <KeynoteBanner slots={agenda} />
 
                 {/* Countdown — desktop only here; on mobile it leads the event
                     details beside the logo (EventDetails compact). Eyebrow type
