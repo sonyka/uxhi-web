@@ -150,19 +150,71 @@ export function AgendaDrawer({
   );
 }
 
-/** Bio text arrives as plain text with blank lines; keep the paragraphs. */
+/**
+ * A line that opens a list item. Written as "- " in the copy; "\u2022 " is
+ * accepted too, because that is what a pasted list from a doc arrives as.
+ */
+const BULLET = /^[-\u2022]\s+/;
+
+type Run = { kind: "prose" | "list"; lines: string[] };
+
+/**
+ * Split one paragraph into alternating runs of prose and list items, so a
+ * lead-in line can sit directly above its own list ("Participants will be able
+ * to:" and the three objectives under it) without a blank line forcing them
+ * into separate paragraphs.
+ */
+function runs(block: string): Run[] {
+  const out: Run[] = [];
+  for (const raw of block.split("\n")) {
+    const line = raw.trim();
+    if (!line) continue;
+    const kind = BULLET.test(line) ? "list" : "prose";
+    const text = kind === "list" ? line.replace(BULLET, "") : raw;
+    const last = out.at(-1);
+    if (last?.kind === kind) last.lines.push(text);
+    else out.push({ kind, lines: [text] });
+  }
+  return out;
+}
+
+/**
+ * Bio and session text arrives as plain text: blank lines separate paragraphs,
+ * and a line starting with "- " is a list item. That is the whole syntax — the
+ * copy lives in agenda.ts and in Sanity text fields, neither of which renders
+ * markup, so anything richer would have to be authored as something a
+ * collaborator typing into Studio would never guess.
+ *
+ * Bullets are the parent site's: teal marker, the same list treatment /privacy
+ * uses. The drawer's own `gap-4` spaces the list from the prose around it, so a
+ * list is spaced exactly like the paragraph it replaces.
+ */
 export function Paragraphs({ text }: { text: string }) {
+  const blocks = text
+    .split(/\n{2,}/)
+    .map((b) => b.trim())
+    .filter(Boolean);
+
   return (
     <>
-      {text
-        .split(/\n{2,}/)
-        .map((p) => p.trim())
-        .filter(Boolean)
-        .map((p) => (
-          <p key={p.slice(0, 40)} className="whitespace-pre-line">
-            {p}
-          </p>
-        ))}
+      {blocks.flatMap((block, bi) =>
+        runs(block).map((run, ri) =>
+          run.kind === "list" ? (
+            <ul
+              key={`${bi}-${ri}`}
+              className="list-disc space-y-2 pl-5 marker:text-teal-90"
+            >
+              {run.lines.map((line) => (
+                <li key={line.slice(0, 40)}>{line}</li>
+              ))}
+            </ul>
+          ) : (
+            <p key={`${bi}-${ri}`} className="whitespace-pre-line">
+              {run.lines.join("\n")}
+            </p>
+          ),
+        ),
+      )}
     </>
   );
 }
