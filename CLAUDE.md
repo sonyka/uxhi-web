@@ -308,9 +308,13 @@ projects on the account (`web`, `my-gym`, `808list`). Unlike the ISR meter above
 this is a **standing total, not a monthly flow** — the sum of every artifact
 Vercel still retains. It does not reset on the 1st.
 
-**Retention is already at the floor; there is nothing to switch on.** Hobby
-defaults to 30 days for canceled, errored, pre-production *and* production
-deployments. On **16 Sept 2026** Vercel tightened this further: a Hobby project
+**Hobby defaults to 30 days** for canceled, errored, pre-production *and*
+production deployments — so there is nothing to *switch on*, but the default is
+the wrong length for this project's cadence. At ~330 commits a month against
+~49 MB of output per deployment, a 30-day window retains close to a month of
+deployments and lands at or over the 10 GB ceiling on its own. **Shorten the
+retention period instead** (see the bottom of this section) — that, not
+deploying less, is what buys headroom. On **16 Sept 2026** Vercel tightened this further: a Hobby project
 now keeps only its 3 most recent production deployments plus its 3 most recent
 of any type, preview deployments lost their former protection, and a team over
 10 GB has everything outside those exceptions deleted *immediately* rather than
@@ -345,16 +349,29 @@ but chasing paths inside frozen archives buys nothing a visitor sees.)
 **A deployment is always the whole app.** One Next project builds one
 self-contained snapshot; there is no way to deploy only `/conference/2026` while
 working on it, and splitting the conference into its own Vercel project would
-*raise* storage, since the per-project retention floor is 3 deployments. The
-number of retained snapshots is capped either way — so total output size is what
-matters, and commit frequency is not.
+*raise* storage, since the per-project retention floor is 3 deployments. With a
+retention window set (below), what is retained is bounded by that window rather
+than by how much gets pushed — so the levers are output size and the window,
+not working more slowly.
 
 If the number does not fall within a few days of going over, it is likely
 orphaned storage from already-deleted deployments — a known Hobby accounting
 issue with several reports on community.vercel.com. That one needs Vercel
 support; no repo change will fix it.
 
-Custom retention, if ever needed, is per project at **Settings → Security →
-Deployment Retention Policy** (not a top-level page, and unrelated to *Deployment
-Protection*, which is access control — leave `web` unprotected so stakeholders
-can open the staging URL without a Vercel login).
+**Current policy: 7 days on all four periods**, set 2026-09-24 on the `web`
+project at **Settings → Security → Deployment Retention Policy**. All four
+rather than just one on purpose: the `web` project builds the `staging` branch
+as its Production Branch, so these pushes are *Production* deployments and
+setting only Pre-Production would have done nothing. Setting every period sides
+steps the question. At current cadence this holds usage near 4 GB; the only
+thing given up is opening a staging preview URL older than a week, and Vercel
+still always keeps the live deployment plus the last 3.
+
+`my-gym` and `808list` were left on the default. Both last deployed months ago,
+so retention has already reduced them to the 3 deployments the exceptions
+protect — negligible against 10 GB, and not worth a team-wide policy.
+
+Note this page is **not** *Deployment Protection*, which is access control.
+Leave `web` unprotected so stakeholders can open the staging URL without a
+Vercel login.
