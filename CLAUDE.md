@@ -260,8 +260,10 @@ git checkout staging           # immediately return to staging
 `web/vercel.json` contains `{ "framework": "nextjs" }` for proper detection. Environment variables have hardcoded fallbacks in `src/sanity/env.ts` so builds work even without env vars set.
 
 > The `web` project (→ `web-henna-five-45.vercel.app`) is the canonical staging project.
-> Duplicate/legacy Vercel projects (`uxhi-web`, `uxhi-website`) caused confusion and are slated
-> for deletion — see `docs/PROJECT-STATE.md`.
+> The duplicate/legacy Vercel projects (`uxhi-web`, `uxhi-website`) that once caused
+> confusion were deleted in Sept 2026. The Vercel team now holds three unrelated
+> projects — `web`, `my-gym`, `808list` — which matters because the free-tier storage
+> ceiling below is team-wide, not per project.
 
 ### ⚠️ Netlify credit limit (production)
 
@@ -298,3 +300,61 @@ writes to zero — not a shorter timer.
 Deploy count is negligible by comparison: ~300 staging deploys/month cost ~2,100
 writes. Push to staging freely; a deploy also clears the cache, so it is the
 quickest way to make a CMS edit appear before the hour is up.
+
+### ⚠️ Vercel deployment-storage limit (staging)
+
+Vercel free tier = **10 GB of deployment storage**, team-wide across all three
+projects on the account (`web`, `my-gym`, `808list`). Unlike the ISR meter above,
+this is a **standing total, not a monthly flow** — the sum of every artifact
+Vercel still retains. It does not reset on the 1st.
+
+**Retention is already at the floor; there is nothing to switch on.** Hobby
+defaults to 30 days for canceled, errored, pre-production *and* production
+deployments. On **16 Sept 2026** Vercel tightened this further: a Hobby project
+now keeps only its 3 most recent production deployments plus its 3 most recent
+of any type, preview deployments lost their former protection, and a team over
+10 GB has everything outside those exceptions deleted *immediately* rather than
+after 30 days. We hit 100% about a week after that change landed.
+
+So the platform is already pruning on our behalf, and **cutting staging push
+frequency is not the lever** — under the new rules only a handful of deployments
+survive per project regardless of how many we create. Push to staging freely;
+the advice under the ISR limit still stands.
+
+The lever that remains is **per-deployment output size**. To see the real
+numbers, open a preview deployment → **Resources** → Static Assets / Functions;
+the Usage page only breaks down by project, never by file.
+
+Measure build output with the repo clean, not by `du` on a synced working copy:
+iCloud silently makes numbered duplicates (`chunk 2.js`, `routes.d 3.ts`) that
+inflate `.next` several-fold and produce phantom `tsc` errors. Real output as of
+Sept 2026 is ~12 MB `.next/static` plus ~37 MB `public`. The two report PDFs
+that used to lead that list — larger than any chunk of the application — now
+live on the Sanity CDN; see `src/lib/reports.ts`.
+
+The largest single remaining chunk is ~4.25 MB of embedded **Sanity Studio**
+(`/studio`). Leave it: dropping it from staging would cost content editing and
+draft preview there, for a third of what the PDFs saved.
+
+Do **not** `.vercelignore` the frozen conference archives (`public/conferences/`
+`2024` and `2025`, ~22 MB) to save space. The 2026 site's nav links straight into
+them, and 2026 is what stakeholders review on staging. (They do contain one
+genuine duplication — the same 1.18 MB `8090a1a22fff.woff` under both years —
+but chasing paths inside frozen archives buys nothing a visitor sees.)
+
+**A deployment is always the whole app.** One Next project builds one
+self-contained snapshot; there is no way to deploy only `/conference/2026` while
+working on it, and splitting the conference into its own Vercel project would
+*raise* storage, since the per-project retention floor is 3 deployments. The
+number of retained snapshots is capped either way — so total output size is what
+matters, and commit frequency is not.
+
+If the number does not fall within a few days of going over, it is likely
+orphaned storage from already-deleted deployments — a known Hobby accounting
+issue with several reports on community.vercel.com. That one needs Vercel
+support; no repo change will fix it.
+
+Custom retention, if ever needed, is per project at **Settings → Security →
+Deployment Retention Policy** (not a top-level page, and unrelated to *Deployment
+Protection*, which is access control — leave `web` unprotected so stakeholders
+can open the staging URL without a Vercel login).

@@ -136,7 +136,13 @@ then return to `staging` immediately. Only ever on explicit instruction — see 
 
 ## Known issues
 
-- The report PDFs in `web/public/reports/` are compressed but still 7.9 MB and 5.0 MB.
+- Vercel free tier allows 10 GB of deployment storage, team-wide, and the account hit
+  100% on 2026-09-24 — a week after Vercel tightened Hobby retention on 2026-09-16.
+  Details and the reason push frequency is *not* the lever are in CLAUDE.md under
+  "Vercel deployment-storage limit". The report PDFs, formerly the two largest assets
+  in every deployment, now live on the Sanity CDN — see `web/src/lib/reports.ts`.
+  Remaining weight per deployment: the embedded Sanity Studio chunk (~4.25 MB) and the
+  frozen conference archives (~22 MB, deliberately left alone).
 - Form submissions are never deleted automatically. That is now what the privacy notice
   says (2026-09-09), rather than the 90-day promise it used to make, so this is a
   documented practice and not a gap. Deletion on request is manual, via the Studio.
