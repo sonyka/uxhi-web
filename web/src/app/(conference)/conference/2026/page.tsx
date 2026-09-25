@@ -24,7 +24,7 @@ import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY, CONFERENCE_SPEAKERS_QUERY } from "@/sanity/lib/queries";
 import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, GRAY_120, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
-import { VENUE_MAP_URL, VENUE_NAME, VENUE_ADDRESS, EVENT_DATE_LONG, EVENT_TIME, TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS } from "./constants";
+import { VENUE_MAP_URL, VENUE_NAME, VENUE_ADDRESS, EVENT_DATE_LONG, EVENT_TIME, TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS, PAU_HANA_NAME_LONG, PAU_HANA_DATE, PAU_HANA_TIME, PAU_HANA_VENUE, PAU_HANA_ADDRESS } from "./constants";
 import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
 import { SocialLink } from "./_components/SocialLink";
 
@@ -200,15 +200,60 @@ function EventDetails({ compact = false }: { compact?: boolean }) {
   );
 }
 
+// The pau hana, under the conference in the rail.
+//
+// Same shape as EventDetails deliberately — name, when, then where — because
+// the rail's job is to answer "when and where" and there are now two answers to
+// give. Not the same component, though: EventDetails is also the mobile row
+// beside the logo, fitted to the height of a 96px badge, and a second event
+// does not go in that space.
+//
+// The name is a step under "UXHICon 2026" rather than matching it. It is the
+// longer string of the two and the smaller occasion, so setting them at one
+// size would have the pau hana shouting over the conference in the rail that
+// exists to sell the conference.
+//
+// Desktop only, like the rail itself.
+function PauHanaDetails() {
+  return (
+    <div className="flex flex-col gap-5 lg:gap-6">
+      <div className="flex flex-col gap-1">
+        <p className={`${TYPE.bodyCompact} font-bold`} style={{ color: PURPLE }}>
+          {PAU_HANA_NAME_LONG}
+        </p>
+        <p className={`${TYPE.bodyCompact} font-medium`} style={{ color: GRAY_120 }}>
+          {PAU_HANA_DATE}
+        </p>
+        <p className={`${TYPE.bodyCompact} font-medium`} style={{ color: GRAY_120 }}>
+          {PAU_HANA_TIME}
+        </p>
+      </div>
+      <div className="flex flex-col gap-1">
+        <p className={`${TYPE.bodyCompact} font-semibold`} style={{ color: GRAY_120 }}>
+          {PAU_HANA_VENUE}
+        </p>
+        <p className={TYPE.bodyCompact} style={{ color: GRAY_110 }}>
+          {PAU_HANA_ADDRESS}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function SidebarInfo() {
   return (
     <>
       <LogoBadge />
       <div className="flex flex-col gap-5 lg:gap-6">
         <EventDetails />
+        {/* Above the rule, not below it. The button buys a conference ticket,
+            and the pau hana sells separately — under the divider it would read
+            as the CTA for whichever event it sat closest to. */}
         <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit">
           Get tickets
         </ConferenceButton>
+        <hr className="border-0 border-t border-gray-30" />
+        <PauHanaDetails />
       </div>
     </>
   );

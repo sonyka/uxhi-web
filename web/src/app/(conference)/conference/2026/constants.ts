@@ -21,6 +21,23 @@ export const VENUE_MAP_URL = "https://maps.app.goo.gl/zBHS4EXnXWuhysEu5";
 export const EVENT_DATE_LONG = "Saturday, October 17, 2026";
 export const EVENT_TIME = "8:00 am–4:30 pm";
 
+// The pre-conference pau hana. Here rather than inside PauHanaCard because the
+// sidebar rail now lists the evening beside the conference, and the FAQ names
+// the venue — three places, which is exactly how one of them ends up carrying
+// last year's address.
+//
+// The long name is the sidebar's; the stub is already under a "Pre UXHICon Pau
+// Hana" eyebrow and only needs the title.
+export const PAU_HANA_NAME = "Our Place, Our Stories";
+export const PAU_HANA_NAME_LONG = "Our Place, Our Stories: a pre UXHICon Pau Hana";
+export const PAU_HANA_DATE = "Thursday, October 15";
+export const PAU_HANA_TIME = "5:30–8:30 pm";
+export const PAU_HANA_VENUE = "OurSpace";
+export const PAU_HANA_VENUE_URL = "https://ourspacehawaii.org";
+export const PAU_HANA_ADDRESS = "1052 Waimanu St, Honolulu, HI 96814";
+export const PAU_HANA_MAP_URL =
+  "https://www.google.com/maps/search/?api=1&query=1052+Waimanu+St%2C+Honolulu%2C+HI+96814";
+
 // The two profiles, and the handles as they should read. Named once because the
 // footer, the "Stay in the loop" copy and its follow buttons all point here, and
 // because the handles differ per network — @uxhicommunity on Instagram,

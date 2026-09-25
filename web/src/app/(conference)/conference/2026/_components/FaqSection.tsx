@@ -13,7 +13,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_80 as ICON_GRAY, GRAY_110, PURPLE, LINK, TYPE } from "../theme";
-import { OPEN_PAU_HANA_EVENT, PAU_HANA_ANCHOR, PAU_HANA_VENUE_URL } from "./PauHanaCard";
+import { OPEN_PAU_HANA_EVENT, PAU_HANA_ANCHOR } from "./PauHanaCard";
+import { PAU_HANA_VENUE_URL } from "../constants";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {

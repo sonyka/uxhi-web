@@ -24,7 +24,16 @@ import { SectionHeading } from "./SectionHeading";
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
 import { ConferenceButton } from "./ConferenceButton";
 import { ArrowRightIcon, ShakaIcon } from "./icons";
-import { TICKETS_URL } from "../constants";
+import {
+  TICKETS_URL,
+  PAU_HANA_NAME,
+  PAU_HANA_DATE,
+  PAU_HANA_TIME,
+  PAU_HANA_VENUE,
+  PAU_HANA_VENUE_URL,
+  PAU_HANA_ADDRESS,
+  PAU_HANA_MAP_URL,
+} from "../constants";
 import {
   PURPLE,
   TEAL_40,
@@ -50,12 +59,6 @@ export const OPEN_PAU_HANA_EVENT = "uxhicon26:open-pau-hana";
 /** Anchor the FAQ link lands on. Not in the nav — it is a destination, not a section. */
 export const PAU_HANA_ANCHOR = "pau-hana";
 
-const VENUE = "OurSpace";
-/** Exported: the FAQ names the venue too, and one URL should not be typed twice. */
-export const PAU_HANA_VENUE_URL = "https://ourspacehawaii.org";
-const ADDRESS = "1052 Waimanu St, Honolulu, HI 96814";
-const MAP_URL =
-  "https://www.google.com/maps/search/?api=1&query=1052+Waimanu+St%2C+Honolulu%2C+HI+96814";
 
 // The drawer's copy, as one string for Paragraphs — blank lines separate
 // paragraphs and a leading "- " makes a bullet, the same plain-text shape the
@@ -127,7 +130,7 @@ export function PauHanaCard() {
             Pre UXHICon Pau Hana
           </p>
 
-          <SectionHeading>Our Place, Our Stories</SectionHeading>
+          <SectionHeading>{PAU_HANA_NAME}</SectionHeading>
 
           <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
             An evening of place-based stories and poetry to kick off UXHICon 2026.
@@ -181,7 +184,8 @@ export function PauHanaCard() {
                 Two links, two jobs: the venue's own site for what the place is,
                 the map below for how to get there. */}
             <p className={cn(TYPE.caption, "font-bold leading-tight")} style={{ color: PURPLE }}>
-              <span className="block">Thursday, October 15</span>
+              <span className="block">{PAU_HANA_DATE}</span>
+              <span className="block">{PAU_HANA_TIME}</span>
               <a
                 href={PAU_HANA_VENUE_URL}
                 target="_blank"
@@ -189,18 +193,18 @@ export function PauHanaCard() {
                 className={cn(LINK, "block w-fit")}
                 style={{ color: PURPLE }}
               >
-                {VENUE}
+                {PAU_HANA_VENUE}
               </a>
             </p>
             <p className={TYPE.caption} style={{ color: PURPLE }}>
               <a
-                href={MAP_URL}
+                href={PAU_HANA_MAP_URL}
                 target="_blank"
                 rel="noopener"
                 className={cn(LINK, "block w-fit")}
                 style={{ color: PURPLE }}
               >
-                {ADDRESS}
+                {PAU_HANA_ADDRESS}
               </a>
             </p>
           </div>
@@ -214,8 +218,8 @@ export function PauHanaCard() {
       <AgendaDrawer
         open={open}
         onClose={() => setOpen(false)}
-        title="Our Place, Our Stories"
-        byline={`Thursday, October 15, 2026 • ${VENUE}`}
+        title={PAU_HANA_NAME}
+        byline={`Thursday, October 15, 2026 • ${PAU_HANA_VENUE}`}
       >
         <Paragraphs text={DETAIL} />
       </AgendaDrawer>
