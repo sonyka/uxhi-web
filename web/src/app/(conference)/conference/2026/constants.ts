@@ -34,7 +34,9 @@ export const PAU_HANA_DATE = "Thursday, October 15";
 export const PAU_HANA_TIME = "5:30–8:30 pm";
 export const PAU_HANA_VENUE = "OurSpace";
 export const PAU_HANA_VENUE_URL = "https://ourspacehawaii.org";
-export const PAU_HANA_ADDRESS = "1052 Waimanu St, Honolulu, HI 96814";
+// No zip, matching the conference venue’s "643 Ilalo St, Honolulu, HI" above.
+// The map URL below keeps it, because there it is a query rather than a label.
+export const PAU_HANA_ADDRESS = "1052 Waimanu St, Honolulu, HI";
 export const PAU_HANA_MAP_URL =
   "https://www.google.com/maps/search/?api=1&query=1052+Waimanu+St%2C+Honolulu%2C+HI+96814";
 

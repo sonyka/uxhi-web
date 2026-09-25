@@ -246,14 +246,14 @@ function SidebarInfo() {
       <LogoBadge />
       <div className="flex flex-col gap-5 lg:gap-6">
         <EventDetails />
-        {/* Above the rule, not below it. The button buys a conference ticket,
-            and the pau hana sells separately — under the divider it would read
-            as the CTA for whichever event it sat closest to. */}
+        <hr className="border-0 border-t border-gray-30" />
+        <PauHanaDetails />
+        {/* Last, under both events. One Givebutter page sells tickets to the
+            conference and the pau hana, so the button belongs to the pair —
+            between them it read as the CTA for whichever it sat nearest. */}
         <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit">
           Get tickets
         </ConferenceButton>
-        <hr className="border-0 border-t border-gray-30" />
-        <PauHanaDetails />
       </div>
     </>
   );
