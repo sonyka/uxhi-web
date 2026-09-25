@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cn } from "@/lib/utils";
 import { LogoBadge } from "./_components/LogoBadge";
 import { PhotoTickerV, PhotoTickerH } from "./_components/PhotoTicker";
 import { PastConferencesMenu } from "./_components/PastConferencesMenu";
@@ -22,9 +23,9 @@ import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY, CONFERENCE_SPEAKERS_QUERY } from "@/sanity/lib/queries";
-import { BEIGE_30, PURPLE, TEAL_60, GRAY_100, GRAY_110, GRAY_120, TYPE , LINK } from "./theme";
+import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, GRAY_120, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
-import { VENUE_MAP_URL, VENUE_NAME, VENUE_ADDRESS, EVENT_DATE_LONG, EVENT_TIME, TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS, PAU_HANA_NAME, PAU_HANA_BYLINE, PAU_HANA_DATE, PAU_HANA_TIME, PAU_HANA_VENUE, PAU_HANA_ADDRESS } from "./constants";
+import { VENUE_MAP_URL, VENUE_NAME, VENUE_ADDRESS, EVENT_DATE_LONG, EVENT_TIME, TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS, PAU_HANA_NAME, PAU_HANA_BYLINE, PAU_HANA_VENUE_URL, PAU_HANA_MAP_URL, PAU_HANA_DATE, PAU_HANA_TIME, PAU_HANA_VENUE, PAU_HANA_ADDRESS } from "./constants";
 import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
 import { SocialLink } from "./_components/SocialLink";
 
@@ -135,6 +136,15 @@ function PulseDot() {
   );
 }
 
+// The rail sets an address without its state. "Honolulu" is enough beside a
+// Honolulu street, and the rail is the one place both venues are read one under
+// the other, where ", HI" twice is two words of nothing.
+//
+// Derived rather than stored a second time: the full form is still what the
+// stub, the programme intro and the map links use, and a VENUE_ADDRESS_SHORT
+// beside VENUE_ADDRESS is how the two drift apart.
+const withoutState = (address: string) => address.replace(/,\s*HI\b.*$/, "");
+
 // ── Sidebar info ──────────────────────────────────────────────────────
 // Returns a Fragment so the parent flex context owns the layout.
 //
@@ -189,11 +199,25 @@ function EventDetails({ compact = false }: { compact?: boolean }) {
         </p>
       </div>
       <div className={`flex flex-col ${compact ? "" : "gap-1"}`}>
+        {/* The venue name jumps to #venue rather than out to a map, the same
+            call the programme intro makes: that section has the photo, the
+            map, the accessibility note and the parking, so the in-page answer
+            is the fuller one. The street goes straight to the map. */}
         <p className={`${lineCls} font-semibold`} style={{ color: GRAY_120 }}>
-          {VENUE_NAME}
+          <a href="#venue" className={cn(LINK, "block w-fit")} style={{ color: GRAY_120 }}>
+            {VENUE_NAME}
+          </a>
         </p>
         <p className={`${lineCls} ${extra}`} style={{ color: GRAY_110 }}>
-          {VENUE_ADDRESS}
+          <a
+            href={VENUE_MAP_URL}
+            target="_blank"
+            rel="noopener"
+            className={cn(LINK, "block w-fit")}
+            style={{ color: GRAY_110 }}
+          >
+            {withoutState(VENUE_ADDRESS)}
+          </a>
         </p>
       </div>
     </div>
@@ -226,8 +250,10 @@ function PauHanaDetails() {
         <p className="font-bold leading-[1.3] text-[16px] lg:text-[18px] xl:text-[22px]" style={{ color: PURPLE }}>
           {PAU_HANA_NAME}
         </p>
-        {/* Byline under the title, the way the stub sets the same pair. */}
-        <p className={TYPE.bodyCompact} style={{ color: GRAY_100 }}>
+        {/* Byline under the title, the way the stub sets the same pair. Same
+            ink as the lines under it — it is part of the block, not a note
+            about it. */}
+        <p className={TYPE.bodyCompact} style={{ color: GRAY_120 }}>
           {PAU_HANA_BYLINE}
         </p>
         <p className={`${TYPE.bodyCompact} font-medium`} style={{ color: GRAY_120 }}>
@@ -238,11 +264,29 @@ function PauHanaDetails() {
         </p>
       </div>
       <div className="flex flex-col gap-1">
+        {/* Out to the venue's own site, not to an anchor: OurSpace has no
+            section on this page the way the Sandbox does. */}
         <p className={`${TYPE.bodyCompact} font-semibold`} style={{ color: GRAY_120 }}>
-          {PAU_HANA_VENUE}
+          <a
+            href={PAU_HANA_VENUE_URL}
+            target="_blank"
+            rel="noopener"
+            className={cn(LINK, "block w-fit")}
+            style={{ color: GRAY_120 }}
+          >
+            {PAU_HANA_VENUE}
+          </a>
         </p>
         <p className={TYPE.bodyCompact} style={{ color: GRAY_110 }}>
-          {PAU_HANA_ADDRESS}
+          <a
+            href={PAU_HANA_MAP_URL}
+            target="_blank"
+            rel="noopener"
+            className={cn(LINK, "block w-fit")}
+            style={{ color: GRAY_110 }}
+          >
+            {withoutState(PAU_HANA_ADDRESS)}
+          </a>
         </p>
       </div>
     </div>
