@@ -18,7 +18,7 @@
 // it is not inline in ProgramSection — that section is otherwise static and
 // has no reason to ship to the browser.
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "./SectionHeading";
 import { AgendaDrawer, Paragraphs } from "./AgendaDrawer";
@@ -35,6 +35,20 @@ import {
   LINK,
   TYPE,
 } from "../theme";
+
+/**
+ * Opens this card's drawer from elsewhere on the page — the FAQ names the
+ * evening and should be able to show it rather than describe it twice.
+ *
+ * A window event for the same reason the keynote strip uses one: the drawer's
+ * state belongs to the card, and a context spanning the page to carry one
+ * click would be more machinery than the feature. Pair it with an `#pau-hana`
+ * anchor, so the scroll still happens without JS.
+ */
+export const OPEN_PAU_HANA_EVENT = "uxhicon26:open-pau-hana";
+
+/** Anchor the FAQ link lands on. Not in the nav — it is a destination, not a section. */
+export const PAU_HANA_ANCHOR = "pau-hana";
 
 const VENUE = "OurSpace";
 const VENUE_URL = "https://ourspacehawaii.org";
@@ -64,12 +78,18 @@ Tickets include the storytelling event and drinks. Food from local vendors will 
 export function PauHanaCard() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    const show = () => setOpen(true);
+    window.addEventListener(OPEN_PAU_HANA_EVENT, show);
+    return () => window.removeEventListener(OPEN_PAU_HANA_EVENT, show);
+  }, []);
+
   return (
     // The badge straddles the card's top edge, so it is a sibling of the card
     // rather than a child — the card keeps `overflow-hidden` to clip the
     // tear-off panel to the rounded corners, which would also clip a badge
     // placed inside it.
-    <div className="relative">
+    <div id={PAU_HANA_ANCHOR} className="relative scroll-mt-6">
       {/* The source mock had this pill in coral. Gold was confirmed as the
           final choice (2026-08-29): coral appears nowhere in the 2026 palette,
           and YELLOW_80 ties the badge to the shaka mark. Not an open question —
