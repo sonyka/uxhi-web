@@ -30,7 +30,7 @@ export const EVENT_TIME = "8:00 am–4:30 pm";
 // Hana" eyebrow and only needs the title.
 export const PAU_HANA_NAME = "Our Place, Our Stories";
 export const PAU_HANA_BYLINE = "A pre UXHICon Pau Hana";
-export const PAU_HANA_DATE = "Thursday, October 15";
+export const PAU_HANA_DATE = "Thursday, October 15, 2026";
 export const PAU_HANA_TIME = "5:30–8:30 pm";
 export const PAU_HANA_VENUE = "OurSpace";
 export const PAU_HANA_VENUE_URL = "https://ourspacehawaii.org";

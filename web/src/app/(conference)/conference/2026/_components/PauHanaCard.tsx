@@ -79,6 +79,14 @@ Run of show:
 
 Tickets include the storytelling event and drinks. Food from local vendors will be available for purchase. No UXHICon ticket needed.`;
 
+// The stub sets the date without its year. It sits inside a card about one
+// evening, under an eyebrow that already says which conference it precedes, and
+// the rail two columns away carries the full form — a year here is the third
+// time the reader is told what year it is.
+//
+// Trimmed rather than stored twice, the same call the rail makes on ", HI".
+const withoutYear = (date: string) => date.replace(/,\s*\d{4}$/, "");
+
 export function PauHanaCard() {
   const [open, setOpen] = useState(false);
 
@@ -184,7 +192,7 @@ export function PauHanaCard() {
                 Two links, two jobs: the venue's own site for what the place is,
                 the map below for how to get there. */}
             <p className={cn(TYPE.caption, "font-bold leading-tight")} style={{ color: PURPLE }}>
-              <span className="block">{PAU_HANA_DATE}</span>
+              <span className="block">{withoutYear(PAU_HANA_DATE)}</span>
               <span className="block">{PAU_HANA_TIME}</span>
               <a
                 href={PAU_HANA_VENUE_URL}
@@ -219,7 +227,7 @@ export function PauHanaCard() {
         open={open}
         onClose={() => setOpen(false)}
         title={PAU_HANA_NAME}
-        byline={`Thursday, October 15, 2026 • ${PAU_HANA_VENUE}`}
+        byline={`${PAU_HANA_DATE} • ${PAU_HANA_VENUE}`}
       >
         <Paragraphs text={DETAIL} />
       </AgendaDrawer>
