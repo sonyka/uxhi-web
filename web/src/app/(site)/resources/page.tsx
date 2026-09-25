@@ -18,6 +18,7 @@ import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
+import { REPORT_PDFS } from "@/lib/reports";
 
 export { viewportBeige30 as viewport } from "@/lib/themeColor";
 
@@ -483,10 +484,10 @@ export default async function ResourcesPage() {
           {/* View Report CTA */}
           <ScrollReveal>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <PrimaryCTA href="/reports/2025-state-of-ux-in-hawaii.pdf" external>
+              <PrimaryCTA href={REPORT_PDFS[2025]} external>
                 2025 State of UXHI Report
               </PrimaryCTA>
-              <PrimaryCTA href="/reports/2023-state-of-ux-in-hawaii.pdf" external variant="dark">
+              <PrimaryCTA href={REPORT_PDFS[2023]} external variant="dark">
                 2023 State of UXHI Report
               </PrimaryCTA>
             </div>

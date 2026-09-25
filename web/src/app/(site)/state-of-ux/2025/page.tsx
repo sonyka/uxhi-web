@@ -8,6 +8,7 @@ import { InlineLink } from "@/components/ui/InlineLink";
 import { ScrollReveal, MotionDiv } from "@/components/ui/motion";
 import { StatComparison } from "@/components/report/StatComparison";
 import { DistributionBars } from "@/components/report/DistributionBars";
+import { REPORT_PDFS } from "@/lib/reports";
 
 export { viewportTeal10 as viewport } from "@/lib/themeColor";
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     "UX practitioners in Hawaiʻi earn an average of $110,203 against a national average of $121,196. From the 2025 State of UX in Hawaiʻi report by UXHI.",
 };
 
-const REPORT_PDF = "/reports/2025-state-of-ux-in-hawaii.pdf";
+const REPORT_PDF = REPORT_PDFS[2025];
 
 /**
  * Page 40 of the 2025 report, rebuilt as HTML.
