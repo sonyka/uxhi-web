@@ -97,6 +97,14 @@ export const TYPE = {
    *  md for the same reason hero does: the column narrows there. */
   sectionTitle:
     "text-[24px] md:text-[20px] lg:text-[26px] xl:text-[32px] font-semibold leading-[1.3] tracking-[-0.02em] text-balance",
+  /** The name of an event in the sidebar rail. Two of them now — the
+   *  conference and the pau hana — which is what earned this a role; it was
+   *  the same class string written twice in page.tsx.
+   *
+   *  Stepped down from a 22px top (2026-09-24). At 22 the rail's two names
+   *  were the largest type on the page after the hero, competing with the
+   *  headline they sit beside rather than anchoring the facts under them. */
+  railTitle: "text-[16px] lg:text-[18px] xl:text-[20px] font-bold leading-[1.3]",
   /** A panel or drawer heading — one step under a section title. */
   panelTitle:
     "text-[20px] md:text-[22px] font-semibold leading-[1.25] tracking-[-0.01em] text-balance",

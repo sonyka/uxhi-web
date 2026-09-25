@@ -61,8 +61,13 @@ export function KeynoteBanner({ slots }: { slots: AgendaSlot[] }) {
         <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center">
           {/* One colour for the whole sentence: in a band this size a ranked
               byline read as two strips of copy sharing a row rather than one
-              line, and the title's bold already carries the emphasis. */}
-          <p className={TYPE.body} style={{ color: PURPLE }}>
+              line, and the title's bold already carries the emphasis.
+
+              `caption`, not `body`. It went up a role when the strip still had
+              a phone version and 14px was too small to meet it there; the
+              phone version is gone, and at body the bar was heavier than the
+              header under it. Desktop reads this at 15 and 16. */}
+          <p className={TYPE.caption} style={{ color: PURPLE }}>
             <span aria-hidden="true">🌟</span> The keynote is here:{" "}
             <span className="font-bold">{keynote.session.title}</span>{" "}
             by {SPEAKER}, {AFFILIATION}.

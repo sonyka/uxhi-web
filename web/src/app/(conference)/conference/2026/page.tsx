@@ -185,7 +185,7 @@ function EventDetails({ compact = false }: { compact?: boolean }) {
             sets it that way too — and text-transform would render it
             UXHICON, which is the thing the name was shortened away from. */}
         {compact ? null : (
-          <p className="font-bold leading-[1.3] text-[16px] lg:text-[18px] xl:text-[22px]" style={{ color: PURPLE }}>
+          <p className={TYPE.railTitle} style={{ color: PURPLE }}>
             UXHICon 2026
           </p>
         )}
@@ -242,12 +242,12 @@ function PauHanaDetails() {
   return (
     <div className="flex flex-col gap-5 lg:gap-6">
       <div className="flex flex-col gap-1">
-        {/* The conference name's exact ramp, so the rail reads as two events
-            rather than an event and a footnote. What it cannot also carry is
-            the descriptor — "Our Place, Our Stories: a pre UXHICon Pau Hana"
-            set at 22px ran to three lines and out-weighed UXHICon 2026, which
-            is the one thing the rail is here to sell. */}
-        <p className="font-bold leading-[1.3] text-[16px] lg:text-[18px] xl:text-[22px]" style={{ color: PURPLE }}>
+        {/* The conference name's own role, so the rail reads as two events
+            rather than an event and a footnote. What the title cannot also
+            carry is the descriptor — "Our Place, Our Stories: a pre UXHICon
+            Pau Hana" at this size ran to three lines and out-weighed UXHICon
+            2026, which is the one thing the rail is here to sell. */}
+        <p className={TYPE.railTitle} style={{ color: PURPLE }}>
           {PAU_HANA_NAME}
         </p>
         {/* Byline under the title, the way the stub sets the same pair. Same
