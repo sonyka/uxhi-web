@@ -13,7 +13,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_80 as ICON_GRAY, GRAY_110, PURPLE, LINK, TYPE } from "../theme";
-import { OPEN_PAU_HANA_EVENT, PAU_HANA_ANCHOR } from "./PauHanaCard";
+import { OPEN_PAU_HANA_EVENT, PAU_HANA_ANCHOR, PAU_HANA_VENUE_URL } from "./PauHanaCard";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
@@ -44,8 +44,17 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         >
           Our Place, Our Stories
         </a>
-        , a pre-conference pau hana at OurSpace on Thursday, October 15, 2026, from 5:30 to
-        8:30 pm. Tickets are sold separately and include the storytelling event and drinks;
+        , a pre-conference pau hana at{" "}
+        <a
+          href={PAU_HANA_VENUE_URL}
+          target="_blank"
+          rel="noopener"
+          className={LINK}
+          style={{ color: PURPLE }}
+        >
+          OurSpace
+        </a>{" "}
+        on Thursday, October 15, 2026, from 5:30 to 8:30 pm. Tickets are sold separately and include the storytelling event and drinks;
         food from local vendors is available for purchase. No UXHICon ticket needed to attend.
       </>
     ),

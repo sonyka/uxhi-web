@@ -51,7 +51,8 @@ export const OPEN_PAU_HANA_EVENT = "uxhicon26:open-pau-hana";
 export const PAU_HANA_ANCHOR = "pau-hana";
 
 const VENUE = "OurSpace";
-const VENUE_URL = "https://ourspacehawaii.org";
+/** Exported: the FAQ names the venue too, and one URL should not be typed twice. */
+export const PAU_HANA_VENUE_URL = "https://ourspacehawaii.org";
 const ADDRESS = "1052 Waimanu St, Honolulu, HI 96814";
 const MAP_URL =
   "https://www.google.com/maps/search/?api=1&query=1052+Waimanu+St%2C+Honolulu%2C+HI+96814";
@@ -182,7 +183,7 @@ export function PauHanaCard() {
             <p className={cn(TYPE.caption, "font-bold leading-tight")} style={{ color: PURPLE }}>
               <span className="block">Thursday, October 15</span>
               <a
-                href={VENUE_URL}
+                href={PAU_HANA_VENUE_URL}
                 target="_blank"
                 rel="noopener"
                 className={cn(LINK, "block w-fit")}
