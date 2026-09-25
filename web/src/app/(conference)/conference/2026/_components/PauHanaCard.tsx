@@ -59,7 +59,7 @@ Run of show:
 - 6:00 pm · Program begins
 - 8:30 pm · Pau
 
-Tickets include the storytelling event and drinks. Food from local vendors will be available for purchase. Open to everyone. No UXHICon ticket needed.`;
+Tickets include the storytelling event and drinks. Food from local vendors will be available for purchase. No UXHICon ticket needed.`;
 
 export function PauHanaCard() {
   const [open, setOpen] = useState(false);
@@ -113,12 +113,11 @@ export function PauHanaCard() {
             Drinks included, open to all.
           </p>
 
-          {/* The practical caveat, in the smaller grey the stub gave "This
-              event is 21+. Your ticket includes one drink." before the evening
-              was renamed. Same role, same rank: the thing you need to know
-              before you decide, under the thing that makes you want to. */}
+          {/* The practical caveat, in the smaller grey the stub has always
+              given this line. Same rank: the thing you need to know before you
+              decide, under the thing that makes you want to. */}
           <p className={`${TYPE.caption} max-w-[62ch]`} style={{ color: GRAY_100 }}>
-            Open to everyone. No UXHICon ticket needed.
+            No UXHICon ticket needed to attend the Pre UXHICon event.
           </p>
 
           {/* The affordance the chevron used to be, in words. A span rather

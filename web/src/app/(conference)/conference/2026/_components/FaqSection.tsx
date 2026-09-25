@@ -29,7 +29,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What is the pre-conference event?",
-    a: "New this year, we’re hosting a pre-conference pau hana at OurSpace on Thursday, October 15, 2026. Tickets are sold separately. No conference ticket is required. The event is 21+, your ticket includes one drink. Timing will be confirmed once programming is set.",
+    a: "New this year, we’re hosting Our Place, Our Stories, a pre-conference pau hana at OurSpace on Thursday, October 15, 2026, from 5:30 to 8:30 pm. Tickets are sold separately and include the storytelling event and drinks; food from local vendors is available for purchase. No UXHICon ticket needed to attend.",
   },
   {
     q: "Are there group discounts available?",
