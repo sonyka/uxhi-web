@@ -14,6 +14,17 @@ import { ConferenceButton } from "./ConferenceButton";
 import { TICKETS_URL, VENUE_NAME, VENUE_ADDRESS } from "../constants";
 import { ShakaIcon } from "./icons";
 
+// The pau hana run of show, for the tear-off panel. Three rows at 216px, so
+// the time and what happens sit on separate lines rather than in two columns.
+//
+// Lowercase "pm" throughout, which is how the conference writes a time
+// everywhere else (the agenda's "9:00 am", the intro's "8:00 am–4:30 pm").
+const PAU_HANA_RUN = [
+  ["5:30 pm", "Doors open & check-in"],
+  ["6:00 pm", "Program begins"],
+  ["8:30 pm", "Pau"],
+] as const;
+
 // "Share, Learn, & Connect" — the program overview: intro, an oversized headline
 // of benefits, a Get Tickets CTA, and the new Pre-Conference Mixer. Styled with
 // the conference brand palette (purple / teal / yellow).
@@ -97,23 +108,36 @@ export function ProgramSection() {
         >
         {/* Stub body */}
         <div className="flex-1 bg-white p-6 lg:p-8 flex flex-col gap-3 lg:gap-4">
-          <SectionHeading>Pre UXHICon Pau Hana</SectionHeading>
+          <div className="flex flex-col gap-1.5">
+            <SectionHeading>Our Place, Our Stories</SectionHeading>
+            {/* Deck under the headline: the title names the evening, this says
+                what the evening is. Purple and semibold rather than a size of
+                its own — it has to read as part of the heading block, and a
+                third type size inside one card is a size too many. */}
+            <p className={`${TYPE.body} font-semibold max-w-[62ch]`} style={{ color: PURPLE }}>
+              An evening of place-based stories &amp; poetry
+            </p>
+          </div>
 
           <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
-            For the first time, kick off UXHICon with an evening of stories, drinks, and connection at{" "}
-            <a
-              href="https://ourspacehawaii.org"
-              target="_blank"
-              rel="noopener"
-              className={LINK}
-              style={{ color: PURPLE }}
-            >
-              OurSpace
-            </a>. Come gather, mingle, and get inspired by the stories that connect us.
+            Every place has a story. And every story has a place.
+          </p>
+
+          <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
+            We&rsquo;re kicking things off with an evening of stories that connect us to place:
+            the neighborhoods that raised us, the places where we found belonging, the homes
+            that shaped us, and the places that live on in memory.
+          </p>
+
+          <p className={`${TYPE.body} max-w-[62ch]`} style={{ color: GRAY }}>
+            Think Moth StorySLAM meets local poetry slam: real stories, original poems, and
+            creative perspectives. Come gather, mingle, have a drink, and hear the places that
+            shaped us.
           </p>
 
           <p className={`${TYPE.caption} max-w-[62ch]`} style={{ color: GRAY_100 }}>
-            This event is 21+. Your ticket includes one drink.
+            Tickets include the storytelling event and drinks. Food from local vendors will be
+            available for purchase. Open to everyone. No UXHICon ticket needed.
           </p>
         </div>
 
@@ -130,41 +154,52 @@ export function ProgramSection() {
           className="lg:w-[216px] shrink-0 p-5 lg:p-6 flex flex-col justify-center gap-4"
           style={{ background: TEAL_40 }}
         >
-          {/* Each line is its own span rather than a hard <br>: inline while the
-              card is stacked, so the text wraps to the available width, and
-              block from lg where the 216px tear-off wants fixed lines. The
-              punctuation that only makes sense running-on is lg:hidden. */}
+          {/* When, where, then what happens. The hours used to sit with the
+              date as a single range; the run of show below says it better and
+              says it three times over, so the date line no longer carries one. */}
           <div className="flex flex-col gap-3">
             <p className={`${TYPE.eyebrow} leading-tight`} style={{ color: PURPLE }}>
-              <span className="lg:block">
-                Thursday<span className="lg:hidden">,</span>
-              </span>{" "}
-              <span className="lg:block">October 15, 2026</span>{" "}
-              {/* Block at every width, not just lg: below the breakpoint the
-                  day and date already fill the line, and the time trailing
-                  after a middot read as an afterthought to the address rather
-                  than as the other half of "when". Its own line at every size
-                  means no separator is needed either. */}
-              <span className="block">5:30&ndash;8:30 pm</span>
+              <span aria-hidden="true">&#128198;</span> Thursday, October 15, 2026
             </p>
+
+            {/* Two links, two jobs: the venue's own site for what the place is,
+                the map for how to get there. They were one link before, because
+                the address was the only thing named. */}
             <p className={TYPE.caption} style={{ color: PURPLE }}>
-              <span className="lg:block">
+              <span aria-hidden="true">&#128205;</span>{" "}
+              <a
+                href="https://ourspacehawaii.org"
+                target="_blank"
+                rel="noopener"
+                className={cn(LINK, "font-bold")}
+                style={{ color: PURPLE }}
+              >
+                OurSpace
+              </a>
+              <span className="block">
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=1052+Waimanu+St%2C+Honolulu%2C+HI+96814"
                   target="_blank"
                   rel="noopener"
-                  className={cn(LINK, "font-bold")}
+                  className={LINK}
                   style={{ color: PURPLE }}
                 >
-                  OurSpace
+                  1052 Waimanu St, Honolulu, HI 96814
                 </a>
-                <span className="lg:hidden"> &middot;</span>
-              </span>{" "}
-              <span className="lg:block">
-                1052 Waimanu St<span className="lg:hidden">,</span>
-              </span>{" "}
-              <span className="lg:block">Honolulu, HI</span>
+              </span>
             </p>
+
+            {/* A stub with a run of show on it. Time bold over its own line
+                rather than a two-column table: at 216px a label column leaves
+                "Doors open & check-in" about two words wide. */}
+            <ul className="flex flex-col gap-1.5 pt-1">
+              {PAU_HANA_RUN.map(([time, what]) => (
+                <li key={time} className={TYPE.caption} style={{ color: PURPLE }}>
+                  <span className="font-bold">{time}</span>
+                  <span className="block">{what}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <ConferenceButton href={TICKETS_URL} icon={ShakaIcon} className="w-fit">
