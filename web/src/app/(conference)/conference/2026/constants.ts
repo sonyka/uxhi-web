@@ -29,7 +29,7 @@ export const EVENT_TIME = "8:00 am–4:30 pm";
 // The long name is the sidebar's; the stub is already under a "Pre UXHICon Pau
 // Hana" eyebrow and only needs the title.
 export const PAU_HANA_NAME = "Our Place, Our Stories";
-export const PAU_HANA_NAME_LONG = "Our Place, Our Stories: a pre UXHICon Pau Hana";
+export const PAU_HANA_BYLINE = "A pre UXHICon Pau Hana";
 export const PAU_HANA_DATE = "Thursday, October 15";
 export const PAU_HANA_TIME = "5:30–8:30 pm";
 export const PAU_HANA_VENUE = "OurSpace";

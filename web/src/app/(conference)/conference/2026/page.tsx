@@ -22,9 +22,9 @@ import { BenefitsHeadline } from "./_components/BenefitsHeadline";
 import { SectionHeading } from "./_components/SectionHeading";
 import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { CONFERENCE_TEAM_QUERY, CONFERENCE_SPONSORS_QUERY, CONFERENCE_INSTAGRAM_QUERY, CONFERENCE_SPEAKERS_QUERY } from "@/sanity/lib/queries";
-import { BEIGE_30, PURPLE, TEAL_60, GRAY_110, GRAY_120, TYPE , LINK } from "./theme";
+import { BEIGE_30, PURPLE, TEAL_60, GRAY_100, GRAY_110, GRAY_120, TYPE , LINK } from "./theme";
 import { ConferenceButton } from "./_components/ConferenceButton";
-import { VENUE_MAP_URL, VENUE_NAME, VENUE_ADDRESS, EVENT_DATE_LONG, EVENT_TIME, TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS, PAU_HANA_NAME_LONG, PAU_HANA_DATE, PAU_HANA_TIME, PAU_HANA_VENUE, PAU_HANA_ADDRESS } from "./constants";
+import { VENUE_MAP_URL, VENUE_NAME, VENUE_ADDRESS, EVENT_DATE_LONG, EVENT_TIME, TICKETS_URL, SPONSOR_URL, IG_PROFILE, LINKEDIN_PROFILE, NAV_ITEMS, PAU_HANA_NAME, PAU_HANA_BYLINE, PAU_HANA_DATE, PAU_HANA_TIME, PAU_HANA_VENUE, PAU_HANA_ADDRESS } from "./constants";
 import { ShakaIcon, HandHoldingHeartIcon, ArrowRightIcon, StarIcon, EmailHeartIcon } from "./_components/icons";
 import { SocialLink } from "./_components/SocialLink";
 
@@ -218,8 +218,17 @@ function PauHanaDetails() {
   return (
     <div className="flex flex-col gap-5 lg:gap-6">
       <div className="flex flex-col gap-1">
-        <p className={`${TYPE.bodyCompact} font-bold`} style={{ color: PURPLE }}>
-          {PAU_HANA_NAME_LONG}
+        {/* The conference name's exact ramp, so the rail reads as two events
+            rather than an event and a footnote. What it cannot also carry is
+            the descriptor — "Our Place, Our Stories: a pre UXHICon Pau Hana"
+            set at 22px ran to three lines and out-weighed UXHICon 2026, which
+            is the one thing the rail is here to sell. */}
+        <p className="font-bold leading-[1.3] text-[16px] lg:text-[18px] xl:text-[22px]" style={{ color: PURPLE }}>
+          {PAU_HANA_NAME}
+        </p>
+        {/* Byline under the title, the way the stub sets the same pair. */}
+        <p className={TYPE.bodyCompact} style={{ color: GRAY_100 }}>
+          {PAU_HANA_BYLINE}
         </p>
         <p className={`${TYPE.bodyCompact} font-medium`} style={{ color: GRAY_120 }}>
           {PAU_HANA_DATE}
