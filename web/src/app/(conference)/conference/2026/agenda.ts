@@ -70,9 +70,9 @@ export const AGENDA_2026: AgendaSlot[] = [
       {
         room: "Purple Box",
         title:
-          "The Professional Listener: Deep Listening, Strategic Filtering, and Getting to Action",
+          "The Professional Listener: How Meaning Gets Lost, and How to Keep It",
         description:
-          "My training is in applied sociocultural anthropology, and the most useful description of my job I’ve heard is “professional listener.” But listening only counts if something happens after. This session covers the middle step almost nobody teaches, strategic filtering: how you take everything you heard and decide what actually matters, without flattening it into the answer a stakeholder already wanted. Practical ground: methods for capturing stories in the moment so you don’t lose them, and how to translate what you heard into actions a team can own.",
+          "Things lose their meaning fast. Usually not because someone took it, but because each person who carried the story forward dropped a little of it.\n\nMy training is in applied sociocultural anthropology, and the most useful description of my job I’ve heard is “professional listener.” Listening only counts if something happens after, and the step in between is where meaning goes missing.\n\nIn this session, we’ll work through a mo\u02bbolelo you already know and a history you may not, then turn it on your own practice: how to capture what you’re told, how to see your own filtering, and how to carry knowledge forward so it arrives intact.\n\nYou don’t need to be a researcher to get something out of this. If people tell you things and you have to decide what to do with what you heard, this is for you…",
         speakers: [{ name: "Sean Tangco", slug: "sean-tangco" }],
       },
     ],
