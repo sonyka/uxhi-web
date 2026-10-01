@@ -1,4 +1,4 @@
-import { sendSlackNotification } from "@/lib/slack";
+import { sendSlackAlert } from "@/lib/slack";
 
 /**
  * Tells us the site broke, in the place we already look.
@@ -82,7 +82,7 @@ export async function reportError(input: ReportInput): Promise<void> {
   if (digest) lines.push(`Digest \`${clamp(digest, 60)}\``);
   if (stack) lines.push("```" + clamp(stack, 1200) + "```");
 
-  await sendSlackNotification([
+  await sendSlackAlert([
     {
       type: "section",
       text: { type: "mrkdwn", text: lines.join("\n") },
