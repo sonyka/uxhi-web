@@ -6,9 +6,14 @@ import { PURPLE, TEAL_60, TYPE } from "../theme";
 // hand-written <img> and eslint-disable each; the spec ("44px height · 15px ·
 // Bricolage Grotesque 400") was a comment in page.tsx rather than a component.
 //
-// Lives at (conference)/_components/ rather than under a year, since nothing
-// here is 2026-specific — `icon` takes a full path so each year passes its own
-// assets. See docs/CONFERENCE-DESIGN-SYSTEM.md Phase 3.
+// Year-owned, and this comment used to say the opposite. It was written when
+// Phase 3 put the button at (conference)/_components/ on the assumption that
+// 2027 would reuse it; Phase 4 was then cancelled — every year is a full
+// redesign — and `aad1ad4` moved the file back down here with the three other
+// things that had drifted up. The height, radius, fills and type are 2026's
+// design, not cross-year infrastructure.
+//
+// See docs/CONFERENCE-DESIGN-SYSTEM.md, Phase 4 and its table of moves.
 
 type Variant = "primary" | "secondary" | "outline";
 
