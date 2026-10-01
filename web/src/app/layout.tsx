@@ -90,13 +90,46 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const draftModeEnabled = (await draftMode()).isEnabled;
+
+  /**
+   * SanityLive is for authoring, and deliberately not for visitors.
+   *
+   * It cannot do its job on the deployed site, and that is not a configuration
+   * gap — every public page reads through `sanityFetchCached`, whose results
+   * carry no `sanity:*` cache tags, so the tags SanityLive revalidates match
+   * nothing. Its live-events path is inert for another reason too:
+   * `revalidateSyncTags` resolves to `undefined`, and the component only
+   * refreshes `if (result === "refresh")`.
+   *
+   * What it did do, mounted on every page, was give a tab that had been left
+   * open a way to talk to a *newer* deployment: `refreshOnFocus` defaults to
+   * true outside draft mode, so every tab focus fired `router.refresh()`, and
+   * any publish in the dataset fired the `revalidateSyncTags` server action.
+   * Against ~20 staging deploys a day and no Skew Protection on Vercel Hobby,
+   * that is what produced the "Failed to find Server Action" and bare
+   * `TypeError: network error` alerts in #form-submissions through Sept 2026 —
+   * and one mixed-build hydration crash on the conference page.
+   *
+   * Kept in two places where it earns its keep. In `next dev` with a read token
+   * set, `fetchCached` reads drafts uncached, so the focus-refresh is what makes
+   * a Studio edit appear when you flip back to the site tab. Under draft mode it supplies the
+   * "loaders" comlink that carries Presentation's published/drafts toggle into
+   * the preview. Neither is a visitor-facing path.
+   *
+   * ⚠️ Do not ungate this to "fix" live content. The lever for that is a Sanity
+   *    webhook to `revalidateTag` — see the revalidate note in
+   *    src/sanity/lib/fetchCached.ts.
+   */
+  const liveEnabled = process.env.NODE_ENV === "development" || draftModeEnabled;
+
   return (
     <html lang="en" className={`${delaGothic.variable} ${nunito.variable}`}>
       <body className="antialiased">
         <MotionPreferences>{children}</MotionPreferences>
         <ThemeColorSync />
-        <SanityLive />
-        {(await draftMode()).isEnabled && <VisualEditing />}
+        {liveEnabled && <SanityLive />}
+        {draftModeEnabled && <VisualEditing />}
       </body>
     </html>
   );
