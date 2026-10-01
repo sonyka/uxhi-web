@@ -12,8 +12,7 @@ import { PURPLE, TEAL_60, TYPE } from "../theme";
 
 type Variant = "primary" | "secondary" | "outline";
 
-interface ConferenceButtonProps {
-  href: string;
+interface CommonProps {
   children: React.ReactNode;
   /**
    * primary   — purple fill, white label (Get tickets)
@@ -40,9 +39,27 @@ interface ConferenceButtonProps {
    * whole band rather than sitting in it.
    */
   size?: "md" | "sm";
-  onClick?: () => void;
   className?: string;
 }
+
+/**
+ * Either a destination or an action, never neither.
+ *
+ * `href` is the normal case and stays required for it. Omitting it renders a
+ * <button> instead of an <a> — for the one thing on this site that is a real
+ * in-page action rather than a link: the reload on the error page. A reload
+ * cannot be an anchor, because the conference domain rewrites its paths and
+ * `href="/conference/2026/"` would put that path in the URL bar in place of
+ * the clean one the visitor arrived on.
+ *
+ * Expressed as a union so a button without a handler, or a link that does
+ * nothing, fails to compile rather than rendering an inert pill.
+ */
+type ConferenceButtonProps = CommonProps &
+  (
+    | { href: string; onClick?: () => void }
+    | { href?: undefined; onClick: () => void }
+  );
 
 // `group` is here so an icon can react to the button being hovered — the social
 // glyphs cross-fade to full colour that way. Icons that paint with currentColor
@@ -88,9 +105,37 @@ export function ConferenceButton({
 }: ConferenceButtonProps) {
   const v = VARIANTS[variant];
   const sz = SIZES[size];
+  const iconEl = Icon ? <Icon size={sz.icon} /> : null;
+  const style = {
+    background: v.background,
+    ...(v.borderColor ? { borderColor: v.borderColor, color: v.borderColor } : {}),
+  };
+  const label = (
+    <>
+      {iconPosition === "leading" && iconEl}
+      {children}
+      {iconPosition === "trailing" && iconEl}
+    </>
+  );
+
+  // No destination means this is an action, not a link. cursor-pointer is
+  // explicit because Tailwind v4's preflight leaves a <button> on the default
+  // arrow, where an <a> gets the hand for free.
+  if (href === undefined) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        className={cn(BASE, "cursor-pointer", sz.className, sz.type, v.className, className)}
+        style={style}
+      >
+        {label}
+      </button>
+    );
+  }
+
   const isExternal =
     external ?? !(href.startsWith("#") || href.startsWith("/"));
-  const iconEl = Icon ? <Icon size={sz.icon} /> : null;
 
   return (
     <a
@@ -98,14 +143,9 @@ export function ConferenceButton({
       {...(isExternal ? { target: "_blank", rel: "noopener" } : {})}
       onClick={onClick}
       className={cn(BASE, sz.className, sz.type, v.className, className)}
-      style={{
-        background: v.background,
-        ...(v.borderColor ? { borderColor: v.borderColor, color: v.borderColor } : {}),
-      }}
+      style={style}
     >
-      {iconPosition === "leading" && iconEl}
-      {children}
-      {iconPosition === "trailing" && iconEl}
+      {label}
     </a>
   );
 }
