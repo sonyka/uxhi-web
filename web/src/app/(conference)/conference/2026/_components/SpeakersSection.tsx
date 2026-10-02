@@ -13,11 +13,12 @@
 // faces at a time. Fourteen people fit a grid; a carousel starts being the
 // better instrument somewhere north of forty.
 //
-// Three across, the same as the organizers — for now. Four fitted more faces
-// in but drew each one smaller, which works against the point of the section:
-// presence comes from the size of the face, not the count per row. Once the
-// organizers drop to a compact row, these become the largest faces on the page
-// without having to grow.
+// Three across, the same as the organizers again — they ran at four for a
+// while so they would sit a size below these, and came back to three when a
+// ninth member made four an awkward row. Four was tried here too: it fitted
+// more faces in but drew each one smaller, which works against the point of
+// the section — presence comes from the size of the face, not the count per
+// row.
 
 import { SectionHeading } from "./SectionHeading";
 import { GRAY_110 as GRAY, TYPE } from "../theme";
