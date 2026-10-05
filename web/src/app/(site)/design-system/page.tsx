@@ -1159,7 +1159,7 @@ const contentComponents: Record<string, React.ReactNode> = {
     >
       <div className="flex gap-8 items-end">
         <div className="text-center">
-          <SectionIcon src="/images/icons/icon-membership.svg" alt="Membership" />
+          <SectionIcon src="/images/icons/icon-community.svg" alt="Community" />
           <span className="text-xs text-gray-100 font-mono">Default (128px)</span>
         </div>
       </div>
@@ -1708,8 +1708,8 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="grid md:grid-cols-2 gap-6">
             <SpotIllustrationCard
               variant="white"
-              imageSrc="/images/icons/icon-resources.svg"
-              imageAlt="Resources illustration"
+              imageSrc="/images/icons/icon-education-findings.svg"
+              imageAlt="Education findings illustration"
               title="White"
               description="A 96px icon centred over centred prose. For beige grounds. Body copy is gray-110, which clears AAA on white."
             />
