@@ -43,8 +43,8 @@ interface SpotIllustrationCardProps {
   /**
    * How the card is arranged:
    * - stacked: 96px icon centred above centred prose (values cards)
-   * - anchored: the same 96px icon, moved below left-aligned prose and pinned
-   *   to the bottom-left, so a row of cards ends on a line of illustrations
+   * - anchored: 56px icon on the bottom line beside the call to action, after
+   *   left-aligned prose, so a row of cards ends on one line of art and links
    *   (home features)
    * - detail: 56px icon in a header row beside the title, everything left
    *   aligned, body passed as data (committee cards, report findings)
@@ -179,12 +179,12 @@ const variantStyles: Record<
  *
  * - **stacked** — a 96px icon centred over centred prose, with an optional
  *   footer link. The About values cards.
- * - **anchored** — the same 96px icon, but read last: title, prose and footer
- *   sit left-aligned at the top and the illustration is pushed to the
- *   bottom-left corner. Cards are `h-full` and the icon takes the leftover
- *   space as a top margin, so across a row the words start on one line and the
- *   art lands on another, however unevenly the copy fills each card. The home
- *   features band.
+ * - **anchored** — a 56px icon read last, on the same line as the call to
+ *   action and to its left: title and prose sit left-aligned at the top, and
+ *   that closing line is pushed to the bottom of the card. Cards are `h-full`
+ *   and the line takes the leftover space as a top margin, so across a row the
+ *   words start on one line and the art and links land together on another,
+ *   however unevenly the copy fills each card. The home features band.
  * - **detail** — the icon drops to 56px and moves into a header row beside the
  *   title, and the card reads left-aligned throughout, so a reader scanning a
  *   grid meets the name before the art. The body arrives as data — a lead, a
@@ -200,7 +200,7 @@ const variantStyles: Record<
  * 4px under the `lg` heading these cards sit beneath, which read as one level
  * where there are two.
  *
- * Icon size: 96px desktop / 80px mobile stacked, 56px detail
+ * Icon size: 96px desktop / 80px mobile stacked, 56px anchored and detail
  * Border radius: 24px, or 20px on translucent
  *
  * @see /design-system for usage examples
@@ -224,26 +224,35 @@ export function SpotIllustrationCard({
   const styles = variantStyles[variant];
   const isDetail = layout === "detail";
   const isAnchored = layout === "anchored";
+  // Detail and anchored both sit the icon beside something on one line — a
+  // title, a call to action — so both take the 56px step. Only stacked, where
+  // the icon leads a centred column with nothing next to it, stays at 96.
+  const isInlineIcon = isDetail || isAnchored;
 
   const icon = (
     <div
       className={cn(
         "relative shrink-0",
-        isDetail && "w-14 h-14",
-        !isDetail && "w-20 h-20 md:w-24 md:h-24",
-        // Anchored spaces the icon from above, in the wrapper that pins it.
+        isInlineIcon && "w-14 h-14",
+        !isInlineIcon && "w-20 h-20 md:w-24 md:h-24",
         layout === "stacked" && "mb-4 md:mb-6"
       )}
     >
       {image?.asset ? (
         <SanityImage
           value={image}
-          width={isDetail ? 112 : 192}
-          height={isDetail ? 112 : 192}
+          width={isInlineIcon ? 112 : 192}
+          height={isInlineIcon ? 112 : 192}
           className="w-full h-full object-contain"
         />
       ) : imageSrc ? (
-        <Image src={imageSrc} alt={imageAlt} fill sizes="96px" className="object-contain" />
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          sizes={isInlineIcon ? "56px" : "96px"}
+          className="object-contain"
+        />
       ) : (
         <div className="w-full h-full bg-purple-30 rounded-full" />
       )}
@@ -360,11 +369,26 @@ export function SpotIllustrationCard({
         </ol>
       )}
 
-      {footer && <div className="mt-6">{footer}</div>}
+      {footer && !isAnchored && <div className="mt-6">{footer}</div>}
 
-      {/* pt-10 keeps a floor under the gap on the card whose copy runs longest,
-          the one where mt-auto has nothing left to give. */}
-      {isAnchored && <div className="mt-auto pt-10">{icon}</div>}
+      {/* Anchored ends on a single line: the illustration at 56px with the call
+          to action beside it. mt-auto pins that line to the bottom, so across a
+          row the art and the links land together however unevenly the copy
+          fills each card — the job the icon used to do on a row of its own.
+          pt-6 keeps a floor under the gap on the card whose copy runs longest,
+          the one where mt-auto has nothing left to give; it matches the margin
+          the footer carries on the layouts that still read it on its own. */}
+      {isAnchored && (
+        <div className="mt-auto pt-6 flex flex-wrap items-center gap-4">
+          {icon}
+          {/* nowrap plus a wrapping row: the link keeps its label in one piece
+              and drops below the icon when the column is too narrow to seat
+              both. Left to shrink instead, a three-column tablet layout breaks
+              every call to action mid-phrase — "Browse / resources" — which
+              costs more than the line the icon was sharing. */}
+          {footer && <div className="whitespace-nowrap">{footer}</div>}
+        </div>
+      )}
     </div>
   );
 }
