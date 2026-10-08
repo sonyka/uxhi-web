@@ -1665,7 +1665,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-spotillustration": (
     <ContentSection
       title="Spot Illustration Card"
-      description="One card in three arrangements. Stacked leads with a 96px illustration over centred prose and an optional footer link. Anchored reads the icon last and at 56px, on the bottom line beside the call to action — left-aligned prose at the top, art and link together at the foot — so a row of cards ends on one line. Detail also uses the 56px icon but moves it into a header row beside the title, so a reader scanning a grid meets the name before the art, and passes the body as data — a lead, a hero stat, bullets, or a ranking — rather than as markup, which is what keeps size and colour decisions inside the component. Each ground pairs with one layout in practice: dark is anchored, white is stacked and detail, translucent is detail. The beige variant has no call site left — the committee cards it was built for moved to white when the section grounds became beige-30, since a card has to be lighter than the plane it sits on. It stays for a card nested on a white surface."
+      description="One card in three arrangements. Stacked leads with a 96px illustration over centred prose and an optional footer link. Anchored leads with a 56px icon on the card's left edge, above the title, everything left-aligned beneath it and the footer link pinned to the bottom so a row of links ends level. Detail also uses the 56px icon but moves it into a header row beside the title, so a reader scanning a grid meets the name before the art, and passes the body as data — a lead, a hero stat, bullets, or a ranking — rather than as markup, which is what keeps size and colour decisions inside the component. Each ground pairs with one layout in practice: dark is anchored, white is stacked and detail, translucent is detail. The beige variant has no call site left — the committee cards it was built for moved to white when the section grounds became beige-30, since a card has to be lighter than the plane it sits on. It stays for a card nested on a white surface."
       componentPath="components/ui/cards/SpotIllustrationCard.tsx"
     >
       <div className="space-y-8">
@@ -1679,7 +1679,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 imageSrc="/images/icons/icon-membership.svg"
                 imageAlt="Membership illustration"
                 title="Free Membership"
-                description="Title and prose sit left-aligned at the top; the 56px illustration closes the card on one line with the call to action, to its left."
+                description="The 56px illustration leads the card from its left edge, above the title, with everything left-aligned beneath it."
                 footer={<ArrowLinkButton href="#">Join free</ArrowLinkButton>}
               />
               <SpotIllustrationCard
@@ -1688,7 +1688,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 imageSrc="/images/icons/icon-events.svg"
                 imageAlt="Events illustration"
                 title="Events"
-                description="Cards are h-full, so however unevenly the copy fills a row the icons and links still end on one line."
+                description="Cards are h-full and the body grows, so however unevenly the copy fills a row the footer links still end on one line."
                 footer={<ArrowLinkButton href="#">View events</ArrowLinkButton>}
               />
               <SpotIllustrationCard
@@ -1789,11 +1789,9 @@ const contentComponents: Record<string, React.ReactNode> = {
           as a plain <code>&lt;strong&gt;</code> — the card colours it per ground, so a page marking
           up an inline figure never reaches for a colour class of its own. <code>bullets</code> and
           <code> ranked</code> are alternatives; a card takes one or the other. Anchored and detail
-          cards are <code>h-full</code> so a row ends level — anchored needs it for the closing lines to
+          cards are <code>h-full</code> so a row ends level — anchored needs it for the footer links to
           line up at all. Stacked cards are not, since the grid it sits in never asked for equal
-          heights. The anchored closing line wraps rather than squeezes: where a column is too
-          narrow to seat the 56px icon and the link side by side, the link drops beneath it with
-          its label intact, which is what the three-column tablet band does.
+          heights.
         </p>
       </div>
     </ContentSection>
