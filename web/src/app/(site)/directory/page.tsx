@@ -206,7 +206,7 @@ export default async function DirectoryPage() {
           <ScrollReveal stagger className="text-center">
             {/* Directory Icon */}
             <MotionDiv>
-              <SectionIcon src="/images/icons/icon-directory.svg" alt="Directory" />
+              <SectionIcon src="/images/icons/icon-directory.svg" alt="Directory" size="sm" />
             </MotionDiv>
             <MotionDiv>
               <SectionHeading color="white" className="mb-6">

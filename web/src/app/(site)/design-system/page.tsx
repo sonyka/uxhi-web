@@ -1154,13 +1154,17 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionicon": (
     <ContentSection
       title="Section Icon"
-      description="Large centered icon (128x128px) used above section content. Wraps Next.js Image with fill + object-contain."
+      description="Centered icon above a section intro. Wraps Next.js Image with fill + object-contain. Default is the 80px mark that opens a section on its own; sm is 56px, for the icon that introduces a form rather than a section — there it labels what follows, and larger it competes with the heading beneath it."
       componentPath="components/ui/SectionIcon.tsx"
     >
       <div className="flex gap-8 items-end">
         <div className="text-center">
           <SectionIcon src="/images/icons/icon-community.svg" alt="Community" />
-          <span className="text-xs text-gray-100 font-mono">Default (128px)</span>
+          <span className="text-xs text-gray-100 font-mono">Default (80px)</span>
+        </div>
+        <div className="text-center">
+          <SectionIcon src="/images/icons/icon-community.svg" alt="Community" size="sm" />
+          <span className="text-xs text-gray-100 font-mono">sm (56px)</span>
         </div>
       </div>
     </ContentSection>
