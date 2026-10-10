@@ -9,9 +9,14 @@ interface SectionIconProps {
   /**
    * How big the icon reads above its section.
    *
-   * `default` is the 80px mark that opens a section on its own. `sm` is 56px,
-   * for the icon that introduces a form rather than a section — there it is a
-   * label for what follows, and larger it competes with the heading under it.
+   * `default` is the 80px mark that opens a section on its own, and is what
+   * every section intro on the site uses.
+   *
+   * `sm` is 56px, for an icon that labels what follows rather than opening a
+   * section. It has no call site: the directory form was the one, and it went
+   * back to 80 once the default came down from 128 and the two stopped
+   * competing. Kept because the case it answers is a real one, not because
+   * anything is waiting on it.
    */
   size?: SectionIconSize;
   className?: string;
