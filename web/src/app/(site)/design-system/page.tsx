@@ -1154,7 +1154,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionicon": (
     <ContentSection
       title="Section Icon"
-      description="Centered icon above a section intro. Wraps Next.js Image with fill + object-contain. Default is the 80px mark that opens a section on its own, and is what every section intro uses. sm is 56px, for an icon that labels what follows rather than opening a section — it has no call site left, since the directory form went back to 80 once the default came down from 128 and the two stopped competing."
+      description="Centered icon above a section intro. Wraps Next.js Image with fill + object-contain. Default is the 80px mark that opens a section on its own, and is what every section intro uses. sm is 56px, for an icon that labels what follows rather than opening a section — it has no call site left, since the directory form went back to 80 once the default came down from 128 and the two stopped competing. lg is 96px and exists for exactly one mark: the UXHI conference icon on the events page, a logo standing in for the conference rather than a spot illustration, which reads as undersized at 80. A deliberate exception, not a tier — a second caller would mean the default is wrong."
       componentPath="components/ui/SectionIcon.tsx"
     >
       <div className="flex gap-8 items-end">
@@ -1165,6 +1165,10 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div className="text-center">
           <SectionIcon src="/images/icons/icon-community.svg" alt="Community" size="sm" />
           <span className="text-xs text-gray-100 font-mono">sm (56px)</span>
+        </div>
+        <div className="text-center">
+          <SectionIcon src="/images/icons/icon-community.svg" alt="Community" size="lg" />
+          <span className="text-xs text-gray-100 font-mono">lg (96px)</span>
         </div>
       </div>
     </ContentSection>

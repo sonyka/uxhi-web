@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-type SectionIconSize = "default" | "sm";
+type SectionIconSize = "default" | "sm" | "lg";
 
 interface SectionIconProps {
   src: string;
@@ -17,6 +17,12 @@ interface SectionIconProps {
    * back to 80 once the default came down from 128 and the two stopped
    * competing. Kept because the case it answers is a real one, not because
    * anything is waiting on it.
+   *
+   * `lg` is 96px and exists for exactly one mark — the UXHI conference icon on
+   * the events page, which is a logo standing in for the conference rather
+   * than a spot illustration, and reads as undersized at 80 next to the others.
+   * It is a deliberate exception, not a tier: a second caller means the
+   * default is wrong, not that `lg` needs company.
    */
   size?: SectionIconSize;
   className?: string;
@@ -30,12 +36,14 @@ interface SectionIconProps {
 const sizeStyles: Record<SectionIconSize, { box: string; sizes: string }> = {
   default: { box: "w-20 h-20", sizes: "80px" },
   sm: { box: "w-14 h-14", sizes: "56px" },
+  lg: { box: "w-24 h-24", sizes: "96px" },
 };
 
 /**
  * SectionIcon - Centered icon above a section intro
  *
- * Size: 80x80px default, 56x56px at `size="sm"`. Centered with bottom margin.
+ * Size: 80x80px default, 56x56px at `size="sm"`, 96x96px at `size="lg"`.
+ * Centered with bottom margin.
  * Uses Next.js Image with fill + object-contain.
  *
  * @see /design-system for usage examples

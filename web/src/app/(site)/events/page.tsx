@@ -206,7 +206,7 @@ export default function EventsPage() {
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           {/* Conference Icon */}
           <MotionDiv>
-            <SectionIcon src="/images/icons/icon-uxhicon.svg" alt="" />
+            <SectionIcon src="/images/icons/icon-uxhicon.svg" alt="" size="lg" />
           </MotionDiv>
           <MotionDiv>
             <SectionHeading size="lg" color="white" className="mb-6 text-center">
