@@ -637,31 +637,14 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Sponsorships Section */}
-      <section id="sponsor" className="py-20 px-6 bg-beige-30 scroll-mt-24">
+      <section id="sponsor" className="pt-20 px-6 bg-beige-30 scroll-mt-24">
         <ScrollReveal stagger className="max-w-[900px] mx-auto">
           <MotionDiv>
             <SectionHeading className="mb-6">
               Sponsor us
             </SectionHeading>
           </MotionDiv>
-          <MotionDiv>
-            <p className="text-gray-120 text-lg leading-relaxed">
-              Our sponsorship packages are designed to elevate your brand and showcase your service or products. Through your sponsorship, you&apos;ll not only enhance your brand recognition but also reinforce your commitment towards supporting aloha-centered design.
-            </p>
-          </MotionDiv>
         </ScrollReveal>
-      </section>
-
-      {/* Past event sponsors Section */}
-      <section className="py-16 px-6 bg-beige-30">
-        <div className="max-w-[1200px] mx-auto">
-          <ScrollReveal>
-            <SectionEyebrow className="text-center mb-12">
-              Past event sponsors
-            </SectionEyebrow>
-          </ScrollReveal>
-          <LogoGrid logos={sponsorLogos} tone="colour" />
-        </div>
       </section>
 
       {/* Ready to Collaborate Section */}
@@ -686,6 +669,18 @@ export default async function GetInvolvedPage() {
             </PrimaryCTA>
           </MotionDiv>
         </ScrollReveal>
+      </section>
+
+      {/* Past event sponsors Section */}
+      <section className="py-16 px-6 bg-beige-30">
+        <div className="max-w-[1200px] mx-auto">
+          <ScrollReveal>
+            <SectionEyebrow className="text-center mb-12">
+              Past event sponsors
+            </SectionEyebrow>
+          </ScrollReveal>
+          <LogoGrid logos={sponsorLogos} tone="colour" />
+        </div>
       </section>
 
       {/* Donations Section */}

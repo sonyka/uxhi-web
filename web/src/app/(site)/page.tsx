@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { InstagramFeed } from "@/components/sections/InstagramFeed";
 import { SocialGlyph } from "@/components/ui/SocialGlyph";
@@ -38,7 +39,7 @@ export default async function HomePage() {
         <HeroEntrance className="max-w-[1280px] mx-auto text-center">
           {/* Member Badge */}
           <HeroItem>
-            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-white rounded-3xl sm:rounded-full px-4 py-3 sm:pl-2 sm:pr-6 sm:py-2 mb-5 md:mb-10 border border-gray-20 shadow-sm">
+            <Link href="/directory" className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 bg-white rounded-3xl sm:rounded-full px-4 py-3 sm:pl-2 sm:pr-6 sm:py-2 mb-5 md:mb-10 border border-gray-20 shadow-sm transition-shadow hover:shadow-md">
               {/* priority because Next measures this as the homepage's Largest
                   Contentful Paint — it sits directly above the h1, and was
                   being lazy-loaded, so the first thing a visitor sees was
@@ -52,7 +53,7 @@ export default async function HomePage() {
                 className="h-9 w-auto"
               />
               <span className="text-nav text-gray-120 font-medium">{MEMBER_COUNT} members and counting</span>
-            </div>
+            </Link>
           </HeroItem>
 
           {/* Main Headline */}
@@ -511,11 +512,8 @@ export default async function HomePage() {
       {/* Community CTA Section */}
       <section className="py-14 md:py-24 px-6">
         <div className="max-w-[1400px] mx-auto">
-          {/* Community Photos Grid - managed in Sanity */}
-          <CommunityPhotosGrid photos={communityPhotos || []} />
-
           {/* CTA Content */}
-          <ScrollReveal stagger className="text-center pt-4">
+          <ScrollReveal stagger className="text-center mb-10 md:mb-16">
             {/* Decorative Motif */}
             <MotionDiv>
               <Image
@@ -547,6 +545,9 @@ export default async function HomePage() {
               <PrimaryCTA href="/join">Join us</PrimaryCTA>
             </MotionDiv>
           </ScrollReveal>
+
+          {/* Community Photos Grid - managed in Sanity */}
+          <CommunityPhotosGrid photos={communityPhotos || []} />
         </div>
       </section>
     </>

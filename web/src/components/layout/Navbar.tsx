@@ -332,7 +332,7 @@ export const defaultNavItems: NavItem[] = [
     dropdown: [
       { label: "UX for students", href: "/resources#students", description: "Start your UX journey" },
       { label: "State of UX in Hawaiʻi Report", href: "/resources#report", description: "Industry insights" },
-      { label: "Directory of local tech orgs", href: "/resources#directory", description: "Local tech community" },
+      { label: "Local tech directory", href: "/resources#directory", description: "Local tech community" },
     ],
   },
   // Shop is hidden until further notice (2026-08-28). The /merch page still

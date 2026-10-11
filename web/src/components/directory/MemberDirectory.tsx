@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef, useCallback, useEffect } from "react";
+import { useState, useMemo, useRef, useCallback } from "react";
 import { MemberFilters } from "./MemberFilters";
 import { MemberGrid } from "./MemberGrid";
 import { MemberDrawer } from "./MemberDrawer";
@@ -8,20 +8,6 @@ import { Pagination } from "@/components/ui/Pagination";
 import type { DirectoryMember } from "./MemberCard";
 
 const ITEMS_PER_PAGE = 15;
-
-export type SortOption = "shuffle" | "alpha" | "newest";
-
-// Seeded shuffle so the order is stable across re-renders but random per page load
-function shuffleArray<T>(array: T[], seed: number): T[] {
-  const shuffled = [...array];
-  let s = seed;
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    s = (s * 16807 + 0) % 2147483647;
-    const j = s % (i + 1);
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
 
 interface MemberDirectoryProps {
   members: DirectoryMember[];
@@ -33,23 +19,10 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
   const [selectedIsland, setSelectedIsland] = useState<string[]>([]);
   const [selectedExperience, setSelectedExperience] = useState<string | null>(null);
   const [openToWorkOnly, setOpenToWorkOnly] = useState(false);
-  const [sortBy, setSortBy] = useState<SortOption>("shuffle");
   const [selectedMember, setSelectedMember] = useState<DirectoryMember | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Date.now() during render differs between the server pass and hydration, so
-  // the two produced different shuffle orders — a hydration mismatch. Seeded
-  // after mount instead: the server and the first client render both show the
-  // alphabetical fallback below, then the shuffle applies.
-  const [shuffleSeed, setShuffleSeed] = useState<number | null>(null);
-  useEffect(() => {
-    // Reading a client-only, non-deterministic value after mount is exactly what
-    // an effect is for; it runs once and only ever sets the seed. Same pattern
-    // and same justification as GoogleAnalyticsGated.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setShuffleSeed(Date.now());
-  }, []);
   const directoryRef = useRef<HTMLDivElement>(null);
 
   const handleMemberClick = (member: DirectoryMember) => {
@@ -98,25 +71,13 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
       return true;
     });
 
-    // Auto-sort alphabetically when searching, otherwise use selected sort
-    const effectiveSort = searchQuery ? "alpha" : sortBy;
+    // A–Z is the only order. Shuffle and Newest were removed in Oct 2026:
+    // Newest sorted by Sanity creation date, which every member migrated from
+    // Notion shares, so it was never a real order.
+    return filtered.sort((a, b) => a.name.localeCompare(b.name));
+  }, [members, searchQuery, selectedFocus, selectedIsland, selectedExperience, openToWorkOnly]);
 
-    switch (effectiveSort) {
-      case "alpha":
-        return [...filtered].sort((a, b) => a.name.localeCompare(b.name));
-      case "newest":
-        return [...filtered].sort((a, b) =>
-          (b._createdAt || "").localeCompare(a._createdAt || "")
-        );
-      case "shuffle":
-      default:
-        return shuffleSeed === null
-          ? [...filtered].sort((a, b) => a.name.localeCompare(b.name))
-          : shuffleArray(filtered, shuffleSeed);
-    }
-  }, [members, searchQuery, selectedFocus, selectedIsland, selectedExperience, openToWorkOnly, sortBy, shuffleSeed]);
-
-  // Reset to page 1 whenever filters or sort change.
+  // Reset to page 1 whenever the filters change.
   //
   // Adjusted during render rather than in an effect: an effect would let the
   // stale page render first and then correct it, so a user on page 4 who
@@ -129,7 +90,6 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
     selectedIsland,
     selectedExperience,
     openToWorkOnly,
-    sortBy,
   ].join("|");
   const [lastFilterKey, setLastFilterKey] = useState(filterKey);
   if (filterKey !== lastFilterKey) {
@@ -165,13 +125,11 @@ export function MemberDirectory({ members }: MemberDirectoryProps) {
           selectedIsland={selectedIsland}
           selectedExperience={selectedExperience}
           openToWorkOnly={openToWorkOnly}
-          sortBy={sortBy}
           onSearchChange={setSearchQuery}
           onFocusChange={setSelectedFocus}
           onIslandChange={setSelectedIsland}
           onExperienceChange={setSelectedExperience}
           onOpenToWorkChange={setOpenToWorkOnly}
-          onSortChange={setSortBy}
           onClearFilters={handleClearFilters}
           totalCount={members.length}
           filteredCount={filteredAndSortedMembers.length}

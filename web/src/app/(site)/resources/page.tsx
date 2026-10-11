@@ -121,7 +121,7 @@ export default async function ResourcesPage() {
                 <QuickLinkPill
                   href="#directory"
                   icon={<NotebookTabsIcon className="w-7 h-7" />}
-                  label="Directory of local tech orgs"
+                  label="Local tech directory"
                   subtitle="Local connections"
                 />
               </div>
@@ -246,6 +246,24 @@ export default async function ResourcesPage() {
               </ScrollReveal>
             )}
           </div>
+
+          {/* Online Programs */}
+          <div>
+            <ScrollReveal>
+              <SectionEyebrow className="mb-6">Online Programs</SectionEyebrow>
+            </ScrollReveal>
+            <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {(groupedResources['online-programs-students'] ?? []).map((program: { _id?: string; title?: string; url?: string; description?: string }) => (
+                <MotionDiv key={program._id}>
+                  <LinkCard
+                    href={program.url || "#"}
+                    title={program.title || ""}
+                    description={program.description}
+                  />
+                </MotionDiv>
+              ))}
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -313,24 +331,6 @@ export default async function ResourcesPage() {
 
       <section className="pb-20 px-6 bg-beige-30">
         <div className="max-w-[900px] mx-auto">
-          {/* Online Programs */}
-          <div className="mb-12">
-            <ScrollReveal>
-              <SectionEyebrow className="mb-6">Online Programs</SectionEyebrow>
-            </ScrollReveal>
-            <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {(groupedResources['online-programs-students'] ?? []).map((program: { _id?: string; title?: string; url?: string; description?: string }) => (
-                <MotionDiv key={program._id}>
-                  <LinkCard
-                    href={program.url || "#"}
-                    title={program.title || ""}
-                    description={program.description}
-                  />
-                </MotionDiv>
-              ))}
-            </ScrollReveal>
-          </div>
-
           {/* A "Communities" block used to sit here. Removed 2026-08-29: it
               held one entry ("Designer Slack") behind a stale hardcoded
               fallback, and the Sanity category and item have since been
@@ -384,12 +384,12 @@ export default async function ResourcesPage() {
             </MotionDiv>
             <MotionDiv>
               <p className="text-white text-lg leading-relaxed mb-4">
-                To answer that question, we conducted our own study on the status of UX jobs, hiring, education, awareness, and audiences to give us a better understanding of how our programming could best support UXers in Hawai&apos;i.
+                We conducted our own study on the status of UX jobs, hiring, education, awareness, and audiences to give us a better understanding of how our programming could best support UXers in Hawai&apos;i.
               </p>
             </MotionDiv>
             <MotionDiv>
               <p className="text-white text-lg leading-relaxed mb-10">
-                The report is currently done on a bi-annual basis to gain a better understanding of our UX design community.
+                The report is currently done on a biennial basis to gain a better understanding of our UX design community.
               </p>
             </MotionDiv>
           </ScrollReveal>
@@ -513,11 +513,11 @@ export default async function ResourcesPage() {
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal stagger className="text-center">
             <MotionDiv>
-              <SectionIcon src="/images/icons/icon-tech.svg" alt="Directory of local tech orgs" />
+              <SectionIcon src="/images/icons/icon-tech.svg" alt="Local tech directory" />
             </MotionDiv>
             <MotionDiv>
               <SectionHeading className="mb-6">
-                Directory of local tech orgs
+                Local tech directory
               </SectionHeading>
             </MotionDiv>
             <MotionDiv>
