@@ -1154,7 +1154,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionicon": (
     <ContentSection
       title="Section Icon"
-      description="Centered icon above a section intro. Wraps Next.js Image with fill + object-contain. Default is the 80px mark that opens a section on its own, and is what every section intro uses. sm is 56px, for an icon that labels what follows rather than opening a section — it has no call site left, since the directory form went back to 80 once the default came down from 128 and the two stopped competing. lg is 96px and exists for exactly one mark: the UXHI conference icon on the events page, a logo standing in for the conference rather than a spot illustration, which reads as undersized at 80. A deliberate exception, not a tier — a second caller would mean the default is wrong."
+      description="Centered icon above a section intro. Wraps Next.js Image with fill + object-contain. Default is the 80px mark that opens a section on its own, and is what every section intro uses. sm is 56px, for an icon that labels what follows rather than opening a section — FormSuccess uses it for the illustration on a form's success card. lg is 96px and exists for exactly one mark: the UXHI conference icon on the events page, a logo standing in for the conference rather than a spot illustration, which reads as undersized at 80. A deliberate exception, not a tier — a second caller would mean the default is wrong."
       componentPath="components/ui/SectionIcon.tsx"
     >
       <div className="flex gap-8 items-end">
@@ -2775,7 +2775,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "feedback-success": (
     <ContentSection
       title="Form Success"
-      description="Post-submission success card. Replaces the form after a successful submit. Used on purple (bg-purple-140) backgrounds."
+      description="Post-submission success card. Replaces the form after a successful submit. Used on purple (bg-purple-140) backgrounds. Leads with a spot illustration at SectionIcon sm (56px)."
       componentPath="components/ui/FormFeedback.tsx"
     >
       <div className="space-y-8">
@@ -2784,11 +2784,15 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="bg-purple-140 rounded-2xl p-8 space-y-6">
             <div>
               <span className="text-xs text-purple-30 mb-2 block">Inquiry form</span>
-              <FormSuccess icon="&#9989;" title="Message sent!" message="We'll get back to you within a few business days." />
+              <FormSuccess iconSrc="/images/icons/icon-contact-success.svg" title="Message sent!" message="We'll get back to you within a few business days." />
+            </div>
+            <div>
+              <span className="text-xs text-purple-30 mb-2 block">Directory form</span>
+              <FormSuccess iconSrc="/images/icons/icon-directory-success.svg" title="Profile submitted!" message="Your profile has been submitted for review. A team member will publish it within a few business days." />
             </div>
             <div>
               <span className="text-xs text-purple-30 mb-2 block">Membership form</span>
-              <FormSuccess icon="&#127881;" title="Application received!" message="Welcome to the UXHI community!" />
+              <FormSuccess iconSrc="/images/icons/icon-apply-success.svg" title="Application received!" message="Thanks for applying! We'll review your application and be in touch soon." />
             </div>
           </div>
         </div>
@@ -2798,7 +2802,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Props</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">icon</span> — string (required, e.g. emoji or HTML entity)</p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">iconSrc</span> — string (required), illustration path, rendered by SectionIcon at sm (56px)</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">title</span> — string (required)</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">message</span> — string (required)</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">className</span> — optional overrides</p>
@@ -2807,7 +2811,8 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Container: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20 rounded-2xl p-8</span></p>
+                <p>Container: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/20 rounded-2xl p-8</span> — no fill; sits directly on the purple-140 section</p>
+                <p>Illustration: <span className="font-mono text-xs bg-gray-20 px-1 rounded">SectionIcon size=&quot;sm&quot;</span> — 56px, mb-4</p>
                 <p>Title: <span className="font-mono text-xs bg-gray-20 px-1 rounded">font-display text-2xl text-white</span></p>
                 <p>Message: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-white</span></p>
               </div>

@@ -37,7 +37,7 @@ export default function SiteError({
   return (
     <section className="bg-beige-30 px-6 pt-32 pb-20 md:pt-40 md:pb-28">
       <div className="mx-auto max-w-[720px] text-center">
-        <SectionIcon src="/images/icons/icon-empty.svg" alt="" />
+        <SectionIcon src="/images/icons/icon-error.svg" alt="" />
 
         <SectionEyebrow className="mb-3 block">Something went wrong</SectionEyebrow>
 

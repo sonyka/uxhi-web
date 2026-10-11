@@ -29,7 +29,7 @@ export function DirectorySubmitForm() {
 
   if (state?.success) {
     return (
-      <FormSuccess icon="&#9989;" title="Profile submitted!" message={state.message} />
+      <FormSuccess iconSrc="/images/icons/icon-directory-success.svg" title="Profile submitted!" message={state.message} />
     );
   }
 

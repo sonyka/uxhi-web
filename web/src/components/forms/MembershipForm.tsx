@@ -26,7 +26,7 @@ export function MembershipForm() {
 
   if (state?.success) {
     return (
-      <FormSuccess icon="&#127881;" title="Application received!" message={state.message} />
+      <FormSuccess iconSrc="/images/icons/icon-apply-success.svg" title="Application received!" message={state.message} />
     );
   }
 

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { SectionIcon } from "@/components/ui/SectionIcon";
 
 /* ------------------------------------------------------------------ */
 /*  FormAlert — error / info banner                                    */
@@ -67,20 +68,25 @@ export function FieldError({ errors, field, className }: FieldErrorProps) {
 /* ------------------------------------------------------------------ */
 
 interface FormSuccessProps {
-  icon: string;
+  /**
+   * Spot illustration path, shown at SectionIcon's `sm` (56px) — the card
+   * labels the outcome rather than opening a section, which is the case `sm`
+   * exists for.
+   */
+  iconSrc: string;
   title: string;
   message: string;
   className?: string;
 }
 
-export function FormSuccess({ icon, title, message, className }: FormSuccessProps) {
+export function FormSuccess({ iconSrc, title, message, className }: FormSuccessProps) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, []);
   return (
-    <div ref={ref} className={cn("bg-white/10 border border-white/20 rounded-2xl p-8 text-center", className)}>
-      <div className="text-4xl mb-4">{icon}</div>
+    <div ref={ref} className={cn("border border-white/20 rounded-2xl p-8 text-center", className)}>
+      <SectionIcon src={iconSrc} alt="" size="sm" className="mb-4" />
       <h3 className="font-display text-2xl text-white text-balance mb-2">{title}</h3>
       <p className="text-white">{message}</p>
     </div>

@@ -32,7 +32,7 @@ function InquiryFormInner() {
 
   if (state?.success) {
     return (
-      <FormSuccess icon="&#9989;" title="Message sent!" message={state.message} />
+      <FormSuccess iconSrc="/images/icons/icon-contact-success.svg" title="Message sent!" message={state.message} />
     );
   }
 
