@@ -15,6 +15,8 @@ export const ALOHA_CENTERED_TOOLTIP =
  *
  * "aloha-centered design" carries the yellow underline — the one term in the
  * sentence that needs explaining, and one underline per sentence is enough.
+ * It shows at every width, a touch thinner and closer on a phone to match the
+ * 24px type there; the phrase never wraps, so it always has one line to sit on.
  *
  * @see /design-system for usage examples
  */
@@ -32,7 +34,7 @@ export function MissionStatement() {
           <img
             src="/images/home/hcd-underline.svg"
             alt=""
-            className="absolute left-0 right-0 -bottom-2 w-full h-[9px] lg:h-[10px] pointer-events-none hidden md:block"
+            className="absolute left-0 right-0 -bottom-1.5 md:-bottom-2 w-full h-[7px] md:h-[9px] lg:h-[10px] pointer-events-none"
           />
         }
       >
