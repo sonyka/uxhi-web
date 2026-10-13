@@ -26,7 +26,7 @@ import { cn } from "@/lib/utils";
  * @see /design-system for usage examples
  */
 
-export type Network = "instagram" | "linkedin";
+export type Network = "instagram" | "linkedin" | "website";
 
 const NETWORKS: Record<Network, { label: string; grey: string; colour: string }> = {
   instagram: {
@@ -38,6 +38,14 @@ const NETWORKS: Record<Network, { label: string; grey: string; colour: string }>
     label: "LinkedIn",
     grey: "/images/nav/glyph-linkedin.svg",
     colour: "/images/nav/glyph-linkedin-color.svg",
+  },
+  // Portfolios and personal sites. The same globe the 2026 conference uses for
+  // speaker websites, filling the box edge to edge like the LinkedIn tile so
+  // the two sit level. No brand to reveal, so the hover is purple-140.
+  website: {
+    label: "Website",
+    grey: "/images/nav/glyph-website.svg",
+    colour: "/images/nav/glyph-website-color.svg",
   },
 };
 

@@ -8,6 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { FOCUS_OPTIONS, EXPERIENCE_LEVEL_OPTIONS, INDUSTRY_OPTIONS, ISLAND_OPTIONS } from "./constants";
 import type { DirectoryMember } from "./MemberCard";
 import { LinkedInLink } from "@/components/ui/LinkedInLink";
+import { SocialGlyph } from "@/components/ui/SocialGlyph";
 
 interface MemberDrawerProps {
   member: DirectoryMember | null;
@@ -203,23 +204,17 @@ export function MemberDrawer({ member, isOpen, onClose }: MemberDrawerProps) {
               {(member.linkedIn || member.portfolio) && (
                 <div className="flex gap-4 pt-4 border-t border-gray-20">
                   {member.linkedIn && (
-<LinkedInLink href={member.linkedIn} name={member.name} size={32} />
+                    <LinkedInLink href={member.linkedIn} name={member.name} size={32} />
                   )}
                   {member.portfolio && (
                     <a
                       href={member.portfolio}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block group"
+                      className="group inline-block"
                       aria-label={`${member.name}'s portfolio`}
                     >
-                      <Image
-                        src="/images/nav/glyph-link.png"
-                        alt="Portfolio"
-                        width={32}
-                        height={32}
-                        className="grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                      />
+                      <SocialGlyph network="website" size={32} />
                     </a>
                   )}
                 </div>
