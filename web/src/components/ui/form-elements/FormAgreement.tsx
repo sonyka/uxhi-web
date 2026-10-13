@@ -90,7 +90,7 @@ export function FormAgreement({
           <p className="font-semibold text-white mb-1">{commitmentTitle}</p>
           <p className="text-base leading-relaxed text-purple-30">{commitment}</p>
         </div>
-        <FormCheckbox name={name} label={`${label} *`} required />
+        <FormCheckbox name={name} label={`${label} *`} required emphasis />
         <FieldError errors={errors} field={name} />
       </div>
     </div>

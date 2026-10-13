@@ -25,8 +25,10 @@ interface PrincipleListProps {
  * icons — these are concepts rather than features, and a decorative icon per
  * term reads as filler next to words doing real work.
  *
- * Each term takes a teal rule above it so the four read as a set at a glance
- * without needing a card or a border box around each one.
+ * At "md", each term takes a teal rule above it so the four read as a set at
+ * a glance without needing a card or a border box around each one. At "sm"
+ * (inside a form panel) the rules go: there the panel already holds the set,
+ * and four cyan bars competed with the checkbox and heading for attention.
  *
  * @see /design-system for usage examples
  */
@@ -43,7 +45,7 @@ export function PrincipleList({ principles, tone = "light", size = "md", classNa
     >
       {principles.map((principle) => (
         <div key={principle.term} className={cn("flex flex-col", sm ? "gap-1.5" : "gap-2")}>
-          <span className="h-[3px] w-10 rounded-full bg-teal-90" aria-hidden="true" />
+          {!sm && <span className="h-[3px] w-10 rounded-full bg-teal-90" aria-hidden="true" />}
           <dt
             className={cn(
               "text-balance",

@@ -10,6 +10,11 @@ interface FormCheckboxProps {
   defaultChecked?: boolean;
   /** Native required: the browser blocks submit until it is ticked. */
   required?: boolean;
+  /**
+   * White box outline and white label, for a checkbox that stands alone as a
+   * commitment (FormAgreement) rather than one option among several.
+   */
+  emphasis?: boolean;
   className?: string;
 }
 
@@ -19,6 +24,7 @@ export function FormCheckbox({
   label,
   defaultChecked = false,
   required,
+  emphasis = false,
   className,
 }: FormCheckboxProps) {
   const [checked, setChecked] = useState(defaultChecked);
@@ -42,7 +48,9 @@ export function FormCheckbox({
           "w-4 h-4 mt-1 rounded border flex items-center justify-center flex-shrink-0 transition-colors",
           checked
             ? "bg-teal-90 border-teal-90"
-            : "border-white/30 bg-white/5",
+            : emphasis
+              ? "border-white bg-white/5"
+              : "border-white/30 bg-white/5",
         )}
       >
         {checked && (
@@ -51,7 +59,9 @@ export function FormCheckbox({
           </svg>
         )}
       </div>
-      <span className="text-purple-30 group-hover:text-white transition-colors">{label}</span>
+      <span className={cn("transition-colors", emphasis ? "text-white" : "text-purple-30 group-hover:text-white")}>
+        {label}
+      </span>
     </label>
   );
 }

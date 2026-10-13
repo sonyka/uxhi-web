@@ -55,8 +55,12 @@ export function MembershipForm() {
       ? `/add-profile?${new URLSearchParams(state.prefill)}`
       : "/add-profile";
 
+    // Keyed on the step so skipping remounts the card, and its mount scroll
+    // runs again. Otherwise React keeps the same card, the step 2 form below
+    // it vanishes, and the page collapses with the view left at the bottom.
     const received = (
       <FormSuccess
+        key={profileStep}
         iconSrc="/images/icons/icon-apply-success.svg"
         title="Application received!"
         message={state.message}

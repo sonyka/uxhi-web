@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, LayoutGroup } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { staggerContainer, fadeInUp } from "@/lib/animations";
 import { TeamCard } from "./TeamCard";
 import type { TeamMember } from "./index";
@@ -148,15 +149,15 @@ export function TeamSection({ members, id }: TeamSectionProps) {
               <div className="space-y-12">
                 {boardGroups.map((group) => (
                   <div key={group.key}>
-                    <motion.h4
+                    <motion.div
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
-                      className="text-gray-110 text-base font-semibold mb-4"
+                      className="mb-4"
                     >
-                      {group.label}
-                    </motion.h4>
+                      <SectionEyebrow>{group.label}</SectionEyebrow>
+                    </motion.div>
                     <motion.div
                       variants={staggerContainer}
                       initial="hidden"

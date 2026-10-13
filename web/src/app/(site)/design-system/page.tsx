@@ -858,7 +858,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "icons-social": (
     <ContentSection
       title="Social Glyph"
-      description="LinkedIn and Instagram as outline marks: gray at rest, full brand colour on hover. Colour is revealed by group-hover, so the hover target is whatever ancestor carries `group` — the link around it, or a button or row it sits inside."
+      description="LinkedIn, Instagram and website (globe, for portfolios) marks: gray at rest, full colour on hover — purple-140 for the globe, which has no brand. Colour is revealed by group-hover, so the hover target is whatever ancestor carries `group` — the link around it, or a button or row it sits inside."
       componentPath="components/ui/SocialGlyph.tsx"
     >
       <div className="space-y-6">
@@ -872,6 +872,10 @@ const contentComponents: Record<string, React.ReactNode> = {
             <a href="#" className="group inline-flex items-center gap-2 text-gray-120">
               <SocialGlyph network="instagram" size={24} />
               Instagram
+            </a>
+            <a href="#" className="group inline-flex items-center gap-2 text-gray-120">
+              <SocialGlyph network="website" size={24} />
+              Website
             </a>
           </div>
         </div>
@@ -887,8 +891,9 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
         </div>
         <p className="text-sm text-gray-100 max-w-[62ch]">
-          Both marks are drawn in one 48x48 box at one stroke weight, so they read as a
-          set. The reveal cross-fades two files rather than filtering one: the resting
+          The marks fill one square box at one weight, so they read as a set; the
+          globe is the one the 2026 conference uses for speaker websites, used in the
+          member directory for portfolios. The reveal cross-fades two files rather than filtering one: the resting
           gray is a chosen neutral, not a desaturation of either brand colour.
           LinkedInLink wraps this for profile links.
         </p>
@@ -1630,7 +1635,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-principles": (
     <ContentSection
       title="Principle List"
-      description="A set of named ideas, each with a short definition, rendered as a description list — the term is the thing being defined and the sentence defines it. Deliberately has no icons: these are concepts rather than features, and a decorative icon per term reads as filler next to words doing real work. Each term takes a teal rule above it so the set reads at a glance without boxing each one in a card. tone=&quot;dark&quot; is for purple grounds; size=&quot;sm&quot; is one column with h5-style terms (Nunito semibold), as inside the form agreement panel."
+      description="A set of named ideas, each with a short definition, rendered as a description list — the term is the thing being defined and the sentence defines it. Deliberately has no icons: these are concepts rather than features, and a decorative icon per term reads as filler next to words doing real work. Each term takes a teal rule above it so the set reads at a glance without boxing each one in a card. tone=&quot;dark&quot; is for purple grounds; size=&quot;sm&quot; is one column with h5-style terms (Nunito semibold) and no teal rules, as inside the form agreement panel."
       componentPath="components/ui/PrincipleList.tsx"
     >
       <PrincipleList
@@ -2357,7 +2362,8 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Unchecked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/30 bg-white/5</span></p>
+                <p>Unchecked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/30 bg-white/5</span> (emphasis: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white</span>)</p>
+                <p>Label: purple-30, white on hover (emphasis: always white)</p>
                 <p>Checked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-teal-90 border-teal-90</span></p>
                 <p>Inner dot: white, scales in on check</p>
                 <p>Label: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-30</span>, white on hover</p>
@@ -2380,7 +2386,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "form-checkbox": (
     <ContentSection
       title="Checkbox"
-      description="Custom-styled checkbox with teal fill and SVG checkmark. Matches the directory's custom checkbox rendering. The box aligns to the label's first line, so long labels wrap cleanly; required is passed to the native input."
+      description="Custom-styled checkbox with teal fill and SVG checkmark. Matches the directory's custom checkbox rendering. The box aligns to the label's first line, so long labels wrap cleanly; required is passed to the native input. emphasis gives a white box outline and white label, for a lone commitment checkbox (FormAgreement)."
       componentPath="components/ui/form-elements/FormCheckbox.tsx"
     >
       <div className="space-y-8">
@@ -2394,6 +2400,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <FormCheckbox name="demo-cb" value="c" label="Volunteering" defaultChecked />
               <FormCheckbox name="demo-cb" value="d" label="Content creation" />
             </div>
+            <FormCheckbox name="demo-cb-emphasis" label="I agree (emphasis) *" emphasis />
           </div>
         </div>
         <div>
@@ -2402,7 +2409,8 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Unchecked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/30 bg-white/5</span></p>
+                <p>Unchecked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/30 bg-white/5</span> (emphasis: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white</span>)</p>
+                <p>Label: purple-30, white on hover (emphasis: always white)</p>
                 <p>Checked: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-teal-90 border-teal-90</span></p>
                 <p>Checkmark: white SVG stroke</p>
                 <p>4px rounded corners</p>
@@ -2532,7 +2540,8 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Panel: <span className="font-mono text-xs bg-gray-20 px-1 rounded">rounded-2xl border-white/20 bg-white/5</span></p>
                 <p>Heading: h4 style (<span className="font-mono text-xs bg-gray-20 px-1 rounded">text-xl font-semibold</span>), white; hint in purple-30</p>
                 <p>Plus (teal-90) / minus (white), as in the FAQ</p>
-                <p>Statement + checkbox below a <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/20</span> rule</p>
+                <p>Statement + checkbox below a <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/20</span> rule; checkbox uses <span className="font-mono text-xs bg-gray-20 px-1 rounded">emphasis</span> (white box and label)</p>
+                <p>Principles inside use PrincipleList size=&quot;sm&quot;: no teal rules</p>
               </div>
             </div>
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
