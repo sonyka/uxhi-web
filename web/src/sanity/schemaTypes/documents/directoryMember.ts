@@ -15,6 +15,13 @@ export const directoryMember = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "email",
+      title: "Email",
+      type: "string",
+      description:
+        "Private — never shown on the site. Matches this profile to the member's membership application.",
+    }),
+    defineField({
       name: "title",
       title: "Job Title",
       type: "string",

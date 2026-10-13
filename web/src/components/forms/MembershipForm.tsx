@@ -1,32 +1,87 @@
 "use client";
 import { SpamGuard } from "./SpamGuard";
 
-import { useActionState } from "react";
+import { useActionState, useCallback, useState } from "react";
 import { submitMembership, type MembershipState } from "@/lib/actions/membership";
-import {
-  EXPERIENCE_OPTIONS,
-  CONTRIBUTE_OPTIONS,
-  HEAR_ABOUT_OPTIONS,
-} from "@/lib/validations";
+import { INTEREST_OPTIONS, HEAR_ABOUT_OPTIONS } from "@/lib/validations";
+import { EXPERIENCE_LEVEL_OPTIONS } from "@/components/directory/constants";
 import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionLead } from "@/components/ui/SectionLead";
+import { InlineLink } from "@/components/ui/InlineLink";
+import { DirectorySubmitForm } from "./DirectorySubmitForm";
 import {
   FormLabel,
   FormInput,
-  FormTextarea,
   FormRadio,
   FormCheckbox,
   FormSubmitButton,
 } from "@/components/ui/form-elements";
 
+/**
+ * Joining is step 1; adding a directory profile is an optional step 2 in the
+ * same spot. The application is saved when step 1 submits, so skipping,
+ * leaving or refreshing at step 2 never loses it.
+ */
 export function MembershipForm() {
   const [state, formAction, isPending] = useActionState<MembershipState, FormData>(
     submitMembership,
     null,
   );
+  const [profileStep, setProfileStep] = useState<"open" | "done" | "skipped">("open");
+  const finishProfile = useCallback(() => setProfileStep("done"), []);
+  const skipProfile = useCallback(() => setProfileStep("skipped"), []);
 
   if (state?.success) {
+    if (profileStep === "done") {
+      return (
+        <FormSuccess
+          iconSrc="/images/icons/icon-directory-success.svg"
+          title="You're all set!"
+          message="Your membership application and directory profile are in. We'll review both and publish your profile within a few business days."
+        />
+      );
+    }
+
+    // Carries what they told us, so coming back later still opens a filled-in form.
+    const addProfileHref = state.prefill
+      ? `/add-profile?${new URLSearchParams(state.prefill)}`
+      : "/add-profile";
+
+    const received = (
+      <FormSuccess
+        iconSrc="/images/icons/icon-apply-success.svg"
+        title="Application received!"
+        message={state.message}
+        action={
+          profileStep === "skipped" ? (
+            <p className="text-white">
+              Changed your mind? You can{" "}
+              <InlineLink href={addProfileHref}>add your directory profile</InlineLink> anytime.
+            </p>
+          ) : undefined
+        }
+      />
+    );
+
+    // No prefill means the spam guard answered, not a person: no step 2.
+    if (profileStep === "skipped" || !state.prefill) return received;
+
     return (
-      <FormSuccess iconSrc="/images/icons/icon-apply-success.svg" title="Application received!" message={state.message} />
+      <div className="space-y-10">
+        {received}
+        <div className="text-center">
+          <SectionHeading as="h3" size="sm" color="white" className="mb-3">
+            Next: join our member directory
+          </SectionHeading>
+          <SectionLead size="md" color="white">
+            Whether you&apos;re looking for new opportunities, seeking collaborators, or
+            wanting to give back as a mentor, this is your chance to be discovered.
+            We&apos;ve filled in what you just told us, so it only takes a minute.
+          </SectionLead>
+        </div>
+        <DirectorySubmitForm prefill={state.prefill} onSkip={skipProfile} onSuccess={finishProfile} />
+      </div>
     );
   }
 
@@ -58,26 +113,27 @@ export function MembershipForm() {
       </div>
 
       <div>
-        <FormLabel htmlFor="linkedinOrWebsite">LinkedIn or Website *</FormLabel>
+        <FormLabel htmlFor="linkedIn">LinkedIn URL *</FormLabel>
         <FormInput
           type="url"
-          id="linkedinOrWebsite"
-          name="linkedinOrWebsite"
+          id="linkedIn"
+          name="linkedIn"
           required
-          placeholder="https://"
+          placeholder="https://linkedin.com/in/..."
         />
-        <FieldError errors={state?.errors} field="linkedinOrWebsite" />
+        <FieldError errors={state?.errors} field="linkedIn" />
       </div>
 
       <fieldset>
-        <FormLabel as="legend">Experience Level *</FormLabel>
+        <FormLabel as="legend">Experience in UX *</FormLabel>
+        {/* One column: an ordered scale zigzags when split in two. */}
         <div className="space-y-2 mt-1">
-          {EXPERIENCE_OPTIONS.map((option) => (
+          {EXPERIENCE_LEVEL_OPTIONS.map((option) => (
             <FormRadio
-              key={option}
+              key={option.value}
               name="experienceLevel"
-              value={option}
-              label={option}
+              value={option.value}
+              label={option.title}
               required
             />
           ))}
@@ -85,18 +141,13 @@ export function MembershipForm() {
         <FieldError errors={state?.errors} field="experienceLevel" />
       </fieldset>
 
-      <div>
-        <FormLabel htmlFor="hopes">What do you hope to get out of the community?</FormLabel>
-        <FormTextarea id="hopes" name="hopes" rows={3} />
-      </div>
-
       <fieldset>
-        <FormLabel as="legend">What can you contribute?</FormLabel>
-        <div className="space-y-2 mt-1">
-          {CONTRIBUTE_OPTIONS.map((option) => (
+        <FormLabel as="legend">What brings you to UXHI?</FormLabel>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
+          {INTEREST_OPTIONS.map((option) => (
             <FormCheckbox
               key={option}
-              name="contributions"
+              name="interests"
               value={option}
               label={option}
             />

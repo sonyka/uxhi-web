@@ -1,6 +1,7 @@
 "use server";
 
 import { membershipSchema } from "@/lib/validations";
+import { EXPERIENCE_LEVEL_OPTIONS } from "@/components/directory/constants";
 import { client } from "@/sanity/lib/client";
 import { sendSlackNotification } from "@/lib/slack";
 import { looksAutomated, isRepeatSubmission, rememberSubmission } from "@/lib/spam";
@@ -14,7 +15,18 @@ export type MembershipState = {
   success: boolean;
   message: string;
   errors?: Record<string, string[]>;
+  /** Carried into step 2, the directory form, so a new member doesn't type it all again. */
+  prefill?: MembershipPrefill;
 } | null;
+
+export type MembershipPrefill = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  linkedIn: string;
+  /** The value slug, e.g. "3-4-years", as the directory form stores it. */
+  experienceLevel: string;
+};
 
 export async function submitMembership(
   _prevState: MembershipState,
@@ -36,10 +48,9 @@ export async function submitMembership(
     firstName: formData.get("firstName"),
     lastName: formData.get("lastName"),
     email: formData.get("email"),
-    linkedinOrWebsite: formData.get("linkedinOrWebsite"),
+    linkedIn: formData.get("linkedIn"),
     experienceLevel: formData.get("experienceLevel"),
-    hopes: formData.get("hopes") || undefined,
-    contributions: formData.getAll("contributions").filter(Boolean) as string[],
+    interests: formData.getAll("interests").filter(Boolean) as string[],
     hearAboutUs: formData.get("hearAboutUs") || undefined,
   };
 
@@ -53,6 +64,10 @@ export async function submitMembership(
   }
 
   const data = result.data;
+  // Saved as the label: Studio shows it next to older applications, whose
+  // answers are on the career-stage scale this replaced.
+  const experienceTitle =
+    EXPERIENCE_LEVEL_OPTIONS.find((o) => o.value === data.experienceLevel)?.title ?? data.experienceLevel;
 
   try {
     // Save to Sanity
@@ -60,10 +75,9 @@ export async function submitMembership(
       _type: "membershipApplication",
       name: `${data.firstName} ${data.lastName}`,
       email: data.email,
-      linkedinOrWebsite: data.linkedinOrWebsite,
-      experienceLevel: data.experienceLevel,
-      hopes: data.hopes || "",
-      contributions: data.contributions || [],
+      linkedinOrWebsite: data.linkedIn,
+      experienceLevel: experienceTitle,
+      interests: data.interests || [],
       hearAboutUs: data.hearAboutUs || "",
       status: "new",
       submittedAt: new Date().toISOString(),
@@ -80,15 +94,12 @@ export async function submitMembership(
         fields: [
           { type: "mrkdwn", text: `*Name:*\n${data.firstName} ${data.lastName}` },
           { type: "mrkdwn", text: `*Email:*\n${data.email}` },
-          { type: "mrkdwn", text: `*LinkedIn/Website:*\n${data.linkedinOrWebsite}` },
-          { type: "mrkdwn", text: `*Experience:*\n${data.experienceLevel}` },
+          { type: "mrkdwn", text: `*LinkedIn:*\n${data.linkedIn}` },
+          { type: "mrkdwn", text: `*Experience:*\n${experienceTitle}` },
         ],
       },
-      ...(data.hopes
-        ? [{ type: "section", text: { type: "mrkdwn", text: `*Hopes:*\n${data.hopes}` } }]
-        : []),
-      ...(data.contributions?.length
-        ? [{ type: "section", text: { type: "mrkdwn", text: `*Can contribute:*\n${data.contributions.join(", ")}` } }]
+      ...(data.interests?.length
+        ? [{ type: "section", text: { type: "mrkdwn", text: `*What brings them:*\n${data.interests.join(", ")}` } }]
         : []),
     ]);
 
@@ -96,6 +107,13 @@ export async function submitMembership(
     return {
       success: true,
       message: "Thanks for applying! We'll review your application and be in touch soon.",
+      prefill: {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        linkedIn: data.linkedIn,
+        experienceLevel: data.experienceLevel,
+      },
     };
   } catch (error) {
     console.error("Membership submission error:", error);

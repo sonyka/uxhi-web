@@ -52,6 +52,7 @@ import {
   FormCheckbox,
   FormSelect,
   FormFileUpload,
+  FormHelpText,
   FormSubmitButton,
 } from "@/components/ui/form-elements";
 
@@ -161,6 +162,7 @@ const navigationItems = [
       { id: "form-checkbox", label: "Checkbox" },
       { id: "form-select", label: "Select Dropdown" },
       { id: "form-file", label: "File Upload" },
+      { id: "form-helptext", label: "Help Text" },
       { id: "form-submit", label: "Submit Button" },
       { id: "form-inquiry", label: "Inquiry Form" },
       { id: "form-membership", label: "Membership Form" },
@@ -1347,7 +1349,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Status</h4>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             <ColorSwatch name="Warning" value="#FF6933" textColor="text-white" badge="orange-90" />
-            <ColorSwatch name="Warning Subtle" value="rgba(255,105,51,0.2)" badge="orange-90/20" />
+            <ColorSwatch name="Warning Subtle" value="var(--color-warning-subtle)" badge="warning-subtle" />
             <ColorSwatch name="Success" value="#09C0D7" textColor="text-white" badge="teal-90" />
             <ColorSwatch name="Danger" value="#F34100" textColor="text-white" badge="orange-110" />
             <ColorSwatch name="Info" value="#9C8FE6" badge="purple-50" />
@@ -2419,6 +2421,34 @@ const contentComponents: Record<string, React.ReactNode> = {
       </div>
     </ContentSection>
   ),
+  "form-helptext": (
+    <ContentSection
+      title="Help Text"
+      description="Quiet note under a field: format hints, privacy notes, &quot;one of these two&quot;. FormFileUpload renders its helpText with it."
+      componentPath="components/ui/form-elements/FormHelpText.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-140 rounded-2xl p-8 max-w-md">
+            <FormLabel htmlFor="demo-helptext-email">Email *</FormLabel>
+            <FormInput type="email" id="demo-helptext-email" name="demo-helptext-email" />
+            <FormHelpText>Private. Never shown in the directory.</FormHelpText>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="p-4 bg-beige-30 rounded-xl space-y-3 max-w-md">
+            <p className="text-sm font-semibold text-gray-120">Styling</p>
+            <div className="text-sm text-gray-110 space-y-1">
+              <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">text-base text-purple-30 mt-1.5</span></p>
+              <p>Sits below the input and above any FieldError</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
   "form-file": (
     <ContentSection
       title="File Upload"
@@ -2454,7 +2484,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Button: pill shape, <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20</span></p>
                 <p>Preview: 80px circle with border</p>
-                <p>Help text: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-purple-30</span></p>
+                <p>Help text: <span className="font-mono text-xs bg-gray-20 px-1 rounded">FormHelpText</span> (<span className="font-mono text-xs bg-gray-20 px-1 rounded">text-base text-purple-30</span>)</p>
               </div>
             </div>
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
@@ -2543,7 +2573,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>First Name, Last Name (required)</p>
                 <p>Email (required)</p>
                 <p>Role, Company Name (optional)</p>
-                <p>Interest type — radio (required)</p>
+                <p>Interest type — radio (required). Pre-selectable via <span className="font-mono text-xs bg-gray-20 px-1 rounded">?interest=</span>, e.g. /directory&apos;s &quot;Need to change your listing?&quot; link</p>
                 <p>Message — textarea (required)</p>
               </div>
             </div>
@@ -2581,7 +2611,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "form-membership": (
     <ContentSection
       title="Membership Form"
-      description="Join form on /join. Appends to Google Sheet + Slack notification. Designed for purple (bg-purple-140) backgrounds."
+      description="Join form on /join, step 1 of 2. Saves to Sanity membershipApplication + Slack the moment it submits. Then, in the same spot, offers an optional step 2: the directory form, pre-filled, with Skip for now. Designed for purple (bg-purple-140) backgrounds."
       componentPath={["components/forms/MembershipForm.tsx", "lib/actions/membership.ts"]}
     >
       <div className="space-y-8">
@@ -2599,17 +2629,30 @@ const contentComponents: Record<string, React.ReactNode> = {
               <div className="text-sm text-gray-110 space-y-1">
                 <p>First Name, Last Name (required)</p>
                 <p>Email (required)</p>
-                <p>LinkedIn or Website — url (required)</p>
-                <p>Experience Level — radio, 6 options (required)</p>
-                <p>Hopes — textarea (optional)</p>
-                <p>Contributions — checkboxes, 5 options (optional)</p>
+                <p>LinkedIn URL (required)</p>
+                <p>Experience in UX — radio, 7 options on the directory&apos;s years scale (required)</p>
+                <p>What brings you to UXHI — checkboxes, 7 options (optional)</p>
                 <p>How did you hear about us — radio (optional)</p>
+              </div>
+              <p className="text-xs text-gray-100 pt-1">
+                Experience uses <span className="font-mono text-xs bg-gray-20 px-1 rounded">EXPERIENCE_LEVEL_OPTIONS</span> so the answer carries into the directory
+                profile instead of being asked twice. Saved to the application as its label.
+              </p>
+            </div>
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-120">Step 2 flow</p>
+              <div className="text-sm text-gray-110 space-y-1">
+                <p>Submit → &quot;Application received!&quot; card, a &quot;Next: join our member directory&quot; intro, and <span className="font-mono text-xs bg-gray-20 px-1 rounded">DirectorySubmitForm</span> with <span className="font-mono text-xs bg-gray-20 px-1 rounded">prefill</span></p>
+                <p>Profile submitted → one &quot;You&apos;re all set!&quot; card</p>
+                <p>Skip for now → the received card, with a pre-filled link to /add-profile</p>
+                <p>Step 2 state is client-only: a refresh drops it, never the application</p>
               </div>
             </div>
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Integrations</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Appends row to Google Sheet</p>
+                <p>Saves to Sanity <span className="font-mono text-xs bg-gray-20 px-1 rounded">membershipApplication</span> schema</p>
+                <p>Success state returns <span className="font-mono text-xs bg-gray-20 px-1 rounded">prefill</span> (name, email, LinkedIn, experience) for step 2</p>
                 <p>Slack notification via webhook</p>
                 <p>Honeypot spam protection</p>
                 <p>Rate limiting (1/hr per email)</p>
@@ -2623,7 +2666,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "form-directory": (
     <ContentSection
       title="Directory Submission Form"
-      description="Directory submission form on /directory. Creates draft directoryMember in Sanity + Slack notification. Designed for purple (bg-purple-140) backgrounds."
+      description="Directory profile form. The directory is members-only: on /add-profile it is the full form for members adding a profile later (from member emails, the skip link, or /directory); on /join it is step 2, with what joining collected passed in as prefill. Creates draft directoryMember in Sanity + Slack notification. Designed for purple (bg-purple-140) backgrounds."
       componentPath={["components/forms/DirectorySubmitForm.tsx", "lib/actions/directory-submit.ts"]}
     >
       <div className="space-y-8">
@@ -2634,12 +2677,28 @@ const contentComponents: Record<string, React.ReactNode> = {
           </div>
         </div>
         <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">As step 2 of the join form (prefill + onSkip)</h4>
+          <div className="bg-purple-140 rounded-2xl p-8">
+            <DirectorySubmitForm
+              prefill={{
+                firstName: "Kai",
+                lastName: "Lee",
+                email: "kai@example.com",
+                linkedIn: "https://linkedin.com/in/kai",
+                experienceLevel: "3-4-years",
+              }}
+              onSkip={() => {}}
+            />
+          </div>
+        </div>
+        <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Fields</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>First Name, Last Name (required)</p>
+                <p>Email — private, never published (required)</p>
                 <p>Job Title (optional)</p>
                 <p>Photo — file upload with preview (required)</p>
                 <p>Open to Work — checkbox (optional)</p>
@@ -2647,8 +2706,15 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Experience Level — dropdown, 7 options (optional)</p>
                 <p>Industries — multi-select, 26 options (optional)</p>
                 <p>Location, Education/Bootcamp (optional)</p>
-                <p>LinkedIn URL, Portfolio URL (optional)</p>
+                <p>LinkedIn URL, Website or Portfolio (optional)</p>
               </div>
+              <p className="text-xs text-gray-100 pt-1">
+                With <span className="font-mono text-xs bg-gray-20 px-1 rounded">prefill</span>: name, email, LinkedIn and experience become hidden inputs behind a
+                one-line summary, leaving Website or Portfolio as the only link field.
+              </p>
+              <p className="text-xs text-gray-100 pt-1">
+                URL pre-fill (member outreach links): <span className="font-mono text-xs bg-gray-20 px-1 rounded">firstName</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">lastName</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">email</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">linkedIn</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">experienceLevel</span>.
+              </p>
               <p className="text-xs text-gray-100 pt-1">
                 Focus, Industry, Island and Experience options mirror the Notion member
                 directory, which is the source of truth for this taxonomy. Change them in{" "}
@@ -2657,13 +2723,23 @@ const contentComponents: Record<string, React.ReactNode> = {
               </p>
             </div>
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-120">Props (all optional)</p>
+              <div className="text-sm text-gray-110 space-y-1">
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">prefill</span> — MembershipPrefill, from the join form&apos;s success state</p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">onSkip</span> — adds a &quot;Skip for now&quot; text button beside Submit</p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">onSuccess</span> — the parent shows the success card instead</p>
+              </div>
+            </div>
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Integrations</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Uploads photo to Sanity assets</p>
                 <p>Creates draft <span className="font-mono text-xs bg-gray-20 px-1 rounded">directoryMember</span> doc</p>
                 <p>Admin publishes in Sanity Studio</p>
+                <p>Looks up a membership application by email; Slack says found / not found (never blocks — members from before the site have no record)</p>
                 <p>Slack notification via webhook</p>
                 <p>Honeypot spam protection</p>
+                <p>Rate limiting (1/hr per email, keyed <span className="font-mono text-xs bg-gray-20 px-1 rounded">directory:email</span> so it doesn&apos;t collide with the join form)</p>
               </div>
             </div>
           </div>
@@ -2707,7 +2783,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Error: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-orange-90/20 border-orange-70/30 text-orange-30</span></p>
+                <p>Error: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-warning-subtle border-white/20 text-white</span></p>
                 <p>Info: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white/10 border-white/20 text-white</span></p>
                 <p>Adds <span className="font-mono text-xs bg-gray-20 px-1 rounded">role=&quot;alert&quot;</span> for accessibility</p>
               </div>
@@ -2794,6 +2870,24 @@ const contentComponents: Record<string, React.ReactNode> = {
               <span className="text-xs text-purple-30 mb-2 block">Membership form</span>
               <FormSuccess iconSrc="/images/icons/icon-apply-success.svg" title="Application received!" message="Thanks for applying! We'll review your application and be in touch soon." />
             </div>
+            <div>
+              <span className="text-xs text-purple-30 mb-2 block">Membership form, after Skip for now — with action</span>
+              <FormSuccess
+                iconSrc="/images/icons/icon-apply-success.svg"
+                title="Application received!"
+                message="Thanks for applying! We'll review your application and be in touch soon."
+                action={
+                  <p className="text-white">
+                    Changed your mind? You can{" "}
+                    <InlineLink href="/add-profile">add your directory profile</InlineLink> anytime.
+                  </p>
+                }
+              />
+            </div>
+            <div>
+              <span className="text-xs text-purple-30 mb-2 block">Membership form, after step 2</span>
+              <FormSuccess iconSrc="/images/icons/icon-directory-success.svg" title="You're all set!" message="Your membership application and directory profile are in. We'll review both and publish your profile within a few business days." />
+            </div>
           </div>
         </div>
         <div>
@@ -2805,6 +2899,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">iconSrc</span> — string (required), illustration path, rendered by SectionIcon at sm (56px)</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">title</span> — string (required)</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">message</span> — string (required)</p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">action</span> — ReactNode (optional), the next step under the message. The join form passes a link to /add-profile after Skip for now.</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">className</span> — optional overrides</p>
               </div>
             </div>
@@ -2815,6 +2910,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Illustration: <span className="font-mono text-xs bg-gray-20 px-1 rounded">SectionIcon size=&quot;sm&quot;</span> — 56px, mb-4</p>
                 <p>Title: <span className="font-mono text-xs bg-gray-20 px-1 rounded">font-display text-2xl text-white</span></p>
                 <p>Message: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-white</span></p>
+                <p>Action: wrapped in <span className="font-mono text-xs bg-gray-20 px-1 rounded">mt-6</span></p>
               </div>
             </div>
           </div>

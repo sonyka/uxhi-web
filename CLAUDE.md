@@ -183,13 +183,14 @@ Full audit, principles and history: [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONF
 | `FormCheckbox` | `components/ui/form-elements/FormCheckbox.tsx` | Custom checkbox with teal fill + SVG checkmark |
 | `FormSelect` | `components/ui/form-elements/FormSelect.tsx` | Custom dropdown with purple panel + hidden input |
 | `FormFileUpload` | `components/ui/form-elements/FormFileUpload.tsx` | Styled file upload with optional circular preview |
+| `FormHelpText` | `components/ui/form-elements/FormHelpText.tsx` | Quiet note under a field (format hints, privacy notes) |
 | `FormSubmitButton` | `components/ui/form-elements/FormSubmitButton.tsx` | Pill button with icon circle (send or arrow variant) |
 | `InquiryForm` | `components/forms/InquiryForm.tsx` | Contact form for /about#contact (purple bg, saves to Sanity + Slack) |
-| `MembershipForm` | `components/forms/MembershipForm.tsx` | Membership application for /join (purple bg, Google Sheet + Slack) |
-| `DirectorySubmitForm` | `components/forms/DirectorySubmitForm.tsx` | Directory submission for /directory (purple bg, Sanity draft + Slack) |
+| `MembershipForm` | `components/forms/MembershipForm.tsx` | Membership application for /join (purple bg, Sanity + Slack); then an optional step 2 in place: the directory form, pre-filled |
+| `DirectorySubmitForm` | `components/forms/DirectorySubmitForm.tsx` | Directory profile form (purple bg, Sanity draft + Slack). Members-only: full form on /add-profile; `prefill`/`onSkip` make it step 2 of the join form |
 | `FormAlert` | `components/ui/FormFeedback.tsx` | Error/info banner for forms (error or info variant) |
 | `FieldError` | `components/ui/FormFeedback.tsx` | Field-level validation message (yellow text below inputs) |
-| `FormSuccess` | `components/ui/FormFeedback.tsx` | Post-submission success card (icon, title, message) |
+| `FormSuccess` | `components/ui/FormFeedback.tsx` | Post-submission success card (icon, title, message, optional `action` under the message) |
 | `TextSlideUp` | `components/ui/TextSlideUp.tsx` | Text slide-up hover animation (used in Navbar, PrimaryCTA) |
 
 ### Data Fetching

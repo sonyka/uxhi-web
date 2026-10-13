@@ -6,6 +6,7 @@ import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { InlineLink } from "@/components/ui/InlineLink";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
 import { MEMBER_COUNT_PLUS } from "@/lib/stats";
 import type { Metadata } from "next";
@@ -129,7 +130,7 @@ export default function JoinPage() {
             </MotionDiv>
             <MotionDiv>
               <p className="text-white text-lg leading-relaxed">
-                Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll get access to our Membership Directory and Slack Community with {MEMBER_COUNT_PLUS} designers!
+                Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll join our Slack Community with {MEMBER_COUNT_PLUS} designers and can add yourself to our Member Directory, the next step once you&apos;ve applied!
                 {/* Its own line: inline, it trailed a long paragraph and read
                     as part of the sentence rather than as a thing to tap. */}
                 <MobileTooltip
@@ -140,6 +141,15 @@ export default function JoinPage() {
                 >
                   What is Slack?
                 </MobileTooltip>
+              </p>
+            </MotionDiv>
+            <MotionDiv>
+              {/* The reverse of the line above the About contact form: routes
+                  anyone who is not here to join towards the general inquiry. */}
+              <p className="text-white text-lg leading-relaxed mt-6 max-w-[600px] mx-auto">
+                Have a question or looking to connect with us?{" "}
+                <InlineLink href="/about#contact">Visit our contact form</InlineLink>
+                {" "}to reach out about partnerships, sponsorships, events, or anything else.
               </p>
             </MotionDiv>
           </ScrollReveal>

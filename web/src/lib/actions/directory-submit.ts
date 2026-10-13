@@ -24,10 +24,10 @@ export async function submitDirectoryEntry(
     return { success: true, message: "Your profile has been submitted for review." };
   }
 
-  // Keyed on the name: this form has no email field.
-  const firstName = formData.get("firstName") as string;
-  const lastName = formData.get("lastName") as string;
-  const key = `${firstName} ${lastName}`.toLowerCase().trim();
+  // Prefixed so it doesn't collide with membership.ts, which keys on the bare
+  // email: someone who has just joined is sent straight here to add a profile.
+  const email = ((formData.get("email") as string) || "").toLowerCase().trim();
+  const key = email ? `directory:${email}` : "";
   if (isRepeatSubmission(key)) {
     return {
       success: false,
@@ -38,6 +38,7 @@ export async function submitDirectoryEntry(
   const raw = {
     firstName: formData.get("firstName"),
     lastName: formData.get("lastName"),
+    email: formData.get("email"),
     jobTitle: formData.get("jobTitle") || undefined,
     openToWork: formData.get("openToWork") === "on",
     focus: formData.getAll("focus").filter(Boolean) as string[],
@@ -105,6 +106,7 @@ export async function submitDirectoryEntry(
       _id: draftId,
       _type: "directoryMember",
       name: `${data.firstName} ${data.lastName}`,
+      email: data.email,
       title: data.jobTitle || "",
       photo: {
         _type: "image",
@@ -123,6 +125,17 @@ export async function submitDirectoryEntry(
       order: 0,
     });
 
+    // The directory is members-only. Checked here for the reviewer, never
+    // enforced: members from before this site have no record, so a miss is
+    // a question for a person, not a refusal.
+    const found = await writeClient.fetch<number>(
+      `count(*[_type == "membershipApplication" && lower(email) == $email])`,
+      { email: data.email.toLowerCase() },
+    );
+    const memberNote = found
+      ? "Membership record found"
+      : "No membership record for this email (may have joined before the site) — check before publishing";
+
     // Slack notification
     await sendSlackNotification([
       {
@@ -133,6 +146,7 @@ export async function submitDirectoryEntry(
         type: "section",
         fields: [
           { type: "mrkdwn", text: `*Name:*\n${data.firstName} ${data.lastName}` },
+          { type: "mrkdwn", text: `*Email:*\n${data.email}` },
           ...(data.jobTitle ? [{ type: "mrkdwn", text: `*Title:*\n${data.jobTitle}` }] : []),
           ...(data.island ? [{ type: "mrkdwn", text: `*Location:*\n${[data.city, data.island].filter(Boolean).join(", ")}` }] : []),
           ...(data.experienceLevel ? [{ type: "mrkdwn", text: `*Experience:*\n${data.experienceLevel}` }] : []),
@@ -140,7 +154,10 @@ export async function submitDirectoryEntry(
       },
       {
         type: "context",
-        elements: [{ type: "mrkdwn", text: "Awaiting admin review — publish in Sanity Studio to add to directory" }],
+        elements: [
+          { type: "mrkdwn", text: memberNote },
+          { type: "mrkdwn", text: "Awaiting admin review — publish in Sanity Studio to add to directory" },
+        ],
       },
     ]);
 

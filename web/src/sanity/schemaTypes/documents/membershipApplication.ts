@@ -19,7 +19,8 @@ export const membershipApplication = defineType({
     }),
     defineField({
       name: "linkedinOrWebsite",
-      title: "LinkedIn / Website",
+      title: "LinkedIn",
+      description: "Older applications may hold a website instead",
       type: "string",
       readOnly: true,
     }),
@@ -30,16 +31,29 @@ export const membershipApplication = defineType({
       readOnly: true,
     }),
     defineField({
-      name: "hopes",
-      title: "Hopes for Membership",
-      type: "text",
-      readOnly: true,
-    }),
-    defineField({
-      name: "contributions",
+      name: "interests",
+      title: "What Brings Them to UXHI",
       type: "array",
       of: [defineArrayMember({ type: "string" })],
       readOnly: true,
+    }),
+    // Older applications only: the join form asked these two before
+    // "What brings you to UXHI?" replaced them. Hidden when empty.
+    defineField({
+      name: "hopes",
+      title: "Hopes for Membership",
+      description: "Older applications only",
+      type: "text",
+      readOnly: true,
+      hidden: ({ value }) => !value,
+    }),
+    defineField({
+      name: "contributions",
+      description: "Older applications only",
+      type: "array",
+      of: [defineArrayMember({ type: "string" })],
+      readOnly: true,
+      hidden: ({ value }) => !value || (Array.isArray(value) && value.length === 0),
     }),
     defineField({
       name: "hearAboutUs",

@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
+import { FormHelpText } from "./FormHelpText";
 
 interface FormFileUploadProps {
   name: string;
@@ -77,7 +78,7 @@ export function FormFileUpload({
       </div>
 
       {helpText && (
-        <p className="text-base text-purple-30">{helpText}</p>
+        <FormHelpText className="mt-0">{helpText}</FormHelpText>
       )}
     </div>
   );

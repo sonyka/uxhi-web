@@ -28,6 +28,8 @@ const CONFERENCE_HOSTS = ["uxhiconference.com", "www.uxhiconference.com"];
  * Absent on purpose:
  * - /studio — a login screen, already disallowed in robots.ts
  * - /design-system — internal documentation, noindexed in its own layout
+ * - /add-profile — a members' form, reached from /join, /directory and member
+ *   emails; noindexed so search sends newcomers to /join instead
  * - /merch — deliberately unlinked from the nav while it says "coming soon";
  *   putting it here would invite indexing of a page we are choosing to hide
  * - /conference — it lives at uxhiconference.com. Listing it here as well

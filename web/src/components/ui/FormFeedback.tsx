@@ -15,7 +15,7 @@ interface FormAlertProps {
 }
 
 const alertStyles = {
-  error: "bg-orange-90/20 border-orange-70/30 text-orange-30",
+  error: "bg-warning-subtle border-white/20 text-white",
   info: "bg-white/10 border-white/20 text-white",
 } as const;
 
@@ -76,10 +76,12 @@ interface FormSuccessProps {
   iconSrc: string;
   title: string;
   message: string;
+  /** The next step, under the message — e.g. the join form's link to the directory. */
+  action?: React.ReactNode;
   className?: string;
 }
 
-export function FormSuccess({ iconSrc, title, message, className }: FormSuccessProps) {
+export function FormSuccess({ iconSrc, title, message, action, className }: FormSuccessProps) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -89,6 +91,7 @@ export function FormSuccess({ iconSrc, title, message, className }: FormSuccessP
       <SectionIcon src={iconSrc} alt="" size="sm" className="mb-4" />
       <h3 className="font-display text-2xl text-white text-balance mb-2">{title}</h3>
       <p className="text-white">{message}</p>
+      {action && <div className="mt-6">{action}</div>}
     </div>
   );
 }

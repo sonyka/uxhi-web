@@ -4,7 +4,7 @@ import { sanityFetchCached } from "@/sanity/lib/fetchCached";
 import { DIRECTORY_MEMBERS_QUERY } from "@/sanity/lib/queries";
 import { MemberDirectory } from "@/components/directory";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
-import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
+import { InlineLink } from "@/components/ui/InlineLink";
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionLead } from "@/components/ui/SectionLead";
@@ -47,7 +47,7 @@ export default async function DirectoryPage() {
             <HeroItem>
               <div className="flex flex-wrap gap-3">
                 <PrimaryCTA href="#directory">Browse the directory</PrimaryCTA>
-                <PrimaryCTA href="#join-directory" variant="subdued">Join the directory</PrimaryCTA>
+                <PrimaryCTA href="/join#join-form" variant="subdued">Join the directory</PrimaryCTA>
               </div>
             </HeroItem>
           </HeroEntrance>
@@ -200,41 +200,41 @@ export default async function DirectoryPage() {
         </div>
       </section>
 
-      {/* Join Directory Section */}
+      {/* Get Listed Section. The profile form itself lives on /add-profile:
+          new people join first (and add a profile as step 2 of /join), and
+          existing members are invited there by email. Kept as #join-directory
+          so older links still land here. */}
       <section id="join-directory" className="py-20 px-6 bg-purple-140 scroll-mt-24">
-        <div className="max-w-[900px] mx-auto">
-          <ScrollReveal stagger className="text-center">
-            {/* Directory Icon */}
-            <MotionDiv>
-              <SectionIcon src="/images/icons/icon-directory.svg" alt="Directory" />
-            </MotionDiv>
-            <MotionDiv>
-              <SectionHeading color="white" className="mb-6">
-                Join our member directory!
-              </SectionHeading>
-            </MotionDiv>
-            <MotionDiv>
-              <p className="text-white text-lg leading-relaxed mb-4">
-                Are you a UX professional with ties to Hawaiʻi? Add yourself to the
-                directory and connect with our growing community. Whether you&apos;re
-                looking for new opportunities, seeking collaborators, or wanting to
-                give back as a mentor, this is your chance to be discovered.
-              </p>
-            </MotionDiv>
-            <MotionDiv>
-              <p className="text-white text-lg leading-relaxed mb-10">
-                UX professionals and anyone transitioning into UX design who lives
-                in Hawaiʻi or has strong ties to Hawaiʻi can join. Your request
-                will automatically be added to the directory and a UXHI team
-                member will manually add your head shot and island, if applicable,
-                within a few business days.
-              </p>
-            </MotionDiv>
-          </ScrollReveal>
-
-          {/* Directory Submission Form */}
-          <DirectorySubmitForm />
-        </div>
+        <ScrollReveal stagger className="max-w-[700px] mx-auto text-center">
+          <MotionDiv>
+            <SectionIcon src="/images/icons/icon-directory.svg" alt="" />
+          </MotionDiv>
+          <MotionDiv>
+            <SectionHeading color="white" className="mb-6">
+              Want to be listed?
+            </SectionHeading>
+          </MotionDiv>
+          <MotionDiv>
+            <SectionLead size="lg" color="white" className="mb-10">
+              The directory is for UXHI members. Membership is free, and you can
+              add your profile as soon as you join.
+            </SectionLead>
+          </MotionDiv>
+          <MotionDiv>
+            {/* Straight to the form: /join's hero is for people still deciding,
+                and anyone pressing this has already decided. */}
+            <div className="flex flex-wrap justify-center gap-3">
+              <PrimaryCTA href="/join#join-form">Join the community</PrimaryCTA>
+              <PrimaryCTA href="/add-profile" variant="dark">Add your profile</PrimaryCTA>
+            </div>
+          </MotionDiv>
+          <MotionDiv>
+            <p className="text-white mt-10">
+              Need to change your listing?{" "}
+              <InlineLink href="/about?interest=Updating+my+directory+profile#contact">Let us know</InlineLink>
+            </p>
+          </MotionDiv>
+        </ScrollReveal>
       </section>
     </main>
   );

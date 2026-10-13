@@ -31,7 +31,7 @@ export const metadata: Metadata = {
  * domain is pointed here.
  */
 
-const LAST_UPDATED = "9 September 2026";
+const LAST_UPDATED = "12 October 2026";
 
 /** A heading and its paragraphs, so every section is spaced the same way. */
 function Section({
@@ -85,15 +85,16 @@ export default function PrivacyPage() {
               </li>
               <li>
                 <strong className="font-black text-gray-140">Membership</strong> —
-                your name, email address, a link to your LinkedIn or website,
+                your name, email address, a link to your LinkedIn profile,
                 and details about your experience and interests.
               </li>
               <li>
                 <strong className="font-black text-gray-140">
                   Directory submission
                 </strong>{" "}
-                — the above, plus a photograph and the professional details you
-                want shown on your profile.
+                — your name and email address (used to match your profile to
+                your membership, never shown on it), plus a photograph and the
+                professional details you want shown on your profile.
               </li>
             </ul>
             <p>
