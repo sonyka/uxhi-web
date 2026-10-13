@@ -1163,7 +1163,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionicon": (
     <ContentSection
       title="Section Icon"
-      description="Centered icon above a section intro. Wraps Next.js Image with fill + object-contain. Default is the 80px mark that opens a section on its own, and is what every section intro uses. sm is 56px, for an icon that labels what follows rather than opening a section — FormSuccess uses it for the illustration on a form's success card. lg is 96px and exists for exactly one mark: the UXHI conference icon on the events page, a logo standing in for the conference rather than a spot illustration, which reads as undersized at 80. A deliberate exception, not a tier — a second caller would mean the default is wrong."
+      description="Centered icon above a section intro. Wraps Next.js Image with fill + object-contain. Default is the 80px mark that opens a section on its own, and is what every section intro uses. sm is 56px, for an icon that labels what follows rather than opening a section; it has no caller today (FormSuccess moved up to the default 80px). lg is 96px and exists for exactly one mark: the UXHI conference icon on the events page, a logo standing in for the conference rather than a spot illustration, which reads as undersized at 80. A deliberate exception, not a tier — a second caller would mean the default is wrong."
       componentPath="components/ui/SectionIcon.tsx"
     >
       <div className="flex gap-8 items-end">
@@ -2561,7 +2561,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "form-inquiry": (
     <ContentSection
       title="Inquiry Form"
-      description="Contact form on /about#contact. Saves to Sanity submission + Slack notification. Designed for purple (bg-purple-140) backgrounds."
+      description="Contact form on /about#contact. Saves to Sanity submission + Slack notification. Takes the section intro as an optional intro prop and drops it once a message is sent, so the success card takes the section over. Designed for purple (bg-purple-140) backgrounds."
       componentPath={["components/forms/InquiryForm.tsx", "lib/actions/inquiry.ts"]}
     >
       <div className="space-y-8">
@@ -2858,7 +2858,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "feedback-success": (
     <ContentSection
       title="Form Success"
-      description="Post-submission success card. Replaces the form after a successful submit. Used on purple (bg-purple-140) backgrounds. Leads with a spot illustration at SectionIcon sm (56px)."
+      description="Post-submission success card. Replaces the form after a successful submit. Used on purple (bg-purple-140) backgrounds, as a lifted purple-120 surface with a shadow so it stands off the section. Leads with a spot illustration at SectionIcon's default 80px."
       componentPath="components/ui/FormFeedback.tsx"
     >
       <div className="space-y-8">
@@ -2903,7 +2903,7 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Props</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">iconSrc</span> — string (required), illustration path, rendered by SectionIcon at sm (56px)</p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">iconSrc</span> — string (required), illustration path, rendered by SectionIcon at its default 80px</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">title</span> — string (required)</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">message</span> — string (required)</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">action</span> — ReactNode (optional), the next step under the message. The join form passes a link to /add-profile after Skip for now.</p>
@@ -2913,9 +2913,9 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="p-4 bg-beige-30 rounded-xl space-y-3">
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
-                <p>Container: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/20 rounded-2xl p-8</span> — no fill; sits directly on the purple-140 section</p>
+                <p>Container: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-purple-120 border-white/20 rounded-2xl shadow-2xl shadow-purple-150/50 p-8 md:p-10</span> — a lifted surface, one step lighter than the purple-140 section</p>
                 <p>On mount: scrolls to the top of the view (<span className="font-mono text-xs bg-gray-20 px-1 rounded">block: &quot;start&quot;</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">scroll-mt-36</span> to clear the 120px desktop nav), so the section intro above it is out of view</p>
-                <p>Illustration: <span className="font-mono text-xs bg-gray-20 px-1 rounded">SectionIcon size=&quot;sm&quot;</span> — 56px, mb-4</p>
+                <p>Illustration: <span className="font-mono text-xs bg-gray-20 px-1 rounded">SectionIcon</span> default — 80px, mb-5</p>
                 <p>Title: <span className="font-mono text-xs bg-gray-20 px-1 rounded">font-display text-2xl text-white</span></p>
                 <p>Message: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-white</span></p>
                 <p>Action: wrapped in <span className="font-mono text-xs bg-gray-20 px-1 rounded">mt-6</span></p>

@@ -324,30 +324,33 @@ export default async function AboutPage() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6 bg-purple-140 scroll-mt-24">
         <div className="max-w-[800px] mx-auto">
-          <ScrollReveal stagger className="text-center">
-            <MotionDiv>
-              <SectionIcon src="/images/icons/icon-contact.svg" alt="Contact" />
-            </MotionDiv>
-            <MotionDiv>
-              <SectionHeading color="white" className="mb-6">
-                Get in touch
-              </SectionHeading>
-            </MotionDiv>
-            <MotionDiv>
-              <p className="text-white text-lg leading-relaxed mb-6 max-w-[600px] mx-auto">
-                Whether you have a question, an idea, or something you want to
-                build with us, we read every message and we&apos;ll get back to you.
-              </p>
-            </MotionDiv>
-            <MotionDiv>
-              <p className="text-white text-lg leading-relaxed mb-10 max-w-[600px] mx-auto">
-                Looking to join the community instead?{" "}
-                <InlineLink href="/join">Becoming a member is free</InlineLink>
-                {" "}and gets you into our Slack, our member directory, and our monthly events email.
-              </p>
-            </MotionDiv>
-          </ScrollReveal>
-          <InquiryForm />
+          <InquiryForm
+            intro={
+              <ScrollReveal stagger className="text-center">
+                <MotionDiv>
+                  <SectionIcon src="/images/icons/icon-contact.svg" alt="Contact" />
+                </MotionDiv>
+                <MotionDiv>
+                  <SectionHeading color="white" className="mb-6">
+                    Get in touch
+                  </SectionHeading>
+                </MotionDiv>
+                <MotionDiv>
+                  <p className="text-white text-lg leading-relaxed mb-6 max-w-[600px] mx-auto">
+                    Whether you have a question, an idea, or something you want to
+                    build with us, we read every message and we&apos;ll get back to you.
+                  </p>
+                </MotionDiv>
+                <MotionDiv>
+                  <p className="text-white text-lg leading-relaxed mb-10 max-w-[600px] mx-auto">
+                    Looking to join the community instead?{" "}
+                    <InlineLink href="/join">Becoming a member is free</InlineLink>
+                    {" "}and gets you into our Slack, our member directory, and our monthly events email.
+                  </p>
+                </MotionDiv>
+              </ScrollReveal>
+            }
+          />
         </div>
       </section>
     </main>

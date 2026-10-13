@@ -13,9 +13,8 @@ interface SectionIconProps {
    * every section intro on the site uses.
    *
    * `sm` is 56px, for an icon that labels what follows rather than opening a
-   * section. FormSuccess uses it: the illustration on a form's success card
-   * marks the outcome inside a card, so a full 80px section mark would
-   * outweigh the title beneath it.
+   * section. It has no caller today — FormSuccess used it until Oct 2026,
+   * when its cards moved up to the default 80px to read more strongly.
    *
    * `lg` is 96px and exists for exactly one mark — the UXHI conference icon on
    * the events page, which is a logo standing in for the conference rather

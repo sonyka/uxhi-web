@@ -33,14 +33,19 @@ export function MembershipForm() {
   const finishProfile = useCallback(() => setProfileStep("done"), []);
   const skipProfile = useCallback(() => setProfileStep("skipped"), []);
 
+  // Every success state sits under pt-32: FormSuccess scrolls itself to 144px
+  // below the top of the view, and the page's Contact us button sits just
+  // above the form. Without the extra room it shows through the glass nav.
   if (state?.success) {
     if (profileStep === "done") {
       return (
-        <FormSuccess
-          iconSrc="/images/icons/icon-directory-success.svg"
-          title="You're all set!"
-          message="Your membership application and directory profile are in. We'll review both and publish your profile within a few business days."
-        />
+        <div className="pt-32">
+          <FormSuccess
+            iconSrc="/images/icons/icon-directory-success.svg"
+            title="You're all set!"
+            message="Your membership application and directory profile are in. We'll review both and publish your profile within a few business days."
+          />
+        </div>
       );
     }
 
@@ -66,12 +71,12 @@ export function MembershipForm() {
     );
 
     // No prefill means the spam guard answered, not a person: no step 2.
-    if (profileStep === "skipped" || !state.prefill) return received;
+    if (profileStep === "skipped" || !state.prefill) return <div className="pt-32">{received}</div>;
 
     return (
-      <div className="space-y-10">
+      <div className="pt-32">
         {received}
-        <div className="text-center">
+        <div className="text-center mt-20 mb-10">
           <SectionEyebrow as="p" variant="dark" className="mb-3">
             Next step
           </SectionEyebrow>

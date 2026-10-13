@@ -69,9 +69,8 @@ export function FieldError({ errors, field, className }: FieldErrorProps) {
 
 interface FormSuccessProps {
   /**
-   * Spot illustration path, shown at SectionIcon's `sm` (56px) — the card
-   * labels the outcome rather than opening a section, which is the case `sm`
-   * exists for.
+   * Spot illustration path, shown at SectionIcon's default 80px — the same
+   * size as a section mark, so the outcome reads as the moment it is.
    */
   iconSrc: string;
   title: string;
@@ -90,8 +89,10 @@ export function FormSuccess({ iconSrc, title, message, action, className }: Form
     ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
   return (
-    <div ref={ref} className={cn("border border-white/20 rounded-2xl p-8 text-center scroll-mt-36", className)}>
-      <SectionIcon src={iconSrc} alt="" size="sm" className="mb-4" />
+    // A lifted purple-120 surface with a shadow, so the card stands off the
+    // purple-140 section rather than sitting flush with it.
+    <div ref={ref} className={cn("bg-purple-120 border border-white/20 rounded-2xl shadow-2xl shadow-purple-150/50 p-8 md:p-10 text-center scroll-mt-36", className)}>
+      <SectionIcon src={iconSrc} alt="" className="mb-5" />
       <h3 className="font-display text-2xl text-white text-balance mb-2">{title}</h3>
       <p className="text-white">{message}</p>
       {action && <div className="mt-6">{action}</div>}
