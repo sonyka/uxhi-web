@@ -137,6 +137,29 @@ const nextConfig: NextConfig = {
         destination: "/get-involved/#volunteer",
         permanent: true,
       },
+
+      // The WordPress site that uxhi.community served before this one. Its
+      // Yoast sitemap (fetched 13 Oct 2026) listed these, and Google still
+      // indexes them, so each lands on its nearest page here rather than a 404.
+      // Permanent: none of these addresses is coming back.
+      // Every old sub-page of Get Involved lands on the page itself. `:path+`,
+      // not `*`, so /get-involved is left alone.
+      { source: "/get-involved/:path+", destination: "/get-involved/", permanent: true },
+      { source: "/about/advocate-guidelines", destination: "/about/", permanent: true },
+      // The internship's home is now piiku.co. Listed before the wildcard
+      // below, which would otherwise catch it.
+      { source: "/initiatives/circular-design-internship", destination: "https://piiku.co/", permanent: true },
+      { source: "/initiatives/:path*", destination: "/resources/", permanent: true },
+      { source: "/ideas", destination: "/about/#contact", permanent: true },
+      // Past conferences had event pages. 2024 and 2025 have archives on the
+      // conference domain; 2023 does not, so it goes to the conference home —
+      // temporary, because what that home shows changes every year.
+      { source: "/events/uxhi-conference-2025", destination: "https://uxhiconference.com/2025/", permanent: true },
+      { source: "/events/uxhi-conference-2024", destination: "https://uxhiconference.com/2024/", permanent: true },
+      { source: "/events/uxhi-conference-2023", destination: "https://uxhiconference.com/", permanent: false },
+      // Every other event page and the island categories. `:path+`, not `*`,
+      // so /events itself is left alone.
+      { source: "/events/:path+", destination: "/events/", permanent: true },
     ];
   },
 
