@@ -1,0 +1,808 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>UXHI Site Worklog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nunito:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap">
+
+<style>
+  /* Deliberately single-theme. This is a printed-document look — warm paper,
+     purple ink — and it should read the same for everyone regardless of their
+     system setting, so there is no dark palette to fall out of sync. Every
+     colour below is painted explicitly, including the body background, so the
+     page holds on whatever ground the viewer's browser paints behind it. */
+  :root {
+    --ground:    #FBFAF7;
+    --surface:   #FFFFFF;
+    --sunken:    #F4F1EC;
+    --launch:    #F2FAFB;   /* the launch panel: a teal wash, not a dark slab */
+    --ink:       #231769;
+    --ink-soft:  #575071;
+    --ink-faint: #8B85A0;
+    --rule:      #E6E2D9;
+    --rule-soft: #EFECE4;
+    --accent:    #067F8F;
+    --accent-bg: #E8F8FA;
+    --done:      #1F7A4D;
+    --done-bg:   #E4F4EB;
+    --open:      #9A6700;
+    --open-bg:   #FDF3D6;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: "Nunito", ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 52rem; margin-inline: auto; padding-inline: 1.5rem; }
+
+  /* ---- masthead ---- */
+
+  .masthead { padding-block: 3rem 0.5rem; }
+
+  .masthead-inner {
+    display: flex; flex-wrap: wrap; gap: 1.5rem 2rem;
+    align-items: flex-start; justify-content: space-between;
+  }
+
+  .masthead-text { flex: 1 1 22rem; min-width: 0; }
+
+  .eyebrow {
+    font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 0.9rem;
+  }
+
+  h1 {
+    font-family: "Dela Gothic One", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.4rem);
+    line-height: 1.08; margin: 0; text-wrap: balance;
+  }
+
+  /* links, top right */
+  .quicklinks {
+    flex: 0 0 auto; display: flex; flex-direction: column;
+    gap: 0.4rem; align-items: flex-start; padding-top: 0.2rem;
+  }
+  @media (min-width: 46rem) { .quicklinks { align-items: flex-end; } }
+
+  .quicklinks .ql-label {
+    font-size: 0.625rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.1rem;
+  }
+
+  .quicklinks a {
+    font-size: 0.875rem; font-weight: 700; color: var(--accent);
+    text-decoration: none; white-space: nowrap;
+  }
+  .quicklinks a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .quicklinks a::after { content: " \2197"; font-weight: 400; }
+
+  .progress {
+    margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem;
+    align-items: center; font-size: 0.8125rem; color: var(--ink-faint);
+  }
+  .progress .bar {
+    flex: 1 1 12rem; height: 6px; border-radius: 999px;
+    background: var(--rule); overflow: hidden; min-width: 8rem;
+  }
+  .progress .bar span { display: block; height: 100%; background: var(--done); }
+  .progress b { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  code {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 0.8125em; font-variant-numeric: tabular-nums;
+    background: var(--accent-bg); color: var(--accent);
+    padding: 0.1em 0.4em; border-radius: 3px;
+  }
+
+  a { color: var(--accent); text-underline-offset: 2px; }
+
+  /* A jump to a card in another tab: switches tab, then scrolls. Marked so it
+     reads as internal navigation rather than an outbound link. */
+  .jump { font-weight: 900; text-decoration: underline; text-underline-offset: 2px; }
+  .jump::after { content: " \2193"; font-weight: 400; }
+
+  .page:target { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---- tabs ---- */
+
+  .tabbar {
+    position: sticky; top: 0; z-index: 20;
+    margin-top: 2rem;
+    background: color-mix(in srgb, var(--ground) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .tablist { display: flex; gap: 0.25rem; overflow-x: auto; scrollbar-width: none; }
+  .tablist::-webkit-scrollbar { display: none; }
+
+  .tab {
+    appearance: none; border: 0; background: none; cursor: pointer;
+    font: inherit; font-size: 0.9375rem; font-weight: 700;
+    color: var(--ink-faint); white-space: nowrap;
+    padding: 0.85rem 0.9rem; border-bottom: 2.5px solid transparent;
+    display: inline-flex; align-items: center; gap: 0.45rem;
+  }
+  .tab:hover { color: var(--ink-soft); }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+
+  .tab .n {
+    font-size: 0.6875rem; font-weight: 900; font-variant-numeric: tabular-nums;
+    background: var(--open-bg); color: var(--open);
+    padding: 0.1rem 0.4rem; border-radius: 999px;
+  }
+  .tab[aria-selected="true"] .n { background: var(--accent-bg); color: var(--accent); }
+  .tab .n[data-zero="true"] { background: var(--done-bg); color: var(--done); }
+
+  [role="tabpanel"][hidden] { display: none; }
+
+  /* ---- area headings ---- */
+
+  main { padding-bottom: 3rem; }
+
+  .area { margin-top: 2.5rem; }
+
+  .area > h2 {
+    font-family: "Dela Gothic One", sans-serif; font-weight: 400;
+    font-size: 1.5rem; margin: 0 0 0.4rem;
+  }
+
+  .area > .area-note { margin: 0 0 1.5rem; color: var(--ink-soft); font-size: 0.9375rem; }
+
+  /* ---- page blocks ---- */
+
+  .page {
+    scroll-margin-top: 4.5rem;
+    border: 1px solid var(--rule); border-radius: 8px;
+    background: var(--surface); margin-bottom: 1rem; overflow: hidden;
+  }
+
+  .page-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.9rem;
+    padding: 0.95rem 1.15rem; background: var(--sunken);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .page-head h3 { margin: 0; font-size: 1.0625rem; font-weight: 900; }
+
+  .page-head .path {
+    font-family: ui-monospace, Menlo, monospace; font-size: 0.8125rem;
+    color: var(--ink-faint);
+  }
+
+  .page-head .review { margin-left: auto; font-size: 0.8125rem; font-weight: 700; white-space: nowrap; }
+
+  /* A standing note: something true about the page that is neither done nor
+     outstanding. Kept visible so it is not silently re-raised later. */
+  .note {
+    margin: 0; padding: 0.8rem 1.15rem;
+    border-top: 1px dashed var(--rule);
+    background: var(--sunken);
+    font-size: 0.8125rem; line-height: 1.55; color: var(--ink-faint);
+  }
+  .note b { color: var(--ink-soft); font-weight: 900; }
+
+  /* An intro note sits above the list rather than below it, so it reads as a
+     preamble; the dashed rule moves to the bottom edge to match. */
+  .note.lead-in { border-top: 0; border-bottom: 1px dashed var(--rule); }
+
+  .checks { list-style: none; margin: 0; padding: 0.9rem 1.15rem; display: flex; flex-direction: column; gap: 0.7rem; }
+
+  .checks li { display: grid; grid-template-columns: 1.15rem 1fr; gap: 0 0.7rem; align-items: start; }
+
+  .box {
+    width: 1.15rem; height: 1.15rem; border-radius: 4px; margin-top: 0.16rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 900; line-height: 1;
+  }
+
+  .box.d { background: var(--done-bg); color: var(--done); }
+  .box.o { background: transparent; border: 1.5px solid var(--ink-faint); }
+  /* Decided against: kept on the list so it is not re-raised. */
+  .box.x { background: transparent; border: 1.5px solid var(--ink-faint); color: var(--ink-faint); }
+  .checks li.is-dropped > span { color: var(--ink-faint); }
+  .checks li.is-dropped b { color: var(--ink-faint); text-decoration: line-through; }
+
+  .checks li > span { font-size: 0.9375rem; color: var(--ink-soft); text-wrap: pretty; }
+  .checks li.is-open > span { color: var(--ink); }
+  .checks b { color: var(--ink); font-weight: 900; }
+
+  /* A subhead inside a check list, for grouping a long one into sessions. */
+  .checks li.group {
+    display: block; margin-top: 0.6rem;
+    font-size: 0.6875rem; font-weight: 900; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .checks li.group:first-child { margin-top: 0; }
+
+  /* ---- launch panel (light) ---- */
+
+  .band {
+    background: var(--launch); color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 8px;
+    padding: 2rem 1.75rem; margin-top: 2.5rem;
+  }
+  .band h2 {
+    font-family: "Dela Gothic One", sans-serif; font-weight: 400;
+    font-size: 1.5rem; margin: 0 0 0.4rem; color: var(--ink);
+  }
+  .band .area-note { color: var(--ink-soft); margin: 0 0 2rem; font-size: 0.9375rem; }
+  .band .eyebrow { color: var(--accent); }
+  .band .checks { padding: 0; gap: 0.85rem; }
+  .band .checks li > span { color: var(--ink-soft); }
+  .band .checks li.is-open > span { color: var(--ink); }
+  .band .checks b { color: var(--ink); }
+  .band .box.o { border-color: var(--ink-faint); }
+  .band code { background: var(--accent-bg); color: var(--accent); }
+
+  .phase { margin-bottom: 2rem; }
+  .phase:last-child { margin-bottom: 0; }
+
+  .phase-head { display: grid; grid-template-columns: 2.1rem 1fr; gap: 0 0.9rem; align-items: baseline; }
+
+  .phase-n {
+    font-family: "Dela Gothic One", sans-serif; font-size: 1.05rem;
+    color: var(--accent); line-height: 1;
+  }
+
+  .phase-head h3 {
+    font-size: 1.0625rem; font-weight: 900; letter-spacing: 0; text-transform: none;
+    color: var(--ink); margin: 0; padding: 0; border: none;
+  }
+
+  .phase-why {
+    grid-column: 2; margin: 0.3rem 0 0; font-size: 0.875rem;
+    color: var(--ink-soft); font-style: italic;
+  }
+
+  .phase .checks { margin-top: 0.9rem; margin-left: 3rem; padding: 0; }
+
+  /* Who does it. Everything in the launch panel is Sony's unless tagged,
+     so only the exceptions carry a pill — a badge on every line is noise. */
+  .owner {
+    display: inline-block; margin-right: 0.5rem; padding: 0.05rem 0.45rem;
+    border-radius: 999px; background: var(--surface); border: 1px solid var(--rule);
+    color: var(--ink-faint); font-size: 0.625rem; font-weight: 900;
+    letter-spacing: 0.08em; text-transform: uppercase; vertical-align: 0.12em;
+  }
+
+  /* A don't-break-this caution sitting inside a step list, indented to match. */
+  .warn {
+    margin: 0.9rem 0 0 3rem; padding: 0.75rem 0.95rem;
+    border-left: 3px solid var(--open); border-radius: 0 6px 6px 0;
+    background: var(--open-bg); color: var(--ink-soft);
+    font-size: 0.8125rem; line-height: 1.55;
+  }
+  .warn b { color: var(--ink); font-weight: 900; }
+
+  .gate {
+    display: inline-block; margin-left: 0.5rem; padding: 0.1rem 0.5rem;
+    border-radius: 999px; background: var(--open-bg); color: var(--open);
+    font-size: 0.625rem; font-weight: 900; letter-spacing: 0.08em;
+    text-transform: uppercase; vertical-align: 0.15em;
+  }
+
+  footer { padding-block: 2rem 3rem; font-size: 0.8125rem; color: var(--ink-faint); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-inner">
+      <div class="masthead-text">
+        <p class="eyebrow">Team tracking document &middot; updated Sat 10 Oct 2026</p>
+        <h1>UXHI Site Worklog</h1>
+      </div>
+      <nav class="quicklinks" aria-label="Site links">
+        <span class="ql-label">Review on</span>
+        <a href="https://claude.ai/code/artifact/3526c45a-92cb-42fe-ae35-5563968c0d23">Handbook</a>
+        <a href="https://web-henna-five-45.vercel.app">Staging</a>
+        <a href="https://web-henna-five-45.vercel.app/design-system">Design system</a>
+        <a href="https://uxhiconference.com">Conference</a>
+        <a href="https://uxhi.sanity.studio/">Sanity Studio</a>
+      </nav>
+    </div>
+
+    <div class="progress">
+      <span><b>135</b> done &middot; <b>46</b> open</span>
+      <span class="bar"><span style="width:75%"></span></span>
+      <span>75%</span>
+    </div>
+  </div>
+</header>
+
+<div class="tabbar">
+  <div class="wrap">
+    <div class="tablist" role="tablist" aria-label="Worklog sections">
+      <button class="tab" role="tab" id="tab-launch" aria-controls="panel-launch" aria-selected="true" tabindex="0">Path to launch<span class="n" data-zero="false">16</span></button>
+      <button class="tab" role="tab" id="tab-site" aria-controls="panel-site" aria-selected="false" tabindex="-1">Main site<span class="n" data-zero="false">29</span></button>
+      <button class="tab" role="tab" id="tab-design" aria-controls="panel-design" aria-selected="false" tabindex="-1">Design system<span class="n" data-zero="true">0</span></button>
+      <button class="tab" role="tab" id="tab-conference" aria-controls="panel-conference" aria-selected="false" tabindex="-1">Conference<span class="n" data-zero="false">1</span></button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div id="panel-launch" role="tabpanel" aria-labelledby="tab-launch">
+<div class="band">
+<p class="eyebrow">Path to launch</p>
+    <h2>UXHI.community V1</h2>
+    <p class="area-note">Everything here is yours unless tagged <span class="owner">Dev</span>. The step-by-step for the domain, and for everything else the team touches, is in the <a href="https://claude.ai/code/artifact/3526c45a-92cb-42fe-ae35-5563968c0d23">UXHI Site Handbook</a>.</p>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-n">01</span>
+        <h3>Settle the content, then sign it off <span class="gate" style="background:var(--rule);color:var(--ink-soft)">Parked</span></h3>
+        <p class="phase-why">Parked until further notice, 7 Sep. Not waiting on anyone &mdash; picked up when you say so.</p>
+      </div>
+      <ul class="checks">
+        <li class="is-open"><span class="box o"></span><span>Settle the open decisions in <a class="jump" href="#card-about">About</a> and <a class="jump" href="#card-sitewide">Site-wide</a> &mdash; what comes back, what stays hidden, whether a consent banner is wanted</span></li>
+        <li class="is-open"><span class="box o"></span><span>Sign off all page content in <a href="https://uxhi.sanity.studio/">Sanity Studio</a></span></li>
+      </ul>
+      <p class="warn"><b>Parked, and the deploy no longer waits on it.</b> Everything hidden behind a flag stays hidden and the site is coherent without it &mdash; the aloha-centered design section stands in for Our Values, and the FAQ, press mention and two team categories are simply absent rather than broken. Step 03 can go whenever you want it to.</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-n">02</span>
+        <h3>Harden the site <span class="gate" style="background:var(--done-bg);color:var(--done)">Done</span></h3>
+        <p class="phase-why">Four gaps that a public address exposes and a preview address does not. All four done, 7 Sep.</p>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Social preview cards</b> &mdash; 7 Sep. Your homepage preview at 1200&times;630 is the card now, and each page carries its own title rather than the homepage&rsquo;s. The conference keeps its own</span></li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>A real 404 page</b> &mdash; 7 Sep. Built from the design system, with the header, the footer and three shortcuts to where people were probably going. Returns a real 404, not a 200 with apologetic text</span></li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Sitemap</b> &mdash; 7 Sep. Eight pages listed at <code>/sitemap.xml</code>, and robots.txt points at it. Studio, the design system, Merch and the conference are left out on purpose. <b>Still yours to do:</b> submit it in Google Search Console once the domain answers</span></li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b><code>/design-system</code> is out of search results</b> &mdash; 7 Sep. Marked noindex rather than blocked outright, so it stays reachable by link for the team while staying out of Google</span></li>
+      </ul>
+      <p class="warn"><b>The rest of the audit is not a launch gate.</b> Spam protection, error monitoring, reduced motion and image sizing all matter and none of them hold the doors shut. They are in <a class="jump" href="#card-audit">Launch readiness</a>, sequenced.</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-n">03</span>
+        <h3>One production deploy <span class="gate">Built, not public</span></h3>
+        <p class="phase-why">One Netlify build, batching everything above. The build ran 8 Sep &mdash; 69 commits, 88 files, three days of work. The step stays open until the site has an address people can reach.</p>
+      </div>
+      <ul class="checks">
+        <li class="is-open"><span class="box o"></span><span><span class="owner">Dev</span><b>The build is done; the launch is not.</b> 8 Sep put everything from 5&ndash;8 Sep onto Netlify &mdash; the privacy notice, the <code>/directory</code> move, security headers, error monitoring, reduced motion, image sizing, the skip link, the beige ground, the glass nav capsule, the team-card flip and the whole mobile pass. It answers only on the Netlify default address, so no visitor has met any of it. This ticks when <code>uxhi.community</code> does</span></li>
+      </ul>
+      <p class="warn"><b>The one part of these deploys a visitor can see is the conference site.</b> Three builds have run &mdash; 8, 13 and 17 Sep &mdash; and all three reached <a href="https://uxhiconference.com">uxhiconference.com</a> immediately, because that domain is already pointed. The 17 Sep build carried Meet the Speakers, the rebuilt sidebar and a fix for two archive links that had been 404ing everywhere except production; see the <a class="jump" href="#card-conf-2026">Conference tab</a>. Everything for the main site still waits on step 05.</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-n">04</span>
+        <h3>Pre-flight checks</h3>
+        <p class="phase-why">The last checks before the site is public.</p>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span>No placeholder profiles in the member directory &mdash; re-checked 30 Aug. 63 profiles, no drafts, no test entries</span></li>
+        <li><span class="box d">&check;</span><span>Launch address confirmed as <code>uxhi.community</code>. Analytics needs no change</span></li>
+        <li><span class="box d">&check;</span><span><code>uxhi.community</code> added to Sanity&rsquo;s CORS allowlist</span></li>
+        <li class="is-open"><span class="box o"></span><span>Walk the site on staging one final time &mdash; review links in <a class="jump" href="#card-about">the Main site tab</a></span></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-n">05</span>
+        <h3>Point the domain <span class="gate">Go live</span></h3>
+        <p class="phase-why">All yours, in order. No deploy needed &mdash; this is purely DNS.</p>
+      </div>
+      <ul class="checks">
+        <li class="is-open"><span class="box o"></span><span><b>Netlify</b> &mdash; Domain management &rarr; Add a domain &rarr; <code>uxhi.community</code>. Decline any offer to manage the DNS or change nameservers</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>SiteGround DNS editor</b> &mdash; set the apex <code>@</code> to <code>ALIAS &rarr; apex-loadbalancer.netlify.com</code>, or <code>A &rarr; 75.2.60.5</code> if ALIAS isn&rsquo;t offered. Set its TTL to <code>300</code></span></li>
+        <li class="is-open"><span class="box o"></span><span><b>SiteGround DNS editor</b> &mdash; set <code>www</code> to <code>CNAME &rarr; splendid-entremet-f6cb1d.netlify.app</code></span></li>
+        <li class="is-open"><span class="box o"></span><span><b>Wait</b> until <code>uxhi.community</code> stops answering with <code>34.174.88.19</code>. Usually under an hour</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>Confirm HTTPS works.</b> If it hasn&rsquo;t after a few minutes: Netlify &rarr; Domain management &rarr; HTTPS &rarr; Verify DNS configuration &rarr; Provision certificate</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>Walk <code>uxhi.community</code></b> &mdash; homepage, About, the member directory and its filters, both Resources PDFs, the Join and contact forms, and that <code>www</code> lands in the same place</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>Check <a href="https://uxhiconference.com">uxhiconference.com</a></b> and its 2025 archive still load</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>Leave the SiteGround hosting active</b> for a few weeks</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>A week later</b> &mdash; set the apex TTL back to <code>14400</code></span></li>
+      </ul>
+      <p class="warn"><b>Don&rsquo;t touch the MX or TXT records, and don&rsquo;t move the nameservers.</b> That is what would break email on the domain.</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-n">06</span>
+        <h3>After launch</h3>
+        <p class="phase-why">Nothing here blocks going live.</p>
+      </div>
+      <ul class="checks">
+        <li class="is-open"><span class="box o"></span><span>Check visitor analytics starts recording once the address is live</span></li>
+        <li class="is-open"><span class="box o"></span><span>Work through <a class="jump" href="#card-audit">Launch readiness</a> &mdash; spam protection and error monitoring first</span></li>
+        <li><span class="box d">&check;</span><span>Conference analytics no longer counts our own testing &mdash; 28 Aug</span></li>
+        <li><span class="box d">&check;</span><span>Aloha-centered tooltips link to the <code>/about</code> section &mdash; 30 Aug</span></li>
+        <li><span class="box d">&check;</span><span>Housekeeping cleared &mdash; unused images deleted, stray log files removed, both code faults fixed</span></li>
+        <li class="is-open"><span class="box o"></span><span>Recurring: reconnect the homepage Instagram feed whenever it goes blank. It disconnects every 60 days</span></li>
+      </ul>
+    </div>
+</div>
+  </div>
+  <div id="panel-site" role="tabpanel" aria-labelledby="tab-site" hidden>
+<section class="area">
+    <h2>UXHI main site</h2>
+    <p class="area-note">Everything non-conference. Launches at <code>uxhi.community</code>.</p>
+
+    <!-- STAKEHOLDER FEEDBACK — OCT 2026 -->
+    <div class="page" id="card-feedback-oct">
+      <div class="page-head">
+        <h3>Stakeholder feedback &mdash; Oct 2026</h3>
+        <span class="path">review &middot; Oct 2026</span>
+        <a class="review" href="https://web-henna-five-45.vercel.app/">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li class="group">Session 1 &mdash; quick fixes, one commit</li>
+        <li><span class="box d">&check;</span><span><b>2. The &ldquo;470 members&rdquo; badge links to Find a Pro</b> &mdash; point it at <code>/directory</code>. It looks clickable and isn&rsquo;t</span></li>
+        <li><span class="box d">&check;</span><span><b>3. Find a Pro: remove the Shuffle sort</b> &mdash; A&ndash;Z becomes the default order</span></li>
+        <li><span class="box d">&check;</span><span><b>4. Find a Pro: the &ldquo;Newest&rdquo; sort</b> &mdash; rename it &ldquo;Recently added&rdquo; or drop it. It sorts by Sanity creation date, and every member migrated from Notion shares roughly the same one. <b>Dropped</b> (11 Oct). With Shuffle gone too, only A&ndash;Z was left, so the sort control is gone entirely</span></li>
+        <li><span class="box d">&check;</span><span><b>5. Resources copy</b> &mdash; remove the &ldquo;To answer that question&hellip;&rdquo; opener from the State of UX report intro. Online Programs (where Shift Nudge sits) moved above the photo grid &mdash; Online Resources was already above it. &ldquo;Bi-annual&rdquo; becomes &ldquo;biennial&rdquo;</span></li>
+        <li><span class="box d">&check;</span><span><b>5b. Shift Nudge description, in the CMS</b> &mdash; &ldquo;An online educational program and training platform that teaches the systematic visual craft of user interface (UI) design.&rdquo; A content edit in Studio, not code</span></li>
+        <li><span class="box d">&check;</span><span><b>6. Get Involved &rsaquo; Sponsor Us</b> &mdash; drop &ldquo;our sponsorship packages&rdquo; and lead straight into the existing &ldquo;Ready to collaborate?&rdquo; custom-package button. It now sits directly under the heading, ahead of past sponsors</span></li>
+        <li><span class="box d">&check;</span><span><b>8. Rename &ldquo;Directory of local tech orgs&rdquo;</b> to &ldquo;Local tech directory&rdquo; &mdash; on Resources (heading, quick link, icon label) and in the Resources nav dropdown</span></li>
+        <li class="group">Session 2 &mdash; Hire Hawai&#699;i Designers</li>
+        <li class="is-open"><span class="box o"></span><span><b>9a. Decide placement and copy</b> &mdash; where the page lives, what it says to businesses, and where the directory join form goes: <code>/join</code> or its own page such as <code>/directory/join</code></span></li>
+        <li class="is-open"><span class="box o"></span><span><b>9b. Move the join form</b> &mdash; today the last section of <code>/directory</code>, the purple &ldquo;Join our member directory!&rdquo; block</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>9c. Build the &ldquo;Hire Hawai&#699;i Designers&rdquo; page</b> and link it from the nav</span></li>
+        <li class="group">Not doing</li>
+        <li class="is-dropped"><span class="box x">&times;</span><span><b>7. Home restructure</b> &mdash; merge &ldquo;Connect, learn, grow together&rdquo; into &ldquo;A community for designers, by designers&rdquo; and end the page on Instagram and the photo collage. <b>Pushed back</b> &mdash; 11 Oct. Tried on local: with Instagram&rsquo;s tiles and the collage stacked last, the bottom of the page piles up pictures and reads heavy. Kept instead: &ldquo;A community for designers, by designers&rdquo; and its Join us button moved above the collage, so the page closes on the photos without the heading trailing after them</span></li>
+        <li class="is-dropped"><span class="box x">&times;</span><span><b>10. Photo collages last</b> &mdash; <b>pushed back</b> with item 7, for the same reason. Never applied to the 2026 conference site, whose layout is a deliberate design</span></li>
+        <li class="is-dropped"><span class="box x">&times;</span><span><b>1. Conference &rarr; UXHI link</b> &mdash; add a &ldquo;UXHI&rdquo; link to the 2026 conference header. <b>Won&rsquo;t do</b> &mdash; decided Oct 2026. The footer link stays the only one</span></li>
+      </ul>
+    </div>
+
+    <!-- LANDING -->
+    <div class="page">
+      <div class="page-head">
+        <h3>Landing</h3>
+        <span class="path">/</span>
+        <a class="review" href="https://web-henna-five-45.vercel.app/">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span>New tagline; <b>Find a Pro</b> added to the nav; beige-30 background</span></li>
+        <li><span class="box d">&check;</span><span>Mission rewritten around <b>aloha-centered design</b>, yellow underline on that phrase only</span></li>
+        <li><span class="box d">&check;</span><span>Human-centered design tooltip restored; one underline per sentence</span></li>
+        <li><span class="box d">&check;</span><span>New community copy; Instagram section renamed <b>Stay connected</b></span></li>
+        <li><span class="box d">&check;</span><span>Mission now rendered from a shared component, identical to <code>/about</code></span></li>
+        <li><span class="box d">&check;</span><span>Member counts aligned on 470; heading spacing normalised</span></li>
+      </ul>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="page" id="card-about">
+      <div class="page-head">
+        <h3>About</h3>
+        <span class="path">/about</span>
+        <a class="review" href="https://web-henna-five-45.vercel.app/about">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span>Hero lead replaced: &ldquo;Learn about UXHI, Hawai&#699;i&rsquo;s home for aloha-centered design&rdquo;. Meta description aligned</span></li>
+        <li><span class="box d">&check;</span><span><b>New section &mdash; What is aloha-centered design?</b> Four groundings: People, Culture, Community, Place. <a href="https://web-henna-five-45.vercel.app/about#aloha-centered-design">View section &rarr;</a></span></li>
+        <li><span class="box d">&check;</span><span>&ldquo;Our Approach&rdquo; hero pill added, pointing at the new section</span></li>
+        <li><span class="box d">&check;</span><span>Mission replaced with the homepage&rsquo;s, via a shared component</span></li>
+        <li><span class="box d">&check;</span><span>Hero art cleared from under the nav; hero capped at 1400px</span></li>
+        <li><span class="box d">&check;</span><span><b>Hidden:</b> Our Values, the FAQ section, the featured press callout &mdash; all behind flags, markup intact</span></li>
+        <li><span class="box d">&check;</span><span><b>Hidden:</b> Communication &amp; Outreach and Standards team categories &mdash; placeholder-only</span></li>
+        <li><span class="box d">&check;</span><span><b>Get in touch copy rewritten</b>, with a line pointing at membership. <a href="https://web-henna-five-45.vercel.app/about#contact">View section &rarr;</a></span></li>
+        <li><span class="box d">&check;</span><span><b>The introduction arrives in one piece</b> (7 Sep) &mdash; the opening line and the founding paragraph sat two screens apart with the mission wedged between them. Both are the hero paragraph now, and the conference and the report are links</span></li><li><span class="box d">&check;</span><span><b>The four principles rewritten</b> &mdash; People, Culture, Community and Place describe what we do rather than what we value</span></li><li><span class="box d">&check;</span><span><b>Team cards turn over to the bio</b> (7 Sep) &mdash; the card used to widen and shove the rest of the grid sideways. It flips in place, the bio has a scrollbar you can see before you touch it, and clicking away closes it</span></li><li class="is-open"><span class="box o"></span><span><b>Our Values</b> &mdash; bring back, or let the aloha-centered design section stand in its place?</span></li><li class="is-open"><span class="box o"></span><span><b>The FAQ section on About</b> &mdash; bring back, or leave out? Bringing it back also restores its shortcut and its About menu entry</span></li><li class="is-open"><span class="box o"></span><span><b>The press mention on About</b> &mdash; bring back, or leave it only on Events?</span></li><li class="is-open"><span class="box o"></span><span><b>Hidden team categories</b> &mdash; Communication &amp; Outreach and Standards. Bring back, or leave out?</span></li><li><span class="box d">&check;</span><span><b>Tooltips link here now</b> &mdash; <code>MobileTooltip</code> takes an optional <code>href</code> and renders a &ldquo;Learn more&rdquo; link</span></li>
+      </ul>
+    </div>
+
+    <!-- GET INVOLVED -->
+    <div class="page">
+      <div class="page-head">
+        <h3>Get Involved</h3>
+        <span class="path">/get-involved</span>
+        <a class="review" href="https://web-henna-five-45.vercel.app/get-involved">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span><b>Sign up to volunteer</b> CTA repeated below the committee cards</span></li>
+        <li><span class="box d">&check;</span><span>Donations copy reduced to one sentence</span></li>
+        <li><span class="box d">&check;</span><span>Two dead links fixed; aloha-centered design carried into the volunteer copy</span></li>
+        <li><span class="box d">&check;</span><span>Hero art and spacing brought in line with the other interior pages</span></li>
+      </ul>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="page">
+      <div class="page-head">
+        <h3>Resources</h3>
+        <span class="path">/resources</span>
+        <a class="review" href="https://web-henna-five-45.vercel.app/resources">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span><b>Both State of UX PDFs self-hosted</b> &mdash; they were on volunteers&rsquo; personal Google Drives</span></li>
+        <li><span class="box d">&check;</span><span><b>Salary figures corrected</b> to <b>$110,203 vs $121,196</b>. The page had $75,000 vs $109,776</span></li>
+        <li><span class="box d">&check;</span><span>The earlier report is called <b>2023</b> everywhere &mdash; research 2022, published 2023</span></li>
+        <li><span class="box d">&check;</span><span>Communities section retired, then removed outright</span></li>
+        <li><span class="box d">&check;</span><span>Tech-organisation cards moved onto the shared <code>LinkCard</code></span></li>
+        <li><span class="box d">&check;</span><span><b>Both PDFs compressed</b> &mdash; 13.3&nbsp;MB&rarr;7.9&nbsp;MB and 8.2&nbsp;MB&rarr;5.0&nbsp;MB, no visible quality loss</span></li>
+      </ul>
+    </div>
+
+    <!-- STATE OF UX -->
+    <div class="page">
+      <div class="page-head">
+        <h3>State of UX report</h3>
+        <span class="path">/state-of-ux/2025</span>
+        <a class="review" href="https://web-henna-five-45.vercel.app/state-of-ux/2025">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span>Page 40 of the 2025 report rebuilt as a real page, as a sample</span></li>
+        <li><span class="box d">&check;</span><span>Matched to the rendered slide &mdash; every colour was an existing token (<code>teal-10</code>, <code>purple-140</code>, <code>orange-110</code>)</span></li>
+        <li><span class="box d">&check;</span><span>Carries only what the report says &mdash; an invented heading and interpretation removed</span></li>
+        <li><span class="box d">&check;</span><span>Linked from <code>/resources</code> as a preview</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>Full findings page parked.</b> Agreed in principle: a dozen findings lifted verbatim, PDF kept underneath. <a href="https://claude.ai/code/artifact/639c2d6f-5b85-4e39-bdf5-fc07cae1d10e">See the proposal &rarr;</a></span></li>
+      </ul>
+    </div>
+
+    <!-- DIRECTORY -->
+    <div class="page" id="card-directory">
+      <div class="page-head">
+        <h3>Member directory</h3>
+        <span class="path">/directory</span>
+        <a class="review" href="https://web-henna-five-45.vercel.app/directory">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span><b>All 63 Notion members imported and published.</b> The 6 pre-migration records deleted</span></li>
+        <li><span class="box d">&check;</span><span>Taxonomy widened to match Notion &mdash; Focus 15&rarr;18, Industry 16&rarr;26, zero unmapped values</span></li>
+        <li><span class="box d">&check;</span><span>Test records purged; importer is idempotent and repeatable</span></li>
+        <li><span class="box d">&check;</span><span><b>Notion retired</b> (30 Aug). Members are now edited in <a href="https://uxhi.sanity.studio/">the CMS</a></span></li><li><span class="box d">&check;</span><span><b>Checked field by field against Notion</b> (30 Aug) &mdash; names, job titles, focus, industry, experience, open-to-work and photos all match</span></li><li><span class="box d">&check;</span><span><b>Four import errors fixed</b> &mdash; David Sharek&rsquo;s broken LinkedIn link, a lost Video Games tag on three members, and a double space in one education entry</span></li><li><span class="box d">&check;</span><span><b>Focus and industry options reconciled with the live form</b> &mdash; six options added. The form, the CMS and the directory now share one list</span></li><li><span class="box d">&check;</span><span><b>Peggy Seymour&rsquo;s island corrected</b> to Maui</span></li>
+        <li><span class="box d">&check;</span><span><b>All 43 orphaned image assets purged</b> &mdash; 31.1&nbsp;MB reclaimed</span></li>
+      </ul>
+      <p class="note"><b>Accepted, not outstanding.</b> Sharif Matar, Vincent Brathwaite and Shayla Cabalo-Cable have no headshot. 26 members have no job title. Jamaal Pascall has no LinkedIn. Kamalei Logan&rsquo;s city reads &ldquo;Utah&rdquo;; Rebecca Mungall and Vincent Brathwaite have an island but no city. All of it matches Notion &mdash; recorded so it is not re-raised.</p>
+    </div>
+
+    <!-- OTHER PAGES -->
+    <div class="page">
+      <div class="page-head">
+        <h3>Join</h3>
+        <span class="path">/join</span>
+        <a class="review" href="https://web-henna-five-45.vercel.app/join">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span><b>Stripped to three sections</b> &mdash; hero, membership form, photo</span></li>
+        <li><span class="box d">&check;</span><span><b>Removed four sections.</b> All can be brought back:</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>Company logo wall</b> &mdash; Codecademy, LinkedIn, Servco, Zippy&rsquo;s and Google. The most likely of the four to be missed</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>&ldquo;Who are we?&rdquo;</b> &mdash; a paragraph plus a <b>Membership Directory</b> button, which was the only route from Join to the directory</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>Slack community section</b> &mdash; the hero already states the 400+ Slack benefit</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>FAQ</b> &mdash; with the About FAQ also hidden, the answers sit in the CMS and appear nowhere on the site</span></li>
+        <li><span class="box d">&check;</span><span>Hero copy confirmed as intended; unchanged</span></li>
+        <li><span class="box d">&check;</span><span>The page no longer loads anything from the CMS, so it opens faster</span></li>
+      </ul>
+    </div>
+
+    <div class="page">
+      <div class="page-head">
+        <h3>Events &amp; Merch</h3>
+        <span class="path">/events &middot; /merch</span>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span>Hero art cleared from under the nav and capped at 1400px &mdash; <a href="https://web-henna-five-45.vercel.app/events">Events</a>, <a href="https://web-henna-five-45.vercel.app/merch">Merch</a></span></li>
+        <li><span class="box d">&check;</span><span>Heading spacing normalised to 24px in line with the rest of the site</span></li>
+        <li><span class="box d">&check;</span><span><b>The conference button went to last year</b> (7 Sep) &mdash; an unyeared &ldquo;UXHI Conference&rdquo; CTA pointed at the 2025 archive. It goes to the live site now, with 2025 and 2024 as archives. The dead 2023 link is gone</span></li><li><span class="box d">&check;</span><span><b>One name for the conference</b> &mdash; nine places called it the annual conference while the nav and every link called it the UXHI Conference</span></li><li class="is-open"><span class="box o"></span><span><b>Merch payments</b> still &ldquo;Coming soon&rdquo; &mdash; Stripe Payment Links vs Checkout not chosen</span></li>
+      </ul>
+    </div>
+
+    <!-- SITE-WIDE -->
+    <div class="page" id="card-sitewide">
+      <div class="page-head">
+        <h3>Site-wide</h3>
+        <span class="path">nav &middot; footer &middot; layout</span>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span>Heading-to-paragraph spacing normalised to 24px everywhere</span></li>
+        <li><span class="box d">&check;</span><span>Interior heroes capped at 1400px</span></li>
+        <li><span class="box d">&check;</span><span>Aloha-centered design carried into the footer copy</span></li>
+        <li><span class="box d">&check;</span><span><code>uxhi.hisony.com</code> retired &mdash; staging is Vercel only</span></li>
+        <li><span class="box d">&check;</span><span><b>Live content updates fixed on staging</b>, and set up for <b>uxhi.community</b> at the same time</span></li>
+        <li><span class="box d">&check;</span><span><b>Same fix applied to the conference site</b></span></li>
+        <li><span class="box d">&check;</span><span><b>Old addresses removed from the CORS list</b> &mdash; a retired domain and two deleted preview sites</span></li>
+        <li><span class="box d">&check;</span><span><b>Search engines now only index the real addresses.</b> Staging and the temporary hosting address ask not to be listed; the conference site&rsquo;s missing rules fixed too</span></li><li><span class="box d">&check;</span><span><b>Two dead pages removed</b> &mdash; an unreachable Volunteer page now forwards to the volunteer section, and an unused page section was deleted</span></li><li><span class="box d">&check;</span><span><b>Two code faults fixed</b> &mdash; scroll-in animations restarting themselves, and the directory briefly showing the wrong page after a filter change</span></li><li><span class="box d">&check;</span><span><b>Navigation fixed</b> (7 Sep) &mdash; clicking a nav link moved the address bar and left the old page on screen until you clicked again. A status-bar colour tag was being swapped out from under React, which threw mid-render. Every trip between the homepage and an interior page did it</span></li><li><span class="box d">&check;</span><span><b>One ground</b> (7 Sep) &mdash; every page and section background is beige-30. Two near-identical beiges read as a smudge across a section edge, and the white bands cut through content that was still continuing. White is for cards now</span></li><li><span class="box d">&check;</span><span><b>The footer softens to beige-50</b> &mdash; teal was the only shout left once the grounds settled, and it landed straight after a purple band on half the pages</span></li><li><span class="box d">&check;</span><span><b>Headings speak in one colour</b> (7 Sep) &mdash; purple on light, white on dark. Black and gray are gone from the type system, so a stray one is a build error rather than a slow drift</span></li><li><span class="box d">&check;</span><span><b>Paragraph copy never drops below 16px</b> &mdash; eight places were setting sentences at 14 or 12, form error messages among them</span></li><li><span class="box d">&check;</span><span><b>Links in body copy take the colour of their sentence</b> &mdash; medium weight and a dotted rule do the marking instead</span></li><li><span class="box d">&check;</span><span><b>Headings and leads balance their line breaks</b> &mdash; no single word left stranded under a display heading</span></li><li><span class="box d">&check;</span><span><b>The nav capsule reads as glass</b> &mdash; the page shows through it now instead of stopping at it</span></li><li><span class="box d">&check;</span><span><b>The directory moved to <code>/directory</code></b> (8 Sep) &mdash; the old address named the nav label rather than the page, and a URL named after a label goes stale the first time the label changes. Doing it now, before launch, rather than maintaining a redirect forever. The old address still works</span></li><li><span class="box d">&check;</span><span><b>One name for that page</b> &mdash; the nav, the browser tab and the heading said three different things. All say &ldquo;Find a Pro&rdquo; now</span></li><li><span class="box d">&check;</span><span><b>A settings object nothing read, deleted</b> &mdash; forty lines carrying a logo, a site name and two navigations that were never rendered. Its unread copy said &ldquo;Find Experts&rdquo; and still pointed at the old address, so anyone editing it to fix the nav would have changed nothing</span></li><li><span class="box d">&check;</span><span><b>The homepage&rsquo;s first image loads first</b> &mdash; the badge above the headline is what the browser measures as the largest thing on screen, and it was being loaded last</span></li><li><span class="box d">&check;</span><span><b>The favicon is the UXHI mark</b> (7 Sep) &mdash; it had been the framework&rsquo;s default since the project was scaffolded</span></li><li class="is-open"><span class="box o"></span><span><b>Directory consent check</b> &mdash; confirm the original Notion submission covers publishing 63 people&rsquo;s names, photos and LinkedIn profiles here</span></li>
+        <li><span class="box d">&check;</span><span><b>Pages stopped carrying copy that was no longer true</b> (8 Sep) &mdash; four hardcoded lists stood in for the CMS if a fetch came back empty, and all four had drifted: the committee list still advertised two committees that no longer exist, the partner list was four short. They never rendered, so nobody corrected them, and the one moment they would have appeared is the moment the CMS was unreachable. The pages read the CMS and nothing else now</span></li>
+        <li class="is-open"><span class="box o"></span><span><b>Mailchimp email sync on hold.</b> Forms write to Sanity + Slack only; the plan is ready</span></li>
+      </ul>
+      <p class="note"><b>No cookie banner needed.</b> No US law that plausibly applies requires one, and GDPR exposure is negligible at this size. Revisit if paid features arrive or EU traffic grows. Not legal advice.</p>
+    </div>
+
+    <!-- LAUNCH READINESS -->
+    <div class="page" id="card-audit">
+      <div class="page-head">
+        <h3>Launch readiness</h3>
+        <span class="path">audit &middot; 7 Sep</span>
+      </div>
+      <p class="note lead-in"><b>What this is.</b> A sweep for the things a public address exposes that a preview address does not &mdash; how the site is found, how it behaves for people who can&rsquo;t use it the default way, and what happens when something goes wrong or someone abuses it. The four launch gates are in <a class="jump" href="#launch">Path to launch</a>. Nothing below holds the doors shut; it is ordered so the riskiest goes first.</p>
+      <ul class="checks">
+        <li class="group">Session B &mdash; soon after launch</li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Spam protection on the three forms</b> &mdash; 8 Sep. <b>Correction to this audit:</b> all three already had a honeypot, and a good one; the earlier finding was wrong. What did not work was the rate limit, which lived in memory and so was mostly imaginary on serverless. A stateless timing check replaces it, and the three drifted copies of the honeypot are one component</span></li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Error monitoring</b> &mdash; 8 Sep. Errors now post to Slack, from the server and from the browser. Visitors get a real page with a reference code rather than a stack trace. Throttled, so one broken page cannot flood the channel</span></li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Security headers</b> &mdash; 8 Sep. Five of them, set in the app so staging gets them too. Framing is allow-listed rather than blocked outright, since a flat block would have quietly broken Sanity visual editing</span></li>
+
+        <li class="group">Session C &mdash; first weeks</li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Reduce motion respected</b> &mdash; 8 Sep. One setting at the root covers every animation on the site, so content still fades in but stops flying about. Verified with the setting actually switched on, not assumed</span></li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Image sizing</b> &mdash; 8 Sep. 67 of 92 fixed, including all the hero art: those were being sent as 1920px files for a slot that is never wider than 152px, and now arrive at 256px</span></li><li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>The last 25 images</b> &mdash; 8 Sep. Measured at three widths each rather than guessed, because a photo strip, a collage pill and a full-width banner are three sizes wearing the same markup. Every image on the site now declares its size, from none of 92</span></li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Skip-to-content link</b> &mdash; 8 Sep. First thing in the tab order, invisible until focused, and it moves focus into the content rather than only scrolling to it</span></li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Home-screen icons</b> &mdash; 7 Sep. Done alongside the favicon: an iPhone bookmark gets the UXHI mark instead of a screenshot</span></li>
+
+        <li class="group">Once production is live</li>
+        <li class="is-open"><span class="box o"></span><span><span class="owner">Dev</span><b>The rest of the Content-Security-Policy.</b> The header exists but only controls framing. A script-src is the part that actually stops cross-site scripting &mdash; and the part that silently breaks Next&rsquo;s inline bootstrap, analytics and the Studio if written blind. Unblocked 8 Sep &mdash; production is now live, and this could not be tested honestly before it was: the development server uses <code>eval</code> for hot reloading, so a policy that passes locally proves nothing about the built site. The way in is report-only first &mdash; let the browser say what it would have blocked, walk the site and the Studio, then enforce what the reports prove</span></li>
+        <li class="is-open"><span class="box o"></span><span>Submit the sitemap in Google Search Console, once the domain answers</span></li>
+        <li class="is-open"><span class="box o"></span><span>Confirm the Slack error alerts arrive from the live site, not just that the setting exists</span></li>
+        <li class="is-open"><span class="box o"></span><span>Watch analytics for a day and check the numbers look like people rather than bots</span></li>
+
+        <li class="group">Session D &mdash; needs you, or can wait</li>
+        <li class="is-open"><span class="box o"></span><span><b>Check Slack alerts arrive.</b> Error monitoring posts to <code>SLACK_WEBHOOK_URL</code>, the same one the forms already use. If you get a Slack message when someone submits a membership application, this is already working and there is nothing to do. If not, that is the thing to check in Netlify. Optionally add <code>SLACK_ALERT_WEBHOOK_URL</code> for a separate alerts channel &mdash; the code prefers it</span></li><li><span class="box d">&check;</span><span><b>Privacy notice</b> &mdash; 8 Sep, at <code>/privacy</code>, linked from the footer. Written from what the code actually does, so it names the six services that genuinely receive anything. The directory gets its own section: those profiles are public and Google indexes them, which is the part a member may not have pictured. Removal goes through the contact form, since neither this site nor the current one has ever published an email address</span></li><li><span class="box d">&check;</span><span><b>The children section came out of the privacy notice</b> (8 Sep) &mdash; not required (the law binds sites aimed at under-13s or knowingly collecting from them, and this is neither) and written from an assumption about the audience rather than from anything the system does, which is the standard the rest of that page is held to</span></li><li class="is-open"><span class="box o"></span><span><b>One thing in the privacy notice still wants your word.</b> &ldquo;Within 30 days&rdquo; for removals is a number I chose. Someone on the board should also read the whole thing &mdash; it is written from the system, but it is not legal advice</span></li><li class="is-open"><span class="box o"></span><span><span class="owner">Dev</span><b>Nothing actually deletes form submissions after 90 days.</b> The notice now promises it; today contact submissions sit in the CMS and in Slack indefinitely. Either someone clears them each quarter or it wants a scheduled job &mdash; a promise the code does not keep is worse than no promise</span></li>
+        <li><span class="box d">&check;</span><span><span class="owner">Dev</span><b>Housekeeping</b> &mdash; 8 Sep. Linter is at zero. The warnings turned out to be dead code rather than untidy imports: Events fetched its list from the CMS and rendered none of it (the listing is a Luma embed), and Resources did the same with the reports query. Starter graphics gone, Node version pinned</span></li>
+      </ul>
+      <p class="note"><b>The directory becomes findable the moment the domain does.</b> Today it is deliberately hidden from search engines because the preview addresses are not meant to be found. On the live address it will be indexed and cached by Google &mdash; 63 people&rsquo;s names, photos, titles and LinkedIn profiles. That is presumably the point of a directory, but it is the sharp end of the <a class="jump" href="#card-sitewide">consent question</a> already open above, and it wants a line in the privacy policy.</p>
+      <p class="note"><b>Sound already, so nobody needs to spend time here.</b> The rules that keep search engines away from the preview addresses are host-aware and genuinely well built. Analytics is gated so staging never pollutes the real reports. All three forms validate their input and check uploaded file types, and the Slack notification fails quietly rather than taking the form down with it. No credentials anywhere in the source. Every page has a title and description. The archive redirects for past conference years are carefully reasoned. Dependencies are current and there are only sixteen of them.</p>
+    </div>
+  </section>
+
+  <!-- ======================= DESIGN SYSTEM ======================= -->
+  
+  </div>
+  <div id="panel-design" role="tabpanel" aria-labelledby="tab-design" hidden>
+<section class="area">
+    <h2>Design system</h2>
+    <p class="area-note">The single source of truth for the main site. Every change below is documented on the design system page in the same changeset.</p>
+
+    <div class="page">
+      <div class="page-head">
+        <h3>Components</h3>
+        <span class="path">/design-system</span>
+        <a class="review" href="https://web-henna-five-45.vercel.app/design-system">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span><b>The conference section is a year, not a family</b> (8 Sep) &mdash; &ldquo;Conference &rsaquo; 2026&rdquo; implied a conference system that 2026 is a variant of, and there is none. It is &ldquo;2026 Conference&rdquo; now, and 2027 gets a section beside it. The three new heading roles are documented with the rest</span></li><li><span class="box d">&check;</span><span><b>New &mdash; <code>MissionStatement</code>:</b> the mission sentence with both terms explained, shared by the homepage and <code>/about</code></span></li>
+        <li><span class="box d">&check;</span><span><b>New &mdash; <code>PrincipleList</code>:</b> named ideas with short definitions, as a description list</span></li>
+        <li><span class="box d">&check;</span><span><b>New &mdash; <code>StatComparison</code>:</b> two headline figures at equal weight, each with a provenance note</span></li>
+        <li><span class="box d">&check;</span><span><b>New &mdash; <code>DistributionBars</code>:</b> stacked bar on desktop, rows on mobile, data exposed as a table</span></li>
+        <li><span class="box d">&check;</span><span><code>CountUp</code> gained prefix and grouping so currency renders as $110,203</span></li>
+        <li><span class="box d">&check;</span><span><code>LinkCard</code> no longer turns its title teal on hover; <code>HeroSection</code> caps at 1400px</span></li>
+        <li><span class="box d">&check;</span><span>Directory taxonomy options widened in the schema and documented</span></li>
+        <li><span class="box d">&check;</span><span><b>The xl heading stops holding body-copy leading</b> (13 Sep) &mdash; the homepage&rsquo;s three-line &ldquo;A community / for designers, / by designers&rdquo; set 60px type on a 75px line, against 48 on 60 for the headings above it. Same ratio, so proportionally identical and visibly not. The ramp already knew better: the 72px hero runs at 1.06 because a ratio that reads well at body scale reads airy above it. Now 64px at that step</span></li>
+        <li><span class="box d">&check;</span><span><b>The 2026 conference system is importable in Claude Design</b> (12 Sep) &mdash; 30 components with real preview cards, grouped into Icons and Components, so the design agent builds screens from the actual compiled components rather than generic ones. <a href="https://claude.ai/design/p/992872a3-3c1d-44f6-b568-55f70e214eec">Open the project &rarr;</a></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================= CONFERENCE ======================= -->
+  
+  </div>
+  <div id="panel-conference" role="tabpanel" aria-labelledby="tab-conference" hidden>
+<section class="area">
+    <h2>UXHI Conference</h2>
+    <p class="area-note">Every year is a full redesign, sharing only the parent token system. Live at <code>uxhiconference.com</code>.</p>
+
+    <div class="page" id="card-conf-2026">
+      <div class="page-head">
+        <h3>Conference 2026</h3>
+        <span class="path">/conference/2026</span>
+        <a class="review" href="https://uxhiconference.com">Review &rarr;</a>
+      </div>
+      <ul class="checks">
+        <li><span class="box d">&check;</span><span><b>Pau hana module rebuilt as a ticket stub</b> &mdash; badge straddled, stub lightened, tear-off text flows when stacked</span></li>
+        <li><span class="box d">&check;</span><span>Pau hana details confirmed &mdash; date as an eyebrow, address in place of the time, co-host line and 21+ dropped</span></li>
+        <li><span class="box d">&check;</span><span>Lineup teaser strip added; the lineup module unboxed and the intro hierarchy flipped</span></li>
+        <li><span class="box d">&check;</span><span>LinkedIn CTA added; last year&rsquo;s numbers dropped; OurSpace linked to the map</span></li>
+        <li><span class="box d">&check;</span><span>Colour naming tightened to tokens &mdash; <code>YELLOW_80</code> rather than <code>GOLD</code>, <code>TEAL_40</code> on the tear-off</span></li>
+        <li><span class="box d">&check;</span><span>Dotted hyperlink rule lightened; FAQ time removed</span></li>
+        <li><span class="box d">&check;</span><span><b>Content signed off 28 Aug</b> &mdash; venue copy, all 8 FAQ items, venue photo and Co-Chair bios accepted as-is</span></li>
+        <li><span class="box d">&check;</span><span>Verified in production after the 29 Aug deploy &mdash; <code>uxhiconference.com</code> and the <code>/2025</code> archive both load</span></li>
+        <li><span class="box d">&check;</span><span><b>Heading sizes are roles now</b> (8 Sep) &mdash; the year had two heading roles and five headings sized wherever they were used. Three roles sit under them. Four of the five render identically; the sponsor name gains a pixel above 768px, which was the point &mdash; it was the one heading with no responsive range at all</span></li>
+        <li><span class="box d">&check;</span><span><b>The Case Study Showcase lineup corrected</b> (8 Sep) &mdash; Carolyn Rojsutivat and Amy McKee out, Dr. Kari Noe in, reading last. Worth knowing for next time: deleting a speaker in the CMS does not remove them from the page. The names live in <code>agenda.ts</code> and the CMS record only supplies the photo, title and bio, so a deleted record leaves the name standing with nothing behind it</span></li>
+        <li class="group">Shipped 13 Sep &mdash; live on uxhiconference.com</li>
+        <li><span class="box d">&check;</span><span><b>The brand marks travel with their components</b> &mdash; the shaka, the UXHICon badge and the Instagram and LinkedIn glyphs were image files under <code>public/</code>, which resolve on this site and nowhere else. They are drawn into the components now, so a component lifted out of the site &mdash; into a preview, an export, a design tool &mdash; keeps its artwork instead of showing a broken box. The source SVGs stay where they were for OG images</span></li>
+        <li><span class="box d">&check;</span><span><b>The pau hana stub says when to turn up</b> &mdash; 5:30&ndash;8:30 pm, under the date on the tear-off. It gave the date, the address and the one-drink note, and left out the thing an attendee plans around. On a phone the time takes its own line</span></li>
+        <li><span class="box d">&check;</span><span><b>The programme section tells the whole day</b> &mdash; the heading was one line doing two jobs (&ldquo;UXHICon &bull; Saturday, October 17, 2026&rdquo;) and the main event had no time and no venue, so the pau hana was the only thing on the page saying where to be and when. Now: title, one paragraph, then four stacked facts &mdash; Saturday, October 17, 2026 &middot; 8:00 am&ndash;4:30 pm &middot; Entrepreneurs Sandbox &middot; 643 Ilalo St. The venue name jumps to the venue section rather than out to a map</span></li>
+        <li><span class="box d">&check;</span><span><b>The section ends on a ticket</b> &mdash; Get tickets, with Follow beside it. Every ticket link above that point belonged to the pau hana stub, a separate ticket for a different evening, so a reader who had just been told what the day is had nowhere to act on it</span></li>
+        <li><span class="box d">&check;</span><span><b>Naming pass</b> &mdash; the nav reads Lineup, About and The Venue; the schedule is &ldquo;The Lineup&rdquo; and the sponsor wall &ldquo;Our Sponsors&rdquo;. The anchors behind those labels did not change, so <code>uxhiconference.com/agenda</code> and the other shared links still resolve</span></li>
+        <li><span class="box d">&check;</span><span><b>The cash bar promise is gone</b> from the pau hana FAQ answer, which now stops at the included drink</span></li>
+        <li><span class="box d">&check;</span><span><b>Verified in production</b> &mdash; 13 Sep, about 70 seconds after the build. Content, nav labels, inline marks and the <code>/agenda</code> redirect all checked on the live domain</span></li>
+        <li class="group">Shipped 17 Sep &mdash; live on uxhiconference.com</li>
+        <li><span class="box d">&check;</span><span><b>Meet the Speakers</b> &mdash; the lineup existed only inside the schedule, as 28px circles under a session title. An organizer&rsquo;s portrait had <b>112 times</b> the area of a speaker&rsquo;s face, so the people you buy a ticket for were among the smallest things on the page, findable only by reading the agenda and tapping fourteen times. Nine faces now sit above the schedule, each opening the same bio drawer. A grid rather than a carousel: the job here is scanning &mdash; do I know anyone, is this worth my Saturday &mdash; and a carousel answers that three faces at a time</span></li>
+        <li><span class="box d">&check;</span><span><b>The grid is read out of the agenda</b> rather than queried separately, so the two cannot disagree. One card per person however many sessions they run, nobody who exists only in the CMS, and only people who have both a photo and a bio</span></li>
+        <li><span class="box d">&check;</span><span><b>Three returning speakers added</b> &mdash; May Sermonia, Kim Davidson and Michelle Tran lead Sharing Your Career Mo&#699;olelo. Bios, headshots and LinkedIn lifted out of the 2024 and 2025 archives into <a href="https://uxhi.sanity.studio/">the CMS</a> and published. The session had been credited to Pi&#699;ik&#363; as an organization; it names the three now and carries &ldquo;with Pi&#699;ik&#363; Co.&rdquo; in its title</span></li>
+        <li><span class="box d">&check;</span><span><b>Organizers drop to four across</b> &mdash; both grids were drawn at 265px, which said the people running the day carry the same weight as the people presenting it. An organizer is 195px now against a speaker&rsquo;s 265. Worth knowing for next time: these grids size off the scroll rail, not the window &mdash; 620px at a 1280px screen &mdash; so two earlier attempts looked right on a laptop and collapsed everywhere narrower</span></li>
+        <li><span class="box d">&check;</span><span><b>A tile carries a face and a name, nothing else</b> &mdash; the role came off both grids. A real job title is long enough to need clamping, so it half-said something while taking the bottom third of the photograph to do it. It is the drawer&rsquo;s byline instead, one tap away, and the name grew into the space</span></li>
+        <li><span class="box d">&check;</span><span><b>The drawers lead with the thing you tapped</b> &mdash; a session used to open on &ldquo;PURPLE BOX&rdquo; with its title underneath. Title first now, then <b>3:00 pm &middot; Purple Box</b>; a speaker&rsquo;s name first, then their title. The time is new &mdash; it lives on the time slot rather than the session, so the panel had no way to say it before</span></li>
+        <li><span class="box d">&check;</span><span><b>The sidebar answers when, where and how do I come</b> &mdash; a third of the card, held for all sixteen screens of scrolling, carried a countdown, a tagline and last year&rsquo;s three figures. It says UXHICon 2026, Saturday, October 17, 2026, 8:00 am&ndash;4:30 pm, the venue and its street address, and <b>Get tickets</b>. The date and the ticket button had existed only in the hero, which scrolls away after the first screen</span></li>
+        <li><span class="box d">&check;</span><span><b>The countdown moved to the pulse</b> &mdash; &ldquo;30 days to go&rdquo; beside the animating dot, in purple. It pluralises, and it handles the day itself and the day after; the old one clamped at zero, so this page would have read &ldquo;0 Days to Go&rdquo; forever once it became the 2026 archive</span></li>
+        <li><span class="box d">&check;</span><span><b>Last year&rsquo;s numbers became an interlude above the sponsor wall</b> &mdash; 37 speakers, 12 sessions, 127 attendees, landing just before &ldquo;We couldn&rsquo;t tell this mo&#699;olelo alone&rdquo;. As a permanent table in the sidebar they competed with this year&rsquo;s event; here they are the case for backing it</span></li>
+        <li><span class="box d">&check;</span><span><b>About and Meet the Organizers moved down</b> beside the sponsors, so the page reads what it is, who is speaking, when, where, then who we are. The nav order follows the scroll rather than pointing backwards past two sections</span></li>
+        <li><span class="box d">&check;</span><span><b>The pau hana section stops asking twice</b> &mdash; the Get tickets and Follow pair beneath it repeated the header&rsquo;s standing ticket button and the footer&rsquo;s follow links a few hundred pixels from both. <b>This reverses the 13 Sep item above;</b> the stub keeps its own ticket, which is a separate ticket for a separate evening</span></li>
+        <li><span class="box d">&check;</span><span><b>Copy pass</b> &mdash; both street addresses drop their zip, the 2:00 pm workshop is &ldquo;Narrative Arc: A Workshop with Anthology FINN Partners&rdquo;, and the sidebar title is UXHICon rather than UXHI Conference</span></li>
+        <li><span class="box d">&check;</span><span><b>Verified in production</b> &mdash; 17 Sep. Section order, the nine speaker tiles, the countdown, the sidebar, both session titles and both archive URLs checked on the live domain</span></li>
+        <li class="group">Fixed &mdash; and it was never visible on staging</li>
+        <li><span class="box d">&check;</span><span><b>Past conferences led to two 404s everywhere except production</b> &mdash; the short <code>/2025/</code> and <code>/2024/</code> links are built by hostname routing that only runs for <code>uxhiconference.com</code>, so both failed on localhost, on staging and on the Netlify default address. Every place the site gets reviewed, in other words, which is why it survived this long. They use the full path now, which resolves on all four. The same two links in the mobile menu had the same bug and are fixed with them</span></li>
+        <li class="group">Waiting on content</li>
+        <li class="is-open"><span class="box o"></span><span><b>Three speakers have no bio or photo yet</b> &mdash; Dr. Kari Noe, Fai Visuthicho and Hanalei Ramos. Fai and Hanalei have the 1:00 and 3:00 Main Room talks, so they are the prominent gaps. They appear in the schedule as plain names and are left out of Meet the Speakers entirely, because a portrait grid makes an empty record conspicuous in a way a 28px thumbnail never did. Add them in <a href="https://uxhi.sanity.studio/">the CMS</a> and publish; each joins the grid on their own, no deploy needed</span></li>
+      </ul>
+    </div>
+  </section>
+
+  </div>
+</main>
+
+<footer class="wrap">
+  <p>Review links point at staging, which always shows the latest work. How to edit any of it is in the <a href="https://claude.ai/code/artifact/3526c45a-92cb-42fe-ae35-5563968c0d23">Handbook</a>; the code-level detail lives in <code>docs/PROJECT-STATE.md</code>.</p>
+</footer>
+
+<script>
+  (function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (focus) tab.focus();
+      history.replaceState(null, '', '#' + tab.id.replace('tab-', ''));
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () { select(tab, false); });
+      // Roving focus, so the tab row behaves like one control for keyboard users.
+      tab.addEventListener('keydown', function (e) {
+        var i = tabs.indexOf(tab);
+        var next = e.key === 'ArrowRight' ? i + 1
+                 : e.key === 'ArrowLeft'  ? i - 1
+                 : e.key === 'Home'       ? 0
+                 : e.key === 'End'        ? tabs.length - 1
+                 : null;
+        if (next === null) return;
+        e.preventDefault();
+        select(tabs[(next + tabs.length) % tabs.length], true);
+      });
+    });
+
+    // A hash can name a tab (#launch) or a card inside one (#card-about).
+    // For a card, find the panel that holds it, switch to that tab, then scroll —
+    // otherwise the link lands on an element that is display:none.
+    function goToHash(hash, smooth) {
+      var id = (hash || '').replace(/^#/, '');
+      if (!id) return false;
+
+      var asTab = document.getElementById('tab-' + id);
+      if (asTab) { select(asTab, false); return true; }
+
+      var target = document.getElementById(id);
+      if (!target) return false;
+      var panel = target.closest('[role="tabpanel"]');
+      if (panel) {
+        var owner = document.getElementById(panel.getAttribute('aria-labelledby'));
+        if (owner) select(owner, false);
+      }
+      target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+      return true;
+    }
+
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      var hash = link.getAttribute('href');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (goToHash(hash, !reduce)) {
+        e.preventDefault();
+        history.replaceState(null, '', hash);
+      }
+    });
+
+    goToHash(location.hash, false);
+  })();
+</script>
+
+
+
+</body></html>

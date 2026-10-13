@@ -4,15 +4,19 @@
 in order to act safely: where each thing is deployed, what must not be touched, which file is
 the source of truth for what, and the gotchas that are not visible from the code.
 
-> **Two live documents sit outside this repo, and they own everything human-facing.**
+> **Two live documents own everything human-facing.**
 >
 > - **[UXHI Site Handbook](https://claude.ai/code/artifact/3526c45a-92cb-42fe-ae35-5563968c0d23)** —
 >   where every piece of content is edited and whether editing it changes anything, how a
 >   change reaches the live site, the three forms, the outside services, access and local
 >   setup, the DNS runbook for pointing `uxhi.community`, and the parked Mailchimp and Stripe
->   plans. Shared with the team.
-> - **[Path to Launch worklog](https://claude.ai/code/artifact/f5861a52-1822-47ca-b284-a08688f1134a)** —
->   what is done, what is outstanding, what needs deciding.
+>   plans. Shared with the team. Lives outside this repo.
+> - **[UXHI Site Worklog](WORKLOG.html)** (`docs/WORKLOG.html`) — the punchlist: what is
+>   done, what is outstanding, what needs deciding. Brought into the repo on 11 Oct 2026 so
+>   agents can tick it off as work lands; the claude.ai artifact copy is retired. When an
+>   item changes state, update its `is-open`/`box d` markup **and** the hand-written counts
+>   (masthead totals, percentage bar, per-tab badges) in the same edit. Kept in `docs/`,
+>   not `public/`, so it is never served on staging.
 >
 > They replaced five files in this folder on 8 Sep 2026 — a handoff guide, a DNS runbook, an
 > analytics note, a Mailchimp plan and a Stripe comparison — which had drifted precisely
