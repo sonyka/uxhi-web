@@ -10,7 +10,9 @@ interface SectionIconProps {
    * How big the icon reads above its section.
    *
    * `default` is the 80px mark that opens a section on its own, and is what
-   * every section intro on the site uses.
+   * every section intro on the site uses. It steps down to 64px below md: at
+   * 80 on a phone it outweighed the heading beneath it, which on a phone runs
+   * 24–28px rather than desktop's 36–48.
    *
    * `sm` is 56px, for an icon that labels what follows rather than opening a
    * section. It has no caller today — FormSuccess used it until Oct 2026,
@@ -32,7 +34,7 @@ interface SectionIconProps {
  * candidate.
  */
 const sizeStyles: Record<SectionIconSize, { box: string; sizes: string }> = {
-  default: { box: "w-20 h-20", sizes: "80px" },
+  default: { box: "w-16 h-16 md:w-20 md:h-20", sizes: "(max-width: 767px) 64px, 80px" },
   sm: { box: "w-14 h-14", sizes: "56px" },
   lg: { box: "w-24 h-24", sizes: "96px" },
 };
@@ -40,7 +42,7 @@ const sizeStyles: Record<SectionIconSize, { box: string; sizes: string }> = {
 /**
  * SectionIcon - Centered icon above a section intro
  *
- * Size: 80x80px default, 56x56px at `size="sm"`, 96x96px at `size="lg"`.
+ * Size: 80x80px default (64x64px below md), 56x56px at `size="sm"`, 96x96px at `size="lg"`.
  * Centered with bottom margin (overridable via className).
  * Uses Next.js Image with fill + object-contain.
  *
