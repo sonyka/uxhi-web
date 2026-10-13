@@ -83,11 +83,14 @@ interface FormSuccessProps {
 
 export function FormSuccess({ iconSrc, title, message, action, className }: FormSuccessProps) {
   const ref = useRef<HTMLDivElement>(null);
+  // To the top of the view, not the centre: the card replaces a long form,
+  // and centring it left the section intro above it in view, competing with
+  // it. scroll-mt clears the floating nav.
   useEffect(() => {
-    ref.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
   return (
-    <div ref={ref} className={cn("border border-white/20 rounded-2xl p-8 text-center", className)}>
+    <div ref={ref} className={cn("border border-white/20 rounded-2xl p-8 text-center scroll-mt-36", className)}>
       <SectionIcon src={iconSrc} alt="" size="sm" className="mb-4" />
       <h3 className="font-display text-2xl text-white text-balance mb-2">{title}</h3>
       <p className="text-white">{message}</p>

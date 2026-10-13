@@ -933,7 +933,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-eyebrow": (
     <ContentSection
       title="Section Eyebrow"
-      description="Uppercase label used above section content. 20px (h4), bold, wide tracking, purple-120. Used for subsection headings like 'Our Committees', 'Successful Partnerships', etc."
+      description="Uppercase label used above section content. 20px, bold, wide tracking. Renders as h4 by default; as=&quot;p&quot; when it sits above a higher-level heading. variant=&quot;light&quot; (default) is purple-120 for beige and white grounds; variant=&quot;dark&quot; is purple-30 for the purple-140 bands, e.g. &quot;Next step&quot; above step 2 of the join form."
       componentPath="components/ui/SectionEyebrow.tsx"
     >
       <div className="space-y-6">
@@ -944,6 +944,13 @@ const contentComponents: Record<string, React.ReactNode> = {
         <div>
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Centered</h4>
           <SectionEyebrow className="text-center">Successful Partnerships</SectionEyebrow>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Dark (variant=&quot;dark&quot;, as=&quot;p&quot;)</h4>
+          <div className="bg-purple-140 rounded-xl p-6 text-center">
+            <SectionEyebrow as="p" variant="dark" className="mb-3">Next step</SectionEyebrow>
+            <SectionHeading as="h3" size="md" color="white">Join our member directory</SectionHeading>
+          </div>
         </div>
       </div>
     </ContentSection>
@@ -2907,6 +2914,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <p className="text-sm font-semibold text-gray-120">Styling</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Container: <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/20 rounded-2xl p-8</span> — no fill; sits directly on the purple-140 section</p>
+                <p>On mount: scrolls to the top of the view (<span className="font-mono text-xs bg-gray-20 px-1 rounded">block: &quot;start&quot;</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">scroll-mt-36</span> to clear the 120px desktop nav), so the section intro above it is out of view</p>
                 <p>Illustration: <span className="font-mono text-xs bg-gray-20 px-1 rounded">SectionIcon size=&quot;sm&quot;</span> — 56px, mb-4</p>
                 <p>Title: <span className="font-mono text-xs bg-gray-20 px-1 rounded">font-display text-2xl text-white</span></p>
                 <p>Message: <span className="font-mono text-xs bg-gray-20 px-1 rounded">text-white</span></p>

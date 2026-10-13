@@ -6,7 +6,6 @@ import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { InlineLink } from "@/components/ui/InlineLink";
 import { MobileTooltip } from "@/components/ui/MobileTooltip";
 import { MEMBER_COUNT_PLUS } from "@/lib/stats";
 import type { Metadata } from "next";
@@ -110,7 +109,7 @@ export default function JoinPage() {
       </HeroSection>
 
       {/* How to Join Section */}
-      <section id="join-form" className="py-20 px-6 bg-purple-140">
+      <section id="join-form" className="py-20 px-6 bg-purple-140 scroll-mt-24">
         <div className="max-w-[800px] mx-auto">
           <ScrollReveal stagger className="text-center mb-10">
             <MotionDiv>
@@ -142,13 +141,11 @@ export default function JoinPage() {
               </p>
             </MotionDiv>
             <MotionDiv>
-              {/* The reverse of the line above the About contact form: routes
-                  anyone who is not here to join towards the general inquiry. */}
-              <p className="text-white text-lg leading-relaxed mt-6 max-w-[600px] mx-auto">
-                Have a question or looking to connect with us?{" "}
-                <InlineLink href="/about#contact">Visit our contact form</InlineLink>
-                {" "}to reach out about partnerships, sponsorships, events, or anything else.
-              </p>
+              {/* For anyone who is here to talk rather than to join. */}
+              <div className="mt-8">
+                <p className="text-white text-lg mb-3">Have other questions?</p>
+                <PrimaryCTA href="/about#contact" variant="dark">Contact us</PrimaryCTA>
+              </div>
             </MotionDiv>
           </ScrollReveal>
 

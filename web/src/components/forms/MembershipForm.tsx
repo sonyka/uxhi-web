@@ -7,6 +7,7 @@ import { INTEREST_OPTIONS, HEAR_ABOUT_OPTIONS } from "@/lib/validations";
 import { EXPERIENCE_LEVEL_OPTIONS } from "@/components/directory/constants";
 import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { DirectorySubmitForm } from "./DirectorySubmitForm";
@@ -71,8 +72,11 @@ export function MembershipForm() {
       <div className="space-y-10">
         {received}
         <div className="text-center">
-          <SectionHeading as="h3" size="sm" color="white" className="mb-3">
-            Next: join our member directory
+          <SectionEyebrow as="p" variant="dark" className="mb-3">
+            Next step
+          </SectionEyebrow>
+          <SectionHeading as="h3" size="md" color="white" className="mb-4">
+            Join our member directory
           </SectionHeading>
           <SectionLead size="md" color="white">
             Whether you&apos;re looking for new opportunities, seeking collaborators, or
