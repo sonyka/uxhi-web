@@ -137,6 +137,14 @@ export const directoryMember = defineType({
       type: "url",
     }),
     defineField({
+      name: "commitmentAgreedAt",
+      title: "Agreed to Directory Commitment",
+      description: "When they ticked the directory commitment on the profile form",
+      type: "datetime",
+      readOnly: true,
+      hidden: ({ value }) => !value,
+    }),
+    defineField({
       name: "order",
       title: "Display Order",
       type: "number",

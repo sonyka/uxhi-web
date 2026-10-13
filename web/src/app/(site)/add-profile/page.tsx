@@ -43,16 +43,18 @@ export default function AddProfilePage() {
         </MotionDiv>
         <MotionDiv>
           <SectionLead size="lg" className="mb-4">
-            Are you a UX professional with ties to Hawaiʻi? Add yourself to the directory
-            and connect with our growing community. Whether you&apos;re looking for new
-            opportunities, seeking collaborators, or wanting to give back as a mentor,
-            this is your chance to be discovered.
+            Are you passionate about designing better experiences and making a positive
+            impact in Hawaiʻi? Request to be included in the UXHI Directory to connect with
+            others, discover opportunities, find collaborators, and share your knowledge
+            with our growing community.
           </SectionLead>
         </MotionDiv>
         <MotionDiv>
           <SectionLead size="lg">
-            UX professionals and anyone transitioning into UX design who lives in Hawaiʻi
-            or has strong ties to Hawaiʻi can join.
+            Whether you&apos;re an experienced practitioner, a student, transitioning into
+            the field, or applying human-centered approaches in your work, we welcome you.
+            Anyone who lives in Hawaiʻi or has strong ties to Hawaiʻi and is passionate
+            about design, people, and community is encouraged to apply.
           </SectionLead>
         </MotionDiv>
       </ScrollReveal>

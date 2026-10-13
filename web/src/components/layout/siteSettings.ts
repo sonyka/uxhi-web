@@ -7,7 +7,7 @@
  * `ctaButton` — and Footer takes no props at all and owns its own links.
  *
  * That is worse than clutter: the unread mainNavigation said "Find Experts"
- * while the rendered nav said "Find a pro", and its links still pointed at
+ * while the rendered nav said "Find a pro" (now "Members"), and its links still pointed at
  * /find-ux-pro after the directory moved. Anyone editing it to fix the nav
  * would have changed nothing and been left wondering why.
  *

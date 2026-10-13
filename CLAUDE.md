@@ -184,6 +184,7 @@ Full audit, principles and history: [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONF
 | `FormSelect` | `components/ui/form-elements/FormSelect.tsx` | Custom dropdown with purple panel + hidden input |
 | `FormFileUpload` | `components/ui/form-elements/FormFileUpload.tsx` | Styled file upload with optional circular preview |
 | `FormHelpText` | `components/ui/form-elements/FormHelpText.tsx` | Quiet note under a field (format hints, privacy notes) |
+| `FormAgreement` | `components/ui/form-elements/FormAgreement.tsx` | Required commitment before submit: collapsible background, always-visible statement + checkbox |
 | `FormSubmitButton` | `components/ui/form-elements/FormSubmitButton.tsx` | Pill button with icon circle (send or arrow variant) |
 | `InquiryForm` | `components/forms/InquiryForm.tsx` | Contact form for /about#contact (purple bg, saves to Sanity + Slack) |
 | `MembershipForm` | `components/forms/MembershipForm.tsx` | Membership application for /join (purple bg, Sanity + Slack); then an optional step 2 in place: the directory form, pre-filled |

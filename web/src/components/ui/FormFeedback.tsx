@@ -11,6 +11,12 @@ import { SectionIcon } from "@/components/ui/SectionIcon";
 interface FormAlertProps {
   message: string;
   variant?: "error" | "info";
+  /**
+   * Id of an element to bring to the top of the view instead of centring the
+   * alert — the form's section, so a failed submit lands where the section's
+   * own anchor does and the visitor starts again from the top of the form.
+   */
+  scrollToId?: string;
   className?: string;
 }
 
@@ -19,11 +25,13 @@ const alertStyles = {
   info: "bg-white/10 border-white/20 text-white",
 } as const;
 
-export function FormAlert({ message, variant = "error", className }: FormAlertProps) {
+export function FormAlert({ message, variant = "error", scrollToId, className }: FormAlertProps) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    ref.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, []);
+    const target = scrollToId ? document.getElementById(scrollToId) : null;
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    else ref.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [scrollToId]);
   return (
     <div
       ref={ref}

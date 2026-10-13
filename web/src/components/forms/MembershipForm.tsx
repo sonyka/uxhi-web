@@ -11,6 +11,7 @@ import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { InlineLink } from "@/components/ui/InlineLink";
 import { DirectorySubmitForm } from "./DirectorySubmitForm";
+import { MemberCommitment } from "./commitments";
 import {
   FormLabel,
   FormInput,
@@ -34,7 +35,7 @@ export function MembershipForm() {
   const skipProfile = useCallback(() => setProfileStep("skipped"), []);
 
   // Every success state sits under pt-32: FormSuccess scrolls itself to 144px
-  // below the top of the view, and the page's Contact us button sits just
+  // below the top of the view, and the page's Contact us line sits just
   // above the form. Without the extra room it shows through the glass nav.
   if (state?.success) {
     if (profileStep === "done") {
@@ -83,9 +84,19 @@ export function MembershipForm() {
           <SectionHeading as="h3" size="md" color="white" className="mb-4">
             Join our member directory
           </SectionHeading>
+          <SectionLead size="md" color="white" className="mb-4">
+            Are you passionate about designing better experiences and making a positive
+            impact in Hawaiʻi? Request to be included in the UXHI Directory to connect with
+            others, discover opportunities, find collaborators, and share your knowledge
+            with our growing community.
+          </SectionLead>
+          <SectionLead size="md" color="white" className="mb-4">
+            Whether you&apos;re an experienced practitioner, a student, transitioning into
+            the field, or applying human-centered approaches in your work, we welcome you.
+            Anyone who lives in Hawaiʻi or has strong ties to Hawaiʻi and is passionate
+            about design, people, and community is encouraged to apply.
+          </SectionLead>
           <SectionLead size="md" color="white">
-            Whether you&apos;re looking for new opportunities, seeking collaborators, or
-            wanting to give back as a mentor, this is your chance to be discovered.
             We&apos;ve filled in what you just told us, so it only takes a minute.
           </SectionLead>
         </div>
@@ -99,7 +110,7 @@ export function MembershipForm() {
       <SpamGuard />
 
       {state?.message && !state.success && (
-        <FormAlert message={state.message} />
+        <FormAlert message={state.message} scrollToId="join-form" />
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -177,6 +188,8 @@ export function MembershipForm() {
           ))}
         </div>
       </fieldset>
+
+      <MemberCommitment errors={state?.errors} />
 
       <FormSubmitButton
         label="Submit application"

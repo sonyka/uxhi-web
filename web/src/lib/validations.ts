@@ -44,6 +44,7 @@ export const INTEREST_OPTIONS = [
   "Speak at events",
   "Write for the blog",
   "Volunteer",
+  "Other",
 ] as const;
 
 export const HEAR_ABOUT_OPTIONS = [
@@ -64,6 +65,7 @@ export const membershipSchema = z.object({
   }),
   interests: z.array(z.enum(INTEREST_OPTIONS)).optional(),
   hearAboutUs: z.string().optional(),
+  agreement: z.literal(true, { message: "Please agree to the member commitment to continue" }),
 });
 
 export type MembershipFormData = z.infer<typeof membershipSchema>;
@@ -88,6 +90,7 @@ export const directorySubmissionSchema = z.object({
   educationBootcamp: z.string().optional(),
   linkedIn: z.string().url("Please enter a valid URL").optional().or(z.literal("")),
   portfolio: z.string().url("Please enter a valid URL").optional().or(z.literal("")),
+  agreement: z.literal(true, { message: "Please agree to the directory commitment to continue" }),
 });
 
 export type DirectorySubmissionFormData = z.infer<typeof directorySubmissionSchema>;

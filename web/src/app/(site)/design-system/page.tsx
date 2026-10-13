@@ -53,6 +53,7 @@ import {
   FormSelect,
   FormFileUpload,
   FormHelpText,
+  FormAgreement,
   FormSubmitButton,
 } from "@/components/ui/form-elements";
 
@@ -163,6 +164,7 @@ const navigationItems = [
       { id: "form-select", label: "Select Dropdown" },
       { id: "form-file", label: "File Upload" },
       { id: "form-helptext", label: "Help Text" },
+      { id: "form-agreement", label: "Agreement" },
       { id: "form-submit", label: "Submit Button" },
       { id: "form-inquiry", label: "Inquiry Form" },
       { id: "form-membership", label: "Membership Form" },
@@ -1412,7 +1414,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-primarycta": (
     <ContentSection
       title="Primary CTA"
-      description="Pill button with arrow circle. Variants: default (yellow circle), subdued (gray circle, for secondary CTAs), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow. An optional shortLabel swaps in shorter wording below md, for a label that survives a desktop line but not a phone's."
+      description="Pill button with arrow circle. Variants: default (yellow circle), subdued (gray circle, for secondary CTAs), dark (for dark backgrounds). Internal links use right arrow, external links use up-right arrow. An optional shortLabel swaps in shorter wording below md, for a label that survives a desktop line but not a phone's. A same-page anchor (an href starting with #) renders as a plain <a> rather than Next's Link, which ignores a click on the hash already in the URL; the browser re-scrolls every time."
       componentPath="components/ui/PrimaryCTA.tsx"
     >
       <div className="space-y-6">
@@ -1483,7 +1485,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-inlinelink": (
     <ContentSection
       title="Inline Link"
-      description="A link in running copy takes the colour of the copy it sits in — no colour of its own, font-medium against the paragraph's normal, and a dotted rule beneath. Weight and rule do the marking. There used to be two variants, teal-90 at semibold and purple-140, and both were markers stacked on a marker: the rule already says link, and a coloured word pulls the eye off the sentence it belongs to. One treatment now reads correctly on the beige plane, on the purple bands and inside a dark card, with no variant for each. The rule is drawn in the text's own colour at 40% rather than a fixed grey, so the relationship holds on every ground; hover fades the link rather than recolouring it. The 2026 conference site was already here; the two share no code, so the decision has to be made in both places and can drift."
+      description="A link in running copy takes the colour of the copy it sits in — no colour of its own, font-medium against the paragraph's normal, and a dotted rule beneath. Weight and rule do the marking. There used to be two variants, teal-90 at semibold and purple-140, and both were markers stacked on a marker: the rule already says link, and a coloured word pulls the eye off the sentence it belongs to. One treatment now reads correctly on the beige plane, on the purple bands and inside a dark card, with no variant for each. The rule is drawn in the text's own colour at 40% rather than a fixed grey, so the relationship holds on every ground; hover fades the link rather than recolouring it. The 2026 conference site was already here; the two share no code, so the decision has to be made in both places and can drift. A same-page anchor (an href starting with #) renders as a plain <a> rather than Next's Link, which ignores a click on the hash already in the URL; the browser re-scrolls every time."
       componentPath="components/ui/InlineLink.tsx"
     >
       <div className="space-y-8">
@@ -1535,7 +1537,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-quicklink": (
     <ContentSection
       title="Quick Link Pill"
-      description="Pill with icon, label, and subtitle. Used on hero sections (/get-involved, /resources, /about)."
+      description="Pill with icon, label, and subtitle. Used on hero sections (/get-involved, /resources, /about). A same-page anchor (an href starting with #) renders as a plain <a> rather than Next's Link, which ignores a click on the hash already in the URL; the browser re-scrolls every time."
       componentPath="components/ui/QuickLinkPill.tsx"
     >
       <div className="flex flex-wrap gap-4">
@@ -1622,7 +1624,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-principles": (
     <ContentSection
       title="Principle List"
-      description="A set of named ideas, each with a short definition, rendered as a description list — the term is the thing being defined and the sentence defines it. Deliberately has no icons: these are concepts rather than features, and a decorative icon per term reads as filler next to words doing real work. Each term takes a teal rule above it so the set reads at a glance without boxing each one in a card."
+      description="A set of named ideas, each with a short definition, rendered as a description list — the term is the thing being defined and the sentence defines it. Deliberately has no icons: these are concepts rather than features, and a decorative icon per term reads as filler next to words doing real work. Each term takes a teal rule above it so the set reads at a glance without boxing each one in a card. tone=&quot;dark&quot; is for purple grounds; size=&quot;sm&quot; is one column with h5-style terms (Nunito semibold), as inside the form agreement panel."
       componentPath="components/ui/PrincipleList.tsx"
     >
       <PrincipleList
@@ -1633,6 +1635,16 @@ const contentComponents: Record<string, React.ReactNode> = {
           { term: "Place", description: "Recognizing that context matters. What works elsewhere doesn't always translate here." },
         ]}
       />
+      <div className="bg-purple-140 rounded-2xl p-8 mt-10 max-w-md">
+        <PrincipleList
+          tone="dark"
+          size="sm"
+          principles={[
+            { term: "People", description: "Leading with genuine care for the people affected by our decisions." },
+            { term: "Place", description: "Recognizing how the land, history, and local context shape what good design looks like." },
+          ]}
+        />
+      </div>
     </ContentSection>
   ),
 
@@ -2334,7 +2346,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "form-checkbox": (
     <ContentSection
       title="Checkbox"
-      description="Custom-styled checkbox with teal fill and SVG checkmark. Matches the directory's custom checkbox rendering."
+      description="Custom-styled checkbox with teal fill and SVG checkmark. Matches the directory's custom checkbox rendering. The box aligns to the label's first line, so long labels wrap cleanly; required is passed to the native input."
       componentPath="components/ui/form-elements/FormCheckbox.tsx"
     >
       <div className="space-y-8">
@@ -2366,7 +2378,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <p className="text-sm font-semibold text-gray-120">Behavior</p>
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Click and keyboard toggle</p>
-                <p>Hidden native checkbox (sr-only)</p>
+                <p>Hidden native checkbox (sr-only); <span className="font-mono text-xs bg-gray-20 px-1 rounded">required</span> supported</p>
                 <p>State managed via React useState</p>
                 <p>FormData-compatible</p>
               </div>
@@ -2450,6 +2462,53 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div className="text-sm text-gray-110 space-y-1">
               <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">text-base text-purple-30 mt-1.5</span></p>
               <p>Sits below the input and above any FieldError</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "form-agreement": (
+    <ContentSection
+      title="Agreement"
+      description="A required commitment at the end of a form, before submit. The heading toggles the background (values, principles) open and closed; the statement being agreed to and its checkbox never fold, so no one agrees to text they can't see. Required natively and on the server. Used by both join and directory forms, with copy from components/forms/commitments.tsx."
+      componentPath="components/ui/form-elements/FormAgreement.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Component</h4>
+          <div className="bg-purple-140 rounded-2xl p-8 max-w-xl">
+            <FormAgreement
+              title="Represent Aloha-Centered Design"
+              commitmentTitle="Directory commitment"
+              commitment="By requesting inclusion in the UXHI Directory, I commit to representing UXHI's values."
+              label="I agree to represent UXHI's values."
+              name="demo-agreement"
+            >
+              <p>The background folds away here: context, values, principles.</p>
+            </FormAgreement>
+          </div>
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Specifications</h4>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-120">Styling</p>
+              <div className="text-sm text-gray-110 space-y-1">
+                <p>Panel: <span className="font-mono text-xs bg-gray-20 px-1 rounded">rounded-2xl border-white/20 bg-white/5</span></p>
+                <p>Heading: h4 style (<span className="font-mono text-xs bg-gray-20 px-1 rounded">text-xl font-semibold</span>), white; hint in purple-30</p>
+                <p>Plus (teal-90) / minus (white), as in the FAQ</p>
+                <p>Statement + checkbox below a <span className="font-mono text-xs bg-gray-20 px-1 rounded">border-white/20</span> rule</p>
+              </div>
+            </div>
+            <div className="p-4 bg-beige-30 rounded-xl space-y-3">
+              <p className="text-sm font-semibold text-gray-120">Behavior</p>
+              <div className="text-sm text-gray-110 space-y-1">
+                <p>Collapsed by default; aria-expanded on the toggle</p>
+                <p>Height + fade animation (Framer Motion)</p>
+                <p>Checkbox is required; server re-checks and shows FieldError</p>
+                <p>Agreement time saved to Sanity as commitmentAgreedAt</p>
+              </div>
             </div>
           </div>
         </div>
@@ -2618,7 +2677,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "form-membership": (
     <ContentSection
       title="Membership Form"
-      description="Join form on /join, step 1 of 2. Saves to Sanity membershipApplication + Slack the moment it submits. Then, in the same spot, offers an optional step 2: the directory form, pre-filled, with Skip for now. Designed for purple (bg-purple-140) backgrounds."
+      description="Join form on /join, step 1 of 2. Saves to Sanity membershipApplication + Slack the moment it submits. Ends with the required member commitment (FormAgreement). Then, in the same spot, offers an optional step 2: the directory form, pre-filled, with Skip for now. Designed for purple (bg-purple-140) backgrounds."
       componentPath={["components/forms/MembershipForm.tsx", "lib/actions/membership.ts"]}
     >
       <div className="space-y-8">
@@ -2673,7 +2732,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "form-directory": (
     <ContentSection
       title="Directory Submission Form"
-      description="Directory profile form. The directory is members-only: on /add-profile it is the full form for members adding a profile later (from member emails, the skip link, or /directory); on /join it is step 2, with what joining collected passed in as prefill. Creates draft directoryMember in Sanity + Slack notification. Designed for purple (bg-purple-140) backgrounds."
+      description="Directory profile form. The directory is members-only: on /add-profile it is the full form for members adding a profile later (from member emails, the skip link, or /directory); on /join it is step 2, with what joining collected passed in as prefill. Ends with the required directory commitment (FormAgreement). Creates draft directoryMember in Sanity + Slack notification. Designed for purple (bg-purple-140) backgrounds."
       componentPath={["components/forms/DirectorySubmitForm.tsx", "lib/actions/directory-submit.ts"]}
     >
       <div className="space-y-8">
@@ -2759,7 +2818,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "feedback-alert": (
     <ContentSection
       title="Form Alert"
-      description="Banner for form-level error or info messages. Used on purple (bg-purple-140) backgrounds."
+      description="Banner for form-level error or info messages. Used on purple (bg-purple-140) backgrounds. On mount it scrolls itself to the centre of the view, or, given scrollToId, brings that element to the top instead — the join form passes join-form, so a failed submit lands where the section's own anchor does."
       componentPath="components/ui/FormFeedback.tsx"
     >
       <div className="space-y-8">
@@ -2784,6 +2843,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <div className="text-sm text-gray-110 space-y-1">
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">message</span> — string (required)</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">variant</span> — &quot;error&quot; | &quot;info&quot; (default: &quot;error&quot;)</p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">scrollToId</span> — string (optional), id of an element to scroll to the top of the view instead of centring the alert</p>
                 <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">className</span> — optional overrides</p>
               </div>
             </div>

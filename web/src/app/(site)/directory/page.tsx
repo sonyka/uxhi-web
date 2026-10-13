@@ -15,7 +15,7 @@ import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "
 export { viewportBeige30 as viewport } from "@/lib/themeColor";
 
 export const metadata: Metadata = {
-  title: "Find a Pro | UXHI",
+  title: "Member Directory | UXHI",
   description:
     "Connect with UX professionals in Hawaii. Browse our member directory to find designers, researchers, and UX specialists.",
 };
@@ -31,17 +31,15 @@ export default async function DirectoryPage() {
         <HeroContent>
           <HeroEntrance className="flex flex-col gap-6">
             <HeroItem>
-              {/* The nav, the browser tab and this now say the same thing.
-                  The descriptive version has not been lost — it is the lead
-                  directly beneath, which is where a longer sentence belongs. */}
+              {/* The browser tab says the same; the nav shortens it to "Members". */}
               <SectionHeading as="h1" size="hero">
-                Find a Pro
+                Member Directory
               </SectionHeading>
             </HeroItem>
             <HeroItem>
               <SectionLead size="lg">
-                Connect with talented UX design professionals in Hawaiʻi and those
-                with Hawaiʻi ties, across all experience levels.
+                Connect with a growing community of people passionate about
+                human-centered, aloha-centered design in Hawaiʻi and beyond.
               </SectionLead>
             </HeroItem>
             <HeroItem>
@@ -175,26 +173,10 @@ export default async function DirectoryPage() {
         </div>
       </HeroSection>
 
-      {/* Member directory section */}
+      {/* Member directory listing. No heading of its own: the hero names it
+          and its button lands here. */}
       <section id="directory" className="py-12 px-6 bg-beige-30 scroll-mt-24">
         <div className="max-w-[1400px] mx-auto">
-          <ScrollReveal stagger className="max-w-[900px] mx-auto text-center mb-10">
-            <MotionDiv>
-              <SectionHeading className="mb-6">
-                Member directory
-              </SectionHeading>
-            </MotionDiv>
-            <MotionDiv>
-              <p className="text-gray-120 text-lg leading-relaxed">
-                Welcome to the UXHI member directory, your hub for connecting with
-                UX design professionals in Hawaiʻi and those with Hawaiʻi ties,
-                across all experience levels. Not only does this serve as a go-to
-                resource for companies and recruiters seeking talented local UX
-                professionals, but it also fosters connections between UX
-                practitioners themselves.
-              </p>
-            </MotionDiv>
-          </ScrollReveal>
           <MemberDirectory members={members || []} />
         </div>
       </section>

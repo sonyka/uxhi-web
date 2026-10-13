@@ -95,7 +95,7 @@ export default function NotFound() {
               <QuickLinkPill
                 href="/directory"
                 icon={<UsersIcon className="w-7 h-7" />}
-                label="Find a pro"
+                label="Members"
                 subtitle="Member directory"
               />
               <QuickLinkPill

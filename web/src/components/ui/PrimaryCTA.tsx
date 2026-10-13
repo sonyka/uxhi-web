@@ -66,14 +66,27 @@ export function PrimaryCTA({ href, children, external = false, variant = "defaul
     );
   }
 
-  return (
-    <Link href={href} className={className}>
+  const content = (
+    <>
       <TextSlideUp className={styles.text}>
         {label}
       </TextSlideUp>
       <span className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors ${styles.circle}`}>
         <ArrowIcon className={`w-4 h-4 ${styles.icon}`} />
       </span>
+    </>
+  );
+
+  // A same-page anchor is a plain <a>: Next's Link ignores a click on the hash
+  // already in the URL, so a second click — or a first after arriving on
+  // /join#join-form — went nowhere. The browser re-scrolls every time.
+  if (href.startsWith("#")) {
+    return <a href={href} className={className}>{content}</a>;
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {content}
     </Link>
   );
 }

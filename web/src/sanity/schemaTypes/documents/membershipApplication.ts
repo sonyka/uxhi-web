@@ -62,6 +62,14 @@ export const membershipApplication = defineType({
       readOnly: true,
     }),
     defineField({
+      name: "commitmentAgreedAt",
+      title: "Agreed to Member Commitment",
+      description: "When they ticked the member commitment on the join form",
+      type: "datetime",
+      readOnly: true,
+      hidden: ({ value }) => !value,
+    }),
+    defineField({
       name: "submittedAt",
       type: "datetime",
       readOnly: true,

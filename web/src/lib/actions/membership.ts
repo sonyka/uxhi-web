@@ -52,6 +52,7 @@ export async function submitMembership(
     experienceLevel: formData.get("experienceLevel"),
     interests: formData.getAll("interests").filter(Boolean) as string[],
     hearAboutUs: formData.get("hearAboutUs") || undefined,
+    agreement: formData.get("agreement") === "on",
   };
 
   const result = membershipSchema.safeParse(raw);
@@ -80,6 +81,8 @@ export async function submitMembership(
       interests: data.interests || [],
       hearAboutUs: data.hearAboutUs || "",
       status: "new",
+      // Only reachable with the box ticked, so this is when they agreed.
+      commitmentAgreedAt: new Date().toISOString(),
       submittedAt: new Date().toISOString(),
     });
 

@@ -13,6 +13,7 @@ import {
   INDUSTRY_OPTIONS,
 } from "@/components/directory/constants";
 import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
+import { DirectoryCommitment } from "./commitments";
 import {
   FormLabel,
   FormInput,
@@ -241,6 +242,8 @@ function DirectorySubmitFormInner({ prefill, onSkip, onSuccess }: DirectorySubmi
           <FieldError errors={state?.errors} field="portfolio" />
         </div>
       </div>
+
+      <DirectoryCommitment errors={state?.errors} />
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
         <FormSubmitButton

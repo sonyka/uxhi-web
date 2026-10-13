@@ -43,7 +43,7 @@ export function Footer() {
     {
       links: [
         { label: "Home", href: "/" },
-        { label: "Find a pro", href: "/directory" },
+        { label: "Members", href: "/directory" },
         { label: "Get involved", href: "/get-involved" },
       ],
     },

@@ -87,6 +87,13 @@ export function InlineLink({
     );
   }
 
+  // A same-page anchor is a plain <a>: Next's Link ignores a click on the hash
+  // already in the URL, so a second click — or a first after arriving on
+  // /join#join-form — went nowhere. The browser re-scrolls every time.
+  if (href.startsWith("#")) {
+    return <a href={href} className={combinedStyles}>{content}</a>;
+  }
+
   return (
     <Link href={href} className={combinedStyles}>
       {content}

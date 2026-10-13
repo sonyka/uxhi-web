@@ -50,6 +50,7 @@ export async function submitDirectoryEntry(
     educationBootcamp: formData.get("educationBootcamp") || undefined,
     linkedIn: (formData.get("linkedIn") as string) || "",
     portfolio: (formData.get("portfolio") as string) || "",
+    agreement: formData.get("agreement") === "on",
   };
 
   const result = directorySubmissionSchema.safeParse(raw);
@@ -122,6 +123,8 @@ export async function submitDirectoryEntry(
       educationBootcamp: data.educationBootcamp || "",
       linkedIn: data.linkedIn || "",
       portfolio: data.portfolio || "",
+      // Only reachable with the box ticked, so this is when they agreed.
+      commitmentAgreedAt: new Date().toISOString(),
       order: 0,
     });
 

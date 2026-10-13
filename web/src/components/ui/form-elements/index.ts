@@ -7,3 +7,4 @@ export { FormSelect } from "./FormSelect";
 export { FormFileUpload } from "./FormFileUpload";
 export { FormSubmitButton } from "./FormSubmitButton";
 export { FormHelpText } from "./FormHelpText";
+export { FormAgreement } from "./FormAgreement";

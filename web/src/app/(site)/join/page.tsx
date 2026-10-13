@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
+import { InlineLink } from "@/components/ui/InlineLink";
 import { MembershipForm } from "@/components/forms/MembershipForm";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { HeroContent } from "@/components/ui/HeroContent";
@@ -143,8 +144,9 @@ export default function JoinPage() {
             <MotionDiv>
               {/* For anyone who is here to talk rather than to join. */}
               <div className="mt-8">
-                <p className="text-white text-lg mb-3">Have other questions?</p>
-                <PrimaryCTA href="/about#contact" variant="dark">Contact us</PrimaryCTA>
+                <p className="text-white text-lg">
+                  Have other questions? <InlineLink href="/about#contact">Contact us</InlineLink>.
+                </p>
               </div>
             </MotionDiv>
           </ScrollReveal>
