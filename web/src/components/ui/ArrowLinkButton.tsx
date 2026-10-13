@@ -13,6 +13,11 @@ interface ArrowLinkButtonProps {
    * pill at rest, for the one CTA a panel is actually asking to be clicked.
    * Its fill and border are PrimaryCTA's dark variant, so the two filled
    * things the site puts on purple agree.
+   *
+   * Below md, dark and light wear their pill at rest too. A pill drawn only
+   * under the cursor is never drawn on a phone, which left them as bare text
+   * with an arrow that did not read as tappable. Dark goes solid; light takes
+   * PrimaryCTA's default white pill, its counterpart on a light ground.
    */
   variant?: "dark" | "light" | "solid";
   /**
@@ -28,8 +33,8 @@ interface ArrowLinkButtonProps {
 
 export function ArrowLinkButton({ href, children, external = false, variant = "dark", icon, className = "" }: ArrowLinkButtonProps) {
   const variantClassName = {
-    light: "text-gray-100 hover:text-teal-100 hover:bg-teal-10",
-    dark: "text-purple-30 hover:text-white hover:bg-white/10",
+    light: "text-gray-100 hover:text-teal-100 hover:bg-teal-10 max-md:text-gray-140 max-md:bg-white max-md:border max-md:border-gray-30",
+    dark: "text-purple-30 hover:text-white hover:bg-white/10 max-md:text-white max-md:bg-white/10 max-md:border max-md:border-white/30",
     solid: "text-white bg-white/10 border border-white/30 hover:bg-white/20",
   }[variant];
 

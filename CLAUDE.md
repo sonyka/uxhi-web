@@ -163,7 +163,7 @@ Full audit, principles and history: [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONF
 | `LinkCard` | `components/ui/LinkCard.tsx` | Beige card with title, teal description, external link icon |
 | `InfoBox` | `components/ui/InfoBox.tsx` | Teal-50 callout box for notes and CTAs |
 | `PressMention` | `components/ui/PressMention.tsx` | Press/media callout with source eyebrow, title, and CTA |
-| `ArrowLinkButton` | `components/ui/ArrowLinkButton.tsx` | Text link with arrow for dark backgrounds |
+| `ArrowLinkButton` | `components/ui/ArrowLinkButton.tsx` | Arrow link in a pill (dark/light/solid); dark and light show their pill only on hover, except on phones where it is always visible |
 | `BulletPoint` | `components/ui/BulletPoint.tsx` | Styled bullet dot (teal on light, yellow on dark bg) |
 | `MobileTooltip` | `components/ui/MobileTooltip.tsx` | Tap-to-reveal tooltip (mobile), hover (desktop) |
 | `MissionStatement` | `components/ui/MissionStatement.tsx` | UXHI's mission sentence with tooltips; shared by home and /about |

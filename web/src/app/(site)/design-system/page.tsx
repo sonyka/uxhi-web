@@ -1466,7 +1466,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "button-arrowlink": (
     <ContentSection
       title="Arrow Link Button"
-      description="Text with an arrow in a pill. Dark (default, for purple backgrounds) and light (for white/beige backgrounds) draw the pill only under the cursor — they are links that reward a hover. Solid wears the pill at rest, for the one CTA a purple panel is actually asking to be clicked; its fill and border are PrimaryCTA’s dark variant, so the two filled things the site puts on purple agree. All three take an optional leading icon."
+      description="Text with an arrow in a pill. Dark (default, for purple backgrounds) and light (for white/beige backgrounds) draw the pill only under the cursor — they are links that reward a hover. Below md, where there is no hover, both wear their pill at rest: dark looks like solid, light takes PrimaryCTA’s white pill with a gray-30 border. Solid wears the pill at rest, for the one CTA a purple panel is actually asking to be clicked; its fill and border are PrimaryCTA’s dark variant, so the two filled things the site puts on purple agree. All three take an optional leading icon."
       componentPath="components/ui/ArrowLinkButton.tsx"
     >
       <div className="space-y-4">
