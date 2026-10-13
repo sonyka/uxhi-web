@@ -1004,7 +1004,7 @@ const contentComponents: Record<string, React.ReactNode> = {
               <SectionHeading as="h3" size="card">Card Title</SectionHeading>
             </div>
             <div>
-              <span className="text-xs text-gray-100 font-mono">statement — the mission sentence (xl → 3xl → 4xl, leading-tight)</span>
+              <span className="text-xs text-gray-100 font-mono">statement — the mission sentence (phone: Nunito bold 24px, leading 1.35; md+: Dela 3xl → 4xl, leading-tight)</span>
               <SectionHeading size="statement">A sentence set in display type, which is why it starts a step below sm although it ends in the same place.</SectionHeading>
             </div>
           </div>
