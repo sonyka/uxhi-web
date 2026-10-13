@@ -47,7 +47,6 @@ export default async function DirectoryPage() {
             <HeroItem>
               <div className="flex flex-wrap gap-3">
                 <PrimaryCTA href="#directory">Browse the directory</PrimaryCTA>
-                <PrimaryCTA href="/join#join-form" variant="subdued">Join the directory</PrimaryCTA>
               </div>
             </HeroItem>
           </HeroEntrance>

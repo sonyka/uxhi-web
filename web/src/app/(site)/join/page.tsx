@@ -130,17 +130,15 @@ export default function JoinPage() {
             </MotionDiv>
             <MotionDiv>
               <p className="text-white text-lg leading-relaxed">
-                Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll join our Slack Community with {MEMBER_COUNT_PLUS} designers and can add yourself to our Member Directory, the next step once you&apos;ve applied!
-                {/* Its own line: inline, it trailed a long paragraph and read
-                    as part of the sentence rather than as a thing to tap. */}
+                Membership is free and easy – simply fill out the quick form below and we&apos;ll be in touch in a few days after we review your profile. As a member, you&apos;ll join our{" "}
                 <MobileTooltip
                   tone="dark"
-                  iconGap={4}
+                  underline
                   tooltip={`Slack is a messaging app for teams that makes it easy to communicate and collaborate. Our UXHI Slack has ${MEMBER_COUNT_PLUS} designers sharing resources, job opportunities, and community support.`}
-                  className="mt-3 !block font-medium underline decoration-dotted decoration-gray-80 underline-offset-2 w-fit mx-auto"
                 >
-                  What is Slack?
-                </MobileTooltip>
+                  Slack Community
+                </MobileTooltip>{" "}
+                with {MEMBER_COUNT_PLUS} designers. Once you submit, you&apos;ll have the chance to join our Member Directory and connect with our growing community.
               </p>
             </MotionDiv>
             <MotionDiv>

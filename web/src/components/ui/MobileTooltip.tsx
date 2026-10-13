@@ -31,6 +31,11 @@ interface MobileTooltipProps {
   iconNudge?: 0 | 2 | 4;
   /** Gap between label and icon. 0 keeps the default, which tracks type size. */
   iconGap?: 0 | 4;
+  /**
+   * Dotted underline under the label. For a term set in running text, where
+   * the icon alone is easy to read past as part of the sentence.
+   */
+  underline?: boolean;
 }
 
 // Explicit sizes rather than an em ramp: the mark is drawn artwork, and it
@@ -90,6 +95,7 @@ export function MobileTooltip({
   iconSize = 16,
   iconNudge = 0,
   iconGap = 0,
+  underline = false,
 }: MobileTooltipProps) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
@@ -122,7 +128,9 @@ export function MobileTooltip({
       onClick={() => setIsOpen(!isOpen)}
     >
       {/* Text and its decoration: the decoration measures against this span */}
-      <span className="relative">
+      <span
+        className={`relative ${underline ? "underline decoration-dotted decoration-gray-80 underline-offset-2" : ""}`}
+      >
         {children}
         {decorationElement}
       </span>

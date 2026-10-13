@@ -3148,14 +3148,15 @@ const contentComponents: Record<string, React.ReactNode> = {
           <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Dark Tone</h4>
           <div className="bg-purple-140 rounded-xl p-6">
             <p className="text-white text-lg">
-              Membership is free and includes our Slack community.{" "}
+              Membership is free and includes our{" "}
               <MobileTooltip
                 tone="dark"
+                underline
                 tooltip="Slack is a messaging app for teams that makes it easy to communicate and collaborate."
-                className="underline underline-offset-2"
               >
-                What is Slack?
+                Slack community
               </MobileTooltip>
+              .
             </p>
           </div>
         </div>
@@ -3164,7 +3165,8 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="text-sm text-gray-110 space-y-1">
             <p>Trigger: <span className="font-mono text-xs bg-gray-20 px-1 rounded">InfoIcon</span>, UXHI&apos;s own mark rather than a Lucide glyph — filled, so it holds its weight as it scales down</p>
             <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">iconSize</span>: <span className="font-mono text-xs bg-gray-20 px-1 rounded">24</span> beside the homepage hero, <span className="font-mono text-xs bg-gray-20 px-1 rounded">16</span> (default) in body copy. Set sizes, not an em ramp — and each one&apos;s superscript offset is written out in full, since Tailwind cannot scan an interpolated class. <span className="font-mono text-xs bg-gray-20 px-1 rounded">24</span> is a role rather than a flat measurement: it ramps 20 → 24 at <span className="font-mono text-xs bg-gray-20 px-1 rounded">md</span>, because the hero beside it runs 40px on a phone and 80px on a desktop, so one held size is twice the proportion of the type on the smaller screen</p>
-            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">iconNudge</span> and <span className="font-mono text-xs bg-gray-20 px-1 rounded">iconGap</span>: optical trims in px, for placements the shared offset does not quite suit — the mission statement lifts 4px, the /join trigger sets a flat 4px gap. Reach for these last; a placement needing more than a trim usually wants a size</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">iconNudge</span> and <span className="font-mono text-xs bg-gray-20 px-1 rounded">iconGap</span>: optical trims in px, for placements the shared offset does not quite suit — the mission statement lifts 4px. Reach for these last; a placement needing more than a trim usually wants a size</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">underline</span>: dotted <span className="font-mono text-xs bg-gray-20 px-1 rounded">decoration-gray-80</span> underline under the label, not the icon — for a term in running text, as on /join&apos;s &ldquo;Slack Community&rdquo;</p>
             <p>Tooltip: <span className="font-mono text-xs bg-gray-20 px-1 rounded">bg-white rounded-xl shadow-lg</span> with tail arrow</p>
             <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">tone</span>: <span className="font-mono text-xs bg-gray-20 px-1 rounded">light</span> (default) or <span className="font-mono text-xs bg-gray-20 px-1 rounded">dark</span> for purple backgrounds</p>
             <p>Accepts optional <span className="font-mono text-xs bg-gray-20 px-1 rounded">decorationElement</span> prop, positioned against the text alone so a percentage-width decoration keeps its ratio</p>
