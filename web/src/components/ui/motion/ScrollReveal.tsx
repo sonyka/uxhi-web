@@ -26,7 +26,10 @@ type ScrollRevealProps = {
   className?: string;
   variants?: Variants;
   stagger?: boolean;
-  amount?: number;
+  /** A fraction of the element, or "some" for any pixel of it. Use "some" for
+   * anything that can grow taller than a screen — a fraction of a tall enough
+   * element is more than a viewport can ever show, and it never reveals. */
+  amount?: number | "some" | "all";
   margin?: string;
   as?: MotionTag;
 };

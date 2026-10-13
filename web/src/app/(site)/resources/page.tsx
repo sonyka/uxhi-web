@@ -18,6 +18,7 @@ import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "
 import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { scaleReveal } from "@/lib/animations";
+import { BentoPhoto } from "@/components/ui/BentoPhoto";
 import { REPORT_PDFS } from "@/lib/reports";
 
 export { viewportBeige30 as viewport } from "@/lib/themeColor";
@@ -267,64 +268,36 @@ export default async function ResourcesPage() {
         </div>
       </section>
 
-      {/* Conference Photo Bento Grid */}
+      {/* Conference Photo Bento Grid — one wide photo over a 2×2 on a phone;
+          from sm, two across over three across (a six-column grid). */}
       <section className="px-6 pb-16 bg-beige-30">
-        <div className="max-w-[1300px] mx-auto flex flex-col gap-4">
-          {/* Top row — 2 equal images */}
-          <ScrollReveal stagger className="flex flex-col sm:flex-row gap-4">
-            <MotionDiv variants={scaleReveal} className="relative flex-1">
-              <div className="absolute inset-px rounded-lg bg-white max-sm:rounded-t-[2rem] sm:rounded-tl-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-sm:rounded-t-[calc(2rem_+_1px)] sm:rounded-tl-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-1.jpg" alt="UXHI conference stickers and swag" fill
-                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-sm:rounded-t-[2rem] sm:rounded-tl-[2rem]" />
-            </MotionDiv>
-            <MotionDiv variants={scaleReveal} className="relative flex-1">
-              <div className="absolute inset-px rounded-lg bg-white sm:rounded-tr-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] sm:rounded-tr-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-2.jpg" alt="UXHI panelists speaking at conference" fill
-                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 sm:rounded-tr-[2rem]" />
-            </MotionDiv>
-          </ScrollReveal>
-          {/* Bottom row — 3 equal images */}
-          <ScrollReveal stagger className="flex flex-col sm:flex-row gap-4">
-            <MotionDiv variants={scaleReveal} className="relative flex-1">
-              <div className="absolute inset-px rounded-lg bg-white sm:rounded-bl-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] sm:rounded-bl-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-3.jpg" alt="UXHI speaker with lei" fill
-                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 sm:rounded-bl-[2rem]" />
-            </MotionDiv>
-            <MotionDiv variants={scaleReveal} className="relative flex-1">
-              <div className="absolute inset-px rounded-lg bg-white" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
-                <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-4.jpg" alt="UXHI member sharing phone at event" fill
-                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
-            </MotionDiv>
-            <MotionDiv variants={scaleReveal} className="relative flex-1">
-              <div className="absolute inset-px rounded-lg bg-white max-sm:rounded-b-[2rem] sm:rounded-br-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-sm:rounded-b-[calc(2rem_+_1px)] sm:rounded-br-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/2] w-full">
-                  <Image src="/images/resources/bentogrid-resources-5.jpg" alt="UXHI community members posing together" fill
-                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-sm:rounded-b-[2rem] sm:rounded-br-[2rem]" />
-            </MotionDiv>
+        <div className="max-w-[1300px] mx-auto">
+          <ScrollReveal stagger className="grid grid-cols-2 gap-3 sm:grid-cols-6 sm:gap-4">
+            <BentoPhoto
+              src="/images/resources/bentogrid-resources-1.jpg"
+              alt="UXHI conference stickers and swag"
+              className="col-span-2 sm:col-span-3 aspect-[3/2] max-sm:rounded-t-[2rem] sm:rounded-tl-[2rem]"
+            />
+            <BentoPhoto
+              src="/images/resources/bentogrid-resources-2.jpg"
+              alt="UXHI panelists speaking at conference"
+              className="sm:col-span-3 aspect-square sm:aspect-[3/2] sm:rounded-tr-[2rem]"
+            />
+            <BentoPhoto
+              src="/images/resources/bentogrid-resources-3.jpg"
+              alt="UXHI speaker with lei"
+              className="sm:col-span-2 aspect-square sm:aspect-[3/2] sm:rounded-bl-[2rem]"
+            />
+            <BentoPhoto
+              src="/images/resources/bentogrid-resources-4.jpg"
+              alt="UXHI member sharing phone at event"
+              className="sm:col-span-2 aspect-square sm:aspect-[3/2] max-sm:rounded-bl-[2rem]"
+            />
+            <BentoPhoto
+              src="/images/resources/bentogrid-resources-5.jpg"
+              alt="UXHI community members posing together"
+              className="sm:col-span-2 aspect-square sm:aspect-[3/2] rounded-br-[2rem]"
+            />
           </ScrollReveal>
         </div>
       </section>
@@ -359,13 +332,13 @@ export default async function ResourcesPage() {
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <MotionDiv>
               <div className="bg-white rounded-[20px] p-8 border border-gray-30">
-                <h3 className="font-display text-2xl text-purple-140 mb-3">UX for Practitioners</h3>
+                <SectionHeading as="h3" size="card" className="mb-3">UX for Practitioners</SectionHeading>
                 <p className="text-gray-100">Coming soon</p>
               </div>
             </MotionDiv>
             <MotionDiv>
               <div className="bg-white rounded-[20px] p-8 border border-gray-30">
-                <h3 className="font-display text-2xl text-purple-140 mb-3">UX for Businesses</h3>
+                <SectionHeading as="h3" size="card" className="mb-3">UX for Businesses</SectionHeading>
                 <p className="text-gray-100">Coming soon</p>
               </div>
             </MotionDiv>

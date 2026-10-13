@@ -354,7 +354,7 @@ export default async function HomePage() {
           <SectionHeading size="statement" className="mb-10">
             <MissionStatement />
           </SectionHeading>
-          <PrimaryCTA href="/about#aloha-centered-design" shortLabel="aloha-centered design">
+          <PrimaryCTA href="/about#aloha-centered-design" shortLabel="Aloha-centered design">
             What is aloha-centered design?
           </PrimaryCTA>
         </ScrollReveal>
@@ -503,7 +503,10 @@ export default async function HomePage() {
             </MotionDiv>
           </ScrollReveal>
 
-          <ScrollReveal variants={fadeIn}>
+          {/* "some", not the default 30%: on a phone the feed stacks to ~2,700px,
+              and 30% of that is more than a phone's screen shows at once, so
+              the reveal never fired and the feed stayed at opacity 0. */}
+          <ScrollReveal variants={fadeIn} amount="some">
             <InstagramFeed />
           </ScrollReveal>
         </div>

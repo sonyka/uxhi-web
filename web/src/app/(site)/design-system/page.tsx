@@ -44,6 +44,7 @@ import { MembershipForm } from "@/components/forms/MembershipForm";
 import { DirectorySubmitForm } from "@/components/forms/DirectorySubmitForm";
 import { FormAlert, FieldError, FormSuccess } from "@/components/ui/FormFeedback";
 import { PressMention } from "@/components/ui/PressMention";
+import { BentoPhoto } from "@/components/ui/BentoPhoto";
 import {
   FormLabel,
   FormInput,
@@ -142,6 +143,7 @@ const navigationItems = [
       { id: "card-principles", label: "Principle List" },
       { id: "card-infobox", label: "Info Box" },
       { id: "card-pressmention", label: "Press Mention" },
+      { id: "card-bentophoto", label: "Bento Photo" },
       { id: "card-upcomingevent", label: "Upcoming Event" },
       { id: "card-member", label: "Member Card" },
       { id: "card-team", label: "Team Card" },
@@ -567,7 +569,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "nav-mobile": (
     <ContentSection
       title="Mobile Navbar"
-      description="Collapsible mobile navigation with accordion-style dropdowns."
+      description="Collapsible mobile navigation with accordion-style dropdowns. In the site header it opens over a light scrim, and a tap anywhere outside the panel (or Escape) closes it — the X is not the only way out."
       componentPath="components/layout/Navbar.tsx"
     >
       <div className="space-y-8">
@@ -961,7 +963,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "typography-sectionheading": (
     <ContentSection
       title="Section Heading"
-      description="Display heading for page sections. Uses Dela Gothic One with responsive sizing. Supports size variants (display, hero, xl, lg, md, sm), two colour variants (purple for light grounds, white for dark), and heading tags (h1-h3). Every size carries text-balance, so a heading never leaves one word alone on its last line at any viewport."
+      description="Display heading for page sections. Uses Dela Gothic One with responsive sizing. Supports size variants (display, hero, xl, lg, md, sm, card), two colour variants (purple for light grounds, white for dark), and heading tags (h1-h3). Every size carries text-balance, so a heading never leaves one word alone on its last line at any viewport."
       componentPath="components/ui/SectionHeading.tsx"
     >
       <div className="space-y-6">
@@ -991,6 +993,10 @@ const contentComponents: Record<string, React.ReactNode> = {
             <div>
               <span className="text-xs text-gray-100 font-mono">sm — subsection headings (xl → 3xl)</span>
               <SectionHeading size="sm">Small Heading</SectionHeading>
+            </div>
+            <div>
+              <span className="text-xs text-gray-100 font-mono">card — a title inside a card (xl → 2xl)</span>
+              <SectionHeading as="h3" size="card">Card Title</SectionHeading>
             </div>
             <div>
               <span className="text-xs text-gray-100 font-mono">statement — the mission sentence (xl → 3xl → 4xl, leading-tight)</span>
@@ -1980,7 +1986,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "card-pressmention": (
     <ContentSection
       title="Press Mention"
-      description="Reusable callout for press/media features. Built on InfoBox with standardized eyebrow, title, and CTA layout."
+      description="Reusable callout for press/media features. Built on InfoBox with standardized eyebrow, title, and CTA layout. Stacked on a phone, the CTA keeps its own width at the left edge rather than stretching across the box."
       componentPath="components/ui/PressMention.tsx"
     >
       <div className="space-y-8">
@@ -2017,10 +2023,38 @@ const contentComponents: Record<string, React.ReactNode> = {
               <div className="text-sm text-gray-110 space-y-1">
                 <p>Built on <span className="font-mono text-xs bg-gray-20 px-1 rounded">InfoBox</span></p>
                 <p>Eyebrow: <span className="font-mono text-xs bg-gray-20 px-1 rounded">Featured in {"{source}"}</span></p>
-                <p>Responsive: stacks on mobile, row on sm+</p>
+                <p>Responsive: stacks on mobile (CTA hugs its label, left-aligned), row on sm+</p>
                 <p>CTA: <span className="font-mono text-xs bg-gray-20 px-1 rounded">PrimaryCTA</span> with external link</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </ContentSection>
+  ),
+  "card-bentophoto": (
+    <ContentSection
+      title="Bento Photo"
+      description="One photo in a page's bento grid (/events, /resources, /get-involved). Every grid is two-up on a phone — one photo per row at full width made each photo the whole screen. The page owns placement, aspect and which corners sit on the outside of the grid (rounded-*-[2rem], per breakpoint); the tile owns the frame: rounded-lg, white ground, shadow and a black/5 hairline ring."
+      componentPath="components/ui/BentoPhoto.tsx"
+    >
+      <div className="space-y-8">
+        <div>
+          <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wide mb-4">Live Component — the /events grid</h4>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:grid-rows-2">
+            <BentoPhoto src="/images/events/bentogrid-events-1.jpg" alt="UXHI community members posing together" className="aspect-square lg:aspect-auto lg:col-span-2 rounded-tl-[2rem]" />
+            <BentoPhoto src="/images/events/bentogrid-events-2.jpg" alt="UXHI meetup audience gathering" className="aspect-square lg:aspect-[3/2] rounded-tr-[2rem]" />
+            <BentoPhoto src="/images/events/bentogrid-events-3.jpg" alt="UXHI members at photobooth with sunglasses" className="aspect-square lg:aspect-[3/2] rounded-bl-[2rem]" />
+            <BentoPhoto src="/images/events/bentogrid-events-4.jpg" alt="UXHI holiday dinner gathering" className="aspect-square lg:aspect-auto lg:col-span-2 rounded-br-[2rem]" />
+          </div>
+        </div>
+        <div className="p-4 bg-beige-30 rounded-xl space-y-3">
+          <p className="text-sm font-semibold text-gray-120">Props</p>
+          <div className="text-sm text-gray-110 space-y-1">
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">src</span>, <span className="font-mono text-xs bg-gray-20 px-1 rounded">alt</span> — the photo</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">className</span> — grid placement, aspect, outer corners</p>
+            <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">sizes</span> — default <span className="font-mono text-xs bg-gray-20 px-1 rounded">(max-width: 1024px) 50vw, 900px</span></p>
+            <p>Reveals with <span className="font-mono text-xs bg-gray-20 px-1 rounded">scaleReveal</span>; place inside a staggered <span className="font-mono text-xs bg-gray-20 px-1 rounded">ScrollReveal</span></p>
           </div>
         </div>
       </div>

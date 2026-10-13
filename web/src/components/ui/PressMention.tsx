@@ -15,7 +15,7 @@ export function PressMention({
   ctaLabel = "Read Article",
 }: PressMentionProps) {
   return (
-    <InfoBox className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <InfoBox className="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
         <span className="block text-sm font-bold uppercase tracking-wider text-purple-140 mb-1">
           {source}

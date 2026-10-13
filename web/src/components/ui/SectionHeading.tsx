@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-type HeadingSize = "statement" | "sm" | "md" | "lg" | "xl" | "hero" | "display";
+type HeadingSize = "statement" | "card" | "sm" | "md" | "lg" | "xl" | "hero" | "display";
 type HeadingColor = "purple" | "white";
 type HeadingTag = "h1" | "h2" | "h3";
 
@@ -17,6 +17,8 @@ interface SectionHeadingProps {
    * theirs rather than inherit it.
    * - md: 2xl → 4xl (most common section heading)
    * - sm: xl → 3xl (smaller subsections)
+   * - card: xl → 2xl (a title inside a card — two or three words in a column
+   *   a third of a phone narrower than the section it sits in)
    * - statement: xl → 3xl → 4xl (the mission sentence)
    *
    * On a phone the ramp reads 20 · 24 · 28 · 28 · 32 · 40, smallest first.
@@ -59,6 +61,11 @@ const sizeStyles: Record<HeadingSize, string> = {
   lg: "text-[28px] md:text-5xl leading-tight",
   md: "text-2xl md:text-4xl",
   sm: "text-xl md:text-3xl",
+  // 24px is right for a card title on desktop and one step too many on a
+  // phone: inside a card's padding, "UX for Practitioners" broke across two
+  // lines at 24. It ends at 2xl rather than climbing with sm, because a card
+  // title that outgrows its card's body copy reads as a section heading.
+  card: "text-xl md:text-2xl",
   statement: "text-xl md:text-3xl lg:text-4xl leading-tight",
 };
 

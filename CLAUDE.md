@@ -174,6 +174,7 @@ Full audit, principles and history: [docs/CONFERENCE-DESIGN-SYSTEM.md](docs/CONF
 | `SectionLead` | `components/ui/SectionLead.tsx` | Supporting paragraph beneath a heading (hero/md sizes) |
 | `HeroContent` | `components/ui/HeroContent.tsx` | Left-side content wrapper for interior page heroes |
 | `HeroSection` | `components/ui/HeroSection.tsx` | Interior hero wrapper; caps at 1400px so text and art stay together above that |
+| `BentoPhoto` | `components/ui/BentoPhoto.tsx` | Photo tile for page bento grids (/events, /resources, /get-involved); 2-up on phones |
 | `LogoImage` | `components/ui/LogoImage.tsx` | Grayscale logo with hover color reveal (partner/sponsor grids) |
 | `SpotIllustrationCard` | `components/ui/cards/SpotIllustrationCard.tsx` | Large icon card (dark/beige/white variants) |
 | `FormLabel` | `components/ui/form-elements/FormLabel.tsx` | Shared form label; supports `as="legend"` for fieldsets |

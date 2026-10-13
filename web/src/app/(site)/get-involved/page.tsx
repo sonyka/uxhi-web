@@ -17,7 +17,7 @@ import { HeroContent } from "@/components/ui/HeroContent";
 import { HeroSection } from "@/components/ui/HeroSection";
 import { HeroEntrance, HeroItem, ScrollReveal, MotionDiv, FadeInOnMount } from "@/components/ui/motion";
 import { SectionIcon } from "@/components/ui/SectionIcon";
-import { scaleReveal } from "@/lib/animations";
+import { BentoPhoto } from "@/components/ui/BentoPhoto";
 
 export { viewportBeige30 as viewport } from "@/lib/themeColor";
 
@@ -524,55 +524,31 @@ export default async function GetInvolvedPage() {
         </ScrollReveal>
       </section>
 
-      {/* Speaker Photo Bento Grid */}
+      {/* Speaker Photo Bento Grid — 2×2 on a phone; on desktop two tall photos
+          either side of a stacked pair, in a 500px band. */}
       <section className="px-6 pb-16 bg-beige-30">
         <div className="max-w-[1300px] mx-auto">
-          <ScrollReveal stagger className="flex flex-col lg:flex-row gap-4 lg:h-[500px]">
-            {/* Left column -- tall */}
-            <MotionDiv variants={scaleReveal} className="relative flex-1 min-h-0">
-              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-t-[calc(2rem_+_1px)] lg:rounded-l-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/4] lg:aspect-auto w-full lg:flex-1">
-                  <Image src="/images/get-involved/bentogrid-getinvolved-1.jpg" alt="UXHI speaker with lei" fill
-                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-l-[2rem]" />
-            </MotionDiv>
-            {/* Center column -- two stacked images */}
-            <MotionDiv variants={scaleReveal} className="flex flex-col gap-4 flex-1 min-h-0">
-              <div className="relative flex-1 min-h-0">
-                <div className="absolute inset-px rounded-lg bg-white" />
-                <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
-                  <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
-                    <Image src="/images/get-involved/bentogrid-getinvolved-2.jpg" alt="UXHI conference audience" fill
-                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
-              </div>
-              <div className="relative flex-1 min-h-0">
-                <div className="absolute inset-px rounded-lg bg-white" />
-                <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)]">
-                  <div className="relative aspect-[3/2] lg:aspect-auto w-full lg:flex-1">
-                    <Image src="/images/get-involved/bentogrid-getinvolved-3.jpg" alt="UXHI panelists speaking" fill
-                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5" />
-              </div>
-            </MotionDiv>
-            {/* Right column -- tall */}
-            <MotionDiv variants={scaleReveal} className="relative flex-1 min-h-0">
-              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]" />
-              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(0.5rem_+_1px)] max-lg:rounded-b-[calc(2rem_+_1px)] lg:rounded-r-[calc(2rem_+_1px)]">
-                <div className="relative aspect-[3/4] lg:aspect-auto w-full lg:flex-1">
-                  <Image src="/images/get-involved/bentogrid-getinvolved-4.jpg" alt="UX means no user gets left behind sticker" fill
-                sizes="(max-width: 1024px) 100vw, 900px" className="object-cover" />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]" />
-            </MotionDiv>
+          <ScrollReveal stagger className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:grid-rows-2 lg:h-[500px]">
+            <BentoPhoto
+              src="/images/get-involved/bentogrid-getinvolved-1.jpg"
+              alt="UXHI speaker with lei"
+              className="aspect-square lg:aspect-auto lg:row-span-2 rounded-tl-[2rem] lg:rounded-bl-[2rem]"
+            />
+            <BentoPhoto
+              src="/images/get-involved/bentogrid-getinvolved-2.jpg"
+              alt="UXHI conference audience"
+              className="aspect-square lg:aspect-auto max-lg:rounded-tr-[2rem]"
+            />
+            <BentoPhoto
+              src="/images/get-involved/bentogrid-getinvolved-3.jpg"
+              alt="UXHI panelists speaking"
+              className="aspect-square lg:aspect-auto lg:col-start-2 lg:row-start-2 max-lg:rounded-bl-[2rem]"
+            />
+            <BentoPhoto
+              src="/images/get-involved/bentogrid-getinvolved-4.jpg"
+              alt="UX means no user gets left behind sticker"
+              className="aspect-square lg:aspect-auto lg:col-start-3 lg:row-start-1 lg:row-span-2 rounded-br-[2rem] lg:rounded-tr-[2rem]"
+            />
           </ScrollReveal>
         </div>
       </section>
