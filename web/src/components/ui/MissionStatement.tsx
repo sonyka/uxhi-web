@@ -40,7 +40,10 @@ export function MissionStatement() {
       >
         aloha-centered design
       </MobileTooltip>{" "}
-      in Hawaiʻi by developing practitioners, building community, and connecting
+      {/* Nunito's ʻokina carries wide sidebearings, and at 24px bold the
+          phone setting showed visible gaps either side of it; Dela, from md
+          up, sets it snugly on its own. */}
+      in Hawai<span className="-mx-[0.11em] md:mx-0">ʻ</span>i by developing practitioners, building community, and connecting
       organizations with our craft.
     </>
   );
