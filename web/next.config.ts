@@ -83,6 +83,31 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // www.uxhi.community is a Netlify alias, and Netlify only folds www into
+      // the *primary* domain — which is uxhiconference.com. Without this, www
+      // served the whole site as a second copy. First, so it wins over every
+      // rule below. Two rules rather than one `:path*`: the param drops the
+      // trailing slash, and putting it back in a single destination would
+      // send the homepage to "//".
+      {
+        source: "/",
+        has: [{ type: "host", value: "www.uxhi.community" }],
+        destination: "https://uxhi.community/",
+        permanent: true,
+      },
+      // Files (robots.txt, sitemap.xml, images) take no slash in production.
+      {
+        source: "/:file(.*\\.\\w+)",
+        has: [{ type: "host", value: "www.uxhi.community" }],
+        destination: "https://uxhi.community/:file",
+        permanent: true,
+      },
+      {
+        source: "/:path+",
+        has: [{ type: "host", value: "www.uxhi.community" }],
+        destination: "https://uxhi.community/:path+/",
+        permanent: true,
+      },
       // The directory moved from /find-ux-pro to /directory on 8 Sep, before
       // launch. Permanent because it is: the page's own heading is "Member
       // directory", and /find-ux-pro named the nav label rather than the page,
