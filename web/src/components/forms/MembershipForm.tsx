@@ -1,5 +1,6 @@
 "use client";
 import { SpamGuard } from "./SpamGuard";
+import { keepAnswers } from "@/lib/keepAnswers";
 
 import { useActionState, useCallback, useState } from "react";
 import { submitMembership, type MembershipState } from "@/lib/actions/membership";
@@ -110,7 +111,7 @@ export function MembershipForm() {
   }
 
   return (
-    <form action={formAction} className="space-y-6 text-left">
+    <form action={formAction} onSubmit={keepAnswers(formAction)} className="space-y-6 text-left">
       <SpamGuard />
 
       {state?.message && !state.success && (

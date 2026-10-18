@@ -122,7 +122,9 @@ export async function submitMembership(
     console.error("Membership submission error:", error);
     return {
       success: false,
-      message: "Something went wrong. Please try again.",
+      // Our side failed, not theirs, and keepAnswers leaves the form filled in,
+      // so the honest advice is the one thing they can do: wait and resend.
+      message: "We couldn't save your application just now. Your answers are still here, so please try again in a few minutes.",
     };
   }
 }

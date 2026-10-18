@@ -1,5 +1,6 @@
 "use client";
 import { SpamGuard } from "./SpamGuard";
+import { keepAnswers } from "@/lib/keepAnswers";
 
 import { Suspense, useEffect, useState, useActionState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -62,7 +63,7 @@ function DirectorySubmitFormInner({ prefill, onSkip, onSuccess }: DirectorySubmi
   }
 
   return (
-    <form action={formAction} className="space-y-6 text-left">
+    <form action={formAction} onSubmit={keepAnswers(formAction)} className="space-y-6 text-left">
       <SpamGuard />
 
       {state?.message && !state.success && (

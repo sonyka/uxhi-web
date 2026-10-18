@@ -2872,7 +2872,7 @@ const contentComponents: Record<string, React.ReactNode> = {
           <div className="bg-purple-140 rounded-2xl p-8 space-y-4">
             <div>
               <span className="text-xs text-purple-30 mb-2 block">error (default)</span>
-              <FormAlert message="Something went wrong. Please try again." />
+              <FormAlert message="We couldn't save your application just now. Your answers are still here, so please try again in a few minutes." />
             </div>
             <div>
               <span className="text-xs text-purple-30 mb-2 block">info</span>

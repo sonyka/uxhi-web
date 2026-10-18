@@ -1,5 +1,6 @@
 "use client";
 import { SpamGuard } from "./SpamGuard";
+import { keepAnswers } from "@/lib/keepAnswers";
 
 import { Suspense, useActionState, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
@@ -43,7 +44,7 @@ function InquiryFormInner({ intro }: { intro?: ReactNode }) {
   return (
     <>
       {intro}
-      <form action={formAction} className="space-y-5 text-left max-w-[600px] mx-auto">
+      <form action={formAction} onSubmit={keepAnswers(formAction)} className="space-y-5 text-left max-w-[600px] mx-auto">
         <SpamGuard />
 
         {state?.message && !state.success && (
