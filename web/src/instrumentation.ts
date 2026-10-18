@@ -11,16 +11,44 @@
  * navigation fault we shipped this week was a browser-side React crash and
  * would have gone unseen by this hook alone.
  */
+/**
+ * Requests Next refused as malformed, which are not faults of ours.
+ *
+ * Both arrive in bursts from vulnerability scanners working through /join:
+ * a form post whose hidden action ID has been tampered with, and an RSC
+ * request whose router-state header carries an injection string such as
+ * "(select 19…". Next rejects them correctly and then reports the rejection
+ * as an error, which put a dozen alerts at a time into the channel and none
+ * of them actionable.
+ *
+ * Nothing real is hidden by skipping them. A visitor whose page predates a
+ * deploy can meet "Failed to find Server Action" too, but their form then
+ * fails in the browser, and the error boundary reports that on its own.
+ */
+function isRejectedRequest(err: Error): boolean {
+  if (err.message.startsWith("Failed to find Server Action")) return true;
+  // Production lets the raw JSON.parse failure through; dev wraps it.
+  if (err.message.startsWith("The router state header was sent but could not be parsed")) return true;
+  const frames = err.stack?.split("\n").slice(1, 3).join("\n") ?? "";
+  return (
+    err.name === "SyntaxError" &&
+    err.message.includes("is not valid JSON") &&
+    frames.includes("JSON.parse") &&
+    frames.includes("/node_modules/next/")
+  );
+}
+
 export async function onRequestError(
   error: unknown,
   request: { path?: string },
 ) {
+  const err = error instanceof Error ? error : new Error(String(error));
+  if (isRejectedRequest(err)) return;
+
   // Imported here rather than at module scope: instrumentation is loaded in
   // every runtime Next uses, including edge, and this pulls in the Slack
   // helper only when something has actually gone wrong.
   const { reportError } = await import("@/lib/errorReport");
-
-  const err = error instanceof Error ? error : new Error(String(error));
   await reportError({
     source: "server",
     message: err.message,
