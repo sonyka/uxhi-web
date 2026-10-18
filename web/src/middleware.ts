@@ -75,6 +75,14 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // API routes are the app's, not a page of the conference. Rewritten, the
+  // conference error boundary's POST to /api/report-error/ became
+  // /conference/2026/api/report-error/ and 404'd, so a crash on this host
+  // never reached Slack.
+  if (pathname === "/api" || pathname.startsWith("/api/")) {
+    return NextResponse.next();
+  }
+
   // A section of the current year is an anchor on its one page, not a route, so
   // /agenda has to become /#agenda — a rewrite cannot do this, because the
   // fragment never reaches the server. Without it the host answered 404 for a
