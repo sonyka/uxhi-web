@@ -2561,7 +2561,7 @@ const contentComponents: Record<string, React.ReactNode> = {
   "form-file": (
     <ContentSection
       title="File Upload"
-      description="Styled file upload button with optional circular image preview. Hides the native file input."
+      description="Styled file upload button with optional circular image preview. Hides the native file input. With maxBytes, an image over the limit is scaled down in the browser to fit, and a note under the field gives the before and after sizes; anything that still won't fit is cleared with a field error naming its size and the limit."
       componentPath="components/ui/form-elements/FormFileUpload.tsx"
     >
       <div className="space-y-8">
@@ -2573,7 +2573,8 @@ const contentComponents: Record<string, React.ReactNode> = {
               <FormFileUpload
                 name="demo-file-preview"
                 showPreview
-                helpText="JPG, PNG, or WebP. Max 5MB."
+                maxBytes={4_000_000}
+                helpText="JPG, PNG, or WebP, up to 4MB. Larger photos are resized for you."
               />
             </div>
             <div>
@@ -2603,6 +2604,7 @@ const contentComponents: Record<string, React.ReactNode> = {
                 <p>Preview via <span className="font-mono text-xs bg-gray-20 px-1 rounded">URL.createObjectURL</span></p>
                 <p>Shows selected filename</p>
                 <p>Configurable accept types</p>
+                <p><span className="font-mono text-xs bg-gray-20 px-1 rounded">maxBytes</span>: oversized images re-encoded as JPEG (≤2000px) before submit</p>
               </div>
             </div>
           </div>

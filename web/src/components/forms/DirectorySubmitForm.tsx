@@ -122,7 +122,10 @@ function DirectorySubmitFormInner({ prefill, onSkip, onSuccess }: DirectorySubmi
           accept="image/jpeg,image/png,image/webp"
           required
           showPreview
-          helpText="JPG, PNG, or WebP. Max 5MB."
+          // Under the 5MB server-action body limit with room for the rest of
+          // the form; a larger photo is shrunk in the browser to fit.
+          maxBytes={4_000_000}
+          helpText="JPG, PNG, or WebP, up to 4MB. Larger photos are resized for you."
         />
         <FieldError errors={state?.errors} field="photo" />
       </div>
