@@ -50,8 +50,17 @@ function makeParser(): (value: string) => Rgba | null {
     ctx.clearRect(0, 0, 1, 1);
     ctx.fillStyle = value;
     ctx.fillRect(0, 0, 1, 1);
-    const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data;
-    return [r, g, b, a / 255];
+    // A flat fill can't taint a canvas by the rules, but anti-fingerprinting
+    // settings and extensions refuse the read anyway, with a SecurityError.
+    // Uncaught, that came from inside an effect and took the whole page down
+    // to the error boundary — on the conference homepage, for a status-bar
+    // tint. null sends compute() to the route's own colour instead.
+    try {
+      const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data;
+      return [r, g, b, a / 255];
+    } catch {
+      return null;
+    }
   };
 }
 
