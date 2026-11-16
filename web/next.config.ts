@@ -176,6 +176,9 @@ const nextConfig: NextConfig = {
       { source: "/initiatives/circular-design-internship", destination: "https://piiku.co/", permanent: true },
       { source: "/initiatives/:path*", destination: "/resources/", permanent: true },
       { source: "/ideas", destination: "/about/#contact", permanent: true },
+      // Not in the Yoast sitemap, but still visited (a browser alert came from
+      // it in Nov 2026): the old report page, now the report's own page here.
+      { source: "/state-of-ux-hi-2025", destination: "/state-of-ux/2025/", permanent: true },
       // Past conferences had event pages. 2024 and 2025 have archives on the
       // conference domain; 2023 does not, so it goes to the conference home —
       // temporary, because what that home shows changes every year.
