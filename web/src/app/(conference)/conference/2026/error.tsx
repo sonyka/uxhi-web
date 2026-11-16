@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { reportBrowserError } from "@/lib/reportBrowserError";
+import { reloadOnChunkError } from "@/lib/reloadOnChunkError";
 import { ConferenceButton } from "./_components/ConferenceButton";
 import { LogoBadge } from "./_components/LogoBadge";
 import { TYPE } from "./theme";
@@ -36,6 +37,7 @@ export default function Conference2026Error({
   error: Error & { digest?: string };
 }) {
   useEffect(() => {
+    if (reloadOnChunkError(error)) return;
     reportBrowserError(error);
   }, [error]);
 

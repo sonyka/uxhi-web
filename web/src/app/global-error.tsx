@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { reportBrowserError } from "@/lib/reportBrowserError";
+import { reloadOnChunkError } from "@/lib/reloadOnChunkError";
 
 /**
  * The last resort: an error in the root layout itself.
@@ -21,6 +22,7 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useEffect(() => {
+    if (reloadOnChunkError(error)) return;
     reportBrowserError(error);
   }, [error]);
 

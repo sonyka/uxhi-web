@@ -7,6 +7,7 @@ import { SectionIcon } from "@/components/ui/SectionIcon";
 import { SectionLead } from "@/components/ui/SectionLead";
 import { PrimaryCTA } from "@/components/ui/PrimaryCTA";
 import { reportBrowserError } from "@/lib/reportBrowserError";
+import { reloadOnChunkError } from "@/lib/reloadOnChunkError";
 
 /**
  * What a visitor sees when a page throws, and how we find out it did.
@@ -31,6 +32,7 @@ export default function SiteError({
   reset: () => void;
 }) {
   useEffect(() => {
+    if (reloadOnChunkError(error)) return;
     reportBrowserError(error);
   }, [error]);
 
